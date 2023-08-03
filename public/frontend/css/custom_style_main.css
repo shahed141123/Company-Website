@@ -310,7 +310,7 @@ form .btn input[type="submit"] {
     margin-right: 20px;
 }
 
-.add_cart_count {
+/* .add_cart_count {
     position: absolute;
     background: #ffffff;
     color: black !important;
@@ -322,7 +322,23 @@ form .btn input[type="submit"] {
     font-weight: 700;
     text-align: center;
     border-radius: 50%;
+} */
+.add_cart_count {
+    position: absolute;
+    background: #ffffff;
+    color: black !important;
+    top: -4px;
+    left: 356px;
+    width: 17px;
+    height: 17px;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 50%;
 }
+
+
+
 
 /*======================
      Header Dwon Menu

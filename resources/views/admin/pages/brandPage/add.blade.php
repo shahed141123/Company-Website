@@ -280,7 +280,7 @@
                                     {{--  --}}
                                     <div class="row mb-1">
                                         <div class="col-lg-12 col-sm-12">
-                                            <span>Row Eight Id</span>
+                                            <span>Select Row Seven</span>
                                         </div>
                                         <div class="col-lg-12 col-sm-12">
                                             <select name="row_seven_id" data-placeholder="Select Row Seven.."
@@ -296,15 +296,15 @@
                                     {{--  --}}
                                     <div class="row mb-1">
                                         <div class="col-lg-12 col-sm-12">
-                                            <span>Row Seven Id</span>
+                                            <span>Select Row Eight</span>
                                         </div>
                                         <div class="col-lg-12 col-sm-12">
                                             <select name="row_eight_id" data-placeholder="Select Row Eight.."
                                                 class="form-control select">
                                                 <option></option>
-                                                @foreach ($row_with_cols as $row_with_col)
-                                                    <option class="form-control" value="{{ $row_with_col->id }}">
-                                                        {{ $row_with_col->title }}</option>
+                                                @foreach ($rows as $row)
+                                                    <option class="form-control" value="{{ $row->id }}">
+                                                        {{ $row->title }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

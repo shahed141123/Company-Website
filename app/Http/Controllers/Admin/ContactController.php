@@ -43,12 +43,13 @@ class ContactController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required',
-                'email' => 'required',
+                'email' => 'required|email',
+                'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
                 'g-recaptcha-response' => ['required', new Recaptcha]
             ],
             [
                 'required' => 'The :attribute field is required',
+                'email' => 'The email Id must be valid',
             ],
         );
 

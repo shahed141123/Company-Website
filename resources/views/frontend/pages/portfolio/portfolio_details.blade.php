@@ -512,7 +512,7 @@
     </section>
     <!----------End--------->
     <!--======//Client Sayes About Project//======-->
-    @if (count($clients) > 0)
+    {{-- @if (count($clients) > 0)
         <section>
             <div class="container">
                 <div class="py-3 text-center">
@@ -605,7 +605,7 @@
                 </div>
             </div>
         </section>
-    @endif
+    @endif --}}
     <!----------End--------->
 @endsection
 @push('scripts')

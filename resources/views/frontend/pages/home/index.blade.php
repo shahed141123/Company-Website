@@ -458,7 +458,7 @@
     <!---------End -------->
 
     <!--======// Learn clint history //======-->
-    @if (!empty($story1) && !empty($story2) && !empty($story3) && !empty($story4))
+    @if (!empty($story1) | !empty($story2) | !empty($story3) | !empty($story4))
         <section class="account_benefits_section_wp mt-3">
             <div class="container">
                 <!-- title -->
@@ -466,7 +466,7 @@
                     <h3 class="title_top_heading">Our Few Services at Clients.</h3>
                 </div>
 
-                <div class="row">
+                <div class="row d-flex justify-content-center">
                     <!--------item------->
                     @if (!empty($story1))
                         <div class="col-lg-3 col-md-6 col-sm-12">
@@ -568,14 +568,15 @@
                                                     {{ ucwords($item) }}
                                                 </li>
                                             </ul>
-                                    @endforeach --}}
+                                    @endforeach
 
-                                </div>
+                                </div> --}}
+                                <a href="{{ route('techglossy.details', $techglossy->id) }}"
+                                    class="common_button2 effect01 text-white">Read the Journal</a>
                             </div>
                         </div>
 
-                        <a href="{{ route('techglossy.details', $techglossy->id) }}"
-                            class="common_button2 text-white">Read the Journal</a>
+
                     </div>
                 </div>
             </div>

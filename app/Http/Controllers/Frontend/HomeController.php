@@ -66,7 +66,26 @@ class HomeController extends Controller
 
     public function index()
     {
-        $data['home'] = Homepage::latest('id', 'desc')->first();
+        $data['home'] = Homepage::latest('id', 'desc')->with([
+            'feature1', 'feature2', 'feature3', 'feature4', 'feature5',
+            'success1', 'success2', 'success3',
+            'story1', 'story2', 'story3', 'story4',
+            'techglossy'
+        ])->first();
+        $data['feature1']   = $data['home']->feature1;
+        $data['feature2']   = $data['home']->feature2;
+        $data['feature3']   = $data['home']->feature3;
+        $data['feature4']   = $data['home']->feature4;
+        $data['feature5']   = $data['home']->feature5;
+        $data['success1']   = $data['home']->success1;
+        $data['success2']   = $data['home']->success2;
+        $data['success3']   = $data['home']->success3;
+        $data['story1']     = $data['home']->story1;
+        $data['story2']     = $data['home']->story2;
+        $data['story3']     = $data['home']->story3;
+        $data['story4']     = $data['home']->story4;
+        $data['techglossy'] = $data['home']->techglossy;
+        // $data['home'] = Homepage::latest('id', 'desc')->first();
 
 
         // $data['products'] = Product::inRandomOrder()->where('product_status', 'product')
@@ -89,21 +108,21 @@ class HomeController extends Controller
 
 
 
-        if ($data['home']) {
-            $data['feature1']   = Feature::where('id', $data['home']->story1_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
-            $data['feature2']   = Feature::where('id', $data['home']->story2_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
-            $data['feature3']   = Feature::where('id', $data['home']->story3_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
-            $data['feature4']   = Feature::where('id', $data['home']->story4_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
-            $data['feature5']   = Feature::where('id', $data['home']->story5_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
-            $data['success1']   = Success::where('id', $data['home']->success1_id)->select('id', 'title', 'description')->first();
-            $data['success2']   = Success::where('id', $data['home']->success2_id)->select('id', 'title', 'description')->first();
-            $data['success3']   = Success::where('id', $data['home']->success3_id)->select('id', 'title', 'description')->first();
-            $data['story1']     = ClientStory::where('id', $data['home']->solution1_id)->select('id', 'image', 'badge', 'title', 'header')->first();
-            $data['story2']     = ClientStory::where('id', $data['home']->solution2_id)->select('id', 'image', 'badge', 'title', 'header')->first();
-            $data['story3']     = ClientStory::where('id', $data['home']->solution3_id)->select('id', 'image', 'badge', 'title', 'header')->first();
-            $data['story4']     = ClientStory::where('id', $data['home']->solution4_id)->select('id', 'image', 'badge', 'title', 'header')->first();
-            $data['techglossy'] = TechGlossy::where('id', $data['home']->techglossy_id)->select('id', 'image', 'badge', 'title', 'header')->first();
-        }
+        // if ($data['home']) {
+        //     $data['feature1']   = Feature::where('id', $data['home']->story1_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
+        //     $data['feature2']   = Feature::where('id', $data['home']->story2_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
+        //     $data['feature3']   = Feature::where('id', $data['home']->story3_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
+        //     $data['feature4']   = Feature::where('id', $data['home']->story4_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
+        //     $data['feature5']   = Feature::where('id', $data['home']->story5_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
+        //     $data['success1']   = Success::where('id', $data['home']->success1_id)->select('id', 'title', 'description')->first();
+        //     $data['success2']   = Success::where('id', $data['home']->success2_id)->select('id', 'title', 'description')->first();
+        //     $data['success3']   = Success::where('id', $data['home']->success3_id)->select('id', 'title', 'description')->first();
+        //     $data['story1']     = ClientStory::where('id', $data['home']->solution1_id)->select('id', 'image', 'badge', 'title', 'header')->first();
+        //     $data['story2']     = ClientStory::where('id', $data['home']->solution2_id)->select('id', 'image', 'badge', 'title', 'header')->first();
+        //     $data['story3']     = ClientStory::where('id', $data['home']->solution3_id)->select('id', 'image', 'badge', 'title', 'header')->first();
+        //     $data['story4']     = ClientStory::where('id', $data['home']->solution4_id)->select('id', 'image', 'badge', 'title', 'header')->first();
+        //     $data['techglossy'] = TechGlossy::where('id', $data['home']->techglossy_id)->select('id', 'image', 'badge', 'title', 'header')->first();
+        // }
 
         return view('frontend.pages.home.index', $data);
     }
@@ -182,10 +201,14 @@ class HomeController extends Controller
     public function FeatureDetails($id)
     {
         $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
-        $data['feature'] = Feature::where('id', $id)->first();
-        $data['row_one'] = Row::where('id', $data['feature']->row_one_id)->first();
-        $data['row_two'] = Row::where('id', $data['feature']->row_two_id)->first();
-        $data['features'] = Feature::where('id', '!=', $id)->select('logo', 'id', 'badge', 'header')->get();
+        $data['feature'] = Feature::with(['rowOne', 'rowTwo'])
+            ->where('id', $id)->first();
+
+        $data['row_one'] = $data['feature']->rowOne;
+        $data['row_two'] = $data['feature']->rowTwo;
+
+        $data['features'] = Feature::with('rowOne', 'rowTwo')
+            ->where('id', '!=', $id)->select('logo', 'id', 'badge', 'header')->get();
         return view('frontend.pages.feature.feature_details', $data);
     }
 
@@ -647,7 +670,7 @@ class HomeController extends Controller
             'industryPage.solutionCardFour',
         ])->first();
 
-        if (isset($data['industry'])) {
+        if (isset($data['industry']->industryPage)) {
             if (!empty($data['industry']->industryPage)) {
                 $data['storys'] = Blog::inRandomOrder()
                     ->whereJsonContains('industry_id', $data['industry']->id)

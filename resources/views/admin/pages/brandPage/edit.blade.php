@@ -309,10 +309,10 @@
                                             <select name="row_eight_id" data-placeholder="Select Row Eight.."
                                             class="form-control select">
                                             <option></option>
-                                            @foreach ($row_with_cols as $row_with_col)
-                                            <option @if ($row_with_col->id == $brandPage->row_eight_id) selected @endif
-                                                class="form-control" value="{{ $row_with_col->id }}">
-                                                {{ $row_with_col->title }}</option>
+                                            @foreach ($rows as $row)
+                                            <option @if ($row->id == $brandPage->row_eight_id) selected @endif
+                                                class="form-control" value="{{ $row->id }}">
+                                                {{ $row->title }}</option>
                                         @endforeach
                                         </select>
                                         </div>

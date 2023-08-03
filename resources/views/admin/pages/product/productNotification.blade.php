@@ -24,7 +24,7 @@
         <div class="content">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="mb-0 float-start">All Product List</h2>
+                    <h2 class="mb-0 float-start">Pending Products for Price Update</h2>
                     <a href="{{ route('add.product') }}" type="button"
                         class="btn btn-sm btn-success btn-labeled btn-labeled-start float-end">
                         <span class="btn-labeled-icon bg-black bg-opacity-20">
@@ -72,7 +72,7 @@
                                     <td>{{ $resulValue->notification_days }}</td>
                                     <td>{{ $resulValue->price }}</td>
                                     <td>
-                                        <a href="{{ route('edit.product', $resulValue->id) }}" class="text-primary">
+                                        <a href="{{ route('product-sourcing.edit', $resulValue->id) }}" class="text-primary">
                                             <i class="icon-pencil"></i>
                                         </a>
                                         <a href="{{ route('product.destroy', [$resulValue->id]) }}"

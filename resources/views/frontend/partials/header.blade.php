@@ -1,72 +1,98 @@
 @include('frontend.partials.header_partial')
 @php
-    // Load site settings (assuming there's only one row in the 'sites' table)
-$setting = App\Models\Site::first();
+    use Illuminate\Support\Facades\Cache;
 
-// Load industries with eager loading
-$industrys = App\Models\Admin\IndustryPage::orderByDesc('id')
-    ->limit(4)
-    ->get(['id', 'industry_id']);
+    // Cache duration in minutes
+    $minutes = 60;
 
-// Load features with eager loading and caching
-$features = App\Models\Admin\Feature::inRandomOrder()
-    ->limit(2)
-    ->select('id', 'title', 'image', 'created_at', 'badge')
-    ->get();
+    // Load site settings
+    $setting = Cache::remember('site_settings', $minutes, function () {
+        return App\Models\Site::first();
+    });
 
-// Load feature events with eager loading and caching
-$feature_events = App\Models\Admin\Feature::inRandomOrder()
-    ->limit(2)
-    ->select('id', 'title', 'image', 'created_at', 'badge')
-    ->get();
+    // Load industries with eager loading
+    $industrys = Cache::remember('industrys', $minutes, function () {
+        return App\Models\Admin\IndustryPage::orderByDesc('id')
+            ->limit(4)
+            ->get(['id', 'industry_id']);
+    });
 
-// Load solution details with eager loading and caching
-$solutions = App\Models\Admin\SolutionDetail::orderByDesc('id')
-    ->inRandomOrder()
-    ->limit(4)
-    ->get(['id', 'name','slug']);
+    // Load features with eager loading and caching
+    $features = Cache::remember('features', $minutes, function () {
+        return App\Models\Admin\Feature::inRandomOrder()
+            ->limit(2)
+            ->select('id', 'title', 'image', 'created_at', 'badge')
+            ->get();
+    });
 
-// Load brand pages with eager loading and caching
-$brands = App\Models\Admin\BrandPage::orderByDesc('id')
-    ->inRandomOrder()
-    ->limit(8)
-    ->get(['id', 'brand_id']);
+    // Load feature events with eager loading and caching
+    $feature_events = Cache::remember('feature_events', $minutes, function () {
+        return App\Models\Admin\Feature::inRandomOrder()
+            ->limit(2)
+            ->select('id', 'title', 'image', 'created_at', 'badge')
+            ->get();
+    });
 
-// Load categories with caching
-$categorys = App\Models\Admin\Category::orderByDesc('id')
-    ->limit(8)
-    ->get(['id', 'slug', 'title']);
+    // Load solution details with eager loading and caching
+    $solutions = Cache::remember('solutions', $minutes, function () {
+        return App\Models\Admin\SolutionDetail::orderByDesc('id')
+            ->inRandomOrder()
+            ->limit(4)
+            ->get(['id', 'name', 'slug']);
+    });
 
-// Load featured blogs with caching
-$blogs = App\Models\Admin\Blog::where('featured', '1')
-    ->inRandomOrder()
-    ->limit(2)
-    ->select('id', 'badge', 'title', 'image', 'created_at', 'created_by')
-    ->get();
+    // Load brand pages with eager loading and caching
+    $brands = Cache::remember('brands', $minutes, function () {
+        return App\Models\Admin\BrandPage::orderByDesc('id')
+            ->inRandomOrder()
+            ->limit(8)
+            ->get(['id', 'brand_id']);
+    });
 
-// Load featured client stories with caching
-$clientstorys = App\Models\Admin\ClientStory::where('featured', '1')
-    ->inRandomOrder()
-    ->limit(2)
-    ->select('id', 'badge', 'image', 'title', 'created_at', 'created_by')
-    ->get();
+    // Load categories with caching
+    $categories = Cache::remember('categories', $minutes, function () {
+        return App\Models\Admin\Category::orderByDesc('id')
+            ->limit(8)
+            ->get(['id', 'slug', 'title']);
+    });
 
-// Load featured tech glossies with caching
-$techglossys = App\Models\Admin\TechGlossy::where('featured', '1')
-    ->inRandomOrder()
-    ->limit(2)
-    ->select('id', 'badge', 'title', 'image', 'created_at', 'created_by')
-    ->get();
+    // Load featured blogs with caching
+    $blogs = Cache::remember('featured_blogs', $minutes, function () {
+        return App\Models\Admin\Blog::where('featured', '1')
+            ->inRandomOrder()
+            ->limit(2)
+            ->select('id', 'badge', 'title', 'image', 'created_at', 'created_by')
+            ->get();
+    });
 
-// Load all jobs
-$jobs = App\Models\Admin\Job::all();
+    // Load featured client stories with caching
+    $clientstorys = Cache::remember('featured_client_stories', $minutes, function () {
+        return App\Models\Admin\ClientStory::where('featured', '1')
+            ->inRandomOrder()
+            ->limit(2)
+            ->select('id', 'badge', 'image', 'title', 'created_at', 'created_by')
+            ->get();
+    });
 
-// Load latest categories (assuming 'id' is the primary key and already indexed)
-$categories = App\Models\Admin\Category::latest('id')
-    ->limit(10)
-    ->get(['id', 'slug', 'title']);
+    // Load featured tech glossies with caching
+    $techglossys = Cache::remember('featured_tech_glossies', $minutes, function () {
+        return App\Models\Admin\TechGlossy::where('featured', '1')
+            ->inRandomOrder()
+            ->limit(2)
+            ->select('id', 'badge', 'title', 'image', 'created_at', 'created_by')
+            ->get();
+    });
+
+    // Load all jobs
+    $jobs = App\Models\Admin\Job::all();
+
+    // Load latest categories
+    $categories = Cache::remember('latest_categories', $minutes, function () {
+        return App\Models\Admin\Category::latest('id')
+            ->limit(10)
+            ->get(['id', 'slug', 'title']);
+    });
 @endphp
-
 
 <section>
     <div class="container-fluid" style="background-color: #ae0a46;z-index: 999 !important;">

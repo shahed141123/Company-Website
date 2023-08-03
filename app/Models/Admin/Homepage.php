@@ -10,43 +10,68 @@ class Homepage extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function story1(){
-        return $this->hasMany(Client::class,'id','story1_id');
-    }
-    public function story2(){
-        return $this->hasMany(Client::class,'id','story2_id');
-    }
-    public function story3(){
-        return $this->hasMany(Client::class,'id','story3_id');
-    }
-    public function story4(){
-        return $this->hasMany(Client::class,'id','story4_id');
-    }
-    public function story5(){
-        return $this->hasMany(Client::class,'id','story5_id');
+    public function feature1()
+    {
+        return $this->belongsTo(Feature::class, 'story1_id');
     }
 
-    public function solution1(){
-        return $this->hasMany(Blog::class,'id','solution1_id');
-    }
-    public function solution2(){
-        return $this->hasMany(Blog::class,'id','solution2_id');
-    }
-    public function solution3(){
-        return $this->hasMany(Blog::class,'id','solution3_id');
-    }
-    public function solution4(){
-        return $this->hasMany(Blog::class,'id','solution4_id');
+    public function feature2()
+    {
+        return $this->belongsTo(Feature::class, 'story2_id');
     }
 
+    public function feature3()
+    {
+        return $this->belongsTo(Feature::class, 'story3_id');
+    }
 
-    public function success1(){
-        return $this->hasMany(Success::class,'id','success1_id');
+    public function feature4()
+    {
+        return $this->belongsTo(Feature::class, 'story4_id');
     }
-    public function success2(){
-        return $this->hasMany(Success::class,'id','success2_id');
+
+    public function feature5()
+    {
+        return $this->belongsTo(Feature::class, 'story5_id');
     }
-    public function success3(){
-        return $this->hasMany(Success::class,'id','success3_id');
+
+    public function success1()
+    {
+        return $this->belongsTo(Success::class, 'success1_id');
+    }
+
+    public function success2()
+    {
+        return $this->belongsTo(Success::class, 'success2_id');
+    }
+
+    public function success3()
+    {
+        return $this->belongsTo(Success::class, 'success3_id');
+    }
+
+    public function story1()
+    {
+        return $this->belongsTo(ClientStory::class, 'solution1_id');
+    }
+
+    public function story2()
+    {
+        return $this->belongsTo(ClientStory::class, 'solution2_id');
+    }
+
+    public function story3()
+    {
+        return $this->belongsTo(ClientStory::class, 'solution3_id');
+    }
+
+    public function story4()
+    {
+        return $this->belongsTo(ClientStory::class, 'solution4_id');
+    }
+
+    public function techglossy()
+    {
+        return $this->belongsTo(TechGlossy::class, 'techglossy_id');
     }
 }

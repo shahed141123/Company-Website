@@ -2,269 +2,9 @@
 @section('content')
     {{-- For Portfolio Show Case --}}
     <style>
-        /* Team Section Design Start  */
-        .our-team {
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .our-team img {
-            width: 100%;
-            height: auto;
-        }
-
-        .our-team .team-content {
-            width: 100%;
-            background: #ae0a46;
-            color: #fff;
-            padding: 15px 0 10px 0;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            z-index: 1;
-            transition: all 0.3s ease 0s;
-        }
-
-        .our-team:hover .team-content {
-            padding-bottom: 40px;
-        }
-
-        .our-team .team-content:before,
-        .our-team .team-content:after {
-            content: "";
-            width: 60%;
-            height: 38px;
-            background: #ae0a46;
-            position: absolute;
-            top: -18px;
-            transform: rotate(15deg);
-            z-index: -1;
-        }
-
-        .our-team .team-content:before {
-            left: -3%;
-        }
-
-        .our-team .team-content:after {
-            right: -3%;
-            transform: rotate(-15deg);
-        }
-
-        .our-team .title_name {
-            font-size: 24px;
-            font-weight: 500;
-            text-transform: capitalize;
-            margin: 0 0 7px 0;
-            position: relative;
-            color: white;
-        }
-
-        .our-team .title_name:before,
-        .our-team .title_name:after {
-            content: "";
-            width: 7px;
-            height: 93px;
-            background: #880736;
-            position: absolute;
-            top: -78px;
-            z-index: -2;
-            transform: rotate(-74deg);
-        }
-
-        .our-team .title_name:before {
-            left: 32%;
-        }
-
-        .our-team .title_name:after {
-            right: 32%;
-            transform: rotate(74deg);
-        }
-
-        .our-team .post {
-            display: block;
-            font-size: 13px;
-            text-transform: capitalize;
-            margin-bottom: 8px;
-        }
-
-        .our-team .social-links {
-            list-style: none;
-            padding: 0 0 15px 0;
-            margin: 0;
-            position: absolute;
-            bottom: -40px;
-            right: 0;
-            left: 0;
-            transition: all 0.5s ease 0s;
-        }
-
-        .our-team:hover .social-links {
-            bottom: 0;
-        }
-
-        .our-team .social-links li {
-            display: inline-block;
-        }
-
-        .our-team .social-links li a {
-            display: block;
-            font-size: 16px;
-            color: #aad6e1;
-            margin-right: 6px;
-            transition: all 0.5s ease 0s;
-        }
-
-        .our-team .social-links li:last-child a {
-            margin-right: 0;
-        }
-
-        .our-team .social-links li a:hover {
-            color: #880736;
-        }
-
-        @media only screen and (max-width: 990px) {
-            .our-team {
-                margin-bottom: 30px;
-            }
-
-            .our-team .team-content:before,
-            .our-team .team-content:after {
-                height: 50px;
-                top: -24px;
-            }
-
-            .our-team .title_name:before,
-            .our-team .title_name:after {
-                top: -85px;
-                height: 102px;
-            }
-
-            .our-team .title_name:before {
-                left: 35%;
-            }
-
-            .our-team .title_name:after {
-                right: 35%;
-            }
-        }
-
-        @media only screen and (max-width: 767px) {
-
-            .our-team .team-content:before,
-            .our-team .team-content:after {
-                height: 75px;
-            }
-
-            .our-team .team-content:before {
-                transform: rotate(8deg);
-            }
-
-            .our-team .team-content:after {
-                transform: rotate(-8deg);
-            }
-
-            .our-team .title_name:before,
-            .our-team .title_name:after {
-                width: 10px;
-                top: -78px;
-                height: 102px;
-            }
-
-            .our-team .title_name:before {
-                left: 42.5%;
-                transform: rotate(-82deg);
-            }
-
-            .our-team .title_name:after {
-                right: 42.5%;
-                transform: rotate(82deg);
-            }
-        }
-
-        @media only screen and (max-width: 480px) {
-
-            .our-team .title_name:before,
-            .our-team .title_name:after {
-                top: -83px;
-            }
-        }
-
-        /* Team Section Design End */
         .nav-tabs .nav-link.active,
         .nav-tabs .nav-item.show .nav-link {
             background-color: #ae0a46 !important;
-        }
-
-        button,
-        input {
-            font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-        }
-
-
-
-        p {
-            line-height: 1.61em;
-            font-weight: 300;
-            font-size: 1.2em;
-        }
-
-        .category {
-            text-transform: capitalize;
-            font-weight: 700;
-            color: #9A9A9A;
-        }
-
-        body {
-            color: #2c2c2c;
-            font-size: 14px;
-            font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-            overflow-x: hidden;
-            -moz-osx-font-smoothing: grayscale;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .nav-item .nav-link,
-        .nav-tabs .nav-link {
-            -webkit-transition: all 300ms ease 0s;
-            -moz-transition: all 300ms ease 0s;
-            -o-transition: all 300ms ease 0s;
-            -ms-transition: all 300ms ease 0s;
-            transition: all 300ms ease 0s;
-        }
-
-        .card a {
-            -webkit-transition: all 150ms ease 0s;
-            -moz-transition: all 150ms ease 0s;
-            -o-transition: all 150ms ease 0s;
-            -ms-transition: all 150ms ease 0s;
-            transition: all 150ms ease 0s;
-        }
-
-        [data-toggle="collapse"][data-parent="#accordion"] i {
-            -webkit-transition: transform 150ms ease 0s;
-            -moz-transition: transform 150ms ease 0s;
-            -o-transition: transform 150ms ease 0s;
-            -ms-transition: all 150ms ease 0s;
-            transition: transform 150ms ease 0s;
-        }
-
-        [data-toggle="collapse"][data-parent="#accordion"][aria-expanded="true"] i {
-            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
-            -webkit-transform: rotate(180deg);
-            -ms-transform: rotate(180deg);
-            transform: rotate(180deg);
-        }
-
-
-        .now-ui-icons {
-            display: inline-block;
-            font: normal normal normal 14px/1 'Nucleo Outline';
-            font-size: inherit;
-            speak: none;
-            text-transform: none;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         @-webkit-keyframes nc-icon-spin {
@@ -303,22 +43,6 @@
                 -o-transform: rotate(360deg);
                 transform: rotate(360deg);
             }
-        }
-
-        .now-ui-icons.objects_umbrella-13:before {
-            content: "\ea5f";
-        }
-
-        .now-ui-icons.shopping_cart-simple:before {
-            content: "\ea1d";
-        }
-
-        .now-ui-icons.shopping_shop:before {
-            content: "\ea50";
-        }
-
-        .now-ui-icons.ui-2_settings-90:before {
-            content: "\ea4b";
         }
 
         .nav-tabs {
@@ -362,57 +86,6 @@
             position: relative;
             top: 1px;
             margin-right: 3px;
-        }
-
-        .nav-tabs.nav-tabs-neutral>.nav-item>.nav-link {
-            color: #FFFFFF;
-        }
-
-        .nav-tabs.nav-tabs-neutral>.nav-item>.nav-link.active {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #FFFFFF !important;
-        }
-
-        .card {
-            border: 0;
-            border-radius: 0.1875rem;
-            display: inline-block;
-            position: relative;
-            width: 100%;
-            margin-bottom: 30px;
-            box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
-        }
-
-        .card .card-header {
-            background-color: transparent;
-            border-bottom: 0;
-            background-color: transparent;
-            border-radius: 0;
-            padding: 0;
-        }
-
-
-        [data-background-color]:not([data-background-color="gray"]) {
-            color: #FFFFFF;
-        }
-
-        [data-background-color]:not([data-background-color="gray"]) p {
-            color: #FFFFFF;
-        }
-
-        [data-background-color]:not([data-background-color="gray"]) a:not(.btn):not(.dropdown-item) {
-            color: #FFFFFF;
-        }
-
-        [data-background-color]:not([data-background-color="gray"]) .nav-tabs>.nav-item>.nav-link i.now-ui-icons {
-            color: #FFFFFF;
-        }
-
-        .nav-tabs.nav-tabs-neutral>.nav-item>.nav-link.active {
-            font-family: "Allumi Std Extended";
-            font-size: 16px !important;
-            color: #fff !important;
-            /* padding: 0px !important; */
         }
 
         /* Showcase Card Style */
@@ -513,77 +186,6 @@
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         }
 
-        /* Call To Action */
-        .subscription.bg-white {
-            background: none;
-        }
-
-        .bg-white {
-            background-color: #fff !important;
-        }
-
-        .subscription.bg-white .subscription-wrapper {
-            background: #fff;
-        }
-
-        .subscription-wrapper {
-            border-radius: 0% 5% 10% 3%/10% 20% 0% 17%;
-            -webkit-transform: perspective(1800px) rotateY(20deg) skewY(1deg) translateX(50px);
-            transform: perspective(1800px) rotateY(20deg) skewY(1deg) translateX(50px);
-            padding: 70px 50px;
-            z-index: 1;
-            width: 100%;
-            background: linear-gradient(80deg, #ae0a46 0%, #8b0737 100%);
-            top: 100px;
-
-        }
-
-        .subscription-wrapper {
-            box-shadow: 0px 15px 39px 0px rgba(8, 18, 109, 0.1) !important;
-        }
-
-        .subscription-content {
-            -webkit-transform: skewY(-1deg);
-            transform: skewY(-1deg);
-        }
-
-        .flex-fill {
-            -ms-flex: 1 1 auto !important;
-            flex: 1 1 auto !important;
-        }
-
-        .subscription.bg-white .form-control {
-            border: 1px solid #ebebeb !important;
-        }
-
-        .subscription-wrapper .form-control {
-            height: 60px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 45px;
-        }
-
-        .subscription-wrapper .form-control:focus {
-            background: rgba(255, 255, 255, 0.1);
-            outline: 0;
-            box-shadow: none;
-        }
-
-        .btn-primary {
-            border: 0;
-            color: #fff;
-        }
-
-        .btn-primary:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 102%;
-            height: 100%;
-            background: linear-gradient(45deg, #ae0a46 0%, #8a0737 100%);
-            z-index: -1;
-            transition: ease 0.3s;
-        }
 
         .main_color {
             color: #ae0a46;
@@ -604,27 +206,6 @@
             }
         }
 
-        @font-face {
-            font-family: 'Nucleo Outline';
-            src: url("https://github.com/creativetimofficial/now-ui-kit/blob/master/assets/fonts/nucleo-outline.eot");
-            src: url("https://github.com/creativetimofficial/now-ui-kit/blob/master/assets/fonts/nucleo-outline.eot") format("embedded-opentype");
-            src: url("https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/fonts/nucleo-outline.woff2");
-            font-weight: normal;
-            font-style: normal;
-
-        }
-
-        .now-ui-icons {
-            display: inline-block;
-            font: normal normal normal 14px/1 'Nucleo Outline';
-            font-size: inherit;
-            speak: none;
-            text-transform: none;
-            /* Better Font Rendering */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
         @media screen and (max-width: 768px) {
 
             .nav-tabs {
@@ -638,6 +219,24 @@
             .nav-tabs .nav-item>.nav-link {
                 margin-bottom: 5px;
             }
+        }
+
+
+        /* New */
+        .box .icon li a {
+            background: transparent;
+        }
+
+        .nav-tabs.nav-tabs-neutral>.nav-item>.nav-link {
+            color: #000 !important;
+            padding: 25px !important;
+            border: 1px solid #eee !important;
+        }
+
+        .nav-tabs.nav-tabs-neutral>.nav-item>.nav-link.active {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF !important;
+            padding: 25px !important;
         }
     </style>
 
@@ -655,7 +254,7 @@
                     <p class="text-center text-white pt-5">{{ $portfolio->banner_short_desc }}</p>
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="m-4">
-                            <a class="common_button2"
+                            <a class="common_button3 py-3"
                                 href="{{ $portfolio->banner_btn_link }}">{{ $portfolio->banner_btn_name }}</a>
                         </div>
                     </div>
@@ -671,7 +270,7 @@
                 <div class="col-lg-12">
                     <div class="cards">
                         <div class="cards-header">
-                            <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist"
+                            <ul class="nav nav-tabs nav-tabs-neutral justify-content-center my-4" role="tablist"
                                 data-background-color="orange">
 
 

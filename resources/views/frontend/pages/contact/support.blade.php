@@ -49,7 +49,7 @@
                     <div>
                         <h4>Contact us</h4>
                     </div>
-                    <form action="{{ route('contactus.store') }}" method="POST" enctype="multipart/form-data">
+                    <form id="recaptcha-form" action="{{ route('contactus.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="type" value="support">
                         <div class="mb-2">
@@ -100,11 +100,14 @@
                             </div>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label" for="">Comments</label>
+                            <label class="form-label" for="message">Message <span class="text-danger">*</span></label>
                             <div>
-                                <textarea class="form-control" name="message" required id="" cols="50" rows="2"></textarea>
+                                <textarea class="form-control" name="message" required id="message" cols="50" rows="2"></textarea>
                             </div>
                         </div>
+
+                        <div class="form-group col-sm-12 px-3 mx-3 message g-recaptcha"
+                                            data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
 
                         <button id="submitbtn" type="submit" class="common_button2 mr-2">Hear from a specialist</button>
                     </form>

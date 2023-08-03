@@ -27,11 +27,11 @@
         }
 
         /*
-                                *
-                                * ==========================================
-                                * CUSTOM UTIL CLASSES
-                                * ==========================================
-                                */
+                                    *
+                                    * ==========================================
+                                    * CUSTOM UTIL CLASSES
+                                    * ==========================================
+                                    */
         .nav-pills-custom .nav-link {
             color: #aaa;
             background: #fff;
@@ -289,7 +289,8 @@
                     <!-- Tabs content -->
                     <div class="tab-content p-0" id="v-pills-tabContent">
                         <div class="tab-pane fade shadow-sm rounded-0 bg-white show active" id="v-pills-overview"
-                            role="tabpanel" aria-labelledby="v-pills-overview-tab" style="width: 100% !important;overflow: auto;">
+                            role="tabpanel" aria-labelledby="v-pills-overview-tab"
+                            style="width: 100% !important;overflow: auto;">
                             <h4 class="mb-2 text-center bg-light p-2 mt-0 pb-3">Product Overview</h4>
                             <div class="p-2">
                                 @if (!empty($sproduct->overview))
@@ -1111,6 +1112,8 @@
                                     <label for="call">Also Please Call Me</label>
 
                                 </div>
+                                <div class="form-group col-sm-12 px-3 mx-3 message g-recaptcha"
+                                    data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit &nbsp;<i
@@ -1185,10 +1188,11 @@
                                     <input class="mr-2" type="checkbox" name="call" id="call" value="1">
                                     <label for="call">Also Please Call Me</label>
                                 </div>
+                                <div class="form-group col-sm-12 px-3 mx-3 message g-recaptcha"
+                                            data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
                             </div>
                             <div class="modal-footer">
-                                <button type="reset" class="btn btn-light col-lg-3 mr-auto" data-dismiss="modal"><i
-                                        class="fas fa-window-close mr-2"></i> Cancel</button>
+
                                 <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit &nbsp;<i
                                         class="fa fa-paper-plane"></i></button>
                             </div>
@@ -1249,12 +1253,12 @@
                                 <div class="form-group  col-sm-12 px-3 mx-3">
                                     <input class="mr-2" type="checkbox" name="call" id="call" value="1">
                                     <label for="call">Also Please Call Me</label>
-
                                 </div>
+                                <div class="form-group col-sm-12 px-3 mx-3 message g-recaptcha"
+                                            data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
                             </div>
                             <div class="modal-footer">
-                                <button type="reset" class="btn btn-light col-lg-3 mr-auto" data-dismiss="modal"><i
-                                        class="fas fa-window-close mr-2"></i> Cancel</button>
+
                                 <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit
                                     &nbsp;<i class="fa fa-paper-plane"></i></button>
                             </div>

@@ -18,7 +18,7 @@
                             class="font-number">{{ !empty($setting->support_email) ? $setting->support_email : '' }}</span>
                         <br> Information and sales: <span
                             class="">{{ !empty($setting->sales_email) ? $setting->sales_email : '' }}</span>
-                        <br> OneCall support: <span
+                        <br> On Call support: <span
                             class="font-number">{{ !empty($setting->phone_one) ? $setting->phone_one : '' }}</span>
                         <br> Returns: <span
                             class="font-number">{{ !empty($setting->whatsapp_number) ? $setting->whatsapp_number : '' }}</span>

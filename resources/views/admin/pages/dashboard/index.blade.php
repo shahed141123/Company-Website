@@ -64,15 +64,15 @@
                                     class=" mb-0 pt-2 text-center">Logistic</h6>
                                 <div class="card notification_card rounded-0 p-2">
                                     <div class="mt-1">
-                                        <a href="" class="d-flex justify-content-between notification_link_area">
+                                        <a href="{{route('purchase.index')}}" class="d-flex justify-content-between notification_link_area">
                                             <span>Purchase</span>
-                                            <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            <span class="badge site_bg_color rounded-0 ms-3">{{App\Models\Admin\Purchase::count()}}</span>
                                         </a>
                                     </div>
                                     <div class="mt-1">
-                                        <a href="" class="d-flex justify-content-between notification_link_area">
+                                        <a href="javascript:void(0);" class="d-flex justify-content-between notification_link_area">
                                             <span>Pending Delivery</span>
-                                            <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            <span class="badge site_bg_color rounded-0 ms-3">{{App\Models\Frontend\Order::count()}}</span>
                                         </a>
                                     </div>
                                 </div>
