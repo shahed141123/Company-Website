@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Klinic Slab';
+    src: url('KlinicSlab-BoldItalic.woff2') format('woff2'),
+        url('KlinicSlab-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Klinic Slab';
+    src: url('KlinicSlab-Medium.woff2') format('woff2'),
+        url('KlinicSlab-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Klinic Slab Book';
+    src: url('KlinicSlab-BookItalic.woff2') format('woff2'),
+        url('KlinicSlab-BookItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Klinic Slab';
+    src: url('KlinicSlab-Light.woff2') format('woff2'),
+        url('KlinicSlab-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Klinic Slab';
+    src: url('KlinicSlab-LightItalic.woff2') format('woff2'),
+        url('KlinicSlab-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Klinic Slab';
+    src: url('KlinicSlab-Bold.woff2') format('woff2'),
+        url('KlinicSlab-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Klinic Slab Book';
+    src: url('KlinicSlab-Book.woff2') format('woff2'),
+        url('KlinicSlab-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Klinic Slab';
+    src: url('KlinicSlab-MediumItalic.woff2') format('woff2'),
+        url('KlinicSlab-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+

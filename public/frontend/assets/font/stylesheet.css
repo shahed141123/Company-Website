@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Allumi Std';
+    src: url('AllumiStd-Regular.woff2') format('woff2'),
+        url('AllumiStd-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Allumi Std';
+    src: url('AllumiStd-Light.woff2') format('woff2'),
+        url('AllumiStd-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Allumi Std Extended Book';
+    src: url('AllumiStdExtended-Book.woff2') format('woff2'),
+        url('AllumiStdExtended-Book.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Allumi Std Extended';
+    src: url('AllumiStdExtended-Bold.woff2') format('woff2'),
+        url('AllumiStdExtended-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Allumi Std Extended';
+    src: url('AllumiStdExtended-Regular.woff2') format('woff2'),
+        url('AllumiStdExtended-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Allumi Std Extended';
+    src: url('AllumiStdExtended-Heavy.woff2') format('woff2'),
+        url('AllumiStdExtended-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Allumi Std';
+    src: url('AllumiStd-Bold.woff2') format('woff2'),
+        url('AllumiStd-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Allumi Std Extended';
+    src: url('AllumiStdExtended-Light.woff2') format('woff2'),
+        url('AllumiStdExtended-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
