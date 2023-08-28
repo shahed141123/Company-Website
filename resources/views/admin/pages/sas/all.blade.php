@@ -80,8 +80,8 @@
         <!-- product-sourcing Content Start -->
         <section>
             <div class="container-fluid mt-2">
-                <div class="row mx-2 mb-3 rounded">
-                    <div class="col-lg-10 offset-1">
+                <div class="row mx-3 mb-3">
+                    <div class="col-lg-12">
                         <div class="d-flex justify-content-between align-items-center"
                             style="position: relative;
                         z-index: 999;">
@@ -110,8 +110,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row rounded mx-2 mt-1">
-                    <div class="col-lg-10 offset-lg-1">
+                <div class="row mx-3 mt-1">
+                    <div class="col-lg-12">
                         <div class="tab-content" style="margin-top: -3.5rem;">
                             <div class="tab-pane fade show active" id="pending">
                                 <div class="row">

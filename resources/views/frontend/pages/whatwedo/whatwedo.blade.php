@@ -26,13 +26,13 @@
         }
     </style>
     <div class="masthead">
-        <div class="container mt-5">
+        <div class="container">
             @if (!empty($whatwedo))
                 <div class="row align-items-center">
                     <div class="col-lg-7 py-5">
                         <h1 class="mb-4 w-75">{{ $whatwedo->bannner_title }}</h1>
                         <p class="text-white w-75" style="text-align: justify;">{!! $whatwedo->bannner_description !!} </p>
-                        <a class="common_button3 " href="{{ route('contact') }}">Talk with us</a>
+                        <a class="common_button3 py-3" href="{{ route('contact') }}">Talk with us</a>
                     </div>
                     <div class="col-lg-5">
                         <div class="py-5 px-4 masthead-cards">

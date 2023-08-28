@@ -23,6 +23,7 @@
 <script src="{{ asset('frontend/js/nasted.tab.js') }}"></script>
 <script src="{{ asset('frontend/js/javascript.mr.js') }}"></script>
 <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/custom.js') }}"></script>
 {{-- <script src="https://js.stripe.com/v3/"></script> --}}
 <script src="{{ asset('frontend/js/toastr.min.js') }}"></script>
 
@@ -483,8 +484,9 @@
             var id = $(this).data('id');
             var name = $(this).data('name');
             var quantity = $('.input-qty').val();
-            alert(quantity);
+            // alert(quantity);
             var button = $('.cart_quantity_button' + id);
+            var cart_header = $('#cartQty');
 
             var formData = {
                 product_id: id,
@@ -499,6 +501,8 @@
                 dataType: 'json',
                 success: function(response) {
                     toastr.success('Successfully Added to Your Cart');
+                    cart_header.empty();
+                    cart_header.append('<span class="add_cart_count">'+response.cartHeader +'</span>');
                     button.empty();
                     button.append(
                         '<a href="javascript:void(0);" class="common_button text-white bg-gray" style="padding:10px 8px;">Already in Cart</a>'
@@ -518,6 +522,7 @@
             var name = $(this).data('name');
             var quantity = $(this).data('quantity');
             var button = $('.cart_button' + id);
+            var cart_header = $('#cartQty');
 
             var formData = {
                 product_id: id,
@@ -532,10 +537,13 @@
                 dataType: 'json',
                 success: function(response) {
                     toastr.success('Successfully Added to Your Cart');
+                    cart_header.empty();
+                    cart_header.append('<span class="add_cart_count">'+response.cartHeader +'</span>');
                     button.empty();
                     button.append(
                         '<a class="text-white common_button bg-gray" href="javascript:void(0);"> Already in Cart</a>'
                     );
+
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);

@@ -53,15 +53,18 @@ class OfficeLocationController extends Controller
                 'zip_code'        => 'nullable',
             ],
         );
+        $region_id = Country::where('id',$request->country_id)->value('region_id');
 
         if ($validator->passes()) {
             OfficeLocation::create([
-                'name'            => $request->name,
+                'region_id'       => $region_id,
                 'country_id'      => $request->country_id,
+                'name'            => $request->name,
                 'address'         => $request->address,
                 'mobile_number'   => $request->mobile_number,
                 'whatsapp_number' => $request->whatsapp_number,
                 'zip_code'        => $request->zip_code,
+                'email_id'        => $request->email_id,
             ]);
             Toastr::success('Data Insert Successfully');
         } else {
@@ -117,15 +120,17 @@ class OfficeLocationController extends Controller
                 'zip_code'        => 'nullable',
             ],
         );
-
+        $region_id = Country::where('id',$request->country_id)->value('region_id');
         if ($validator->passes()) {
             OfficeLocation::find($id)->update([
-                'name'            => $request->name,
+                'region_id'       => $region_id,
                 'country_id'      => $request->country_id,
+                'name'            => $request->name,
                 'address'         => $request->address,
                 'mobile_number'   => $request->mobile_number,
                 'whatsapp_number' => $request->whatsapp_number,
                 'zip_code'        => $request->zip_code,
+                'email_id'        => $request->email_id,
             ]);
             Toastr::success('Data Updated Successfully');
         } else {

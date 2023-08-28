@@ -28,17 +28,17 @@
                                 aria-expanded="false" aria-label="Toggle navigation">
                                 <span>Show filter</span>
                             </button>
+                            <div class="">
+                                {{-- @if (!empty($_GET['keyword']))
+                                    <input class="p-1 form-control" type="text" name="keyword"
+                                        value="{{ $_GET['keyword'] }}">
+                                @else --}}
+                                <input class="p-1 form-control rounded-0" type="text" name="keyword"
+                                    placeholder="Search By Key Word...">
+                                {{-- @endif --}}
+                            </div>
                             <!-- Collapsible wrapper -->
                             <div class="collapse card d-lg-block mb-5 rounded-0 border-0" id="filterContent">
-                                <div class="pb-3">
-                                    {{-- @if (!empty($_GET['keyword']))
-                                        <input class="p-1 form-control" type="text" name="keyword"
-                                            value="{{ $_GET['keyword'] }}">
-                                    @else --}}
-                                    <input class="p-1 form-control rounded-0" type="text" name="keyword"
-                                        placeholder="Search By Key Word...">
-                                    {{-- @endif --}}
-                                </div>
                                 <div class="accordion" id="accordionPanelsStayOpenExample">
                                     <div class="accordion-item rounded-0">
                                         <h2 class="accordion-header collapsed" id="headingOne">
@@ -50,8 +50,8 @@
                                         </h2>
 
 
-                                        <div class="accordion accordion-flush" id="accordionFlushCategory">
-                                            <div class="accordion-item">
+                                        <div class="accordion-collapse collapse show" id="accordionFlushCategory">
+                                            <div class="accordion-item rounded-0">
                                                 @foreach ($categories as $key => $cat)
                                                     <h2 class="accordion-header" id="flush-headingCategory">
                                                         <button class="accordion-button collapsed" type="button"
@@ -74,7 +74,7 @@
                                                             {{-- Body --}}
                                                             <div class="accordion accordion-flush"
                                                                 id="accordionFlushSubCategory">
-                                                                <div class="accordion-item">
+                                                                <div class="accordion-item rounded-0">
                                                                     @php
                                                                         $sub_categorys = App\Models\Admin\Category::getSubcatByCat($cat->id);
                                                                     @endphp
@@ -103,7 +103,7 @@
                                                                                 {{-- Body --}}
                                                                                 <div class="accordion accordion-flush"
                                                                                     id="inner_sub-2">
-                                                                                    <div class="accordion-item">
+                                                                                    <div class="accordion-item rounded-0">
                                                                                         @php
                                                                                             $sub_sub_categorys = App\Models\Admin\SubCategory::getSubSubcatBySubCat($sub_category->id);
                                                                                         @endphp
@@ -135,7 +135,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item">
+                                    <div class="accordion-item rounded-0">
                                         <h2 class="accordion-header collapsed" id="headingTwo">
                                             <button class="accordion-button bg-light collapsed text-site" type="button"
                                                 data-mdb-toggle="collapse" data-mdb-target="#panelsStayOpen-collapseTwo"
@@ -172,7 +172,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item">
+                                    <div class="accordion-item rounded-0">
                                         <h2 class="accordion-header collapsed" id="headingThree">
                                             <button class="accordion-button bg-light collapsed text-site" type="button"
                                                 data-mdb-toggle="collapse" data-mdb-target="#panelsStayOpen-collapseThree"

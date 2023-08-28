@@ -22,7 +22,7 @@ class JobController extends Controller
 
     public function JobDetails($id)
     {
-        $data['job'] = Job::where('id',$id)->first();
+        $data['job'] = Job::where('slug',$id)->first();
         return view('frontend.pages.job.job_details',$data);
     }
 

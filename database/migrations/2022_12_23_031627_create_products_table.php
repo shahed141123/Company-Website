@@ -35,6 +35,7 @@ return new class extends Migration
             // $table->enum('stock',['unlimited','limited','available','stock_out'])->default('available')->nullable();
             $table->string('stock')->nullable();
             $table->double('price')->nullable();
+            $table->double('sas_price')->nullable();
             $table->double('discount')->nullable();
             $table->string('deal')->nullable();
             $table->string('industry')->nullable();

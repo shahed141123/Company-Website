@@ -187,12 +187,13 @@
                             <table class="sourcingDT2 table table-bordered table-hover text-center">
                                 <thead>
                                     <tr>
-                                        <th style="width: 7%  !important;">SL</th>
-                                        <th style="width: 9%  !important;">Image</th>
-                                        <th style="width: 52% !important;">Product Name</th>
-                                        <th style="width: 11% !important;">Added By</th>
-                                        <th style="width: 11% !important;">Sourcing Status</th>
-                                        <th style="width: 10% !important;" class="text-center">Actions</th>
+                                        <th style="width: 3%  !important;">SL</th>
+                                        <th style="width: 5%  !important;">Image</th>
+                                        <th style="width: 55% !important;">Product Name</th>
+                                        <th style="width: 10% !important;">Added By</th>
+                                        <th style="width: 10% !important;">Price</th>
+                                        <th style="width: 8%  !important;">Status</th>
+                                        <th style="width: 9% !important;">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -205,6 +206,14 @@
                                                         style="width: 70px; height: 40px;"> </td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->added_by }}</td>
+                                                <td>
+                                                    @if ($item->price_status == 'rfq')
+                                                        <span
+                                                            class="text-black"><strong>{{ ucfirst($item->price_status) }}</strong></span>
+                                                    @else
+                                                        {{ ucfirst($item->price) }}
+                                                    @endif
+                                                </td>
                                                 <td class="text-center">
                                                     @if ($item->action_status == 'listed')
                                                         <span
@@ -219,19 +228,19 @@
                                                         <a href="{{ route('sourcing.sas', $item->slug) }}"
                                                             class="text-primary" title="SAS Create">
                                                             <i
-                                                                class="ph-plus-circle icons_design me-2 p-1 rounded-circle text-primary"></i>
+                                                                class="ph-plus-circle icons_design me-1 p-1 rounded-circle text-primary"></i>
                                                         </a>
                                                     @elseif($item->action_status == 'seek_approval')
                                                         <a href="{{ route('sas.edit', $item->slug) }}"
                                                             class="text-primary" title="SAS Edit">
-                                                            <i class="ph-pencil me-2 p-1 rounded-circle text-primary"></i>
+                                                            <i class="ph-pencil me-1 p-1 rounded-circle text-primary"></i>
                                                         </a>
                                                     @endif
 
                                                     <a href="{{ route('product-sourcing.edit', $item->id) }}"
                                                         class="text-primary" title="Sourcing Edit">
                                                         <i
-                                                            class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
+                                                            class="fa-solid fa-pen-to-square me-1 p-1 rounded-circle text-primary"></i>
                                                     </a>
                                                     <a href="{{ route('product-sourcing.destroy', [$item->id]) }}"
                                                         class="text-danger delete">
@@ -252,12 +261,13 @@
                                 {{-- approved Table --}}
                                 <thead>
                                     <tr>
-                                        <th width="7%">Sl</th>
-                                        <th style="width: 9% !important;">Image </th>
-                                        <th style="width: 54% !important;">Product Name </th>
-                                        <th style="width: 10% !important;">Price </th>
-                                        <th style="width: 10% !important;">Stock </th>
-                                        <th style="width: 10% !important;" class="text-center">Action</th>
+                                        <th style="width: 3%  !important;">SL</th>
+                                        <th style="width: 5%  !important;">Image</th>
+                                        <th style="width: 55% !important;">Product Name</th>
+                                        <th style="width: 10% !important;">Added By</th>
+                                        <th style="width: 10% !important;">Price</th>
+                                        <th style="width: 8%  !important;">Stock</th>
+                                        <th style="width: 9% !important;">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -269,18 +279,27 @@
                                                     width="70px" height="40px">
                                             </td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->price }}</td>
+                                            <td>{{ $item->added_by }}</td>
+                                            <td>
+                                                @if ($item->price_status == 'rfq')
+                                                    <span
+                                                        class="text-black"><strong>{{ ucfirst($item->price_status) }}</strong></span>
+                                                @else
+                                                    {{ ucfirst($item->price) }}
+                                                @endif
+                                            </td>
                                             <td>{{ ucfirst($item->stock) }}</td>
 
                                             <td>
-                                                <a href="{{ route('sas.edit', $item->slug) }}" class="text-primary"
+                                                @if (!empty($item->action_status) && $item->action_status == 'product_approved')
+                                                <a href="{{ route('sas.edit', $item->slug) }}" title="SAS Edit" class="text-primary"
                                                     title="SAS Edit">
-                                                    <i class="ph-pencil me-2 p-1 rounded-circle text-primary"></i>
+                                                    <i class="ph-pencil me-1 p-1 rounded-circle text-primary"></i>
                                                 </a>
+                                                @endif
                                                 <a href="{{ route('product-sourcing.edit', $item->id) }}"
                                                     class="text-primary" title="Sourcing Edit">
-                                                    <i
-                                                        class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
+                                                    <i class="fa-solid fa-pen-to-square me-1 p-1 rounded-circle text-primary"></i>
                                                 </a>
                                                 <a href="{{ route('product.destroy', [$item->id]) }}"
                                                     class="text-danger delete">

@@ -90,10 +90,14 @@
                                                                 data-placeholder="Select Product Type.."
                                                                 id="sales_man_id_L1" class="form-control select" required>
                                                                 <option></option>
-                                                                @foreach ($users as $user)
-                                                                    <option value="{{ $user->id }}">
-                                                                        {{ $user->name }}</option>
-                                                                @endforeach
+                                                                <option class="form-control" value="hardware">
+                                                                    Hardware</option>
+                                                                <option class="form-control" value="software">
+                                                                    Software</option>
+                                                                <option class="form-control" value="training">
+                                                                    Training</option>
+                                                                <option class="form-control" value="book">
+                                                                    Book</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -103,10 +107,10 @@
                                                                 Manager Name (Team - T1)</label>
                                                             <select class="form-control select" name="sales_man_id_T1"
                                                                 data-placeholder="Select Sales...">
-                                                                @foreach ($users as $user)
-                                                                    <option value="{{ $user->id }}">
-                                                                        {{ $user->name }}</option>
-                                                                @endforeach
+                                                                <option>asdasdasd</option>
+                                                                <option>asdasdasd</option>
+                                                                <option>asdasdasd</option>
+                                                                <option>asdasdasd</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -116,10 +120,10 @@
                                                                 Manager Name (Team - T2)</label>
                                                             <select class="form-control select" name="sales_man_id_T2"
                                                                 data-placeholder="Select Sales...">
-                                                                @foreach ($users as $user)
-                                                                    <option value="{{ $user->id }}">
-                                                                        {{ $user->name }}</option>
-                                                                @endforeach
+                                                                <option>asdasdasd</option>
+                                                                <option>asdasdasd</option>
+                                                                <option>asdasdasd</option>
+                                                                <option>asdasdasd</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -137,10 +141,10 @@
                                                             </label>
                                                             <select class="form-control select" name="deal_type"
                                                                 data-placeholder="Chose Deal Type">
-                                                            <option></option>
-                                                                    <option value="new">New</option>
-                                                                    <option value="renew">Renew</option>
-
+                                                                <option>asdasdasd</option>
+                                                                <option>asdasdasd</option>
+                                                                <option>asdasdasd</option>
+                                                                <option>asdasdasd</option>
                                                             </select>
                                                         </div>
                                                     </div>

@@ -106,15 +106,14 @@ class RFQController extends Controller
             $request->all(),
             [
                 'name' => 'required',
-                'email' => 'required|email',
-                'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+                'email' => 'required',
+                'phone' => 'required',
                 'rfq_code' => 'unique:rfqs',
                 'image' => 'file|mimes:jpeg,png,jpg|max:2048',
                 'g-recaptcha-response' => ['required', new Recaptcha]
             ],
             [
                 'required' => 'The :attribute field is required',
-                'email' => 'The email Id must be valid',
                 'mimes' => 'The :attribute must be a file of type:PNG-JPEG-JPG'
             ],
         );

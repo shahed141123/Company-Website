@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Models\Admin\Brand;
 use App\Models\Admin\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -24,6 +25,14 @@ class Product extends Model
     public function brand()
     {
         return $this->belongsTo(Brand::class, 'brand_id');
+    }
+    public function getBrandName()
+    {
+        return Brand::where('id', $this->brand_id)->value('title');
+    }
+    public function getCategoryName()
+    {
+        return Category::where('id', $this->category_id)->value('title');
     }
 
     public function subCategory()

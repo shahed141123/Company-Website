@@ -1,5 +1,5 @@
 <!-- Main navbar -->
-<div class="navbar navbar-expand-lg navbar-static border-opacity-10 p-0" style="background-color: #df115c;">
+<div class="navbar navbar-expand-lg navbar-static border-opacity-10 p-0" style="background-color: #ae0a46;">
     <div class="container-fluid">
         <div class="d-flex d-lg-none me-2">
             <button type="button" class="navbar-toggler sidebar-mobile-main-toggle rounded-pill">
@@ -7,15 +7,15 @@
             </button>
         </div>
         @php
-            $setting = App\Models\Site::first();
+            $setting = App\Models\Admin\Setting::latest()->first();
         @endphp
 
         <div class="navbar-brand flex-1 flex-lg-0">
             <a href="{{ route('homepage') }}" class="d-inline-flex align-items-center ms-2">
-                {{-- <img src="http://ngenitltd.com/upload/logoimage/1766111041030883.png"
-                    alt="" style="width: 105px; height: 45px;"> --}}
-                <img src="{{ !empty($setting->logo) ? asset('storage/' . $setting->logo) : url('upload/no_image.jpg') }}"
-                    alt="" style="width: 105px; height: 45px;">
+                <img src="http://ngenitltd.com/upload/logoimage/1766111041030883.png"
+                    alt="" style="width: 65px; height: 45px;">
+                {{-- <img src="{{ !file_exists('upload/logoimage/' . $setting->logo) ? url('upload/logoimage/' . $setting->logo) : $setting->logo }}"
+                    alt="" width="65px" height="45px"> --}}
                 {{-- <img src="{{asset('upload/logoimage/'.$setting->logo)}}" class="d-none d-sm-inline-block h-16px ms-3" alt=""> --}}
             </a>
         </div>
@@ -64,7 +64,7 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-end">
-                    <a href="{{ route('client.dashboard') }}" class="dropdown-item">
+                    <a href="{{ route('client.profile') }}" class="dropdown-item">
                         <i class="ph-user-circle me-2"></i>
                         My profile
                     </a>

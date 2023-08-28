@@ -248,7 +248,7 @@
                 @endif
             </div>
             <!-- button -->
-            <div class="business_seftion_button">
+            <div class="business_seftion_button mb-5">
                 <a class="effect01" href="{{ route('learn.more') }}">Learn More</a>
             </div>
         </section>
@@ -257,10 +257,10 @@
 
     <!--=======// Shop product //======-->
     <section class="pt-5 learn_more">
-        <div class="container">
+        <div class="container py-4">
             <div class="row">
                 <!-- content -->
-                <div class="col-lg-8 col-sm-12 pb-3">
+                <div class="col-lg-8 col-sm-12">
                     <div class="home_shop_product_wrapper home_shop_product">
                         <h5> Shop Products and Hardware</h5>
                         <p class="text-justify w-75 w-sm-100">
@@ -368,77 +368,78 @@
 
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3 class="titles mb-2 ask_for_price website-color text-center" style="height: 4.5rem;"><a
-                                                            href="{{ route('product.details', $item->slug) }}">{{ Str::limit($item->name , 85) }}</a>
+                                                    <h3 class="titles mb-2 ask_for_price website-color text-center"
+                                                        style="height: 4.5rem;"><a
+                                                            href="{{ route('product.details', $item->slug) }}">{{ Str::limit($item->name, 85) }}</a>
                                                     </h3>
                                                     @if ($item->rfq == 1)
-                                                    <div class="price">
-                                                        <p class="text-muted text-center">
-                                                            <small>USD</small>
-                                                            --.-- $
-                                                        </p>
-                                                        <a href="" class="d-flex justify-content-center align-items-center"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $item->id }}">
-                                                            <button class="common_button effect01">
-                                                                Ask For Price
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                    @elseif ($item->price_status && $item->price_status == 'price')
                                                         <div class="price">
-                                                            <p class="text-muted text-center"><small>USD</small> {{ number_format($item->price,2) }} $
+                                                            <p class="text-muted text-center">
+                                                                <small class="price-usd">USD</small>
+                                                                $ --.-- 
+                                                            </p>
+                                                            <a href=""
+                                                                class="d-flex justify-content-center align-items-center"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#rfq{{ $item->id }}">
+                                                                <button class="common_button effect01">
+                                                                    Ask For Price
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                        {{-- @elseif ($item->price_status && $item->price_status == 'price') --}}
+                                                    @elseif ($item->price_status && $item->price_status == 'rfq')
+                                                        <div class="price">
+                                                            <p class="text-muted text-center">
+                                                                <small class="price-usd">USD</small>
+                                                                $ --.-- 
+                                                            </p>
+                                                            <a href=""
+                                                                class="d-flex justify-content-center align-items-center"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#rfq{{ $item->id }}">
+                                                                <button class="common_button effect01">
+                                                                    Ask For Price
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                    @elseif ($item->price_status && $item->price_status == 'offer_price')
+                                                        <div class="price">
+                                                            <p class="text-muted text-center"
+                                                                style="text-decoration: line-through;text-decoration-thickness: 2px; text-decoration-color: #ae0a46;">
+                                                                <small class="price-usd">USD</small> $ {{ number_format($item->price, 2) }} 
                                                             </p>
                                                             <div class="d-flex justify-content-center align-items-center">
-                                                                {{-- <form class="" action="{{ route('add.cart') }}" method="post">
-                                                                    @csrf
-                                                                    <input type="hidden" name="product_id" id="product_id"
-                                                                        value="{{ $item->id }}">
-                                                                    <input type="hidden" name="name" id="name"
-                                                                        value="{{ $item->name }}">
-                                                                    <input type="hidden" name="qty" id="qty"
-                                                                        value="1">
-                                                                    <div data-mdb-toggle="popover" title="Add To Cart Now"
-                                                                        data-mdb-content="Add To Cart Now"
-                                                                        data-mdb-trigger="hover">
-                                                                        <button type="button"
-                                                                            class="common_button effect01 add_to_cart">
-                                                                            Add to Cart
-                                                                        </button>
-                                                                    </div>
-                                                                </form> --}}
-
-                                                                    {{-- <input type="hidden" name="product_id" id="product_id" value="{{ $item->id }}">
-                                                                    <input type="hidden" name="name" id="name" value="{{ $item->name }}">
-                                                                    <input type="hidden" name="qty" id="qty" value="1"> --}}
-                                                                    <div data-mdb-toggle="popover" title="Add To Cart Now" class="cart_button{{ $item->id }}" data-mdb-content="Add To Cart Now"
-                                                                        data-mdb-trigger="hover">
-                                                                        <button type="button" class="common_button effect01 add_to_cart"
-                                                                        data-id="{{ $item->id }}" data-name="{{ $item->name }}" data-quantity="1">
-                                                                        Add to Cart</button>
-                                                                    </div>
-
-                                                            </div>
-                                                        </div>
-                                                    @else
-                                                    <div class="price">
-                                                        <p class="text-muted text-center" style="text-decoration: line-through;text-decoration-thickness: 2px; text-decoration-color: #ae0a46;">
-                                                            USD {{ number_format($item->price, 2) }} $
-                                                        </p>
-                                                        <div class="d-flex justify-content-center align-items-center">
-
-
                                                                 <div data-mdb-toggle="popover" title="Your Price"
                                                                     data-mdb-content="Your Price"
                                                                     data-mdb-trigger="hover">
-                                                                    <button class="common_button effect01" data-bs-toggle="modal"
-                                                                    data-bs-target="#askProductPrice">
+                                                                    <button class="common_button effect01"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#askProductPrice">
                                                                         Your Price
                                                                     </button>
                                                                 </div>
-
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    @else
+                                                        <div class="price">
+                                                            <p class="text-muted text-center"><small class="price-usd">USD</small>
+                                                                $ {{ number_format($item->price, 2) }} 
+                                                            </p>
+                                                            <div class="d-flex justify-content-center align-items-center">
+                                                                <div data-mdb-toggle="popover" title="Add To Cart Now"
+                                                                    class="cart_button{{ $item->id }}"
+                                                                    data-mdb-content="Add To Cart Now"
+                                                                    data-mdb-trigger="hover">
+                                                                    <button type="button"
+                                                                        class="common_button effect01 add_to_cart"
+                                                                        data-id="{{ $item->id }}"
+                                                                        data-name="{{ $item->name }}"
+                                                                        data-quantity="1">
+                                                                        Add to Cart</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     @endif
 
                                                 </div>
@@ -548,12 +549,12 @@
                             alt="{{ $techglossy->badge }}" style="border-radius:15px;">
                     </div>
                     <div class="col-lg-6 col-sm-12 account_benefits_section">
-                        <h3 style="font-size:35px">Tech Journal</h3>
+                        <h3 class="title_top_heading">Tech Journal</h3>
                         <h4 style="font-size:24px;font-weight:400;">{{ $techglossy->badge }}</h4>
                         <h4 class="pb-2">{{ $techglossy->title }}</h4>
                         <p>{{ $techglossy->header }}</p>
 
-                        <div class="my-3 col-lg-6">
+                        <div class="my-3 col-lg-6 px-0">
                             <div class="d-flex flex-column justify-content-center">
                                 {{-- @php
                                     $tag = $techglossy->tags;
@@ -575,8 +576,6 @@
                                     class="common_button2 effect01 text-white">Read the Journal</a>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

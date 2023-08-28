@@ -1,75 +1,3 @@
-{{-- Custom Header Start --}}
-
-{{-- @php
-    // Load site settings (assuming there's only one row in the 'sites' table)
-$setting = App\Models\Site::first();
-
-// Load industries with eager loading
-$industrys = App\Models\Admin\IndustryPage::orderByDesc('id')
-    ->limit(4)
-    ->get(['id', 'industry_id']);
-
-// Load features with eager loading and caching
-$features = App\Models\Admin\Feature::inRandomOrder()
-    ->limit(2)
-    ->select('id', 'title', 'image', 'created_at', 'badge')
-    ->get();
-
-// Load feature events with eager loading and caching
-$feature_events = App\Models\Admin\Feature::inRandomOrder()
-    ->limit(2)
-    ->select('id', 'title', 'image', 'created_at', 'badge')
-    ->get();
-
-// Load solution details with eager loading and caching
-$solutions = App\Models\Admin\SolutionDetail::orderByDesc('id')
-    ->inRandomOrder()
-    ->limit(4)
-    ->get(['id', 'name','slug']);
-
-// Load brand pages with eager loading and caching
-$brands = App\Models\Admin\BrandPage::orderByDesc('id')
-    ->inRandomOrder()
-    ->limit(8)
-    ->get(['id', 'brand_id']);
-
-// Load categories with caching
-$categorys = App\Models\Admin\Category::orderByDesc('id')
-    ->limit(8)
-    ->get(['id', 'slug', 'title']);
-
-// Load featured blogs with caching
-$blogs = App\Models\Admin\Blog::where('featured', '1')
-    ->inRandomOrder()
-    ->limit(2)
-    ->select('id', 'badge', 'title', 'image', 'created_at', 'created_by')
-    ->get();
-
-// Load featured client stories with caching
-$clientstorys = App\Models\Admin\ClientStory::where('featured', '1')
-    ->inRandomOrder()
-    ->limit(2)
-    ->select('id', 'badge', 'image', 'title', 'created_at', 'created_by')
-    ->get();
-
-// Load featured tech glossies with caching
-$techglossys = App\Models\Admin\TechGlossy::where('featured', '1')
-    ->inRandomOrder()
-    ->limit(2)
-    ->select('id', 'badge', 'title', 'image', 'created_at', 'created_by')
-    ->get();
-
-// Load all jobs
-$jobs = App\Models\Admin\Job::all();
-
-// Load latest categories (assuming 'id' is the primary key and already indexed)
-$categories = App\Models\Admin\Category::latest('id')
-    ->limit(10)
-    ->get(['id', 'slug', 'title']);
-@endphp --}}
-
-
-
 
 <style>
     body {
@@ -479,7 +407,7 @@ $categories = App\Models\Admin\Category::latest('id')
     }
 
     .tab_btn_icon {
-        display: inline-block;
+        /* display: inline-block; */
         /* background-color: #e5e2e0; */
         padding-left: 13px;
         padding-right: 13px;

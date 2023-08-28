@@ -1,28 +1,6 @@
 @extends('frontend.master')
 @section('content')
-    <style>
-        /* 30-07-2023 */
-        .solution_contact_wrapper {
-            background-color: #ffffff !important;
-            padding: 40px 0px;
-
-        }
-
-        .thing_together_wrapper p {
-            color: #000;
-            font-size: 16px;
-            font-family: "Allumi Std Extended";
-            font-weight: 400;
-        }
-
-        .thing_together_wrapper h4 {
-            color: #000;
-            font-size: 2.5rem;
-            font-family: "Klinic Slab";
-            font-weight: 400;
-            margin-top: 30px;
-        }
-    </style>
+    
     <!--======// Header Title //======-->
     <section class="common_product_header" style="background:url('{{ asset('frontend/images/Contact.jpg') }}');">
         <div class="container ">
@@ -34,25 +12,25 @@
     <!----------End--------->
 
     <!--=====// Pageform section //=====-->
-    <section class=" solution_contact_wrapper">
+    <section class="solution_contact_wrapper_contactpage">
         <div class="container">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-lg-5 col-sm-12">
-                    <div class="thing_together_wrapper">
+                    <div class="thing_together_wrapper_contactpage">
                         <h4>
                             <span class="why_Choose_lineTop">L</span>et’s do big things together.
                         </h4>
                         <p>Get assistance with tracking an order, requesting a quote, contacting your account representative
                             and more by phone or over chat.</p>
                         <h5 class="text-black">NGen It Global Headquarters</h5>
-                        <p>{{ isset($setting->address) ?? $setting->address }} </p>
+                        <p>{{ !empty($setting->address) ? $setting->address : '' }} </p>
                         <p>Whatsapp Number: <span
-                                class="main_color">{{ isset($setting->whatsapp_number) ?? $setting->whatsapp_number }}</span>
+                                class="main_color">{{ !empty($setting->whatsapp_number) ? $setting->whatsapp_number : '' }}</span>
                             <br> Information and sales: <span class="main_color"><a
-                                    href="mailto:{{ isset($setting->sales_email) ?? $setting->sales_email }}">{{ isset($setting->sales_email) ?? $setting->sales_email }}</a></span>
+                                    href="mailto:{{ !empty($setting->sales_email) ? $setting->sales_email : '' }}">{{ !empty($setting->sales_email) ? $setting->sales_email : '' }}</a></span>
                             <br> Support Email: <span class="main_color">
                                 <a
-                                    href="mailto:{{ isset($setting->support_email) ?? $setting->support_email }}">{{ isset($setting->support_email) ?? $setting->support_email }}</a>
+                                    href="mailto:{{ !empty($setting->support_email) ? $setting->support_email : '' }}">{{ !empty($setting->support_email) ? $setting->support_email : '' }}</a>
                             </span>
                             <br> Returns:
                             <span class="main_color">
@@ -88,7 +66,8 @@
                                             <span>US</span>
                                         </div>
                                     </div>
-                                    <form id="recaptcha-form" class="w-75 feature_form" action="{{ route('contactus.store') }}" method="post"
+                                    <form id="recaptcha-form" class="w-75 feature_form"
+                                        action="{{ route('contactus.store') }}" method="post"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <div class="screen-body-item screen-body-item-right">
@@ -99,18 +78,22 @@
                                                         value="{{ old('name') }}" required>
                                                 </div>
                                                 <div class="app-form-group">
-                                                    <input name="email" class="app-form-control" placeholder="EMAIL Id"
-                                                        value="{{ old('email') }}" required>
+                                                    <input class="app-form-control" name="email" type="email"
+                                                        value="{{ old('email') }}" placeholder="Email " />
+                                                    <span class="text-danger text-start p-0 m-0 email_validation"
+                                                        style="display: none;">Please input
+                                                        valid email</span>
                                                 </div>
                                                 <div class="app-form-group">
-                                                    <input name="phone" class="app-form-control" placeholder="CONTACT NO"
-                                                        value="{{ old('phone') }}">
+                                                    <input name="phone" type="text" class="app-form-control phone_number"
+                                                        placeholder="Contact Number" value="{{ old('phone') }}">
                                                 </div>
                                                 <div class="app-form-group message">
-                                                    <textarea name="message" class="app-form-control" rows="3" placeholder="Your Message"></textarea>
+                                                    <textarea name="message" class="app-form-control contact-message" rows="3" placeholder="Your Message" required></textarea>
 
                                                 </div>
-                                                <div class="g-recaptcha" data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
+                                                <div class="g-recaptcha"
+                                                    data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
 
                                                 {{-- <div class="g-recaptcha" id="feedback-recaptcha"
                                                     data-sitekey="{{config('services.recaptcha.site_key')}}">
@@ -131,4 +114,43 @@
         </div>
     </section>
     <!---------End -------->
+@endsection
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            
+            $('input[name="email"]').on("keyup change", function(e) {
+                var email = $(this).val();
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailRegex.test(email)) {
+                    $('.email_validation').hide();
+                } else {
+                    $('.email_validation').show();
+                }
+            });
+
+            $('#recaptcha-form').submit(function(event) {
+                var email = $('input[name="email"]').val();
+                var message = $('.contact-message').val();
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address.');
+                    event.preventDefault();
+                }
+                if (message === null) {
+                    alert('Please enter Your Message');
+                    event.preventDefault();
+                }
+                // Add additional validation if needed
+            });
+
+
+
+            
+
+
+
+            
+        });
+    </script>
 @endsection

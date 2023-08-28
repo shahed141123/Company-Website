@@ -1,175 +1,72 @@
-@include('frontend.partials.header_partial')
-@php
-    use Illuminate\Support\Facades\Cache;
 
-    // Cache duration in minutes
-    $minutes = 60;
+<section class="main-header sticky-top" style="border-bottom: 1px solid #adadad4a;">
 
-    // Load site settings
-    $setting = Cache::remember('site_settings', $minutes, function () {
-        return App\Models\Site::first();
-    });
-
-    // Load industries with eager loading
-    $industrys = Cache::remember('industrys', $minutes, function () {
-        return App\Models\Admin\IndustryPage::orderByDesc('id')
-            ->limit(4)
-            ->get(['id', 'industry_id']);
-    });
-
-    // Load features with eager loading and caching
-    $features = Cache::remember('features', $minutes, function () {
-        return App\Models\Admin\Feature::inRandomOrder()
-            ->limit(2)
-            ->select('id', 'title', 'image', 'created_at', 'badge')
-            ->get();
-    });
-
-    // Load feature events with eager loading and caching
-    $feature_events = Cache::remember('feature_events', $minutes, function () {
-        return App\Models\Admin\Feature::inRandomOrder()
-            ->limit(2)
-            ->select('id', 'title', 'image', 'created_at', 'badge')
-            ->get();
-    });
-
-    // Load solution details with eager loading and caching
-    $solutions = Cache::remember('solutions', $minutes, function () {
-        return App\Models\Admin\SolutionDetail::orderByDesc('id')
-            ->inRandomOrder()
-            ->limit(4)
-            ->get(['id', 'name', 'slug']);
-    });
-
-    // Load brand pages with eager loading and caching
-    $brands = Cache::remember('brands', $minutes, function () {
-        return App\Models\Admin\BrandPage::orderByDesc('id')
-            ->inRandomOrder()
-            ->limit(8)
-            ->get(['id', 'brand_id']);
-    });
-
-    // Load categories with caching
-    $categories = Cache::remember('categories', $minutes, function () {
-        return App\Models\Admin\Category::orderByDesc('id')
-            ->limit(8)
-            ->get(['id', 'slug', 'title']);
-    });
-
-    // Load featured blogs with caching
-    $blogs = Cache::remember('featured_blogs', $minutes, function () {
-        return App\Models\Admin\Blog::where('featured', '1')
-            ->inRandomOrder()
-            ->limit(2)
-            ->select('id', 'badge', 'title', 'image', 'created_at', 'created_by')
-            ->get();
-    });
-
-    // Load featured client stories with caching
-    $clientstorys = Cache::remember('featured_client_stories', $minutes, function () {
-        return App\Models\Admin\ClientStory::where('featured', '1')
-            ->inRandomOrder()
-            ->limit(2)
-            ->select('id', 'badge', 'image', 'title', 'created_at', 'created_by')
-            ->get();
-    });
-
-    // Load featured tech glossies with caching
-    $techglossys = Cache::remember('featured_tech_glossies', $minutes, function () {
-        return App\Models\Admin\TechGlossy::where('featured', '1')
-            ->inRandomOrder()
-            ->limit(2)
-            ->select('id', 'badge', 'title', 'image', 'created_at', 'created_by')
-            ->get();
-    });
-
-    // Load all jobs
-    $jobs = App\Models\Admin\Job::all();
-
-    // Load latest categories
-    $categories = Cache::remember('latest_categories', $minutes, function () {
-        return App\Models\Admin\Category::latest('id')
-            ->limit(10)
-            ->get(['id', 'slug', 'title']);
-    });
-@endphp
-
-<section>
+    {{-- Header Top Bar Start --}}
     <div class="container-fluid" style="background-color: #ae0a46;z-index: 999 !important;">
-        <div class="container p-2">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-4  d-flex justify-content-start align-items-center d-none d-sm-block">
-                    {{-- <span class="pt-2 text-white"><i class="ph ph-phone-call"></i></span> --}}
-                    <span class="text-white p-0 ms-2" style="font-size: 13px;">(+88) 0258155838 <span
+                <div class="col-lg-6">
+                    <span class="text-white pt-2 p-0 m-0 " style="font-size: 14px; ">{{$setting->phone_one}} <span
                             class="ps-1 pe-1">|</span>
-                        sales@ngenitltd.com</span>
+                            {{$setting->sales_email}}</span>
                 </div>
-                <div class="col-lg-4 d-flex justify-content-start align-items-center d-none d-sm-block">
-                    <div class="contact_number d-flex justify-content-center align-content-center">
-                        {{-- <span class="pt-1 text-white"><i class="ph ph-paper-plane-tilt"></i></span> --}}
-                        <span class="text-center text-white p-0 ms-2"> </span>
+                <div class="col-lg-6 text-end">
+                    {{-- Cart Dropdown --}}
+                    <div class="dropdown dropdown-top-items drop-items-extra">
+                        <a href="{{ route('mycart') }}" class="dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://i.ibb.co/tsnZgC9/shopping-cart-2.png" width="15px" alt="">
+                        </a>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="d-flex justify-content-end align-items-center">
-                        <div class="d-flex justify-content-end">
-                            <!-- Login Top Btn -->
-                            <div class="dropdown ml-2">
-                                <span class="text-white dropdown-toggle pe-3" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="https://i.ibb.co/Wfj3hGY/sign-in-icon.png"
-                                        style="height: 20px;position: relative;top: -4px;width:100%;" alt="">
-                                </span>
-                                <div class="dropdown-menu drpdown_menu dropdown-items_drop"
-                                    aria-labelledby="dropdownMenuButton"
-                                    style="z-index: 9999; margin-top: 5px;  -webkit-appearance: none;
-                                    -moz-appearance: none;">
-                                    @if (Auth::guard('client')->user())
-                                        <a class="dropdown-item px-3 py-1" href="{{ route('client.dashboard') }}"
-                                            style="border-bottom: 1px #ffffff dotted">Client Dashboard</a>
-                                    @else
-                                        <a class="dropdown-item px-3 py-1" href="{{ route('client.login') }}"
-                                            style="border-bottom: 1px #ffffff dotted">Client</a>
-                                    @endif
-                                    @if (Auth::guard('partner')->user())
-                                        <a class="dropdown-item px-3 py-1" href="{{ route('partner.dashboard') }}"
-                                            style="border-bottom: 1px #ffffff dotted">Partner Dashboard</a>
-                                    @else
-                                        <a class="dropdown-item px-3 py-1"
-                                            href="{{ route('partner.login') }}">Partner</a>
-                                    @endif
-                                </div>
-                            </div>
-                            <!-- Support Top Btn -->
-                            <div class="dropdown">
-                                <span class="text-white dropdown-toggle pe-3" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                    style="z-index: 9999;">
-                                    <img src="https://i.ibb.co/z5ZQv7z/customer-service.png"
-                                        style="width: 28px; height: 28px; position: relative;top: -3px;width:100%;" alt="">
-                                </span>
-                                <span class="dropdown-menu drpdown_menu dropdown-items_drop"
-                                    aria-labelledby="dropdownMenuButton" style="z-index: 9999; margin-top: 5px;">
-                                    <a class="dropdown-item px-3 py-1" href="{{ route('contact') }}"
-                                        style="border-bottom: 1px #ffffff dotted">Contact</a>
-                                    <a class="dropdown-item px-3 py-1" href="{{ route('support') }}"
-                                        style="border-bottom: 1px #ffffff dotted">Support</a>
-                                </span>
-                            </div>
-
-                                <a href="{{ route('mycart') }}" class="text-white p-0 pe-3">
-                                    <i class="fa-solid fa-cart-plus fa-1x" style="font-size: 1.1em !important;"></i>
-                                    <span class="add_cart_count" id="cartQty">{{ Cart::count() }}</span>
-                                </a>
-
-                        </div>
+                    {{-- Support Dropdown --}}
+                    <div class="dropdown dropdown-top-items">
+                        <span class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="https://i.ibb.co/z5ZQv7z/customer-service.png" width="20px" alt="">
+                        </span>
+                        <ul class="dropdown-menu rounded-0" aria-labelledby="dropdownMenuButton1">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('contact') }}">Contact</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('support') }}">Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                    {{-- User Dropdown --}}
+                    <div class="dropdown dropdown-top-items">
+                        <span class="dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="https://i.ibb.co/Wfj3hGY/sign-in-icon.png" width="17px" alt="">
+                        </span>
+                        <ul class="dropdown-menu rounded-0" aria-labelledby="dropdownMenuButton2">
+                            @if (Auth::guard('client')->user())
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('client.dashboard') }}">Client Dashboard</a>
+                                </li>
+                            @else
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('client.login') }}">Client</a>
+                                </li>
+                            @endif
+                            @if (Auth::guard('partner')->user())
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('partner.dashboard') }}">Partner
+                                        Dashboard</a>
+                                </li>
+                            @else
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('partner.login') }}">Partner</a>
+                                </li>
+                            @endif
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<section class="sticky-top" style="border-bottom: 1px solid #ae0a4629;">
+    {{-- Header Top Bar End --}}
+
     <nav class="navbar navbar-expand-lg d-flex align-content-center container-fluid bg-white p-0">
         <div class="container for_sm_menu">
             <a class="navbar-brand d-sm-none d-lg-block" href="{{ route('homepage') }}">
@@ -290,7 +187,7 @@
                             {{-- <div class="">
                                 <div class="active_menu_design"></div>
                             </div> --}}
-                            <div class="container-fluid " style="border-top: 1px solid #adadad4a !important;">
+                            <div class="container-fluid " style="border-top: 1px solid #adadad4a">
                                 <div class="container py-3">
                                     <div class="row py-3">
                                         <div class="col-lg-4 col-sm-12">
@@ -333,8 +230,8 @@
                                                     @foreach ($industrys as $item)
                                                         @php
                                                             $ind = App\Models\Admin\Industry::where('id', $item->industry_id)
-                                                                   ->select('id', 'slug', 'title')
-                                                                   ->first();
+                                                                ->select('id', 'slug', 'title')
+                                                                ->first();
 
                                                         @endphp
                                                         <a class="dropdown-item d-flex align-items-center py-1 px-0"
@@ -358,7 +255,7 @@
                                                 @if ($solutions)
                                                     @foreach ($solutions as $item)
                                                         <a class="dropdown-item d-flex align-items-center py-1 px-0"
-                                                            href="{{ isset($item->slug) ? route('solution.details', ['id' => $item->slug]) : ''}}">
+                                                            href="{{ isset($item->slug) ? route('solution.details', ['id' => $item->slug]) : '' }}">
                                                             {{ $item->name }}
                                                             <div>
                                                                 <i class="ph ph-caret-right menu_icons"></i>
@@ -382,7 +279,8 @@
                                 <div class="container">
                                     <div class="row ">
                                         <div class="col">
-
+                                            <a href="{{ route('whatwedo') }}" class="text-capitalize"><span
+                                                style="border-top: 1px solid #ae0a46;">What We Do</a>
                                         </div>
                                         <div class="col">
                                             <a href="{{ route('all.industry') }}" class="text-capitalize"><span
@@ -585,11 +483,6 @@
                                                         <a class="dropdown-item py-1 px-0" href="#">
                                                             Books <i class="ph ph-caret-right menu_icons"></i></a>
                                                     </li>
-                                                    <div class="d-flex justify-content-start mt-3">
-                                                        <a href="{{ route('shop') }}" class="common_button effect01"
-                                                            style="border-radius: 25px; padding: 3px 15px !important; font-size:15px">All
-                                                            Shop</a>
-                                                    </div>
                                                 </div>
                                                 <div class="col-lg-4 col-sm-12 pt-4 pb-5">
                                                     <div class="mb-3">
@@ -607,15 +500,6 @@
                                                             </li>
                                                         @endforeach
                                                     @endif
-
-
-                                                    <div class="d-flex justify-content-start mt-3">
-                                                        <a href="{{ route('all.category') }}"
-                                                            class="common_button effect01"
-                                                            style="border-radius: 25px; padding: 3px 15px !important; font-size:15px">All
-                                                            Category
-                                                        </a>
-                                                    </div>
                                                 </div>
                                                 <div class="col-lg-4 col-sm-12 pt-4 pb-5">
                                                     <div class="mb-3">
@@ -634,13 +518,6 @@
                                                             </li>
                                                         @endforeach
                                                     @endif
-
-                                                    <div class="d-flex justify-content-start mt-3">
-                                                        <a href="{{ route('all.brand') }}"
-                                                            class="common_button effect01"
-                                                            style="border-radius: 25px; padding: 3px 15px !important; font-size:15px">All
-                                                            Brands</a>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -661,6 +538,48 @@
                                                     class="ph ph-caret-right menu_icons"></i>
                                             </a>
                                         </li>
+                                    </div>
+                                </div>
+                                <div class="container-fluid" style="background-color:#f7f6f5;">
+                                    <div class="container">
+                                        <div class="row py-3 pt-0">
+                                            <div class="col-lg-8 col-sm-12">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="d-flex justify-content-start mt-3">
+                                                            <a href="{{ route('shop') }}" class=""
+                                                                style="border-top: 1px solid #5e5e5e;"
+                                                                style="font-size:15px">View All
+                                                                Shop</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="d-flex justify-content-start mt-3">
+                                                            <a href="{{ route('all.category') }}"
+                                                                style="border-top: 1px solid #5e5e5e;" class=""
+                                                                style="font-size:15px">View All
+                                                                Category
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="d-flex justify-content-start mt-3">
+                                                            <a href="{{ route('all.brand') }}"
+                                                                style="border-top: 1px solid #5e5e5e;" class=""
+                                                                style="font-size:15px">View All
+                                                                Brands</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-sm-12">
+                                                {{-- <div class="d-flex justify-content-center mt-3">
+                                                    <a href="{{ route('all.brand') }}"
+                                                        class=""
+                                                        style="font-size:15px">View All</a>
+                                                </div> --}}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -687,10 +606,13 @@
                                                     </div>
                                                     @if (!empty($feature_events))
                                                         @foreach ($feature_events as $item)
-                                                            <div class="d-flex align-items-center">
-                                                                <img src="{{ asset('storage/' . $item->image) }}"
-                                                                    alt="" style="width:130px;height:65px;">
-                                                                <div class="ms-3">
+                                                            <div class="d-flex align-items-center mb-2">
+                                                                <div>
+                                                                    <img src="{{ asset('storage/' . $item->image) }}"
+                                                                        alt=""
+                                                                        style="width: 130px; height: 70px;">
+                                                                </div>
+                                                                <div class="mx-3">
                                                                     <a
                                                                         href="{{ route('feature.details', $item->id) }}">
                                                                         <strong
@@ -852,9 +774,9 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Our Solution
                         </a>
-                        <ul class="dropdown-menu drpdown_menu w-100 p-0 border-0 shadow-sm"
+                        <ul class="dropdown-menu drpdown_menu w-100 p-0 shadow-sm"
                             aria-labelledby="dropdownMenuClickableInside">
-                            <div class="container-fluid">
+                            <div class="container-fluid" style="border-top: 1px solid #adadad4a !important;">
                                 <div class="container py-3">
                                     <div class="row py-3">
                                         <div class="col-lg-4 col-sm-12">
@@ -899,7 +821,7 @@
                                                 @if ($solutions)
                                                     @foreach ($solutions as $item)
                                                         <a class="dropdown-item d-flex align-items-center py-1 px-0"
-                                                            href="{{ isset($item->slug) ? route('solution.details', ['id' => $item->slug]) : ''}}">
+                                                            href="{{ isset($item->slug) ? route('solution.details', ['id' => $item->slug]) : '' }}">
                                                             {{ $item->name }}
                                                             <div>
                                                                 <i class="ph ph-caret-right menu_icons"></i>
@@ -929,163 +851,136 @@
                         </a>
                         <ul class="dropdown-menu drpdown_menu w-100 p-0 border shadow-sm "
                             aria-labelledby="dropdownMenuClickableInside">
-                            <div class="container py-3">
-                                <span class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Fe</span>atured
-                                    Content</span>
-                                <div class="row py-3">
-                                    <div class="col-lg-6 col-sm-12 mt-3 ">
-                                        <div class="d-flex align-items-center">
-                                            <img src="http://165.22.48.109/ngenit/storage/wLzyd7UcffyCDpZY1678865267.jpg"
-                                                alt="" style=" width:100px; height:70px;">
-                                            <div class="ms-3">
-                                                <h6>Applying artificial intelligence to robotics is all development to
-                                                    transform client
-                                                    experiences....</h6>
-                                                <span>AI and Robotics / 05-02-2023</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-12 mt-3">
-                                        <div class="d-flex align-items-center">
-                                            <img src="http://165.22.48.109/ngenit/storage/m1OzW4EgNIr9dtjs1679976275.jpg"
-                                                alt="" style=" width: 140px;height: 70px;">
-                                            <div class="ms-3">
-                                                <h6>Applying artificial intelligence to robotics is all development to
-                                                    transform client
-                                                    experiences....</h6>
-                                                <span>AI and Robotics / 05-02-2023</span>
-                                            </div>
-                                        </div>
+                            <div class="container-fluid" style="background-color:#f7f6f5;">
+                                <div class="container py-3">
+                                    <span class="fw-bold nav_title pb-2"><span
+                                            style="border-top: 4px solid #ae0a46;">Fe</span>atured Content</span>
+                                    <div class="row">
+                                        @if ($features)
+                                            @foreach ($features as $item)
+                                                <div class="col-lg-6 col-sm-12">
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="{{ asset('storage/' . $item->image) }}"
+                                                            alt="" style="width:130px;height:65px;">
+                                                        <div class="ms-3">
+                                                            <a href="{{ route('feature.details', $item->id) }}">
+                                                                <strong
+                                                                    style="font-size:14px;">{{ Str::limit($item->title, 100) }}</strong>
+                                                            </a>
+                                                            <br>
+                                                            <span>{{ $item->badge }} /
+                                                                {{ $item->created_at->format('d-m-Y') }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @endif
+
+
                                     </div>
                                 </div>
                             </div>
-                            <div class="container-fluid mt-3 p-0" style="background-color:#f7f6f5;">
-                                <div class="w-50 mx-auto" style="border-top: 4px solid #ae0a46;">
-                                </div>
+                            <div class="container-fluid mt-3 p-0">
                                 <div class="container py-3">
-                                    <span class="fw-bold"><span style="border-top: 3px solid #ae0a46;">Late</span>st
-                                        Featured
+                                    <span class="fw-bold nav_title">
+                                        <span style="border-top: 4px solid #ae0a46;">Late</span>st Featured
                                         Content</span>
                                     <div class="row py-3">
-                                        <div class="col-lg-4 col-sm-12 mt-3">
-                                            <div class="d-flex align-items-center">
-                                                <img src="http://165.22.48.109/ngenit/storage/requestImg/DWrX1RPeJuGxRjlY1677495521.jpg"
-                                                    alt=""
-                                                    style=" width: 140px;
-                          height: 100px;">
-                                                <div class="ms-3">
-                                                    <a href="#" class="feature_menu_item">MakerBot METHOD Tips &
-                                                        Tricks...</a>
-                                                    <p class="" style="font-size: 14px;">AI and Robotics /
-                                                        05-02-2023</p class="" style="font-size: 14px;">
-                                                </div>
-                                            </div>
+
+                                        <div class="col-lg-4 col-sm-12">
+
+                                            @if ($blogs)
+                                                @foreach ($blogs as $item)
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <img src="{{ asset('storage/' . $item->image) }}"
+                                                            alt="" style=" width:130px;height:65px;">
+                                                        <div class="ms-3">
+                                                            <a href="{{ route('blog.details', $item->id) }}"
+                                                                class="feature_menu_item">
+                                                                <strong
+                                                                    style="font-size:14px;">{{ Str::limit($item->title, 55) }}</strong>
+                                                            </a>
+                                                            <p class="" style="font-size: 14px;">
+                                                                {{ $item->badge }} /
+                                                                {{ $item->created_at->format('d-m-Y') }}</p>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endif
+
                                         </div>
-                                        <div class="col-lg-4 col-sm-12 mt-3">
-                                            <div class="d-flex align-items-center">
-                                                <img src="http://165.22.48.109/ngenit/storage/requestImg/uRbsNgtaAfssaAC91679398424.jpg"
-                                                    alt=""
-                                                    style=" width: 140px;
-                          height: 100px;">
-                                                <div class="ms-3">
-                                                    <a href="#" class="feature_menu_item">Empowering a Connected
-                                                        World of Infinite
-                                                        Possibilities...
-                                                    </a>
-                                                    <p class="" style="font-size: 14px;">
-                                                        MinTAC / 01-03-2023</p class=""
-                                                        style="font-size: 14px;">
-                                                </div>
-                                            </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            @if ($clientstorys)
+                                                @foreach ($clientstorys as $item)
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <img src="{{ asset('storage/' . $item->image) }}"
+                                                            alt="" style="width:130px; height:65px;">
+                                                        <div class="ms-3">
+                                                            <a href="{{ route('story.details', $item->id) }}"
+                                                                class="feature_menu_item">
+                                                                <strong
+                                                                    style="font-size:14px;">{{ Str::limit($item->title, 55) }}</strong>
+                                                            </a>
+                                                            <p style="font-size: 14px;">{{ $item->badge }} /
+                                                                {{ $item->created_at->format('d-m-Y') }}</p>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endif
+
                                         </div>
-                                        <div class="col-lg-4 col-sm-12 mt-3">
-                                            <div class="d-flex align-items-center">
-                                                <img src="http://165.22.48.109/ngenit/storage/requestImg/5CM6P586GPF1stn41680595530.jpg"
-                                                    alt=""
-                                                    style=" width: 140px;
-                          height: 100px;">
-                                                <div class="ms-3">
-                                                    <a href="#" class="feature_menu_item">
-                                                        How Westerra Prioritized Digital Transformation in the......</a>
-                                                    <p class="" style="font-size: 14px;">AI and Robotics /
-                                                        05-02-2023</p class="" style="font-size: 14px;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row py-3">
-                                        <div class="col-lg-4 col-sm-12 mt-3">
-                                            <div class="d-flex justify-content-center flex-col">
-                                                <img src="http://165.22.48.109/ngenit/storage/requestImg/YAfHztgz9t4fk3Eu1677667620.png"
-                                                    alt=""
-                                                    style=" width: 140px;
-                          height: 100px;">
-                                                <div class="ms-3">
-                                                    <a href="#" class="feature_menu_item">MakerBot METHOD Tips
-                                                        &
-                                                        Tricks...</a>
-                                                    <p class="" style="font-size: 14px;">AI and Robotics /
-                                                        05-02-2023</p class="" style="font-size: 14px;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-12 mt-3">
-                                            <div class="d-flex align-items-center">
-                                                <img src="http://165.22.48.109/ngenit/storage/requestImg/hGpSLxz8TWtzVnSD1679398154.jpg"
-                                                    alt=""
-                                                    style=" width: 140px;
-                          height: 100px;">
-                                                <div class="ms-3">
-                                                    <a href="#" class="feature_menu_item">MakerBot METHOD Tips
-                                                        &
-                                                        Tricks...</a>
-                                                    <p class="" style="font-size: 14px;">AI and Robotics /
-                                                        05-02-2023</p class="" style="font-size: 14px;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-12 mt-3">
-                                            <div class="d-flex align-items-center">
-                                                <img src="http://165.22.48.109/ngenit/storage/requestImg/pTqec3AwV6h24Dp01680594673.jpg"
-                                                    alt=""
-                                                    style=" width: 140px;
-                          height: 100px;">
-                                                <div class="ms-3">
-                                                    <a href="#" class="feature_menu_item">MakerBot METHOD Tips
-                                                        &
-                                                        Tricks...</a>
-                                                    <p class="" style="font-size: 14px;">AI and Robotics /
-                                                        05-02-2023</p class="" style="font-size: 14px;">
-                                                </div>
-                                            </div>
+                                        <div class="col-lg-4 col-sm-12">
+                                            @if ($techglossys)
+                                                @foreach ($techglossys as $item)
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <img src="{{ asset('storage/' . $item->image) }}"
+                                                            alt="" style="width:130px; height:65px;">
+                                                        <div class="ms-3">
+                                                            <a href="{{ route('techglossy.details', $item->id) }}"
+                                                                class="feature_menu_item">
+                                                                <strong
+                                                                    style="font-size:14px;">{{ Str::limit($item->title, 55) }}</strong>
+                                                            </a>
+                                                            <p class="" style="font-size: 14px;">
+                                                                {{ $item->badge }} /
+                                                                {{ $item->created_at->format('d-m-Y') }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endif
+
                                         </div>
                                     </div>
-                                    <div class="row py-3 d-flex flex-column justify-content-between">
-                                        <div class="col-lg-6 col-sm-12 mt-3">
-                                            <div class="d-flex align-items-center justify-content-center ">
-                                                <div class="ms-3 ">
-                                                    <a href="#"
-                                                        class="feature_menu_item text-center feature_view_btns">View
-                                                        All</a>
-                                                </div>
-                                                <div class="ms-3 ">
-                                                    <a href="#"
-                                                        class="feature_menu_item text-center feature_view_btns">View
-                                                        All</a>
+                                </div>
+                                <div class="container-fluid" style="background-color:#f7f6f5;">
+                                    <div class="container  py-3">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-sm-12">
+                                                <div class="d-flex  ">
+                                                    <div class="" style="border-top:1px solid #5e5e5e">
+                                                        <a href="{{ route('all.blog') }}"
+                                                            class="feature_menu_item text-center feature_view_btns">View
+                                                            All Blog</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-6 col-sm-12" style="margin-top: 1.5rem;">
-                                            <div class="d-flex align-items-center justify-content-center ">
-                                                <div class="ms-3 ">
-                                                    <a href="#"
-                                                        class="feature_menu_item text-center feature_view_btns">View
-                                                        All</a>
+                                            <div class="col-lg-4 col-sm-12">
+                                                <div class="d-flex">
+                                                    <div class="" style="border-top:1px solid #5e5e5e">
+                                                        <a href="{{ route('all.story') }}"
+                                                            class="feature_menu_item text-center feature_view_btns">View
+                                                            All Story</a>
+                                                    </div>
                                                 </div>
-                                                <div class="ms-3 ">
-                                                    <a href="#"
-                                                        class="feature_menu_item text-center feature_view_btns">View
-                                                        All</a>
+                                            </div>
+                                            <div class="col-lg-4 col-sm-12">
+                                                <div class="d-flex ">
+                                                    <div class="" style="border-top:1px solid #5e5e5e">
+                                                        <a href="{{ route('all.techglossy') }}"
+                                                            class="feature_menu_item text-center feature_view_btns">View
+                                                            All Techglossy</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1100,56 +995,84 @@
                             Shop
                         </a>
                         <ul class="dropdown-menu drpdown_menu w-100 p-0 border-0 shadow-sm"
-                            aria-labelledby="dropdownMenuClickableInside">
-                            <div class="container-fluid py-3">
-                                <div class="row d-flex justify-content-center py-3 px-3">
-                                    <div class="col-lg-2 col-sm-12">
-                                        <div class="mb-4">
-                                            <span class="fw-bold "><span
-                                                    style="border-top: 4px solid #ae0a46;">Sho</span>p
-                                                By</span>
+                            aria-labelledby="dropdownMenuClickableInside"
+                            style="border-top: 1px solid #adadad4a !important;">
+
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-lg-8 col-sm-12">
+                                        <div class="container">
+                                            <div class="row d-flex justify-content-start">
+                                                <div class="col-lg-3 offset-lg-1 col-sm-12 pt-4 pb-5">
+                                                    <div class="mb-3">
+                                                        <span class="fw-bold nav_title"><span
+                                                                style="border-top: 4px solid #ae0a46;">Sho</span>p
+                                                            By</span>
+                                                    </div>
+                                                    <li>
+                                                        <a class="dropdown-item py-1 px-0"
+                                                            href="{{ route('software.common') }}">
+                                                            Software <i class="ph ph-caret-right menu_icons"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item py-1 px-0"
+                                                            href="{{ route('hardware.common') }}">
+                                                            Hardware <i class="ph ph-caret-right menu_icons"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item py-1 px-0" href="#">
+                                                            Training <i class="ph ph-caret-right menu_icons"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item py-1 px-0" href="#">
+                                                            Books <i class="ph ph-caret-right menu_icons"></i></a>
+                                                    </li>
+                                                </div>
+                                                <div class="col-lg-4 col-sm-12 pt-4 pb-5">
+                                                    <div class="mb-3">
+                                                        <span class="fw-bold nav_title"><span
+                                                                style="border-top: 4px solid #ae0a46;">Sho</span>p
+                                                            By Category</span>
+                                                    </div>
+                                                    @if (!empty($categorys))
+                                                        @foreach ($categorys as $item)
+                                                            <li class="px-2">
+                                                                <a class="dropdown-item px-0"
+                                                                    href="{{ route('custom.product', $item->slug) }}">{{ $item->title }}
+                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                                <div class="col-lg-4 col-sm-12 pt-4 pb-5">
+                                                    <div class="mb-3">
+                                                        <span class="fw-bold nav_title text-center"><span
+                                                                style="border-top: 4px solid #ae0a46;">Sho</span>p By
+                                                            Brands</span>
+                                                    </div>
+                                                    @if ($brands)
+                                                        @foreach ($brands as $item)
+                                                            <li class="">
+                                                                <a class="dropdown-item py-1 px-0"
+                                                                    href="{{ route('custom.product', App\Models\Admin\Brand::where('id', $item->brand_id)->value('slug')) }}">
+                                                                    {{ App\Models\Admin\Brand::where('id', $item->brand_id)->value('title') }}
+                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                            </div>
                                         </div>
-                                        <li><a class="dropdown-item" href="#">Software
-                                            </a></li>
-                                        <li><a class="dropdown-item" href="#">
-                                                Hardware <i class="fa-solid fa-angle-right"></i></a></li>
-                                        <li><a class="dropdown-item" href="#">
-                                                Training <i class="fa-solid fa-angle-right"></i></a></li>
-                                        <li><a class="dropdown-item" href="#">
-                                                Books <i class="fa-solid fa-angle-right"></i></a></li>
                                     </div>
-                                    <div class="col-lg-4 col-sm-12 mt-3">
-                                        <span class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sho</span>p
-                                            By Category</span>
-                                        @if (!empty($categorys))
-                                            @foreach ($categorys as $item)
-                                                <li class="px-2">
-                                                    <a class="dropdown-item px-0"
-                                                        href="{{ route('custom.product', $item->slug) }}">{{ $item->title }}
-                                                        <i class="ph ph-caret-right menu_icons"></i>
-                                                    </a>
-                                                </li>
-                                            @endforeach
-                                        @endif
-                                    </div>
-                                    <div class="col-lg-4 col-sm-12 mt-3">
-                                        <span class="fw-bold text-center"><span
-                                                style="border-top: 4px solid #ae0a46;">Sho</span>P By Brands</span>
-                                        @if ($brands)
-                                            @foreach ($brands as $item)
-                                                <li class="">
-                                                    <a class="dropdown-item py-1 px-0"
-                                                        href="{{ route('custom.product', App\Models\Admin\Brand::where('id', $item->brand_id)->value('slug')) }}">
-                                                        {{ App\Models\Admin\Brand::where('id', $item->brand_id)->value('title') }}
-                                                        <i class="ph ph-caret-right menu_icons"></i>
-                                                    </a>
-                                                </li>
-                                            @endforeach
-                                        @endif
-                                    </div>
-                                    <div class="col-lg-2 col-sm-12 mt-3">
-                                        <div class="fw-bold"><span
-                                                style="border-top: 4px solid #ae0a46;">Exp</span>lore Our Deals</div>
+                                    <div class="col-lg-4 col-sm-12 pt-4" style="background-color:#f7f6f5;">
+                                        <div class="mb-3">
+                                            <span class="fw-bold nav_title ">
+                                                <span style="border-top: 4px solid #ae0a46;">Exp</span>lore Our
+                                                Deals</span>
+                                        </div>
 
                                         <li><a class="dropdown-item py-1 px-0" href="{{ route('tech.deals') }}">
                                                 Technology deals <i class="ph ph-caret-right menu_icons"></i>
@@ -1160,6 +1083,48 @@
                                                     class="ph ph-caret-right menu_icons"></i>
                                             </a>
                                         </li>
+                                    </div>
+                                </div>
+                                <div class="container-fluid" style="background-color:#f7f6f5;">
+                                    <div class="container">
+                                        <div class="row py-3 pt-0">
+                                            <div class="col-lg-8 col-sm-12">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="d-flex justify-content-start mt-3">
+                                                            <a href="{{ route('shop') }}" class=""
+                                                                style="border-top: 1px solid #5e5e5e;"
+                                                                style="font-size:15px">View All
+                                                                Shop</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="d-flex justify-content-start mt-3">
+                                                            <a href="{{ route('all.category') }}"
+                                                                style="border-top: 1px solid #5e5e5e;" class=""
+                                                                style="font-size:15px">View All
+                                                                Category
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="d-flex justify-content-start mt-3">
+                                                            <a href="{{ route('all.brand') }}"
+                                                                style="border-top: 1px solid #5e5e5e;" class=""
+                                                                style="font-size:15px">View All
+                                                                Brands</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-sm-12">
+                                                {{-- <div class="d-flex justify-content-center mt-3">
+                                                    <a href="{{ route('all.brand') }}"
+                                                        class=""
+                                                        style="font-size:15px">View All</a>
+                                                </div> --}}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

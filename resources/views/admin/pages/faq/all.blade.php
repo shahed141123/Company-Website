@@ -18,7 +18,7 @@
                 <div class="page-header-content d-lg-flex ">
                     <div class="d-flex px-2">
                         <div class="breadcrumb py-2">
-                            <a href="{{ route('dashboard') }}" class="breadcrumb-item"><i class="ph-house"></i></a>
+                            <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house"></i></a>
                             <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item">Home</a>
                             <a href="{{ route('site-setting.index') }}" class="breadcrumb-item">Site Setting</a>
                             <span class="breadcrumb-item active">FAQs</span>
@@ -38,7 +38,7 @@
         <!-- Content area -->
         <div class="content">
             <div class="row">
-                <div class="w-75 mx-auto">
+                <div class="col-lg-10 offset-1">
                     <div class="d-flex align-items-center">
                         <div class="text-success nav-link cat-tab3"
                             style="position: relative;z-index: 999;margin-bottom: -24px;">
@@ -60,11 +60,11 @@
                         <table class="table faqDT table-bordered table-hover text-center ">
                             <thead>
                                 <tr>
-                                    <th width="15%">Sl No:</th>
-                                    <th width="10%">Order</th>
-                                    <th width="30%">Question</th>
+                                    <th width="7%">Sl No:</th>
+                                    <th width="7%">Order</th>
+                                    <th width="45%">Question</th>
                                     <th width="30%">Answer</th>
-                                    <th width="15%" class="text-center">Actions</th>
+                                    <th width="11%" class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,7 +74,7 @@
                                             <td>{{ ++$key }}</td>
                                             <td class="text-center">{{ $item->order }}</td>
                                             <td class="text-center">{{ $item->question }}</td>
-                                            <td class="text-center">{{ $item->answer }}</td>
+                                            <td class="text-center">{{ Str::limit($item->answer, 40, '...') }}</td>
                                             <td class="text-center">
                                                 <a href="javascript:void(0);" class="text-primary" data-bs-toggle="modal"
                                                     data-bs-target="#update_module_{{ $item->id }}">
@@ -105,19 +105,17 @@
     <!------Modals---->
     @if (!empty($faqs))
         @foreach ($faqs as $item)
-            <div id="update_module_{{ $item->id }}" class="modal fade" tabindex="-1"
-                style="display: none;" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable">
+            <div id="update_module_{{ $item->id }}" class="modal fade" tabindex="-1" style="display: none;"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">FAQ Update Form</h5>
-                            <button type="button" class="btn-close"
-                                data-bs-dismiss="modal"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <div class="modal-body border br-7">
 
-                            <form method="post"
-                                action="{{ route('faq.update', $item->id) }}"
+                            <form method="post" action="{{ route('faq.update', $item->id) }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
@@ -125,16 +123,20 @@
                                     <div class="row mb-1">
                                         <div class="col-lg-6">
                                             <div class="mb-1">
-                                                <label class="form-label" for="basicpill-firstname-input">FAQ Category</label>
+                                                <label class="form-label" for="basicpill-firstname-input">FAQ
+                                                    Category</label>
                                                 <input type="text" maxlength="80" class="form-control form-control-sm"
-                                                    placeholder="Enter FAQ Category Name" name="category" value="{{ $item->category }}" />
+                                                    placeholder="Enter FAQ Category Name" name="category"
+                                                    value="{{ $item->category }}" />
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="mb-1">
                                                 <label class="form-label" for="basicpill-email-input">FAQ Order</label>
-                                                <input type="text" maxlength="80" class="form-control form-control-sm allow_decimal"
-                                                    placeholder="Enter Faq Order" name="order" value="{{ $item->order }}" />
+                                                <input type="text" maxlength="80"
+                                                    class="form-control form-control-sm allow_decimal"
+                                                    placeholder="Enter Faq Order" name="order"
+                                                    value="{{ $item->order }}" />
                                             </div>
                                         </div>
                                     </div>
@@ -153,7 +155,8 @@
                                 </div>
 
                                 <div class="modal-footer border-0 pt-1 pb-0 pe-0">
-                                    <button type="button" class="submit_close_btn " data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="submit_close_btn "
+                                        data-bs-dismiss="modal">Close</button>
                                     <button type="submit" class="submit_btn from-prevent-multiple-submits"
                                         style="padding: 10px;">Submit</button>
                                 </div>
@@ -169,7 +172,7 @@
 
     <!------Modals---->
     <div id="faqAdd" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">FAQ Question Add</h5>
@@ -185,14 +188,15 @@
                                     <div class="mb-1">
                                         <label class="form-label" for="basicpill-firstname-input">FAQ Category</label>
                                         <input type="text" maxlength="80" class="form-control form-control-sm"
-                                            placeholder="Enter FAQ Category Name" name="category"/>
+                                            placeholder="Enter FAQ Category Name" name="category" />
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="mb-1">
                                         <label class="form-label" for="basicpill-email-input">FAQ Order</label>
-                                        <input type="text" maxlength="80" class="form-control form-control-sm allow_decimal"
-                                            placeholder="Enter Faq Order" name="order"/>
+                                        <input type="text" maxlength="80"
+                                            class="form-control form-control-sm allow_decimal"
+                                            placeholder="Enter Faq Order" name="order" />
                                     </div>
                                 </div>
                             </div>
@@ -226,14 +230,16 @@
 @once
     @push('scripts')
         <script type="text/javascript">
-            $('.faqDT').DataTable({
-                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-                "iDisplayLength": 10,
-                "lengthMenu": [10, 26, 30, 50],
-                columnDefs: [{
-                    orderable: false,
-                    targets: [0, 2, 3, 4],
-                }, ],
+            $(document).ready(function() {
+                $('.faqDT').DataTable({
+                    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                    "iDisplayLength": 10,
+                    "lengthMenu": [10, 26, 30, 50],
+                    columnDefs: [{
+                        orderable: false,
+                        targets: [0, 2, 3, 4],
+                    }, ],
+                });
             });
         </script>
     @endpush

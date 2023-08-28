@@ -76,4 +76,8 @@ class SolutionDetail extends Model
     {
         return $this->belongsTo(Row::class, 'row_four_id');
     }
+    public function multiSolution()
+    {
+        return $this->hasMany(MultiSolution::class, 'solution_id');
+    }
 }

@@ -12,7 +12,6 @@
             margin-top: 50px;
         }
 
-
         .track .step {
             -webkit-box-flex: 1;
             -ms-flex-positive: 1;
@@ -23,11 +22,9 @@
             position: relative
         }
 
-
         .track .step.active:before {
             background: #247297;
         }
-
 
         .track .step::before {
             height: 7px;
@@ -38,13 +35,11 @@
             top: 18px
         }
 
-
         .track .step.active .icon {
             background: #247297;
             ;
             color: #fff
         }
-
 
         .track .icon {
             display: inline-block;
@@ -57,18 +52,15 @@
             color: #ff2b00;
         }
 
-
         .track .step.active .text {
             font-weight: 400;
             color: #000
         }
 
-
         .track .text {
             display: block;
             margin-top: 7px
         }
-
 
         .itemside {
             position: relative;
@@ -78,13 +70,11 @@
             width: 100%
         }
 
-
         .itemside .aside {
             position: relative;
             -ms-flex-negative: 0;
             flex-shrink: 0
         }
-
 
         .img-sm {
             width: 80px;
@@ -92,19 +82,16 @@
             padding: 7px
         }
 
-
         ul.row,
         ul.row-sm {
             list-style: none;
             padding: 0
         }
 
-
         .itemside .info {
             padding-left: 15px;
             padding-right: 7px
         }
-
 
         .itemside .title {
             display: block;
@@ -112,12 +99,10 @@
             color: #212529
         }
 
-
         p {
             margin-top: 0;
             margin-bottom: 1rem
         }
-
 
         .btn-warning {
             color: #ffffff;
@@ -125,7 +110,6 @@
             border-color: #ee5435;
             border-radius: 1px
         }
-
 
         .btn-warning:hover {
             color: #ffffff;
@@ -135,17 +119,15 @@
         }
     </style>
 
-
     <div class="content-wrapper">
-
 
         <!-- Inner content -->
 
 
-
-
         <!-- Page header -->
         <div class="page-header page-header-light shadow">
+
+
             <div class="page-header-content d-lg-flex border-top">
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
@@ -153,7 +135,6 @@
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item">Home</a>
                         <span class="breadcrumb-item active">RFQ Management</span>
                     </div>
-
 
                     <a href="#breadcrumb_elements"
                         class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
@@ -173,7 +154,6 @@
                         <div class="table-responsive" style="height:10rem;">
                             <div class="track">
 
-
                                 @if ($rfq_details->rfq_type == 'rfq')
                                     <div
                                         class="step
@@ -187,7 +167,6 @@
                                             {{ $rfq_details->status == 'invoice_sent' ? 'active' : '' }}
                                             {{ $rfq_details->status == 'proof_of_payment_uploaded' ? 'active' : '' }}
                                             ">
-
 
                                         <span class="icon">
                                             @if ($rfq_details->status == 'rfq_created')
@@ -212,11 +191,9 @@
                                                 <i class="fa fa-times"></i>
                                             @endif
 
-
                                         </span>
                                         <span class="text">RFQ Created</span>
                                     </div>
-
 
                                     <div
                                         class="step
@@ -263,7 +240,6 @@
                                     </div>
                                 @endif
 
-
                                 <div
                                     class="step
                                         {{ $rfq_details->status == 'deal_created' ? 'active' : '' }}
@@ -304,7 +280,6 @@
                                     </span>
                                 </div>
 
-
                                 <div
                                     class="step
                                         {{ $rfq_details->status == 'sas_created' ? 'active' : '' }}
@@ -341,9 +316,7 @@
                                         @endif
                                     </span>
 
-
                                 </div>
-
 
                                 <div
                                     class="step
@@ -383,7 +356,6 @@
                                     </span>
                                 </div>
 
-
                                 <div
                                     class="step
                                         {{ $rfq_details->status == 'quoted' ? 'active' : '' }}
@@ -416,7 +388,6 @@
                                     </span>
                                 </div>
 
-
                                 <div
                                     class="step
                                         {{ $rfq_details->status == 'workorder_uploaded' ? 'active' : '' }}
@@ -443,13 +414,9 @@
                                                 <i class="icon-file-plus2"></i>
                                             </a>
 
-
                                         </span>
                                     @endif
                                 </div>
-
-
-
 
 
 
@@ -479,7 +446,6 @@
                                     </span>
                                 </div>
 
-
                                 <div
                                     class="step {{ $rfq_details->status == 'proof_of_payment_uploaded' ? 'active' : '' }}
                                         ">
@@ -506,8 +472,6 @@
                     </div>
                 </div>
             </div>
-
-
 
 
             <div class="row  mx-2 rounded " id="exTab3">
@@ -538,6 +502,14 @@
                                 style="position: relative;
                                 z-index: 999;
                                 margin-bottom: -40px;">
+                                {{-- <a href="{{ route('knowledge.create') }}">
+                                    <div class="d-flex align-items-center">
+                                        <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Add Solution Details">
+                                            <i class="ph-plus icons_design"></i> </span>
+                                        <span class="ms-1" style="color: #247297;">Add</span>
+                                    </div>
+                                </a> --}}
                                 <div class="text-center" style="margin-left: 520px">
                                     <h5 class="ms-1" style="color: #247297;">RFQ Details</h5>
                                 </div>
@@ -596,7 +568,6 @@
                     <div class="tab-pane fade show" id="product_details">
                         <div class="table-responsive text-center w-50 mx-auto">
 
-
                             @if (!empty($sourcing->grand_total))
                                 <table class="table table-bordered" style="width: 100%;height: auto;">
                                     <thead>
@@ -607,12 +578,9 @@
                                             </th>
 
 
-
-
                                             <th width="14%" class="text-center" style="border:none;">
                                                 @if ($rfq_details->status == 'rfq_created')
                                                 @elseif ($rfq_details->status == 'assigned')
-
 
                                                 @elseif ($rfq_details->status == 'deal_created')
                                                 @else
@@ -624,15 +592,12 @@
                                             </th>
                                         </tr>
 
-
                                     </thead>
-
 
                                     <tbody class="expand-div1 d-none">
                                         <tr class="text-center" style="background-color: rgba(0,0,0,.03);">
                                             <th width="40%">Product Description</th>
                                             <th width="14%">Quantity</th>
-
 
                                             @if ($rfq_details->regular == '1')
                                                 <th width="10%" class="rg_discount d-none">Discount </th>
@@ -641,10 +606,8 @@
                                                 <th width="10%" class="rg_unit">Unit Price </th>
                                             @endif
 
-
                                             <th width="15%">Unit Total</th>
                                         </tr>
-
 
                                         @foreach ($deal_products as $key => $item)
                                             <tr>
@@ -666,18 +629,14 @@
                                                     </th>
                                                 @endif
 
-
                                                 <td class="text-center">$
                                                     {{ $item->sales_price }}</td>
                                             </tr>
                                         @endforeach
 
 
-
-
                                         <tr>
                                             <th> </th>
-
 
                                             @if ($rfq_details->regular == '1')
                                                 <th width="10%" class="rg_discount d-none"></th>
@@ -709,9 +668,6 @@
 
 
 
-
-
-
                                         <tr>
                                             <th> </th>
                                             @if ($rfq_details->regular == '1')
@@ -728,9 +684,6 @@
 
 
 
-
-
-
                                 </table>
                                 @if ($rfq_details->tax_status == '1')
                                     <table class="table table-bordered mt-2 expand-div1 d-none">
@@ -738,7 +691,6 @@
                                         <td class="text-center" width="10%"> {{ $sourcing->tax }}%</td>
                                         <td class="text-center" width="10%"> $ {{ $sourcing->tax_sales }}</td>
                                         </tr>
-
 
                                     </table>
                                 @endif
@@ -753,7 +705,6 @@
                                             <th width="100%" class="text-center" style="border:none;">
                                                 @if ($rfq_details->status == 'rfq_created')
                                                 @elseif ($rfq_details->status == 'assigned')
-
 
                                                 @elseif ($rfq_details->status == 'deal_created')
                                                 @else
@@ -786,7 +737,6 @@
                 </div>
             </div>
 
-
             <div class="container">
                 <div class="row gx-1">
                   <div class="col">
@@ -803,58 +753,53 @@
                     <div class="bg-white">
                         <div class="px-3 pt-1 pb-1">
                             <div class="row d-flex align-items-center border ">
-                                <div class="col-sm-6">
+                                <div class="col-sm-8">
                                     <span>Sales Profit Loss</span>
                                 </div>
-                                <div class="col-sm-3 p-0 text-end">
+                                <div class="col-sm-4 text-end">
                                     <button type="button" class="btn navigation_btn" data-bs-toggle="modal"
                                         data-bs-target="#modal_sale_profit_loss">
                                         <i class="ph-plus-circle ph-1x"></i> Add
                                     </button>
                                     @include('admin.pages.singleRfq.sales-modal')
                                 </div>
-                                <div class="col-sm-3 p-0 text-end">
-                                    <button type="button" class="btn navigation_btn" data-bs-toggle="modal"
-                                        data-bs-target="#modal_sale_forecast">
-                                        <i class="ph-minus-circle ph-1x"></i> Edit
-                                    </button>
-                                </div>
                             </div>
                         </div>
                         <div class="px-3 pt-1 pb-1">
                             <div class="row d-flex align-items-center border ">
-                                <div class="col-sm-6">
+                                <div class="col-sm-8">
                                     <span>Sales Forecast</span>
                                 </div>
-                                <div class="col-sm-3 p-0 text-end">
+                                <div class="col-sm-4 text-end">
                                     <button type="button" class="btn navigation_btn" data-bs-toggle="modal"
                                         data-bs-target="#modal_sale_forecast">
                                         <i class="ph-plus-circle ph-1x"></i> Add
                                     </button>
                                 </div>
-                                <div class="col-sm-3 p-0 text-end">
-                                    <button type="button" class="btn navigation_btn" data-bs-toggle="modal"
-                                        data-bs-target="#modal_sale_forecast">
-                                        <i class="ph-minus-circle ph-1x"></i> Edit
-                                    </button>
-                                </div>
                             </div>
                         </div>
                         <div class="px-3 pt-1 pb-1">
                             <div class="row d-flex align-items-center border ">
-                                <div class="col-sm-6">
+                                <div class="col-sm-8">
                                     <span>Commercial Documents</span>
                                 </div>
-                                <div class="col-sm-3 p-0 text-end">
+                                <div class="col-sm-4 text-end">
                                     <button type="button" class="btn navigation_btn" data-bs-toggle="modal"
                                         data-bs-target="#modal_commercial_documents">
                                         <i class="ph-plus-circle ph-1x"></i> Add
                                     </button>
                                 </div>
-                                <div class="col-sm-3 p-0 text-end">
+                            </div>
+                        </div>
+                        <div class="px-3 pt-1 pb-1">
+                            <div class="row d-flex align-items-center border ">
+                                <div class="col-sm-8">
+                                    <span>Commercial Documents</span>
+                                </div>
+                                <div class="col-sm-4 text-end">
                                     <button type="button" class="btn navigation_btn" data-bs-toggle="modal"
-                                        data-bs-target="#modal_sale_forecast">
-                                        <i class="ph-minus-circle ph-1x"></i> Edit
+                                        data-bs-target="#modal_commercial_documents">
+                                        <i class="ph-plus-circle ph-1x"></i> Add
                                     </button>
                                 </div>
                             </div>
@@ -875,63 +820,40 @@
                     <div class="bg-white">
                         <div class="px-3 pt-1 pb-1">
                             <div class="row d-flex align-items-center border ">
-                                <div class="col-sm-6">
+                                <div class="col-sm-8">
                                     <span>Accounts Profit Loss</span>
                                 </div>
-                                <div class="col-sm-3 p-0 text-end">
+                                <div class="col-sm-4 text-end">
                                     <button type="button" class="btn navigation_btn" data-bs-toggle="modal"
                                         data-bs-target="#modal_account_profitLoss">
                                         <i class="ph-plus-circle ph-1x"></i> Add
                                     </button>
                                     @include('admin.pages.singleRfq.accounts-modal')
                                 </div>
-                                <div class="col-sm-3 p-0 text-end">
-                                    <button type="button" class="btn navigation_btn" data-bs-toggle="modal"
-                                        data-bs-target="#modal_sale_forecast">
-                                        <i class="ph-minus-circle ph-1x"></i> Edit
-                                    </button>
-                                </div>
                             </div>
                         </div>
                         <div class="px-3 pt-1 pb-1">
                             <div class="row d-flex align-items-center border ">
-                                <div class="col-sm-6">
+                                <div class="col-sm-8">
                                     <span>Payable</span>
                                 </div>
-                                <div class="col-sm-3 p-0 text-end">
+                                <div class="col-sm-4 text-end">
                                     <button type="button" class="btn navigation_btn" data-bs-toggle="modal"
                                         data-bs-target="#modal_account_payable">
                                         <i class="ph-plus-circle ph-1x"></i> Add
                                     </button>
                                 </div>
-                                <div class="col-sm-3 p-0 text-end">
-                                    <button type="button" class="btn navigation_btn" data-bs-toggle="modal"
-                                        data-bs-target="#modal_sale_forecast">
-                                        <i class="ph-minus-circle ph-1x"></i> Edit
-                                    </button>
-                                </div>
                             </div>
                         </div>
                         <div class="px-3 pt-1 pb-1">
                             <div class="row d-flex align-items-center border ">
-
-
-                                <div class="col-sm-6">
+                                <div class="col-sm-8">
                                     <span>Receivable</span>
                                 </div>
-
-
-                                <div class="col-sm-3 p-0 text-end">
+                                <div class="col-sm-4 text-end">
                                     <button type="button" class="btn navigation_btn" data-bs-toggle="modal"
                                         data-bs-target="#modal_account_receivable">
                                         <i class="ph-plus-circle ph-1x"></i> Add
-                                    </button>
-                                </div>
-
-                                <div class="col-sm-3 p-0 text-end">
-                                    <button type="button" class="btn navigation_btn" data-bs-toggle="modal"
-                                        data-bs-target="#modal_sale_forecast">
-                                        <i class="ph-minus-circle ph-1x"></i> Edit
                                     </button>
                                 </div>
                             </div>
@@ -945,19 +867,13 @@
                     <div class="bg-white">
                         <div class="px-3 pt-1 pb-1">
                             <div class="row d-flex align-items-center border ">
-                                <div class="col-sm-6">
+                                <div class="col-sm-8">
                                     <span>Receivable</span>
                                 </div>
-                                <div class="col-sm-4 p-0 text-end">
+                                <div class="col-sm-4 text-end">
                                     <button type="button" class="btn navigation_btn" data-bs-toggle="modal"
                                         data-bs-target="#modal_account_receivable">
                                         <i class="ph-plus-circle ph-1x"></i> Add
-                                    </button>
-                                </div>
-                                <div class="col-sm-3 p-0 text-end">
-                                    <button type="button" class="btn navigation_btn" data-bs-toggle="modal"
-                                        data-bs-target="#modal_sale_forecast">
-                                        <i class="ph-minus-circle ph-1x"></i> Edit
                                     </button>
                                 </div>
                             </div>
@@ -971,12 +887,9 @@
     <!-- /content area -->
     <!-- /inner content -->
 
-
     </div>
 
-
     <!-------Modals----->
-
 
     <!---Deal Show modal--->
     <div id="show-deals-{{ $rfq_details->rfq_code }}" class="modal fade" tabindex="-1" style="display: none;"
@@ -992,15 +905,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
-
                 <div class="modal-body border br-7 p-1 m-0">
-
-
 
 
                     <div class="row mb-3">
                         <div class="card">
-
 
                             <div class="row">
                                 <table class="table table-bordered table-striped p-1">
@@ -1016,7 +925,6 @@
                                                 Company Name : {{ ucfirst($rfq_details->company_name) }}
                                             </th>
                                         </tr>
-
 
                                         <tr>
                                             <th>Asking Quantity : @if (App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->sum('qty') > 0)
@@ -1046,19 +954,15 @@
                                                     {{ App\Models\User::where('id', $rfq_details->sales_man_id_T2)->value('name') }}
                                                 @endif
 
-
                                             </th>
                                             <th>
                                                 Status : <span
                                                     class="badge bg-success p-1">{{ ucfirst($rfq_details->status) }}</span>
 
 
-
-
                                             </th>
                                             <th></th>
                                         </tr>
-
 
                                     </thead>
                                 </table>
@@ -1073,7 +977,6 @@
                                                 <th> Sale Price </th>
                                             </tr>
 
-
                                             @foreach ($deal_products as $item)
                                                 <tr class="bg-gray text-white">
                                                     <th>{{ $item->item_name }}</th>
@@ -1087,20 +990,16 @@
                                 </table>
                             </div>
 
-
                         </div>
                     </div>
                     </form>
                 </div>
 
 
-
-
             </div>
         </div>
     </div>
     <!---Deal Show modal--->
-
 
     <!---Assign Manager modal--->
     <div id="assign-manager-{{ $rfq_details->rfq_code }}" class="modal fade" tabindex="-1" style="display: none;"
@@ -1115,9 +1014,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
-
                 <div class="modal-body border br-7 px-3  m-0">
-
 
                     <form method="post" action="{{ route('assign.salesman', $rfq_details->rfq_code) }}"
                         enctype="multipart/form-data">
@@ -1163,7 +1060,6 @@
                             <div class="col-lg-4 col-sm-12">
                                 <span class="text-info fw-bold">Client Details Part 2</span>
                                 <div class="py-2 px-2 bg-light rounded" style="border-top: 1px solid #247297;">
-
 
                                     {{--  --}}
                                     <div class="row mb-1">
@@ -1229,8 +1125,6 @@
                                     {{--  --}}
 
 
-
-
                                 </div>
                             </div>
                         </div>
@@ -1274,7 +1168,6 @@
                                             </div>
                                         </div>
 
-
                                         <div class="col-lg-4">
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-sm-4">
@@ -1302,18 +1195,14 @@
                                 style="padding: 4px 9px;">Submit</button>
                         </div>
 
-
                     </form>
                 </div>
-
-
 
 
             </div>
         </div>
     </div>
     <!---Assign Manager modal--->
-
 
     <!---Send Quotation modal--->
     <div id="quotation-send-{{ $rfq_details->rfq_code }}" class="modal fade" tabindex="-1" style="display: none;"
@@ -1329,9 +1218,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
-
                 <div class="modal-body border p-1 m-0">
-
 
                     <form method="post" action="{{ route('quotation.send', $rfq_details->rfq_code) }}"
                         enctype="multipart/form-data">
@@ -1348,7 +1235,6 @@
                                                 <th> Sale Price </th>
                                             </tr>
 
-
                                             @if ($deal_products)
                                                 @foreach ($deal_products as $item)
                                                     <tr class="bg-gray text-white">
@@ -1358,9 +1244,6 @@
                                                     </tr>
                                                 @endforeach
                                             @endif
-
-
-
 
 
 
@@ -1411,13 +1294,10 @@
                                                         {{ App\Models\User::where('id', $rfq_details->sales_man_id_T2)->value('name') }}
                                                     @endif
 
-
                                                 </th>
                                                 <th>
                                                     Status : <span
                                                         class="badge bg-success p-2">{{ ucfirst($rfq_details->status) }}</span>
-
-
 
 
                                                 </th>
@@ -1434,13 +1314,8 @@
                                     </table>
                                 </div>
 
-
                             </div>
                         </div>
-
-
-
-
 
 
 
@@ -1453,19 +1328,14 @@
                             </div>
                         </div>
 
-
                     </form>
                 </div>
-
-
 
 
             </div>
         </div>
     </div>
     <!---Send Quotation modal--->
-
-
 
 
     <!---Send Invoice modal--->
@@ -1482,7 +1352,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
-
                 <div class="modal-body border br-7 m-0 p-1">
                     <form method="post" action="{{ route('invoice.send', $rfq_details->rfq_code) }}"
                         enctype="multipart/form-data">
@@ -1492,18 +1361,14 @@
                             <div class="card">
                                 <div class="table-responsive">
 
-
                                     @if (!empty($sourcing->grand_total))
                                         <table class="table table-bordered" style="width: 100%;height: auto;">
-
-
 
 
                                             <tbody>
                                                 <tr class="text-center" style="background-color: rgba(0,0,0,.03);">
                                                     <th width="40%">Product Description</th>
                                                     <th width="14%">Quantity</th>
-
 
                                                     @if ($rfq_details->regular == '1')
                                                         <th width="10%" class="rg_discount d-none">Discount </th>
@@ -1512,10 +1377,8 @@
                                                         <th width="10%" class="rg_unit">Unit Price </th>
                                                     @endif
 
-
                                                     <th width="15%">Unit Total</th>
                                                 </tr>
-
 
                                                 @foreach ($deal_products as $key => $item)
                                                     <tr>
@@ -1537,18 +1400,14 @@
                                                             </th>
                                                         @endif
 
-
                                                         <td class="text-center">$
                                                             {{ $item->sales_price }}</td>
                                                     </tr>
                                                 @endforeach
 
 
-
-
                                                 <tr>
                                                     <th> </th>
-
 
                                                     @if ($rfq_details->regular == '1')
                                                         <th width="10%" class="rg_discount d-none"></th>
@@ -1580,9 +1439,6 @@
 
 
 
-
-
-
                                                 <tr>
                                                     <th> </th>
                                                     @if ($rfq_details->regular == '1')
@@ -1599,11 +1455,7 @@
 
 
 
-
-
-
                                         </table>
-
 
                                         @if ($rfq_details->tax_status == '1')
                                             <table class="table table-bordered mt-2 expand-div1 d-none">
@@ -1613,10 +1465,8 @@
                                                 </td>
                                                 </tr>
 
-
                                             </table>
                                         @endif
-
 
                                     @endif
                                 </div>
@@ -1653,10 +1503,6 @@
 
 
 
-
-
-
-
                         <div class="row">
                             <div class="col-sm-3"></div>
                             <div class="col-sm-9 text-secondary text-center">
@@ -1665,18 +1511,14 @@
                             </div>
                         </div>
 
-
                     </form>
                 </div>
-
-
 
 
             </div>
         </div>
     </div>
     <!---Send Invoice modal--->
-
 
     <!---Show SAS modal--->
     @if ($sourcing != null)
@@ -1685,15 +1527,12 @@
                 <div class="modal-content">
                     <div class="modal-header">
 
-
                         <h5 class="modal-title">SAS Details : {{ $rfq_details->rfq_code }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
 
-
                     <div class="modal-body border br-7 p-1 m-0">
                         <div class="content">
-
 
                             <div class="center d-none">
                                 <div class="form-check form-check-inline">
@@ -1736,7 +1575,6 @@
                                                             <th class="text-white">SAS Create Date :
                                                                 {{ $rfq_details->create_date }}
 
-
                                                             </th>
                                                             <th class="text-white text-center">
                                                                 This Deal is for our @if ($rfq_details->client_type == 'partner')
@@ -1751,8 +1589,6 @@
                                             </div>
                                         </div>
                                         <div class="table-responsive">
-
-
 
 
                                             <div class="mb-2">
@@ -1777,7 +1613,6 @@
                                                                     {{ $item->item_name }}
                                                                 </td>
 
-
                                                                 <td class="border-none">
                                                                     {{ $item->qty }}
                                                                 </td>
@@ -1791,7 +1626,6 @@
                                                                     {{ $item->regular_discount }}
                                                                 </td>
 
-
                                                                 <td class="rg_discount d-none border-none">
                                                                     {{ $item->discounted_sales }}
                                                                 </td>
@@ -1803,11 +1637,8 @@
                                                         <tr>
 
 
-
-
                                                             <td class="border-none" width="45%" colspan="3">Sub
                                                                 Total</td>
-
 
                                                             <td class="border-none">
                                                                 {{ $sourcing->sub_total_cost }}
@@ -1816,12 +1647,10 @@
                                                             <td class="rg_discount d-none border-none">
                                                                 {{ $sourcing->sub_total_discounted_sales }}</td>
 
-
                                                             <td class="border-none">{{ $sourcing->sub_total_sales }}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
-
 
                                                 <table class="text-center table table-bordered table-hover">
                                                     <thead>
@@ -1835,7 +1664,6 @@
                                                         </tr>
                                                         <tr class="tax d-none">
 
-
                                                             <th class="border-none" colspan="5" width="67%">Tax/VAT
                                                             </th>
                                                             <th class="border-none">{{ $sourcing->tax }} %</th>
@@ -1843,11 +1671,9 @@
                                                         </tr>
                                                         <tr>
 
-
                                                             <th class="border-none" colspan="5" width="67%">Grand
                                                                 Total (With Everything)</th>
                                                             <th class="border-none" width="18%"></th>
-
 
                                                             <th class="border-none" width="15%">
                                                                 {{ $sourcing->grand_total }}</th>
@@ -1855,7 +1681,6 @@
                                                     </thead>
                                                 </table>
                                             </div>
-
 
                                             <div class="m-auto" style="width:60%;">
                                                 <table class="text-center table table-bordered table-hover">
@@ -1867,39 +1692,31 @@
                                                             </td>
                                                         </tr>
 
-
                                                         <tr class="body_expense" style="display: none;">
                                                             <td class="border-none">Bank & Remittance Charge - (1.5%)</td>
                                                             <td class="border-none">{{ $sourcing->bank_charge }}%
                                                             </td>
 
-
                                                         </tr>
-
 
                                                         <tr class="body_expense" style="display: none;">
                                                             <td class="border-none">Customs & Duty - (5.0%)</td>
                                                             <td class="border-none">{{ $sourcing->customs }} %
                                                             </td>
 
-
                                                         </tr>
-
 
                                                         <tr class="body_expense" style="display: none;">
                                                             <td class="border-none">HR , Office & Utility Cost- (5.0%)</td>
                                                             <td class="border-none">{{ $sourcing->utility_cost }} %
                                                             </td>
 
-
                                                         </tr>
-
 
                                                         <tr class="body_expense" style="display: none;">
                                                             <td class="border-none">Shipping & Handling Cost- (5.0%)</td>
                                                             <td class="border-none">{{ $sourcing->shiping_cost }} %
                                                         </tr>
-
 
                                                         <tr class="body_expense" style="display: none;">
                                                             <td class="border-none">Sales / Consultancy Comission - (5.0%)
@@ -1908,14 +1725,12 @@
                                                             </td>
                                                         </tr>
 
-
                                                         <tr class="body_expense" style="display: none;">
                                                             <td class="border-none">Bank Loan / Liability / Debt - (5.0%)
                                                             </td>
                                                             <td class="border-none">{{ $sourcing->liability }} %
                                                             </td>
                                                         </tr>
-
 
                                                         <tr class="bg-dark accordion_offer">
                                                             <td class="border-none text-white" colspan="3">
@@ -1924,13 +1739,11 @@
                                                             </td>
                                                         </tr>
 
-
                                                         <tr class="body_offer" style="display: none;">
                                                             <td class="border-none">Deal Closing / Rebates</td>
                                                             <td class="border-none">{{ $sourcing->rebates }} %
                                                             </td>
                                                         </tr>
-
 
                                                         <tr class="bg-dark accordion_other">
                                                             <td class="border-none text-white" colspan="3">
@@ -1939,20 +1752,17 @@
                                                             </td>
                                                         </tr>
 
-
                                                         <tr class="body_other" style="display: none;">
                                                             <td class="border-none">Loan / Capital / Partner Share - (5%)
                                                             </td>
                                                             <td class="border-none">{{ $sourcing->capital_share }} %</td>
                                                         </tr>
 
-
                                                         <tr class="body_other" style="display: none;">
                                                             <td class="border-none">Management Cost - (5%)</td>
                                                             <td class="border-none">{{ $sourcing->management_cost }} %
                                                             </td>
                                                         </tr>
-
 
                                                         <tr>
                                                             <td class="border-none">Gross Profit (%) between Sales and Cost
@@ -1972,12 +1782,9 @@
                                                             </td>
                                                         </tr>
 
-
                                                     </tbody>
                                                 </table>
                                             </div>
-
-
 
 
                                         </div>
@@ -1988,14 +1795,11 @@
                     </div>
 
 
-
-
                 </div>
             </div>
         </div>
     @endif
     <!---Show SAS modal--->
-
 
     <!---Work Order Upload modal--->
     @if ($sourcing)
@@ -2013,9 +1817,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
 
-
                     <div class="modal-body border br-7 p-1 m-0">
-
 
                         <form method="post" action="{{ route('work-order.upload', $rfq_details->rfq_code) }}"
                             enctype="multipart/form-data">
@@ -2036,7 +1838,6 @@
                                                     <th>Quantity
                                                     </th>
 
-
                                                     @if ($rfq_details->regular == '1')
                                                         <th width="10%" class="rg_discount d-none">Discount </th>
                                                         <th width="10%" class="rg_discount d-none">Disc. Unit </th>
@@ -2044,17 +1845,14 @@
                                                         <th width="10%" class="rg_unit">Unit Price </th>
                                                     @endif
 
-
                                                     <th width="15%">Total
                                                     </th>
                                                 </tr>
-
 
                                                 @foreach ($deal_products as $key => $item)
                                                     <tr>
                                                         <td> {{ ++$key }}
                                                         </td>
-
 
                                                         <td>
                                                             {{ $item->item_name }}</td>
@@ -2072,18 +1870,14 @@
                                                             </th>
                                                         @endif
 
-
                                                         <td class="text-center">$
                                                             {{ $item->sales_price }}</td>
                                                     </tr>
                                                 @endforeach
 
 
-
-
                                                 <tr>
                                                     <th> </th>
-
 
                                                     @if ($rfq_details->regular == '1')
                                                         <th width="10%" class="rg_discount d-none"></th>
@@ -2115,9 +1909,6 @@
 
 
 
-
-
-
                                                 <tr>
                                                     <th> </th>
                                                     @if ($rfq_details->regular == '1')
@@ -2131,17 +1922,12 @@
                                                         $ {{ $sourcing->grand_total - $sourcing->tax_sales }}</td>
                                                 </tr>
 
-
                                                 <!-- <tr>
                                                                                                                                         <th colspan="2" width="40%"> In Words: </th> <th colspan="5" width="60%"> <small> <b> Thirty One Lac sixty Four Thousand and Four Hundred Twenty One Taka Only (w/o Tax / VAT) </b> </small> </th>
                                                                                                                                         </tr> -->
 
 
-
-
                                             </table>
-
-
 
 
                                             @if ($rfq_details->tax_status == '1')
@@ -2152,14 +1938,11 @@
                                                     </td>
                                                     </tr>
 
-
                                                 </table>
                                             @endif
                                         </div>
 
-
                                     </div>
-
 
                                 </div>
                                 <div class="card">
@@ -2167,7 +1950,6 @@
                                         <div class="row">
                                             <table class="table table-bordered"
                                                 style="background: offset; width:60%; margin:auto;">
-
 
                                                 <thead>
                                                     <tr class="border-none">
@@ -2191,10 +1973,6 @@
 
 
 
-
-
-
-
                             <div class="row">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-9 text-secondary">
@@ -2203,11 +1981,8 @@
                                 </div>
                             </div>
 
-
                         </form>
                     </div>
-
-
 
 
                 </div>
@@ -2215,7 +1990,6 @@
         </div>
     @endif
     <!---Work Order Upload modal--->
-
 
     <!---Proof of Payment modal--->
     <div id="proofpayment-{{ $rfq_details->rfq_code }}" class="modal fade" tabindex="-1" style="display: none;"
@@ -2231,7 +2005,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
-
                 <div class="modal-body border br-7 p-1 m-0">
                     <form method="post" action="{{ route('payment-proof.upload', $rfq_details->rfq_code) }}"
                         enctype="multipart/form-data">
@@ -2241,18 +2014,14 @@
                             <div class="card">
                                 <div class="table-responsive">
 
-
                                     @if (!empty($sourcing->grand_total))
                                         <table class="table table-bordered" style="width: 100%;height: auto;">
-
-
 
 
                                             <tbody>
                                                 <tr class="text-center" style="background-color: rgba(0,0,0,.03);">
                                                     <th width="40%">Product Description</th>
                                                     <th width="14%">Quantity</th>
-
 
                                                     @if ($rfq_details->regular == '1')
                                                         <th width="10%" class="rg_discount d-none">Discount </th>
@@ -2261,10 +2030,8 @@
                                                         <th width="10%" class="rg_unit">Unit Price </th>
                                                     @endif
 
-
                                                     <th width="15%">Unit Total</th>
                                                 </tr>
-
 
                                                 @foreach ($deal_products as $key => $item)
                                                     <tr>
@@ -2286,18 +2053,14 @@
                                                             </th>
                                                         @endif
 
-
                                                         <td class="text-center">$
                                                             {{ $item->sales_price }}</td>
                                                     </tr>
                                                 @endforeach
 
 
-
-
                                                 <tr>
                                                     <th> </th>
-
 
                                                     @if ($rfq_details->regular == '1')
                                                         <th width="10%" class="rg_discount d-none"></th>
@@ -2329,9 +2092,6 @@
 
 
 
-
-
-
                                                 <tr>
                                                     <th> </th>
                                                     @if ($rfq_details->regular == '1')
@@ -2348,11 +2108,7 @@
 
 
 
-
-
-
                                         </table>
-
 
                                         @if ($rfq_details->tax_status == '1')
                                             <table class="table table-bordered mt-2 expand-div1 d-none">
@@ -2362,10 +2118,8 @@
                                                 </td>
                                                 </tr>
 
-
                                             </table>
                                         @endif
-
 
                                     @endif
                                 </div>
@@ -2385,15 +2139,10 @@
                                             </div>
                                         </div>
 
-
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-
-
 
 
 
@@ -2406,11 +2155,8 @@
                             </div>
                         </div>
 
-
                     </form>
                 </div>
-
-
 
 
             </div>
@@ -2466,7 +2212,6 @@
                     $(".completed_title").removeClass('d-none');
                 });
 
-
             });
         </script>
         <script>
@@ -2476,7 +2221,6 @@
                 });
             });
         </script>
-
 
         <script>
             $(document).ready(function() {
@@ -2493,16 +2237,11 @@
                     }
 
 
-
-
                 });
-
-
 
 
             });
         </script>
-
 
         <script>
             $(document).ready(function() {
@@ -2519,10 +2258,7 @@
                     }
 
 
-
-
                 });
-
 
                 $(".expand-switch1").on('click', function() {
                     //$("#additionalExpand").toggle();
@@ -2537,18 +2273,10 @@
                     }
 
 
-
-
                 });
-
-
 
 
             });
         </script>
     @endpush
 @endonce
-
-
-
-

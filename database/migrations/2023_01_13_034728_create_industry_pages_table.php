@@ -25,8 +25,8 @@ return new class extends Migration
             $table->unsignedBigInteger('solution_four_id')->nullable();
             $table->unsignedBigInteger('client_story_id');
             $table->text('header')->nullable();
-            $table->string('btn_one_link')->nullable();
             $table->string('btn_one_name')->nullable();
+            $table->string('btn_one_link')->nullable();
             $table->string('row_four_title')->nullable();
             $table->text('row_four_header')->nullable();
             $table->string('row_four_col_one_title')->nullable();
@@ -35,7 +35,6 @@ return new class extends Migration
             $table->text('row_four_col_two_header')->nullable();
             $table->string('footer_title')->nullable();
             $table->text('footer_header')->nullable();
-            
             $table->foreign('industry_id')->references('id')->on('industries')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('row_one_id')->references('id')->on('rows')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('row_three_id')->references('id')->on('rows')->onDelete('cascade')->onUpdate('cascade');

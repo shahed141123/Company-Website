@@ -78,7 +78,7 @@
 
                                         <select name="brand_id" data-placeholder="Select row_four.."
                                                 class="form-control form-control-sm select">
-                                                <option></option>
+                                                <option value="">Select...</option>
                                                 @foreach ($brands as $brand)
                                             <option @if ($brand->id == $brandPage->brand_id) selected @endif
                                                 class="form-control" value="{{ $brand->id }}">
@@ -152,8 +152,9 @@
                                         <div class="col-lg-12 col-sm-12">
                                             <select name="solution_card_one_id" data-placeholder="Select card One.."
                                                 class="form-control form-control-sm select">
-                                                <option></option>
+                                                
                                                 @foreach ($solution_cards as $solution_card)
+                                                    <option class="form-control form-control-sm" value=""> Select..</option>
                                                     <option class="form-control" value="{{ $solution_card->id }}"
                                                     @selected($solution_card->id == $brandPage->solution_card_one_id)>
                                                         {{ $solution_card->title }}</option>
@@ -169,7 +170,7 @@
                                         <div class="col-lg-12 col-sm-12">
                                             <select name="solution_card_two_id" data-placeholder="Select Card two"
                                                 class="form-control form-control-sm select">
-                                                <option></option>
+                                                <option class="form-control form-control-sm" value=""> Select..</option>
                                                 @foreach ($solution_cards as $solution_card)
                                                     <option class="form-control form-control-sm"
                                                         value="{{ $solution_card->id }}"
@@ -187,7 +188,7 @@
                                         <div class="col-lg-12 col-sm-12">
                                             <select name="solution_card_three_id" data-placeholder="Select Card Three.."
                                                 class="form-control form-control-sm select">
-                                                <option></option>
+                                                <option class="form-control form-control-sm" value=""> Select..</option>
                                                 @foreach ($solution_cards as $solution_card)
                                                     <option class="form-control form-control-sm"
                                                         value="{{ $solution_card->id }}"
@@ -222,7 +223,7 @@
                                         <div class="col-lg-12 col-sm-12">
                                             <select name="row_four_id" data-placeholder="Select row_four.."
                                                 class="form-control form-control-sm select">
-                                                <option></option>
+                                                <option value="">Select...</option>
                                                 @foreach ($rows as $row)
                                                             <option @if ($row->id == $brandPage->row_four_id) selected @endif
                                                                 class="form-control" value="{{ $row->id }}">
@@ -239,7 +240,7 @@
                                         <div class="col-lg-12 col-sm-12">
                                             <select name="row_five_id" data-placeholder="Select Row Five.."
                                             class="form-control form-control-sm select">
-                                            <option></option>
+                                            <option value="">Select...</option>
                                             @foreach ($rows as $row)
                                             <option @if ($row->id == $brandPage->row_five_id) selected @endif
                                                 class="form-control" value="{{ $row->id }}">
@@ -291,7 +292,7 @@
                                         <div class="col-lg-12 col-sm-12">
                                             <select name="row_seven_id" data-placeholder="Select Row Seven.."
                                                 class="form-control select">
-                                                <option></option>
+                                                <option value="">Select...</option>
                                                 @foreach ($rows as $row)
                                                 <option @if ($row->id == $brandPage->row_seven_id) selected @endif
                                                     class="form-control" value="{{ $row->id }}">
@@ -308,7 +309,7 @@
                                         <div class="col-lg-12 col-sm-12">
                                             <select name="row_eight_id" data-placeholder="Select Row Eight.."
                                             class="form-control select">
-                                            <option></option>
+                                            <option value="">Select...</option>
                                             @foreach ($rows as $row)
                                             <option @if ($row->id == $brandPage->row_eight_id) selected @endif
                                                 class="form-control" value="{{ $row->id }}">

@@ -155,6 +155,7 @@
                         <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-2 px-5"
                             style="width: 80%; background: #f9f6f0;">
                             <div>
+                                
                                 @if ($sproduct->rfq != 1)
                                     <p class="list_price mb-0">List Price</p>
                                     <div class="product__details__price ">

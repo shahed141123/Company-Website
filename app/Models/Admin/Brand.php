@@ -34,4 +34,8 @@ class Brand extends Model
         // dd($slug);
         return Brand::with('Brandproducts')->where('slug',$slug)->first();
     }
+    public function brandPage()
+    {
+        return $this->hasOne(BrandPage::class);
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Admin\Job;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
@@ -53,9 +54,16 @@ class JobController extends Controller
             ],
         );
 
+        $slug = Str::slug($request->name);
+        $count = Job::where('slug', $slug)->count();
+        if ($count > 0) {
+            $slug = $slug . '-' . date('ymdis') . '-' . rand(0, 999);
+        }
+        $data['slug'] = $slug;
         if ($validator->passes()) {
             Job::create([
                 'name'         => $request->name,
+                'slug'         => $data['slug'],
                 'vacancy'      => $request->vacancy,
                 'deadline'     => $request->deadline,
                 'link'         => $request->link,
@@ -106,6 +114,7 @@ class JobController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $job = Job::where('id', $id)->first();
         $validator = Validator::make(
             $request->all(),
             [
@@ -119,10 +128,21 @@ class JobController extends Controller
                 'description'  => 'required',
             ],
         );
+        if (!empty($job->slug)) {
+            $data['slug'] = $job->slug;
+        } else {
+            $slug = Str::slug($request->name);
+            $count = Job::where('slug', $slug)->count();
+            if ($count > 0) {
+                $slug = $slug . '-' . date('ymdis') . '-' . rand(0, 999);
+            }
+            $data['slug'] = $slug;
+        }
 
         if ($validator->passes()) {
             Job::findOrFail($id)->update([
                 'name'         => $request->name,
+                'slug'         => $data['slug'],
                 'vacancy'      => $request->vacancy,
                 'deadline'     => $request->deadline,
                 'link'         => $request->link,

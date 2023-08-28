@@ -24,6 +24,7 @@
             color: #247297;
             padding: 0px 4px 0px;
         }
+
         .btn-circle {
             padding: 1px 1px;
             border-radius: 15px;
@@ -39,6 +40,7 @@
         .link_title_admin {
             font-size: 12px;
         }
+
         .site_content_main_card {
             height: 16rem;
         }
@@ -449,138 +451,186 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
-                                Terms and Policy</h6>
-                            <div class="card site_content_main_card card-body border-0 shadow-none mb-0 "
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                {{-- Link Start --}}
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.permission') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">All Permission</span>
+                        {{--<div class="col-lg-3">
+                                <h6 class="card_title_info mb-0 pt-2 text-center">
+                                    Terms and Policy</h6>
+                                <div class="card site_content_main_card card-body border-0 shadow-none mb-0 "
+                                    style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
+
+                                    <div class="row gx-1 mt-1">
+                                        <div class="col-lg-6">
+                                            <a href="{{ route('all.permission') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
+                                                    <div>
+                                                        <span class="link_title_admin">All Permission</span>
+                                                    </div>
+                                                    <a href="{{ route('all.permission') }}">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </a>
                                                 </div>
-                                                <a href="{{ route('all.permission') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="{{ route('all.roles') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
+                                                    <div>
+                                                        <span class="link_title_admin">All Roles</span>
+                                                    </div>
+                                                    <a href="{{ route('all.roles') }}">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.roles') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">All Roles</span>
+                                    <div class="row gx-1 mt-1">
+                                        <div class="col-lg-6">
+                                            <a href="{{ route('all.roles') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
+                                                    <div>
+                                                        <span class="link_title_admin">All Roles in Permission</span>
+                                                    </div>
+                                                    <a href="{{ route('all.roles') }}">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </a>
                                                 </div>
-                                                <a href="{{ route('all.roles') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.roles') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">All Roles in Permission</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="{{ route('add.roles.permission') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
+                                                    <div>
+                                                        <span class="link_title_admin">Roles in Permission</span>
+                                                    </div>
+                                                    <a href="{{ route('add.roles.permission') }}">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </a>
                                                 </div>
-                                                <a href="{{ route('all.roles') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('add.roles.permission') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Roles in Permission</span>
-                                                </div>
-                                                <a href="{{ route('add.roles.permission') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
-                                Techglossy</h6>
-                            <div class="card site_content_main_card card-body border-0 shadow-none mb-0 "
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                {{-- Link Start --}}
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.permission') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Knowledge </span>
+                            <div class="col-lg-3">
+                                <h6 class="card_title_info mb-0 pt-2 text-center">
+                                    Techglossy</h6>
+                                <div class="card site_content_main_card card-body border-0 shadow-none mb-0 "
+                                    style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
+
+                                    <div class="row gx-1 mt-1">
+                                        <div class="col-lg-6">
+                                            <a href="{{ route('all.permission') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
+                                                    <div>
+                                                        <span class="link_title_admin">Knowledge </span>
+                                                    </div>
+                                                    <a href="{{ route('all.permission') }}">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </a>
                                                 </div>
-                                                <a href="{{ route('all.permission') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="{{ route('all.roles') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
+                                                    <div>
+                                                        <span class="link_title_admin">Presentation</span>
+                                                    </div>
+                                                    <a href="{{ route('all.roles') }}">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.roles') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Presentation</span>
+                                    <div class="row gx-1 mt-1">
+                                        <div class="col-lg-6">
+                                            <a href="{{ route('all.roles') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
+                                                    <div>
+                                                        <span class="link_title_admin">Showcase BD </span>
+                                                    </div>
+                                                    <a href="{{ route('all.roles') }}">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </a>
                                                 </div>
-                                                <a href="{{ route('all.roles') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.roles') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Showcase BD </span>
-                                                </div>
-                                                <a href="{{ route('all.roles') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
+                            </div> --}}
+                        <div class="col-lg-3">
+                            <h6 class="card_title_info mb-0 pt-2 text-center">
+                                Quick Link</h6>
+                            <div class="card card-body border-0 shadow-none mb-0"
+                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
+                                <div class="box_details d-flex justify-content-between">
+                                    <a class="text-center py-1" href="{{route('homepage.index')}}" style="color: #247297; font-size: 14px;">
+                                        Homepage
+                                    </a>
+                                    <a class="text-center py-1" href="{{route('learnMore.index')}}" style="color: #247297; font-size: 14px;">
+                                        Learnmore Page
+                                    </a>
+                                </div>
+                                <div class="box_details d-flex justify-content-between">
+                                    <a class="text-center py-1" href="{{route('portfolio-page.index')}}" style="color: #247297; font-size: 14px;">
+                                        Portfolio
+                                    </a>
+                                    <a class="text-center py-1" href="{{route('policy.index')}}" style="color: #247297; font-size: 14px;">
+                                        Terms & Policy
+                                    </a>
+                                </div>
+                                <div class="box_details d-flex justify-content-between">
+                                    <a class="text-center py-1" href="{{route('blog.index')}}" style="color: #247297; font-size: 14px;">
+                                        Blogs
+                                    </a>
+                                    <a class="text-center py-1" href="{{route('clientstory.index')}}" style="color: #247297; font-size: 14px;">
+                                        Client Story
+                                    </a>
+                                </div>
+                                <div class="box_details d-flex justify-content-between">
+                                    <a class="text-center py-1" href="{{route('techglossy.index')}}" style="color: #247297; font-size: 14px;">
+                                        TechGlossary
+                                    </a>
+                                    <a class="text-center py-1" href="{{route('feature.index')}}" style="color: #247297; font-size: 14px;">
+                                        Feature
+                                    </a>
+                                </div>
+                                <div class="box_details d-flex justify-content-between">
+                                    <a class="text-center py-1" href="{{route('document.index')}}" style="color: #247297; font-size: 14px;">
+                                        Document Uploads
+                                    </a>
+                                    <a class="text-center py-1" href="{{route('technology-data.index')}}" style="color: #247297; font-size: 14px;">
+                                        Technology Data
+                                    </a>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        {{-- Quick Link --}}
+                    {{-- <div class="row">
+
                         <div class="col-lg-3">
                             <h6 class="card_title_info mb-0 pt-2 text-center">
                                 Quick Link</h6>
@@ -628,178 +678,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
-                                Feature</h6>
-                            <div class="card card-body border-0 shadow-none mb-0 "
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                {{-- Link Start --}}
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.permission') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Knowledge </span>
-                                                </div>
-                                                <a href="{{ route('all.permission') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.roles') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Presentation</span>
-                                                </div>
-                                                <a href="{{ route('all.roles') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.roles') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Showcase BD </span>
-                                                </div>
-                                                <a href="{{ route('all.roles') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
-                                Client Story</h6>
-                            <div class="card card-body border-0 shadow-none mb-0 "
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                {{-- Link Start --}}
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.permission') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Knowledge </span>
-                                                </div>
-                                                <a href="{{ route('all.permission') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.roles') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Presentation</span>
-                                                </div>
-                                                <a href="{{ route('all.roles') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.roles') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Showcase BD </span>
-                                                </div>
-                                                <a href="{{ route('all.roles') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
-                                Showcase</h6>
-                            <div class="card card-body border-0 shadow-none mb-0 "
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                {{-- Link Start --}}
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.permission') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Knowledge </span>
-                                                </div>
-                                                <a href="{{ route('all.permission') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.roles') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Presentation</span>
-                                                </div>
-                                                <a href="{{ route('all.roles') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.roles') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Showcase BD </span>
-                                                </div>
-                                                <a href="{{ route('all.roles') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    </div> --}}
                 </div>
             </section>
             <!-- Sales Chain Page -->

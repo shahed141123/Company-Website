@@ -11,9 +11,7 @@ use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Payment\StripeController;
 use App\Http\Controllers\Admin\NewsLetterController;
 use App\Http\Controllers\Frontend\CheckoutController;
-
-
-
+use App\Http\Controllers\Frontend\PageController;
 
 //Homepage
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
@@ -74,7 +72,7 @@ Route::get('/solution/{id}/details/', [HomeController::class, 'SolutionDetails']
 
 
 
-Route::get('/single/product/{id}', [HomeController::class, 'ProductDetails'])->name('product.details');
+Route::get('/single/product/{id}', [PageController::class, 'productDetails'])->name('product.details');
 Route::get('/all/software', [HomeController::class, 'AllSoftware']);
 
 
@@ -236,10 +234,10 @@ Route::post('cart_store', [App\Http\Controllers\Frontend\CartController::class,'
 
 
  Route::controller(JobController::class)->group(function () {
-    Route::get('/job_openings', 'JobOpenings')->name('job.openings');
-    Route::get('/job_details/{id}', 'JobDetails')->name('job.details');
-    Route::get('/job_registration', 'JobRegistration')->name('job.registration');
-    Route::post('/job_registration/store', 'JobRegistrationStore')->name('job_registration.store');
+    Route::get('/jobs', 'JobOpenings')->name('job.openings');
+    Route::get('/job-details/{id}', 'JobDetails')->name('job.details');
+    Route::get('/job-registration', 'JobRegistration')->name('job.registration');
+    Route::post('/job-registration/store', 'JobRegistrationStore')->name('job_registration.store');
     // Route::get('/job-register-user', 'jobRegisterUser')->name('job.regiserUser');
 });
 
@@ -249,3 +247,14 @@ Route::post('cart_store', [App\Http\Controllers\Frontend\CartController::class,'
 Route::get('rfq', [HomeController::class, 'rfqCreate'])->name('rfq.create');
 Route::post('rfq/store', [RFQController::class, 'store'])->name('rfq.add');
 Route::get('rfq_common', [HomeController::class, 'RFQCommon'])->name('rfq.common');
+
+
+//Kuka Pages
+Route::controller(PageController::class)->group(function () {
+    Route::get('/{id}/overview', 'overview')->name('brand.overview');
+    Route::get('/{id}/products', 'brandProducts')->name('brand.products');
+    Route::get('/{id}/pdfs', 'brandPdf')->name('brand.pdf');
+    Route::get('/{id}/contents', 'content')->name('brand.content');
+    Route::get('/{id}/contents', 'content')->name('brand.content');
+    Route::get('/{slug}/products', 'ajaxBrandProductsPagination')->name('brand.products.pagination');
+});

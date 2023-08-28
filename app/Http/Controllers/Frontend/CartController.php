@@ -68,9 +68,12 @@ class CartController extends Controller
                 ],
             ]);
         }
-
+        $cart = Cart::count();
         Toastr::success('Successfully Added to Your Cart');
-        return response()->json(['success' => true]);
+        return response()->json([
+            'cartHeader' => $cart,
+            'success' => true
+        ]);
     }
 
 

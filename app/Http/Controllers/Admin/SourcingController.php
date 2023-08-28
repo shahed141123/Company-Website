@@ -39,11 +39,11 @@ class SourcingController extends Controller
     public function index()
     {
         $data['saved_products'] = Product::where('product_status', 'sourcing')->where('action_status', 'save')->latest()
-            ->get(['id', 'slug', 'thumbnail', 'price', 'discount', 'name', 'stock', 'source_one_price', 'source_two_price', 'action_status','added_by']);
+            ->get(['id', 'slug', 'thumbnail', 'price', 'discount', 'name', 'stock', 'source_one_price', 'source_two_price', 'action_status', 'price_status', 'added_by']);
         $data['products'] = Product::where('product_status', 'sourcing')->where('action_status', '!=', 'save')->latest()
-            ->get(['id', 'slug', 'thumbnail', 'price', 'discount', 'name', 'stock', 'source_one_price', 'source_two_price', 'action_status','added_by']);
+            ->get(['id', 'slug', 'thumbnail', 'price', 'discount', 'name', 'stock', 'source_one_price', 'source_two_price', 'action_status', 'price_status', 'added_by']);
         $data['real_products'] = Product::where('product_status', 'product')->latest()
-            ->get(['id', 'slug', 'thumbnail', 'price', 'discount', 'name', 'stock', 'source_one_price', 'source_two_price', 'action_status','added_by']);
+            ->get(['id', 'slug', 'thumbnail', 'price', 'discount', 'name', 'stock', 'source_one_price', 'source_two_price', 'action_status', 'price_status', 'added_by']);
         return view('admin.pages.product_sourcing.all', $data);
     }
 
@@ -94,23 +94,16 @@ class SourcingController extends Controller
             ]
         );
 
-        //dd($request->all());
-        // if (($request->source_approval) == null) {
-            if ($request->source_one_price > $request->source_two_price ) {
-                $source_one_approval = '0';
-                $source_two_approval = '1';
-            } else {
-                $source_one_approval = '1';
-                $source_two_approval = '0';
-            }
 
-        // } elseif (($request->source_approval) == 'one') {
-        //     $source_one_approval = '1';
-        //     $source_two_approval = '0';
-        // } else {
-        //     $source_one_approval = '0';
-        //     $source_two_approval = '1';
-        // }
+        if ($request->source_one_price > $request->source_two_price) {
+            $source_one_approval = '0';
+            $source_two_approval = '1';
+        } else {
+            $source_one_approval = '1';
+            $source_two_approval = '0';
+        }
+
+
         if (($request->action) == 'save') {
             if ($validator->passes()) {
                 //dd($input);
@@ -121,8 +114,8 @@ class SourcingController extends Controller
                 }
                 $data['slug'] = $slug;
 
-                if (($request->rfq) !== NULL) {
-                    $data['rfq'] = $request->rfq;
+                if (($request->price_status) == 'rfq') {
+                    $data['rfq'] = '1';
                 } else {
                     $data['rfq'] = '0';
                 }
@@ -255,11 +248,13 @@ class SourcingController extends Controller
                     $slug = $slug . '-' . date('ymdis') . '-' . rand(0, 999);
                 }
                 $data['slug'] = $slug;
-                if (($request->rfq) !== NULL) {
-                    $data['rfq'] = $request->rfq;
+
+                if (($request->price_status) == 'rfq') {
+                    $data['rfq'] = '1';
                 } else {
                     $data['rfq'] = '0';
                 }
+
                 if (($request->price_status) !== NULL) {
                     $data['price_status'] = $request->price_status;
                 } else {
@@ -338,6 +333,7 @@ class SourcingController extends Controller
                     'agreement'                 => $request->agreement,
                     'source_type'               => $request->source_type,
                     'source_contact'            => $request->source_contact,
+                    'sas_price'                 => $request->sas_price,
                     'added_by'                  => Auth::user()->name,
                     'action_status'             => 'listed',
                     'product_status'            => 'sourcing',
@@ -434,7 +430,7 @@ class SourcingController extends Controller
                     Toastr::error($message, 'Failed', ['timeOut' => 30000]);
                 }
             }
-             Notification::send($users, new SourcingNotification($name , $slug));
+            Notification::send($users, new SourcingNotification($name, $slug));
 
             return redirect()->route('product-sourcing.index');
         }
@@ -460,13 +456,13 @@ class SourcingController extends Controller
     public function edit($id)
     {
         $data['multiImgs']           = MultiImage::where('product_id', $id)->get();
-        $data['brands']              = Brand::latest('id', 'DESC')->get(['id','title']);
-        $data['categories']          = Category::orderBy('id', 'DESC')->get(['id','title']);
-        $data['sub_cats']            = SubCategory::orderBy('id', 'DESC')->get(['id','title']);
-        $data['sub_sub_cats']        = SubSubCategory::orderBy('id', 'DESC')->get(['id','title']);
-        $data['sub_sub_sub_cats']    = SubSubSubCategory::orderBy('id', 'DESC')->get(['id','title']);
-        $data['industrys']           = Industry::orderBy('id', 'DESC')->get(['id','title']);
-        $data['solutions']           = SolutionDetail::orderBy('id', 'DESC')->get(['id','name']);
+        $data['brands']              = Brand::latest('id', 'DESC')->get(['id', 'title']);
+        $data['categories']          = Category::orderBy('id', 'DESC')->get(['id', 'title']);
+        $data['sub_cats']            = SubCategory::orderBy('id', 'DESC')->get(['id', 'title']);
+        $data['sub_sub_cats']        = SubSubCategory::orderBy('id', 'DESC')->get(['id', 'title']);
+        $data['sub_sub_sub_cats']    = SubSubSubCategory::orderBy('id', 'DESC')->get(['id', 'title']);
+        $data['industrys']           = Industry::orderBy('id', 'DESC')->get(['id', 'title']);
+        $data['solutions']           = SolutionDetail::orderBy('id', 'DESC')->get(['id', 'name']);
         $data['products']            = Product::findOrFail($id);
         $data['selectedSolutions']   = $data['products']->solutions->pluck('id')->toArray();
         $data['selectedIndustries']  = $data['products']->industries->pluck('id')->toArray();
@@ -483,24 +479,31 @@ class SourcingController extends Controller
     public function update(Request $request, $id)
     {
         $product_id = $id;
+        $product = Product::where('id', $id)->first();
         //dd($product_id);
-        if (($request->source_approval) == 'one') {
-            $source_one_approval = '1';
-            $source_two_approval = '0';
-        } else {
+        if ($request->source_one_price > $request->source_two_price) {
             $source_one_approval = '0';
             $source_two_approval = '1';
+        } else {
+            $source_one_approval = '1';
+            $source_two_approval = '0';
+        }
+
+        if (!empty($product->slug)) {
+            $data['slug'] = $product->slug;
+        } else {
+            $slug = Str::slug($request->name);
+            $count = Product::where('slug', $slug)->count();
+            if ($count > 0) {
+                $slug = $slug . '-' . date('ymdis') . '-' . rand(0, 999);
+            }
+            $data['slug'] = $slug;
         }
 
 
-        $slug = Str::slug($request->name);
-        $count = Product::where('slug', $slug)->count();
-        if ($count > 0) {
-            $slug = $slug . '-' . date('ymdis') . '-' . rand(0, 999);
-        }
-        $data['slug'] = $slug;
-        if (($request->rfq) !== NULL) {
-            $data['rfq'] = $request->rfq;
+
+        if (($request->price_status) == 'rfq') {
+            $data['rfq'] = '1';
         } else {
             $data['rfq'] = '0';
         }
@@ -509,7 +512,7 @@ class SourcingController extends Controller
 
 
             'name'                      => $request->name,
-            //'ref_code'                => $data['ref_code'],
+            'ref_code'                  => $product->ref_code,
             'slug'                      => $data['slug'],
             'sku_code'                  => $request->sku_code,
             'mf_code'                   => $request->mf_code,
@@ -526,10 +529,6 @@ class SourcingController extends Controller
             'qty'                       => $request->qty,
             'rfq'                       => $data['rfq'],
             'price_status'              => $request->price_status,
-
-            // 'status'                 => 'active',
-            // 'price'                  => $request->price,
-            // 'discount'               => $request->discount,
             'deal'                      => $request->deal,
             'refurbished'               => $request->refurbished,
             'product_type'              => $request->product_type,
@@ -552,13 +551,6 @@ class SourcingController extends Controller
             'competetor_two_link'       => $request->competetor_two_link,
             'source_one_approval'       => $source_one_approval,
             'source_two_approval'       => $source_two_approval,
-            'notification_days'         => $request->notification_days,
-            //'source_three_approval'   => $request->source_three_approval,
-            'solid_source'              => $request->solid_source,
-            'direct_principal'          => $request->direct_principal,
-            'agreement'                 => $request->agreement,
-            'source_type'               => $request->source_type,
-            'source_contact'            => $request->source_contact,
             'source_one_estimate_time'  => $request->source_one_estimate_time,
             'source_one_principal_time' => $request->source_one_principal_time,
             'source_one_shipping_time'  => $request->source_one_shipping_time,
@@ -569,23 +561,54 @@ class SourcingController extends Controller
             'source_two_shipping_time'  => $request->source_two_shipping_time,
             'source_two_location'       => $request->source_two_location,
             'source_two_country'        => $request->source_two_country,
+            'notification_days'         => $request->notification_days,
+            'solid_source'              => $request->solid_source,
+            'direct_principal'          => $request->direct_principal,
+            'agreement'                 => $request->agreement,
+            'source_type'               => $request->source_type,
+            'source_contact'            => $request->source_contact,
+            'sas_price'                 => $request->sas_price,
+            'added_by'                  => Auth::user()->name,
             'action_status'             => 'listed',
             'product_status'            => 'sourcing',
             'updated_at'                => Carbon::now(),
 
         ]);
 
-        Toastr::success('Product Updated Without Image Successfully');
-        $product = Product::where('id', $product_id)->first();
-        $sas = Sas::where('ref_code', $product->ref_code)->first();
+            $name = Auth::user()->name;
+            $users = User::where(function ($query) {
+                $query->whereJsonContains('department', 'business')
+                    ->orwhereJsonContains('department', 'logistics');
+            })->where('role', 'admin')->get();
+            $slug = $data['slug'];
+            $user_emails = User::where(function ($query) {
+                $query->whereJsonContains('department', 'business')
+                    ->orwhereJsonContains('department', 'logistics');
+            })->where('role', 'admin')->pluck('email')->toArray();
 
-        // if (!empty($sas)) {
-        //     return redirect()->route('sas.edit', [$sas->ref_code]);
-        // }else {
-        //         $data['product'] = Product::where('id' , $product_id)->first();
-        //         return redirect()->route('sourcing.sas',$data['product']->slug);
-        // }
 
+                $data = [
+                    'added_by'    => $name,
+                    'name'        => $request->name,
+                    'sku_code'    => $request->sku_code,
+                    'photo'       => $product->thumnail,
+                    'create_date' => date('Y-m-d', strtotime(Carbon::now())),
+                    'category'    => Category::where('id', $request->cat_id)->value('title'),
+                    'brand'       => Brand::where('id', $request->brand_id)->value('title'),
+                    'product_id'  => $data['slug'],
+                ];
+
+
+                $mail = Mail::to($user_emails);
+                if ($mail) {
+                    $mail->send(new ProductSourcing($data));
+                    Toastr::success('Data has added Successfully');
+                } else {
+                    Toastr::error('Email Failed to send', ['timeOut' => 30000]);
+                    return redirect()->back();
+                }
+                Toastr::success('Product Updated Without Image Successfully');
+                Notification::send($users, new SourcingNotification($name, $slug));
 
         return redirect()->back();
     }

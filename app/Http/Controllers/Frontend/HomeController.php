@@ -28,6 +28,8 @@ use App\Models\Admin\PortfolioPage;
 use App\Models\Admin\PortfolioTeam;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\AboutUs;
+use App\Models\Admin\Country;
+use App\Models\Admin\DocumentPdf;
 use App\Models\Admin\Faq;
 use App\Models\Admin\SolutionDetail;
 use App\Models\Admin\SubSubCategory;
@@ -66,12 +68,14 @@ class HomeController extends Controller
 
     public function index()
     {
+
         $data['home'] = Homepage::latest('id', 'desc')->with([
             'feature1', 'feature2', 'feature3', 'feature4', 'feature5',
             'success1', 'success2', 'success3',
             'story1', 'story2', 'story3', 'story4',
             'techglossy'
         ])->first();
+
         $data['feature1']   = $data['home']->feature1;
         $data['feature2']   = $data['home']->feature2;
         $data['feature3']   = $data['home']->feature3;
@@ -85,63 +89,227 @@ class HomeController extends Controller
         $data['story3']     = $data['home']->story3;
         $data['story4']     = $data['home']->story4;
         $data['techglossy'] = $data['home']->techglossy;
-        // $data['home'] = Homepage::latest('id', 'desc')->first();
 
 
-        // $data['products'] = Product::inRandomOrder()->where('product_status', 'product')
-        //         // ->select('products.id', 'products.rfq', 'products.slug', 'products.name', 'products.thumbnail', 'products.price', 'products.discount', 'products.price_status')
-        //         ->limit(12)->get(['id','rfq','slug','name','thumbnail','price','discount','price_status'])->unique('brand_id');
+        // $data['products'] = [];
 
-        $uniqueProducts = Product::whereIn('brand_id', function ($query) {
-            $query->select('brand_id')
-                ->from('products')
-                ->where('product_status', 'product')
-                ->groupBy('brand_id')
-                ->havingRaw('COUNT(id) >= 1'); // Ensures at least one product per brand
-        })
-            ->inRandomOrder()
-            ->get(['id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'price_status', 'brand_id']);
+        // for ($i = 0; $i < 10; $i++) {
+        //     $softwareProducts = DB::table('products')
+        //         ->select('id', 'brand_id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'price_status')
+        //         ->where('product_status', 'product')
+        //         ->where('product_type', 'software')
+        //         ->inRandomOrder()
+        //         ->limit(2)
+        //         ->get();
 
-        // Since the products are already randomly ordered, we can take the first product of each brand from the collection
-        $data['products'] = $uniqueProducts->unique('brand_id')->values()->take(12);
+        //     $hardwareProducts = DB::table('products')
+        //         ->select('id', 'brand_id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'price_status')
+        //         ->where('product_status', 'product')
+        //         ->where('product_type', 'hardware')
+        //         ->inRandomOrder()
+        //         ->limit(2)
+        //         ->get();
 
+        //     foreach ($softwareProducts as $softwareProduct) {
+        //         $data['products'][] = $softwareProduct;
+        //     }
 
-
-
-        // if ($data['home']) {
-        //     $data['feature1']   = Feature::where('id', $data['home']->story1_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
-        //     $data['feature2']   = Feature::where('id', $data['home']->story2_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
-        //     $data['feature3']   = Feature::where('id', $data['home']->story3_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
-        //     $data['feature4']   = Feature::where('id', $data['home']->story4_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
-        //     $data['feature5']   = Feature::where('id', $data['home']->story5_id)->select('id', 'logo', 'badge', 'title', 'header')->first();
-        //     $data['success1']   = Success::where('id', $data['home']->success1_id)->select('id', 'title', 'description')->first();
-        //     $data['success2']   = Success::where('id', $data['home']->success2_id)->select('id', 'title', 'description')->first();
-        //     $data['success3']   = Success::where('id', $data['home']->success3_id)->select('id', 'title', 'description')->first();
-        //     $data['story1']     = ClientStory::where('id', $data['home']->solution1_id)->select('id', 'image', 'badge', 'title', 'header')->first();
-        //     $data['story2']     = ClientStory::where('id', $data['home']->solution2_id)->select('id', 'image', 'badge', 'title', 'header')->first();
-        //     $data['story3']     = ClientStory::where('id', $data['home']->solution3_id)->select('id', 'image', 'badge', 'title', 'header')->first();
-        //     $data['story4']     = ClientStory::where('id', $data['home']->solution4_id)->select('id', 'image', 'badge', 'title', 'header')->first();
-        //     $data['techglossy'] = TechGlossy::where('id', $data['home']->techglossy_id)->select('id', 'image', 'badge', 'title', 'header')->first();
+        //     foreach ($hardwareProducts as $hardwareProduct) {
+        //         $data['products'][] = $hardwareProduct;
+        //     }
         // }
+
+        $productColumns = ['id', 'brand_id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'price_status'];
+
+        $softwareProducts = DB::table('products')
+            ->select($productColumns)
+            ->where('product_status', 'product')
+            ->where('product_type', 'software')
+            ->orderByRaw('RAND()')
+            ->limit(10) // Fetch 10 software products at once
+            ->get();
+
+        $hardwareProducts = DB::table('products')
+            ->select($productColumns)
+            ->where('product_status', 'product')
+            ->where('product_type', 'hardware')
+            ->orderByRaw('RAND()')
+            ->limit(10) // Fetch 10 hardware products at once
+            ->get();
+
+        $data['products'] = $softwareProducts->merge($hardwareProducts)->shuffle()->take(10);
+
+
+
 
         return view('frontend.pages.home.index', $data);
     }
 
+
+    public function softwareInfo()
+    {
+        $data['software_info'] = SoftwareInfoPage::latest()->first();
+        if (!empty($data['software_info'])) {
+            $data['tab_one'] = Row::where('id', $data['software_info']->row_five_tab_one_id)->first();
+            $data['tab_two'] = Row::where('id', $data['software_info']->row_five_tab_two_id)->first();
+            $data['tab_three'] = Row::where('id', $data['software_info']->row_five_tab_three_id)->first();
+            $data['tab_four'] = Row::where('id', $data['software_info']->row_five_tab_four_id)->first();
+        }
+        $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
+        $data['categories'] = SubCategory::with('subCatsoftwareProducts')
+            ->join('products', 'sub_categories.id', '=', 'products.sub_cat_id')
+            ->where('products.product_type', '=', 'software')
+            ->select('sub_categories.id', 'sub_categories.slug', 'sub_categories.title', 'sub_categories.image')
+            ->distinct()->inRandomOrder()->limit(12)->get();
+        $data['brands'] = Brand::with('brandsoftwareProducts')
+            ->join('products', 'brands.id', '=', 'products.brand_id')
+            ->where('products.product_type', '=', 'software')
+            ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
+            ->distinct()->inRandomOrder()->limit(12)->get();
+
+        $data['products'] = Product::where('product_type', 'software')->where('product_status', 'product')
+            ->select('products.id', 'products.rfq', 'products.slug', 'products.name', 'products.thumbnail', 'products.price', 'products.discount')
+            ->inRandomOrder()
+            ->limit(16)
+            ->get();
+        $data['industrys'] = Industry::select('industries.id', 'industries.logo', 'industries.title')->orderBy('id', 'ASC')->limit(8)->get();
+        $data['random_industries'] = Industry::select('industries.id', 'industries.title')->orderBy('id', 'DESC')->limit(4)->get();
+        $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
+        //dd($data['categories']);
+        return view('frontend.pages.software.software_info', $data);
+    }
+
+    public function hardwareInfo()
+    {
+        $data['hardware_info'] = HardwareInfoPage::latest()->first();
+        if (!empty($data['hardware_info'])) {
+            $data['tab_one'] = Row::where('id', $data['hardware_info']->row_five_tab_one_id)->first();
+            $data['tab_two'] = Row::where('id', $data['hardware_info']->row_five_tab_two_id)->first();
+            $data['tab_three'] = Row::where('id', $data['hardware_info']->row_five_tab_three_id)->first();
+            $data['tab_four'] = Row::where('id', $data['hardware_info']->row_five_tab_four_id)->first();
+        }
+        $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
+        $data['categories'] = Category::with('subCathardwareProducts')
+            ->join('products', 'categories.id', '=', 'products.cat_id')
+            ->where('products.product_type', '=', 'hardware')
+            ->select('categories.id', 'categories.slug', 'categories.title', 'categories.image')
+            ->distinct()->inRandomOrder()->limit(12)->get();
+        $data['products'] = Product::where('product_type', 'hardware')->where('product_status', 'product')
+            ->select('products.id', 'products.rfq', 'products.slug', 'products.name', 'products.thumbnail', 'products.price', 'products.discount')
+            ->inRandomOrder()
+            ->limit(16)
+            ->get();
+        $data['brands'] = Brand::with('brandhardwareProducts')
+            ->join('products', 'brands.id', '=', 'products.brand_id')
+            ->where('products.product_type', '=', 'hardware')
+            ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
+            ->distinct()->inRandomOrder()->limit(12)->get();
+        $data['industrys'] = Industry::select('industries.id', 'industries.logo', 'industries.title')->orderBy('id', 'ASC')->limit(8)->get();
+        $data['tech_datas'] = TechnologyData::where('category', 'hardware')->orderBy('id', 'ASC')->get();
+        $data['random_industries'] = Industry::select('industries.id', 'industries.title')->orderBy('id', 'DESC')->limit(4)->get();
+        return view('frontend.pages.hardware.hardware_info', $data);
+    }
+
+
+
+
+    public function SoftwareCommon()
+    {
+        $learnMore = LearnMore::orderBy('id', 'DESC')
+            ->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
+
+        $products = Product::where('product_type', 'software')
+            ->where('product_status', 'product')
+            ->orderByRaw('RAND()')
+            ->limit(16)
+            ->get(['id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount']);
+
+        $categories = SubCategory::with('subCatsoftwareProducts')
+            ->join('products', 'sub_categories.id', '=', 'products.sub_cat_id')
+            ->where('products.product_type', '=', 'software')
+            ->select('sub_categories.id', 'sub_categories.slug', 'sub_categories.title', 'sub_categories.image')
+            ->distinct()->orderByRaw('RAND()')->limit(12)->get();
+        $brands = Brand::with('brandsoftwareProducts')
+            ->join('products', 'brands.id', '=', 'products.brand_id')
+            ->where('products.product_type', '=', 'software')
+            ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
+            ->distinct()->orderByRaw('RAND()')->limit(12)->get();
+
+        $solutions = SolutionDetail::orderBy('id', 'DESC')->limit(10)->get(['id', 'name']);
+
+        $randomClientStories = ClientStory::inRandomOrder()->limit(2)->get();
+        $story3 = $randomClientStories->first();
+        $story4 = $randomClientStories->last();
+
+        // Use cached results for 'story1' and 'story2' as they are random blog posts
+        $randomBlogPosts = Blog::inRandomOrder()->limit(2)->get();
+        $story1 = $randomBlogPosts->first();
+        $story2 = $randomBlogPosts->last();
+
+        $tech_datas = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
+
+        $industrys = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'logo', 'title']);
+        $random_industries = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'title']);
+
+        return view('frontend.pages.software.allsoftware', compact('learnMore', 'products', 'categories', 'brands', 'solutions', 'story1', 'story2', 'story3', 'story4', 'tech_datas', 'industrys', 'random_industries'));
+    }
+
+    //Hardware All Pge
+
+    public function HardwareCommon()
+    {
+        // Query 1 - LearnMore
+
+        $data['learnmore'] = LearnMore::orderBy('id', 'DESC')
+            ->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
+
+        // Query 2 - Products (Software)
+        $data['products'] = Product::where('product_type', 'software')
+            ->where('product_status', 'product')
+            ->orderByRaw('RAND()')
+            ->limit(16)
+            ->get(['id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount']);
+
+        $data['categories'] = Category::with('subCathardwareProducts')
+            ->join('products', 'categories.id', '=', 'products.cat_id')
+            ->where('products.product_type', '=', 'hardware')
+            ->select('categories.id', 'categories.slug', 'categories.title', 'categories.image')
+            ->distinct()->orderByRaw('RAND()')->limit(12)->get();
+
+        $data['brands'] = Brand::with('brandhardwareProducts')
+            ->join('products', 'brands.id', '=', 'products.brand_id')
+            ->where('products.product_type', '=', 'hardware')
+            ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
+            ->distinct()->orderByRaw('RAND()')->limit(12)->get();
+
+        // Query 5 - SolutionDetail
+        $data['solutions'] = SolutionDetail::orderBy('id', 'DESC')->limit(10)->get(['id', 'name']);
+
+        $randomClientStories = ClientStory::inRandomOrder()->limit(2)->get();
+        $data['story3'] = $randomClientStories->first();
+        $data['story4'] = $randomClientStories->last();
+
+        // Use cached results for 'story1' and 'story2' as they are random blog posts
+        $randomBlogPosts = Blog::inRandomOrder()->limit(2)->get();
+        $data['story1'] = $randomBlogPosts->first();
+        $data['story2'] = $randomBlogPosts->last();
+
+        $data['tech_datas'] = TechnologyData::where('category', 'hardware')->orderBy('id', 'ASC')->get();
+        $data['industrys'] = Industry::select('industries.id', 'industries.logo', 'industries.title', 'industries.slug')->orderBy('id', 'ASC')->limit(8)->get();
+        $data['random_industries'] = Industry::select('industries.id', 'industries.title', 'industries.slug')->orderBy('id', 'DESC')->limit(4)->get();
+
+        return view('frontend.pages.hardware.allhardware', $data);
+    }
+
+
+
+
+
+
+
     //Learn More
 
-    // public function LearnMore()
-    // {
-    //     $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->first();
-    //     if ($data['learnmore']) {
 
-    //         $data['story1'] = ClientStory::where('id', $data['learnmore']->success_story_one_id)->first();
-    //         $data['story2'] = ClientStory::where('id', $data['learnmore']->success_story_two_id)->first();
-    //         $data['story3'] = ClientStory::where('id', $data['learnmore']->success_story_three_id)->first();
-    //     }
-    //     $data['industrys'] = Industry::select('industries.id', 'industries.logo', 'industries.title')->orderBy('id', 'ASC')->limit(8)->get();
-    //     $data['random_industries'] = Industry::select('industries.id', 'industries.title')->orderBy('id', 'DESC')->limit(4)->get();
-    //     return view('frontend.pages.learnmore.view', $data);
-    // }
     public function LearnMore()
     {
         $learnmore = LearnMore::with([
@@ -181,6 +349,7 @@ class HomeController extends Controller
             $data['row2'] = Row::where('id', $data['about']->row_two_id)->first();
             $data['row3'] = Row::where('id', $data['about']->row_three_id)->first();
         }
+        $data['pdfs'] = DocumentPdf::where('category', 'company')->latest('id', 'desc')->limit(4)->get(['document', 'button_name', 'button_link']);
         return view('frontend.pages.about.about', $data);
     }
 
@@ -258,7 +427,9 @@ class HomeController extends Controller
     {
         $data['setting'] = Site::latest()->first();
         $data['locations'] = OfficeLocation::orderBy('name', 'ASC')->get();
-        $data['tech_datas'] = TechnologyData::inRandomOrder()->orderBy('id', 'desc')->limit(6)->get();
+        $country_ids = $data['locations']->pluck('country_id')->unique()->toArray();
+        $data['countries']  = Country::whereIn('id', $country_ids)->get();
+        $data['tech_datas'] = TechnologyData::where('category', 'location')->orderBy('id', 'desc')->limit(6)->get();
         return view('frontend.pages.contact.location', $data);
     }
 
@@ -439,27 +610,7 @@ class HomeController extends Controller
 
     //Product Details
 
-    public function ProductDetails($id)
-    {
-        //dd($id);
-
-        $data['sproduct'] = Product::where('slug', $id)->where('product_status', 'product')->first();
-        //dd($data['sproduct']);
-
-
-        if (!empty($data['sproduct']->cat_id)) {
-            $data['products'] = Product::where('cat_id', $data['sproduct']->cat_id)
-                ->where('product_status', 'product')
-                ->select('products.id', 'products.rfq', 'products.slug', 'products.name', 'products.thumbnail', 'products.price', 'products.discount')
-                ->limit(12)
-                ->distinct()
-                ->get();
-        } else {
-            $data['products'] = Product::inRandomOrder()->where('product_status', 'product')->limit(8)->get();
-        }
-
-        return view('frontend.pages.product.product_details', $data);
-    }
+    
 
 
 
@@ -624,15 +775,7 @@ class HomeController extends Controller
 
     public function AllIndustry()
     {
-        // $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
-        // $data['industrys'] = Industry::select('industries.id', 'industries.logo', 'industries.title','industries.slug')->orderBy('id', 'ASC')->limit(8)->get();
-        // $data['random_industries'] = Industry::select('industries.id', 'industries.title','industries.slug')->orderBy('id', 'DESC')->limit(4)->get();
-        // $data['story3'] = ClientStory::inRandomOrder()->first();
-        // $data['story4'] = ClientStory::inRandomOrder()->where('id', '!=', $data['story3']->id)->first();
-        // $data['story1'] = Blog::inRandomOrder()->first();
-        // $data['story2'] = Blog::inRandomOrder()->where('id', '!=', $data['story1']->id)->first();
-        // $data['techglossy'] = TechGlossy::inRandomOrder()->first();
-        // $data['tech_datas'] = TechnologyData::where('category', 'industry')->orderBy('id', 'ASC')->get();
+
         $data = [];
 
         $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
@@ -698,165 +841,7 @@ class HomeController extends Controller
     }
 
 
-    public function softwareInfo()
-    {
-        $data['software_info'] = SoftwareInfoPage::latest()->first();
-        if (!empty($data['software_info'])) {
-            $data['tab_one'] = Row::where('id', $data['software_info']->row_five_tab_one_id)->first();
-            $data['tab_two'] = Row::where('id', $data['software_info']->row_five_tab_two_id)->first();
-            $data['tab_three'] = Row::where('id', $data['software_info']->row_five_tab_three_id)->first();
-            $data['tab_four'] = Row::where('id', $data['software_info']->row_five_tab_four_id)->first();
-        }
-        $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
-        $data['categories'] = SubCategory::with('subCatsoftwareProducts')
-            ->join('products', 'sub_categories.id', '=', 'products.sub_cat_id')
-            ->where('products.product_type', '=', 'software')
-            ->select('sub_categories.id', 'sub_categories.slug', 'sub_categories.title', 'sub_categories.image')
-            ->distinct()->inRandomOrder()->limit(12)->get();
-        $data['brands'] = Brand::with('brandsoftwareProducts')
-            ->join('products', 'brands.id', '=', 'products.brand_id')
-            ->where('products.product_type', '=', 'software')
-            ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
-            ->distinct()->inRandomOrder()->limit(12)->get();
 
-        $data['products'] = Product::where('product_type', 'software')->where('product_status', 'product')
-            ->select('products.id', 'products.rfq', 'products.slug', 'products.name', 'products.thumbnail', 'products.price', 'products.discount')
-            ->inRandomOrder()
-            ->limit(16)
-            ->get();
-        $data['industrys'] = Industry::select('industries.id', 'industries.logo', 'industries.title')->orderBy('id', 'ASC')->limit(8)->get();
-        $data['random_industries'] = Industry::select('industries.id', 'industries.title')->orderBy('id', 'DESC')->limit(4)->get();
-        $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
-        //dd($data['categories']);
-        return view('frontend.pages.software.software_info', $data);
-    }
-
-    public function hardwareInfo()
-    {
-        $data['hardware_info'] = HardwareInfoPage::latest()->first();
-        if (!empty($data['hardware_info'])) {
-            $data['tab_one'] = Row::where('id', $data['hardware_info']->row_five_tab_one_id)->first();
-            $data['tab_two'] = Row::where('id', $data['hardware_info']->row_five_tab_two_id)->first();
-            $data['tab_three'] = Row::where('id', $data['hardware_info']->row_five_tab_three_id)->first();
-            $data['tab_four'] = Row::where('id', $data['hardware_info']->row_five_tab_four_id)->first();
-        }
-        $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
-        $data['categories'] = Category::with('subCathardwareProducts')
-            ->join('products', 'categories.id', '=', 'products.cat_id')
-            ->where('products.product_type', '=', 'hardware')
-            ->select('categories.id', 'categories.slug', 'categories.title', 'categories.image')
-            ->distinct()->inRandomOrder()->limit(12)->get();
-        $data['products'] = Product::where('product_type', 'hardware')->where('product_status', 'product')
-            ->select('products.id', 'products.rfq', 'products.slug', 'products.name', 'products.thumbnail', 'products.price', 'products.discount')
-            ->inRandomOrder()
-            ->limit(16)
-            ->get();
-        $data['brands'] = Brand::with('brandhardwareProducts')
-            ->join('products', 'brands.id', '=', 'products.brand_id')
-            ->where('products.product_type', '=', 'hardware')
-            ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
-            ->distinct()->inRandomOrder()->limit(12)->get();
-        $data['industrys'] = Industry::select('industries.id', 'industries.logo', 'industries.title')->orderBy('id', 'ASC')->limit(8)->get();
-        $data['tech_datas'] = TechnologyData::where('category', 'hardware')->orderBy('id', 'ASC')->get();
-        $data['random_industries'] = Industry::select('industries.id', 'industries.title')->orderBy('id', 'DESC')->limit(4)->get();
-        return view('frontend.pages.hardware.hardware_info', $data);
-    }
-
-
-
-
-    public function SoftwareCommon()
-    {
-        $learnMore = LearnMore::latest('id', 'DESC')
-            ->select('industry_header', 'consult_title', 'consult_short_des', 'background_image')
-            ->first();
-
-        $products = Product::where('product_type', 'software')
-            ->where('product_status', 'product')
-            ->inRandomOrder()
-            ->limit(16)
-            ->get(['id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount']);
-
-        $categories = SubCategory::with('subCatsoftwareProducts')
-            ->join('products', 'sub_categories.id', '=', 'products.sub_cat_id')
-            ->where('products.product_type', '=', 'software')
-            ->select('sub_categories.id', 'sub_categories.slug', 'sub_categories.title', 'sub_categories.image')
-            ->distinct()->inRandomOrder()->limit(12)->get();
-        $brands = Brand::with('brandsoftwareProducts')
-            ->join('products', 'brands.id', '=', 'products.brand_id')
-            ->where('products.product_type', '=', 'software')
-            ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
-            ->distinct()->inRandomOrder()->limit(12)->get();
-
-        $solutions = SolutionDetail::orderBy('id', 'DESC')->limit(10)->get(['id', 'name']);
-
-        $story1 = Blog::inRandomOrder()->select('id', 'badge', 'title', 'header', 'image')->first();
-
-        if ($story1) {
-            $story2 = Blog::inRandomOrder()->where('id', '!=', $story1->id)->select('id', 'badge', 'title', 'header', 'image')->first();
-        } else {
-            $story2 = null;
-        }
-
-        $story3 = ClientStory::inRandomOrder()->select('id', 'badge', 'title', 'header', 'image')->first();
-
-        if ($story3) {
-            $story4 = ClientStory::inRandomOrder()->where('id', '!=', $story3->id)->select('id', 'badge', 'title', 'header', 'image')->first();
-        } else {
-            $story4 = null;
-        }
-
-        $tech_datas = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
-
-        $industrys = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'logo', 'title']);
-        $random_industries = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'title']);
-
-        return view('frontend.pages.software.allsoftware', compact('learnMore', 'products', 'categories', 'brands', 'solutions', 'story1', 'story2', 'story3', 'story4', 'tech_datas', 'industrys', 'random_industries'));
-    }
-
-    //Hardware All Pge
-
-    public function HardwareCommon()
-    {
-        // Query 1 - LearnMore
-        $data['learnMore'] = LearnMore::latest('id', 'DESC')
-            ->select('industry_header', 'consult_title', 'consult_short_des', 'background_image')
-            ->first();
-
-        // Query 2 - Products (Software)
-        $data['products'] = Product::where('product_type', 'software')
-            ->where('product_status', 'product')
-            ->inRandomOrder()
-            ->limit(16)
-            ->get(['id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount']);
-
-        $data['categories'] = Category::with('subCathardwareProducts')
-            ->join('products', 'categories.id', '=', 'products.cat_id')
-            ->where('products.product_type', '=', 'hardware')
-            ->select('categories.id', 'categories.slug', 'categories.title', 'categories.image')
-            ->distinct()->inRandomOrder()->limit(12)->get();
-
-        $data['brands'] = Brand::with('brandhardwareProducts')
-            ->join('products', 'brands.id', '=', 'products.brand_id')
-            ->where('products.product_type', '=', 'hardware')
-            ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
-            ->distinct()->inRandomOrder()->limit(12)->get();
-
-        // Query 5 - SolutionDetail
-        $data['solutions'] = SolutionDetail::orderBy('id', 'DESC')->limit(10)->get(['id', 'name']);
-
-        $data['story1'] = Blog::inRandomOrder()->first();
-        if (!empty($data['story1'])) {
-            $data['story2'] = Blog::inRandomOrder()->where('id', '!=', $data['story1']->id)->first();
-            $data['story3'] = ClientStory::inRandomOrder()->first();
-            $data['story4'] = ClientStory::inRandomOrder()->where('id', '!=', $data['story3']->id)->first();
-        }
-        $data['tech_datas'] = TechnologyData::where('category', 'hardware')->orderBy('id', 'ASC')->get();
-        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'logo', 'title']);
-        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'title']);
-
-        return view('frontend.pages.hardware.allhardware', $data);
-    }
 
 
 

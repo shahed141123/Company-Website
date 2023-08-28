@@ -4,8 +4,8 @@
         font-size: 18px;
         cursor: pointer;
         position: fixed;
-        bottom: 50%;
-        left: -15px;
+        bottom: 30%;
+        right: -14px;
         background-color: var(--crimson);
         color: white;
         padding: 5px 10px;
@@ -154,7 +154,7 @@
 
     </div>
 
-
+{{-- RFQ Button --}}
     <div class="">
         <button class="feedback_upper_modal" data-bs-toggle="modal" data-bs-target="#rfqModal">RFQ <i
             class="fa-solid fa-question" style="font-size: 15px;"></i></button>
@@ -310,7 +310,7 @@
         </div>
     </div>
 
-
+{{-- RFQ Button --}}
 
 
 

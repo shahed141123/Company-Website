@@ -100,9 +100,9 @@
             font-size: 0.7rem;
         }
 
-        img {
+        /* img {
             width: 3.5rem;
-        }
+        } */
 
         .back-to-shop {
             margin-right: 1rem;

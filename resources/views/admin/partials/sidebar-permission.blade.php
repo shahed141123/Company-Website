@@ -29,7 +29,7 @@
                             Dashboard
                         </span>
                     </a>
-                </li> 
+                </li>
                 @if (Auth::user()->can('sourcing-management.menu'))
                     <li class="nav-item nav-item-submenu">
                         <a href="#" class="nav-link">

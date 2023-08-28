@@ -103,7 +103,7 @@
                     "lengthMenu": [10, 26, 30, 50],
                     columnDefs: [{
                         orderable: false,
-                        targets: [0,2,3,4],
+                        targets: [1,2,3,4,5],
                     }, ],
                 });
                 $('.rfqDT2').DataTable({
@@ -112,7 +112,7 @@
                     "lengthMenu": [10, 26, 30, 50],
                     columnDefs: [{
                         orderable: false,
-                        targets: [0,2,3,4],
+                        targets: [1,2,3,4,5],
                     }, ],
                 });
             });

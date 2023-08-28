@@ -126,8 +126,8 @@
                                                     <span>Dead Line</span>
                                                 </div>
                                                 <div class="col-lg-12 col-sm-12">
-                                                    <input type="text" name="deadline"
-                                                        class="form-control form-control-sm" maxlength="255" required />
+                                                    <input type="date" name="deadline"
+                                                        class="form-control form-control-sm" required />
                                                 </div>
                                             </div>
                                         </div>

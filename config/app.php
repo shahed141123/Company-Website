@@ -125,7 +125,7 @@ return [
     'key' => env('APP_KEY'),
     'recaptcha_site_key' => env('RECAPTCHA_SITE_KEY'),
     'recaptcha_secret_key' => env('RECAPTCHA_SECRET_KEY'),
-    
+
     'cipher' => 'AES-256-CBC',
 
     /*
@@ -202,7 +202,7 @@ return [
 
         Jorenvh\Share\Providers\ShareServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
-
+        App\Providers\HeaderComponentServiceProvider::class,
 
 
     ],

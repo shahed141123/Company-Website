@@ -164,6 +164,7 @@ use App\Http\Controllers\Admin\PortfolioChooseUsController;
 use App\Http\Controllers\Marketing\MarketingDmarController;
 use App\Http\Controllers\Admin\AccountsReceivableController;
 use App\Http\Controllers\Admin\CommercialDocumentController;
+use App\Http\Controllers\Admin\DocumentPdfController;
 use App\Http\Controllers\Admin\FrontendNavbarMenuController;
 use App\Http\Controllers\Admin\FrontendMenuBuilderController;
 use App\Http\Controllers\Admin\FrontendNavbarModuleController;
@@ -173,9 +174,16 @@ use App\Http\Controllers\Admin\PortfolioClientFeedbackController;
 use App\Http\Controllers\Marketing\MarketingTeamTargetController;
 use App\Http\Controllers\Marketing\MarketingManagerRoleController;
 
+
+
+
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+
+    $userDepartment = auth()->check() ? json_decode(auth()->user()->department, true) : [];
+
+
     Route::post('/mark-as-read', [AdminController::class, 'markNotification'])->name('markNotification');
     Route::post('/markread', [AdminController::class, 'markAsRead'])->name('markAsRead');
     // Admin Profile All Route
@@ -518,9 +526,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'frontend-navbar-module'    => FrontendNavbarModuleController::class,
             'frontend-navbar-menu'      => FrontendNavbarMenuController::class,
             'frontend-navbar-menu-items' => FrontendNavbarMenuItemController::class,
-            'employee'                  => EmployeeController::class,
+
             'cmar'                      => CmarController::class,
+            'employee'                  => EmployeeController::class,
             'faq'                       => FaqController::class,
+            'document'                  => DocumentPdfController::class,
 
         ],
         [
@@ -531,6 +541,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             // you can set here other options e.g. 'only', 'except', 'names', 'middleware'
         ]
     );
+    if (in_array('admin', $userDepartment)) {
+        Route::resource('employee', EmployeeController::class)->names([
+            'index' => 'employee.index',
+            'create' => 'employee.create',
+            'store' => 'employee.store',
+            'show' => 'employee.show',
+            'edit' => 'employee.edit',
+            'update' => 'employee.update',
+            'destroy' => 'employee.destroy',
+        ]);
+    }
+
 
     Route::get('supply-chain',  [AdminController::class, 'supplyChain'])->name('supplychain');
 

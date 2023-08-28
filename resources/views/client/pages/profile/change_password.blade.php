@@ -15,9 +15,7 @@
                         <span class="breadcrumb-item active">Client Privacy Setting</span>
                     </div>
 
-                    <a href="#breadcrumb_elements"
-                        class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
-                        data-bs-toggle="collapse">
+                    <a href="#breadcrumb_elements" class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto" data-bs-toggle="collapse">
                         <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
                     </a>
                 </div>
@@ -27,145 +25,76 @@
         <!-- Content area -->
         <div class="content">
             <div class="row">
-                <div class="card border-0 rounded-0 shadow-none ">
-                    <div class="card-header border-0">
-                        <h5 class="mb-0 text-start" style="color: #ae0a46;border-bottom: 1px solid #ae0a46">
-                            <span class="text-white p-1" style="background-color: #ae0a46;">Password
-                                settings</span>
-                        </h5>
-                    </div>
-
-                    <div class="card-body p-3 pt-1">
-                        <form id="myform" method="post" action="{{ route('client.update.password') }}">
-                            @csrf
-                            @if (session('status'))
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <div class="card p-2">
+                        <div class="card-body p-2">
+                            <form id="myform" method="post" action="{{ route('client.update.password') }}">
+                                @csrf
+                                @if (session('status'))
                                 <div class="alert alert-success" role="alert">
-                                    {{ session('status') }}
+                                    {{session('status')}}
                                 </div>
-                            @elseif(session('error'))
+                                @elseif(session('error'))
                                 <div class="alert alert-danger" role="alert">
-                                    {{ session('error') }}
+                                    {{session('error')}}
                                 </div>
-                            @endif
-                            <div class="row d-flex align-items-center">
-                                <div class="col-lg-4">
+                                @endif
 
-                                    <div class="row mb-1">
-                                        <div class="col-sm-12">
-                                            <span class="fw-normal">Current password</span>
-                                            <input type="password" name="old_password"
-                                                class="form-control @error('old_password') is-invalid @enderror"
-                                                id="current_password" placeholder="Old Password" />
-
-                                            @error('old_password')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-4">
+                                        <h6 class="mb-0">Old Password</h6>
                                     </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="row mb-1">
-                                        <div class="col-sm-12">
-                                            <span class="fw-normal">New password</span>
-                                            <input type="password" name="new_password"
-                                                class="form-control @error('new_password') is-invalid @enderror"
-                                                id="new_password" placeholder="New Password" />
+                                    <div class="col-sm-6 text-secondary">
+                                        <input type="password" name="old_password"
+                                            class="form-control @error('old_password') is-invalid @enderror"
+                                            id="current_password" placeholder="Old Password" />
 
-                                            @error('new_password')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
+                                        @error('old_password')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
-                                    <div class="row mb-1">
-                                        <div class="col-sm-12">
-                                            <span class="fw-normal">Repeat password</span>
-                                            <input type="password" name="new_password_confirmation" class="form-control"
-                                                id="new_password_confirmation" placeholder="Confirm New Password" />
-                                        </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-sm-4">
+                                        <h6 class="mb-0">New Password</h6>
+                                    </div>
+                                    <div class="col-sm-6 text-secondary">
+                                        <input type="password" name="new_password"
+                                            class="form-control @error('new_password') is-invalid @enderror"
+                                            id="new_password" placeholder="New Password" />
+
+                                        @error('new_password')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-2">
-                                    <div class="row mb-1">
-                                        <div class="col-sm-12">
-                                            <button type="submit" class="common_button effect01">Update</button>
-                                        </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-sm-4">
+                                        <h6 class="mb-0">Confirm New Password</h6>
+                                    </div>
+                                    <div class="col-sm-6 text-secondary">
+                                        <input type="password" name="new_password_confirmation" class="form-control"
+                                            id="new_password_confirmation" placeholder="Confirm New Password" />
                                     </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                    {{-- <div class="col-lg-2"></div>
-                    <div class="col-lg-8">
-                        <div class="card p-2">
-                            <div class="card-body p-2">
-                                <form id="myform" method="post" action="{{ route('client.update.password') }}">
-                                    @csrf
-                                    @if (session('status'))
-                                        <div class="alert alert-success" role="alert">
-                                            {{ session('status') }}
-                                        </div>
-                                    @elseif(session('error'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ session('error') }}
-                                        </div>
-                                    @endif
 
-                                    <div class="row mb-3">
-                                        <div class="col-sm-4">
-                                            <h6 class="mb-0">Old Password</h6>
-                                        </div>
-                                        <div class="col-sm-6 text-secondary">
-                                            <input type="password" name="old_password"
-                                                class="form-control @error('old_password') is-invalid @enderror"
-                                                id="current_password" placeholder="Old Password" />
-
-                                            @error('old_password')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
+                                <div class="row">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-6 text-center text-secondary">
+                                        <button type="submit" class="btn btn-primary" id="submitbtn">Submit<i
+                                            class="ph-paper-plane-tilt ms-2"></i></button>
                                     </div>
-
-                                    <div class="row mb-3">
-                                        <div class="col-sm-4">
-                                            <h6 class="mb-0">New Password</h6>
-                                        </div>
-                                        <div class="col-sm-6 text-secondary">
-                                            <input type="password" name="new_password"
-                                                class="form-control @error('new_password') is-invalid @enderror"
-                                                id="new_password" placeholder="New Password" />
-
-                                            @error('new_password')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <div class="col-sm-4">
-                                            <h6 class="mb-0">Confirm New Password</h6>
-                                        </div>
-                                        <div class="col-sm-6 text-secondary">
-                                            <input type="password" name="new_password_confirmation" class="form-control"
-                                                id="new_password_confirmation" placeholder="Confirm New Password" />
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-sm-4"></div>
-                                        <div class="col-sm-6 text-center text-secondary">
-                                            <button type="submit" class="btn btn-primary" id="submitbtn">Submit<i
-                                                    class="ph-paper-plane-tilt ms-2"></i></button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
-            <!-- /content area -->
-            <!-- /inner content -->
         </div>
-    @endsection
+        <!-- /content area -->
+        <!-- /inner content -->
+    </div>
+@endsection

@@ -1,20 +1,14 @@
 @extends('frontend.master')
 @section('content')
     <style>
-        /* Need in This Page start*/
         .tab_btn_icon {
-            padding-top: 12px;
-        }
-
-       
-
-        .social-icons a {
-            padding-top: 5px;
+            padding-top: none;
         }
     </style>
 
     <!--======// Header Title //======-->
-    <section class="common_product_header" style="background-image: url('{{ asset('frontend/images/custom_shop.jpg') }}');">
+    <section class="common_product_header"
+        style="background-image: url('{{ asset('frontend/images/custom_shop.jpg') }}'); padding: 100px 0px !important;">
         <div class="container ">
             <h1><strong>About Us</strong></h1>
             <p class="text-center text-white" style="font-size: 15px;">{{ $about->title }} </p>
@@ -26,7 +20,7 @@
     @if (!empty($row1))
         <section>
             <div class="container">
-                <div class="row mt-5  py-3">
+                <div class="row py-3">
                     <h3 class="text-center w-50 mx-auto">
                         {{ $row1->banner_short_description }}
                     </h3>
@@ -148,7 +142,7 @@
     @if (!empty($row3))
         <section>
             <div class="container py-5">
-                <div class="row d-flex align-items-center">
+                <div class="row d-flex align-items-center gx-1">
                     <span class="text-start pt-3 ps-0 mb-3 d-flex align-items-center justify-content-start ms-2"
                         style="border-bottom: 2px solid #ae0a46; font-size: 20px;">
                         <div style="background:#ae0a46;color:white;padding: 10px; display: flex; align-items: center;">
@@ -161,34 +155,21 @@
                             <p>{!! $row3->description !!}</p>
                         </div>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 text-center">
                         <div class="container">
                             <div class="row">
-                                {{-- <p>All PDF.</p> --}}
-                                {{-- <div class="col-lg-12 mb-2 mt-3">
-                                    <button type="button" class="
-                                 effect02 pdf_btn me-2">
-                                        <span class="btn-label"><i
-                                                class="ph ph-file-pdf me-2"></i></i></span>Success</button>
-                                </div>
-                                <div class="col-lg-12 mb-2">
-                                    <button type="button" class="
-                                 effect02 pdf_btn me-2">
-                                        <span class="btn-label"><i
-                                                class="ph ph-file-pdf me-2"></i></i></span>Success</button>
-                                </div>
-                                <div class="col-lg-12 mb-2">
-                                    <button type="button" class="
-                                 effect02 pdf_btn me-2">
-                                        <span class="btn-label"><i
-                                                class="ph ph-file-pdf me-2"></i></i></span>Success</button>
-                                </div>
-                                <div class="col-lg-12 mb-2">
-                                    <button type="button" class="
-                                 effect02 pdf_btn me-2">
-                                        <span class="btn-label"><i
-                                                class="ph ph-file-pdf me-2"></i></i></span>Success</button>
-                                </div> --}}
+                                <h4 class="mb-3">All Profiles</h4>
+                                @foreach ($pdfs as $pdf)
+                                    <div class="col-lg-12 mb-2">
+                                        <a href="{{ asset('storage/files/' . $pdf->document) }}" type="button"
+                                            class="effect02 pdf_btn me-2">
+                                            <span class="btn-label"><i class="ph-download-simple fw-bolder me-2"></i></i>
+                                                {{ $pdf->button_name }}
+                                            </span>
+                                        </a>
+                                    </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>

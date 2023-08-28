@@ -6,37 +6,13 @@
 
 <!-- Global stylesheets -->
 @php
-    $setting = App\Models\Admin\Setting::first();
+    $setting = App\Models\Site::first();
 @endphp
 
-<style>
-    .modal-content{
-        color: black !important;
-        font-weight: 500 !important;
-    }
-    .custom_btn{
-        padding: 0.2rem 0.6rem 0.2rem 2.6rem!important;
-    }
-    .dataTables_wrapper{
-        background-color: #fff;
-    }
-    #DataTables_Table_0_filter input {
-        border: 1px solid #d1d5db;
-        margin-left: 5px;
-    }
 
-    .table th {
-        /* padding: 12px 40px 12px 20px!important; */
-        padding: 20!important;
-    }
-
-    table tbody td {
-        padding: 5px !important;
-    }
-</style>
 
     <link rel="icon" type="image/x-icon"
-        href="{{ isset($setting->favicon) ? url('upload/faviconimage/' . $setting->favicon) : url('upload/no_image.jpg') }}">
+        href="{{ !empty($setting->favicon) ? asset('storage/' . $setting->favicon) : url('upload/no_image.jpg') }}">
 
 
 <link href="{{ asset('backend/assets/fonts/inter/inter.css') }}" rel="stylesheet" type="text/css">

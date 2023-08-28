@@ -421,7 +421,7 @@
                                             id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                             @foreach ($categories as $key => $item)
                                                 @if (count($item->subCatsoftwareProducts) > 0)
-                                                    <a class="nav-link dicover_tab_sub rounded-0 {{ $key === 0 ? 'active' : '' }}"
+                                                    <a class="nav-link dicover_tab_sub rounded-0 {{ ($key == 0) ? 'active' : '' }}"
                                                         id="v-pills-home-tab" data-toggle="pill"
                                                         href="#category-{{ $item->id }}" role="tab"
                                                         aria-controls="v-pills-home" aria-selected="true">
@@ -437,7 +437,7 @@
                                         <div class="tab-content p-0" id="v-pills-tabContent">
                                             @foreach ($categories as $key => $item)
                                                 @if (count($item->subCatsoftwareProducts) > 0)
-                                                    <div class="tab-pane fade p-2 rounded-0 bg-white {{ $key === 0 ? 'active show' : '' }}"
+                                                    <div class="tab-pane fade p-2 rounded-0 bg-white {{ ($key == 0) ? 'active show' : '' }}"
                                                         id="category-{{ $item->id }}" role="tabpanel"
                                                         aria-labelledby="v-pills-profile-tab">
                                                         <div class="panel">
@@ -500,7 +500,7 @@
                                             id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                             @foreach ($brands as $key => $item)
                                                 @if (count($item->brandsoftwareProducts) > 0)
-                                                    <a class="nav-link dicover_tab_sub rounded-0 {{ $key === 0 ? 'active' : '' }}"
+                                                    <a class="nav-link dicover_tab_sub rounded-0 {{ ($key == 0) ? 'active' : '' }}"
                                                         id="v-pills-home-tab" data-toggle="pill"
                                                         href="#category-{{ $item->id }}" role="tab"
                                                         aria-controls="v-pills-home" aria-selected="true">
@@ -516,7 +516,7 @@
                                         <div class="tab-content p-0" id="v-pills-tabContent">
                                             @foreach ($brands as $key => $item)
                                                 @if (count($item->brandsoftwareProducts) > 0)
-                                                    <div class="tab-pane fade p-2 rounded-0 bg-white {{ $key === 0 ? 'active show' : '' }}"
+                                                    <div class="tab-pane fade p-2 rounded-0 bg-white {{ ($key == 0) ? 'active show' : '' }}"
                                                         id="category-{{ $item->id }}" role="tabpanel"
                                                         aria-labelledby="v-pills-profile-tab">
                                                         <div class="panel">
@@ -578,7 +578,7 @@
                                         <div class="nav flex-column nav-pills nav-pills-custom bg-white" id="v-pills-tab"
                                             role="tablist" aria-orientation="vertical">
                                             @foreach ($industrys as $indkey => $item)
-                                                <a class="nav-link dicover_tab_sub rounded-0 {{ $indkey === 0 ? 'active' : '' }}"
+                                                <a class="nav-link dicover_tab_sub rounded-0 {{ $indkey ===  0 ? 'active' : '' }}"
                                                     id="v-pills-home-tab" data-toggle="pill"
                                                     href="#industry-{{ $item->id }}" role="tab"
                                                     aria-controls="v-pills-home" aria-selected="true">
@@ -604,7 +604,7 @@
                                                     $industry_product_count = count($industry_products);
                                                 @endphp
                                                 {{-- @if ($industry_product_count > 0) --}}
-                                                <div class="tab-pane fade rounded-0 p-2 bg-white {{ $indkey === 0 ? 'active' : '' }} {{ $indkey === 0 ? 'show' : '' }}"
+                                                <div class="tab-pane fade rounded-0 p-2 bg-white {{ $indkey === 0 ? 'active show' : '' }}"
                                                     id="industry-{{ $item->id }}" role="tabpanel"
                                                     aria-labelledby="v-pills-profile-tab">
                                                     <div class="panel">
@@ -711,7 +711,7 @@
                                         <div class="tab-content p-0" id="v-pills-tabContent">
                                             @foreach ($solutions as $solkey => $item)
                                                 {{-- @if ($solution_product_count > 0) --}}
-                                                <div class="tab-pane fade rounded-0 p-2 bg-white {{ $solkey === 0 ? 'active show' : '' }} {{ $solkey === 0 ? 'show' : '' }}"
+                                                <div class="tab-pane fade rounded-0 p-2 bg-white {{ $solkey === 0 ? 'active show' : '' }}"
                                                     id="solution-{{ $item->id }}" role="tabpanel"
                                                     aria-labelledby="v-pills-profile-tab">
                                                     <div class="panel">

@@ -20,41 +20,32 @@ class Category extends Model
     {
         return $this->hasMany(Product::class, 'cat_id')
             ->where('product_status', 'product');
-            // ->where('product_type', 'hardware');
     }
 
     public function subCathardwareProducts()
     {
-        return $this->hasMany(Product::class, 'cat_id')
-            ->where('product_status', 'product')
-            ->where('product_type', 'hardware');
+        return $this->products()->where('product_type', 'hardware');
     }
 
     public function Catproducts()
     {
-        return $this->hasMany('App\Models\Admin\Product', 'cat_id', 'id');
+        return $this->products();
     }
 
 
-
-    // public function sub_products(){
-    //     return $this->hasMany('App\Models\Product','child_cat_id','id')->where('status','active');
-    // }
     public static function getProductByCat($slug)
     {
-        // dd($slug);
-        return Category::with('Catproducts')->where('slug', $slug)->first();
-        // return Product::where('cat_id',$id)->where('child_cat_id',null)->paginate(10);
+        return self::with('Catproducts')->where('slug', $slug)->first();
     }
 
     public function Softwareproducts()
     {
-        return $this->hasMany(Product::class)->where('product_type', '=', 'software')->where('product_status', 'product')->paginate(10);
+        return $this->products()->where('product_type', 'software')->paginate(10);
     }
 
     public function Hardwareproducts()
     {
-        return $this->hasMany(Product::class)->where('product_type', '=', 'hardware')->where('product_status', 'product')->paginate(10);
+        return $this->products()->where('product_type', 'hardware')->paginate(10);
     }
 
 

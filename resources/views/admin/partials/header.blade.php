@@ -89,13 +89,13 @@
             </button>
         </div> --}}
         @php
-            $setting = App\Models\Admin\Setting::latest()->first();
+            $setting = App\Models\Site::latest()->first();
         @endphp
 
         <div class="navbar-brand flex-1 flex-lg-0 p-2">
             <a href="{{ route('admin.dashboard') }}" class="d-inline-flex align-items-center">
-                
-                <img src="{{ !file_exists('upload/logoimage/' . $setting->logo) ? asset('upload/no_image.jpg') : url('upload/logoimage/' . $setting->logo) }}"
+
+                <img src="{{ !empty($setting->logo) ? asset('storage/' . $setting->logo) : url('upload/no_image.jpg') }}"
                     class="img-fluid brand_logo" style="width:70px; height:45px;" alt="">
             </a>
         </div>
