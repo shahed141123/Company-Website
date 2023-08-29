@@ -31,28 +31,31 @@
     </style>
     @include('frontend.pages.kukapages.partial.page_header')
 
-    
+
     <section>
-        <div class="container mt-2">
-            <div class="row d-flex align-items-center">
-                <div class="col pt-1">
-                    <ul class="d-flex align-items-center brand-bread-crumb p-1">
-                        <li><i class="fa-solid fa-house-chimney me-2"></i></li>
-                        <li><a href="#">Packing - Handling - Logistics</a></li>
-                        <li class="bread-crumb-spacer">></li>
-                        <li><a href="#">Packing and Packaging</a></li>
-                        <li class="bread-crumb-spacer">></li>
-                        <li><a href="#">Articulated robot</a></li>
-                        <li class="bread-crumb-spacer">></li>
-                        <li class="fw-bold">KUKA AG</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+
         <div class="container my-5">
             <div class="single-product-container">
-                <div class="row justify-content-center align-items-center g-5">
-                    <div class="col-lg-6 col-sm-12 col-xs-12">
+                <div class="row g-3">
+                    <div class="col-lg-6 col-sm-12 single_product_images">
+                        <!-- gallery pic -->
+                        <div class="mx-auto d-block">
+                            <img id="expand" class="geeks img-fluid rounded mx-auto d-block"
+                                src="{{ asset($sproduct->thumbnail) }}">
+                        </div>
+                        @php
+                            $imgs = App\Models\Admin\MultiImage::where('product_id', $sproduct->id)->get();
+                        @endphp
+
+                        <div class="img_gallery_wrapper row pt-1">
+                            @foreach ($imgs as $data)
+                                <div class="col-3">
+                                    <img class="img-fluid" src="{{ asset($data->photo) }}" onclick="gfg(this);">
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    {{-- <div class="col-lg-6 col-sm-12 col-xs-12">
                         <div id="product__slider">
                             <div class="product__slider-main">
                                 <div class="slide"><img
@@ -85,14 +88,14 @@
                         </div>
 
 
-                        {{-- <div class="brand-product-single-image">
+                        <div class="brand-product-single-image">
                             <img class="brand-single-image"
                                 src="https://img.directindustry.com/images_di/photo-mg/17587-15940085.webp" alt="">
-                        </div> --}}
-                    </div>
+                        </div>
+                    </div> --}}
                     <div class="col-lg-6 col-sm-12 col-xs-12">
                         <div class="single-product-details pt-3">
-                            <h4>Articulated robot KR 4 AGILUS</h4>
+                            <h4>{{$sproduct->name}}</h4>
                             <ul class="d-flex align-items-center p-1">
                                 <li class="me-2">
                                     <p class="p-0 m-0" style="color: rgb(153, 153, 153);"><i
@@ -112,7 +115,7 @@
                                     <span>Sold by:</span>
                                 </div>
                                 <div class="col-sm-10 d-flex align-items-center">
-                                    <h4 class="me-3 p-0 m-0">KUKA AG</h4>
+                                    <h4 class="me-3 p-0 m-0">{{$sproduct->getBrandName()}}</h4>
                                     <p class="p-0 m-0"><i class="fa-solid fa-location-dot me-2 text-muted"></i></p>
                                     <p class="p-0 m-0">Germany</p>
                                 </div>

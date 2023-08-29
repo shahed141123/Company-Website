@@ -1,7 +1,8 @@
 <style>
-    .main-header{
-            position: relative;
-        }
+    .main-header {
+        position: relative;
+    }
+
     .drpdown_menu {
         z-index: 1021;
     }
@@ -13,30 +14,44 @@
 
     @media (min-width: 1300px) {
 
-        .container, .container-lg, .container-md, .container-sm, .container-xl {
+        .container,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container-xl {
             max-width: 1250px;
         }
     }
 
     @media (min-width: 1400px) {
 
-        .container, .container-lg, .container-md, .container-sm, .container-xl {
+        .container,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container-xl {
             max-width: 1350px;
         }
     }
+
     @media (min-width: 1500px) {
 
-        .container, .container-lg, .container-md, .container-sm, .container-xl {
+        .container,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container-xl {
             max-width: 1450px;
         }
     }
 </style>
 
 <section>
-    <div class="container-fluid brand-page-banner" style="background-image: url('{{ asset('storage/' . $brandpage->banner_image) }}')">
+    <div class="container-fluid brand-page-banner"
+        style="background-image: url('{{ asset('storage/' . $brandpage->banner_image) }}')">
         <div class="row">
             <div class="col p-0 m-0">
-                    <h3 class="text-center text-white">{{ $brandpage->header }}</h3>
+                <h3 class="text-center text-white">{{ $brandpage->header }}</h3>
             </div>
         </div>
     </div>
@@ -49,7 +64,16 @@
                     <li><i class="fa-solid fa-house-chimney me-2"></i></li>
                     <li class="fw-bold"><a href="#">{{ $brand->title }}</a></li>
                     <li class="bread-crumb-spacer">></li>
-                    <li> {{ Route::current()->getName() == 'brand.overview' ? 'Overview' : '' }} {{ Route::current()->getName() == 'brand.products' ? 'Products' : '' }} {{ Route::current()->getName() == 'brand.pdf' ? 'Catalogs' : ''}} {{ Route::current()->getName() == 'brand.content' ? 'Contents' : '' }} </li>
+                    <li> {{ Route::current()->getName() == 'brand.overview' ? 'Overview' : '' }}
+                        {{ Route::current()->getName() == 'brand.products' ? 'Products' : '' }}
+                        {{ Route::current()->getName() == 'brand.pdf' ? 'Catalogs' : '' }}
+                        {{ Route::current()->getName() == 'brand.content' ? 'Contents' : '' }}
+                        {{ Route::current()->getName() == 'product.details' ? $sproduct->getCategoryName() : '' }}
+                    </li>
+                    @if (Route::current()->getName() == 'product.details')
+                        <li class="bread-crumb-spacer">></li>
+                        <li>{{ $sproduct->name }}</li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -59,7 +83,8 @@
     <div class="brand-page-header-container container">
         <div class="row d-flex align-items-center">
             <div class="col-lg-2 me-3">
-                <img id="stand-logo" src="{{ asset('storage/' . $brand->image) }}" alt="{{ $brand->title }} - logo" height="58px">
+                <img id="stand-logo" src="{{ asset('storage/' . $brand->image) }}" alt="{{ $brand->title }} - logo"
+                    height="58px">
             </div>
             <div class="col-lg-1">
                 <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -95,9 +120,10 @@
                             href="">Company</a>
                     </li>
                     <li class="px-3">
-                        <a class="p-2 {{ Route::current()->getName() == 'brand.products' ? 'active-brands' : '' }}"
+                        <a class="p-2 {{ in_array(Route::currentRouteName(), ['brand.products', 'product.details']) ? 'active-brands' : '' }}"
                             href="{{ route('brand.products', $brand->slug) }}">Products</a>
                     </li>
+
 
                     <li class="px-3">
                         <a class="p-2 {{ Route::current()->getName() == 'brand.pdf' ? 'active-brands' : '' }}"

@@ -32,7 +32,7 @@ class Product extends Model
     }
     public function getCategoryName()
     {
-        return Category::where('id', $this->category_id)->value('title');
+        return Category::where('id', $this->cat_id)->value('title');
     }
 
     public function subCategory()
