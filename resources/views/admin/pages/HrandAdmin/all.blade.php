@@ -43,6 +43,13 @@
                                 </div>
 
                             </a>
+                            <a href="{{ route('leaveApplications') }}" class="btn navigation_btn">
+                                <div class="d-flex align-items-center ">
+                                    <i class="fa-solid fa-users me-1" style="font-size: 12px;"></i>
+                                    <span>Leave Applications</span>
+                                </div>
+
+                            </a>
                             <a href="{{ route('job.index') }}" class="btn navigation_btn">
                                 <div class="d-flex align-items-center ">
                                     <i class="fa-solid fa-users me-1" style="font-size: 12px;"></i>

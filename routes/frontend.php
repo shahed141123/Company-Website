@@ -72,7 +72,7 @@ Route::get('/solution/{id}/details/', [HomeController::class, 'SolutionDetails']
 
 
 
-Route::get('/single/product/{id}', [PageController::class, 'productDetails'])->name('product.details');
+
 Route::get('/all/software', [HomeController::class, 'AllSoftware']);
 
 
@@ -248,9 +248,11 @@ Route::get('rfq', [HomeController::class, 'rfqCreate'])->name('rfq.create');
 Route::post('rfq/store', [RFQController::class, 'store'])->name('rfq.add');
 Route::get('rfq_common', [HomeController::class, 'RFQCommon'])->name('rfq.common');
 
+// Route::get('/single/product/{id}', [PageController::class, 'productDetails'])->name('product.details');
 
 //Kuka Pages
 Route::controller(PageController::class)->group(function () {
+    Route::get('/single/product/{id}', 'productDetails')->name('product.details');
     Route::get('/{id}/overview', 'overview')->name('brand.overview');
     Route::get('/{id}/products', 'brandProducts')->name('brand.products');
     Route::get('/{id}/pdfs', 'brandPdf')->name('brand.pdf');

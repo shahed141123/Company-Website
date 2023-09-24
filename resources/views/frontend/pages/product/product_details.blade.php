@@ -27,11 +27,11 @@
         }
 
         /*
-                                    *
-                                    * ==========================================
-                                    * CUSTOM UTIL CLASSES
-                                    * ==========================================
-                                    */
+                                            *
+                                            * ==========================================
+                                            * CUSTOM UTIL CLASSES
+                                            * ==========================================
+                                            */
         .nav-pills-custom .nav-link {
             color: #aaa;
             background: #fff;
@@ -116,7 +116,73 @@
                 </div>
                 <div class="row product_quantity_wraper justify-content-between"
                     style="background-color: transparent !important;">
-                    @if ($sproduct->rfq != 1)
+                    @if ($sproduct->rfq == 1)
+                        <div class="bg-light d-flex justify-content-between align-items-center" style="width: 80%;">
+                            <button class="common_button" id="modal_view_left" data-toggle="modal"
+                                data-target="#get_quote_modal" style="width: 35%;">Ask For Price</button>
+
+                            {{-- <a class="common_button" href="{{route('contact')}}">Call Ngen It for price</a> --}}
+                            <div class="need_help col-lg-4 col-sm-12">
+                                <h6 class="m-2">Need Help Ordering?</h6>
+                                <h6>Call <strong>{{ App\Models\Admin\Setting::first()->mobile }}</strong></h6>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-2 px-4"
+                            style="width: 80%; background: #f9f6f0;">
+                            <div class="stock-info">
+                                <p tabindex="0" class="prod-stock mb-0" id="product-avalialability-by-warehouse">
+                                    <span aria-label="Stock Availability" class="js-prod-available"> <i
+                                            class="fa fa-info-circle text-success"></i> Stock</span> <br>
+                                    @if ($sproduct->qty > 0)
+                                        <span class="text-success" style="font-size:17px">{{ $sproduct->qty }}
+                                            in stock</span>
+                                    @else
+                                        <span class="text-danger pb-2"
+                                            style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>
+                                    @endif
+                                </p>
+                            </div>
+                            <div>
+                                <p class="list_price mb-0 me-3">Custom Pricing</p>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#askProductPrice">
+                                    <span class="fw-bold" style="color: #ae0a46;">Get A Quote</span>
+                                </a>
+                            </div>
+                        </div>
+                    @elseif ($sproduct->price_status && $sproduct->price_status == 'rfq')
+                        <div class="bg-light d-flex justify-content-between align-items-center" style="width: 80%;">
+                            <button class="common_button" id="modal_view_left" data-toggle="modal"
+                                data-target="#get_quote_modal" style="width: 35%;">Ask For Price</button>
+
+                            {{-- <a class="common_button" href="{{route('contact')}}">Call Ngen It for price</a> --}}
+                            <div class="need_help col-lg-4 col-sm-12">
+                                <h6 class="m-2">Need Help Ordering?</h6>
+                                <h6>Call <strong>{{ App\Models\Admin\Setting::first()->mobile }}</strong></h6>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-2 px-4"
+                            style="width: 80%; background: #f9f6f0;">
+                            <div class="stock-info">
+                                <p tabindex="0" class="prod-stock mb-0" id="product-avalialability-by-warehouse">
+                                    <span aria-label="Stock Availability" class="js-prod-available"> <i
+                                            class="fa fa-info-circle text-success"></i> Stock</span> <br>
+                                    @if ($sproduct->qty > 0)
+                                        <span class="text-success" style="font-size:17px">{{ $sproduct->qty }}
+                                            in stock</span>
+                                    @else
+                                        <span class="text-danger pb-2"
+                                            style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>
+                                    @endif
+                                </p>
+                            </div>
+                            <div>
+                                <p class="list_price mb-0 me-3">Custom Pricing</p>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#askProductPrice">
+                                    <span class="fw-bold" style="color: #ae0a46;">Get A Quote</span>
+                                </a>
+                            </div>
+                        </div>
+                    @else
                         @php
                             $cart = Gloudemans\Shoppingcart\Facades\Cart::content();
                         @endphp
@@ -155,7 +221,6 @@
                         <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-2 px-5"
                             style="width: 80%; background: #f9f6f0;">
                             <div>
-                                
                                 @if ($sproduct->rfq != 1)
                                     <p class="list_price mb-0">List Price</p>
                                     <div class="product__details__price ">
@@ -173,8 +238,8 @@
                                             <span class="badge rounded-pill bg-success" style="font-size: 14px;">
                                                 {{ round($discount) }}%</span>
                                         @else
-                                            <p class="mb-0" style="font-size: 14px !important; color: #ae0a46;">$ <span
-                                                    style="font-size: 22px;">{{ $sproduct->price }}</span> US
+                                            <p class="mb-0" style="font-size: 14px !important; color: #ae0a46;">$
+                                                <span style="font-size: 22px;">{{ $sproduct->price }}</span> US
                                             </p>
                                         @endif
                                     </div>
@@ -212,40 +277,8 @@
                                 </a>
                             </div>
                         </div>
-                    @else
-                        <div class="bg-light d-flex justify-content-between align-items-center" style="width: 80%;">
-                            <button class="common_button" id="modal_view_left" data-toggle="modal"
-                                data-target="#get_quote_modal" style="width: 35%;">Ask For Price</button>
-
-                            {{-- <a class="common_button" href="{{route('contact')}}">Call Ngen It for price</a> --}}
-                            <div class="need_help col-lg-4 col-sm-12">
-                                <h6 class="m-2">Need Help Ordering?</h6>
-                                <h6>Call <strong>{{ App\Models\Admin\Setting::first()->mobile }}</strong></h6>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-2 px-4"
-                            style="width: 80%; background: #f9f6f0;">
-                            <div class="stock-info">
-                                <p tabindex="0" class="prod-stock mb-0" id="product-avalialability-by-warehouse">
-                                    <span aria-label="Stock Availability" class="js-prod-available"> <i
-                                            class="fa fa-info-circle text-success"></i> Stock</span> <br>
-                                    @if ($sproduct->qty > 0)
-                                        <span class="text-success" style="font-size:17px">{{ $sproduct->qty }}
-                                            in stock</span>
-                                    @else
-                                        <span class="text-danger pb-2"
-                                            style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>
-                                    @endif
-                                </p>
-                            </div>
-                            <div>
-                                <p class="list_price mb-0 me-3">Custom Pricing</p>
-                                <a href="" data-bs-toggle="modal" data-bs-target="#askProductPrice">
-                                    <span class="fw-bold" style="color: #ae0a46;">Get A Quote</span>
-                                </a>
-                            </div>
-                        </div>
                     @endif
+
                 </div>
             </div>
         </div>
@@ -1190,7 +1223,7 @@
                                     <label for="call">Also Please Call Me</label>
                                 </div>
                                 <div class="form-group col-sm-12 px-3 mx-3 message g-recaptcha"
-                                            data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
+                                    data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
                             </div>
                             <div class="modal-footer">
 
@@ -1252,11 +1285,12 @@
                                 </div>
 
                                 <div class="form-group  col-sm-12 px-3 mx-3">
-                                    <input class="mr-2" type="checkbox" name="call" id="call" value="1">
+                                    <input class="mr-2" type="checkbox" name="call" id="call"
+                                        value="1">
                                     <label for="call">Also Please Call Me</label>
                                 </div>
                                 <div class="form-group col-sm-12 px-3 mx-3 message g-recaptcha"
-                                            data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
+                                    data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
                             </div>
                             <div class="modal-footer">
 
@@ -1339,7 +1373,4 @@
 
         });
     </script>
-
-
-
 @endsection

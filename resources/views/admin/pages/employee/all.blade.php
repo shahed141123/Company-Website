@@ -22,7 +22,7 @@
                 <div class="page-header-content d-lg-flex ">
                     <div class="d-flex px-2">
                         <div class="breadcrumb py-2">
-                            <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
+                            <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house"></i></a>
                             <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item">Home</a>
                             <a href="{{ route('hr-and-admin.index') }}" class="breadcrumb-item">Hr and Admin</a>
                             <a href="{{ route('employee.index') }}" class="breadcrumb-item"><span
@@ -36,7 +36,32 @@
                     </div>
                 </div>
                 {{-- Inner Page Tab --}}
-
+                <div>
+                    <a href="{{ route('employee-category.index') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
+                            <span>Employee Category</span>
+                        </div>
+                    </a>
+                    <a href="{{ route('employee-department.index') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
+                            <span>Department</span>
+                        </div>
+                    </a>
+                    {{-- <a href="{{ route('purchase.index') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-money-check-dollar-pen me-1" style="font-size: 10px;"></i>
+                            <span>Purchase</span>
+                        </div>
+                    </a>
+                    <a href="{{ route('delivery.index') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-truck-bolt me-1" style="font-size: 10px;"></i>
+                            <span>delivery</span>
+                        </div>
+                    </a> --}}
+                </div>
                 <!-- Basic tabs -->
 
 

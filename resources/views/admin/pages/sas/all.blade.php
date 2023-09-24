@@ -178,8 +178,9 @@
                                         <tr class="text-center">
                                             <th width="5%">Sl</th>
                                             <th width="5%">Image </th>
-                                            <th width="60%">Product Name </th>
-                                            <th width="20%">Sales Price</th>
+                                            <th width="50%">Product Name </th>
+                                            <th width="15%">Sale Price</th>
+                                            <th width="15%">Price Status</th>
                                             <th width="10%">Action</th>
                                         </tr>
                                     </thead>
@@ -199,6 +200,7 @@
                                                     </td>
                                                     <td>{{ $product->name }}</td>
                                                     <td class=" text-center">{{ $sas->sales_price }}</td>
+                                                    <td class="text-center">{{ ucfirst($product->price_status) }}</td>
                                                     <td class=" text-center">
 
                                                         <a href="{{ route('sas.edit', [$product->slug]) }}"

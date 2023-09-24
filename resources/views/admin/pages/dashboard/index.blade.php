@@ -4,6 +4,7 @@
         .notification_card {
             height: 8rem !important;
         }
+
         .dasboard_main_card {
             height: 9rem !important;
         }
@@ -15,13 +16,16 @@
         .notification_link_area:hover {
             color: #ae0a46;
         }
-        .site_color{
+
+        .site_color {
             color: #ae0a46;
         }
-        .site_bg_color{
+
+        .site_bg_color {
             background-color: #ae0a46;
         }
-        .admin_color{
+
+        .admin_color {
             color: #247297;
         }
     </style>
@@ -44,6 +48,33 @@
                             <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
                         </a>
                     </div>
+
+                </div>
+                <div>
+                    <a href="{{ route('leave-application.show',Auth::user()->id) }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
+                            <span>Leave Application</span>
+                        </div>
+                    </a>
+                    <a href="{{ route('noticeboard') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
+                            <span>Notice Board</span>
+                        </div>
+                    </a>
+                    <a href="{{ route('purchase.index') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-money-check-dollar-pen me-1" style="font-size: 10px;"></i>
+                            <span>Attendance</span>
+                        </div>
+                    </a>
+                    {{-- <a href="{{ route('delivery.index') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-truck-bolt me-1" style="font-size: 10px;"></i>
+                            <span>delivery</span>
+                        </div>
+                    </a> --}}
                 </div>
                 {{-- Inner Page Tab --}}
         </section>
@@ -51,7 +82,8 @@
         <!-- Content area -->
         <div class="container-fluid">
             <div class="row py-2">
-                <h5 class="mb-0 text-center mx-auto site_color rounded-0" style="border-bottom: 1px solid #ae0a46; width: 13%; background: #ae0a46;
+                <h5 class="mb-0 text-center mx-auto site_color rounded-0"
+                    style="border-bottom: 1px solid #ae0a46; width: 13%; background: #ae0a46;
                 color: white;">
                     All Notification</h5>
             </div>
@@ -59,162 +91,187 @@
                 <div class="col-lg-6 mt-2 ">
                     <div class="container px-1 mb-2">
                         <div class="row gx-2">
-                            <div class="col-lg-4">
-                                <h6 style="color: #ae0a46; border-bottom: 1px solid #ae0a46;"
-                                    class=" mb-0 pt-2 text-center">Logistic</h6>
-                                <div class="card notification_card rounded-0 p-2">
-                                    <div class="mt-1">
-                                        <a href="" class="d-flex justify-content-between notification_link_area">
-                                            <span>Purchase</span>
-                                            <span class="badge site_bg_color rounded-0 ms-3">15</span>
-                                        </a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <a href="" class="d-flex justify-content-between notification_link_area">
-                                            <span>Pending Delivery</span>
-                                            <span class="badge site_bg_color rounded-0 ms-3">15</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <h6 style="color: #ae0a46; border-bottom: 1px solid #ae0a46;"
-                                    class=" mb-0 pt-2 text-center">Product</h6>
-                                <div class="card notification_card rounded-0 p-2">
-                                    <div class="mt-1">
-                                    <a href="{{route('sas.index')}}" class="d-flex justify-content-between link_area">
-                                            <span>Pending SAS</span>
-                                            <span class="badge site_bg_color rounded-0 ms-3 custom-tooltip"
-                                            title="{{App\Models\Admin\Product::where('action_status','listed')->count()}} Products are waiting for SAS creation."
-                                                data-toggle="tooltip">{{App\Models\Admin\Product::where('action_status','listed')->count()}}</span>
-                                        </a>
-                                    </div>
-                                    <div class="mt-1">
-                                    <a href="{{route('product-sourcing.index')}}" class="d-flex justify-content-between link_area">
-                                        <span>Product Approval Pending</span>
-                                        <span class="badge site_bg_color rounded-0 ms-3">{{App\Models\Admin\Product::where('action_status','seek_approval')->count()}}</span>
-                                    </a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <a href="{{route('product.price_notification')}}" class="d-flex justify-content-between notification_link_area">
-                                            <span>Price Update</span>
-                                            <span class="badge site_bg_color rounded-0 ms-3">{{$notification_count}}</span>
-                                        </a>
+                            @if (auth()->check() && in_array('logistics', json_decode(auth()->user()->department, true)))
+                                <div class="col-lg-4">
+                                    <h6 style="color: #ae0a46; border-bottom: 1px solid #ae0a46;"
+                                        class=" mb-0 pt-2 text-center">Logistic</h6>
+                                    <div class="card notification_card rounded-0 p-2">
+                                        <div class="mt-1">
+                                            <a href="" class="d-flex justify-content-between notification_link_area">
+                                                <span>Purchase</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            </a>
+                                        </div>
+                                        <div class="mt-1">
+                                            <a href="" class="d-flex justify-content-between notification_link_area">
+                                                <span>Pending Delivery</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <h6 style="color: #ae0a46; border-bottom: 1px solid #ae0a46;"
-                                    class=" mb-0 pt-2 text-center">Sales</h6>
-                                <div class="card notification_card rounded-0 p-2">
-                                    <div class="mt-1">
-                                        <a href="" class="d-flex justify-content-between notification_link_area">
-                                            <span>RFQ</span>
-                                            <span class="badge site_bg_color rounded-0 ms-3">15</span>
-                                        </a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <a href="" class="d-flex justify-content-between notification_link_area">
-                                            <span>Work Order</span>
-                                            <span class="badge site_bg_color rounded-0 ms-3">15</span>
-                                        </a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <a href="" class="d-flex justify-content-between notification_link_area">
-                                            <span>Sales Report</span>
-                                            <span class="badge site_bg_color rounded-0 ms-3">15</span>
-                                        </a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <a href="" class="d-flex justify-content-between notification_link_area">
-                                            <span>Deal Register</span>
-                                            <span class="badge site_bg_color rounded-0 ms-3">15</span>
-                                        </a>
+                            @endif
+                            @if (auth()->check() && in_array('logistics', json_decode(auth()->user()->department, true)))
+                                <div class="col-lg-4">
+                                    <h6 style="color: #ae0a46; border-bottom: 1px solid #ae0a46;"
+                                        class=" mb-0 pt-2 text-center">Product</h6>
+                                    <div class="card notification_card rounded-0 p-2">
+                                        <div class="mt-1">
+                                            <a href="{{ route('sas.index') }}" class="d-flex justify-content-between link_area">
+                                                <span>Pending SAS</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3 custom-tooltip"
+                                                    title="{{ App\Models\Admin\Product::where('action_status', 'listed')->count() }} Products are waiting for SAS creation."
+                                                    data-toggle="tooltip">{{ App\Models\Admin\Product::where('action_status', 'listed')->count() }}</span>
+                                            </a>
+                                        </div>
+                                        <div class="mt-1">
+                                            <a href="{{ route('product-sourcing.index') }}"
+                                                class="d-flex justify-content-between link_area">
+                                                <span>Product Approval Pending</span>
+                                                <span
+                                                    class="badge site_bg_color rounded-0 ms-3">{{ App\Models\Admin\Product::where('action_status', 'seek_approval')->count() }}</span>
+                                            </a>
+                                        </div>
+                                        <div class="mt-1">
+                                            <a href="{{ route('product.price_notification') }}"
+                                                class="d-flex justify-content-between notification_link_area">
+                                                <span>Price Update</span>
+                                                <span
+                                                    class="badge site_bg_color rounded-0 ms-3">{{ $notification_count }}</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
+                            @if (auth()->check() && in_array('business', json_decode(auth()->user()->department, true)))
+                                <div class="col-lg-4">
+                                    <h6 style="color: #ae0a46; border-bottom: 1px solid #ae0a46;"
+                                        class=" mb-0 pt-2 text-center">Sales</h6>
+                                    <div class="card notification_card rounded-0 p-2">
+                                        <div class="mt-1">
+                                            <a href="" class="d-flex justify-content-between notification_link_area">
+                                                <span>RFQ</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            </a>
+                                        </div>
+                                        <div class="mt-1">
+                                            <a href="" class="d-flex justify-content-between notification_link_area">
+                                                <span>Work Order</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            </a>
+                                        </div>
+                                        <div class="mt-1">
+                                            <a href="" class="d-flex justify-content-between notification_link_area">
+                                                <span>Sales Report</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            </a>
+                                        </div>
+                                        <div class="mt-1">
+                                            <a href="" class="d-flex justify-content-between notification_link_area">
+                                                <span>Deal Register</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 mt-2">
                     <div class="container px-1 mb-2">
                         <div class="row gx-2">
-                            <div class="col-lg-4">
-                                <h6 style="color: #ae0a46; border-bottom: 1px solid #ae0a46;"
-                                    class=" mb-0 pt-2 text-center">CRM Main </h6>
-                                <div class="card notification_card rounded-0 p-2">
-                                    <div class="mt-1">
-                                        <a href="" class="d-flex justify-content-between notification_link_area">
-                                            <span>Chat</span>
-                                            <span class="badge site_bg_color rounded-0 ms-3">15</span>
-                                        </a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <a href="" class="d-flex justify-content-between notification_link_area">
-                                            <span>Support</span>
-                                            <span class="badge site_bg_color rounded-0 ms-3">15</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <h6 style="color: #ae0a46; border-bottom: 1px solid #ae0a46;"
-                                    class=" mb-0 pt-2 text-center">Marketing
-                                </h6>
-                                <div class="card notification_card rounded-0 p-2">
-                                    <div class="mt-1">
-                                        <a href="" class="d-flex justify-content-between notification_link_area">
-                                            <span>Marketing</span>
-                                            <span class="badge site_bg_color rounded-0 ms-3">15</span>
-                                        </a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <a href="" class="d-flex justify-content-between notification_link_area">
-                                            <span>DMAR</span>
-                                            <span class="badge site_bg_color rounded-0 ms-3">15</span>
-                                        </a>
+                            @if (auth()->check() && in_array('site', json_decode(auth()->user()->department, true)))
+                                <div class="col-lg-4">
+                                    <h6 style="color: #ae0a46; border-bottom: 1px solid #ae0a46;"
+                                        class=" mb-0 pt-2 text-center">CRM Main </h6>
+                                    <div class="card notification_card rounded-0 p-2">
+                                        <div class="mt-1">
+                                            <a href="" class="d-flex justify-content-between notification_link_area">
+                                                <span>Chat</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            </a>
+                                        </div>
+                                        <div class="mt-1">
+                                            <a href="" class="d-flex justify-content-between notification_link_area">
+                                                <span>Support</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <h6 style="color: #ae0a46; border-bottom: 1px solid #ae0a46;"
-                                    class=" mb-0 pt-2 text-center">Site Content
-                                </h6>
-                                <div class="card notification_card rounded-0 p-2">
-                                    <div class="mt-1">
-                                        <a href="{{route('blog.index')}}" class="d-flex justify-content-between notification_link_area">
-                                            <span>Blog</span>
-                                            <span class="badge bg-secondary rounded-0 ms-3">{{ App\Models\Admin\Blog::count() }}</span>
-                                        </a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <a href="{{route('feature.index')}}" class="d-flex justify-content-between notification_link_area">
-                                            <span>Feature</span>
-                                            <span class="badge bg-secondary rounded-0 ms-3">{{ App\Models\Admin\Feature::count() }}</span>
-                                        </a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <a href="{{route('industry.index')}}" class="d-flex justify-content-between notification_link_area">
-                                            <span>Industry</span>
-                                            <span class="badge bg-secondary rounded-0 ms-3">{{ App\Models\Admin\Industry::count() }}</span>
-                                        </a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <a href="{{route('solutionDetails.index')}}" class="d-flex justify-content-between notification_link_area">
-                                            <span>Solution</span>
-                                            <span class="badge bg-secondary rounded-0 ms-3">{{ App\Models\Admin\SolutionDetail::count() }}</span>
-                                        </a>
+                            @endif
+                            @if (auth()->check() && in_array('business', json_decode(auth()->user()->department, true)))
+                                <div class="col-lg-4">
+                                    <h6 style="color: #ae0a46; border-bottom: 1px solid #ae0a46;"
+                                        class=" mb-0 pt-2 text-center">Marketing
+                                    </h6>
+                                    <div class="card notification_card rounded-0 p-2">
+                                        <div class="mt-1">
+                                            <a href="" class="d-flex justify-content-between notification_link_area">
+                                                <span>Marketing</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            </a>
+                                        </div>
+                                        <div class="mt-1">
+                                            <a href="" class="d-flex justify-content-between notification_link_area">
+                                                <span>DMAR</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
+                            @if (auth()->check() && in_array('site', json_decode(auth()->user()->department, true)))
+                                <div class="col-lg-4">
+                                    <h6 style="color: #ae0a46; border-bottom: 1px solid #ae0a46;"
+                                        class=" mb-0 pt-2 text-center">Site Content
+                                    </h6>
+                                    <div class="card notification_card rounded-0 p-2">
+                                        <div class="mt-1">
+                                            <a href="{{ route('blog.index') }}"
+                                                class="d-flex justify-content-between notification_link_area">
+                                                <span>Blog</span>
+                                                <span
+                                                    class="badge bg-secondary rounded-0 ms-3">{{ App\Models\Admin\Blog::count() }}</span>
+                                            </a>
+                                        </div>
+                                        <div class="mt-1">
+                                            <a href="{{ route('feature.index') }}"
+                                                class="d-flex justify-content-between notification_link_area">
+                                                <span>Feature</span>
+                                                <span
+                                                    class="badge bg-secondary rounded-0 ms-3">{{ App\Models\Admin\Feature::count() }}</span>
+                                            </a>
+                                        </div>
+                                        <div class="mt-1">
+                                            <a href="{{ route('industry.index') }}"
+                                                class="d-flex justify-content-between notification_link_area">
+                                                <span>Industry</span>
+                                                <span
+                                                    class="badge bg-secondary rounded-0 ms-3">{{ App\Models\Admin\Industry::count() }}</span>
+                                            </a>
+                                        </div>
+                                        <div class="mt-1">
+                                            <a href="{{ route('solutionDetails.index') }}"
+                                                class="d-flex justify-content-between notification_link_area">
+                                                <span>Solution</span>
+                                                <span
+                                                    class="badge bg-secondary rounded-0 ms-3">{{ App\Models\Admin\SolutionDetail::count() }}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row py-2">
-                <h5 class="mb-0 text-center mx-auto bg-secondary" style="border-bottom: 1px solid #247297; width: 13%;
+                <h5 class="mb-0 text-center mx-auto bg-secondary"
+                    style="border-bottom: 1px solid #247297; width: 13%;
                 color: white;">
-                   All Status</h5>
+                    All Status</h5>
             </div>
             <div class="row mt-1">
                 <div class="col-lg-3">

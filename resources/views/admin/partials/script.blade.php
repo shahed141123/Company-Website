@@ -439,5 +439,5 @@ function addToCart(event) {
     }
 </script>
 
-
+{{-- @yield('scripts') --}}
 @stack('scripts')

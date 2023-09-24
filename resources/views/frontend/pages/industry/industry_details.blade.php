@@ -141,15 +141,15 @@
         }
     </style>
     <!--======// Header Title //======-->
-    <section class="common_product_header" style="background-image: url({{ asset('storage/' . $industry->image) }});">
+    <section class="common_product_header" style="background-image: url({{ asset('storage/' . $industry->image) }}); height:23rem;">
         <div class="container">
-            <div class="">
-                <h1>{{ $industry->title }}</h1>
-                <h2 class="mb-2">{{ $industry->industryPage->header }}</h2>
+            <div>
+                {{-- <h1>{{ $industry->title }}</h1>
+                <h2 class="mb-2">{{ $industry->industryPage->header }}</h2> --}}
             </div>
             <div class="d-flex justify-content-center">
-                <a class="common_button2"
-                    href="{{ $industry->industryPage->btn_one_link }}">{{ $industry->industryPage->btn_one_name }}</a>
+                {{-- <a class="common_button2"
+                    href="{{ $industry->industryPage->btn_one_link }}">{{ $industry->industryPage->btn_one_name }}</a> --}}
             </div>
         </div>
     </section>

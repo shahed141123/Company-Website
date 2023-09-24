@@ -266,7 +266,7 @@
                         <p class="text-justify w-75 w-sm-100">
                             Among More than
                             <strong style="font-family: 'Poppins', sans-serif; font-size:20px;">
-                                {{ App\Models\Admin\Product::count() }}
+                                {{ App\Models\Admin\Product::where('product_status','product')->count() }}
                                 <small>products</small>
                             </strong>
                             and
@@ -376,7 +376,7 @@
                                                         <div class="price">
                                                             <p class="text-muted text-center">
                                                                 <small class="price-usd">USD</small>
-                                                                $ --.-- 
+                                                                $ --.--
                                                             </p>
                                                             <a href=""
                                                                 class="d-flex justify-content-center align-items-center"
@@ -392,7 +392,7 @@
                                                         <div class="price">
                                                             <p class="text-muted text-center">
                                                                 <small class="price-usd">USD</small>
-                                                                $ --.-- 
+                                                                $ --.--
                                                             </p>
                                                             <a href=""
                                                                 class="d-flex justify-content-center align-items-center"
@@ -407,7 +407,7 @@
                                                         <div class="price">
                                                             <p class="text-muted text-center"
                                                                 style="text-decoration: line-through;text-decoration-thickness: 2px; text-decoration-color: #ae0a46;">
-                                                                <small class="price-usd">USD</small> $ {{ number_format($item->price, 2) }} 
+                                                                <small class="price-usd">USD</small> $ {{ number_format($item->price, 2) }}
                                                             </p>
                                                             <div class="d-flex justify-content-center align-items-center">
                                                                 <div data-mdb-toggle="popover" title="Your Price"
@@ -424,7 +424,7 @@
                                                     @else
                                                         <div class="price">
                                                             <p class="text-muted text-center"><small class="price-usd">USD</small>
-                                                                $ {{ number_format($item->price, 2) }} 
+                                                                $ {{ number_format($item->price, 2) }}
                                                             </p>
                                                             <div class="d-flex justify-content-center align-items-center">
                                                                 <div data-mdb-toggle="popover" title="Add To Cart Now"

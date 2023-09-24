@@ -95,32 +95,32 @@
                     </div> --}}
                     <div class="col-lg-6 col-sm-12 col-xs-12">
                         <div class="single-product-details pt-3">
-                            <h4>{{$sproduct->name}}</h4>
+                            <h4>{{ $sproduct->name }}</h4>
                             <ul class="d-flex align-items-center p-1">
                                 <li class="me-2">
                                     <p class="p-0 m-0" style="color: rgb(153, 153, 153);"><i
-                                            class="fa-solid fa-tag me-1 single-bp-tag"></i>handling</p>
+                                            class="fa-solid fa-tag me-1 single-bp-tag"></i>{{ $sproduct->sku_code }}</p>
                                 </li>
                                 <li class="me-2">
                                     <p class="p-0 m-0" style="color: rgb(153, 153, 153);"><i
-                                            class="fa-solid fa-tag me-1 single-bp-tag"></i>handling</p>
+                                            class="fa-solid fa-tag me-1 single-bp-tag"></i>{{ $sproduct->mf_code }}</p>
                                 </li>
                                 <li class="me-2">
                                     <p class="p-0 m-0" style="color: rgb(153, 153, 153);"><i
-                                            class="fa-solid fa-tag me-1 single-bp-tag"></i>handling</p>
+                                            class="fa-solid fa-tag me-1 single-bp-tag"></i>{{ $sproduct->product_code }}</p>
                                 </li>
                             </ul>
                             <div class="row d-flex align-items-center">
-                                <div class="col-sm-2">
-                                    <span>Sold by:</span>
+                                <div class="col-sm-4">
+                                    <span>Manufactured by:</span>
                                 </div>
-                                <div class="col-sm-10 d-flex align-items-center">
-                                    <h4 class="me-3 p-0 m-0">{{$sproduct->getBrandName()}}</h4>
-                                    <p class="p-0 m-0"><i class="fa-solid fa-location-dot me-2 text-muted"></i></p>
-                                    <p class="p-0 m-0">Germany</p>
+                                <div class="col-sm-8 d-flex align-items-center">
+                                    <h4 class="me-3 p-0 m-0">{{ $sproduct->getBrandName() }}</h4>
+                                    {{-- <p class="p-0 m-0"><i class="fa-solid fa-location-dot me-2 text-muted"></i></p> --}}
+                                    {{-- <p class="p-0 m-0">Germany</p> --}}
                                 </div>
                             </div>
-                            <div class="row gx-0">
+                            {{-- <div class="row gx-0">
                                 <div class="col-lg-3">
                                     <div class="rating-brand-product">
                                         <i class="fa-solid fa-star text-warning"></i>
@@ -133,18 +133,208 @@
                                 <div class="col-lg-9">
                                     <small class="text-muted"> Feedback on the quality of responses (from 2 buyers)</small>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row mt-5">
-                                <div class="col-lg-12">
-                                    <button class="btns effect02" style="max-width: 290px !important; height: 50px;"><i
-                                            class="fa-regular fa-address-book me-2"></i> See Contact
-                                        Information</button>
+                                <div class="row product_quantity_wraper justify-content-between"
+                                    style="background-color: transparent !important;">
+                                    @if ($sproduct->rfq == 1)
+                                        <div class="bg-light d-flex justify-content-between align-items-center"
+                                            style="width: 80%;">
+                                            <button class="common_button" id="modal_view_left" data-toggle="modal"
+                                                data-target="#get_quote_modal" style="width: 35%;">Ask For Price</button>
+
+                                            {{-- <a class="common_button" href="{{route('contact')}}">Call Ngen It for price</a> --}}
+                                            <div class="need_help col-lg-4 col-sm-12">
+                                                <h6 class="m-2">Need Help Ordering?</h6>
+                                                <h6>Call <strong>{{ App\Models\Admin\Setting::first()->mobile }}</strong>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-2 px-4"
+                                            style="width: 80%; background: #f9f6f0;">
+                                            <div class="stock-info">
+                                                <p tabindex="0" class="prod-stock mb-0"
+                                                    id="product-avalialability-by-warehouse">
+                                                    <span aria-label="Stock Availability" class="js-prod-available"> <i
+                                                            class="fa fa-info-circle text-success"></i> Stock</span> <br>
+                                                    @if ($sproduct->qty > 0)
+                                                        <span class="text-success"
+                                                            style="font-size:17px">{{ $sproduct->qty }}
+                                                            in stock</span>
+                                                    @else
+                                                        <span class="text-danger pb-2"
+                                                            style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>
+                                                    @endif
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p class="list_price mb-0 me-3">Custom Pricing</p>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#askProductPrice">
+                                                    <span class="fw-bold" style="color: #ae0a46;">Get A Quote</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @elseif ($sproduct->price_status && $sproduct->price_status == 'rfq')
+                                        <div class="bg-light d-flex justify-content-between align-items-center"
+                                            style="width: 80%;">
+                                            <button class="common_button" id="modal_view_left" data-toggle="modal"
+                                                data-target="#get_quote_modal" style="width: 35%;">Ask For Price</button>
+
+                                            {{-- <a class="common_button" href="{{route('contact')}}">Call Ngen It for price</a> --}}
+                                            <div class="need_help col-lg-4 col-sm-12">
+                                                <h6 class="m-2">Need Help Ordering?</h6>
+                                                <h6>Call <strong>{{ App\Models\Admin\Setting::first()->mobile }}</strong>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-2 px-4"
+                                            style="width: 80%; background: #f9f6f0;">
+                                            <div class="stock-info">
+                                                <p tabindex="0" class="prod-stock mb-0"
+                                                    id="product-avalialability-by-warehouse">
+                                                    <span aria-label="Stock Availability" class="js-prod-available"> <i
+                                                            class="fa fa-info-circle text-success"></i> Stock</span> <br>
+                                                    @if ($sproduct->qty > 0)
+                                                        <span class="text-success"
+                                                            style="font-size:17px">{{ $sproduct->qty }}
+                                                            in stock</span>
+                                                    @else
+                                                        <span class="text-danger pb-2"
+                                                            style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>
+                                                    @endif
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p class="list_price mb-0 me-3">Custom Pricing</p>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#askProductPrice">
+                                                    <span class="fw-bold" style="color: #ae0a46;">Get A Quote</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @else
+                                        @php
+                                            $cart = Gloudemans\Shoppingcart\Facades\Cart::content();
+                                        @endphp
+                                        @if ($cart->where('id', $sproduct->id)->count())
+                                            <div class="col-lg-4 col-sm-12 d-flex justify-content-center">
+                                                <div class="common_button2">
+                                                    <a class="text-white" href="javascript:void(0);"> Already in Cart</a>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <form action="{{ route('add.cart') }}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="product_id" id="product_id"
+                                                    value="{{ $sproduct->id }}">
+                                                <input type="hidden" name="name" id="name"
+                                                    value="{{ $sproduct->name }}">
+                                                <div class="row ">
+                                                    <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between bg-light py-2"
+                                                        style="width: 80%;">
+                                                        <div class="pro-qty">
+                                                            <input type="hidden" name="product_id" id="product_id"
+                                                                value="{{ $sproduct->id }}">
+                                                            <input type="hidden" name="name" id="name"
+                                                                value="{{ $sproduct->name }}">
+                                                            <div class="counter">
+                                                                <span class="down"
+                                                                    onClick='decreaseCount(event, this)'>-</span>
+                                                                <input type="text" name="qty" value="1"
+                                                                    class="count_field">
+                                                                <span class="up"
+                                                                    onClick='increaseCount(event, this)'>+</span>
+
+                                                            </div>
+                                                        </div>
+                                                        <button class="common_button2 ms-3" type="submit">Add to
+                                                            Basket</button>
+                                                    </div>
+
+                                                </div>
+                                            </form>
+                                        @endif
+                                        <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-2 px-5"
+                                            style="width: 80%; background: #f9f6f0;">
+                                            <div>
+                                                @if ($sproduct->rfq != 1)
+                                                    <p class="list_price mb-0">List Price</p>
+                                                    <div class="product__details__price ">
+                                                        @if (!empty($sproduct->discount))
+                                                            <p class="mb-0"
+                                                                style="font-size: 14px !important; color: #ae0a46;">
+                                                                <span
+                                                                    style="text-decoration: line-through; color:#ae0a46;">$
+                                                                    {{ $sproduct->price }}</span>
+                                                                <span style="color: black">$
+                                                                    {{ $sproduct->discount }}</span>
+                                                                <span style="font-size: 14px;">USD</span>
+                                                            </p>
+                                                            @php
+                                                                $amount = $sproduct->price - $sproduct->discount;
+                                                                $discount = ($amount / $sproduct->price) * 100;
+                                                            @endphp
+                                                            <span class="badge rounded-pill bg-success"
+                                                                style="font-size: 14px;">
+                                                                {{ round($discount) }}%</span>
+                                                        @else
+                                                            <p class="mb-0"
+                                                                style="font-size: 14px !important; color: #ae0a46;">$
+                                                                <span
+                                                                    style="font-size: 22px;">{{ $sproduct->price }}</span>
+                                                                US
+                                                            </p>
+                                                        @endif
+                                                    </div>
+                                                @else
+                                                    <div id="tpl-product-detail-order-target"
+                                                        class="prod-ordering-section" data-outofstock="Out of stock.">
+                                                        <div class="row js-add-to-cart-container">
+                                                            <div class="columns small-12 ds-v1 text-center">
+                                                                <a type="button" style="font-weight: 600"
+                                                                    class="text-danger" data-toggle="modal"
+                                                                    data-target="#exampleModalCenter">
+                                                                    <h5>This product has sell requirements</h5>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                            <div class="stock-info">
+                                                <p tabindex="0" class="prod-stock mb-0"
+                                                    id="product-avalialability-by-warehouse">
+                                                    <span aria-label="Stock Availability" class="js-prod-available"> <i
+                                                            class="fa fa-info-circle text-success"></i> Stock</span> <br>
+                                                    @if ($sproduct->qty > 0)
+                                                        <span class="text-success"
+                                                            style="font-size:17px">{{ $sproduct->qty }}
+                                                            in stock</span>
+                                                    @else
+                                                        <span class="text-danger pb-2"
+                                                            style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>
+                                                    @endif
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p class="list_price mb-0">Custom Pricing</p>
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#askProductPrice">
+                                                    <span class="fw-bold" style="color: #ae0a46;">Get A Quote</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endif
+
                                 </div>
+                                {{-- <div class="col-lg-12">
+                                    <button class="btns effect02" style="max-width: 290px !important; height: 50px;"><i
+                                            class="fa-regular fa-address-book me-2"></i> </button>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row mt-5">
+                {{-- <div class="row mt-5">
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center">
                             <div class="brand-links me-2">
@@ -162,52 +352,20 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
-            <div class="row mb-5">
-                <div class="col-lg-12">
-                    <div class="single-product-description" style="font-size: 14px;">
-                        <h2 class="description-title">Overview</h2>
-                        <div class="container pb-3">
-                            <div class="row ps-2">
-                                <div class="col-lg-12 pe-0">
-                                    <div class="sc-3fi1by-1 chZLCL">
-                                        <div class="description-areas-brand">
-                                            High performance in any installation position and in a
-                                            small footprint - the KR 4 AGILUS impresses with its compact design and long
-                                            reach and precision.<br>
-
-                                            KR 4 AGILUS: Compact, flexible robot for various applications in the
-                                            electronics
-                                            industry
-                                            The KR 4 AGILUS combines ultra-compact, interference-free design with optimum
-                                            performance: with a payload capacity of 4 kilograms and a reach of 600 mm, the
-                                            compact robot performs a wide variety of tasks, such as handling and assembly in
-                                            the
-                                            electronics industry or in small automation cells. It works reliably and
-                                            precisely
-                                            even with the shortest cycle times.<br>
-
-                                            Small robotics for the electronics industry: the KR 4 AGILUS <br>
-
-                                            Maximum flexibility <br>
-                                            Compact, interference contour-free design, flexible mounting position and
-                                            various
-                                            interfaces for peripheral devices
-                                            <br>
-                                            ESD protected
-                                            The robot is protected as standard against uncontrolled electrostatic charging
-                                            or
-                                            discharging and is thus equipped for the safe handling of sensitive electronic
-                                            components.
-                                            <br>
-                                            High reliability
-                                            Particularly long service life and low service and maintenance requirements,
-                                            e.g.
-                                            thanks to fewer steps when replacing cables
-                                            <br>
-                                            Easy operation
-                                            Control via KRC5 micro and operation via KUKA smartPAD
+            @if (!empty($sproduct->overview))
+                <div class="row mb-5">
+                    <div class="col-lg-12">
+                        <div class="single-product-description" style="font-size: 14px;">
+                            <h2 class="description-title">Overview</h2>
+                            <div class="container pb-3">
+                                <div class="row ps-2">
+                                    <div class="col-lg-12 pe-0">
+                                        <div class="sc-3fi1by-1 chZLCL">
+                                            <div class="description-areas-brand">
+                                                {!! $sproduct->overview !!}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -215,138 +373,45 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            @endif
             <div class="row mb-5">
                 <div class="col-lg-6">
                     <div class="single-product-description " style="font-size: 14px;">
                         <h2 class="description-title">Specification</h2>
                         <div class="container pb-3 specification-areas-brand">
-                            <div class="row gx-1 px-2">
-                                <div class="col-lg-4">
-                                    <div class="p-1 ps-2">Type</div>
+                            @if (!empty($sproduct->specification))
+                                <div class="row gx-1 px-2">
+                                    {{-- <div class="col-lg-4">
+                                        <div class="p-1 ps-2">Type</div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="p-1 ps-2">articulated</div>
+                                    </div> --}}
+                                    {!! $sproduct->specification !!}
                                 </div>
-                                <div class="col-lg-8">
-                                    <div class="p-1 ps-2">articulated</div>
+                            @else
+                                <div class="row gx-1 px-2">
+                                    No Specification Available.
                                 </div>
-                            </div>
-                            <div class="row gx-1 px-2">
-                                <div class="col-lg-4">
-                                    <div class="p-1 ps-2 brand-description-area">Function</div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <div class="p-1 ps-2 brand-description-area">handling</div>
-                                </div>
-                            </div>
-                            <div class="row gx-1 px-2">
-                                <div class="col-lg-4">
-                                    <div class="p-1 ps-2">Application domain</div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <div class="p-1 ps-2">for the electronics industry</div>
-                                </div>
-                            </div>
-                            <div class="row gx-1 px-2">
-                                <div class="col-lg-4">
-                                    <div class="p-1 ps-2 brand-description-area">Function</div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <div class="p-1 ps-2 brand-description-area">handling</div>
-                                </div>
-                            </div>
-                            <div class="row gx-1 px-2">
-                                <div class="col-lg-4">
-                                    <div class="p-1 ps-2">Type</div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <div class="p-1 ps-2">articulated</div>
-                                </div>
-                            </div>
-                            <div class="row gx-1 px-2">
-                                <div class="col-lg-4">
-                                    <div class="p-1 ps-2 brand-description-area">Function</div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <div class="p-1 ps-2 brand-description-area">handling</div>
-                                </div>
-                            </div>
-                            <div class="row gx-1 px-2">
-                                <div class="col-lg-4">
-                                    <div class="p-1 ps-2">Application domain</div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <div class="p-1 ps-2">for the electronics industry</div>
-                                </div>
-                            </div>
-                            <div class="row gx-1 px-2">
-                                <div class="col-lg-4">
-                                    <div class="p-1 ps-2 brand-description-area">Function</div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <div class="p-1 ps-2 brand-description-area">handling</div>
-                                </div>
-                            </div>
-                            <div class="row gx-1 px-2">
-                                <div class="col-lg-4">
-                                    <div class="p-1 ps-2">Application domain</div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <div class="p-1 ps-2">for the electronics industry</div>
-                                </div>
-                            </div>
-                            <div class="row gx-1 px-2">
-                                <div class="col-lg-4">
-                                    <div class="p-1 ps-2 brand-description-area">Function</div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <div class="p-1 ps-2 brand-description-area">handling</div>
-                                </div>
-                            </div>
+                            @endif
+
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="single-product-description" style="font-size: 14px;">
-                        <h2 class="description-title">Description</h2>
+                        <h2 class="description-title">Accessories</h2>
                         <div class="container pb-3">
                             <div class="row ps-2">
                                 <div class="col-lg-12 pe-0">
                                     <div class="sc-3fi1by-1 chZLCL">
                                         <div class="description-areas-brand">
-                                            High performance in any installation position and in a
-                                            small footprint - the KR 4 AGILUS impresses with its compact design and long
-                                            reach and precision.<br>
-
-                                            KR 4 AGILUS: Compact, flexible robot for various applications in the
-                                            electronics
-                                            industry
-                                            The KR 4 AGILUS combines ultra-compact, interference-free design with optimum
-                                            performance: with a payload capacity of 4 kilograms and a reach of 600 mm, the
-                                            compact robot performs a wide variety of tasks, such as handling and assembly in
-                                            the
-                                            electronics industry or in small automation cells. It works reliably and
-                                            precisely
-                                            even with the shortest cycle times.<br>
-
-                                            Small robotics for the electronics industry: the KR 4 AGILUS <br>
-
-                                            Maximum flexibility <br>
-                                            Compact, interference contour-free design, flexible mounting position and
-                                            various
-                                            interfaces for peripheral devices
-                                            <br>
-                                            ESD protected
-                                            The robot is protected as standard against uncontrolled electrostatic charging
-                                            or
-                                            discharging and is thus equipped for the safe handling of sensitive electronic
-                                            components.
-                                            <br>
-                                            High reliability
-                                            Particularly long service life and low service and maintenance requirements,
-                                            e.g.
-                                            thanks to fewer steps when replacing cables
-                                            <br>
-                                            Easy operation
-                                            Control via KRC5 micro and operation via KUKA smartPAD
+                                            @if (!empty($sproduct->accessories))
+                                                <p class="text-muted mb-2" style="width: 100% !important;overflow: auto;">
+                                                    {!! $sproduct->accessories !!} </p>
+                                            @else
+                                                <p class="text-muted mb-2"> No Accessories Available</p>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

@@ -575,40 +575,40 @@ class SourcingController extends Controller
 
         ]);
 
-            $name = Auth::user()->name;
-            $users = User::where(function ($query) {
-                $query->whereJsonContains('department', 'business')
-                    ->orwhereJsonContains('department', 'logistics');
-            })->where('role', 'admin')->get();
-            $slug = $data['slug'];
-            $user_emails = User::where(function ($query) {
-                $query->whereJsonContains('department', 'business')
-                    ->orwhereJsonContains('department', 'logistics');
-            })->where('role', 'admin')->pluck('email')->toArray();
+            // $name = Auth::user()->name;
+            // $users = User::where(function ($query) {
+            //     $query->whereJsonContains('department', 'business')
+            //         ->orwhereJsonContains('department', 'logistics');
+            // })->where('role', 'admin')->get();
+            // $slug = $data['slug'];
+            // $user_emails = User::where(function ($query) {
+            //     $query->whereJsonContains('department', 'business')
+            //         ->orwhereJsonContains('department', 'logistics');
+            // })->where('role', 'admin')->pluck('email')->toArray();
 
 
-                $data = [
-                    'added_by'    => $name,
-                    'name'        => $request->name,
-                    'sku_code'    => $request->sku_code,
-                    'photo'       => $product->thumnail,
-                    'create_date' => date('Y-m-d', strtotime(Carbon::now())),
-                    'category'    => Category::where('id', $request->cat_id)->value('title'),
-                    'brand'       => Brand::where('id', $request->brand_id)->value('title'),
-                    'product_id'  => $data['slug'],
-                ];
+            //     $data = [
+            //         'added_by'    => $name,
+            //         'name'        => $request->name,
+            //         'sku_code'    => $request->sku_code,
+            //         'photo'       => $product->thumnail,
+            //         'create_date' => date('Y-m-d', strtotime(Carbon::now())),
+            //         'category'    => Category::where('id', $request->cat_id)->value('title'),
+            //         'brand'       => Brand::where('id', $request->brand_id)->value('title'),
+            //         'product_id'  => $data['slug'],
+            //     ];
 
 
-                $mail = Mail::to($user_emails);
-                if ($mail) {
-                    $mail->send(new ProductSourcing($data));
-                    Toastr::success('Data has added Successfully');
-                } else {
-                    Toastr::error('Email Failed to send', ['timeOut' => 30000]);
-                    return redirect()->back();
-                }
-                Toastr::success('Product Updated Without Image Successfully');
-                Notification::send($users, new SourcingNotification($name, $slug));
+            //     $mail = Mail::to($user_emails);
+            //     if ($mail) {
+            //         $mail->send(new ProductSourcing($data));
+            //         Toastr::success('Data has added Successfully');
+            //     } else {
+            //         Toastr::error('Email Failed to send', ['timeOut' => 30000]);
+            //         return redirect()->back();
+            //     }
+            //     Toastr::success('Product Updated Without Image Successfully');
+            //     Notification::send($users, new SourcingNotification($name, $slug));
 
         return redirect()->back();
     }

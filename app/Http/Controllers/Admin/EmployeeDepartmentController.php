@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Str;
+use FontLib\Table\Type\name;
 use Illuminate\Http\Request;
-use App\Models\Admin\Country;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Region;
 use Brian2694\Toastr\Facades\Toastr;
+use App\Models\Admin\EmployeeDepartment;
 use Illuminate\Support\Facades\Validator;
 
-class CountryController extends Controller
+class EmployeeDepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +19,8 @@ class CountryController extends Controller
      */
     public function index()
     {
-        $data['regions'] = Region::latest()->get();
-        $data['countrys'] = Country::latest()->get();
-        return view('admin.pages.country.all', $data);
+        $data['employeeDepartments'] = EmployeeDepartment::latest()->get();
+        return view('admin.pages.employeeDepartment.all', $data);
     }
 
     /**
@@ -31,7 +30,7 @@ class CountryController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.country.add');
+        //
     }
 
     /**
@@ -45,23 +44,19 @@ class CountryController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'region_id'  => 'required',
-                'country_name' => 'required|unique:countries',
+                'name'     => 'required|string',
             ],
             [
-                'required' => 'This :attribute must be required.',
-                'unique'   => 'Country Name already exists.',
-            ],
+                'required' => 'This :attribute field is needed.',
+            ]
         );
 
         if ($validator->passes()) {
-            Country::create([
-                'region_id'  => $request->region_id,
-                'country_name' => $request->country_name,
-                'country_slug' => Str::slug($request->country_name),
-                'locale'       => $request->locale,
+            EmployeeDepartment::create([
+                'name'     => $request->name,
+                'slug'     => Str::slug($request->name),
             ]);
-            Toastr::success('Data Insert Successfully');
+            Toastr::success('Data Insert Successfully.');
         } else {
             $messages = $validator->messages();
             foreach ($messages->all() as $message) {
@@ -90,8 +85,7 @@ class CountryController extends Controller
      */
     public function edit($id)
     {
-        $data['country'] = Country::findOrFail($id);
-        return view('admin.pages.country.edit', $data);
+        //
     }
 
     /**
@@ -106,22 +100,19 @@ class CountryController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'region_id'  => 'required',
-                'country_name' => 'required',
+                'name'     => 'required|string',
             ],
             [
-                'required' => 'This :attribute must be required.',
-            ],
+                'required' => 'This :attribute field is needed.',
+            ]
         );
 
-
         if ($validator->passes()) {
-            Country::find($id)->update([
-                'region_id'  => $request->region_id,
-                'country_name' => $request->country_name,
-                'locale'       => $request->locale,
+            EmployeeDepartment::find($id)->update([
+                'name'     => $request->name,
+                'slug'     => Str::slug($request->name),
             ]);
-            Toastr::success('Data Insert Successfully');
+            Toastr::success('Data Updated Successfully.');
         } else {
             $messages = $validator->messages();
             foreach ($messages->all() as $message) {
@@ -139,6 +130,6 @@ class CountryController extends Controller
      */
     public function destroy($id)
     {
-        Country::find($id)->delete();
+        EmployeeDepartment::find($id)->delete();
     }
 }

@@ -83,6 +83,7 @@ use App\Http\Controllers\SAS\DealSasController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ClientPermission;
 use App\Http\Controllers\Admin\IncomeController;
+use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\PolicyController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\TaxVatController;
@@ -106,18 +107,20 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\HomepageController;
-use App\Http\Controllers\Admin\IndustryController;
 
+use App\Http\Controllers\Admin\HrPolicyController;
+use App\Http\Controllers\Admin\IndustryController;
 use App\Http\Controllers\Admin\PurchaseController;
 use App\Http\Controllers\Admin\SolutionController;
 use App\Http\Controllers\Admin\SourcingController;
 use App\Http\Controllers\Admin\BrandPageController;
+
 use App\Http\Controllers\Admin\KnowledgeController;
 use App\Http\Controllers\Admin\LearnMoreController;
-
 use App\Http\Controllers\Admin\RFQManageController;
 use App\Http\Controllers\Admin\SingleRfqController;
 use App\Http\Controllers\SAS\RevisedDealController;
+use App\Http\Controllers\Admin\EmploymentController;
 use App\Http\Controllers\Admin\NewsLetterController;
 use App\Http\Controllers\Admin\OfferPriceController;
 use App\Http\Controllers\Admin\RowWithColController;
@@ -125,6 +128,7 @@ use App\Http\Controllers\Admin\TechGlossyController;
 use App\Http\Controllers\Admin\WebSettingController;
 use App\Http\Controllers\Order\AdminOrderController;
 use App\Http\Controllers\Admin\ClientStoryController;
+use App\Http\Controllers\Admin\DocumentPdfController;
 use App\Http\Controllers\Admin\ExpenseTypeController;
 use App\Http\Controllers\Admin\EffortRatingController;
 use App\Http\Controllers\Admin\IndustryPageController;
@@ -141,6 +145,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Marketing\BulkEmailController;
 use App\Http\Controllers\Admin\ClientDatabaseController;
 use App\Http\Controllers\Admin\OfficeLocationController;
+use App\Http\Controllers\Admin\PolicyCategoryController;
 use App\Http\Controllers\Admin\RfqOrderStatusController;
 use App\Http\Controllers\Admin\TechnologyDataController;
 use App\Http\Controllers\Admin\AccountsManagerController;
@@ -155,7 +160,9 @@ use App\Http\Controllers\Admin\SalesYearTargetController;
 use App\Http\Controllers\Admin\SolutionDetailsController;
 use App\Http\Controllers\Admin\TierCalculationController;
 use App\Http\Controllers\Admin\AdminMenuBuilderController;
+use App\Http\Controllers\Admin\EmployeeCategoryController;
 use App\Http\Controllers\Admin\HardwareInfoPageController;
+use App\Http\Controllers\Admin\LeaveApplicationController;
 use App\Http\Controllers\Admin\SoftwareInfoPageController;
 use App\Http\Controllers\Sales\SalesAchievementController;
 use App\Http\Controllers\Admin\AccountProfitLossController;
@@ -164,11 +171,12 @@ use App\Http\Controllers\Admin\PortfolioChooseUsController;
 use App\Http\Controllers\Marketing\MarketingDmarController;
 use App\Http\Controllers\Admin\AccountsReceivableController;
 use App\Http\Controllers\Admin\CommercialDocumentController;
-use App\Http\Controllers\Admin\DocumentPdfController;
+use App\Http\Controllers\Admin\EmployeeDepartmentController;
 use App\Http\Controllers\Admin\FrontendNavbarMenuController;
 use App\Http\Controllers\Admin\FrontendMenuBuilderController;
 use App\Http\Controllers\Admin\FrontendNavbarModuleController;
 use App\Http\Controllers\Admin\PaymentMethodDetailsController;
+use App\Http\Controllers\Admin\PolicyAcknowledgmentsController;
 use App\Http\Controllers\Admin\FrontendNavbarMenuItemController;
 use App\Http\Controllers\Admin\PortfolioClientFeedbackController;
 use App\Http\Controllers\Marketing\MarketingTeamTargetController;
@@ -532,6 +540,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'faq'                       => FaqController::class,
             'document'                  => DocumentPdfController::class,
 
+            'employee-category'         => EmployeeCategoryController::class, // fully done
+            'employee-department'       => EmployeeDepartmentController::class, //  fully done
+            'notice'                    => NoticeController::class, // persially done => notice show like sticy note
+            'policy-category'           => PolicyCategoryController::class, //  fully done
+            'hr-policy'                 => HrPolicyController::class, //  fully done
+            'policy-acknowledgment'     => PolicyAcknowledgmentsController::class, // done
+            'employeement'              => EmploymentController::class, // done
+            'leave-application'         => LeaveApplicationController::class, // done
+
         ],
         [
             // 'frontend-navbar-menu'->except(['show','create','edit']),
@@ -555,6 +572,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
 
     Route::get('supply-chain',  [AdminController::class, 'supplyChain'])->name('supplychain');
+    Route::get('noticeboard',  [NoticeController::class, 'noticeboard'])->name('noticeboard');
+    Route::get('leaveApplications',  [LeaveApplicationController::class, 'leaveApplications'])->name('leaveApplications');
+    Route::get('leaveHistorys',  [LeaveApplicationController::class, 'leaveHistorys'])->name('leave.history');
 
     //Assign Roles to Sales Manager
     Route::put('assign_roles/SalesManager/{id}', [SalesAccountController::class, 'assignSalesManagerRole'])->name('assign.salesmanager-role');
