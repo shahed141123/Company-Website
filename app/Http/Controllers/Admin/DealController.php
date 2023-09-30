@@ -56,7 +56,9 @@ class DealController extends Controller
     public function create()
     {
 
-        $data['users'] = User::where('role', 'sales')->select('users.id', 'users.name')->get();
+        $data['users'] = User::where(function ($query) {
+            $query->whereJsonContains('department', 'business');
+        })->select('id', 'name')->orderBy('id', 'DESC')->get();
         $data['products'] = Product::latest()->get();
         $data['solution_details'] = SolutionDetail::select('solution_details.id', 'solution_details.name')->get();
         $data['clients'] = Client::select('clients.id', 'clients.name')->get();
@@ -260,7 +262,9 @@ class DealController extends Controller
      */
     public function show($id)
     {
-        $data['users'] = User::where('role', 'sales')->select('users.id', 'users.name')->get();
+        $data['users'] = User::where(function ($query) {
+            $query->whereJsonContains('department', 'business');
+        })->select('id', 'name')->orderBy('id', 'DESC')->get();
         $data['products'] = Product::select('products.id', 'products.name')->get();
         $data['solution_details'] = SolutionDetail::select('solution_details.id', 'solution_details.name')->get();
         $data['clients'] = Client::select('clients.id', 'clients.name')->get();
@@ -277,7 +281,9 @@ class DealController extends Controller
      */
     public function edit($id)
     {
-        $data['users'] = User::where('role', 'sales')->select('users.id', 'users.name')->get();
+        $data['users'] = User::where(function ($query) {
+            $query->whereJsonContains('department', 'business');
+        })->select('id', 'name')->orderBy('id', 'DESC')->get();
         $data['products'] = Product::select('products.id', 'products.name')->get();
         $data['solution_details'] = SolutionDetail::select('solution_details.id', 'solution_details.name')->get();
         $data['clients'] = Client::select('clients.id', 'clients.name')->get();

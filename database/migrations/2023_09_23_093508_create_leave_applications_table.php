@@ -49,8 +49,8 @@ return new class extends Migration
             $table->string('recommended_by')->nullable()->comment('file')->nullable();
             $table->string('reviewed_by')->nullable()->comment('file')->nullable();
             $table->string('approved_by')->nullable()->comment('file')->nullable();
-            $table->enum('application_status', ['approved', 'rejected'])->nullable();
-
+            $table->enum('application_status', ['approved','rejected','pending'])->nullable();
+            $table->text('note')->nullable();
             $table->timestamps();
 
             // Foreign Key

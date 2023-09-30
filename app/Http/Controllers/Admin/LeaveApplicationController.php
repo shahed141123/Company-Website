@@ -137,10 +137,10 @@ class LeaveApplicationController extends Controller
                 'medical_leave_due_as_on' => $request->medical_leave_due_as_on,
                 'medical_leave_availed'   => $request->medical_leave_availed,
                 'medical_balance_due'     => $request->medical_balance_due,
-                'application_status'      => $request->application_status,
+                'application_status'      => 'pending',
             ] + $filePaths);
 
-            Toastr::success('Data has been created');
+            Toastr::success('Your Leave Application has submitted for approval.');
             return redirect()->back();
         } else {
             // Validation failed, display error messages
@@ -301,7 +301,7 @@ class LeaveApplicationController extends Controller
                 'application_status'      => $request->application_status,
             ], $fileUpdates));
 
-            Toastr::success('Data has been updated');
+            Toastr::success('Approval given.');
             return redirect()->back();
         } else {
             // Validation failed, display error messages
@@ -365,5 +365,16 @@ class LeaveApplicationController extends Controller
     {
         $data['leaveApplications'] = LeaveApplication::orderBy('id', 'desc')->get();
         return view('admin.pages.leaveApplication.leave_history', $data);
+    }
+    public function individualLeaves($id)
+    {
+        if (Auth::user()->id == $id) {
+            $data['leaveApplications'] = LeaveApplication::where('employee_id', Auth::user()->id)->get();
+        return view('admin.pages.leaveApplication.individual_leave_history', $data);
+        } else {
+            Toastr::warning('You are not authorized to see this page');
+            return redirect()->back();
+        }
+
     }
 }

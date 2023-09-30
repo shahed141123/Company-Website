@@ -55,7 +55,7 @@
     </style>
     <div class="content-wrapper">
         <!-- Page header -->
-        <div class="page-header page-header-light shadow">
+        <div class="page-header shadow d-flex justify-content-between align-items-center">
             <div class="page-header-content d-lg-flex border-top">
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
@@ -66,16 +66,16 @@
                     </div>
 
                 </div>
-                <div>
-                    <a href="{{ route('leaveHistorys') }}" class="btn navigation_btn">
-                        <div class="d-flex align-items-center ">
-                            <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
-                            <span>History</span>
-                        </div>
-                    </a>
-                    
+            </div>
+            <div class="mx-2">
+                <a href="{{ route('leaveApplications') }}" class="btn navigation_btn">
+                    <div class="d-flex align-items-center ">
+                        <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
+                        <span>Total Leave Applications</span>
+                    </div>
+                </a>
 
-                </div>
+
             </div>
         </div>
         <!-- /page header -->
@@ -86,7 +86,7 @@
                     <div class="col-lg-10 offset-lg-1">
                         <div class="card rounded-0">
                             <div class="card-header p-2 m-0">
-                                <h6 class="text-center mb-0 pb-0">Today's Leave Applications</h6>
+                                <h6 class="text-center mb-0 pb-0">Leave Applications</h6>
                             </div>
                             <div class="card-body p-1 m-0">
                                 <div class="table-responsive table-bordered">
@@ -110,9 +110,8 @@
                                                         <td>{{ $leaveApplication->type_of_leave }}</td>
                                                         <td>{{ $leaveApplication->designation }}</td>
                                                         <td>
-                                                            <span
-                                                                class="badge bg-{{ optional($leaveApplication)->application_status == 'approved' ? 'success' : 'danger' }}">
-                                                                {{ optional($leaveApplication)->application_status == 'approved' ? 'Approved' : 'Rejected' }}
+                                                            <span class="badge bg-{{ (optional($leaveApplication)->application_status == 'approved') ? 'success' : ((optional($leaveApplication)->application_status == 'rejected') ? 'danger' : 'warning') }}">
+                                                                {{ (optional($leaveApplication)->application_status == 'approved') ? 'Approved' : ((optional($leaveApplication)->application_status == 'rejected') ? 'Rejected' : 'Pending') }}
                                                             </span>
                                                         </td>
                                                         <td class="text-center">

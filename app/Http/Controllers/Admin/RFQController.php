@@ -457,7 +457,7 @@ class RFQController extends Controller
     {
         $data['users'] = User::where(function ($query) {
             $query->whereJsonContains('department', 'business');
-        })->where('role', 'manager')->select('id', 'name')->orderBy('id', 'DESC')->get();
+        })->select('id', 'name')->orderBy('id', 'DESC')->get();
         $data['products'] = Product::select('products.id', 'products.name')->get();
         $data['solution_details'] = SolutionDetail::select('solution_details.id', 'solution_details.name')->get();
         $data['clients'] = Client::select('clients.id', 'clients.name')->get();

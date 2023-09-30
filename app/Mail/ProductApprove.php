@@ -26,7 +26,7 @@ class ProductApprove extends Mailable
 
     public function build()
     {
-        return $this->from('support@ngenit.com', 'NGen IT')
+        return $this->from('support@ngenit.com', 'NGEN-Logistics')
                     ->view('mail.product_approve_mail', ['mail_body' => $this->data])
                     ->subject('New Product is waiting for SAS');
     }

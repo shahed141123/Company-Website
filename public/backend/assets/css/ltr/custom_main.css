@@ -173,9 +173,13 @@ table tbody td {
 }
 
 thead {
+    background-color: #24729759 !important;
+    color: #114863 !important;
+}
+/* thead {
     background-color: #247297 !important;
     color: #fff !important;
-}
+} */
 
 /*Custom icon Btn */
 .btn-close {

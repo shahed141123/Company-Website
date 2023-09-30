@@ -75,10 +75,10 @@
                                 <span>Make A Leave</span>
                             </div>
                         </a>
-                        <a href="" class="btn navigation_btn" data-bs-toggle="modal" data-bs-target="#checkapproved">
+                        <a href="{{route('individual.leaveHistory', Auth::user()->id)}}" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
-                                <span>Give Approval</span>
+                                <span>Your Leave History</span>
                             </div>
                         </a>
                     </div>

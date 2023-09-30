@@ -87,17 +87,13 @@
                                                                 Manager Name(Leader - L1) <span
                                                                     class="text-danger">*</span></label>
                                                             <select name="sales_man_id_L1"
-                                                                data-placeholder="Select Product Type.."
+                                                                data-placeholder="Select Sales Manager(L1).."
                                                                 id="sales_man_id_L1" class="form-control select" required>
                                                                 <option></option>
-                                                                <option class="form-control" value="hardware">
-                                                                    Hardware</option>
-                                                                <option class="form-control" value="software">
-                                                                    Software</option>
-                                                                <option class="form-control" value="training">
-                                                                    Training</option>
-                                                                <option class="form-control" value="book">
-                                                                    Book</option>
+                                                                @foreach ($users as $user)
+                                                                    <option value="{{ $user->id }}">{{ $user->name }}
+                                                                    </option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -106,11 +102,12 @@
                                                             <label for="sales_man_id_T1" class="form-label mb-0">Sales
                                                                 Manager Name (Team - T1)</label>
                                                             <select class="form-control select" name="sales_man_id_T1"
-                                                                data-placeholder="Select Sales...">
-                                                                <option>asdasdasd</option>
-                                                                <option>asdasdasd</option>
-                                                                <option>asdasdasd</option>
-                                                                <option>asdasdasd</option>
+                                                                data-placeholder="Select Sales Manager(T1)...">
+                                                                <option></option>
+                                                                @foreach ($users as $user)
+                                                                    <option value="{{ $user->id }}">{{ $user->name }}
+                                                                    </option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -119,11 +116,12 @@
                                                             <label for="sales_man_id_T2" class="form-label mb-0">Sales
                                                                 Manager Name (Team - T2)</label>
                                                             <select class="form-control select" name="sales_man_id_T2"
-                                                                data-placeholder="Select Sales...">
-                                                                <option>asdasdasd</option>
-                                                                <option>asdasdasd</option>
-                                                                <option>asdasdasd</option>
-                                                                <option>asdasdasd</option>
+                                                                data-placeholder="Select Sales Manager(T1)...">
+                                                                <option></option>
+                                                                @foreach ($users as $user)
+                                                                    <option value="{{ $user->id }}">{{ $user->name }}
+                                                                    </option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -139,12 +137,15 @@
                                                         <div class="form-group basic-form">
                                                             <label for="deal_type" class="form-label mb-0">Deal Type
                                                             </label>
-                                                            <select class="form-control select" name="deal_type"
+                                                            <select name="deal_type" class="form-control select "
+                                                                data-minimum-results-for-search="Infinity"
                                                                 data-placeholder="Chose Deal Type">
-                                                                <option>asdasdasd</option>
-                                                                <option>asdasdasd</option>
-                                                                <option>asdasdasd</option>
-                                                                <option>asdasdasd</option>
+                                                                <option></option>
+                                                                <option class="form-select" value="new">
+                                                                    New
+                                                                </option>
+                                                                <option class="form-select" value="renew">
+                                                                    Renew</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -166,49 +167,101 @@
                                     <div class="tab-pane fade" id="tab2" role="tabpanel"
                                         aria-labelledby="tab2-tab">
                                         <h6 class="ms-1 mb-0 text-info">Client Details</h6>
+
                                         <div class="row mb-3 p-3 mx-1 border border-secondary bg-light">
-                                            <div class="col-lg-3 mb-2">
-                                                <div class="form-group basic-form">
-                                                    <label for="sales_man_id_L1" class="form-label mb-0">Client Type<span
-                                                            class="text-danger">*</span></label>
-                                                    <select name="client_type" class="form-control select client_select"
-                                                        data-minimum-results-for-search="Infinity"
-                                                        data-placeholder="Chose client Type">
-                                                        <option></option>
-                                                        <option class="form-select" value="client">
-                                                            Client
-                                                        </option>
-                                                        <option class="form-select" value="partner">
-                                                            Partner</option>
+                                            <div class="row offset-lg-2">
+                                                <div class="col-lg-8 mb-2 d-flex justify-content-end align-items-center">
+                                                    <div
+                                                        class="center mb-3 bg-gray p-1 text-center d-flex align-items-baseline">
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                value="1" name="regular" id="flexRadioDefault1">
+                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                Regular Discount
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                value="1" name="special" id="flexRadioDefault1">
+                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                Special Discount
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                value="1" name="tax_status" id="flexRadioDefault1">
+                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                Tax / VAT
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-3 mb-2">
+                                                    <div class="form-group basic-form">
+                                                        <label for="sales_man_id_L1" class="form-label mb-0">Client
+                                                            Type<span class="text-danger">*</span></label>
+                                                        <select name="client_type"
+                                                            class="form-control select client_select"
+                                                            data-minimum-results-for-search="Infinity"
+                                                            data-placeholder="Chose client Type">
+                                                            <option></option>
+                                                            <option class="form-select" value="client">
+                                                                Client
+                                                            </option>
+                                                            <option class="form-select" value="partner">
+                                                                Partner</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 mb-2 partner_display d-none">
+                                                    <label for="sales_man_id_L1" class="form-label mb-0">Partner
+                                                        Type<span class="text-danger">*</span></label>
+                                                    <select name="partner_id" class="form-control select partnerID"
+                                                        data-placeholder="Choose Partner">
+                                                        <option class="common_partner"></option>
+                                                        @foreach ($partners as $partner)
+                                                            <option value="{{ $partner->id }}">Name :
+                                                                {{ $partner->name }}; Company Name :
+                                                                {{ $partner->company_name }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-9 mb-2 d-flex justify-content-end align-items-center">
-                                                <div
-                                                    class="center mb-3 bg-gray p-1 text-center d-flex align-items-baseline">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" value="1"
-                                                            name="regular" id="flexRadioDefault1">
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                            Regular Discount
+                                                <div class="col-lg-3 mb-2 client_display d-none">
+                                                    <label for="sales_man_id_L1" class="form-label mb-0">Client
+                                                        Type<span class="text-danger">*</span></label>
+                                                    <select name="client_id" class="form-control select clientID"
+                                                        data-placeholder="Choose Client">
+                                                        <option class="common_client"></option>
+                                                        @foreach ($clients as $client)
+                                                            <option value="{{ $client->id }}">Name :
+                                                                {{ $client->name }}; Company Name :
+                                                                {{ $client->company_name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-4 mt-3 partner_account d-none text-warning">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input account" type="checkbox"
+                                                            value="partner" name="account" id="flexCheckDefault">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Create Partner Account
                                                         </label>
                                                     </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" value="1"
-                                                            name="special" id="flexRadioDefault1">
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                            Special Discount
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" value="1"
-                                                            name="tax_status" id="flexRadioDefault1">
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                            Tax / VAT
+                                                </div>
+                                                <div class="col-lg-4 mt-3 client_account d-none text-warning">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input account" type="checkbox"
+                                                            value="client" name="account" id="flexCheckDefault">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Create Client Account
                                                         </label>
                                                     </div>
                                                 </div>
                                             </div>
+
+
                                             <div class="col-lg-3 mb-2">
                                                 <div class="form-group basic-form">
                                                     <label for="sales_man_id_L1" class="form-label mb-0">Name<span
@@ -286,6 +339,7 @@
                                             <div class="col-lg-12 p-2">
                                                 <div class="table-responsive col-md-12">
                                                     <table class="table table-bordered col-md-12" style="width:100%">
+
                                                         <thead>
                                                             <tr>
                                                                 <th style="padding:7px !important;"> Product Name </th>
@@ -298,6 +352,7 @@
                                                                             class="ph-plus"></i></a></th>
                                                             </tr>
                                                         </thead>
+
                                                         <tbody class="repeater">
                                                             <tr>
                                                                 {{-- <td>
@@ -308,6 +363,7 @@
                                                                                 @foreach ($products as $product)
                                                                                     <option value="{{ $product->name }}">{{ $product->name }}</option>
                                                                                 @endforeach
+
                                                                             </select>
                                                                         </div>
                                                                     </td> --}}
@@ -319,10 +375,13 @@
                                                                         name="unit_price[]"></td>
                                                                 <td> <input type="text" class="form-control"
                                                                         name="regular_discount[]"></td>
+
+
                                                                 <td class="text-center"> <a href="javascript:void(0)"
                                                                         class=" removeRow"><i class="ph-minus"></i></a>
                                                                 </td>
                                                             </tr>
+
                                                         </tbody>
                                                     </table>
                                                     {{-- <div class="col-md-11 mt-3">
@@ -631,6 +690,190 @@
                 // Hide Tab 3's content
                 const tab3Content = document.getElementById('tab3');
                 tab3Content.classList.remove('active', 'show');
+            });
+        </script>
+
+        <script>
+            $('.client_select').on('change', function() {
+
+                var client_value = $(this).find(":selected").val();
+
+                if (client_value == 'client') {
+                    $(".client_display").removeClass("d-none");
+                    $(".partner_display").addClass("d-none");
+
+                } else if (client_value == 'partner') {
+                    $(".partner_display").removeClass("d-none");
+                    $(".client_display").addClass("d-none");
+
+                } else {
+                    $(".partner_display").addClass("d-none");
+                    $(".client_display").addClass("d-none");
+                }
+
+            });
+        </script>
+
+        <script>
+            $('thead').on('click', '.addRow', function() {
+                var tr = "<tr>" +
+                    // "<td>"+
+                    //     "<div class='basic-form'>"+
+                    //         "<select name='product_name[]' class='form-select'>"+
+                    //             "<option>Choose Product</option>"+
+                    //             "@foreach ($products as $product)"+
+                    //                 "<option value='{{ $product->name }}'>{{ $product->name }}</option>"+
+                    //             "@endforeach"+
+                    //         "</select>"+
+                    //     "</div>"+
+                    // "</td>"+
+                    "<td> <input type='text' class='form-control' name='item_name[]' placeholder='Product Name' required></td>" +
+                    "<td> <input type='text' class='form-control' name='qty[]' placeholder='Quantity' required></td>" +
+                    "<td> <input type='text' class='form-control' name='unit_price[]' ></td>" +
+                    "<td> <input type='text' class='form-control' name='regular_discount[]' ></td>" +
+                    "<td> <a href='javascript:void(0)' class='btn btn-danger removeRow'><i class='ph-minus'></i></a></td>" +
+                    "</tr>"
+                $('.repeater').append(tr);
+            });
+
+            $('tbody').on('click', '.removeRow', function() {
+                $(this).parent().parent().remove();
+            });
+        </script>
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('select[name="partner_id"]').on('change', function() {
+                    var partner_id = $(this).val();
+                    //alert(partner_id);
+                    // alert($('select[name="client_id"]').val());
+                    // alert($('select[name="partner_id"]').val());
+                    if (partner_id) {
+                        $.ajax({
+                            url: "{{ url('admin/partner/ajax') }}/" + partner_id,
+                            type: "GET",
+                            dataType: "json",
+                            success: function(data) {
+                                $('input[name="name"]').val(data.name);
+                                $('input[name="email"]').val(data.primary_email_address);
+                                $('input[name="company_name"]').val(data.company_name);
+                                $('input[name="address"]').val(data.company_address);
+                                $('input[name="phone"]').val(data.phone_number);
+
+                                //$('select[name="subcategory_id"]').append('<option value="'+ value.id + '">' + value.subcategory_name + '</option>');
+
+                            },
+
+                        });
+                    }
+
+                });
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('select[name="client_id"]').on('change', function() {
+                    var client_id = $(this).val();
+                    //alert(client_id);
+                    // alert($('select[name="client_id"]').val());
+                    // alert($('select[name="partner_id"]').val());
+                    if (client_id) {
+                        $.ajax({
+                            url: "{{ url('admin/client/ajax') }}/" + client_id,
+                            type: "GET",
+                            dataType: "json",
+                            success: function(data) {
+                                $('input[name="name"]').val(data.name);
+                                $('input[name="email"]').val(data.email);
+                                $('input[name="phone"]').val(data.phone);
+                                $('input[name="address"]').val(data.address);
+                                //$('select[name="subcategory_id"]').append('<option value="'+ value.id + '">' + value.subcategory_name + '</option>');
+
+                            },
+
+                        });
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            $('select[name="client_type"]').on('change', function() {
+                var client_type = $(this).val();
+
+                if (client_type == 'partner') {
+                    $('select[name="client_id"]').val('').change();
+                } else if (client_type == 'client') {
+                    $('select[name="partner_id"]').val('').change();
+                } else {
+                    $('select[name="client_id"]').val('').change();
+                    $('select[name="partner_id"]').val('').change();
+                }
+
+            });
+        </script>
+
+        <script>
+            $('select[name="client_type"]').on('change', function() {
+                var client_type = $(this).find(":selected").val();
+                //alert(client_type)
+
+                if (client_type == 'partner') {
+                    $('.partner_account').removeClass('d-none');
+                    $('.client_account').addClass('d-none');
+                    $('select[name="partner_id"]').on('change', function() {
+                        var partner = $('select[name="partner_id"]').find(":selected").val();
+                        if (partner != null) {
+                            $('.partner_account').addClass('d-none');
+                            $('input[name="password"]').val('');
+                        } else {
+                            $('.partner_account').removeClass('d-none');
+                        }
+                    });
+                }
+                if (client_type == 'client') {
+                    $('.client_account').removeClass('d-none');
+                    $('.partner_account').addClass('d-none');
+                    $('select[name="client_id"]').on('change', function() {
+                        var client = $('select[name="client_id"]').find(":selected").val();
+                        if (client != null) {
+                            $('.client_account').addClass('d-none');
+                            $('input[name="password"]').val('');
+                        } else {
+                            $('.client_account').removeClass('d-none');
+                        }
+                    });
+                }
+
+            });
+
+            $('.account').on('click', function() {
+                if ($('.account').is(':checked')) {
+                    $('.user_password').removeClass('d-none');
+                } else {
+                    $('.user_password').addClass('d-none');
+                }
+            });
+
+
+            $("input[name='phone']").on('keyup change', function() {
+                var password = $("input[name='phone']").val();
+                $("input[name='password']").val(password);
+            });
+        </script>
+
+        <script>
+            $('.client_select').on('change', function() {
+
+                $('input[name="name"]').val('');
+                $('input[name="email"]').val('');
+                $('input[name="company_name"]').val('');
+                $('input[name="address"]').val('');
+                $('input[name="phone"]').val('');
+
+
             });
         </script>
     @endpush

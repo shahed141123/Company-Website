@@ -30,7 +30,7 @@ class RFQNotificationMail extends Mailable
 
      public function build()
     {
-        return $this->from('support@ngenit.com', 'Ngen IT')
+        return $this->from('support@ngenit.com', 'NGEN-Business')
                     ->view('mail.rfqNotificationMail', ['data' => $this->data])
                     ->subject('Reply in response of your RFQ');
     }

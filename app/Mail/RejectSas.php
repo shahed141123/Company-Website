@@ -25,7 +25,7 @@ class RejectSas extends Mailable
 
     public function build()
     {
-        return $this->from('support@ngenit.com', 'Ngen IT')
+        return $this->from('support@ngenit.com', 'NGEN-Logistics')
                     ->view('mail.reject_sas', ['mail_body' => $this->data])
                     ->subject('A Product is Rejected');
     }

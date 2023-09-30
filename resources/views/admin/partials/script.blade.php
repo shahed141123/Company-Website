@@ -2,7 +2,9 @@
 {{-- <script src="{{ asset('backend/assets/js/jquery/jquery.min.js') }}"></script> --}}
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
 <script src="{{ asset('backend/assets/js/jquery-3.6.0.min.js') }}"></script>
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet">
+    <!-- FullCalendar JS -->
+<script src="{{ asset('backend/assets/js/vendor/ui/fullcalendar/main.min.js') }}"></script>
 <script src="{{ asset('backend/assets/demo/demo_configurator.js') }}"></script>
 <script src="{{ asset('backend/assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
 <!-- /core JS files -->
@@ -38,7 +40,7 @@
 <script src="{{ asset('backend/assets/demo/pages/components_modals.js') }}"></script>
 
 <script src="{{ asset('backend/assets/demo/pages/form_wizard.js') }}"></script>
-
+<script src="{{ asset('backend/assets/demo/pages/fullcalendar_advanced.js') }}"></script>
 
 
 <script src="{{ asset('backend/assets/demo/pages/extra_sweetalert.js') }}"></script>
@@ -61,6 +63,7 @@
 {!! Toastr::message() !!}
 
 
+@stack('scripts')
 
 <script>
     $(document).ready(function() {
@@ -440,4 +443,4 @@ function addToCart(event) {
 </script>
 
 {{-- @yield('scripts') --}}
-@stack('scripts')
+

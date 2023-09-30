@@ -93,11 +93,7 @@
     </tbody>
 </table>
 
-
-
 {{-- Modals --}}
-
-
 @foreach ($rfqs as $rfq)
     <div id="show-deals-{{ $rfq->rfq_code }}" class="modal fade" tabindex="-1" style="display: none;"
         aria-hidden="true">
@@ -183,32 +179,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            {{-- <div class="row">
-                                <table class="table table-bordered table-striped p-1">
-                                    <thead>
-                                        @if (count($deal_products) > 0)
-                                            <tr>
-                                                <th> Product Name</th>
-                                                <th> Quantity </th>
-                                                <th> Sale Price </th>
-                                            </tr>
 
-                                            @foreach ($deal_products as $item)
-                                                <tr class="bg-gray text-white">
-                                                    <th>{{ $item->item_name }}</th>
-                                                    <th>{{ $item->qty }}</th>
-                                                    <th>{{ $item->sub_total_cost }}</th>
-                                                </tr>
-                                            @endforeach
-                                        @else
-                                        @endif
-
-
-
-
-                                    </thead>
-                                </table>
-                            </div> --}}
 
                         </div>
                     </div>
@@ -353,6 +324,7 @@
         </div>
     </div>
 
+
     <div id="assign-manager-{{ $rfq->rfq_code }}" class="modal fade" tabindex="-1" style="display: none;"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
@@ -375,13 +347,16 @@
                         <div class="row mb-1">
                             <div class="card">
                                 <table class="table border p-1">
-                                    <tbody>
-                                        <tr class="text-center bg-indigo">
-                                            <td class="text-white" colspan="3">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th class="text-white" colspan="3">
                                                 Product :
                                                 {{ App\Models\Admin\Product::where('id', $rfq_details->product_id)->value('name') }}
-                                            </td>
+                                            </th>
                                         </tr>
+                                    </thead>
+                                    <tbody>
+
                                         <tr>
                                             <td>
                                                 Client Type :
@@ -511,8 +486,7 @@
 
 
                         <div class="row">
-                            <div class="col-sm-3"></div>
-                            <div class="col-sm-9 text-secondary">
+                            <div class="col-sm-3 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </div>

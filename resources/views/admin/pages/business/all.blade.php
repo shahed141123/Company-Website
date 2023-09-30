@@ -49,6 +49,12 @@
                                     <span>RFQ Management</span>
                                 </div>
                             </a>
+                        <a href="{{ route('deal.create') }}" class="btn navigation_btn">
+                                <div class="d-flex align-items-center ">
+                                    <i class="fa-solid fa-truck-field me-1" style="font-size: 12px;"></i>
+                                    <span>Deal Create</span>
+                                </div>
+                            </a>
                         <a href="{{ route('sales-dashboard.index') }}" class="btn navigation_btn">
                             <div class="d-flex align-items-center">
                                 <i class="fa-solid fa-business-time me-1" style="font-size: 12px;"></i>

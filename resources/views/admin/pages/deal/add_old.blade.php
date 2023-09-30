@@ -435,8 +435,6 @@
                                             <button class="accordion-button fw-semibold" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#closed_January_item1">
                                                 <i class="fas fa-plus-square me-3 fa-1x"></i> Terms & Condition
-
-
                                             </button>
                                         </h2>
                                         <div id="closed_January_item1" class="accordion-collapse collapse"
@@ -628,9 +626,7 @@
 
                         });
                     }
-                    //  else {
-                    //     alert('Error Occured. Try Again');
-                    // }
+
                 });
             });
         </script>

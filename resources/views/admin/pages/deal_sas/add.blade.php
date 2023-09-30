@@ -1,19 +1,52 @@
 @extends('admin.master')
 @section('content')
+    <style>
+        .field-color {
+            background-color: white !important;
+            color: black !important;
+        }
+
+        .table-sub-heading {
+            background-color: #24729759 !important;
+        }
+
+        thead {
+            background-color: #24729759 !important;
+            color: #114863 !important;
+        }
+
+        .form-check-input:checked {
+            background-color: #7aaac1;
+            border-color: #3182b2;
+        }
+
+        .form-check-input:focus {
+            border-color: 0;
+            outline: 0;
+            box-shadow: none;
+        }
+        td{
+            border: none;
+        }
+        th{
+            border: none;
+        }
+        tr{
+            border-bottom: none;
+            border-top: none;
+        }
+    </style>
     <div class="content-wrapper">
-
         <!-- Inner content -->
-
-
         <!-- Page header -->
         <div class="page-header page-header-light shadow">
-
-
             <div class="page-header-content d-lg-flex border-top">
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
-                        <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
+                        <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house"></i></a>
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item">Home</a>
+                        <a href="{{ route('business.index') }}" class="breadcrumb-item">Business</a>
+                        <a href="{{ route('rfq-manage.index') }}" class="breadcrumb-item">RFQ Management</a>
                         <span class="breadcrumb-item active">SAS</span>
                     </div>
 
@@ -26,310 +59,316 @@
             </div>
         </div>
         <!-- /page header -->
-
-
         <!-- Content area -->
         <div class="content">
             <form action="{{ route('deal-sas.store') }}" method="post" class="calculate">
                 @csrf
-                <div class="rfq-top">
-                    <div class="bg-dark mb-2">
-                        <table class="text-center table table-hover br-7">
-                            <thead>
-                                <tr class="br-7">
-                                    <th class="text-white">RFQ Code :  {{ $rfq->rfq_code }}
-                                        <input type="hidden" name="rfq_code" value="{{ $rfq->rfq_code }}">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card rounded-0 shadow-sm m-0 p-2">
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <p class="p-0 m-1"><span class="main_color fw-bold">RFQ Code :</span>
+                                        {{ $rfq->rfq_code }}</p>
                                         <input type="hidden" name="rfq_id" value="{{ $rfq->id }}">
-                                    </th>
-                                    <th class="text-white">SAS Create Date :
-                                        <input type="hidden" name="create" value="{{\Carbon\Carbon::now()}}">
-                                            {{\Carbon\Carbon::now()->format('d-m-Y')}}
-                                    </th>
-                                    <th class="text-white text-center">
-                                        This Deal is for our @if ($rfq->client_type == 'partner')
+                                </div>
+                                <div class="col-lg-2 text-lg-end text-sm-start">
+                                    <p class="p-0 m-1"> <span class="main_color fw-bold">This Deal Is For Our :</span>
+                                        @if ($rfq->client_type == 'partner')
                                             Partner
                                         @else
                                             Client
                                         @endif
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-                <div class="center">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="regular" value="1" id="flexRadioDefault1" {{ $rfq->regular == '1' ? 'checked' : '' }}>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Regular Discount
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="special" value="1" id="flexRadioDefault2" {{ $rfq->special == '1' ? 'checked' : '' }}>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          Special Discount
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="tax_status" value="1" id="flexRadioDefault3" {{ $rfq->tax_status == '1' ? 'checked' : '' }}>
-                        <label class="form-check-label" for="flexRadioDefault3">
-                          Tax / VAT
-                        </label>
-                    </div>
-                </div>
-                <div class="row">
+                                    </p>
 
-                    <div class="col-lg-11 my-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="table-responsive calculate">
-                                    <div class="mb-2" style="width: 70%; margin: auto;">
-                                        <table class="text-center table table-bordered table-hover mb-3">
-                                            <thead>
-                                                <tr class="bg-gray">
-                                                    <th width="18%">Item Name</th>
-                                                    <th width="5%">Quantity</th>
-                                                    <th width="5%">Unit Price</th>
-                                                    <th width="5%">Cost (Cog Price)</th>
-
-                                                    <th width="5%" class="rg_discount d-none">Regular Discount (%)</th>
-                                                    <th width="5%">Discounted Sales Price</th>
-                                                    <th width="5%">Unit Total</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($products as $item)
-
-                                                    <tr class="thd">
-                                                        <td class="border-none">
-                                                            {{ $item->item_name }}
-                                                            <input type="hidden" name="id[]" value="{{ $item->id }}">
-                                                            <input type="hidden" name="item_name[]" value="{{ $item->item_name }}">
-                                                        </td>
-
-                                                            <td class="border-none">
-                                                                <input type="hidden" name="qty[]" value="{{ $item->qty }}" id="qty">
-                                                                {{ $item->qty }}
-                                                            </td>
-                                                            <td class="border-none">
-                                                                <input class="w-6" type="text" name="unit_price[]" id="unit_price" value="{{ $item->unit_price }}">
-                                                            </td>
-                                                            <td class="border-none">
-                                                                <input class="cog_price w-6" type="text" name="cog_price[]">
-                                                            </td>
-                                                            <td class="rg_discount d-none border-none ">
-                                                                <input class="regular_discount w-6" type="text" name="regular_discount[]">
-                                                            </td>
-
-                                                            <td class="border-none"><input class="discounted_sales w-6" type="text"
-                                                                    name="discounted_sales[]" readonly>
-                                                            </td>
-                                                            <td class="border-none">
-                                                                <input class="sales_price w-6" type="text"
-                                                                name="sales_price[]" readonly>
-                                                            </td>
-                                                    </tr>
-                                                @endforeach
-                                                <tr>
-                                                    <td class="border-none"></td>
-
-                                                    <td class="border-none" colspan="2">Sub Total</td>
-
-                                                    <td class="border-none"><input class="w-6" type="text" name="sub_total_cost" readonly></td>
-                                                    <td class="rg_discount d-none border-none"></td>
-                                                    <td class="border-none"><input class="w-6" type="text" name="sub_total_discounted_sales" readonly></td>
-
-                                                    <td class="border-none"><input class="w-6" type="text" name="sub_total_sales" readonly></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                        <table class="text-center table table-bordered table-hover">
-                                            <thead>
-                                                <tr class="special_discount d-none">
-                                                    {{-- <th colspan="3" width="50%"></th> --}}
-                                                    <th class="border-none" colspan="5" width="67%">Special Discount</th>
-                                                    <th class="border-none" width="18%"><input class="w-6" type="text" name="special_discount" value="0">  %</th>
-
-                                                    <th class="border-none" width="15%"><input class="w-6" type="text" name="special_discounted_sales" readonly></th>
-                                                </tr>
-                                                <tr class="tax d-none">
-                                                    {{-- <th class="border-none" colspan="3" width="50%"></th> --}}
-                                                    <th class="border-none" colspan="5" width="67%">Tax/VAT</th>
-                                                    <th class="border-none" width="18%"><input class="w-6" type="text" name="tax" value="0">  %</th>
-                                                    <th class="border-none" width="15%"><input class="w-6" type="text" name="tax_sales" readonly></th>
-                                                </tr>
-                                                <tr>
-                                                    {{-- <th class="border-none" colspan="3" width="50%"></th> --}}
-                                                    <th class="border-none" colspan="5" width="67%">Grand Total (With Everything)</th>
-                                                    <th class="border-none" width="18%"></th>
-
-                                                    <th class="border-none" width="15%"><input class="w-6" type="text" name="grand_total" readonly></th>
-                                                </tr>
-                                            </thead>
-                                        </table>
+                                </div>
+                                <div class="col-lg-3 text-lg-end text-sm-start">
+                                    <p class="p-0 m-1"><span class="main_color fw-bold">SAS Create Date :</span>
+                                        {{-- <input type="hidden" name="create" value="{{\Carbon\Carbon::now()}}"> --}}
+                                        {{ \Carbon\Carbon::now()->format('d-m-Y') }}</p>
+                                </div>
+                                <div class="col-lg-5 text-lg-end text-sm-start">
+                                    <div class="center pt-1">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" name="regular" value="1"
+                                                id="flexRadioDefault1" {{ $rfq->regular == '1' ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Regular Discount
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" name="special" value="1"
+                                                id="flexRadioDefault2" {{ $rfq->special == '1' ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                Special Discount
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" name="tax_status" value="1"
+                                                id="flexRadioDefault3" {{ $rfq->tax_status == '1' ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="flexRadioDefault3">
+                                                Tax / VAT
+                                            </label>
+                                        </div>
                                     </div>
-
-
-                                    <div class="center">
-                                        <table class="text-center table table-bordered table-hover">
-                                            <tbody class="tb accordion padding" id="accordion_expanded">
-
-
-                                                <tr class="bg-dark accordion_expense">
-                                                    <td class="text-white" colspan="3">
-                                                        <i class="ph-arrow-down"></i>&nbsp;&nbsp; Expenses
-                                                    </td>
-                                                </tr>
-
-
-                                                <tr class="body_expense" style="display: none;">
-                                                    <td class="border-none">Bank & Remittance Charge - (1.5%)</td>
-                                                    <td class="border-none"><input class="multiplyValue w-6" type="text"
-                                                            name="bank_charge"></td>
-                                                    <td class="border-none"><input type="text" class="result w-6" readonly
-                                                            value="">
-                                                    </td>
-                                                </tr>
-                                                <tr class="body_expense" style="display: none;">
-                                                    <td class="border-none">Customs & Duty - (5.0%)</td>
-                                                    <td class="border-none"><input class="multiplyValue w-6" type="text"
-                                                            name="customs">
-                                                    </td>
-                                                    <td class="border-none"><input type="text" class="result w-6" readonly
-                                                            value="">
-                                                    </td>
-                                                </tr>
-                                                {{-- <tr class="body_expense" style="display: none;">
-                                                    <td class="border-none">Tax / AIT / VAT - (10.0%)</td>
-                                                    <td class="border-none"><input class="multiplyValue w-6" type="text"
-                                                            name="tax">
-                                                    </td>
-                                                    <td class="border-none"><input class="result w-6" type="text" readonly
-                                                            value="">
-                                                    </td>
-                                                </tr> --}}
-                                                <tr class="body_expense" style="display: none;">
-                                                    <td class="border-none">HR , Office & Utility Cost- (5.0%)</td>
-                                                    <td class="border-none"><input class="multiplyValue w-6" type="text"
-                                                            name="utility_cost">
-                                                    </td>
-                                                    <td class="border-none"><input class="result w-6" type="text" readonly
-                                                            value="">
-                                                    </td>
-                                                </tr>
-                                                <tr class="body_expense" style="display: none;">
-                                                    <td class="border-none">Shipping & Handling Cost- (5.0%)</td>
-                                                    <td class="border-none"><input class="multiplyValue w-6" type="text"
-                                                            name="shiping_cost">
-                                                    </td>
-                                                    <td class="border-none"><input class="result w-6" type="text" readonly
-                                                            value="">
-                                                    </td>
-                                                </tr>
-
-                                                <tr class="body_expense" style="display: none;">
-                                                    <td class="border-none">Sales / Consultancy Comission - (5.0%)</td>
-                                                    <td class="border-none"><input class="multiplyValue w-6" type="text"
-                                                            name="sales_comission">
-                                                    </td>
-                                                    <td class="border-none"><input class="result w-6" type="text" readonly
-                                                            value="">
-                                                    </td>
-                                                </tr>
-                                                <tr class="body_expense" style="display: none;">
-                                                    <td class="border-none">Bank Loan / Liability / Debt - (5.0%)</td>
-                                                    <td class="border-none"><input class="multiplyValue w-6" type="text"
-                                                            name="liability">
-                                                    </td>
-                                                    <td class="border-none"><input class="result w-6" type="text" readonly
-                                                            value="">
-                                                    </td>
-                                                </tr>
-
-
-
-
-                                                <tr class="bg-dark accordion_offer">
-                                                    <td class="text-white" colspan="3">
-                                                        <i class="ph-arrow-down"></i>&nbsp;&nbsp;
-                                                        Offering Value Adding
-                                                    </td>
-                                                </tr>
-
-
-                                                    {{-- <tr class="body_offer" style="display: none;">
-                                                        <td>Promo / Deal / Regular Discounts</td>
-                                                        <td><input class="multiplyValue w-6" type="text"
-                                                                name="regular_discounts"></td>
-                                                        <td><input class="result w-6" type="text" readonly
-                                                                value=""></td>
-                                                    </tr> --}}
-                                                    <tr class="body_offer" style="display: none;">
-                                                        <td class="border-none">Deal Closing / Rebates</td>
-                                                        <td class="border-none"><input class="multiplyValue w-6" type="text"
-                                                                name="rebates"></td>
-                                                        <td class="border-none"><input class="result w-6" type="text" readonly
-                                                                value=""></td>
-                                                    </tr>
-
-                                                <tr class="bg-dark accordion_other">
-                                                    <td colspan="3" class="bg-dark text-white">
-                                                        <i class="ph-arrow-down"></i>&nbsp;&nbsp;
-                                                        Other Income
-                                                    </td>
-                                                </tr>
-
-                                                    <tr class="body_other" style="display: none;">
-                                                        <td class="border-none">Loan / Capital / Partner Share - (5%)</td>
-                                                        <td class="border-none"><input class="multiplyValue w-6" type="text"
-                                                                name="capital_share"></td>
-                                                        <td class="border-none"><input class="result w-6" type="text" readonly
-                                                                value=""></td>
-                                                    </tr>
-                                                    <tr class="body_other" style="display: none;">
-                                                        <td class="border-none">Management Cost - (5%)</td>
-                                                        <td class="border-none"><input class="multiplyValue w-6" type="text"
-                                                                name="management_cost"></td>
-                                                        <td class="border-none"><input class="result w-6" type="text" readonly
-                                                                value=""></td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="border-none">Gross Profit (%) between Sales and Cost</td>
-                                                        <td class="border-none"><input class="gross_profit_subtotal w-6"
-                                                                type="text" name="gross_profit_subtotal" readonly value="">%</td>
-                                                        <td class="border-none">TK.
-                                                            <input type="text" class="additional_subtot w-6" name="gross_profit_amount" readonly value="">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="border-none">Net Profit - (5%)</td>
-                                                        <td class="border-none"><input class="multiplyValue w-6" type="text"
-                                                                name="net_profit_percentage"></td>
-                                                        <td class="border-none"><input class="result w-6" type="text" name="net_profit_amount" readonly
-                                                                value=""></td>
-                                                    </tr>
-
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-12 mb-2 table-responsive">
+                        <table class="text-center table table-bordered table-hover table-striped shadow-sm">
+                            <thead>
+                                <tr style="background-color: #24729759 !important;">
+                                    <th width="30%">Item Name</th>
+                                    <th width="10%">Quantity</th>
+                                    <th width="10%">Unit Price</th>
+                                    <th width="10%">Cost (Cog Price)</th>
 
-                </div>
-                <div class="row">
-                    <div class="col-lg-8"></div>
-                    <div class="col-lg-4">
-                        <button type="submit" class="btn btn-primary mx-3" id="submitbtn">
-                            Create SAS<i class="ph-paper-plane-tilt mx-2"></i></button>
+                                    <th width="15%" class="rg_discount d-none">Regular Discount (%)</th>
+                                    <th width="15%">Discounted Sales Price</th>
+                                    <th width="10%">Unit Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="border-bottom">
+                                @foreach ($products as $item)
+                                    <tr class="thd">
+                                        <td class="border-none">
+                                            {{ $item->item_name }}
+                                            <input type="hidden" name="id[]" value="{{ $item->id }}">
+                                            <input type="hidden" name="item_name[]" value="{{ $item->item_name }}">
+                                        </td>
+
+                                        <td class="border-none">
+                                            <input type="hidden" name="qty[]" value="{{ $item->qty }}"
+                                                id="qty">
+                                            {{ $item->qty }}
+                                        </td>
+                                        <td class="border-none">
+                                            <input class="form-control form-control-sm" type="text" name="unit_price[]"
+                                                id="unit_price" value="{{ $item->unit_price }}">
+                                        </td>
+                                        <td class="border-none">
+                                            <input class="cog_price form-control form-control-sm" type="text"
+                                                name="cog_price[]">
+                                        </td>
+                                        <td class="rg_discount d-none border-none ">
+                                            <input class="regular_discount form-control form-control-sm" type="text"
+                                                name="regular_discount[]">
+                                        </td>
+
+                                        <td class="border-none"><input class="discounted_sales form-control form-control-sm"
+                                                type="text" name="discounted_sales[]" readonly>
+                                        </td>
+                                        <td class="border-none">
+                                            <input class="sales_price form-control form-control-sm" type="text"
+                                                name="sales_price[]" readonly>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                <tr>
+                                    <td class="border-none"></td>
+
+                                    <td class="border-none" colspan="2">Sub Total</td>
+
+                                    <td class="border-none"><input class="form-control form-control-sm" type="text"
+                                            name="sub_total_cost" readonly></td>
+                                    <td class="rg_discount d-none border-none"></td>
+                                    <td class="border-none"><input class="form-control form-control-sm" type="text"
+                                            name="sub_total_discounted_sales" readonly></td>
+
+                                    <td class="border-none"><input class="form-control form-control-sm" type="text"
+                                            name="sub_total_sales" readonly></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
+                    <div class="col-lg-12">
+                        <div class="card rounded-0 shadow-sm table-responsive ">
+                            <table class="text-center table table-bordered table-hover rounded-0 shadow-sm">
+                                <thead class="rounded-0 shadow-sm">
+                                    <tr class="special_discount d-none rounded-0">
+                                        <th class="rounded-0">Special Discount</th>
+                                        <td class="p-1 field-color">
+                                            <input class="form-control form-control-sm" type="text"
+                                                name="special_discount" value="0">
+                                        </td>
+                                        <td class="p-1 field-color">
+                                            <input class="form-control form-control-sm" type="text"
+                                                name="special_discounted_sales" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr class="tax d-none">
+                                        <th class="">Tax/VAT</th>
+                                        <td class="p-1 field-color">
+                                            <input class="form-control form-control-sm" type="text" name="tax"
+                                                value="0">
+                                        </td>
+                                        <td class="p-1 field-color">
+                                            <input class="form-control form-control-sm" type="text" name="tax_sales"
+                                                readonly>
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <th class="">Grand Total (With Everything)</th>
+                                        <td class="p-1 field-color">
+                                        </td>
+                                        <td class="p-1 field-color">
+                                            <input class="form-control form-control-sm" type="text" name="grand_total"
+                                                readonly>
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    {{-- New Table --}}
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-6 table-responsive ">
+                                <table class="datatable table table-bordered table-hover rounded-0 shadow-sm">
+                                    <tbody class="tb rounded-0 shadow">
+                                        <tr class=" text-white rounded-0" style="background-color: #24729759;">
+                                            <td class="text-white" colspan="3">
+                                                <h6 class="mb-0" style="font-size: 13px; color:#11445c;">Expenses</h6>
+                                            </td>
+                                        </tr>
+                                        <tr class="body_expense">
+                                            <td class="border-none">Bank & Remittance Charge - (1.5%)</td>
+                                            <td class="border-none"><input
+                                                    class="multiplyValue form-control form-control-sm" type="text"
+                                                    name="bank_charge"></td>
+                                            <td class="border-none"><input type="text"
+                                                    class="result form-control form-control-sm" readonly value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="body_expense">
+                                            <td class="border-none">Customs & Duty - (5.0%)</td>
+                                            <td class="border-none"><input
+                                                    class="multiplyValue form-control form-control-sm" type="text"
+                                                    name="customs">
+                                            </td>
+                                            <td class="border-none"><input type="text"
+                                                    class="result form-control form-control-sm" readonly value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="body_expense">
+                                            <td class="border-none">HR , Office & Utility Cost- (5.0%)</td>
+                                            <td class="border-none"><input
+                                                    class="multiplyValue form-control form-control-sm" type="text"
+                                                    name="utility_cost">
+                                            </td>
+                                            <td class="border-none"><input class="result form-control form-control-sm"
+                                                    type="text" readonly value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="body_expense">
+                                            <td class="border-none">Shipping & Handling Cost- (5.0%)</td>
+                                            <td class="border-none"><input
+                                                    class="multiplyValue form-control form-control-sm" type="text"
+                                                    name="shiping_cost">
+                                            </td>
+                                            <td class="border-none"><input class="result form-control form-control-sm"
+                                                    type="text" readonly value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="body_expense">
+                                            <td class="border-none">Sales / Consultancy Comission - (5.0%)</td>
+                                            <td class="border-none"><input
+                                                    class="multiplyValue form-control form-control-sm" type="text"
+                                                    name="sales_comission">
+                                            </td>
+                                            <td class="border-none"><input class="result form-control form-control-sm"
+                                                    type="text" readonly value="">
+                                            </td>
+                                        </tr>
+                                        <tr class="body_expense">
+                                            <td class="border-none">Bank Loan / Liability / Debt - (5.0%)</td>
+                                            <td class="border-none"><input
+                                                    class="multiplyValue form-control form-control-sm" type="text"
+                                                    name="liability">
+                                            </td>
+                                            <td class="border-none"><input class="result form-control form-control-sm"
+                                                    type="text" readonly value="">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-lg-6 table-responsive">
+                                <table class="datatable table table-bordered table-hover rounded-0 shadow-sm">
+                                    <tbody class="tb rounded-0 shadow">
+                                        <tr class="accordion_offer text-white rounded-0" style="background-color: #24729759;">
+                                            <td class="text-white" colspan="3">
+                                                <h6 class="mb-0" style="font-size: 13px; color:#11445c;">Offering Value
+                                                    Adding</h6>
+                                            </td>
+                                        </tr>
 
+                                        <tr class="body_other">
+                                            <td width="60%">Deal Closing / Rebates</td>
+                                            <td width="20%"><input class="multiplyValue form-control form-control-sm"
+                                                    type="text" name="rebates"></td>
+                                            <td width="20%"><input class="result form-control form-control-sm"
+                                                    type="text" disabled="" value=""></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="datatable table table-bordered table-hover rounded-0 shadow-sm">
+                                    <tbody class="tb rounded-0 shadow">
+                                        <tr class="accordion_other text-white rounded-0" style="background-color: #24729759;">
+                                            <td class="text-white" colspan="3">
+                                                <h6 class="mb-0" style="font-size: 13px; color:#11445c;">Other Income
+                                                </h6>
+                                            </td>
+                                        </tr>
+                                        <tr class="body_other">
+                                            <td class="border-none">Loan / Capital / Partner Share - (5%)</td>
+                                            <td class="border-none"><input
+                                                    class="multiplyValue form-control form-control-sm" type="text"
+                                                    name="capital_share"></td>
+                                            <td class="border-none"><input class="result form-control form-control-sm"
+                                                    type="text" readonly value=""></td>
+                                        </tr>
+                                        <tr class="body_other">
+                                            <td class="border-none">Management Cost - (5%)</td>
+                                            <td class="border-none"><input
+                                                    class="multiplyValue form-control form-control-sm" type="text"
+                                                    name="management_cost"></td>
+                                            <td class="border-none"><input class="result form-control form-control-sm"
+                                                    type="text" readonly value=""></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="border-none">Gross Profit (%) between Sales and Cost</td>
+                                            <td class="border-none"><input
+                                                    class="gross_profit_subtotal form-control form-control-sm"
+                                                    type="text" name="gross_profit_subtotal" readonly value="">
+                                            </td>
+                                            <td class="border-none">
+                                                <input type="text"
+                                                    class="additional_subtot form-control form-control-sm"
+                                                    name="gross_profit_amount" readonly value="">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border-none">Net Profit - (5%)</td>
+                                            <td class="border-none"><input
+                                                    class="multiplyValue form-control form-control-sm" type="text"
+                                                    name="net_profit_percentage"></td>
+                                            <td class="border-none"><input class="result form-control form-control-sm"
+                                                    type="text" name="net_profit_amount" readonly value=""></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row mt-4">
+                                    <div class="col-lg-12 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary mx-3" id="submitbtn">
+                                            Create SAS<i class="ph-paper-plane-tilt mx-2"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -341,7 +380,7 @@
 
 @once
     @push('scripts')
-    {{-- <!-- Special Discount and Tax calculation -->
+        {{-- <!-- Special Discount and Tax calculation -->
         <script type="text/javascript">
 
 
@@ -392,7 +431,7 @@
 
 
 
-    {{-- <!-- Unit Total calculation -->
+        {{-- <!-- Unit Total calculation -->
         <script>
             $("input[name='unit_price[]']").on('keyup change', function() {
 
@@ -418,7 +457,7 @@
         </script>
     <!-- Unit Total calculation --> --}}
 
-    {{-- <!-- Regular Discount calculation -->
+        {{-- <!-- Regular Discount calculation -->
         <script>
             $("input[name='regular_discount[]']").on('keyup change', function() {
             var mult = 0;
@@ -456,7 +495,7 @@
         </script>
     <!-- Regular Discount calculation --> --}}
 
-    {{-- <!-- Expenses calculation -->
+        {{-- <!-- Expenses calculation -->
         <script>
             $('.multiplyValue').on('keyup change', function() {
 
@@ -550,10 +589,5 @@
 
         </script>
     <!-- Expenses calculation --> --}}
-
-
-
-
-
     @endpush
 @endonce

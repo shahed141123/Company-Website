@@ -184,6 +184,10 @@
                         <ul class="nav-group-sub collapse ms-4" style="">
                             <li class="nav-item"><a href="{{ route('hr-and-admin.index') }}"
                                     class="nav-link">Dashboard</a></li>
+                            <li class="nav-item"><a href="{{ route('leaveDashboard') }}"
+                                    class="nav-link">Leave</a></li>
+                            <li class="nav-item"><a href="{{ route('machine.home') }}"
+                                    class="nav-link">Attendance</a></li>
                             <li class="nav-item"><a href="{{ route('employee.index') }}" class="nav-link">Employees</a>
                             </li>
                             <li class="nav-item"><a href="{{ route('job.index') }}" class="nav-link">Job Post</a></li>

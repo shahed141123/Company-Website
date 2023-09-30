@@ -213,7 +213,17 @@ return new class extends Migration
                 'managing_director_sign',
                 'sign_date',
                 'police_verification',
-                'acknowledgement'
+                'acknowledgement',
+                'evaluation_date',
+                'casual_leave_due_as_on',
+                'casual_leave_availed',
+                'casual_balance_due',
+                'earned_leave_due_as_on',
+                'earned_leave_availed',
+                'earned_balance_due',
+                'medical_leave_due_as_on',
+                'medical_leave_availed',
+                'medical_balance_due',
             ]);
         });
     }

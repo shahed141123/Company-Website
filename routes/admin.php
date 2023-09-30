@@ -79,6 +79,9 @@ use App\Http\Controllers\Admin\DealController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\LeaveController;
+use App\Http\Controllers\Event\EventController;
+use App\Http\Controllers\Salary\DataController;
 use App\Http\Controllers\SAS\DealSasController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ClientPermission;
@@ -103,22 +106,24 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SuccessController;
+
+use App\Http\Controllers\Salary\EntityController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\HomepageController;
-
 use App\Http\Controllers\Admin\HrPolicyController;
+
 use App\Http\Controllers\Admin\IndustryController;
 use App\Http\Controllers\Admin\PurchaseController;
 use App\Http\Controllers\Admin\SolutionController;
 use App\Http\Controllers\Admin\SourcingController;
 use App\Http\Controllers\Admin\BrandPageController;
-
 use App\Http\Controllers\Admin\KnowledgeController;
 use App\Http\Controllers\Admin\LearnMoreController;
 use App\Http\Controllers\Admin\RFQManageController;
 use App\Http\Controllers\Admin\SingleRfqController;
+use App\Http\Controllers\KPI\KPICategoryController;
 use App\Http\Controllers\SAS\RevisedDealController;
 use App\Http\Controllers\Admin\EmploymentController;
 use App\Http\Controllers\Admin\NewsLetterController;
@@ -127,9 +132,12 @@ use App\Http\Controllers\Admin\RowWithColController;
 use App\Http\Controllers\Admin\TechGlossyController;
 use App\Http\Controllers\Admin\WebSettingController;
 use App\Http\Controllers\Order\AdminOrderController;
+use App\Http\Controllers\Salary\AttributeController;
 use App\Http\Controllers\Admin\ClientStoryController;
 use App\Http\Controllers\Admin\DocumentPdfController;
 use App\Http\Controllers\Admin\ExpenseTypeController;
+use App\Http\Controllers\Attendance\ZktecoController;
+use App\Http\Controllers\Salary\SalaryFormController;
 use App\Http\Controllers\Admin\EffortRatingController;
 use App\Http\Controllers\Admin\IndustryPageController;
 use App\Http\Controllers\Admin\NotificationController;
@@ -142,12 +150,14 @@ use App\Http\Controllers\Admin\PortfolioPageController;
 use App\Http\Controllers\Admin\PortfolioTeamController;
 use App\Http\Controllers\Admin\ShowCaseVideoController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Event\EventCategoryController;
 use App\Http\Controllers\Marketing\BulkEmailController;
 use App\Http\Controllers\Admin\ClientDatabaseController;
 use App\Http\Controllers\Admin\OfficeLocationController;
 use App\Http\Controllers\Admin\PolicyCategoryController;
 use App\Http\Controllers\Admin\RfqOrderStatusController;
 use App\Http\Controllers\Admin\TechnologyDataController;
+use App\Http\Controllers\Attendance\BioMetricController;
 use App\Http\Controllers\Admin\AccountsManagerController;
 use App\Http\Controllers\Admin\AccountsPayableController;
 use App\Http\Controllers\Admin\DealTypeSettingController;
@@ -168,6 +178,7 @@ use App\Http\Controllers\Sales\SalesAchievementController;
 use App\Http\Controllers\Admin\AccountProfitLossController;
 use App\Http\Controllers\Admin\PortfolioCategoryController;
 use App\Http\Controllers\Admin\PortfolioChooseUsController;
+use App\Http\Controllers\FormBulider\FormBuilderController;
 use App\Http\Controllers\Marketing\MarketingDmarController;
 use App\Http\Controllers\Admin\AccountsReceivableController;
 use App\Http\Controllers\Admin\CommercialDocumentController;
@@ -181,9 +192,6 @@ use App\Http\Controllers\Admin\FrontendNavbarMenuItemController;
 use App\Http\Controllers\Admin\PortfolioClientFeedbackController;
 use App\Http\Controllers\Marketing\MarketingTeamTargetController;
 use App\Http\Controllers\Marketing\MarketingManagerRoleController;
-
-
-
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
 
@@ -548,6 +556,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'policy-acknowledgment'     => PolicyAcknowledgmentsController::class, // done
             'employeement'              => EmploymentController::class, // done
             'leave-application'         => LeaveApplicationController::class, // done
+            'formBuilder'               => FormBuilderController::class, // done
+            'event'                     => EventController::class, // done
+            'kpi-category'              => KPICategoryController::class, //  fully done
+            'event-category'            => EventCategoryController::class, //  fully done
+            'entity'                    => EntityController::class, // back and front done
+            'data'                      => DataController::class, // back and front done
+            'attribute'                 => AttributeController::class, // back done
+            'salary-form'               => SalaryFormController::class, // back done
 
         ],
         [
@@ -570,11 +586,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         ]);
     }
 
+    //Leave Routes
+    Route::get('leaveApplications',  [LeaveApplicationController::class, 'leaveApplications'])->name('leaveApplications');
+    Route::get('leaveHistorys',  [LeaveApplicationController::class, 'leaveHistorys'])->name('leave.history');
+    Route::get('{id}/leaveHistorys',  [LeaveApplicationController::class, 'individualLeaves'])->name('individual.leaveHistory');
+    Route::get('leaveDashboard',  [LeaveController::class, 'leaveDashboard'])->name('leaveDashboard');
 
     Route::get('supply-chain',  [AdminController::class, 'supplyChain'])->name('supplychain');
     Route::get('noticeboard',  [NoticeController::class, 'noticeboard'])->name('noticeboard');
-    Route::get('leaveApplications',  [LeaveApplicationController::class, 'leaveApplications'])->name('leaveApplications');
-    Route::get('leaveHistorys',  [LeaveApplicationController::class, 'leaveHistorys'])->name('leave.history');
+    Route::get('attendance',  [ZktecoController::class, 'index'])->name('attendance');
+    // Route::get('attendance',  [ControllersZktecoController::class, 'leaveHistorys'])->name('attendance');
 
     //Assign Roles to Sales Manager
     Route::put('assign_roles/SalesManager/{id}', [SalesAccountController::class, 'assignSalesManagerRole'])->name('assign.salesmanager-role');
@@ -591,6 +612,26 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
 
     Route::post('salesmanager-status', [App\Http\Controllers\Sales\SalesAccountController::class, 'SalesStatus'])->name('sales.status');
+
+
+
+
+    ///Biomrtric Attendance
+
+    Route::get('/device-setip', [BioMetricController::class, 'index'])->name('machine.home');
+    Route::post('/device-setip', [BioMetricController::class, 'device_setip'])->name('machine.devicesetip');
+    Route::get('/device-information', [BioMetricController::class, 'device_information'])->name('machine.deviceinformation');
+    Route::get('/device-user-data', [BioMetricController::class, 'device_user_data'])->name('machine.deviceuserdata');
+    Route::get('/device-attendance-data', [BioMetricController::class, 'device_attendance_data'])->name('machine.deviceattendancedata');
+    Route::get('/device-adduser', [BioMetricController::class, 'device_adduser'])->name('machine.deviceadduser');
+    Route::post('/device-setuser', [BioMetricController::class, 'device_setuser'])->name('machine.devicesetuser');
+    Route::get('/device-removeuser-single/{id}', [BioMetricController::class, 'device_removeuser_single'])->name('machine.deviceremoveusersingle');
+    Route::get('/device-viewuser-single/[id]', [BioMetricController::class, 'device_viewuser_single'])->name('machine.deviceviewusersingle');
+    Route::get('/device-data/clear-attendance', [BioMetricController::class, 'device_data_clear_attendance'])->name('machine.devicedata.clear.attendance');
+    Route::get('/device-restart', [BioMetricController::class, 'device_restart'])->name('machine.devicerestart');
+    Route::get('/device-shutdown', [BioMetricController::class, 'device_shutdown'])->name('machine.deviceshutdown');
+
+
 
 
 

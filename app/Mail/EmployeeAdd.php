@@ -33,12 +33,12 @@ class EmployeeAdd extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->from('support@ngenit.com', 'Ngen IT')
+        return $this->from('support@ngenit.com', 'Ngen-HR')
                     ->view('mail.employee_mail', ['mail_body' => $this->data])
                     ->subject('New Employee Account is Added');
     }
 
-    /** 
+    /**
      * Get the message envelope.
      *
      * @return \Illuminate\Mail\Mailables\Envelope

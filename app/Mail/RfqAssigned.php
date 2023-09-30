@@ -30,7 +30,7 @@ class RfqAssigned extends Mailable
 
      public function build()
     {
-        return $this->from('support@ngenit.com', 'Ngen IT')
+        return $this->from('support@ngenit.com', 'NGEN-Business')
                     ->view('mail.rfqAssign_mail', ['data' => $this->data])
                     ->subject('A new Rfq is Assigned to you');
     }

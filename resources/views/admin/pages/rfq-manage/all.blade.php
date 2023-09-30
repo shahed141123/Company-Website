@@ -65,17 +65,13 @@
                     <div class="row rounded mx-2 mt-1">
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="js-tab1">
-
-                                    @include('admin.pages.rfq-manage.partial.rfq_table')
-
+                                @include('admin.pages.rfq-manage.partial.rfq_table')
                             </div>
                         </div>
 
                         <div class="tab-content">
                             <div class="tab-pane fade" id="js-tab2">
-
-                                    @include('admin.pages.rfq-manage.partial.deal_table')
-
+                                @include('admin.pages.rfq-manage.partial.deal_table')
                             </div>
                         </div>
                     </div>
@@ -95,7 +91,7 @@
 
 @once
     @push('scripts')
-        <script type="text/javascript">
+        <script>
             $(document).ready(function() {
                 $('.rfqDT1').DataTable({
                     dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
@@ -103,7 +99,7 @@
                     "lengthMenu": [10, 26, 30, 50],
                     columnDefs: [{
                         orderable: false,
-                        targets: [1,2,3,4,5],
+                        targets: [0,2,4],
                     }, ],
                 });
                 $('.rfqDT2').DataTable({
@@ -112,7 +108,7 @@
                     "lengthMenu": [10, 26, 30, 50],
                     columnDefs: [{
                         orderable: false,
-                        targets: [1,2,3,4,5],
+                        targets: [0,2,4],
                     }, ],
                 });
             });
