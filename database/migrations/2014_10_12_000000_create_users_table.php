@@ -26,8 +26,8 @@ return new class extends Migration
             $table->string('country')->nullable();
             $table->string('postal')->nullable();
             $table->string('last_seen')->nullable();
-            $table->enum('role',  ['admin','manager','others'])->default('others');
-            $table->string('department')->nullable(); //['admin','business','accounts','site','logistics','marketing']
+            $table->enum('role',  ['admin','manager','others','support_developer'])->default('others');
+            $table->string('department')->nullable(); //['admin','business','accounts','site','logistics','marketing','support']
             // $table->enum('department',  ['admin','business','accounts','site','logistics','marketing'])->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamp('email_verified_at')->nullable();

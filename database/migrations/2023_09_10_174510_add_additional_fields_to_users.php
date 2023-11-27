@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('department_id')->nullable();
+            $table->string('employee_id')->unique()->nullable();
             $table->string('mobile', 20)->nullable();
             $table->string('total_years_of_job_experience')->nullable();
             $table->string('total_years_of_related_experience')->nullable();
@@ -134,6 +135,7 @@ return new class extends Migration
             $table->dropColumn([
                 'category_id',
                 'department_id',
+                'employee_id',
                 'mobile',
                 'total_years_of_job_experience',
                 'total_years_of_related_experience',
@@ -212,8 +214,6 @@ return new class extends Migration
                 'operation_director_sign',
                 'managing_director_sign',
                 'sign_date',
-                'police_verification',
-                'acknowledgement',
                 'evaluation_date',
                 'casual_leave_due_as_on',
                 'casual_leave_availed',
@@ -224,6 +224,8 @@ return new class extends Migration
                 'medical_leave_due_as_on',
                 'medical_leave_availed',
                 'medical_balance_due',
+                'police_verification',
+                'acknowledgement',
             ]);
         });
     }

@@ -9,7 +9,7 @@
                     <div class="breadcrumb py-2">
                         <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item">Home</a>
-                        <span class="breadcrumb-item active">Contact Management</span>
+                        <span class="breadcrumb-item active">Brochure Management</span>
                     </div>
                     <a href="#breadcrumb_elements"
                         class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
@@ -28,7 +28,7 @@
                             <a href="{{route('document.create')}}" type="button"
                                 class="btn btn-flat-light btn-labeled btn-labeled-start"
                                 data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="Add Document Pdf">
+                                title="Add brochures">
                                 <span class="btn-labeled-icon bg-light bg-opacity-20">
                                     <i class="ph-plus"></i>
                                 </span>
@@ -37,7 +37,7 @@
 
                         </div>
                         <div class="col-lg-6">
-                            <h5 class="ms-1 text-center mb-0 mt-1 text-white">All Documents</h5>
+                            <h5 class="ms-1 text-center mb-0 mt-1 text-white">All Brochures</h5>
                         </div>
                     </div>
 

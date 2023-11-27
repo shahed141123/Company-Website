@@ -407,7 +407,7 @@
     }
 
     .tab_btn_icon {
-        /* display: inline-block; */
+        display: inline-block;
         /* background-color: #e5e2e0; */
         padding-left: 13px;
         padding-right: 13px;

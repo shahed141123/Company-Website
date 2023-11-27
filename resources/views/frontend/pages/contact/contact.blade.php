@@ -1,11 +1,11 @@
 @extends('frontend.master')
 @section('content')
-    
+
     <!--======// Header Title //======-->
     <section class="common_product_header" style="background:url('{{ asset('frontend/images/Contact.jpg') }}');">
         <div class="container ">
             <h1>Contact Us</h1>
-            <p class="text-center text-white">Browse and Explore exclusive Refurbished products from Ngen It. <br> We offer
+            <p class="text-center text-white">Browse and Explore exclusive Refurbished products from NGen IT. <br> We offer
                 quality assurance for products, software and services.</p>
         </div>
     </section>
@@ -22,7 +22,7 @@
                         </h4>
                         <p>Get assistance with tracking an order, requesting a quote, contacting your account representative
                             and more by phone or over chat.</p>
-                        <h5 class="text-black">NGen It Global Headquarters</h5>
+                        <h5 class="text-black">NGen IT Global Headquarters</h5>
                         <p>{{ !empty($setting->address) ? $setting->address : '' }} </p>
                         <p>Whatsapp Number: <span
                                 class="main_color">{{ !empty($setting->whatsapp_number) ? $setting->whatsapp_number : '' }}</span>
@@ -39,7 +39,7 @@
                             </span>
                         </p>
                         <!-- <h5><i class="fa-solid fa-phone"></i>NgenIT</h5> -->
-                        <a href="{{ route('location') }}" class="product_button">View all NGentIt office locations</a>
+                        <a href="{{ route('location') }}" class="product_button">View all NGen IT office locations</a>
                     </div>
                 </div>
                 <!----------Sidebar Privacy Policy --------->
@@ -118,7 +118,7 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
-            
+
             $('input[name="email"]').on("keyup change", function(e) {
                 var email = $(this).val();
                 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -146,11 +146,11 @@
 
 
 
-            
 
 
 
-            
+
+
         });
     </script>
 @endsection

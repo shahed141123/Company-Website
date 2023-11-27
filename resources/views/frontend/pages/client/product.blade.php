@@ -2,9 +2,6 @@
 
 
 @section('content')
-    @include('frontend.header')
-
-
     <!--=========Content Wrapper=============-->
     @include('frontend.client.sidebar')
 
@@ -60,7 +57,7 @@
                                                 <h4
                                                     style="color: #ae0a46;display: -webkit-box;
                                                 -webkit-line-clamp: 2;
-                                                -webkit-box-orient: vertical;  
+                                                -webkit-box-orient: vertical;
                                                 overflow: hidden;">
                                                     StarTech.com 1080p 60Hz HDMI to VGA High Speed Display
                                                     Adapter - Active HDMI to VGA (Male to Female) Video Converter for
@@ -100,7 +97,7 @@
                                                 <h4
                                                     style="color: #ae0a46;display: -webkit-box;
                                                 -webkit-line-clamp: 2;
-                                                -webkit-box-orient: vertical;  
+                                                -webkit-box-orient: vertical;
                                                 overflow: hidden;">
                                                     StarTech.com 1080p 60Hz HDMI to VGA High Speed Display
                                                     Adapter - Active HDMI to VGA (Male to Female) Video Converter for

@@ -66,7 +66,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ## Permission
-product-management.menu
+<!-- product-management.menu
 rfq-management.menu
 sales-management.menu
 accounts-management.menu
@@ -82,7 +82,7 @@ page-builder-management.menu
 order-management.menu
 role-permission-management.menu
 job-management.menu
-terms-policy-management.menu
+terms-policy-management.menu -->
 
 
 

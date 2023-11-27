@@ -149,6 +149,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $blog = Blog::find($id);
         if (!empty($request->image)) {
             $validator =
@@ -167,11 +168,9 @@ class BlogController extends Controller
         } else {
             $validator =
                 [
-
                     'badge' => 'required|max:200',
                     'title' => 'required|max:250',
                     'tags' => 'required|max:250',
-
                 ];
                 [
                     'required' => 'The :attribute field is required',

@@ -382,7 +382,7 @@
                         @foreach ($solutions as $item)
                             <div class="col-lg-3 col-md-6 col-sm-12">
                                 <div class="related-item">
-                                    <a href="{{ route('solution.details', $item->id) }}">
+                                    <a href="{{ route('solution.details', $item->slug) }}">
                                         <img class="img-fluid" src="{{ asset('storage/' . $item->banner_image) }}"
                                             width="300px" alt="" style="height: 160px;">
                                         <h4>{{ App\Models\Admin\Industry::where('id', $item->industry_id)->value('title') }}

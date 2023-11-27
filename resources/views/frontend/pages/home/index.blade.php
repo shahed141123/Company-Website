@@ -1,6 +1,11 @@
 @extends('frontend.master')
 @section('content')
-
+@section('styles')
+    <meta property="og:title" content="NGen IT Ltd.">
+    <!--<meta property="og:description" content="Description of your blog post">-->
+    <meta property="og:image" content="{{ asset('storage/' . $home->branner1) }}">
+    <!--<meta property="og:url" content="URL to your blog post">-->
+@endsection
     <!--======// Banner Section //======-->
     @if (!empty($home->branner1) && !empty($home->branner2) && !empty($home->branner3))
         <section>
@@ -9,10 +14,14 @@
                 @if (!empty($home->branner1))
                     <div class="item">
                         <div class="img-fill">
-                            <img src="{{ asset('storage/' . $home->branner1) }}" alt="">
+                            <img class="dots-img"
+                                src="{{ isset($home->branner1) && file_exists(asset('storage/' . $home->branner1)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
+                                alt="">
                             <div class="contain-wrapper">
                                 <div class="dots-contain">
-                                    <img class="dots-img" src="{{ asset('storage/' . $home->branner1) }}" alt="">
+                                    <img class="dots-img"
+                                        src="{{ isset($home->branner1) && file_exists(asset('storage/' . $home->branner1)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
+                                        alt="">
                                 </div>
                                 <div class="info w-50 mb-3">
                                     @if ($home->banner1_title)
@@ -40,10 +49,10 @@
                 @if (!empty($home->branner2))
                     <div class="item">
                         <div class="img-fill">
-                            <img src="{{ asset('storage/' . $home->branner2) }} " alt="">
+                            <img src="{{ isset($home->branner2) && file_exists(asset('storage/' . $home->branner2)) ? asset('storage/' . $home->branner2) : asset('frontend/images/banner-demo.png') }} " alt="">
                             <div class="contain-wrapper">
                                 <div class="dots-contain">
-                                    <img class="dots-img" src="{{ asset('storage/' . $home->branner2) }}" alt="">
+                                    <img class="dots-img" src="{{ isset($home->branner2) && file_exists(asset('storage/' . $home->branner2)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}" alt="">
                                 </div>
                                 <div class="info w-50 mb-3">
                                     @if ($home->banner2_title)
@@ -71,10 +80,10 @@
                 @if (!empty($home->branner3))
                     <div class="item">
                         <div class="img-fill">
-                            <img src="{{ asset('storage/' . $home->branner3) }} " alt="">
+                            <img src="{{ isset($home->branner3) && file_exists(asset('storage/' . $home->branner3)) ? asset('storage/' . $home->branner3) : asset('frontend/images/banner-demo.png') }} " alt="">
                             <div class="contain-wrapper">
                                 <div class="dots-contain">
-                                    <img class="dots-img" src="{{ asset('storage/' . $home->branner3) }}" alt="">
+                                    <img class="dots-img" src="{{ isset($home->branner3) && file_exists(asset('storage/' . $home->branner3)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}" alt="">
                                 </div>
                                 <div class="info w-50 mb-3">
                                     @if ($home->banner3_title)
@@ -102,7 +111,7 @@
         </section>
     @endif
     {{-- Banner Bottom Card --}}
-    @if (!empty($home))
+    @if (!empty($home->btn1_title) && !empty($home->btn2_title))
         <section>
             <div class="container px-4">
                 <div class="row gx-5 mx-auto banner_bottom_box">
@@ -266,7 +275,7 @@
                         <p class="text-justify w-75 w-sm-100">
                             Among More than
                             <strong style="font-family: 'Poppins', sans-serif; font-size:20px;">
-                                {{ App\Models\Admin\Product::where('product_status','product')->count() }}
+                                {{ App\Models\Admin\Product::where('product_status', 'product')->count() }}
                                 <small>products</small>
                             </strong>
                             and
@@ -407,7 +416,8 @@
                                                         <div class="price">
                                                             <p class="text-muted text-center"
                                                                 style="text-decoration: line-through;text-decoration-thickness: 2px; text-decoration-color: #ae0a46;">
-                                                                <small class="price-usd">USD</small> $ {{ number_format($item->price, 2) }}
+                                                                <small class="price-usd">USD</small> $
+                                                                {{ number_format($item->price, 2) }}
                                                             </p>
                                                             <div class="d-flex justify-content-center align-items-center">
                                                                 <div data-mdb-toggle="popover" title="Your Price"
@@ -423,7 +433,8 @@
                                                         </div>
                                                     @else
                                                         <div class="price">
-                                                            <p class="text-muted text-center"><small class="price-usd">USD</small>
+                                                            <p class="text-muted text-center"><small
+                                                                    class="price-usd">USD</small>
                                                                 $ {{ number_format($item->price, 2) }}
                                                             </p>
                                                             <div class="d-flex justify-content-center align-items-center">
@@ -540,47 +551,47 @@
     <!---------End -------->
 
     <!--======// Magazine Section //======-->
-    @if (!empty($techglossy))
-        <section class="account_benefits_section_wp mt-3">
-            <div class="container">
-                <div class="row magazine_section">
-                    <div class="col-lg-6 col-sm-12">
-                        <img class="img-fluid" src="{{ asset('storage/' . $techglossy->image) }}"
-                            alt="{{ $techglossy->badge }}" style="border-radius:15px;">
-                    </div>
-                    <div class="col-lg-6 col-sm-12 account_benefits_section">
-                        <h3 class="title_top_heading">Tech Journal</h3>
-                        <h4 style="font-size:24px;font-weight:400;">{{ $techglossy->badge }}</h4>
-                        <h4 class="pb-2">{{ $techglossy->title }}</h4>
-                        <p>{{ $techglossy->header }}</p>
-
-                        <div class="my-3 col-lg-6 px-0">
-                            <div class="d-flex flex-column justify-content-center">
-                                {{-- @php
-                                    $tag = $techglossy->tags;
-                                    $tags = explode(',', $tag);
-                                @endphp
-                                <div class="btn-group pt-1">
-                                    @foreach ($tags as $item)
-                                         <button type="button"
-                                            class="btn tag_btn ml-1 px-1"></button>
-                                        { <ul class="p-0 m-0">
-                                                <li class="d-flex">
-                                                    {{ ucwords($item) }}
-                                                </li>
-                                            </ul>
-                                    @endforeach
-
-                                </div> --}}
-                                <a href="{{ route('techglossy.details', $techglossy->id) }}"
-                                    class="common_button2 effect01 text-white">Read the Journal</a>
+    <section>
+        <div class="container">
+            @if (!empty($techglossy))
+                <div class="row bg-white shadow-sm mt-5 mb-5"
+                    style="
+            border-top-right-radius: 60px;
+            border-bottom-left-radius: 60px;
+          ">
+                    <div class="col-lg-12">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="holder-main-text ps-5">
+                                    {{-- <h6>{{ $techglossy->badge }}</h6> --}}
+                                    <h6 class="title-tag text-capitalize">{{ $techglossy->badge }}</h6>
+                                    <h2>
+                                        {{ $techglossy->title }}
+                                    </h2>
+                                    <p class="pt-0 mt-0 w-75" style="text-align: justify">
+                                        {!! Str::limit($techglossy->short_des, 220) !!}
+                                        {{-- {{ $techglossy->header }} --}}
+                                    </p>
+                                    <a href="{{ route('techglossy.details', $techglossy->id) }}"
+                                        class="common_button2 text-white">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 p-0">
+                                <div class="showcase-industry-bottom">
+                                    <img class="img-fluid" src="{{ asset('storage/' . $techglossy->image) }}"
+                                        alt="Picture"
+                                        style="
+                                    border-top-right-radius: 60px;">
+                                    <div class="overlay">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    @endif
+            @endif
+        </div>
+    </section>
     <!----------End--------->
 
     <!--======// our success section //======-->

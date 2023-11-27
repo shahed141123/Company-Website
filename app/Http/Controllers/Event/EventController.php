@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\EventCategory;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 
 class EventController extends Controller
@@ -25,6 +26,17 @@ class EventController extends Controller
         $data['events'] = Event::latest()->get();
         $data['event_categorys'] = EventCategory::latest()->get();
         return view('admin.pages.event.all', $data);
+    }
+    public function eventDashboard()
+    {
+        $currentMonth = Carbon::now()->startOfMonth();
+        $endOfMonth = Carbon::now()->endOfMonth();
+
+        $data['events'] = Event::whereBetween('start_date', [$currentMonth, $endOfMonth])->get();
+        $data['users'] = User::latest('id', 'DESC')->get();
+        // $data['events'] = Event::latest()->get();
+        $data['event_categorys'] = EventCategory::latest()->get();
+        return view('admin.pages.event.dashboard', $data);
     }
 
     /**
@@ -73,8 +85,8 @@ class EventController extends Controller
                 'event_category' => $request->event_category,
                 'title'          => $request->title,
                 'description'    => $request->description,
-                'start_date'     => $request->start_date,
-                'end_date'       => $request->end_date,
+                'start_date'     => date('Y-m-d', strtotime($request->start_date)),
+                'end_date'       => date('Y-m-d', strtotime($request->end_date)),
                 'start_time'     => $request->start_time,
                 'end_time'       => $request->end_time,
                 'department'     => json_encode($request->department),
@@ -132,8 +144,8 @@ class EventController extends Controller
             'event_category' => $request->event_category,
             'title'          => $request->title,
             'description'    => $request->description,
-            'start_date'     => $request->start_date,
-            'end_date'       => $request->end_date,
+            'start_date'     => date('Y-m-d', strtotime($request->start_date)),
+            'end_date'       => date('Y-m-d', strtotime($request->end_date)),
             'start_time'     => $request->start_time,
             'end_time'       => $request->end_time,
             'department'     => json_encode($request->department),
@@ -153,5 +165,25 @@ class EventController extends Controller
     {
         $event = Event::find($id);
         $event->delete();
+    }
+
+    public function filterEvents($id)
+    {
+        // dd($id);
+        // $categoryId = $id;
+        // $data['event_categorys'] = EventCategory::latest()->get();
+        // $data['category_id'] = $categoryId;
+        // $data['events'] = Event::with('category')
+        //     ->when($categoryId, function ($query) use ($categoryId) {
+        //         return $query->where('event_category_id', $categoryId);
+        //     })
+        //     ->get();
+        $events = Event::where('event_category', $id)->get();
+        // $data = [
+        //     'event_categorys' => EventCategory::latest()->get(),
+        //     'category_id' => $id,
+        //     'events' => ,
+        // ];
+        return view('admin.pages.event.partial.event_table', compact('events'));
     }
 }

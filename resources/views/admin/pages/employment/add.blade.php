@@ -97,7 +97,7 @@
                                         <div class="mb-1">
                                             <label class="p-0 text-start text-black">Status</label>
                                             <select name="status" class="form-select w-100 select-wizard"
-                                                data-minimum-results-for-search="Infinity"
+                                                data-minimum-results-for-search="Infinity" data-allow-clear="true"
                                                 data-placeholder="Select status...">
                                                 <option></option>
                                                 <option value="active">Active</option>
@@ -226,7 +226,7 @@
                                         <div class="mb-1">
                                             <label class="p-0 text-start text-black">Marital Status</label>
                                             <select name="marital_status" class="form-select w-100 select-wizard"
-                                                data-minimum-results-for-search="Infinity"
+                                                data-minimum-results-for-search="Infinity" data-allow-clear="true"
                                                 data-placeholder="Select Marital Status...">
                                                 <option></option>
                                                 <option value="single">Single</option>
@@ -783,7 +783,7 @@
                                         <div class="mb-1">
                                             <label class="p-0 text-start text-black">Police Verification</label>
                                             <select name="police_verification" class="form-select w-100 select-wizard"
-                                                data-minimum-results-for-search="Infinity"
+                                                data-minimum-results-for-search="Infinity" data-allow-clear="true"
                                                 data-placeholder="Select Police Verification Status...">
                                                 <option></option>
                                                 <option value="verified">Verified</option>
@@ -795,7 +795,7 @@
                                         <div class="mb-1">
                                             <label class="p-0 text-start text-black">Acknowledgement</label>
                                             <select name="acknowledgement" class="form-select w-100 select-wizard"
-                                                data-minimum-results-for-search="Infinity"
+                                                data-minimum-results-for-search="Infinity" data-allow-clear="true"
                                                 data-placeholder="Select Acknowledgement Status...">
                                                 <option></option>
                                                 <option value="acknowledged">Acknowledged</option>

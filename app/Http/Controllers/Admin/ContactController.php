@@ -179,9 +179,9 @@ class ContactController extends Controller
         Contact::find($id)->delete();
     }
 
-    public function Support()
-    {
-        $data['contacts'] = Contact::where('type', '=', 'support')->orderBy('id', 'DESC')->get();
-        return view('admin.pages.contact.support', $data);
-    }
+    // public function Support()
+    // {
+    //     $data['contacts'] = Contact::where('type', '=', 'support')->orderBy('id', 'DESC')->get();
+    //     return view('admin.pages.contact.support', $data);
+    // }
 }

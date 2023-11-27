@@ -46,7 +46,7 @@
                         @csrf
                         @if (Session::has('alert'))
                             <div class="alert bg-danger text-white alert-dismissible fade show">
-                                <span class="fw-semibold">{{ Session::get('alert') }} .  Login First</span>
+                                <span class="fw-semibold">{{ Session::get('alert') }} . Login First</span>
                                 <button type="button" class="btn-close btn-close-white"
                                     data-bs-dismiss="alert"></button>
                             </div>
@@ -77,6 +77,11 @@
                                             <i class="ph-user-circle text-muted"></i>
                                         </div>
                                     </div>
+                                    @error('email')
+                                        <div class="text-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
 
                                 <div class="mb-3 text-left">
@@ -89,6 +94,11 @@
                                             <i class="ph-lock text-muted"></i>
                                         </div>
                                     </div>
+                                    @error('password')
+                                        <div class="text-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                     <div class="invalid-feedback">Enter your password</div>
                                 </div>
 
@@ -102,7 +112,9 @@
                                 </div> --}}
 
                                 <div class="text-center mb-3">
-                                    <button type="submit" class="btn w-25" style="background:#ae0a46;border-radius: 0px;color: white;border: none;">Sign In</button>
+                                    <button type="submit" class="btn w-25"
+                                        style="background:#ae0a46;border-radius: 0px;color: white;border: none;">Sign
+                                        In</button>
                                 </div>
 
 

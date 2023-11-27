@@ -68,6 +68,7 @@ class EmployeeCategoryController extends Controller
                 'yearly_earned_leave'   => $yearly_earned_leave,
                 'yearly_casual_leave'   => $yearly_casual_leave,
                 'yearly_medical_leave'  => $yearly_medical_leave,
+                'evaluation_period'     => $request->evaluation_period,
             ]);
             Toastr::success('Data Insert Successfully.');
         } else {
@@ -139,6 +140,7 @@ class EmployeeCategoryController extends Controller
                 'yearly_earned_leave'   => $yearly_earned_leave,
                 'yearly_casual_leave'   => $yearly_casual_leave,
                 'yearly_medical_leave'  => $yearly_medical_leave,
+                'evaluation_period'     => $request->evaluation_period,
             ]);
 
             Toastr::success('Data Updated Successfully.');

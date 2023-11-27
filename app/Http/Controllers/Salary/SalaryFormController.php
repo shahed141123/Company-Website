@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Salary;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Admin\SalaryForm;
 use App\Http\Controllers\Controller;
@@ -85,7 +86,8 @@ class SalaryFormController extends Controller
      */
     public function show($id)
     {
-        //
+        $data['user'] = User::whereId($id)->first();
+        return view('admin.pages.HrandAdmin.salary' , $data);
     }
 
     /**

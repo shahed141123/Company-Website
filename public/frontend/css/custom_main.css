@@ -1734,10 +1734,10 @@ ul {
 }
 
 /* Service Card Start */
-.service_card:hover {
+/* .service_card:hover {
     box-shadow: none !important;
     transition: 0.5s ease-in-out;
-}
+} */
 
 /* Service Card End */
 /* Blog Carousel Start*/

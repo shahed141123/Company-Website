@@ -282,15 +282,17 @@
                                                                 class="text-danger">*</span></th>
                                                         <th style="padding:7px !important;"> Unit Price</th>
                                                     </tr>
-                                                </thead> @php $product = App\Models\Admin\Product::where('id', $rfq->product_id)->first(); @endphp <tbody class="repeater">
+                                                </thead>
+                                                <tbody class="repeater">
                                                     <tr>
-                                                        <td style="background: #eee; color: black;"> {{ $product->name }}
+                                                        <td style="background: #eee; color: black;">
+                                                            {{ $rfq_product->product_name }}
                                                             <input type="hidden" class="form-control" name="item_name[]"
-                                                                value="{{ $product->name }}" required>
+                                                                value="{{ $rfq_product->product_name }}" required>
                                                         </td>
                                                         <td>
                                                             <input type="text" class="form-control" name="qty[]"
-                                                                required value="{{ $rfq->qty }}">
+                                                                required value="{{ $rfq_product->qty }}">
                                                         </td>
                                                         <td>
                                                             <input type="text" class="form-control"
@@ -320,7 +322,7 @@
                                                     <td width="22%">
                                                         <input type="text" name="payment"
                                                             class="form-control maxlength" maxlength="200"
-                                                            value="200% advanced payment with Work Order for Renewal order Excuation" />
+                                                            value="100% advanced payment with Work Order for Renewal order Excuation" />
                                                     </td>
                                                     <th width="15%">Payment Mode </th>
                                                     <td width="22%">
@@ -340,7 +342,7 @@
                                                     <td width="22%">
                                                         <input type="text" name="delivery_location"
                                                             class="form-control maxlength" maxlength="200"
-                                                            value="Automatice Renewal Activation to the Licenses & Client's Console Panel" />
+                                                            value="Automatic Renewal Activation to the Licenses & Client's Console Panel" />
                                                     </td>
                                                     <th width="15%">Product & Order </th>
                                                     <td width="22%">

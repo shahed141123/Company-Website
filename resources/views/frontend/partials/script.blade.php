@@ -35,19 +35,27 @@
 <script src="{{ asset('backend/assets/js/vendor/tables/datatables/datatables.min.js') }}"></script>
 <script src="{{ asset('backend/assets/demo/pages/datatables_advanced.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/filter.js') }}"></script>
+{{-- <script src="{{ asset('backend/assets/js/summernote.lite.js') }}"></script> --}}
+<script src="https://cdn.tiny.cloud/1/n4jpbhtanca801bcjejx1pc9j033yn0de5ral6e7r0wd6383/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.640/pdf.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.640/pdf.worker.js"></script>
+
+
 
 @yield('scripts')
 
 <script>
     function onSubmit(token) {
-      document.getElementById("recaptcha-form").submit();
+        document.getElementById("recaptcha-form").submit();
     }
-  </script>
+</script>
 <script>
     function onSubmit(token) {
-      $('.get_quote_frm').submit();
+        $('.get_quote_frm').submit();
     }
-  </script>
+</script>
 
 {{-- Software Hardware Tab Slider 16-07-23 --}}
 <script>
@@ -70,173 +78,10 @@
         });
     });
 </script>
-{{-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const swiperTabsNav = new Swiper('.swiper-tabs-nav', {
-            slidesPerView: '4',
-            loop: true,
-            spaceBetween: 0,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-
-        const swiperTabsContent = new Swiper('.swiper-tabs-content', {
-            loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
 
 
 
-        $(".tab-item").on('click', function() {
-            const index = parseInt(this.dataset.index);
-            alert(index);
-            if (swiperTabsNav.realIndex !== index) {
-                swiperTabsNav.slideToLoop(index);
 
-                // Remove 'active' class from all tab-items
-                const tabItems = document.querySelectorAll('.tab-item');
-                tabItems.forEach((item) => item.classList.remove('active'));
-
-                // Add 'active' class to the clicked tab-item
-                this.classList.add('active');
-            }
-        });
-
-        swiperTabsNav.on('slideChange', function() {
-            const activeIndex = swiperTabsNav.realIndex;
-            const activeTab = swiperTabsNav.slides[activeIndex];
-            swiperTabsNav.$('.tab-item').removeClass('active');
-            swiperTabsNav.$(activeTab).addClass('active');
-            swiperTabsContent.slideTo(swiperTabsNav.realIndex);
-        });
-
-        swiperTabsContent.on('slideChange', function() {
-            swiperTabsNav.slideToLoop(swiperTabsContent.realIndex);
-        });
-    });
-</script> --}}
-<script>
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     const tabsNav = document.querySelector('.swiper-tabs-nav');
-    //     const tabsContent = document.querySelector('.swiper-tabs-content');
-
-    //     // Initialize Swiper for content slider
-    //     const contentSlider = new Swiper('.swiper-tabs-content', {
-    //         slidesPerView: 1,
-    //         loop: true,
-    //         navigation: {
-    //             nextEl: '.swiper-button-next',
-    //             prevEl: '.swiper-button-prev',
-    //         },
-    //     });
-
-    //     // Function to activate the selected tab
-    //     function activateTab(index) {
-    //         const tabLinks = tabsNav.querySelectorAll('.nav-link');
-    //         const tabContents = tabsContent.querySelectorAll('.swiper-slide');
-
-    //         // Remove 'active' class from all tab links and tab contents
-    //         tabLinks.forEach(link => link.classList.remove('active'));
-    //         tabContents.forEach(content => content.classList.remove('active'));
-
-    //         // Add 'active' class to the selected tab link and tab content
-    //         tabLinks[index].classList.add('active');
-    //         tabContents[index].classList.add('active');
-    //     }
-
-    //     // Tab link click event
-    //     tabsNav.addEventListener('click', function(e) {
-    //         if (e.target.classList.contains('nav-link')) {
-    //             const index = [...tabsNav.children].indexOf(e.target);
-    //             activateTab(index);
-    //             contentSlider.slideTo(index);
-    //         }
-    //     });
-
-    //     // Auto slide
-    //     let autoSlideInterval;
-
-    //     function startAutoSlide() {
-    //         autoSlideInterval = setInterval(function() {
-    //             const activeTab = tabsNav.querySelector('.nav-link.active');
-    //             const nextTab = activeTab.nextElementSibling || tabsNav.firstElementChild;
-
-    //             const index = [...tabsNav.children].indexOf(nextTab);
-    //             activateTab(index);
-    //             contentSlider.slideTo(index);
-    //         }, 5000); // Change the interval time as needed (in milliseconds)
-    //     }
-
-    //     function stopAutoSlide() {
-    //         clearInterval(autoSlideInterval);
-    //     }
-
-    //     startAutoSlide();
-
-    //     // Pause auto slide on tab click
-    //     tabsNav.addEventListener('click', function() {
-    //         stopAutoSlide();
-    //         setTimeout(startAutoSlide, 10000); // Restart auto slide after 10 seconds (adjust as needed)
-    //     });
-    // });
-</script>
-
-{{-- <script>
-    // Wait for the DOM to load before initializing the Swiper
-    document.addEventListener("DOMContentLoaded", function() {
-        // Initialize the Swiper for tabs navigation
-        var tabsSwiper = new Swiper('.swiper-tabs-nav', {
-            slidesPerView: '4',
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-
-        // Initialize the Swiper for tab content
-        var contentSwiper = new Swiper('#swiperTabsContent', {
-            // Optional: Enable auto slide
-            autoplay: {
-                delay: 50000, // Change the delay to adjust auto slide interval (in milliseconds)
-            },
-            // Optional: Enable loop to create an infinite slider
-            loop: true,
-            // Optional: Enable navigation arrows for tab content
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-                loop: true,
-
-            },
-            // Optional: Enable keyboard control for tab content
-            keyboard: {
-                enabled: true,
-                onlyInViewport: false,
-            },
-            // Optional: Enable mousewheel control for tab content
-            mousewheel: true,
-            // Optional: Enable swipe touch for tab content
-            touchRatio: 1,
-            // Optional: Enable momentum for tab content
-            momentumRatio: 0.1,
-            // Optional: Enable free mode for tab content
-            freeMode: true,
-            // Optional: Set initial slide to the first tab
-            initialSlide: 0,
-            // Optional: Set space between slides (in pixels)
-            spaceBetween: 0,
-        });
-
-        // Synchronize the Swipers so they follow the same slide
-        tabsSwiper.controller.control = contentSwiper;
-        contentSwiper.controller.control = tabsSwiper;
-    });
-</script> --}}
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -502,7 +347,8 @@
                 success: function(response) {
                     toastr.success('Successfully Added to Your Cart');
                     cart_header.empty();
-                    cart_header.append('<span class="add_cart_count">'+response.cartHeader +'</span>');
+                    cart_header.append('<span class="add_cart_count">' + response
+                        .cartHeader + '</span>');
                     button.empty();
                     button.append(
                         '<a href="javascript:void(0);" class="common_button text-white bg-gray" style="padding:10px 8px;">Already in Cart</a>'
@@ -538,7 +384,8 @@
                 success: function(response) {
                     toastr.success('Successfully Added to Your Cart');
                     cart_header.empty();
-                    cart_header.append('<span class="add_cart_count">'+response.cartHeader +'</span>');
+                    cart_header.append('<span class="add_cart_count">' + response
+                        .cartHeader + '</span>');
                     button.empty();
                     button.append(
                         '<a class="text-white common_button bg-gray" href="javascript:void(0);"> Already in Cart</a>'
@@ -553,8 +400,70 @@
     });
 </script>
 
+{{-- Editor --}}
+<script>
+    tinymce.init({
+        selector: '#common',
+        plugins: 'tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+        mergetags_list: [{
+                value: 'First.Name',
+                title: 'First Name'
+            },
+            {
+                value: 'Email',
+                title: 'Email'
+            },
+        ],
+    });
+</script>
+<script>
+    $(document).ready(function() {
 
+        // $('#message').summernote({
+        //     placeholder: "Enter Your Message Here",
+        //     toolbar: [
+        //         ['style', ['style']],
+        //         ['font', ['bold', 'underline', 'clear']],
+        //         ['color', ['color']],
+        //         ['para', ['ul', 'ol', 'paragraph']],
+        //         ['table', ['table']],
+        //         ['insert', ['link', 'picture', 'video']],
+        //         ['view', ['fullscreen', 'codeview', 'help']]
+        //     ]
+        // });
 
+        // $('#common').summernote({
+        //     placeholder: "Write Text Here....",
+        //     toolbar: [
+        //         ['style', ['style']],
+        //         ['font', ['bold', 'underline', 'clear']],
+        //         ['color', ['color']],
+        //         ['para', ['ul', 'ol', 'paragraph']],
+        //         ['table', ['table']],
+        //         ['insert', ['link', 'picture', 'video']],
+        //         ['view', ['fullscreen', 'codeview', 'help']]
+        //     ]
+        // });
+
+        $("#common").on("keypress", function() {
+            var limiteCaracteres = 255;
+            var caracteres = $(this).text();
+            var totalCaracteres = caracteres.length;
+
+            //Update value
+            $("#total-caracteres").text(totalCaracteres);
+
+            //Check and Limit Charaters
+            if (totalCaracteres >= limiteCaracteres) {
+                return false;
+            }
+        });
+    });
+</script>
+{{-- Editor --}}
 
 
 
@@ -798,15 +707,7 @@
     });
 </script>
 
-{{-- Brand Tab --}}
-<script>
-    // $(document).ready(function() {
-    //     $('body').bootstrapMaterialDesign();
 
-
-    // });
-</script>
-{{-- Brand Tab --}}
 
 {{-- Slider --}}
 <script>
@@ -1070,3 +971,42 @@
     });
 </script>
 <!--=======// Bootstrap-5 Tab With Slider Key Script End//======-->
+
+
+{{-- Sidebar --}}
+<script>
+    jQuery(function($) {
+
+        $(".sidebar-dropdown > a").click(function() {
+            $(".sidebar-submenu").slideUp(200);
+            if (
+                $(this)
+                .parent()
+                .hasClass("active")
+            ) {
+                $(".sidebar-dropdown").removeClass("active");
+                $(this)
+                    .parent()
+                    .removeClass("active");
+            } else {
+                $(".sidebar-dropdown").removeClass("active");
+                $(this)
+                    .next(".sidebar-submenu")
+                    .slideDown(200);
+                $(this)
+                    .parent()
+                    .addClass("active");
+            }
+        });
+
+        $("#close-sidebar").click(function() {
+            $(".page-wrapper").removeClass("toggled");
+        });
+        $("#show-sidebar").click(function() {
+            $(".page-wrapper").addClass("toggled");
+        });
+
+
+    });
+</script>
+{{-- Sidebar --}}

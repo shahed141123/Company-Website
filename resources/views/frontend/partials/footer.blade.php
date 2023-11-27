@@ -121,7 +121,7 @@
     </div>
     {{-- </div> --}}
     <!-- footer social -->
-    <div class="container-fluid social_areas" style="background: #222222; border: 1px solid #6c6c6c;">
+    <div class="container-fluid social_areas" style="background: #222222; border-top: 1px solid #6c6c6c; border-bottom: 1px solid #6c6c6c;">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center align-items-center">
                 <div class="trial-block" id="ContactUs">

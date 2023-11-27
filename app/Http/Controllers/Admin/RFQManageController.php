@@ -17,75 +17,19 @@ class RFQManageController extends Controller
      */
     public function index()
     {
-        $data['users'] = User::where(function ($query) {
-            $query->whereJsonContains('department', 'business');
-        })->where('role', 'manager')->select('id', 'name')->orderBy('id', 'DESC')->get();
-        $data['rfqs'] = Rfq::where('rfq_type' , 'rfq')->orderBy('id', 'DESC')->get();
+        $data['users'] = User::whereJsonContains('department', 'business')->where('role', 'manager')->get(['id','name']);
+        $data['rfqs'] = Rfq::where('rfq_type' , 'rfq')->orderBy('id', 'ASC')->get();
+        return view('admin.pages.rfq-manage.rfq_index',$data);
+    }
+    public function dealList()
+    {
+        $data['users'] = User::whereJsonContains('department', 'business')->where('role', 'manager')->get(['id','name']);
         $data['deals'] = Rfq::where('rfq_type', '!=', 'rfq')->orderBy('rfqs.updated_at', 'desc')->get();
-        return view('admin.pages.rfq-manage.all',$data);
+        return view('admin.pages.rfq-manage.deal_index',$data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $rfq = RFQ::findOrFail($id);

@@ -1,68 +1,5 @@
 <?php
 
-// use App\Http\Controllers\Admin\{
-//     JobController,
-//     RFQController,
-//     RowController,
-//     BlogController,
-//     DealController,
-//     PageController,
-//     RoleController,
-//     AdminController,
-//     BrandController,
-//     ClientController,
-//     ClientPermission,
-//     IncomeController,
-//     PolicyController,
-//     RegionController,
-//     BulkSmsController,
-//     ContactController,
-//     CountryController,
-//     ExpenseController,
-//     FeatureController,
-//     PartnerController,
-//     PartnerPermission,
-//     ProductController,
-//     SettingController,
-//     SuccessController,
-//     CategoryController,
-//     FeedbackController,
-//     HomepageController,
-//     IndustryController,
-//     PurchaseController,
-//     SolutionController,
-//     SourcingController,
-//     BrandPageController,
-//     KnowledgeController,
-//     LearnMoreController,
-//     RFQManageController,
-//     SingleRfqController,
-//     NewsLetterController,
-//     RowWithColController,
-//     TechGlossyController,
-//     ClientStoryController,
-//     EffortRatingController,
-//     IndustryPageController,
-//     NotificationController,
-//     PresentationController,
-//     SalesForcastController,
-//     SolutionCardController,
-//     ShowCaseVideoController,
-//     OfficeLocationController,
-//     RfqOrderStatusController,
-//     TechnologyDataController,
-//     AccountsPayableController,
-//     DealTypeSettingController,
-//     SalesProfitLossController,
-//     SalesTeamTargetController,
-//     SalesYearTargetController,
-//     SolutionDetailsController,
-//     AccountProfitLossController,
-//     AccountsReceivableController,
-//     CommercialDocumentController,
-//     PaymentMethodDetailsController,
-// };
-
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
@@ -77,14 +14,13 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CmarController;
 use App\Http\Controllers\Admin\DealController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\KPI\SalaryController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\LeaveController;
 use App\Http\Controllers\Event\EventController;
 use App\Http\Controllers\Salary\DataController;
 use App\Http\Controllers\SAS\DealSasController;
-use App\Http\Controllers\Admin\ClientController;
-use App\Http\Controllers\Admin\ClientPermission;
 use App\Http\Controllers\Admin\IncomeController;
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\PolicyController;
@@ -104,20 +40,21 @@ use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\PartnerPermission;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SectionController;
-use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\SuccessController;
 
+use App\Http\Controllers\Admin\SuccessController;
 use App\Http\Controllers\Salary\EntityController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\HomepageController;
-use App\Http\Controllers\Admin\HrPolicyController;
 
+use App\Http\Controllers\Admin\HrPolicyController;
 use App\Http\Controllers\Admin\IndustryController;
 use App\Http\Controllers\Admin\PurchaseController;
 use App\Http\Controllers\Admin\SolutionController;
 use App\Http\Controllers\Admin\SourcingController;
+use App\Http\Controllers\Client\ProjectController;
+use App\Http\Controllers\KPI\EvaluationController;
 use App\Http\Controllers\Admin\BrandPageController;
 use App\Http\Controllers\Admin\KnowledgeController;
 use App\Http\Controllers\Admin\LearnMoreController;
@@ -145,6 +82,7 @@ use App\Http\Controllers\Admin\PresentationController;
 use App\Http\Controllers\Admin\SalesForcastController;
 use App\Http\Controllers\Admin\SolutionCardController;
 use App\Http\Controllers\Admin\WhatWeDoPageController;
+use App\Http\Controllers\Client\SupportCaseController;
 use App\Http\Controllers\Sales\SalesAccountController;
 use App\Http\Controllers\Admin\PortfolioPageController;
 use App\Http\Controllers\Admin\PortfolioTeamController;
@@ -158,6 +96,7 @@ use App\Http\Controllers\Admin\PolicyCategoryController;
 use App\Http\Controllers\Admin\RfqOrderStatusController;
 use App\Http\Controllers\Admin\TechnologyDataController;
 use App\Http\Controllers\Attendance\BioMetricController;
+use App\Http\Controllers\Client\ClientSupportController;
 use App\Http\Controllers\Admin\AccountsManagerController;
 use App\Http\Controllers\Admin\AccountsPayableController;
 use App\Http\Controllers\Admin\DealTypeSettingController;
@@ -188,6 +127,7 @@ use App\Http\Controllers\Admin\FrontendMenuBuilderController;
 use App\Http\Controllers\Admin\FrontendNavbarModuleController;
 use App\Http\Controllers\Admin\PaymentMethodDetailsController;
 use App\Http\Controllers\Admin\PolicyAcknowledgmentsController;
+use App\Http\Controllers\Client\ClientSupportMessageController;
 use App\Http\Controllers\Admin\FrontendNavbarMenuItemController;
 use App\Http\Controllers\Admin\PortfolioClientFeedbackController;
 use App\Http\Controllers\Marketing\MarketingTeamTargetController;
@@ -260,17 +200,27 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         //Route::get('/delete/product/{id}' , 'ProductDelete')->name('delete.product');
         Route::delete('/delete/product/{id}', 'ProductDelete')->name('product.destroy');
 
-        // For Product Stock
+        // For Product Stock ,.,
         Route::get('/product/stock', 'ProductStock')->name('product.stock');
         Route::get('product/price_notification', 'toastrIndex')->name('product.price_notification');
     });
+    Route::controller(SourcingController::class)->group(function () {
+        Route::get('/products/sourced', 'index')->name('product.sourced');
+        Route::get('/products/saved', 'savedProducts')->name('product.saved');
+        Route::get('/products/approved', 'approvedProducts')->name('product.approved');
+    });
+    Route::controller(RFQManageController::class)->group(function () {
+        Route::get('/rfq/list', 'index')->name('rfq.list');
+        Route::get('/deal/list', 'dealList')->name('deal.list');
+        // Route::delete('/rfq-manage/destroy/{id}', 'destroy')->name('rfq-manage.destroy');
+    });
 
-    Route::get('/support',    [ContactController::class, 'Support'])->name('support.all');
 
 
 
 
-    Route::post('client_status', [App\Http\Controllers\Admin\ClientPermission::class, 'clientStatus'])->name('client.status');
+
+    Route::post('client_status', [ClientDatabaseController::class, 'clientStatus'])->name('client.status');
 
     Route::post('partner_status', [App\Http\Controllers\Admin\PartnerPermission::class, 'partnerStatus'])->name('partner.status');
 
@@ -374,15 +324,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::get('/client/ajax/{client_id}', 'GetClient');
     });
 
-
-    //   Route::get('/partner/ajax/{partner_id}' , [DealController::class,'GetPartner']);
-    //   Route::get('/client/ajax/{client_id}' , [DealController::class,'GetClient']);
     Route::controller(DealController::class)->group(function () {
         Route::get('/partner/ajax/{partner_id}', 'GetPartner');
         Route::get('/client/ajax/{client_id}', 'GetClient');
         Route::put('/send/quotation/{id}',  'SendQuotation')->name('quotation.send');
         Route::put('/send/invoice/{id}',  'dealInvoiceSent')->name('invoice.send');
-        Route::put('/upload/payment-proof/{id}',  'proofPaymentUpload')->name('payment-proof.upload');
+        // Route::put('/upload/payment-proof/{id}',  'proofPaymentUpload')->name('payment-proof.upload');
         Route::put('/check/quotation/{id}', 'CheckQuotation')->name('quotation.check');
     });
 
@@ -461,7 +408,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'partner-account'            => PartnerController::class,
             'commercial-document'        => CommercialDocumentController::class,
             'payment-method-details'     => PaymentMethodDetailsController::class,
-            'rfq-manage'                 => RFQManageController::class,
             'sales-achievement'          => SalesAchievementController::class,
             'deal-type-settings'         => DealTypeSettingController::class,
             'effort-ratings'             => EffortRatingController::class,
@@ -480,12 +426,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'category'                   => CategoryController::class,
             'brand'                      => BrandController::class,
             'success'                    => SuccessController::class,
-            // 'setting'                    => SettingController::class,
+            // 'setting'                 => SettingController::class,
             'solution'                   => SolutionController::class,
             'contact'                    => ContactController::class,
             'newsLetter'                 => NewsLetterController::class,
-            'clientExperince'            => ClientController::class,
-            'clientPermission'           => ClientPermission::class,
             'partnerPermission'          => PartnerPermission::class,
             'homepage'                   => HomepageController::class,
             'blog'                       => BlogController::class,
@@ -518,6 +462,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'crm'                        => CRMController::class,
             'delivery'                   => DeliveryController::class,
             'offer-price'                => OfferPriceController::class,
+            'rfq-manage'                => RFQManageController::class,
 
             // phase 2 part 2
             'what-we-do-page'           => WhatWeDoPageController::class, // done
@@ -564,6 +509,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'data'                      => DataController::class, // back and front done
             'attribute'                 => AttributeController::class, // back done
             'salary-form'               => SalaryFormController::class, // back done
+            'client-support'            => ClientSupportController::class, // back done
+            'support-case'              => SupportCaseController::class, // back done
+            'project'                   => ProjectController::class,
+            'evaluation'                => EvaluationController::class,
+            'salary'                    => SalaryController::class,
 
         ],
         [
@@ -586,7 +536,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         ]);
     }
 
+
+    Route::post('admin/case/message',  [ClientSupportMessageController::class, 'store'])->name('admin.message.store');
+    Route::get('/project-dashboard',  [ProjectController::class, 'projectDashboard'])->name('project.dashboard');
+    Route::get('/events/dashboard',  [EventController::class, 'eventDashboard'])->name('event.dashboard');
+
     //Leave Routes
+    Route::get('/filter-events/{id}',  [EventController::class, 'filterEvents'])->name('filter.events');
+
     Route::get('leaveApplications',  [LeaveApplicationController::class, 'leaveApplications'])->name('leaveApplications');
     Route::get('leaveHistorys',  [LeaveApplicationController::class, 'leaveHistorys'])->name('leave.history');
     Route::get('{id}/leaveHistorys',  [LeaveApplicationController::class, 'individualLeaves'])->name('individual.leaveHistory');
@@ -601,10 +558,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::put('assign_roles/SalesManager/{id}', [SalesAccountController::class, 'assignSalesManagerRole'])->name('assign.salesmanager-role');
 
 
-    Route::post('notifiy/multi-delete', [NotificationController::class, 'multiDelete'])->name('notifiy.multi-delete');
+    Route::post('notifiy/bulk-delete', [NotificationController::class, 'multiDelete'])->name('notifiy.multi-delete');
     Route::controller(EffortRatingController::class)->group(function () {
         Route::get('/effort/ajax/{id}', 'GetEffortRating')->name('get.effort.ajax');
     });
+
 
 
     Route::get('/sales-achievement/summary', [SalesAchievementController::class, 'salesAchievementSummary'])->name('dashboard.salesachievement');
@@ -618,8 +576,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     ///Biomrtric Attendance
 
-    Route::get('/device-setip', [BioMetricController::class, 'index'])->name('machine.home');
+    Route::get('/hr-admin', [BioMetricController::class, 'index'])->name('attendance.dashboard');
+    // Route::get('/hr-admin', [BioMetricController::class, 'index'])->name('machine.home');
+    Route::get('/attendance-data/single/{id}', [BioMetricController::class, 'attendanceDataSingle'])->name('attendance.single');
     Route::post('/device-setip', [BioMetricController::class, 'device_setip'])->name('machine.devicesetip');
+    // Route::post('/device-setip', [BioMetricController::class, 'device_setip'])->name('attendance.dashboard');
     Route::get('/device-information', [BioMetricController::class, 'device_information'])->name('machine.deviceinformation');
     Route::get('/device-user-data', [BioMetricController::class, 'device_user_data'])->name('machine.deviceuserdata');
     Route::get('/device-attendance-data', [BioMetricController::class, 'device_attendance_data'])->name('machine.deviceattendancedata');
@@ -632,6 +593,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/device-shutdown', [BioMetricController::class, 'device_shutdown'])->name('machine.deviceshutdown');
 
 
+    ///
 
 
 
@@ -641,52 +603,59 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
 
 
-    // A function to run Artisan commands
-    function runCommand($command, $successMessage)
-    {
-        // dd
-        Artisan::call($command); //dd($command)
-        Toastr::success($successMessage); //dd($successMessage)
-        return back();
-    }
-
     // Route for creating a symbolic link
     Route::get('link', function () {
-        return runCommand('storage:link', 'Storage linked successfully');
+        Artisan::call('storage:link');
+        Toastr::success('Storage linked successfully');
+        return back();
     });
 
     // Route for clearing cache
     Route::get('clear-cache', function () {
-        return runCommand('cache:clear', 'Cache cleared');
+        Artisan::call('cache:clear');
+        Toastr::success('Cache cleared');
+        return back();
     });
 
     // Route for optimizing class loader
     Route::get('optimize', function () {
-        return runCommand('optimize:clear', 'Optimize cleared');
+        Artisan::call('optimize:clear');
+        Toastr::success('Optimize cleared');
+        return back();
     });
 
     // Route for caching routes
     Route::get('route-cache', function () {
-        return runCommand('route:cache', 'Route cached');
+        Artisan::call('route:cache');
+        Toastr::success('Route cached');
+        return back();
     });
 
     // Route for clearing cached routes
     Route::get('clear-route', function () {
-        return runCommand('route:clear', 'Route value cleared');
+        Artisan::call('route:clear');
+        Toastr::success('Route value cleared');
+        return back();
     });
 
     // Route for clearing view cache
     Route::get('clear-view', function () {
-        return runCommand('view:clear', 'View cleared');
+        Artisan::call('view:clear');
+        Toastr::success('View cleared');
+        return back();
     });
 
     // Route for clearing config cache
     Route::get('clear-config', function () {
-        return runCommand('config:cache', 'Config cached');
+        Artisan::call('config:cache');
+        Toastr::success('Config cached');
+        return back();
     });
 
     // Route for running database migrations
     Route::get('migrate', function () {
-        return runCommand('migrate', 'Migration completed');
+        Artisan::call('migrate');
+        Toastr::success('Migration completed');
+        return back();
     });
 });

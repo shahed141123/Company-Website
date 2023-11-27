@@ -36,7 +36,7 @@
             </div>
             <!-- Basic tabs -->
             <div>
-                <a href="{{ route('machine.home') }}" class="btn navigation_btn">
+                <a href="{{ route('attendance.dashboard') }}" class="btn navigation_btn">
                     <div class="d-flex align-items-center ">
                         <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
                         <span>Back To Dashboard</span>

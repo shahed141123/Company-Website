@@ -4703,27 +4703,7 @@ input::placeholder {
 .content_wrapper{
     position: relative;
 }
-#mySidebar {
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #5f5753;
-    overflow-x: hidden;
-    transition: 0.2s;
-    width: 320px;
-}
-#Content_Wrapper{
-    transition:.2s;
-    padding: 20px 20px 20px 20px;
-    background:#dfdfdd;
-    margin-left:320px
-}
-#userSideButton_wrapper{
-    background: #d6d1ca;
-    display: none;
-}
+
 
 /*---------------------*/
 .sidebarButtonStyle {

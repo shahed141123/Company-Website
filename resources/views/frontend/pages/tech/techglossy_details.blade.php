@@ -6,24 +6,26 @@
         }
     </style>
     <!--======// Header Title //======-->
-    <section class="common_product_header"
-        style="background-image: linear-gradient(
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)
-        ),url('{{ asset('storage/requestImg/' . $techglossy->image) }}');">
-        <div class="container ">
-            <h1 class="text-capitalize w-50 mx-auto">{{ $techglossy->badge }}</h1>
-            <p class="text-center text-white">Tech Glossary</p>
-            <div class="row ">
-                <!--BUTTON START-->
-                <div class="d-flex justify-content-center align-items-center">
-                    <div class="m-4">
-                        <button class="common_button2" href="product_filters.html">Talk to a specialist</button>
+    @if (!empty($techglossy->image))
+        <section class="common_product_header"
+            style="background-image: linear-gradient(
+            rgba(0,0,0,0.5),
+            rgba(0,0,0,0.5)
+            ),url('{{ asset('storage/requestImg/' . $techglossy->image) }}');">
+            <div class="container ">
+                <h1 class="text-capitalize w-50 mx-auto">{{ $techglossy->badge }}</h1>
+                <p class="text-center text-white">Tech Glossary</p>
+                <div class="row ">
+                    <!--BUTTON START-->
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="m-4">
+                            <button class="common_button2" href="product_filters.html">Talk to a specialist</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
     <!----------End--------->
 
     <!--=======// Content //=======-->
@@ -45,13 +47,15 @@
             <div class="col-lg-12 col-sm-12 tech_glossary_area_left">
 
                 <h5>{{ $techglossy->title }}</h5>
-                @php
-                    $tag = $techglossy->tags;
-                    $tags = explode(',', $tag);
-                @endphp
-                @foreach ($tags as $item)
-                    <p class="main_color">{{ ucwords($item) }}</p>
-                @endforeach
+                <div class="d-flex">
+                    @php
+                        $tag = $techglossy->tags;
+                        $tags = explode(',', $tag);
+                    @endphp
+                    @foreach ($tags as $item)
+                        <p class="main_color me-2">{{ ucwords($item) }}</p>
+                    @endforeach
+                </div>
 
                 <p>{!! $techglossy->header !!}</p>
 
@@ -107,17 +111,3 @@
     </section>
     <!--------- End--------->
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-

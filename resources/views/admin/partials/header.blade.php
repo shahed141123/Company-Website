@@ -75,10 +75,10 @@
         width: 100%;
     }
 
-    .brand_logo {
+    /* .brand_logo {
         width: 50px;
         height: 40px !important;
-    }
+    } */
 </style>
 <div class="navbar navbar-expand-lg navbar-static border-bottom border-bottom-white border-opacity-10"
     style="background-image:url('{{ asset('backend/images/final.jpg') }}');background-repeat:no-repeat;  padding:0px; background-size: cover;">
@@ -92,11 +92,11 @@
             $setting = App\Models\Site::latest()->first();
         @endphp
 
-        <div class="navbar-brand flex-1 flex-lg-0 p-2">
+        <div class="navbar-brand flex-1 flex-lg-0 px-2 py-1">
             <a href="{{ route('admin.dashboard') }}" class="d-inline-flex align-items-center">
 
                 <img src="{{ !empty($setting->logo) ? asset('storage/' . $setting->logo) : url('upload/no_image.jpg') }}"
-                    class="img-fluid brand_logo" style="width:70px; height:45px;" alt="">
+                    class="img-fluid brand_logo" style="width:120px; height:50px;" alt="">
             </a>
         </div>
 
@@ -311,7 +311,7 @@
             </div>
         </div> --}}
 
-        <ul class="nav flex-row justify-content-end order-1 order-lg-2">
+        <ul class="nav flex-row justify-content-end align-items-center order-1 order-lg-2">
             {{-- <li class="nav-item ms-lg-2">
                 <div class="containers">
                     <form class="searchbar">
@@ -322,24 +322,30 @@
                     </form>
                 </div>
             </li> --}}
-            <li class="nav-item ms-lg-2">
+            <li class="nav-item ms-lg-2 mb-0">
                 <a type="button" class="navbar-nav-link navbar-nav-link-icon rounded-pill" data-bs-toggle="offcanvas"
                     data-bs-target="#demo_config">
                     <i class="ph-gear"></i>
                 </a>
             </li>
             @php
+            if (Auth::user()->role == '') {
+                # code...
+            } else {
+                # code...
+            }
+
                 $ncount = Auth::user()
                     ->unreadNotifications()
                     ->count();
             @endphp
 
-            <li class="nav-item ms-lg-2">
+            <li class="nav-item mx-2 mb-0">
                 <a href="#" class="navbar-nav-link navbar-nav-link-icon rounded-pill" data-bs-toggle="offcanvas"
                     data-bs-target="#notifications">
                     <i class="ph-bell"></i>
                     <span
-                        class="badge bg-yellow text-black position-absolute top-0 end-0 translate-middle-top zindex-1 rounded-pill mt-1 me-1">{{ $ncount }}</span>
+                        class="badge bg-yellow text-black position-absolute top-0 end-0 translate-middle-top zindex-1 rounded-pill mt-2 ms-1 me-1">{{ $ncount }}</span>
                 </a>
             </li>
 
@@ -363,7 +369,7 @@
                         <i class="ph-password"></i>
                         Change Password
                     </a>
-                    <a href="#" class="dropdown-item">
+                    {{-- <a href="#" class="dropdown-item">
                         <i class="ph-currency-circle-dollar me-2"></i>
                         My subscription
                     </a>
@@ -375,7 +381,7 @@
                         <i class="ph-envelope-open me-2"></i>
                         My inbox
                         <span class="badge bg-primary rounded-pill ms-auto">26</span>
-                    </a>
+                    </a> --}}
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('admin.profile') }}" class="dropdown-item">
                         <i class="ph-gear me-2"></i>

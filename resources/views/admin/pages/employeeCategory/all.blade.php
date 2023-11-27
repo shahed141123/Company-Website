@@ -106,9 +106,9 @@
                                                                                 Leave</label>
                                                                             <input name="monthly_earned_leave"
                                                                                 value="{{ $employeeCategorie->monthly_earned_leave }}"
-                                                                                type="number"
-                                                                                class="form-control form-control-sm"
-                                                                                placeholder="Enter Your " required>
+                                                                                type="text"
+                                                                                class="allow_decimal form-control form-control-sm"
+                                                                                placeholder="e.g:yearly policy leave/12" required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-3  pt-1">
@@ -119,9 +119,9 @@
                                                                                 Leave</label>
                                                                             <input name="monthly_casual_leave"
                                                                                 value="{{ $employeeCategorie->monthly_casual_leave }}"
-                                                                                type="number"
-                                                                                class="form-control form-control-sm"
-                                                                                placeholder="Enter Your " required>
+                                                                                type="text"
+                                                                                class="allow_decimal form-control form-control-sm"
+                                                                                placeholder="e.g:yearly policy leave/12" required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-3  pt-1">
@@ -132,9 +132,18 @@
                                                                                 Le.</label>
                                                                             <input name="monthly_medical_leave"
                                                                                 value="{{ $employeeCategorie->monthly_medical_leave }}"
-                                                                                type="number"
-                                                                                class="form-control form-control-sm"
-                                                                                placeholder="Enter Your " required>
+                                                                                type="text"
+                                                                                class="allow_decimal form-control form-control-sm"
+                                                                                placeholder="e.g:yearly policy leave/12" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-3 pt-1">
+                                                                        <div class="mb-1">
+                                                                            <label for="monthly_medical_leave-add" class="p-0 text-black">Evaluation Period <span class="text-danger">*</span></label>
+                                                                            <input id="monthly_medical_leave-add" name="evaluation_period" type="text"
+                                                                                value="{{ $employeeCategorie->evaluation_period }}"
+                                                                                maxlength="10" class="allow_decimal form-control form-control-sm "
+                                                                                placeholder="Evaluation Period in days.." required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -182,7 +191,7 @@
                             <div class="row">
                                 <div class="col-lg-3 pt-1">
                                     <div class="mb-1">
-                                        <label class="p-0 text-black">Name</label>
+                                        <label class="p-0 text-black">Name <span class="text-danger">*</span></label>
                                         <input name="name" type="text" class="form-control form-control-sm"
                                             placeholder="Enter Your Name" required>
                                     </div>
@@ -191,31 +200,38 @@
                                     <div class="mb-1">
                                         <label for="monthly_earned_leave-add" class="p-0 text-black">Monthly Earned
                                             Leave</label>
-                                        <input id="monthly_earned_leave-add" name="monthly_earned_leave" type="number"
-                                            maxlength="10" class="form-control form-control-sm "
-                                            placeholder="Enter Your " required>
+                                        <input id="monthly_earned_leave-add" name="monthly_earned_leave" type="text"
+                                            maxlength="10" class="allow_decimal form-control form-control-sm "
+                                            placeholder="e.g:yearly policy leave/12" >
                                     </div>
                                 </div>
                                 <div class="col-lg-3 pt-1">
                                     <div class="mb-1">
                                         <label for="monthly_casual_leave-add" class="p-0 text-black">Monthly Casual
                                             Leave</label>
-                                        <input id="monthly_casual_leave-add" name="monthly_casual_leave" type="number"
-                                            maxlength="10" class="form-control form-control-sm "
-                                            placeholder="Enter Your " required>
+                                        <input id="monthly_casual_leave-add" name="monthly_casual_leave" type="text"
+                                            maxlength="10" class="allow_decimal form-control form-control-sm "
+                                            placeholder="e.g:yearly policy leave/12" >
                                     </div>
                                 </div>
                                 <div class="col-lg-3 pt-1">
                                     <div class="mb-1">
                                         <label for="monthly_medical_leave-add" class="p-0 text-black">Monthly
                                             Medical
-                                            Le.</label>
-                                        <input id="monthly_medical_leave-add" name="monthly_medical_leave" type="number"
-                                            maxlength="10" class="form-control form-control-sm "
-                                            placeholder="Enter Your " required>
+                                            Le. <span class="text-danger">*</span></label>
+                                        <input id="monthly_medical_leave-add" name="monthly_medical_leave" type="text"
+                                            maxlength="10" class="allow_decimal form-control form-control-sm "
+                                            placeholder="e.g:yearly policy leave/12" required>
                                     </div>
                                 </div>
-
+                                <div class="col-lg-3 pt-1">
+                                    <div class="mb-1">
+                                        <label for="monthly_medical_leave-add" class="p-0 text-black">Evaluation Period <span class="text-danger">*</span></label>
+                                        <input id="monthly_medical_leave-add" name="evaluation_period" type="text"
+                                            maxlength="10" class="allow_decimal form-control form-control-sm "
+                                            placeholder="Evaluation Period in days.." required>
+                                    </div>
+                                </div>
                             </div>
                             <div class="modal-footer border-0 pt-3 pb-0 pe-0">
                                 <button type="button" class="submit_close_btn " data-bs-dismiss="modal">Close</button>

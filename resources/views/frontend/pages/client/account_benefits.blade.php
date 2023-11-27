@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('content')
-    @include('frontend.header')
+
 
     <!--========Header Title==========-->
     <section class="account_benefits_header"
@@ -364,5 +364,4 @@
     <!-------------End--------->
 
 
-    @include('frontend.footer')
 @endsection

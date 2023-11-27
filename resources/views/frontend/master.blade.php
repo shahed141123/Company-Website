@@ -3,25 +3,30 @@
 
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-<meta name="google-site-verification" content="rvHWL3HPw7hzVuxHE37nPByXS604wH6gpUPzjZiWNy8" />
-<meta name="title" content="NGen IT Ltd.">
-<meta name="description" content="NGEN IT Ltd. is a System Integration, Software & Hardware based License Provider & Software development based company established at 2008. Our technical expertise, broad solutions portfolio and supply chain capabilities give us the right resources and scale to achieve more for you. Cloud Services.">
-<meta name="keywords" content="software, hardware, training, books, license, Microsoft, Adobe, Software License, Acronis, Veeam, Industry, Solution, Health Industry, Financial Industry,">
-<meta name="robots" content="index, follow">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="language" content="English">
-<meta name="revisit-after" content="7 days">
-<meta name="author" content="NGen IT">
+    <meta name="google-site-verification" content="rvHWL3HPw7hzVuxHE37nPByXS604wH6gpUPzjZiWNy8" />
+    <meta name="title" content="NGen IT Ltd.">
+    <meta name="description"
+        content="NGEN IT Ltd. is a System Integration, Software & Hardware based License Provider & Software development based company established at 2008. Our technical expertise, broad solutions portfolio and supply chain capabilities give us the right resources and scale to achieve more for you. Cloud Services.">
+    <meta name="keywords"
+        content="software, hardware, training, books, license, Microsoft, Adobe, Software License, Acronis, Veeam, Industry, Solution, Health Industry, Financial Industry,">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="author" content="NGen IT">
 
     @include('frontend.partials.head')
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KB1NVD4FHE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KB1NVD4FHE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-KB1NVD4FHE');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-KB1NVD4FHE');
+    </script>
 </head>
 {{-- <body onload="myFunction()"> --}}
 
@@ -36,13 +41,19 @@
         @yield('content')
 
         <!--=======// Footer Section//=========-->
-        @include('frontend.partials.footer')
+        @if (str_contains(Route::current()->getName(), 'client'))
+        @else
+            @include('frontend.partials.footer')
+        @endif
+
     </div>
     <!----------End--------->
 
     <!--=======// Cookises Modals //=======-->
     @include('frontend.partials.cookies')
     <!----------End--------->
+
+
 
     <!--=======// Feedback Modals //=======-->
     @include('frontend.partials.feedback')
@@ -68,6 +79,8 @@
                 }, 100); // Same duration as preloader CSS animation
             }, 800); // Simulated delay in milliseconds
         });
+
+        
     </script>
 
 

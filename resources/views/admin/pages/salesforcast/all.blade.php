@@ -28,36 +28,38 @@
 
             <!-- Table components -->
             <div class="card">
-                <div class="col-lg-12">
-                    <table class="table table-xs table-bordered table-responsive">
+                <div class="row">
+                    <div class="col-lg-4 offset-lg-4">
+                        <table class="table table-xs table-bordered table-responsive">
 
-                        <tr>
+                            <tr>
 
-                            <th class="quotaed-lbg"> <a href="#" class="text-white">Quoted </a> </th>
-                            <td class="quotaed-ltbg text-white"> 65788552.00</td>
-                            <th class="quotaed-rbg"> <a href="#" class="text-white">Target</a> </th>
-                            <td class="quotaed-rtbg text-white"> 600008552.00 </td>
+                                <th class="quotaed-lbg"> <a href="#" class="text-white">Quoted </a> </th>
+                                <td class="quotaed-ltbg text-white"> 65788552.00</td>
+                                <th class="quotaed-rbg"> <a href="#" class="text-white">Target</a> </th>
+                                <td class="quotaed-rtbg text-white"> 600008552.00 </td>
 
-                        </tr>
+                            </tr>
 
-                        <tr>
+                            <tr>
 
-                            <th class="quotaed-lbg"> <a href="#" class="text-white">Closed</a> </th>
-                            <td class="quotaed-ltbg text-white"> 45788552.00</td>
-                            <th class="quotaed-rbg"> <a href="" class="text-white">Forecast</a> </th>
-                            <td class="quotaed-rtbg text-white"> 3308552.00 </td>
+                                <th class="quotaed-lbg"> <a href="#" class="text-white">Closed</a> </th>
+                                <td class="quotaed-ltbg text-white"> 45788552.00</td>
+                                <th class="quotaed-rbg"> <a href="" class="text-white">Forecast</a> </th>
+                                <td class="quotaed-rtbg text-white"> 3308552.00 </td>
 
-                        </tr>
-                        <tr>
+                            </tr>
+                            <tr>
 
-                            <th class="quotaed-lbg"> <a href="#" class="text-white"> Performance </a> </th>
-                            <td class="quotaed-ltbg text-white"> 7808552.00</td>
-                            <th class="quotaed-rbg"> <a href="#" class="text-white">Lost</a> </th>
-                            <td class="quotaed-rtbg text-white"> 2208552.00 </td>
+                                <th class="quotaed-lbg"> <a href="#" class="text-white"> Performance </a> </th>
+                                <td class="quotaed-ltbg text-white"> 7808552.00</td>
+                                <th class="quotaed-rbg"> <a href="#" class="text-white">Lost</a> </th>
+                                <td class="quotaed-rtbg text-white"> 2208552.00 </td>
 
-                        </tr>
+                            </tr>
 
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -154,7 +156,7 @@
     </div>
 
 
-    
+
 
 
 

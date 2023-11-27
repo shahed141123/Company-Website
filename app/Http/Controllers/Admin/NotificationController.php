@@ -97,4 +97,10 @@ class NotificationController extends Controller
         DB::table('notifications')->whereIn('id', $id)->delete();
         return response()->json("Selected notifications deleted successfully.", 200);
     }
+    public function bulkDelete(Request $request)
+    {
+        $id = $request->id;
+        DB::table('notifications')->whereIn('id', $id)->delete();
+        return response()->json("Selected notifications deleted successfully.", 200);
+    }
 }

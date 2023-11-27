@@ -92,7 +92,7 @@
                                                                                 data-minimum-results-for-search="Infinity" data-allow-clear="true"
                                                                                 data-placeholder="Select Event Category" required>
                                                                                 @foreach ($event_categorys as $event_category)
-                                                                                    <option value="{{$event_category->id}}" @selected($event_category->id === {{ $event->event_category }})>{{$event_category->title}}</option>
+                                                                                    <option value="{{$event_category->id}}" @selected($event_category->id === $event->event_category)>{{$event_category->name}}</option>
                                                                                 @endforeach
                                                                             </select>
                                                                         </div>
@@ -220,7 +220,7 @@
                                                 data-minimum-results-for-search="Infinity" data-allow-clear="true"
                                                 data-placeholder="Select Event Category" required>
                                                 @foreach ($event_categorys as $event_category)
-                                                    <option value="{{$event_category->id}}">{{$event_category->title}}</option>
+                                                <option value="{{$event_category->id}}">{{$event_category->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>

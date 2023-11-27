@@ -549,21 +549,10 @@
         }
     </style>
     <!--======// Header Title //======-->
-    <section class="common_product_header "
-        style="background-image: url('asset('images/single-page/banner/hero-banner.jpg')'); padding: 40px 0 80px 0;">
-        <div class="container">
-            <div class="solution_common_header">
-                <div class="outcome_assetType mb-4">
-                    <a href="#">Solutions We Offer</a>
-                </div>
-                <h1><span class="topLine">N</span>ow is the time to be <span class="bottomLine">big</span>.</h1>
-            </div>
-            <!--Button-->
-            <div class="d-flex justify-content-center mt-5">
-                <a class="common_button2" href="#Contact">Hear from our team</a>
-            </div>
+    <section class="">
+        <div>
+            <img src="{{ asset('frontend/images/solutions-Banner.jpg') }}" alt="" class="img-fluid">
         </div>
-
     </section>
     <!----------End--------->
     <section class="mt-5">
@@ -645,9 +634,9 @@
                 <!-- home title -->
                 <div class="home_title mt-3">
                     <div class="software_feature_title">
-                        <h1 class="text-center "> NgenIT Growing </h1>
+                        <h1 class="text-center "> NGenIT Growing </h1>
                     </div>
-                    <p class="home_title_text">See how Ngen It has helped organizations of all sizes across every industry
+                    <p class="home_title_text">See how NGen IT has helped organizations of all sizes across every industry
                         maximize the <br> value of their IT solutions, leverage emerging technologies and create fresh
                         experiences.
                     </p>

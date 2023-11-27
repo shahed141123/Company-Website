@@ -8,7 +8,7 @@
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house me-2"></i> Home</a>
-                        <a href="{{route('supplychain')}}" class="breadcrumb-item">Supply Chain</a>
+                        <a href="{{ route('supplychain') }}" class="breadcrumb-item">Supply Chain</a>
                         <a href="#" class="breadcrumb-item">Brand Management</a>
                     </div>
                     <a href="#breadcrumb_elements"
@@ -62,14 +62,14 @@
                                     <td>{{ $brand->category }}</td>
                                     <td>
                                         <a href="" class="text-primary" data-bs-toggle="modal"
-                                            data-bs-target="#brandEdit{{$brand->id}}">
+                                            data-bs-target="#brandEdit{{ $brand->id }}">
                                             <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
                                         </a>
                                         <a href="{{ route('brand.destroy', [$brand->id]) }}" class="text-danger delete">
                                             <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
                                         </a>
                                         {{-- Edit brand Modal Content --}}
-                                        <div id="brandEdit{{$brand->id}}" class="modal fade" tabindex="-1">
+                                        <div id="brandEdit{{ $brand->id }}" class="modal fade" tabindex="-1">
                                             <div class="modal-dialog modal-sm">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -174,7 +174,7 @@
                     </div>
                     <div class="modal-body p-1">
                         <div class="container ps-0 pe-0">
-                            <form method="post" action="{{route('brand.store')}}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('brand.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="px-2 py-2 m-2 bg-light rounded">
                                     <div class="row mb-1">
@@ -236,14 +236,16 @@
 @once
     @push('scripts')
         <script type="text/javascript">
-            $('.portfolioDetailDT').DataTable({
-                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-                "iDisplayLength": 10,
-                "lengthMenu": [10, 25, 30, 50],
-                columnDefs: [{
-                    orderable: false,
-                    targets: [3],
-                }, ],
+            $(document).ready(function() {
+                $('.portfolioDetailDT').DataTable({
+                    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                    "iDisplayLength": 10,
+                    "lengthMenu": [10, 25, 30, 50],
+                    columnDefs: [{
+                        orderable: false,
+                        targets: [3],
+                    }, ],
+                });
             });
         </script>
     @endpush

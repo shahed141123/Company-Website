@@ -6,9 +6,12 @@
 
 <style>
     .side_baricon {
-        font-size: 15px;
+        font-size: 18px;
     }
 
+    .nav-group-sub .active , .nav-sidebar .nav-item-open>.nav-link:not(.disabled):not(:active) {
+        background-color: #d2d2d266;
+    }
 
     .sidebar-expand-lg.sidebar-main-resized:not(.sidebar-collapsed):not(.sidebar-main-unfold) {
         width: 3rem;
@@ -16,14 +19,18 @@
 
 
     .sidebar {
-        --sidebar-width: 12rem;
+        --sidebar-width: 14rem;
     }
 
     .nav-item-submenu>.nav-link:after {
 
-        left: 10.5rem;
+        left: 12rem;
+        font-size: 14px;
     }
 
+    .nav-sidebar {
+        --nav-link-spacer-y: 10px;
+    }
 
     .nav-link {
         font-size: 15px;
@@ -45,9 +52,10 @@
         <div class="sidebar-section">
             <div class="sidebar-section-body d-flex justify-content-center">
                 <h5 class="sidebar-resize-hide flex-grow-1 my-auto">
-                    <img class="img-fluid"
+                    {{ Auth::user()->name }}
+                    {{-- <img class="img-fluid"
                         src="{{ !empty($setting->logo) ? asset('storage/' . $setting->logo) : url('upload/no_image.jpg') }}"
-                        class="img-fluid" alt="" style="width:70px; height:45px;">
+                        class="img-fluid" alt="" style="width:120px; height:45px;"> --}}
                 </h5>
                 <div>
                     <button type="button" style="background-color: #2e2d2d;"
@@ -64,7 +72,7 @@
         <!-- /sidebar header -->
         <div class="sidebar-section">
             <ul class="nav nav-sidebar" data-nav-type="accordion">
-                <li class="nav-item {{ Route::current()->getName() == '' ? 'active' : '' }}">
+                <li class="nav-item {{ Route::current()->getName() == 'admin.dashboard' ? 'active' : '' }}">
                     <a href="{{ route('admin.dashboard') }}"
                         class="nav-link d-flex align-items-center justify-content-start">
                         <i class="fa-regular fa-house-day side_baricon"></i>
@@ -72,18 +80,28 @@
                     </a>
                 </li>
                 @if (auth()->check() && in_array('logistics', json_decode(auth()->user()->department, true)))
-                    <li class="nav-item nav-item-submenu {{ Route::current()->getName() == '' ? 'active' : '' }}">
+                    <li
+                        class="nav-item nav-item-submenu {{ in_array(Route::current()->getName(), ['supplychain', 'product-sourcing.index', 'sas.index', 'purchase.index', 'delivery.index', 'product.saved', 'product.sourced', 'product.approved']) ? ' nav-item-open' : '' }}">
                         <a href="" class="nav-link d-flex align-items-center justify-content-start">
                             <i class="fa-light fa-truck-field side_baricon"></i>
                             <span class="text-start">Supply Chain</span>
                         </a>
-                        <ul class="nav-group-sub collapse ms-4" style="">
-                            <li class="nav-item"><a href="{{ route('supplychain') }}" class="nav-link">Dashboard</a></li>
-                            <li class="nav-item"><a href="{{ route('product-sourcing.index') }}"
-                                    class="nav-link">Sourcing</a></li>
-                            <li class="nav-item"><a href="{{ route('sas.index') }}" class="nav-link">SAS</a></li>
-                            <li class="nav-item"><a href="{{ route('purchase.index') }}" class="nav-link">Purchase</a></li>
-                            <li class="nav-item"><a href="{{ route('delivery.index') }}" class="nav-link">Delivery</a></li>
+                        <ul class="nav-group-sub collapse ms-4 {{ in_array(Route::current()->getName(), ['supplychain', 'product-sourcing.index', 'sas.index', 'purchase.index', 'delivery.index', 'product.saved', 'product.sourced', 'product.approved']) ? 'show' : '' }}">
+                            <li class="nav-item {{ Route::current()->getName() == 'supplychain' ? 'active' : '' }}"><a
+                                    href="{{ route('supplychain') }}" class="nav-link">Dashboard</a>
+                            </li>
+                            <li
+                                class="nav-item {{ in_array(Route::current()->getName(), ['product-sourcing.index', 'product.saved', 'product.sourced', 'product.approved']) ? 'active' : '' }}">
+                                <a href="{{ route('product-sourcing.index') }}" class="nav-link">Sourcing</a>
+                            </li>
+                            <li class="nav-item {{ Route::current()->getName() == 'sas.index' ? 'active' : '' }}"><a
+                                    href="{{ route('sas.index') }}" class="nav-link">SAS</a></li>
+                            <li class="nav-item {{ Route::current()->getName() == 'purchase.index' ? 'active' : '' }}">
+                                <a href="{{ route('purchase.index') }}" class="nav-link">Purchase</a>
+                            </li>
+                            <li class="nav-item {{ Route::current()->getName() == 'delivery.index' ? 'active' : '' }}">
+                                <a href="{{ route('delivery.index') }}" class="nav-link">Delivery</a>
+                            </li>
                         </ul>
                     </li>
                 @endif
@@ -95,14 +113,15 @@
                         <ul class="nav-group-sub collapse ms-4" style="">
                             <li class="nav-item"><a href="{{ route('business.index') }}" class="nav-link">Dashboard</a>
                             </li>
-                            <li class="nav-item"><a href="{{ route('rfq-manage.index') }}" class="nav-link">RFQ
+                            <li class="nav-item"><a href="{{ route('rfq.list') }}" class="nav-link">RFQ
                                     Management</a></li>
-                            <li class="nav-item"><a href="{{ route('sales-dashboard.index') }}" class="nav-link"> Sales</a>
+                            <li class="nav-item"><a href="{{ route('sales-dashboard.index') }}" class="nav-link">
+                                    Sales</a>
                             </li>
                             <li class="nav-item"><a href="{{ route('marketing-dashboard.index') }}"
                                     class="nav-link">Marketing</a></li>
-                            <li class="nav-item"><a href="{{ route('show-case-video.index') }}"
-                                    class="nav-link">Showcase</a></li>
+                            <li class="nav-item"><a href="{{ route('project.dashboard') }}"
+                                    class="nav-link">Projects</a></li>
                         </ul>
 
 
@@ -116,14 +135,17 @@
                         <ul class="nav-group-sub collapse ms-4" style="">
                             <li class="nav-item"><a href="{{ route('accounts-finance.index') }}"
                                     class="nav-link">Dashboard</a></li>
-                            <li class="nav-item"><a href="{{ route('account-payable.index') }}" class="nav-link"> Accounts
+                            <li class="nav-item"><a href="{{ route('account-payable.index') }}" class="nav-link">
+                                    Accounts
                                     Payable</a></li>
                             <li class="nav-item"><a href="{{ route('account-receivable.index') }}"
                                     class="nav-link">Accounts Receivable</a></li>
                             <li class="nav-item"><a href="{{ route('account-profit-loss.index') }}"
                                     class="nav-link">Accounts Profit Loss</a></li>
-                            <li class="nav-item"><a href="{{ route('expense.index') }}" class="nav-link">Expense</a></li>
-                            <li class="nav-item"><a href="{{ route('expense-category.index') }}" class="nav-link">Expense
+                            <li class="nav-item"><a href="{{ route('expense.index') }}" class="nav-link">Expense</a>
+                            </li>
+                            <li class="nav-item"><a href="{{ route('expense-category.index') }}"
+                                    class="nav-link">Expense
                                     Category</a></li>
                             <li class="nav-item"><a href="{{ route('expense-type.index') }}" class="nav-link">Expense
                                     Type</a></li>
@@ -140,7 +162,8 @@
                         <ul class="nav-group-sub collapse ms-4" style="">
                             <li class="nav-item"><a href="{{ route('site-content.index') }}"
                                     class="nav-link">Dashboard</a></li>
-                            <li class="nav-item"><a href="{{ route('site-content.index') }}" class="nav-link">Blog</a>
+                            <li class="nav-item"><a href="{{ route('site-content.index') }}"
+                                    class="nav-link">Blog</a>
                             </li>
                             <li class="nav-item"><a href="{{ route('site-content.index') }}"
                                     class="nav-link">Techglossy</a></li>
@@ -164,13 +187,18 @@
                             <i class="fa-light fa-people-roof side_baricon"></i>
                             <span class="text-start ">CRM</span></a>
                         <ul class="nav-group-sub collapse ms-4" style="">
-                            <li class="nav-item"><a href="{{ route('crm.index') }}" class="nav-link">Dashboard</a></li>
+                            <li class="nav-item"><a href="{{ route('crm.index') }}" class="nav-link">Dashboard</a>
+                            </li>
                             <li class="nav-item"><a href="{{ route('contact.index') }}" class="nav-link">Contact</a>
                             </li>
-                            <li class="nav-item"><a href="{{ route('support') }}" class="nav-link">Support</a></li>
-                            <li class="nav-item"><a href="{{ route('feedback.index') }}" class="nav-link">Feed Back</a>
+                            <li class="nav-item"><a href="{{ route('client-support.index') }}"
+                                    class="nav-link">Client Support</a></li>
+                            <li class="nav-item"><a href="{{ route('feedback.index') }}" class="nav-link">Feed
+                                    Back</a>
                             </li>
-                            <li class="nav-item"><a href="#" class="nav-link">Live Chat</a></li>
+                            <li class="nav-item"><a href="{{ route('client-database.index') }}"
+                                    class="nav-link">Client Database</a></li>
+                            {{-- <li class="nav-item"><a href="" class="nav-link">Live Chat</a></li> --}}
                         </ul>
 
 
@@ -184,13 +212,15 @@
                         <ul class="nav-group-sub collapse ms-4" style="">
                             <li class="nav-item"><a href="{{ route('hr-and-admin.index') }}"
                                     class="nav-link">Dashboard</a></li>
-                            <li class="nav-item"><a href="{{ route('leaveDashboard') }}"
-                                    class="nav-link">Leave</a></li>
-                            <li class="nav-item"><a href="{{ route('machine.home') }}"
-                                    class="nav-link">Attendance</a></li>
-                            <li class="nav-item"><a href="{{ route('employee.index') }}" class="nav-link">Employees</a>
+                            <li class="nav-item"><a href="{{ route('leaveDashboard') }}" class="nav-link">Leave</a>
                             </li>
-                            <li class="nav-item"><a href="{{ route('job.index') }}" class="nav-link">Job Post</a></li>
+                            <li class="nav-item"><a href="{{ route('attendance.dashboard') }}"
+                                    class="nav-link">Attendance</a></li>
+                            <li class="nav-item"><a href="{{ route('employee.index') }}"
+                                    class="nav-link">Employees</a>
+                            </li>
+                            <li class="nav-item"><a href="{{ route('job.index') }}" class="nav-link">Job Post</a>
+                            </li>
                             <li class="nav-item"><a href="{{ route('job.registration') }}" class="nav-link">Job
                                     Applier's List</a></li>
                         </ul>
@@ -206,21 +236,47 @@
                         <ul class="nav-group-sub collapse ms-4" style="">
                             <li class="nav-item"><a href="{{ route('site-setting.index') }}"
                                     class="nav-link">Dashboard</a></li>
-                            <li class="nav-item"><a href="{{ route('supplychain') }}" class="nav-link">Supply Chain</a>
+                            <li class="nav-item"><a href="{{ route('supplychain') }}" class="nav-link">Supply
+                                    Chain</a>
                             </li>
-                            <li class="nav-item"><a href="{{ route('marketing-dashboard.index') }}" class="nav-link">
+                            <li class="nav-item"><a href="{{ route('marketing-dashboard.index') }}"
+                                    class="nav-link">
                                     Business</a></li>
                             <li class="nav-item"><a href="{{ route('site-content.index') }}"
                                     class="nav-link">Accounts</a></li>
                             <li class="nav-item"><a href="{{ route('hr-and-admin.index') }}" class="nav-link">HR
                                     Admin</a></li>
-                            <li class="nav-item"><a href="{{ route('site-content.index') }}" class="nav-link">Website
+                            <li class="nav-item"><a href="{{ route('site-content.index') }}"
+                                    class="nav-link">Website
                                     Settings</a></li>
                             <li class="nav-item"><a href="{{ route('site-content.index') }}" class="nav-link">Role
                                     Settings</a></li>
                         </ul>
 
 
+                    </li>
+                @endif
+                @if (auth()->check() && in_array('support', json_decode(auth()->user()->department, true)))
+                    <li
+                        class="nav-item nav-item-submenu {{ in_array(Route::current()->getName(), ['project.dashboard','project.index','client-support.index','support-case.index']) ? ' nav-item-open' : '' }}">
+                        <a href="" class="nav-link d-flex align-items-center justify-content-start">
+                            <i class="fa-solid fa-diagram-project"></i>
+                            <span class="text-start">Project & Support</span>
+                        </a>
+                        <ul class="nav-group-sub collapse ms-4 {{ in_array(Route::current()->getName(), ['project.dashboard','project.index','client-support.index','support-case.index']) ? 'show' : '' }}">
+                            <li class="nav-item {{ Route::current()->getName() == 'project.dashboard' ? 'active' : '' }}"><a
+                                    href="{{ route('project.dashboard') }}" class="nav-link">Dashboard</a>
+                            </li>
+                            <li
+                                class="nav-item {{ in_array(Route::current()->getName(), ['project.index']) ? 'active' : '' }}">
+                                <a href="{{ route('project.index') }}" class="nav-link">Projects</a>
+                            </li>
+                            <li class="nav-item {{ Route::current()->getName() == 'client-support.index' ? 'active' : '' }}"><a
+                                    href="{{ route('client-support.index') }}" class="nav-link">Supports</a></li>
+                            <li class="nav-item {{ Route::current()->getName() == 'support-case.index' ? 'active' : '' }}">
+                                <a href="{{ route('support-case.index') }}" class="nav-link">Support Cases</a>
+                            </li>
+                        </ul>
                     </li>
                 @endif
             </ul>

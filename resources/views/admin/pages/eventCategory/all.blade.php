@@ -160,14 +160,16 @@
 @once
     @push('scripts')
         <script type="text/javascript">
-            $('.eventCategoryDT').DataTable({
-                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-                "iDisplayLength": 10,
-                "lengthMenu": [10, 25, 30, 50],
-                columnDefs: [{
-                    orderable: false,
-                    targets: [2],
-                }, ],
+            $(document).ready(function() {
+                $('.eventCategoryDT').DataTable({
+                    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                    "iDisplayLength": 10,
+                    "lengthMenu": [10, 25, 30, 50],
+                    columnDefs: [{
+                        orderable: false,
+                        targets: [2],
+                    }, ],
+                });
             });
         </script>
     @endpush

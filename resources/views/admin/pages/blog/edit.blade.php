@@ -88,7 +88,7 @@
                                             <span>Categories</span>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select name="brand_id[]" class="form-control multiselect" id="select6"
+                                            <select name="category_id[]" class="form-control multiselect" id="select6"
                                                 multiple="multiple" data-include-select-all-option="true"
                                                 data-enable-filtering="true" data-enable-case-insensitive-filtering="true">
                                                 @php
@@ -110,7 +110,7 @@
                                             <span>Industries</span>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select name="brand_id[]" class="form-control-sm multiselect btn btn-sm"
+                                            <select name="industry_id[]" class="form-control-sm multiselect btn btn-sm"
                                                 id="select6" multiple="multiple" data-include-select-all-option="true"
                                                 data-enable-filtering="true" data-enable-case-insensitive-filtering="true">
                                                 @php
@@ -133,7 +133,7 @@
                                             <span>Solutions</span>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select name="brand_id[]" class="form-control-sm multiselect btn btn-sm"
+                                            <select name="solution_id[]" class="form-control-sm multiselect btn btn-sm"
                                                 id="select6" multiple="multiple" data-include-select-all-option="true"
                                                 data-enable-filtering="true" data-enable-case-insensitive-filtering="true">
                                                 @php

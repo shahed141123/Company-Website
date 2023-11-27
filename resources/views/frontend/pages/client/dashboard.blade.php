@@ -1,97 +1,104 @@
 @extends('frontend.master')
-
-
 @section('content')
-    @include('frontend.header')
-
-
-    <!--=========Content Wrapper=============-->
-    <div class="content_wrapper">
-        <!--Sidebar Wrapper-->
-        <div id="mySidebar">
-            <!--Sidebar-->
-            <div class="user_dashboard_sidebar_title">
-                <h2>Account Tools <span onclick="userDashboardSidebarClicked()" class="d-flex justify-content-end mt-0"><i
-                            class="fa-solid fa-chevron-left fa-sm"
-                            style="margin-top: -20px;color: #707063;cursor: pointer;"></i></span>
-                </h2>
-                <p>Welcome back motiur.cmt@gmail.com.</p>
-                <a href="#" class="common_button_logout mb-2">Logout - not you?</a>
-                <hr><br>
-            </div>
-            <div class="user_dashboard_sidebar_nav">
-                <a href="#">My Company</a>
-                <a href="#">Dashboard</a>
-                <p class="accordion-heading">Tools<span class="plusminus float-right mr-4">+</span></p>
-                <div class="accordion-body" style="display: none;">
-                    <a href="#">Saved Carts / Order Templates</a>
-                </div>
-                <p class="accordion-heading">Personalization<span class="plusminus float-right mr-4">+</span></p>
-                <div class="accordion-body" style="display: none;">
-                    <a href="#">Personal Product List</a>
-                    <a href="#">User Subsciptions</a>
-                    <a href="#">User Profile</a>
-                </div>
-            </div>
-        </div>
-        <script>
-            //---------Sidebar list Show Hide----------
-            $(document).ready(function() {
-                $(".accordion-heading").click(function() {
-                    if ($(".accordion-body").is(':visible')) {
-                        $(".accordion-body").slideUp(600);
-                        $(".plusminus").text('+')
-                    } else {
-                        $(this).next(".accordion-body").slideDown(600);
-                        $(this).children(".plusminus").text('-');
-                    }
-                });
-            });
-        </script>
-
-
-    <!--Content Wrapper-->
-        <div class="d-flex">
-            <div id="userSideButton_wrapper">
-                <button class="sidebarButtonStyle" onclick="userDashboardSidebarClicked()">☰</button>
-            </div>
-            <div id="Content_Wrapper">
-                <!--Content-->
-                <section class="client_dashboard_content_wp">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 client_dashboard_welcome_section">
-                            <h2>Welcome to my NGen it</h2>
-                            <p>Welcome to myInsight myInsight is a global platform for optimizing your technology supply
-                                chain. Here you can discover, purchase and manage your hardware, software and cloud
-                                solutions. Our dedicated account management team is also available to provide the highest
-                                level of personalized service and customer satisfaction.</p>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 client_dashboard_blog">
-                            <h2>Order management</h2>
-                            <ul>
-                                <li>Get procurement support from your dedicated rep.</li>
-                                <li>Determine <a href="">company standards</a> for products.</li>
-                                <li>Set <a href="">customizable approval workflows.</a></li>
-                                <li>Create and assign user <a href="">roles and permissions.</a></li>
-                                <a href="#" class="common_button_dashboard mt-4">Learn more</a>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 client_dashboard_blog">
-                            <h2>Shopping</h2>
-                            <ul>
-                                <li>Source technology solutions from thousands of partners.</li>
-                                <li>Get exclusive pricing, reduced shipping rates and <a href="">customizable product
-                                        catalogs.</a></li>
-                                <li>Create <a href=""> order templates and quotes</a>to save for later.</li>
-                                <li>Transition from<a href="">tactical to strategic procurement</a> and
-                                    implementation.</li>
-                                <a href="#" class="common_button_dashboard mt-4">Learn more</a>
-                            </ul>
+    <section class="content_wrapper">
+        <div class="page-wrapper chiller-theme toggled">
+            @include('frontend.pages.client.partials.sidebar')
+            <main class="page-content">
+                <div class="content_wrapper">
+                    <div class="container">
+                        <div class="section_wrapper pt-4">
+                            <div class="row mt-2">
+                                <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                                    <h2>Welcome to NGen IT</h2>
+                                    <p style="text-align: justify;">My NGEN is a platform for optimizing your technology project, support and product
+                                        supply chain. Here you can discover, purchase and manage your hardware, software,
+                                        digital and cloud solutions. Moreover, you will be able to manage your project &
+                                        support management.
+                                        There are upcoming more tools like Asset & Logistics Management for keeping software
+                                        license & hardware warranty records with shipping and freight calculations.
+                                        Our dedicated account management team is also available to provide the highest level
+                                        of personalized service and customer satisfaction.
+                                    </p>
+                                </div>
+                                @if (count($projects) > 0)
+                                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                                        <h2>Project Management</h2>
+                                        <ul>
+                                            <li class="list_dashboard">Check project & <a href="{{route('client.support')}}" class="main_color">support details.</a> </li>
+                                            <li class="list_dashboard">Create and maintain <a href="{{route('client.case')}}" class="main_color"> support cases.</a></li>
+                                            <li class="list_dashboard">Download related agreements, apps or updated files.</li>
+                                            {{-- <li class="list_dashboard">Create and assign user <a href="javascript:void(0);">roles and permissions.</a></li> --}}
+                                            <a href="{{ route('client.project') }}" class="common_button_dashboard mt-4">Go To
+                                                Project</a>
+                                        </ul>
+                                    </div>
+                                @endif
+                                <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                                    <h2>Order Management</h2>
+                                    <ul>
+                                        <li class="list_dashboard">See <a href="#" class="main_color">order details</a> and status of each
+                                            item ordered.</li>
+                                        <li class="list_dashboard"><a href="{{route('software.info')}}" class="main_color">Track hardware and software</a> orders from
+                                            order to delivery.</li>
+                                        <li class="list_dashboard">Create <a href="{{ route('mycart') }}" class="main_color"> order templates and quotes </a>to save for
+                                            later.</li>
+                                        <li class="list_dashboard">Get other <a href="{{ route('mycart') }}" class="main_color">order related services</a> that
+                                            help your business growth. </li>
+                                        <li class="list_dashboard">Set <a href="javascript:void(0);" class="main_color">payment & shipping</a> methods with
+                                            your company’s updated information that help your business growth. </li>
+                                        <a href="{{ route('client.orders') }}" class="common_button_dashboard mt-4">Go To
+                                            Order</a>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                                    <h2>Shopping Management</h2>
+                                    <ul>
+                                        <li class="list_dashboard">Source technology solutions from thousands of partners.</li>
+                                        <li class="list_dashboard">Get exclusive <a href="{{route('all.category')}}" class="main_color">product categories, industry
+                                                solutions</a> and <a href="{{ route('shop.html') }}" class="main_color">product pricing.</a>
+                                        </li>
+                                        <li class="list_dashboard">Create <a href="javascript:void(0);" class="main_color"> RFQ</a> for pricing requests <a
+                                                href="javascript:void(0);" class="main_color">& order templates and quotes</a>to save
+                                            for later.
+                                        <li class="list_dashboard">Check <a href="{{ route('software.common') }}" class="main_color"> Wish list, Product or Solution
+                                                showcase</a></li>
+                                        <a href="javascript:void(0);" class="common_button_dashboard mt-4">Create
+                                            RFQ</a>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                                    <h2>Accounts Management</h2>
+                                    <ul>
+                                        <li class="list_dashboard">Set your profile, password and other details.</li>
+                                        <li class="list_dashboard">Set <a href="{{ route('client.profile') }};" class="main_color">customizable approval workflows.</a>
+                                        </li>
+                                        <li class="list_dashboard">Create and assign user <a href="{{ route('client.profile') }};" class="main_color">roles and
+                                                permissions.</a></li>
+                                        <a href="{{ route('client.profile') }}" class="common_button_dashboard mt-4">Go To
+                                            Profile</a>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                                    <h2>Asset Management</h2>
+                                    <ul>
+                                        <li class="list_dashboard">Review and manage software license agreements.</li>
+                                        <li class="list_dashboard">Track renewals and warranties.</li>
+                                        <li class="list_dashboard">Purchase, provision and manage cloud solutions.</li>
+                                        <li class="list_dashboard">Set <a href="javascript:void(0);" class="main_color">customizable approval workflows.</a>
+                                        </li>
+                                        <li class="list_dashboard">Create and assign user <a href="javascript:void(0);" class="main_color">roles and
+                                                permissions.</a></li>
+                                        <a href="javascript:void(0);" class="common_button_dashboard mt-4">Coming
+                                            Soon</a>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </main>
+            <!-- Modal -->
         </div>
-    </div>
-    @include('frontend.footer')
+        <!-- page-wrapper" -->
+    </section>
 @endsection

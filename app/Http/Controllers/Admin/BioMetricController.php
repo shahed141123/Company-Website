@@ -15,8 +15,10 @@ class BioMetricController extends Controller
         if (session()->exists('dip')) {
             $deviceip = session('dip');
         } else {
-            session()->put('dip', '192.168.1.201');
-            $deviceip = '192.168.1.201';
+            // session()->put('dip', '192.168.1.201');
+            // $deviceip = '192.168.1.201';
+            session()->put('dip', ' 203.17.65.230');
+            $deviceip = ' 203.17.65.230';
         }
         return $deviceip;
     }
@@ -40,8 +42,9 @@ class BioMetricController extends Controller
         $zk = new ZKTeco($deviceip, 4370);
 
         $zk->connect();
-        $zk->disableDevice();
+        // $zk->disableDevice();
 
+        $zk->enableDevice();
         $users = $zk->getUser();
         // dd($users);
 

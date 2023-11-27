@@ -10,112 +10,26 @@
                 background-position: top center;
                 background-repeat: no-repeat;
                 background-size: cover;
-                /* background-attachment: fixed; */
                 width: 100%;
                 background-color: #cbc4c3;
-                top: 16%;
+                top: 13%;
                 left: 0px;
                 z-index: -1;
             }
         </style>
     @endif
-    <style>
-        .datatable-header {
-            display: none;
-        }
 
-        .dataTables_info {
-            display: none;
-        }
-
-        thead {
-            display: none;
-        }
-
-        .card .card-header .nav-tabs {
-            padding: 0;
-        }
-
-        .nav-tabs {
-            border: 0;
-            border-radius: 3px;
-        }
-
-        .nav {
-            display: flex;
-            flex-wrap: wrap;
-            padding-left: 0;
-            margin-bottom: 0;
-            list-style: none;
-        }
-
-        .nav-tabs .nav-item {
-            margin-bottom: -1px;
-        }
-
-        .nav-tabs .nav-item .nav-link.active {
-            background-color: hsla(0, 0%, 100%, .2);
-            transition: background-color .3s .2s;
-        }
-
-        .nav-tabs .nav-item .nav-link {
-            color: #fff;
-            border: 0;
-            margin: 0;
-            border-radius: 3px;
-            text-transform: uppercase;
-            font-size: 12px;
-            border: 0 !important;
-            font-weight: 500;
-            padding: 27px 25px !important;
-            background-color: transparent;
-        }
-
-        .nav-pills-custom .nav-link::before {
-            display: none;
-        }
-
-        .nav-link {
-            display: block;
-        }
-
-        .nav-tabs .nav-item .material-icons {
-            margin: -1px 5px 0 0;
-            vertical-align: middle;
-        }
-
-        .nav .nav-item {
-            position: relative;
-        }
-    </style>
     <!--======// Header Title //======-->
-    @if (!empty($software_info))
-        <section class="common_product_header"
-            style="background-image: linear-gradient(
-            rgba(0,0,0,0.8),
-            rgba(0,0,0,0.8)
-            ),url('{{ asset('storage/' . $software_info->banner_image) }}');">
-            <div class="container ">
-                <h1>{!! $software_info->banner_title !!}</h1>
-                <p class="text-center text-white">{!! $software_info->banner_short_description !!} </p>
-                <div class="row ">
-                    <!--BUTTON START-->
-                    <div class="d-flex justify-content-center align-items-center">
-                        <div class="m-4">
-                            <a class="common_button2" href="#Contact">Talk to a specialist</a>
-                        </div>
-                        <div class="m-4">
-                            <a class="common_button2"
-                                href="{{ $software_info->banner_btn_link }}">{{ $software_info->banner_btn_name }}</a>
-                        </div>
-                    </div>
-                </div>
+    @if (!empty($software_info->banner_image))
+        <section class="">
+            <div>
+                <img src="{{ asset('storage/' . $software_info->banner_image) }}" alt="" class="img-fluid">
             </div>
         </section>
     @endif
     <!----------End--------->
     <section class="mt-3">
-        <div class="container my-3">
+        <div class="container my-3 mt-4">
             <ul class="breadcrumb text-left">
                 <a href="{{ route('homepage') }}">
                     <li class="breadcrumb__item breadcrumb__item-firstChild">
@@ -149,37 +63,50 @@
     </section>
     <!--======// Feature tab //======-->
     <section>
-        <div class="container mt-5 mb-5">
+        <div class="container">
+
             <div class="row">
-                <!-- first Card -->
-                @if (!empty($categories))
-                    @foreach ($categories as $item)
-                        <div class="col-lg-3 col-md-3 col-sm-6">
-                            <div class="iconbox">
-                                <div class="iconbox-icon pb-3">
-                                    <img src="{{ asset('storage/' . $item->image) }}" alt="" width="100px"
-                                        height="100px">
-                                </div>
-                                {{-- {{ Str::limit($item->title, 15) }} --}}
-                                <div class="featureinfo pt-2">
-                                    <h5 class="text-center" style="font-size:1.2rem; height:1.65rem;">
-                                        {{ Str::limit($item->title, 30) }}</h5>
-                                    <div class="text-center">
-                                        <div class="buttons_style py-3">
-                                            <div class="container_btn">
-                                                <a href="{{ route('category.html', $item->slug) }}" class="btns effect01"
-                                                    style="max-width: 120px;"><span>Details</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div
+                            class="card-header bg-white shadow-sm main-to-depp-gradient-2 p-5 card-header-area border-top-right-r">
+                            <div class="d-flex align-items-center">
+                                <h4 class="pe-2 text-white">Software Related</h4>
+                                <h4 class="pe-2 text-white">|</h4>
+                                <h4 class="text-white">Categories</h4>
                             </div>
                         </div>
-                    @endforeach
-                @endif
+                        <div class="card-header p-5 card-header-area border-bottom-left-r">
+                            <div class="row card-row-area">
+                                @if (!empty($categories))
+                                    @foreach ($categories as $category)
+                                        <div class="col-lg-3 mb-2">
+                                            <a href="{{ route('category.html', $category->slug) }}" style="cursor: pointer;">
+                                                <div class="p-4 shadow-sm bg-white">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="icons_area pe-2">
+                                                            <img src="{{ asset('storage/' . $category->image) }}" alt="" height="60px" width="60px">
+                                                        </div>
+                                                        <div class="text_area">
+                                                            {{$category->title}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="text_area text-end">
+                                                        <a href="{{ route('category.html', $category->slug) }}"><i class="fa-solid fa-plus"></i></a>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
     <!----------End--------->
     <!--======// Nasted tab //======-->
     <div class="section_wp">
@@ -191,7 +118,7 @@
                     <div class="software_feature_title">
                         <h1 class="text-center p-3">{{ $software_info->row_two_title }}</h1>
                     </div>
-                    <p class="home_title_text">
+                    <p class="home_title_text pb-4">
                         {!! $software_info->row_two_short_description !!}
                     </p>
                 </div>
@@ -220,8 +147,9 @@
                                             style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
                                             <div class="ag-offer_visible-item">
                                                 <div class="ag-offer_img-box d-felx justify-content-center mx-auto">
-                                                    <img src="{{ asset('storage/' . $brand->image) }}" class="ag-offer_img"
-                                                        alt="{{ $brand->title }}" width="150px" height="150px" />
+                                                    <img src="{{ asset('storage/' . $brand->image) }}"
+                                                        class="ag-offer_img" alt="{{ $brand->title }}" width="150px"
+                                                        height="150px" />
                                                 </div>
                                             </div>
                                             <div class="ag-offer_hidden-item">
@@ -317,13 +245,13 @@
                     </iframe>
                 </div>
                 <div class="col-lg-6 col-sm-6">
-                    <div class="home_title">
+                    <div class="">
                         <h5 class="home_title_heading" style="text-align: left;">
                             {{ $software_info->row_four_sub_title }}
                         </h5>
-                        <p class="home_title_text" style="text-align: left;">
+                        <p class="home_title_text pt-3" style="text-align: left;">
                             {{ $software_info->row_four_short_description }}</p>
-                        <div class="business_seftion_button text-center">
+                        <div class="pt-3">
                             <a class="common_button2"
                                 href="{{ $software_info->row_four_btn_link }}">{{ $software_info->row_four_btn_name }}</a>
                         </div>
@@ -334,100 +262,161 @@
     @endif
     <!---------End -------->
     <!--======// our clint tab //======-->
+
+
+
+
+
     @if (!empty($software_info))
-        <section class="clint_tab_section">
+        <section class="clint_tab_section my-5 ">
             <div class="container">
                 <div class="clint_tab_content pb-3">
                     <!-- home title -->
                     <div class="home_title mt-3">
                         <div class="software_feature_title">
-                            <h1 class="text-center">{{ $software_info->row_five_title }}</h1>
+                            <h1 class="text-center ">{{ $software_info->row_five_title }} </h1>
                         </div>
-                        <p class="home_title_text">
-                            {!! $software_info->row_five_short_description !!}
+                        <p class="home_title_text solution_para py-3 pb-4 mb-1">{!! $software_info->row_five_short_description !!}
                         </p>
                     </div>
                     <!-- Client Tab Start -->
                     <div class="row">
                         <div class="col-xs-12 ">
-                            <nav>
-                                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                    <a class="nav-item nav-link active" id="nav-healthcare" data-toggle="tab"
-                                        href="#nav-home" role="tab" aria-controls="nav-home"
-                                        aria-selected="true">{{ $tab_one->title }}</a>
-                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
-                                        href="#nav-profile" role="tab" aria-controls="nav-profile"
-                                        aria-selected="false">{{ $tab_two->title }}</a>
-                                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
-                                        href="#nav-contact" role="tab" aria-controls="nav-contact"
-                                        aria-selected="false">{{ $tab_three->title }}</a>
-                                    <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about"
-                                        role="tab" aria-controls="nav-about"
-                                        aria-selected="false">{{ $tab_four->title }}</a>
-                                </div>
-                            </nav>
-                            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                    aria-labelledby="nav-healthcare">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
-                                            <div class="tab_side_image p-5">
-                                                <img src="{{ asset('storage/' . $tab_one->image) }}"
-                                                    alt="{{ $tab_one->title }}">
-                                            </div>
+                            <div class="solurtion_tabing_area">
+                                <div class="tabing_menu_area pt-0">
+                                    <nav>
+                                        <div class="nav nav-tabs nav-fill text-capitalize" id="nav-tab" role="tablist">
+                                            <a class="nav-item nav-link active" id="nav-healthcare" data-toggle="tab"
+                                                href="#nav-home" role="tab" aria-controls="nav-home"
+                                                aria-selected="true">{!! Str::limit($tab_one->title, 15) !!}</a>
+                                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+                                                href="#nav-profile" role="tab" aria-controls="nav-profile"
+                                                aria-selected="false">{!! Str::limit($tab_two->title, 15) !!}</a>
+                                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+                                                href="#nav-contact" role="tab" aria-controls="nav-contact"
+                                                aria-selected="false">{!! Str::limit($tab_three->title, 15) !!}</a>
+                                            <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab"
+                                                href="#nav-about" role="tab" aria-controls="nav-about"
+                                                aria-selected="false">{!! Str::limit($tab_four->title, 15) !!}</a>
                                         </div>
-                                        <div class="col-lg-8 col-md-6 col-sm-12">
-                                            <h5 class="home_title_heading" style="text-align: left;">
-                                                {{ $tab_one->title }} </h5>
-                                            <p>{!! $tab_one->description !!}</p>
+                                    </nav>
+                                </div>
+                                <div class="tab-content py-0 px-3 px-sm-0" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                        aria-labelledby="nav-healthcare">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
+                                                @if (!empty($tab_one->badge))
+                                                    <h6 class="title-tag text-capitalize">{{ $tab_one->badge }}</h6>
+                                                @endif
+                                                <h4 class="home_title_heading text-capitalize text-start pb-2">
+                                                    {{ $tab_one->title }}</h4>
+                                                <div style="text-align: justify">
+                                                    <p class="mb-1">{{ $tab_one->header }}</p>
+                                                    <p>{!! Str::limit($tab_one->description, 550) !!}</p>
+                                                </div>
+                                                @if (!empty($tab_one->link))
+                                                    <a href="{{ $tab_one->link }}" class="icon-btns">
+                                                        <span class="fw-bold">Read Details</span>
+                                                        <i class="fa-solid fa-chevron-right"></i>
+                                                    </a>
+                                                @endif
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="showcase-industry">
+                                                    <img src="{{ asset('storage/' . $tab_one->image) }}" alt="Picture">
+                                                    <div class="overlay">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                    aria-labelledby="nav-profile-tab">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
-                                            <div class="tab_side_image p-5">
-                                                <img src="{{ asset('storage/' . $tab_two->image) }}"
-                                                    alt="{{ $tab_two->title }}">
+                                    <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                        aria-labelledby="nav-profile-tab">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
+                                                @if (!empty($tab_two->badge))
+                                                    <h6 class="title-tag text-capitalize">{{ $tab_two->badge }}</h6>
+                                                @endif
+                                                <h4 class="home_title_heading text-capitalize text-start pb-2">
+                                                    {{ $tab_two->title }}</h4>
+                                                <div style="text-align: justify">
+                                                    <p class="mb-1">{{ $tab_two->header }}</p>
+                                                    <p>{!! Str::limit($tab_two->description, 550) !!}</p>
+                                                </div>
+                                                @if (!empty($tab_two->link))
+                                                    <a href="{{ $tab_two->link }}" class="icon-btns">
+                                                        <span class="fw-bold">Read Details</span>
+                                                        <i class="fa-solid fa-chevron-right"></i>
+                                                    </a>
+                                                @endif
                                             </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-6 col-sm-12">
-                                            <h5 class="home_title_heading" style="text-align: left;">
-                                                {{ $tab_two->title }} </h5>
-                                            <p>{!! $tab_two->description !!}</p>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="showcase-industry">
+                                                    <img src="{{ asset('storage/' . $tab_two->image) }}" alt="Picture">
+                                                    <div class="overlay">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="nav-contact" role="tabpanel"
-                                    aria-labelledby="nav-contact-tab">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
-                                            <div class="tab_side_image p-5">
-                                                <img src="{{ asset('storage/' . $tab_three->image) }}"
-                                                    alt="{{ $tab_three->title }}">
+                                    <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                        aria-labelledby="nav-contact-tab">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
+                                                @if (!empty($tab_three->badge))
+                                                    <h6 class="title-tag text-capitalize">{{ $tab_three->badge }}</h6>
+                                                @endif
+                                                <h4 class="home_title_heading text-capitalize text-start pb-2">
+                                                    {{ $tab_three->title }}</h4>
+                                                <div style="text-align: justify">
+                                                    <p class="mb-1">{{ $tab_three->header }}</p>
+                                                    <p>{!! Str::limit($tab_three->description, 550) !!}</p>
+                                                </div>
+                                                @if (!empty($tab_three->link))
+                                                    <a href="{{ $tab_three->link }}" class="icon-btns">
+                                                        <span class="fw-bold">Read Details</span>
+                                                        <i class="fa-solid fa-chevron-right"></i>
+                                                    </a>
+                                                @endif
                                             </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-6 col-sm-12">
-                                            <h5 class="home_title_heading" style="text-align: left;">
-                                                {{ $tab_three->title }} </h5>
-                                            <p>{!! $tab_three->description !!}</p>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="showcase-industry">
+                                                    <img src="{{ asset('storage/' . $tab_three->image) }}"
+                                                        alt="Picture">
+                                                    <div class="overlay">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="nav-about" role="tabpanel"
-                                    aria-labelledby="nav-about-tab">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
-                                            <div class="tab_side_image p-5">
-                                                <img src="{{ asset('storage/' . $tab_four->image) }}"
-                                                    alt="{{ $tab_four->title }}">
+                                    <div class="tab-pane fade" id="nav-about" role="tabpanel"
+                                        aria-labelledby="nav-about-tab">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
+                                                @if (!empty($tab_four->badge))
+                                                    <h6 class="title-tag text-capitalize">{{ $tab_four->badge }}</h6>
+                                                @endif
+                                                <h4 class="home_title_heading text-capitalize text-start pb-2">
+                                                    {{ $tab_four->title }}</h4>
+                                                <div style="text-align: justify">
+                                                    <p class="mb-1">{{ $tab_four->header }}</p>
+                                                    <p>{!! Str::limit($tab_four->description, 550) !!}</p>
+                                                </div>
+                                                @if (!empty($tab_four->link))
+                                                    <a href="{{ $tab_four->link }}" class="icon-btns">
+                                                        <span class="fw-bold">Read Details</span>
+                                                        <i class="fa-solid fa-chevron-right"></i>
+                                                    </a>
+                                                @endif
                                             </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-6 col-sm-12">
-                                            <h5 class="home_title_heading" style="text-align: left;">
-                                                {{ $tab_four->title }} </h5>
-                                            <p>{!! $tab_four->description !!}</p>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="showcase-industry">
+                                                    <img src="{{ asset('storage/' . $tab_four->image) }}" alt="Picture">
+                                                    <div class="overlay">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -439,10 +428,11 @@
             </div>
         </section>
     @endif
+
     <!---------End -------->
     <!--=====// Global call section //=====-->
     @if (!empty($software_info))
-        <section class="global_call_section section_padding">
+        <section class="global_call_section">
             <div class="container">
                 <!-- content -->
                 <div class="global_call_section_content">
@@ -471,7 +461,7 @@
             </div>
             <div class="Container px-0">
                 <h3 class="Head" style="font-size:30px;">
-                    <a class="common_button3" href="{{ route('shop') }}">Shop
+                    <a class="common_button3 shop_extra_btn" href="{{ route('shop') }}">Shop
                         <i class="fa fa-arrow-right mx-2"></i>
                     </a>
                     <span class="Arrows"></span>
@@ -1007,22 +997,20 @@
     <!--=====// We serve //=====-->
     <div class="container pb-5">
         <!-- section title -->
-        @if (!empty($software_info))
-            <div class="clint_help_section_heading_wrapper">
-                <!-- title -->
+        <div class="clint_help_section_heading_wrapper">
+            <!-- title -->
+            <h5 class="home_title_heading" style="text-align: left;">
                 <h5 class="home_title_heading" style="text-align: left;">
-                    <h5 class="home_title_heading" style="text-align: left;">
-                        <div class="software_feature_title">
-                            <h1 class="text-center pt-4 pb-4">
-                                {{ $software_info->row_eight_title }}
-                            </h1>
-                        </div>
-                    </h5>
-                    <p class="home_title_text">
-                        <span class="font-weight-bold">{{ $software_info->row_eight_short_description }} </span>
-                    </p>
-            </div>
-        @endif
+                    <div class="software_feature_title">
+                        <h1 class="text-center pt-4 pb-4">
+                            Industries We Serve
+                        </h1>
+                    </div>
+                </h5>
+                <p class="home_title_text solution_para pb-5">
+                    <span class="font-weight-bold">{{ $learnmore->industry_header }} </span>
+                </p>
+        </div>
         <!-- section content wrapper -->
         <div class="row mb-4">
             <!-- content -->
@@ -1030,10 +1018,12 @@
                 <!-- we_serveItem_wrapper -->
                 <div class="row">
                     <!-- item -->
+
                     @if ($industrys)
                         @foreach ($industrys as $item)
                             <div class="col-lg-3 col-sm-6">
-                                <a href="{{ route('industry.details', $item->id) }}" class="we_serve_item">
+                                <a href="{{ isset($item->slug) ? route('industry.details', ['id' => $item->slug]) : '' }}"
+                                    class="we_serve_item mb-4">
                                     <div class="we_serve_item_image">
                                         <img src="{{ asset('storage/' . $item->logo) }}" alt="">
                                     </div>
@@ -1042,19 +1032,18 @@
                             </div>
                         @endforeach
                     @endif
+
                 </div>
             </div>
             <!-- sidebar -->
             <div class="col-lg-3 col-sm-12">
-                <div class="we_serve_title">
-                    <p>Private sector</p>
-                </div>
-                <!-- sidebar list -->
-                <div>
+
+                <div class="solution_sidebar">
                     @if ($random_industries)
                         @foreach ($random_industries as $item)
                             <div class="pt-2">
-                                <a href="{{ route('industry.details', $item->id) }}">
+                                <a
+                                    href="{{ isset($item->slug) ? route('industry.details', ['id' => $item->slug]) : '' }}">
                                     <div id="fed-bg">
                                         <div class="p-2">
                                             <h5 class="text-white brand_side_text">{{ $item->title }} ›</h5>
@@ -1064,6 +1053,7 @@
                             </div>
                         @endforeach
                     @endif
+
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
@@ -18,7 +19,15 @@ class Authenticate extends Middleware
         if (! $request->expectsJson()) {
 
             Session::flash('alert', 'Authentication Error!');
-            return route('admin.login');
+            $currentRouteName = Route::current()->getName();
+            // dd($currentRouteName);
+            if (str_contains($currentRouteName, 'client')) {
+                return route('client.login');
+            } else {
+                return route('admin.login');
+            }
+
+
         }
     }
 }

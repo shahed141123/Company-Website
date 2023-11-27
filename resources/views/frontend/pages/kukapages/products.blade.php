@@ -1,16 +1,18 @@
 @extends('frontend.master')
 @section('content')
+    <style>
+        .company-tab-title span {
+            background-color: #f6f6f6
+        }
+    </style>
     @include('frontend.pages.kukapages.partial.page_header')
-
-
-    <section>
-        <div class="container">
+    <section class="header" id="myHeader">
+        <div class="container mb-5 pb-3">
             <div class="row mt-4">
                 <div class="col-lg-12">
-                    <h3>All {{ ucfirst($brand->title) }} Products</h3>
-                    {{-- <h2 class="company-tab-title">
-                        <span style="font-size: 20px;">ROBOT SYSTEMS</span>
-                    </h2> --}}
+                    <h2 class="company-tab-title">
+                        <span>All {{ ucfirst($brand->title) }} Products</span>
+                    </h2>
                 </div>
             </div>
             <div class="allProducts">
@@ -22,140 +24,156 @@
             </div>
         </div>
         @foreach ($industries as $industry)
-            <div class="container">
-                <div class="row mt-4">
-                    <div class="col-lg-12">
-                        <h2 class="company-tab-title">
-                            <span style="font-size: 20px;">{{ ucfirst($brand->title) }} Products for
-                                {{ ucfirst($industry->title) }} Industry</span>
-                        </h2>
+            @if (count($industry->products) > 0)
+                <div class="container mb-5 pb-3">
+                    <div class="row mt-4">
+                        <div class="col-lg-12">
+                            <h2 class="company-tab-title">
+                                <span style="font-size: 20px;">{{ ucfirst($brand->title) }} Products for
+                                    {{ ucfirst($industry->title) }} Industry</span>
+                            </h2>
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-2">
-                    @foreach ($industry->products as $product)
-                        <div class="custom-col-5 col-sm-6 col-md-4 px-3">
-                            <div class="card rounded-0" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
-                                <div class="card-body" style="height:22rem;">
-                                    <div class="new-video">
-                                        <div class="icon-small video"></div>
-                                    </div>
-                                    <div class="image-section">
-                                        <img src="{{ file_exists($product->thumbnail) ? asset($product->thumbnail) : asset('upload/no_image.jpg') }}"
-                                            alt="" width="100%" height="180px;">
-                                    </div>
+                    <div class="row mt-2">
+                        @foreach ($industry->products as $product)
+                            <div class="custom-col-5 col-sm-6 col-md-4 px-4">
+                                <div class="card rounded-0" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+                                    <div class="card-body" style="height:22rem;">
+                                        {{-- <div class="new-video">
+                                            <div class="icon-small video"></div>
+                                        </div> --}}
+                                        <div class="image-section">
+                                            <img src="{{ file_exists($product->thumbnail) ? asset($product->thumbnail) : asset('frontend/images/brandPage-prod-no-img(376-282).png') }}"
+                                                alt="" width="100%" height="180px;">
+                                        </div>
 
-                                    <div class="content-section text-center py-3">
-                                        <a href="{{ route('product.details', $product->slug) }}">
-                                            <p class="pb-0 mb-0 text-muted">{{ Str::limit($product->name, 70) }}</p>
-                                        </a>
-                                        <span style="font-size: 10px"><i class="fa-solid fa-tag"></i>
-                                            {{ $product->getBrandName() }}</span>
-                                        @if ($product->price_status == 'price')
-                                            <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
-                                                {{ $product->price }}</span>
-                                        @endif
-                                        {{-- <span style="font-size: 10px"><i class="fa-solid fa-tag"></i> KR 4 AGILUS</span> --}}
+                                        <div class="content-section text-center py-3">
+                                            <a href="{{ route('product.details', $product->slug) }}">
+                                                <p class="pb-0 mb-0 text-muted brandpage_product_title">
+                                                    {{ Str::limit($product->name, 85) }}</p>
+                                            </a>
+                                            <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                {{ $product->getCategoryName() }}</span>
+                                            <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                {{ $product->sku_code }}</span>
+                                            <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                {{ $product->product_code }}</span>
+                                            @if ($product->price_status == 'price' && !empty($product->price))
+                                                <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
+                                                    {{ $product->price }}</span>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+
+                    </div>
 
                 </div>
-
-            </div>
+            @endif
         @endforeach
         @foreach ($solutions as $solution)
-            <div class="container">
-                <div class="row mt-4">
-                    <div class="col-lg-12">
-                        <h2 class="company-tab-title">
-                            <span style="font-size: 20px;">{{ ucfirst($brand->title) }} Products for
-                                {{ ucfirst($solution->name) }} Industry</span>
-                        </h2>
+            @if (count($solution->products) > 0)
+                <div class="container mb-5 pb-3">
+                    <div class="row mt-4">
+                        <div class="col-lg-12">
+                            <h2 class="company-tab-title">
+                                <span style="font-size: 20px;">{{ ucfirst($brand->title) }} Products for
+                                    {{ ucfirst($solution->name) }} Industry</span>
+                            </h2>
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-2">
-                    @foreach ($solution->products as $product)
-                        <div class="custom-col-5 col-sm-6 col-md-4 px-3">
-                            <div class="card rounded-0" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
-                                <div class="card-body" style="height:22rem;">
-                                    <div class="new-video">
-                                        <div class="icon-small video"></div>
-                                    </div>
-                                    <div class="image-section">
-                                        <img src="{{ file_exists($product->thumbnail) ? asset($product->thumbnail) : asset('upload/no_image.jpg') }}"
-                                            alt="" width="100%" height="180px;">
-                                    </div>
+                    <div class="row mt-2">
+                        @foreach ($solution->products as $product)
+                            <div class="custom-col-5 col-sm-6 col-md-4 px-4 mb-3">
+                                <div class="card rounded-0" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+                                    <div class="card-body" style="height:22rem;">
+                                        {{-- <div class="new-video">
+                                            <div class="icon-small video"></div>
+                                        </div> --}}
+                                        <div class="image-section">
+                                            <img src="{{ file_exists($product->thumbnail) ? asset($product->thumbnail) : asset('frontend/images/brandPage-prod-no-img(376-282).png') }}"
+                                                alt="" width="100%" height="180px;">
+                                        </div>
 
-                                    <div class="content-section text-center py-3">
-                                        <a href="{{ route('product.details', $product->slug) }}">
-                                            <p class="pb-0 mb-0 text-muted">{{ Str::limit($product->name, 70) }}</p>
-                                        </a>
-                                        <span style="font-size: 10px"><i class="fa-solid fa-tag"></i>
-                                            {{ $product->getBrandName() }}</span>
-                                        @if ($product->price_status == 'price')
-                                            <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
-                                                {{ $product->price }}</span>
-                                        @endif
-                                        {{-- <span style="font-size: 10px"><i class="fa-solid fa-tag"></i> KR 4 AGILUS</span> --}}
+                                        <div class="content-section text-center py-3">
+                                            <a href="{{ route('product.details', $product->slug) }}">
+                                                <p class="pb-0 mb-0 text-muted brandpage_product_title">
+                                                    {{ Str::limit($product->name, 85) }}</p>
+                                            </a>
+                                            <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                {{ $product->getCategoryName() }}</span>
+                                            <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                {{ $product->sku_code }}</span>
+                                            <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                {{ $product->product_code }}</span>
+                                            @if ($product->price_status == 'price' && !empty($product->price))
+                                                <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
+                                                    {{ $product->price }}</span>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-
+                        @endforeach
+                    </div>
                 </div>
-
-            </div>
+            @endif
         @endforeach
     </section>
 
     <section>
-        <div class="container mb-3">
+        <div class="container mb-3 related_search_card">
             <div class="row">
-                <div class="col bg-light">
-                    <div class="">
-                        <h4 class="pt-2">Related Searches</h4>
-                        <hr class="m-0 p-0 pb-2">
+                <div class="col">
+                    <div class="p-2">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h2 class="company-tab-title">
+                                    <span style="font-size: 20px; background-color: #eeeeee;">Related Searches</span>
+                                </h2>
+                            </div>
+                        </div>
                         <div class="container">
                             <div class="row py-3">
-                                <div class="col-sm-3">
-                                    <a href="" class="mb-3 me-1 p-1"><i
-                                            class="fa-solid fa-angles-right text-danger"></i> Welding Welding </a>
-                                </div>
-                                <div class="col-sm-3">
-                                    <a href="" class="mb-3 me-1 p-1"><i
-                                            class="fa-solid fa-angles-right text-danger"></i> Welding Machine</a>
-                                </div>
-                                <div class="col-sm-3">
-                                    <a href="" class="mb-3 me-1 p-1"><i
-                                            class="fa-solid fa-angles-right text-danger"></i> Welding Machine</a>
-                                </div>
-                                <div class="col-sm-3">
-                                    <a href="" class="mb-3 me-1 p-1"><i
-                                            class="fa-solid fa-angles-right text-danger"></i> Welding Machine Welding</a>
-                                </div>
-                                <div class="col-sm-3">
-                                    <a href="" class="mb-3 me-1 p-1"><i
-                                            class="fa-solid fa-angles-right text-danger"></i> Welding Machine</a>
-                                </div>
-                                <div class="col-sm-3">
-                                    <a href="" class="mb-3 me-1 p-1"><i
-                                            class="fa-solid fa-angles-right text-danger"></i> Welding Welding Welding </a>
-                                </div>
-                                <div class="col-sm-3">
-                                    <a href="" class="mb-3 me-1 p-1"><i
-                                            class="fa-solid fa-angles-right text-danger"></i> Welding Machine</a>
-                                </div>
-                                <div class="col-sm-3">
-                                    <a href="" class="mb-3 me-1 p-1"><i
-                                            class="fa-solid fa-angles-right text-danger"></i> Welding Welding Welding </a>
-                                </div>
-                                <div class="col-sm-3">
-                                    <a href="" class="mb-3 me-1 p-1"><i
-                                            class="fa-solid fa-angles-right text-danger"></i> Welding Machine</a>
-                                </div>
+                                @foreach ($related_search['categories'] as $related_category)
+                                    <div class="col-sm-3">
+                                        <a href="{{ route('category.html', $related_category->slug) }}"
+                                            class="related_search_links"><i
+                                                class="fa-solid fa-angles-right text-danger"></i>
+                                            {{ $related_category->title }} </a>
+                                    </div>
+                                @endforeach
+                                @foreach ($related_search['brands'] as $related_brand)
+                                    <div class="col-sm-3">
+                                        <a href="{{ route('brand.overview', $related_brand->slug) }}"
+                                            class="related_search_links"><i
+                                                class="fa-solid fa-angles-right text-danger"></i>
+                                            {{ $related_brand->title }} </a>
+                                    </div>
+                                @endforeach
+                                @foreach ($related_search['solutions'] as $related_solution)
+                                    @if (!empty($related_solution->slug))
+                                        <div class="col-sm-3">
+                                            <a href="{{ route('solution.details', $related_solution->slug) }}"
+                                                class="related_search_links"><i
+                                                    class="fa-solid fa-angles-right text-danger"></i>
+                                                {{ $related_solution['name'] }}
+                                            </a>
+                                        </div>
+                                    @endif
+                                @endforeach
+                                @foreach ($related_search['industries'] as $related_industry)
+                                    @if (!empty($related_industry->slug))
+                                        <div class="col-sm-3">
+                                            <a href="{{ route('industry.details', $related_industry->slug) }}"
+                                                class="related_search_links"><i
+                                                    class="fa-solid fa-angles-right text-danger"></i>
+                                                {{ $related_industry['title'] }} </a>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -257,4 +275,17 @@
                 });
         }
     </script>
+    <script>
+    // Wait for the DOM to be ready
+    document.addEventListener('DOMContentLoaded', function() {
+        // Find the element with the class 'fixed-section'
+        var elementToRemoveClassFrom = document.querySelector('.fixed-section');
+
+        // Check if the element is found before attempting to remove the class
+        if (elementToRemoveClassFrom) {
+            // Remove the class 'fixed-section'
+            elementToRemoveClassFrom.classList.remove('fixed-section');
+        }
+    });
+</script>
 @endsection

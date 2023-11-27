@@ -10,9 +10,10 @@ use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use App\Models\Admin\EmployeeCategory;
 use App\Models\Admin\LeaveApplication;
-use Brian2694\Toastr\Toastr as ToastrToastr;
 use Illuminate\Support\Facades\Validator;
+use Brian2694\Toastr\Toastr as ToastrToastr;
 
 class LeaveApplicationController extends Controller
 {
@@ -166,13 +167,12 @@ class LeaveApplicationController extends Controller
             $data = [
                 'user' => User::where('id', $id)->first(),
             ];
+            $data['employeeCategory'] = EmployeeCategory::whereId($data['user']->category_id)->first();
             return view('admin.pages.leaveApplication.all', $data);
         } else {
             Toastr::warning('You are not authorized to see this page');
             return redirect()->back();
         }
-
-
     }
 
     /**
@@ -370,11 +370,10 @@ class LeaveApplicationController extends Controller
     {
         if (Auth::user()->id == $id) {
             $data['leaveApplications'] = LeaveApplication::where('employee_id', Auth::user()->id)->get();
-        return view('admin.pages.leaveApplication.individual_leave_history', $data);
+            return view('admin.pages.leaveApplication.individual_leave_history', $data);
         } else {
             Toastr::warning('You are not authorized to see this page');
             return redirect()->back();
         }
-
     }
 }

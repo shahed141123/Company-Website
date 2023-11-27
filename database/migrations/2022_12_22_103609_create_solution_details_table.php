@@ -28,6 +28,7 @@ return new class extends Migration
 
             $table->string('industry_id')->nullable()->comment('multi_id');
             $table->string('name')->nullable();
+            $table->string('slug')->unique()->nullable();
             $table->text('header')->nullable();
             $table->string('banner_image')->nullable()->comment('1800*625');
             $table->string('row_two_title')->nullable();

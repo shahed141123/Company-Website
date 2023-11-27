@@ -75,10 +75,10 @@
                                 <span>Make A Leave</span>
                             </div>
                         </a>
-                        <a href="{{route('individual.leaveHistory', Auth::user()->id)}}" class="btn navigation_btn">
+                        <a href="" class="btn navigation_btn" data-bs-toggle="modal" data-bs-target="#checkapproved">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
-                                <span>Your Leave History</span>
+                                <span>Give Approval</span>
                             </div>
                         </a>
                     </div>
@@ -94,19 +94,21 @@
                         <div class="info-details card px-3 py-3 rounded-0">
                             <p class="p-0 m-0 text-muted d-flex justify-content-between">
                                 <span>Job Status</span>
-                                <span class="text-danger">{{$user->getCategoryName()}} </span>
+                                <span class="text-danger">{{ $user->getCategoryName() ?? 'Not set' }} </span>
                             </p>
                             <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                <span>Next Evulation</span>
-                                <span class="text-danger">36 Dayes</span>
+                                <span>Next Evulation Date</span>
+                                <span class="text-danger">{{ Auth::user()->evaluation_date ?? '0' }} Days</span>
                             </p>
                             <p class="p-0 m-0 text-muted d-flex justify-content-between">
                                 <span>Designation</span>
-                                <span class="text-danger" title="September 12">Frontend Developer</span>
+                                <span class="text-danger" title="September 12">
+                                    {{ Auth::user()->designation ?? 'Not set' }}</span>
                             </p>
                             <p class="p-0 m-0 text-muted d-flex justify-content-between">
                                 <span>Joinning</span>
-                                <span class="text-danger" title="September 12">12 Sep 2023</span>
+                                <span class="text-danger" title="September 12">
+                                    {{ Auth::user()->sign_date ?? '00-00-0000' }}</span>
                             </p>
                         </div>
                     </div>
@@ -118,13 +120,13 @@
                                 </div>
                                 <div class="info-details card px-3 py-3 rounded-0">
                                     <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                        <span>Leave Due :</span>
+                                        <span>Yearly Leave :</span>
                                     </p>
                                     <p class="p-0 m-0 text-muted d-flex justify-content-between">
                                         <span>Leave Availed :</span>
                                     </p>
                                     <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                        <span>Leave Balance :</span>
+                                        <span>Leave Due :</span>
                                     </p>
                                     <p class="p-0 m-0 text-muted d-flex justify-content-between">
                                         <span>Total :</span>
@@ -137,13 +139,13 @@
                                 </div>
                                 <div class="info-details card px-3 py-3 rounded-0 text-center">
                                     <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger">12</span>
+                                        <span class="text-danger">{{ $employeeCategory->yearly_casual_leave ?? '0' }}</span>
                                     </p>
                                     <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger">4</span>
+                                        <span class="text-danger">0</span>
                                     </p>
                                     <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger" title="September 12">12 Tk</span>
+                                        <span class="text-danger" title="September 12">0</span>
                                     </p>
                                 </div>
                             </div>
@@ -153,13 +155,13 @@
                                 </div>
                                 <div class="info-details card px-3 py-3 rounded-0 text-center">
                                     <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger">12</span>
+                                        <span class="text-danger">{{ $employeeCategory->yearly_earned_leave ?? '0' }}</span>
                                     </p>
                                     <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger">4</span>
+                                        <span class="text-danger">0</span>
                                     </p>
                                     <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger" title="September 12">12 Tk</span>
+                                        <span class="text-danger" title="September 12">0</span>
                                     </p>
                                 </div>
                             </div>
@@ -169,29 +171,14 @@
                                 </div>
                                 <div class="info-details card px-3 py-3 rounded-0 text-center">
                                     <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger">12</span>
+                                        <span
+                                            class="text-danger">{{ $employeeCategory->yearly_medical_leave ?? '0' }}</span>
                                     </p>
                                     <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger">4</span>
+                                        <span class="text-danger">0</span>
                                     </p>
                                     <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger" title="September 12">12 Tk</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card info-cards p-1 rounded-0 main_color mb-0">
-                                    <h6 class="text-center mb-0 p-0 text-muted">Half Pay Leave</h6>
-                                </div>
-                                <div class="info-details card px-3 py-3 rounded-0 text-center">
-                                    <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger">12</span>
-                                    </p>
-                                    <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger">4</span>
-                                    </p>
-                                    <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger" title="September 12">12 Tk</span>
+                                        <span class="text-danger" title="September 12">0</span>
                                     </p>
                                 </div>
                             </div>
@@ -225,8 +212,8 @@
                                                         <label class="form-label">Applicant Name: <span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" name="name"
-                                                            class="form-control form-control-sm" value="{{Auth::user()->name}}"
-                                                            placeholder="Enter Applicant Name" readonly>
+                                                            class="form-control form-control-sm"
+                                                            placeholder="Enter Applicant Name" required>
                                                     </div>
                                                 </div>
 
@@ -244,14 +231,14 @@
                                                         <label class="form-label">Designation: <span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" name="designation"
-                                                            class="form-control form-control-sm" value="{{Auth::user()->designation}}"
+                                                            class="form-control form-control-sm"
                                                             placeholder="Enter Your Designation" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <div class="">
                                                         <label class="form-label">Company:</label>
-                                                        <input type="text" name="company" value="NGEN IT"
+                                                        <input type="text" name="company"
                                                             class="form-control form-control-sm" placeholder="NGEN IT">
                                                     </div>
                                                 </div>
@@ -286,7 +273,7 @@
                                                     <div class="">
                                                         <label class="form-label">Job Status <span
                                                                 class="text-danger">*</span></label>
-                                                        <input type="text" name="job_status" value="{{Auth::user()->getCategoryName()}}"
+                                                        <input type="text" name="job_status"
                                                             class="form-control form-control-sm"
                                                             placeholder="Enter Job Status" required>
                                                     </div>
@@ -304,8 +291,8 @@
                                                     <div class="">
                                                         <label class="form-label">Leave Explanation <span
                                                                 class="text-danger">*</span></label>
-                                                        <textarea name="leave_explanation" class="form-control form-control-sm"
-                                                            rows="3" placeholder="Enter Leave Explanation" required></textarea>
+                                                        <textarea name="leave_explanation" class="form-control form-control-sm" id="" cols="30"
+                                                            rows="1"placeholder="Enter Leave Explanation" required></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-3">
@@ -364,9 +351,10 @@
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="">
-                                                        <label class="form-label">Substitute Signature </label>
+                                                        <label class="form-label">Substitute Signature <span
+                                                                class="text-danger">*</span></label>
                                                         <input type="file" name="substitute_signature"
-                                                            class="form-control form-control-sm">
+                                                            class="form-control form-control-sm" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
@@ -542,4 +530,3 @@
         {{-- Check Leave Status Modal Area  End --}}
     </div>
 @endsection
-

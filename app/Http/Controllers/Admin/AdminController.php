@@ -13,6 +13,9 @@ use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use App\Mail\EmployeeAdd as MailEmployeeAdd;
 use App\Models\Admin\Product;
+use App\Models\Client\ClientSupport;
+use App\Models\Client\Project;
+use App\Models\Client\SupportCase;
 use App\Notifications\EmployeeAdd;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
@@ -77,7 +80,16 @@ class AdminController extends Controller
         $data['notification_count'] = count($filteredNotify);
 
         $data['notifications'] = auth()->user()->unreadNotifications;
-        return view('admin.pages.dashboard.index', $data);
+        if (auth()->check() && in_array('support', json_decode(auth()->user()->department, true))) {
+            $data['projects'] = Project::with('client')->orderBy('id', 'DESC')->get();
+            $data['supports'] = ClientSupport::with('client', 'project')->where('status' , '!=' , 'closed')->orderBy('id', 'DESC')->get();
+            $data['cases'] = SupportCase::latest('id')->get();
+            $data['latest_case'] = SupportCase::where('status', '!=', 'closed')->latest('id')->first();
+            // dd($data['latest_case']);
+            return view('admin.pages.project.dashboard', $data);
+        } else {
+            return view('admin.pages.dashboard.index', $data);
+        }
     }
 
     public function AdminLogin()
@@ -257,7 +269,7 @@ class AdminController extends Controller
 
 
 
-    
+
 
 
 
@@ -290,7 +302,7 @@ class AdminController extends Controller
 
         return redirect()->route('all.admin');
     } // End Mehtod
-    
+
 
 
     public function DeleteAdminRole($id)

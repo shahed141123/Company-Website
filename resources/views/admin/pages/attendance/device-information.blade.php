@@ -1,18 +1,6 @@
 @extends('admin.master')
 @section('content')
-<style>
-.devider-text {
-    width: 15%;
-    background-color: rgb(36 114 151);
-    position: relative;
-    bottom: -10px;
-    border-radius: 10px;
-    color: white;
-}
-.boder-left{
-    border-right: 2px solid #eee;
-}
-</style>
+
     <div class="content-wrapper">
         <div class="d-flex justify-content-between align-items-center shadow-sm">
             <div class="page-header-content d-lg-flex">

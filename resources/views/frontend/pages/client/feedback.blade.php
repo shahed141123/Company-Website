@@ -23,10 +23,10 @@
         <div id="feedback_details" class="feedback_details" style="display: none;">
             <p>What topic(s) would you like to provide feedback on?</p>
 
-            <form action="{{ route('feedback.save') }}" method="POST">
+            <form action="" method="POST">
                 @csrf
                 <!--Check Box item-->
-                @foreach (feedback() as $item)
+                @foreach ($orders as $item)
                     @php
                         $checked = [];
                         if (isset($_GET['feedback'])) {
@@ -43,7 +43,7 @@
                 @endforeach
                 <p>Based on your selected topic(s) above, how would you rate your overall web experience?</p>
                 <!--Check Rounded item-->
-                @foreach (ratings() as $item)
+                @foreach ($orders as $item)
                     <div class="checkrounded_wrapper">
                         <label class="feedback_details_checkrounded" style="font-size: 14px">
                             <input type="checkbox" name="star" value="{{ $item }}" onclick="onlyOne(this)"

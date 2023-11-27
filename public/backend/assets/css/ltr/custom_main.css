@@ -35,7 +35,7 @@ body {
 }
 
 .sidebar-expand-lg.sidebar-main-resized:not(.sidebar-collapsed):not(.sidebar-main-unfold) {
-    width: 3.7rem !important;
+    width: 3.2rem !important;
 }
 
 #DataTables_Table_0_length select {
@@ -222,7 +222,7 @@ thead {
 .dataTables_info {
     margin: 0px;
     padding: 10px;
-    visibility: hidden !important;
+    /* visibility: hidden !important; */
 }
 
 .dataTables_paginate {

@@ -4894,29 +4894,7 @@ switch input:checked+.slider {
     position: relative;
 }
 
-#mySidebar {
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #5f5753;
-    overflow-x: hidden;
-    transition: 0.2s;
-    width: 320px;
-}
 
-#Content_Wrapper {
-    transition: 0.2s;
-    padding: 10px 0px 20px 20px;
-    background: #dfdfdd;
-    margin-left: 320px;
-}
-
-#userSideButton_wrapper {
-    background: #d6d1ca;
-    display: none;
-}
 
 /*---------------------*/
 .sidebarButtonStyle {
@@ -5333,7 +5311,7 @@ switch input:checked+.slider {
 
 .user_dashboard_sidebar_title {
     background-color: white;
-    padding: 15px;
+    padding: 5px;
 }
 
 .user_dashboard_sidebar_title h2 {
@@ -5368,34 +5346,9 @@ switch input:checked+.slider {
     color: white;
 }
 
-.user_dashboard_sidebar_nav p {
-    padding: 20px 0px;
-    padding-left: 20px;
-    margin: 0;
-    cursor: pointer;
-}
 
-.user_dashboard_sidebar_nav p:hover {
-    padding: 20px 0px;
-    padding-left: 20px;
-    background-color: #312b2d;
-    display: block;
-}
 
-.user_dashboard_sidebar_nav a {
-    display: block;
-    color: white;
-    padding: 20px 0px;
-    padding-left: 20px;
-}
 
-.user_dashboard_sidebar_nav a:hover {
-    background-color: #312b2d;
-    display: block;
-    color: white;
-    padding: 20px 0px;
-    padding-left: 20px;
-}
 
 .accordion-body a {
     background-color: #ffffff;
@@ -6924,13 +6877,13 @@ switch input:checked+.slider {
 
 .home_title_heading {
     font-family: "Klinic Slab";
-    font-size: 36px;
+/*    font-size: 36px;*/
+    font-size: 26px;
     color: var(--heading);
-    font-weight: 400;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    font-weight: 500;
+    margin: 10px 0px;
     text-align: center;
-    line-height: 40px;
+    line-height: 37px;
 
 }
 

@@ -10,10 +10,14 @@ use App\Models\Admin\BrandPage;
 use App\Models\Admin\ClientStory;
 use App\Models\Admin\SolutionCard;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Blog;
+use App\Models\Admin\Category;
+use App\Models\Admin\DocumentPdf;
 use App\Models\Admin\Industry;
 use App\Models\Admin\MultiIndustry;
 use App\Models\Admin\MultiSolution;
 use App\Models\Admin\SolutionDetail;
+use App\Models\Admin\TechGlossy;
 use Brian2694\Toastr\Facades\Toastr;
 
 class PageController extends Controller
@@ -43,7 +47,8 @@ class PageController extends Controller
     public function brandProducts($id, Request $request)
     {
         $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title', 'image')->first();
-        $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'header']);
+        $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'brand_logo', 'header']);
+
         if (!empty($data['brandpage'])) {
 
             $productIds = Product::where('brand_id', $data['brand']->id)
@@ -52,7 +57,7 @@ class PageController extends Controller
                 ->pluck('id');
             // $productIds = $data['products']->pluck('id')->all(); // Extracting product IDs
             $data['products'] = Product::whereIn('id', $productIds)
-                ->select('id', 'brand_id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'price_status', 'cat_id')
+                ->select('id', 'brand_id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'price_status', 'cat_id', 'sku_code', 'mf_code', 'product_code')
                 ->paginate(10);
             // dd($data['products']);
             $industryIds = MultiIndustry::whereIn('product_id', $productIds)
@@ -93,6 +98,14 @@ class PageController extends Controller
                 $solution->products = $productsForSolution;
             }
 
+            $data['related_search'] = [
+                'categories' =>  Category::inRandomOrder()->limit(2)->get(),
+                'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
+                'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id','slug','name'),
+                'industries' =>  Industry::inRandomOrder()->limit(4)->get('id','slug','title'),
+            ];
+            // dd($data['related_search']['categories']);
+
             if ($request->ajax()) {
                 return view('frontend.pages.kukapages.partial.product_pagination', $data);
             }
@@ -107,26 +120,96 @@ class PageController extends Controller
     public function productDetails($id)
     {
         //dd($id);
-
         $data['sproduct'] = Product::where('slug', $id)->where('product_status', 'product')->first();
         if (!empty($data['sproduct']->cat_id)) {
             $data['products'] = Product::where('cat_id', $data['sproduct']->cat_id)
                 ->where('product_status', 'product')
-                ->select('products.id', 'products.rfq', 'products.slug', 'products.name', 'products.thumbnail', 'products.price', 'products.discount')
+                ->select('id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'sku_code', 'mf_code', 'product_code','cat_id', 'brand_id')
                 ->limit(12)
                 ->distinct()
                 ->get();
         } else {
-            $data['products'] = Product::inRandomOrder()->where('product_status', 'product')->limit(8)->get();
+            $data['products'] = Product::inRandomOrder()->where('product_status', 'product')->limit(12)->get();
         }
 
         $data['brand'] = Brand::where('id', $data['sproduct']->brand_id)->select('id', 'slug', 'title', 'image')->first();
-        $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'header']);
+        $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'brand_logo', 'header']);
+        $data['related_search'] = [
+            'categories' =>  Category::where('id', '!=', $data['sproduct']->cat_id)->inRandomOrder()->limit(2)->get(),
+            'brands' =>  Brand::where('id', '!=', $data['sproduct']->brand_id)->inRandomOrder()->limit(20)->get(),
+            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id','slug','name'),
+            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id','slug','title'),
+        ];
+        $data['brand_products'] = Product::where('brand_id', $data['sproduct']->brand_id)->where('id', '!=', $data['sproduct']->id)->inRandomOrder()->where('product_status', 'product')->limit(20)->get();
+
+        $data['documents'] = DocumentPdf::where('product_id', $data['sproduct']->id)->get();
+
         if (!empty($data['brandpage'])) {
             return view('frontend.pages.kukapages.product_details', $data);
         } else {
             return view('frontend.pages.product.product_details', $data);
         }
+    }
+
+    function brandPdf($id) {
+        $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title', 'image')->first();
+        $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'brand_logo', 'header']);
+        $data['related_search'] = [
+            'categories' =>  Category::inRandomOrder()->limit(2)->get(),
+            'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
+            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id','slug','name'),
+            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id','slug','title'),
+        ];
+        return view('frontend.pages.kukapages.catalogs', $data);
+    }
+    public function content($id) {
+        $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title', 'image')->first();
+        $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'brand_logo', 'header']);
+        $id = json_encode($data['brand']->id);
+        $data['techglossys'] = TechGlossy::whereJsonContains('brand_id', $id)->get();
+        $data['blogs'] = Blog::whereJsonContains('brand_id', $id)->get();
+        $data['clientStories'] = ClientStory::whereJsonContains('brand_id', $id)->get();
+
+        $mergedData = $data['blogs']->concat($data['clientStories']);
+
+        $data['contents'] = $mergedData->toArray();
+
+
+        $data['related_search'] = [
+            'categories' =>  Category::inRandomOrder()->limit(2)->get(),
+            'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
+            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id','slug','name'),
+            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id','slug','title'),
+        ];
+        return view('frontend.pages.kukapages.contents', $data);
+    }
+    public function blogDetails($id) {
+        $data['content'] = Blog::where('id', $id)->first();
+        $data['items'] = Blog::inRandomOrder()->limit(4)->get();
+
+
+        $data['related_search'] = [
+            'categories' =>  Category::inRandomOrder()->limit(2)->get(),
+            'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
+            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id','slug','name'),
+            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id','slug','title'),
+        ];
+        return view('frontend.pages.kukapages.content_single', $data);
+
+    }
+    public function storyDetails($id) {
+        $data['blog'] = Blog::where('id', $id)->first();
+        $data['storys'] = Blog::inRandomOrder()->limit(4)->get();
+
+
+        $data['related_search'] = [
+            'categories' =>  Category::inRandomOrder()->limit(2)->get(),
+            'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
+            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id','slug','name'),
+            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id','slug','title'),
+        ];
+        return view('frontend.pages.blogs.blog_details', $data);
+
     }
 
 
@@ -174,7 +257,7 @@ class PageController extends Controller
     // public function brandProducts($id)
     // {
     //     $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title', 'image')->first();
-    //     $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'header']);
+    //     $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'brand_logo', 'header']);
     //     if (!empty($data['brandpage'])) {
     //         $products = Product::where('brand_id', $data['brand']->id)
     //             ->where('product_status', '=', 'product')

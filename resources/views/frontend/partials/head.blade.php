@@ -55,7 +55,18 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/custom_global.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/custom_responsive_tablet.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/custom_responsive_phone.css') }}">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+
 {{-- Custom Style 6-7-2023 End --}}
 
-
+<style>
+        .og-image{
+            width: 100%; /* Set the desired width */
+            height: 100%; /* Set the desired height */
+            object-fit: contain; /* Apply object-fit: contain; styling */
+        }
+    </style>
 @yield('styles')
+<meta property="og:image:width" content="700"> {{-- Set the width of your image --}}
+<meta property="og:image:height" content="630"> {{-- Set the height of your image --}}
+    

@@ -1,6 +1,6 @@
 <div class="row mt-2" id="products-container">
     @foreach ($products as $product)
-        <div class="custom-col-5 col-sm-6 col-md-4 px-3">
+        <div class="custom-col-5 col-sm-6 col-md-4 px-4">
             <div class="card rounded-0" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
                 <div class="card-body" style="height:22rem;">
                     <div class="new-video">
@@ -13,10 +13,14 @@
 
                     <div class="content-section text-center py-3">
                         <a href="{{ route('product.details', $product->slug) }}">
-                            <p class="pb-0 mb-0 text-muted">{{ Str::limit($product->name, 70) }}</p>
+                            <p class="pb-0 mb-0 text-muted brandpage_product_title">{{ Str::limit($product->name, 85) }}</p>
                         </a>
-                        <span style="font-size: 10px"><i class="fa-solid fa-tag"></i>
-                            {{ $product->getBrandName() }}</span>
+                        <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                            {{ $product->getCategoryName() }}</span>
+                        <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                            {{ $product->sku_code }}</span>
+                        <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                            {{ $product->product_code }}</span>
                         @if ($product->price_status == 'price' && !empty($product->price))
                             <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
                                 {{ $product->price }}</span>

@@ -10,9 +10,11 @@ use App\Models\Admin\Category;
 use App\Models\Admin\BrandPage;
 use App\Models\Admin\TechGlossy;
 use App\Models\Admin\ClientStory;
+use App\Models\Admin\Industry;
 use App\Models\Admin\IndustryPage;
 use App\Models\Admin\SolutionDetail;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
 class HeaderComponentServiceProvider extends ServiceProvider
@@ -38,56 +40,56 @@ class HeaderComponentServiceProvider extends ServiceProvider
             $setting = Site::first();
 
             // Load industries with eager loading
-            $industrys = IndustryPage::orderByDesc('id')
-                ->limit(4)
-                ->get(['id', 'industry_id']);
+            $industrys = Industry::with('industryPage')->orderByDesc('id')
+                ->limit(12)
+                ->get(['id', 'title', 'slug']);
 
             // Load features with eager loading and caching
             $featuresAndEvents = Feature::orderByRaw('RAND()')
-                ->limit(4)
+                ->limit(12)
                 ->select('id', 'title', 'image', 'created_at', 'badge')
                 ->get();
 
 
-            $features = $featuresAndEvents->take(2);
-            $feature_events = $featuresAndEvents->skip(2)->take(2);
+            $features = $featuresAndEvents->take(6);
+            $feature_events = $featuresAndEvents->skip(2)->take(6);
 
             // Load solution details with eager loading and caching
             $solutions = SolutionDetail::orderByDesc('id')
                 ->orderByRaw('RAND()')
-                ->limit(4)
+                ->limit(12)
                 ->get(['id', 'name', 'slug']);
 
             // Load brand pages with eager loading and caching
             $brands = BrandPage::orderByDesc('id')
                 ->orderByRaw('RAND()')
-                ->limit(8)
+                ->limit(6)
                 ->get(['id', 'brand_id']);
 
             // Load categories with caching
             $categorys = Category::orderByDesc('id')
-                ->limit(8)
+                ->limit(6)
                 ->get(['id', 'slug', 'title']);
 
             // Load featured blogs with caching
             $blogs = Blog::where('featured', '1')
                 ->orderByRaw('RAND()')
-                ->limit(2)
+                ->limit(6)
                 ->select('id', 'badge', 'title', 'image', 'created_at', 'created_by')
                 ->get();
 
             // Load featured client stories with caching
             $clientstorys = ClientStory::where('featured', '1')
                 ->orderByRaw('RAND()')
-                ->limit(2)
+                ->limit(6)
                 ->select('id', 'badge', 'image', 'title', 'created_at', 'created_by')
                 ->get();
 
             // Load featured tech glossies with caching
-            $techglossys = TechGlossy::where('featured', '1')
+            $techglossys = DB::table('tech_glossies')->where('featured', '1')
                 ->orderByRaw('RAND()')
-                ->limit(2)
-                ->select('id', 'badge', 'title', 'image', 'created_at', 'created_by')
+                ->limit(6)
+                ->select('id', 'title', 'created_at', 'created_by')
                 ->get();
             $cart_qty = Cart::count();
 

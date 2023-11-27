@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Image;
+use DataTables;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Admin\Sas;
@@ -38,14 +39,89 @@ class SourcingController extends Controller
      */
     public function index()
     {
-        $data['saved_products'] = Product::where('product_status', 'sourcing')->where('action_status', 'save')->latest()
+        $data['products'] = Product::where('product_status', 'sourcing')->where('action_status', '!=', 'save')->latest('id', 'desc')
             ->get(['id', 'slug', 'thumbnail', 'price', 'discount', 'name', 'stock', 'source_one_price', 'source_two_price', 'action_status', 'price_status', 'added_by']);
-        $data['products'] = Product::where('product_status', 'sourcing')->where('action_status', '!=', 'save')->latest()
-            ->get(['id', 'slug', 'thumbnail', 'price', 'discount', 'name', 'stock', 'source_one_price', 'source_two_price', 'action_status', 'price_status', 'added_by']);
-        $data['real_products'] = Product::where('product_status', 'product')->latest()
-            ->get(['id', 'slug', 'thumbnail', 'price', 'discount', 'name', 'stock', 'source_one_price', 'source_two_price', 'action_status', 'price_status', 'added_by']);
-        return view('admin.pages.product_sourcing.all', $data);
+        return view('admin.pages.product_sourcing.sourced_products', $data);
     }
+    // public function index(Request $request)
+    // {
+    //     if ($request->ajax()) {
+    //         $data = Product::select('products.*')->where('product_status', 'sourcing')->where('action_status', '!=', 'save')->latest('id')->get();
+    //         return Datatables::of($data)
+    //             ->addIndexColumn()
+
+    //             ->addColumn('action', function ($row) {
+    //                 $actions = '<td>';
+
+    //                 if ($row->action_status == 'listed') {
+    //                     $actions .= '<a href="' . route('sourcing.sas', $row->slug) . '" class="text-primary" title="SAS Create">
+    //                                     <i class="ph-plus-circle icons_design me-1 p-1 rounded-circle text-primary"></i>
+    //                                 </a>';
+    //                 } elseif ($row->action_status == 'seek_approval') {
+    //                     $actions .= '<a href="' . route('sas.edit', $row->slug) . '" class="text-primary" title="SAS Edit">
+    //                                     <i class="ph-pencil me-1 p-1 rounded-circle text-primary"></i>
+    //                                 </a>';
+    //                 }
+
+    //                 $actions .= '<a href="' . route('product-sourcing.edit', $row->id) . '" class="text-primary" title="Sourcing Edit">
+    //                                 <i class="fa-solid fa-pen-to-square me-1 p-1 rounded-circle text-primary"></i>
+    //                             </a>
+    //                             <a href="' . route('product-sourcing.destroy', [$row->id]) . '" class="text-danger delete">
+    //                                 <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
+    //                             </a>
+    //                         </td>';
+
+    //                 return $actions;
+    //             })
+    //             ->rawColumns(['action', 'checkbox'])
+    //             ->make(true);
+    //     }
+    //     return view('admin.pages.product_sourcing.sourced_products');
+    // }
+
+    public function savedProducts()
+    {
+        $data['saved_products'] = Product::where('product_status', 'sourcing')->where('action_status', 'save')->latest('id', 'desc')
+            ->get(['id', 'slug', 'thumbnail', 'price', 'discount', 'name', 'stock', 'source_one_price', 'source_two_price', 'action_status', 'price_status', 'added_by']);
+        return view('admin.pages.product_sourcing.saved_products', $data);
+    }
+    public function approvedProducts()
+    {
+        $data['real_products'] = Product::where('product_status', 'product')->latest('id', 'desc')
+            ->get(['id', 'slug', 'thumbnail', 'price', 'name', 'stock', 'action_status', 'price_status', 'added_by']);
+        return view('admin.pages.product_sourcing.completed_products', $data);
+    }
+    // public function approvedProducts(Request $request)
+    // {
+    //     if ($request->ajax()) {
+    //         $data = Product::where('product_status', 'product')->latest('id')->get(['id', 'slug', 'thumbnail', 'price', 'name', 'stock', 'action_status', 'price_status', 'added_by']);
+    //         return Datatables::of($data)
+    //             ->addIndexColumn()
+
+    //             ->addColumn('action', function ($row) {
+    //                 $btn = '<td>';
+
+    //                 if (!empty($row->action_status) && $row->action_status == 'product_approved') {
+    //                     $btn .= '<a href="' . route('sas.edit', $row->slug) . '" title="SAS Edit" class="text-primary">
+    //                                 <i class="ph-pencil me-1 p-1 rounded-circle text-primary"></i>
+    //                             </a>';
+    //                 }
+
+    //                 $btn .= '<a href="' . route('product-sourcing.edit', $row->id) . '" class="text-primary" title="Sourcing Edit">
+    //                             <i class="fa-solid fa-pen-to-square me-1 p-1 rounded-circle text-primary"></i>
+    //                         </a>
+    //                         <a href="' . route('product.destroy', [$row->id]) . '" class="text-danger delete">
+    //                             <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
+    //                         </a>
+    //                     </td>';
+
+    //                 return $btn;
+    //             })
+    //             ->rawColumns(['action', 'checkbox'])
+    //             ->make(true);
+    //     }
+    //     return view('admin.pages.product_sourcing.completed_products');
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -415,7 +491,7 @@ class SourcingController extends Controller
 
                 ];
 
-
+                Notification::send($users, new SourcingNotification($name, $slug));
                 $mail = Mail::to($user_emails);
                 if ($mail) {
                     $mail->send(new ProductSourcing($data));
@@ -430,7 +506,7 @@ class SourcingController extends Controller
                     Toastr::error($message, 'Failed', ['timeOut' => 30000]);
                 }
             }
-            Notification::send($users, new SourcingNotification($name, $slug));
+
 
             return redirect()->route('product-sourcing.index');
         }
@@ -569,46 +645,46 @@ class SourcingController extends Controller
             'source_contact'            => $request->source_contact,
             'sas_price'                 => $request->sas_price,
             'added_by'                  => Auth::user()->name,
-            'action_status'             => 'listed',
-            'product_status'            => 'sourcing',
             'updated_at'                => Carbon::now(),
 
         ]);
+        if (!empty($request->industry_id)) {
+            $industry_destroys = MultiIndustry::where('product_id', $product_id)->get();
 
-            // $name = Auth::user()->name;
-            // $users = User::where(function ($query) {
-            //     $query->whereJsonContains('department', 'business')
-            //         ->orwhereJsonContains('department', 'logistics');
-            // })->where('role', 'admin')->get();
-            // $slug = $data['slug'];
-            // $user_emails = User::where(function ($query) {
-            //     $query->whereJsonContains('department', 'business')
-            //         ->orwhereJsonContains('department', 'logistics');
-            // })->where('role', 'admin')->pluck('email')->toArray();
+            foreach ($industry_destroys as $industry_destroy) {
+                MultiIndustry::find($industry_destroy->id)->delete();
+            }
 
+            $industrys = $request->industry_id;
+            foreach ($industrys as $industry) {
+                MultiIndustry::insert([
 
-            //     $data = [
-            //         'added_by'    => $name,
-            //         'name'        => $request->name,
-            //         'sku_code'    => $request->sku_code,
-            //         'photo'       => $product->thumnail,
-            //         'create_date' => date('Y-m-d', strtotime(Carbon::now())),
-            //         'category'    => Category::where('id', $request->cat_id)->value('title'),
-            //         'brand'       => Brand::where('id', $request->brand_id)->value('title'),
-            //         'product_id'  => $data['slug'],
-            //     ];
+                    'product_id' => $product_id,
+                    'industry_id' => $industry,
+                    'created_at' => Carbon::now(),
 
+                ]);
+            }
+        }
+        if (!empty($request->solution_id)) {
+            $solution_destroys = MultiSolution::where('product_id', $product_id)->get();
 
-            //     $mail = Mail::to($user_emails);
-            //     if ($mail) {
-            //         $mail->send(new ProductSourcing($data));
-            //         Toastr::success('Data has added Successfully');
-            //     } else {
-            //         Toastr::error('Email Failed to send', ['timeOut' => 30000]);
-            //         return redirect()->back();
-            //     }
-            //     Toastr::success('Product Updated Without Image Successfully');
-            //     Notification::send($users, new SourcingNotification($name, $slug));
+            foreach ($solution_destroys as $solution_destroy) {
+                MultiSolution::find($solution_destroy->id)->delete();
+            }
+            $solutions = $request->solution_id;
+            foreach ($solutions as $solution) {
+                MultiSolution::insert([
+
+                    'product_id' => $product_id,
+                    'solution_id' => $solution,
+                    'created_at' => Carbon::now(),
+
+                ]);
+            }
+        }
+
+        Toastr::success('Product Updated Without Image Successfully');
 
         return redirect()->back();
     }

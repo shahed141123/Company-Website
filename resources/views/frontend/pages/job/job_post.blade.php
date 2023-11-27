@@ -1,17 +1,21 @@
 @extends('frontend.master')
 @section('content')
-    @php
-        $setting = App\Models\Site::first();
-    @endphp
+@section('styles')
+    <meta property="og:title" content="NGen IT Available Jobs">
+    <!--<meta property="og:description" content="Description of your blog post">-->
+    <meta property="og:image" content="http://ngenitltd.com/frontend/images/available_job.jpg">
+    <!--<meta property="og:url" content="URL to your blog post">-->
+@endsection
+@php
+    $setting = App\Models\Site::first();
+@endphp
 
-    <!--======// Header Title //======-->
-    <section class="common_product_header"
-        style="background-image: linear-gradient(
-        rgba(0,0,0,0.8),
-        rgba(0,0,0,0.8)
-        ),url('https://fjwp.s3.amazonaws.com/blog/wp-content/uploads/2020/03/11140107/find-remote-job-1024x512.png');">
-        <div class="container ">
-            <h1>Find Work</h1>
+<!--======// Header Title //======-->
+<section class="">
+    <div>
+        <img src="{{ asset('frontend/images/available_job.jpg') }}" alt="" class="img-fluid">
+
+        {{-- <h1>Available Jobs</h1>
 
             <div class="row ">
                 <div class="input-group w-50 mx-auto">
@@ -25,54 +29,61 @@
                 <!--BUTTON START-->
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="m-4">
-                        <a class="common_button2" href="{{route('contact')}}">Talk to a Specialist</a>
+                        <a class="common_button2" href="{{route('contact')}}">Contact Us</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <!----------End--------->
+            </div> --}}
+    </div>
+</section>
+<!----------End--------->
 
-    <!--========// Job Post //========-->
-    <section class="container">
-        <div class="row mt-5">
-            <!--------Job Post item------->
+<!--========// Job Post //========-->
+<section class="container">
+    <div class="row mt-5">
+        <!--------Job Post item------->
 
-            @foreach ($jobs as $item)
-                <div class="col-lg-6 col-sm-12">
-                    <div class="job_post_card my-3">
-                        <div class="job_post_card_img">
+        @foreach ($jobs as $item)
+            <div class="col-lg-4 col-sm-12">
+                <div class="job_post_card my-3">
+                    {{-- <div class="job_post_card_img">
                             <img class="img-fluid"
                                 src="{{ !empty($setting->logo) ? asset('storage/' . $setting->logo) : url('upload/no_image.jpg') }}"
                                 alt="">
-                        </div>
-                        <div class="job_post_card_details">
-                            <h6>{{ $item->name }}</h6>
-                            <ul>
-                                {{-- <li><i class="fa-solid fa-location-dot"></i> <span> Ring Road, Mohammadpur, Dhaka</span></li>
-                                <li><i class="fa-solid fa-graduation-cap"></i>Bachelor degree in any discipline</li> --}}
-                                <li><i class="fa-solid fa-user-tie"></i> {{ $item->experience }}</li>
-                            </ul>
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <a class="job_post_btn" href="{{ route('job.details', $item->slug) }}">Learn more <i
-                                            class="fa-solid fa-angles-right"></i></a>
-                                </div>
-                                <div class="job_post_end_date">
-                                    <p><i class="fa-solid fa-calendar-day"></i> Deadline:</p>
-                                    <p> <strong>{{ $item->deadline }}</strong> </p>
-                                </div>
+                        </div> --}}
+                    <div class="job_post_card_details w-100 ps-4">
+                        <h5 class="fw-bold">{{ $item->name }}</h5>
+                        <ul>
+                            {{-- <li><i class="fa-solid fa-location-dot"></i> <span>Mohammadpur, Dhaka</span></li> --}}
+                            {{-- <li><i class="fa-solid fa-graduation-cap"></i>Bachelor degree in any discipline</li> --}}
+                            <li>
+                                <i class="fa-solid fa-user-tie"></i>Experience :
+                                {{ $item->experience }}
+                            </li>
+                            {{-- <li>
+                                    <i class="fa-solid fa-calendar-day"></i>Deadline :
+                                    <strong>{{ $item->deadline }}</strong>
+                                </li> --}}
+                        </ul>
+                        <div class="d-flex justify-content-between mt-2">
+                            <div>
+                                <a class="common_button" href="{{ route('job.details', $item->slug) }}">Details <i
+                                        class="fa-solid fa-angles-right"></i></a>
+                            </div>
+                            <div class="job_post_end_date">
+                                <p><i class="fa-solid fa-calendar-day"></i> Deadline:</p>
+                                <p style="font-family: arial;"> <strong>{{ $item->deadline }}</strong> </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
-            <!--------Job Post item------->
+            </div>
+        @endforeach
+        <!--------Job Post item------->
 
-        </div>
-    </section>
-    <!---------End--------->
-    <!---------
+    </div>
+</section>
+<!---------End--------->
+<!---------
      <section>
         <div class="container">
             <div class="row d-flex justify-content-between mt-5 mb-5">

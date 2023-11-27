@@ -1,22 +1,6 @@
 @extends('admin.master')
 @section('content')
-    <style>
-        .label_style {
-            width: 151px !important;
-        }
-
-        .area-title {
-            color: #fff;
-            background: #247297;
-            padding: 5px;
-        }
-
-        .area-container {
-            position: relative;
-            bottom: -14px;
-            left: 22px;
-        }
-    </style>
+   
     <div class="content-wrapper">
         <!-- Page header -->
         <div class="page-header page-header-light shadow">

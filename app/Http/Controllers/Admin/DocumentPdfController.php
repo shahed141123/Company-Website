@@ -62,6 +62,7 @@ class DocumentPdfController extends Controller
             [
                 'mimes'    => 'The :attribute must be a file of type: pdf - doc - docs',
                 'required' => 'The :attribute must be required',
+                'max'      =>  'The Document file must be less than 2Mb.'
             ],
         );
 

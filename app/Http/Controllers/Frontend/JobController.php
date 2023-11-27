@@ -9,6 +9,7 @@ use App\Models\Admin\Job;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\File;
 use App\Models\Admin\JobRegistration;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
@@ -58,6 +59,7 @@ class JobController extends Controller
             $mainFile = $request->file('resume');
             if (empty($mainFile)) {
                 JobRegistration::create([
+                    'client_id'                     => Auth::guard('client')->user()->id,
                     'name'                          => $request->name,
                     'email'                         => $request->email,
                     'address'                       => $request->address,
@@ -112,6 +114,7 @@ class JobController extends Controller
                 $globalFunFile =  Helper::singleFileUpload($mainFile);
                 if ($globalFunFile['status'] == 1) {
                     JobRegistration::create([
+                        'client_id'                     => Auth::guard('client')->user()->id,
                         'name'                          => $request->name,
                         'email'                         => $request->email,
                         'address'                       => $request->address,
@@ -201,5 +204,11 @@ class JobController extends Controller
         $entry = JobRegistration::where('id', '=', $id)->firstOrFail();
         $pathToFile = storage_path() . "/app/public/files/" . $entry->resume;
         return response()->download($pathToFile);
+    }
+    public function jobApply()
+    {
+        
+        Toastr::success('You have successfully Applied for this Job');
+        return redirect()->route('job.openings');
     }
 }

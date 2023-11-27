@@ -55,12 +55,7 @@ class DealController extends Controller
      */
     public function create()
     {
-
-        $data['users'] = User::where(function ($query) {
-            $query->whereJsonContains('department', 'business');
-        })->select('id', 'name')->orderBy('id', 'DESC')->get();
-        $data['products'] = Product::latest()->get();
-        $data['solution_details'] = SolutionDetail::select('solution_details.id', 'solution_details.name')->get();
+        $data['users'] = User::whereJsonContains('department', 'business')->orderBy('id', 'DESC')->get(['id', 'name']);
         $data['clients'] = Client::select('clients.id', 'clients.name')->get();
         $data['partners'] = Partner::select('partners.id', 'partners.name')->get();
         return view('admin.pages.deal.add', $data);
@@ -74,7 +69,37 @@ class DealController extends Controller
      */
     public function store(Request $request)
     {
+        // if (($request->account) !== null) {
 
+        //     if ($request->account == 'client') {
+        //         $validator = Validator::make(
+        //             $request->all(),
+        //             [
+        //                 'email' => 'required|unique:clients',
+        //                 'image'   => 'required|image|mimes:png,jpg,jpeg|max:10000',
+        //             ],
+        //             [
+        //                 'mimes' => 'The :attribute must be a file of type: PNG - JPEG - JPG',
+        //                 'unique' => 'This Brand has already been taken.',
+        //             ],
+
+        //         );
+        //     }
+        //     if ($request->account == 'client') {
+        //         $validator = Validator::make(
+        //             $request->all(),
+        //             [
+        //                 'email' => 'required|unique:clients',
+        //                 'image'   => 'required|image|mimes:png,jpg,jpeg|max:10000',
+        //             ],
+        //             [
+        //                 'mimes' => 'The :attribute must be a file of type: PNG - JPEG - JPG',
+        //                 'unique' => 'This Brand has already been taken.',
+        //             ],
+
+        //         );
+        //     }
+        // }
 
         $user = User::latest()->get();
         Helper::imageDirectory();
@@ -84,31 +109,31 @@ class DealController extends Controller
         } else {
             $data['deal_type'] = 'new';
         }
-        if (($request->account) !== null) {
+        // if (($request->account) !== null) {
 
-            if ($request->account == 'client') {
-                $client_id = Client::insertGetId([
-                    'name'     => $request->name,
-                    'email'    => $request->email,
-                    'phone'    => $request->phone,
-                    'status'   => 'inactive',
-                    'password' => Hash::make($request->password),
-                ]);
-                $data['client_id'] = $client_id;
-            } elseif ($request->account == 'partner') {
-                $partner_id = Partner::insertGetId([
-                    'name'                   => $request->name,
-                    'primary_email_address'  => $request->email,
-                    'phone_number'           => $request->phone,
-                    'status'                 => 'inactive',
-                    'password'               => Hash::make($request->password),
-                ]);
-                $data['partner_id'] = $partner_id;
-            }
-        } else {
+        //     if ($request->account == 'client') {
+        //         $client_id = Client::insertGetId([
+        //             'name'     => $request->name,
+        //             'email'    => $request->email,
+        //             'phone'    => $request->phone,
+        //             'status'   => 'inactive',
+        //             'password' => Hash::make($request->password),
+        //         ]);
+        //         $data['client_id'] = $client_id;
+        //     } elseif ($request->account == 'partner') {
+        //         $partner_id = Partner::insertGetId([
+        //             'name'                   => $request->name,
+        //             'primary_email_address'  => $request->email,
+        //             'phone_number'           => $request->phone,
+        //             'status'                 => 'inactive',
+        //             'password'               => Hash::make($request->password),
+        //         ]);
+        //         $data['partner_id'] = $partner_id;
+        //     }
+        // } else {
             $data['client_id'] =  $request->client_id;
             $data['partner_id'] = $request->partner_id;
-        }
+        // }
         $data['pq_code'] = 'NG' . '-' . date('dmy');
 
         $rfq_code = 'RFQ-' . date('dmy') . Rfq::latest()->value('id');
@@ -251,7 +276,7 @@ class DealController extends Controller
                 Toastr::error($message, 'Failed', ['timeOut' => 30000]);
             }
         }
-        return redirect()->back();
+        return redirect()->route('deal.list');
     }
 
     /**
@@ -374,7 +399,7 @@ class DealController extends Controller
             }
         }
         // return redirect()->route('deal.index');
-        return redirect()->route('rfq-manage.index');
+        return redirect()->route('deal.list');
     }
 
     /**
@@ -503,8 +528,6 @@ class DealController extends Controller
 
 
         $data['invoice_no'] = 'NI-' . date('dmY') . Order::latest()->value('order_number');
-
-
 
 
         //return view('pdf.invoice', $data);

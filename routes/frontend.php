@@ -54,7 +54,6 @@ Route::get('/contact/location', [HomeController::class, 'location'])->name('loca
 Route::get('support', [HomeController::class, 'Support'])->name('support');
 Route::get('/newsletter', [NewsletterController::class, 'newsletter']);
 Route::post('/newsletter/store', [NewsLetterController::class, 'store'])->name('newsletter.store');
-Route::post('/feedback/store', [FeedbackController::class, 'store'])->name('feedback.store');
 
 
 
@@ -138,9 +137,10 @@ Route::get('/techglossy/all', [HomeController::class, 'AllTechGlossy'])->name('a
 Route::get('/techglossy/{id}/details', [HomeController::class, 'TechGlossyDetails'])->name('techglossy.details');
 
 
-Route::resource('feedback', FeedbackController::class)->except([
-    'index', 'edit', 'update'
+Route::resource('client-feedback', FeedbackController::class)->except([
+    'index', 'edit', 'update','store'
 ]);
+Route::post('/feedback/store', [FeedbackController::class, 'store'])->name('feedback.add');
 
 Route::get('/shop.html', [HomeController::class, 'shop_html'])->name('shop.html');
 
@@ -235,6 +235,7 @@ Route::post('cart_store', [App\Http\Controllers\Frontend\CartController::class,'
 
  Route::controller(JobController::class)->group(function () {
     Route::get('/jobs', 'JobOpenings')->name('job.openings');
+    Route::get('/job/apply', 'jobApply')->name('job.apply');
     Route::get('/job-details/{id}', 'JobDetails')->name('job.details');
     Route::get('/job-registration', 'JobRegistration')->name('job.registration');
     Route::post('/job-registration/store', 'JobRegistrationStore')->name('job_registration.store');
@@ -244,7 +245,7 @@ Route::post('cart_store', [App\Http\Controllers\Frontend\CartController::class,'
 
 
 //RFQ
-Route::get('rfq', [HomeController::class, 'rfqCreate'])->name('rfq.create');
+// Route::get('rfq', [HomeController::class, 'rfqCreate'])->name('rfq.create');
 Route::post('rfq/store', [RFQController::class, 'store'])->name('rfq.add');
 Route::get('rfq_common', [HomeController::class, 'RFQCommon'])->name('rfq.common');
 
@@ -257,6 +258,7 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/{id}/products', 'brandProducts')->name('brand.products');
     Route::get('/{id}/pdfs', 'brandPdf')->name('brand.pdf');
     Route::get('/{id}/contents', 'content')->name('brand.content');
-    Route::get('/{id}/contents', 'content')->name('brand.content');
+    // Route::get('/{id}/contents/{id}/details', 'blogDetails')->name('brand.content.details.blog');
+    // Route::get('/{id}/contents/{id}/details', 'storyDetails')->name('brand.content.details.story');
     Route::get('/{slug}/products', 'ajaxBrandProductsPagination')->name('brand.products.pagination');
 });

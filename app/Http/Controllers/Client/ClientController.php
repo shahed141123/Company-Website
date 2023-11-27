@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 use App\Models\Client\Client;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
+use App\Models\Client\CaseAttachment;
+use App\Models\Client\ClientSupport;
+use App\Models\Client\ClientSupportMessage;
+use App\Models\Client\ClientTeam;
+use App\Models\Client\Project;
+use App\Models\Client\ProjectPhase;
+use App\Models\Client\SupportCase;
 use App\Models\Frontend\Order;
 use App\Notifications\ClientRegister;
 use Brian2694\Toastr\Facades\Toastr;
@@ -87,11 +94,23 @@ class ClientController extends Controller
         );
         if ($validator->passes()) {
             $client = Client::create([
-                'name'     => $request->name,
-                'email'    => $request->email,
-                'phone'    => $request->phone,
-                'status'   => 'inactive',
-                'password' => Hash::make($request->password),
+                'name'                     => $request->name,
+                'username'                 => $request->username,
+                'email'                    => $request->email,
+                'client_id'                => $request->client_id,
+                'about'                    => $request->about,
+                'photo'                    => $request->photo,
+                'support_tier'             => $request->support_tier,
+                'support_tier_description' => $request->support_tier_description,
+                'phone'                    => $request->phone,
+                'address'                  => $request->address,
+                'city'                     => $request->city,
+                'country'                  => $request->country,
+                'postal'                   => $request->postal,
+                'last_seen'                => $request->last_seen,
+                'company_name'             => $request->company_name,
+                'status'                   => (!empty($request->status) ? $request->status : 'inactive'),
+                'password'                 => Hash::make($request->password),
             ]);
 
             event(new Registered($client));
@@ -108,44 +127,8 @@ class ClientController extends Controller
         }
     }
 
-    public function ClientDashboard()
-    {
 
-        $data['client'] = Client::findorFail(Auth::guard('client')->user()->id);
-        // dd($data['client']);
-        $data['orders'] = Order::where('client_id', Auth::guard('client')->user()->id)->get();
-        $data['rfqs'] = Rfq::where('client_id', Auth::guard('client')->user()->id)->where('rfq_type', 'deal')->get();
 
-        return view('client.pages.dashboard.index', $data);
-    }
-
-    public function ClientProfile()
-    {
-        if (Auth::guard('client')->user()->id) {
-            $data['data'] = Client::where('id', Auth::guard('client')->user()->id)->first();
-            return view('client.pages.profile.profile', $data);
-        } else {
-            Toastr::error('Login first.');
-            return redirect()->back();
-        }
-    }
-
-    public function ClientTrack()
-    {
-        return view('client.pages.track');
-    } // End Mehtod
-
-    // public function ClientProfileUpdate()
-    // {
-
-    //     if (Auth::guard('client')->user()->id) {
-    //         $data = Client::where('id', Auth::guard('client')->user()->id)->first();
-    //         return view('client.pages.profile_update', compact('data'));
-    //     } else {
-    //         Toastr::error('Login first.');
-    //         return redirect()->back();
-    //     }
-    // }
 
     public function ClientProfileStore(Request $request)
     {
@@ -213,13 +196,14 @@ class ClientController extends Controller
                 $data['photo'] = $profile->photo;
             }
             $employee = $profile->update([
-                'username'    => $request->username,
-                'name'        => $request->name,
-                'phone'       => $request->phone,
-                'country'     => $request->city,
-                'address'     => $request->address,
-                'postal'      => $request->postal,
-                'photo'       => $data['photo'],
+                'username' => $request->username,
+                'name'     => $request->name,
+                'phone'    => $request->phone,
+                'city'     => $request->city,
+                'country'  => $request->country,
+                'address'  => $request->address,
+                'postal'   => $request->postal,
+                'photo'    => $data['photo'],
             ]);
             Toastr::success('Your Profile Updated Successfully');
             return redirect()->back();
@@ -266,7 +250,7 @@ class ClientController extends Controller
         return redirect('/client/login');
     } // End Mehtod
 
-    public function ClientProfileUpdate(Request $request , $id)
+    public function ClientProfileUpdate(Request $request, $id)
     {
 
 
@@ -363,12 +347,68 @@ class ClientController extends Controller
         return redirect('/client/login');
     } // End Mehtod
 
+    public function clientDashboard()
+    {
+        $clientId = json_encode(Auth::guard('client')->user()->id);
+
+        $data = [
+            'projects' => Project::where('client_id', $clientId)
+                ->orWhereJsonContains('team_id', $clientId)
+                ->latest('id')
+                ->get(),
+
+            'client' => Auth::guard('client')->user(),
+            'orders' => Order::where('client_id', $clientId)->get(),
+            'rfqs' => Rfq::where('client_id', $clientId)
+                ->where('rfq_type', 'deal')
+                ->get(),
+        ];
+        // dd($data['projects']);
+
+        return view('frontend.pages.client.dashboard', $data);
+    }
+
+
+    public function ClientProfile()
+    {
+
+        if (Auth::guard('client')->user()->id) {
+
+            $data['data'] = Client::where('id', Auth::guard('client')->user()->id)->first();
+            $requiredFields = [
+                'name', 'username', 'phone', 'email', 'about', 'company_name', 'country', 'address', 'city', 'postal', 'photo',
+            ];
+
+            $completedFields = 0;
+
+            foreach ($requiredFields as $field) {
+                if (!empty($data['data']->$field)) {
+                    $completedFields++;
+                }
+            }
+
+            $data['completionPercentage'] = (round(($completedFields / count($requiredFields)) * 100));
+            // dd($data['completionPercentage']);
+
+            $data['teams'] = ClientTeam::where('client_id', Auth::guard('client')->user()->id)->get();
+            return view('frontend.pages.client.profile', $data);
+        } else {
+            Toastr::error('Login first.');
+            return redirect()->back();
+        }
+    }
+
+    public function ClientTrack()
+    {
+        return view('client.pages.track');
+    } // End Mehtod
 
     public function ClientOrders()
     {
 
         $data['orders'] = Order::where('client_id', Auth::guard('client')->user()->id)->get();
-        return view('client.pages.order.user_order', $data);
+        // return view('client.pages.order.user_order', $data);
+        return view('frontend.pages.client.profile', $data);
     }
 
 
@@ -378,6 +418,168 @@ class ClientController extends Controller
         $data['rfqs'] = Rfq::where('client_id', Auth::guard('client')->user()->id)->where('rfq_type', 'deal')->get();
         return view('client.pages.deal.index', $data);
     }
+    public function projectOverview()
+    {
+        $clientId = json_encode(Auth::guard('client')->user()->id);
+
+        $data = [
+            'projects' => Project::where('client_id', $clientId)
+                ->orWhereJsonContains('team_id', $clientId)
+                ->latest('id')
+                ->get(),
+
+            'supports' => ClientSupport::where('client_id', $clientId)
+                ->orWhereJsonContains('team_id', $clientId)
+                ->latest('id')
+                ->get(),
+
+            'cases' => SupportCase::where('client_id', $clientId)
+                ->orWhereJsonContains('team_id', $clientId)
+                ->latest('id')
+                ->get(),
+            'latest_case' => SupportCase::where('client_id', $clientId)
+                ->orWhereJsonContains('team_id', $clientId)
+                ->latest('id')
+                ->first(),
+        ];
+
+        return view('frontend.pages.client.project_overview', $data);
+    }
+
+    public function clientProject()
+    {
+        $clientId = json_encode(Auth::guard('client')->user()->id);
+        $data = [
+            'projects' => Project::where('client_id', $clientId)
+                ->orWhereJsonContains('team_id', $clientId)
+                ->latest('id')
+                ->get(),
+
+            'supports' => ClientSupport::where('client_id', $clientId)
+                ->orWhereJsonContains('team_id', $clientId)
+                ->latest('id')
+                ->get(),
+
+            'cases' => SupportCase::where('client_id', $clientId)
+                ->orWhereJsonContains('team_id', $clientId)
+                ->latest('id')
+                ->get(),
+        ];
+        return view('frontend.pages.client.project', $data);
+    }
+    public function clientSupport()
+    {
+        $clientId = json_encode(Auth::guard('client')->user()->id);
+        $data = [
+            'projects' => Project::where('client_id', $clientId)
+                ->orWhereJsonContains('team_id', $clientId)
+                ->latest('id')
+                ->get(),
+
+            'supports' => ClientSupport::where('client_id', $clientId)
+                ->orWhereJsonContains('team_id', $clientId)
+                ->latest('id')
+                ->get(),
+
+            'cases' => SupportCase::where('client_id', $clientId)
+                ->orWhereJsonContains('team_id', $clientId)
+                ->latest('id')
+                ->get(),
+        ];
+        return view('frontend.pages.client.support', $data);
+    }
+    public function clientCase()
+    {
+        $clientId = json_encode(Auth::guard('client')->user()->id);
+        $data = [
+            'projects' => Project::where('client_id', $clientId)
+                ->orWhereJsonContains('team_id', $clientId)
+                ->latest('id')
+                ->get(),
+
+            'supports' => ClientSupport::where('client_id', $clientId)
+                ->orWhereJsonContains('team_id', $clientId)
+                ->latest('id')
+                ->get(),
+
+            'cases' => SupportCase::where('client_id', $clientId)
+                ->orWhereJsonContains('team_id', $clientId)
+                ->latest('id')
+                ->get(),
+        ];
+        return view('frontend.pages.client.support_case', $data);
+    }
+
+
+    // public function projectDetails($id)
+    // {
+    //     $data['user'] = Auth::user();
+    //     // Get all clients
+    //     $data['clients'] = Client::all();
+    //     $data['project'] = Project::where('slug', $id)->first();
+    //     $data['phases'] = ProjectPhase::where('project_id', $data['project']->id)->latest('id')->get();
+    //     $data['cases'] = SupportCase::where('project_id', $data['project']->id)->latest('id')->get();
+    //     $data['supports'] = ClientSupport::with('cases')->where('project_id', $data['project']->id)->latest('id')->get();
+    //     return view('frontend.pages.client.project_details', $data);
+    // }
+
+    // public function supportDetails($id)
+    // {
+    //     $data['user'] = Auth::user();
+    //     // Get all clients
+    //     $data['clients'] = Client::all();
+    //     $data['support'] = ClientSupport::with('cases')->where('support_id', $id)->latest('id')->first();
+    //     $data['project'] = Project::where('id', $data['support']->project_id)->first();
+    //     $data['cases'] = SupportCase::where('project_id', $data['project']->id)->latest('id')->get();
+    //     $data['supports'] = ClientSupport::with('cases')->where('project_id', $data['project']->id)->latest('id')->get();
+    //     return view('frontend.pages.client.support_details', $data);
+    // }
+    // public function supportCase($id)
+    // {
+    //     $data['user'] = Auth::user();
+    //     $user = $data['user'];
+    //     // Get all clients
+    //     $data['clients'] = Client::all();
+    //     $data['case'] = SupportCase::where('code', $id)->first();
+    //     // Fetch messages for the authenticated user
+    //     $data['messages'] = ClientSupportMessage::where(function ($query) use ($user) {
+    //         $query->where('sender_id', $user->id)->orWhere('receiver_id', $user->id);
+    //     })->orderBy('created_at')->get();
+    //     return view('frontend.pages.client.support_message', $data);
+    // }
+    public function projectDetails($id)
+    {
+        $data['project'] = Project::where('slug', $id)->firstOrFail();
+        $data['supports'] = ClientSupport::with('cases')->where('project_id', $data['project']->id)->latest('id')->get();
+        // $project = Project::with(['phases', 'cases', 'supports.cases'])->where('slug', $id)->firstOrFail();
+
+        return view('frontend.pages.client.project_details', $data);
+    }
+
+    public function supportDetails($id)
+    {
+        $data = [
+            'support' => ClientSupport::with(['cases', 'project'])->where('support_id', $id)->latest('id')->firstOrFail(),
+        ];
+        // $support = ClientSupport::with(['cases', 'project'])->where('support_id', $id)->latest('id')->firstOrFail();
+
+        return view('frontend.pages.client.support_details', $data);
+    }
+
+    public function supportCase($id)
+    {
+        $user = Auth::guard('client')->user();
+        $teams = ClientTeam::where('client_id', Auth::guard('client')->user()->id)->get();
+        $case = SupportCase::where('code', $id)->firstOrFail();
+        $attachments = CaseAttachment::where('case_id', $case->id)->get();
+        $messages = ClientSupportMessage::with('attachments')->where('case_id', $case->id)->orderBy('created_at')->get();
+
+        return view('frontend.pages.client.support_message', compact('case', 'user', 'messages','attachments','teams'));
+    }
+
+
+
+
     public function ClientRfq()
     {
 

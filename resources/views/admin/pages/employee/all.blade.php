@@ -222,17 +222,9 @@
                                                 <option value="accounts">Accounts</option>
                                                 <option value="site">Site & Contents</option>
                                                 <option value="logistics">Logistics</option>
+                                                <option value="support">Support</option>
                                             </select>
-                                            {{-- <select name="department" class="form-control form-select-sm select"
-                                                data-container-css-class="select-sm"
-                                                data-minimum-results-for-search="Infinity" data-placeholder="Chose Sector"
-                                                required>
-                                                <option></option>
-                                                <option value="business">Business</option>
-                                                <option value="accounts">Accounts</option>
-                                                <option value="site">Site & Contents</option>
-                                                <option value="logistics">Logistics</option>
-                                            </select> --}}
+
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -246,6 +238,7 @@
                                                 <option value="admin">Admin</option>
                                                 <option value="manager">Manager</option>
                                                 <option value="others">Others</option>
+                                                <option value="developer">Support Developer</option>
                                             </select>
                                         </div>
                                     </div>
@@ -379,6 +372,8 @@
                                                     <option value="site" @selected(is_array($employeeIds) && in_array('site', $employeeIds))>Site & Contents</option>
                                                     <option value="logistics" @selected(is_array($employeeIds) && in_array('logistics', $employeeIds))>Logistics
                                                     </option>
+                                                    <option value="support" @selected(is_array($employeeIds) && in_array('support', $employeeIds))>Support
+                                                    </option>
                                                 </select>
 
                                             </div>
@@ -394,6 +389,7 @@
                                                     <option value="admin" @selected($employee->role == 'admin')>Admin</option>
                                                     <option value="manager" @selected($employee->role == 'manager')>Manager</option>
                                                     <option value="others" @selected($employee->role == 'others')>Others</option>
+                                                    <option value="developer" @selected($employee->role == 'developer')>Support Developer</option>
                                                 </select>
                                             </div>
                                         </div>

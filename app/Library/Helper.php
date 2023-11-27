@@ -251,4 +251,26 @@ class Helper
         // Return the output array
         return array_map('htmlspecialchars', $output);
     }
+
+
+    public static function multiAttachment(UploadedFile $file, $uploadPath)
+    {
+        $output = [];
+
+
+        if ($file->isValid()) {
+            $fileName = $file->hashName();
+            $file->storeAs("public/files/{$uploadPath}", $fileName);
+
+            $output = [
+                'status'         => 1,
+                'file_name'      => $fileName,
+                'file_extension' => $file->getClientOriginalExtension(),
+                'file_size'      => $file->getSize(),
+            ];
+        }
+
+
+        return $output;
+    }
 }

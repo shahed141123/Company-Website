@@ -21,8 +21,9 @@ class SalesForcastController extends Controller
      */
     public function index()
     {
+        $data['rfqs'] = Rfq::where('rfq_type' , 'sales')->get();
         $data['salesforcasts'] = SalesForcast::get();
-        return view('admin.pages.salesForcastUpdate.all', $data);
+        return view('admin.pages.salesforcast.all', $data);
     }
 
     /**

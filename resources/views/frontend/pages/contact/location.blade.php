@@ -72,7 +72,7 @@
         <div class="container  py-3">
             <div class="row d-flex justify-content-between align-items-center ">
                 <div class="col-lg-6">
-                    <h2>Ngenit Office Locations</h2>
+                    <h2>NGen IT Office Locations</h2>
                 </div>
                 <div class="col-lg-6 text-end">
                     <select class="country-select" aria-label="Country location list">
@@ -90,13 +90,13 @@
             <div class="row">
                 @if ($locations->count() > 0)
                     @foreach ($locations as $item)
-                        <div class="col-lg-3 col-sm-12">
+                        <div class="col-lg-4 col-6">
                             <div class="">
                                 <h5 class="main_color">
                                     {{ App\Models\Admin\Country::where('id', 'country_id')->value('country_name') }}</h5>
-                                <span>{{ $item->name }}</span><br>
-                                <span>{{ $item->address }}</span><br>
-                                <span>{{ $item->whatsapp_number }}</span>
+                                <h5 class="fw-bold mb-1">{{ $item->name }}</h5>
+                                <p class="pb-0 mb-1">{{ $item->address }}</p>
+                                <p class="pb-0 mb-1">{{ $item->whatsapp_number }}</p>
                             </div>
                         </div>
                     @endforeach
@@ -141,7 +141,7 @@
                         'continuousWorld': false, // Prevent map repeating when zoomed out
                     }).setView([0, 0], 2);
 
-        
+
 
 
 
@@ -151,8 +151,8 @@
             noWrap: true,
         }).addTo(map);
 
-        
-        // Dynamic marker data (replace with your data) 
+
+        // Dynamic marker data (replace with your data)
         var countries = @json($countries);
         countries.forEach(function(country) {
             var geocodeUrl = 'https://api.opencagedata.com/geocode/v1/json?q=' + encodeURIComponent(country
@@ -171,6 +171,6 @@
                 .catch(error => console.error('Error:', error));
         });
 
-        
+
     </script>
 @endsection

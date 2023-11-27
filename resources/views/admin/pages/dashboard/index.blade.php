@@ -17,9 +17,9 @@
             color: #ae0a46;
         }
 
-        .site_color {
+        /* .site_color {
             color: #ae0a46;
-        }
+        } */
 
         .site_bg_color {
             background-color: #ae0a46;
@@ -82,9 +82,8 @@
         <!-- Content area -->
         <div class="container-fluid">
             <div class="row py-2">
-                <h5 class="mb-0 text-center mx-auto site_color rounded-0"
-                    style="border-bottom: 1px solid #ae0a46; width: 13%; background: #ae0a46;
-                color: white;">
+                <h5 class="mb-0 text-center mx-auto rounded-0"
+                    style="border-bottom: 1px solid #ae0a46; width:13%; background:#ae0a46; color:white;">
                     All Notification</h5>
             </div>
             <div class="row gx-1">
@@ -97,15 +96,15 @@
                                         class=" mb-0 pt-2 text-center">Logistic</h6>
                                     <div class="card notification_card rounded-0 p-2">
                                         <div class="mt-1">
-                                            <a href="" class="d-flex justify-content-between notification_link_area">
+                                            <a href="{{ route('purchase.index') }}" class="d-flex justify-content-between notification_link_area">
                                                 <span>Purchase</span>
-                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">0</span>
                                             </a>
                                         </div>
                                         <div class="mt-1">
                                             <a href="" class="d-flex justify-content-between notification_link_area">
                                                 <span>Pending Delivery</span>
-                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">0</span>
                                             </a>
                                         </div>
                                     </div>
@@ -127,7 +126,7 @@
                                         <div class="mt-1">
                                             <a href="{{ route('product-sourcing.index') }}"
                                                 class="d-flex justify-content-between link_area">
-                                                <span>Product Approval Pending</span>
+                                                <span>Approval Pending</span>
                                                 <span
                                                     class="badge site_bg_color rounded-0 ms-3">{{ App\Models\Admin\Product::where('action_status', 'seek_approval')->count() }}</span>
                                             </a>
@@ -149,27 +148,27 @@
                                         class=" mb-0 pt-2 text-center">Sales</h6>
                                     <div class="card notification_card rounded-0 p-2">
                                         <div class="mt-1">
-                                            <a href="" class="d-flex justify-content-between notification_link_area">
-                                                <span>RFQ</span>
-                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            <a href="{{route('rfq.list')}}" class="d-flex justify-content-between notification_link_area">
+                                                <span>Pending RFQ</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3"> {{ App\Models\Admin\Rfq::where('rfq_type' , 'rfq')->count() }} </span>
                                             </a>
                                         </div>
                                         <div class="mt-1">
-                                            <a href="" class="d-flex justify-content-between notification_link_area">
-                                                <span>Work Order</span>
-                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            <a href="{{route('deal.list')}}" class="d-flex justify-content-between notification_link_area">
+                                                <span>Pending Work Order</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3"> {{ App\Models\Admin\Rfq::where('status' , 'workorder_uploaded')->count() }} </span>
                                             </a>
                                         </div>
                                         <div class="mt-1">
-                                            <a href="" class="d-flex justify-content-between notification_link_area">
+                                            <a href="{{ route('sales-forcast.index') }}" class="d-flex justify-content-between notification_link_area">
                                                 <span>Sales Report</span>
-                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">0</span>
                                             </a>
                                         </div>
                                         <div class="mt-1">
                                             <a href="" class="d-flex justify-content-between notification_link_area">
                                                 <span>Deal Register</span>
-                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">0</span>
                                             </a>
                                         </div>
                                     </div>
@@ -187,15 +186,27 @@
                                         class=" mb-0 pt-2 text-center">CRM Main </h6>
                                     <div class="card notification_card rounded-0 p-2">
                                         <div class="mt-1">
-                                            <a href="" class="d-flex justify-content-between notification_link_area">
-                                                <span>Chat</span>
-                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                            <a href="{{route('contact.index')}}" class="d-flex justify-content-between notification_link_area">
+                                                <span>Contact</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">
+                                                    {{App\Models\Admin\Contact::count()}}
+                                                </span>
                                             </a>
                                         </div>
                                         <div class="mt-1">
-                                            <a href="" class="d-flex justify-content-between notification_link_area">
+                                            <a href="{{route('client-support.index')}}" class="d-flex justify-content-between notification_link_area">
                                                 <span>Support</span>
-                                                <span class="badge site_bg_color rounded-0 ms-3">15</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">
+                                                    {{App\Models\Client\ClientSupport::count()}}
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="mt-1">
+                                            <a href="{{route('support-case.index')}}" class="d-flex justify-content-between notification_link_area">
+                                                <span>Support Cases</span>
+                                                <span class="badge site_bg_color rounded-0 ms-3">
+                                                    {{App\Models\Client\SupportCase::count()}}
+                                                </span>
                                             </a>
                                         </div>
                                     </div>
@@ -534,7 +545,7 @@
                                 </a>
                                 {{-- <span class="text-muted">Until {{ Carbon\Carbon::now()->format('d-m-Y') }}</span> --}}
                             </div>
-                            <a href="{{ route('rfq-manage.index') }}">
+                            <a href="{{ route('rfq.list') }}">
                                 <button type="button" class="btn  rounded-circle dashboard_btn"
                                     style="width: 30px; height: 30px">
                                     <i style="color: #247297" class="fa-solid fa-badge-percent fs-4 p-1"></i>
@@ -542,14 +553,14 @@
                             </a>
                         </div>
                         <div class="box_details">
-                            <a href="{{ route('rfq-manage.index') }}">
+                            <a href="{{ route('rfq.list') }}">
                                 <span class="float-end">RFQ :
                                     {{ App\Models\Admin\Rfq::where('rfq_type', 'rfq')->count() }}</span> Deal :
                                 {{ App\Models\Admin\Rfq::where('rfq_type', 'deal')->count() }}
                             </a>
                         </div>
                         <div class="box_details">
-                            <a href="{{ route('rfq-manage.index') }}">
+                            <a href="{{ route('rfq.list') }}">
                                 <span class="float-end">Deal :
                                     {{ App\Models\Admin\Rfq::where('rfq_type', 'deal')->whereDate('create_date', Carbon\Carbon::today())->count() }}
                                     <span>RFQ :
@@ -557,7 +568,7 @@
                                 </span> Today's </a>
                         </div>
                         <div class="box_details">
-                            <a href="{{ route('rfq-manage.index') }}">
+                            <a href="{{ route('rfq.list') }}">
                                 <span class="float-end">Deal :
                                     {{ App\Models\Admin\Rfq::where('rfq_type', 'deal')->whereMonth('create_date', Carbon\Carbon::now()->month)->count() }}
                                     <span>RFQ :

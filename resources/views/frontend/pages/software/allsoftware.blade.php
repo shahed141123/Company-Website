@@ -421,7 +421,7 @@
                                             id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                             @foreach ($categories as $key => $item)
                                                 @if (count($item->subCatsoftwareProducts) > 0)
-                                                    <a class="nav-link dicover_tab_sub rounded-0 {{ ($key == 0) ? 'active' : '' }}"
+                                                    <a class="nav-link dicover_tab_sub rounded-0 {{ $key == 0 ? 'active' : '' }}"
                                                         id="v-pills-home-tab" data-toggle="pill"
                                                         href="#category-{{ $item->id }}" role="tab"
                                                         aria-controls="v-pills-home" aria-selected="true">
@@ -437,7 +437,7 @@
                                         <div class="tab-content p-0" id="v-pills-tabContent">
                                             @foreach ($categories as $key => $item)
                                                 @if (count($item->subCatsoftwareProducts) > 0)
-                                                    <div class="tab-pane fade p-2 rounded-0 bg-white {{ ($key == 0) ? 'active show' : '' }}"
+                                                    <div class="tab-pane fade p-2 rounded-0 bg-white {{ $key == 0 ? 'active show' : '' }}"
                                                         id="category-{{ $item->id }}" role="tabpanel"
                                                         aria-labelledby="v-pills-profile-tab">
                                                         <div class="panel">
@@ -457,162 +457,80 @@
                                                                 </div>
                                                             </div>
                                                             <div class="panel-body table-responsive">
-                                                                <div id="product-table">
-                                                                    <table class="table productDT">
+                                                                <div class="table-responsive">
+                                                                    <table class="table productDT2">
+                                                                        <thead>
+
+                                                                        </thead>
                                                                         <tbody>
+
                                                                             @foreach ($item->subCatsoftwareProducts as $key => $product)
-                                                                                <tr>
-                                                                                    <td>{{ ++$key }}</td>
-                                                                                    <td class="text-left px-2">
-                                                                                        <a
-                                                                                            href="{{ route('product.details', $product->slug) }}">{{ Str::limit($product->name, 70) }}</a>
-                                                                                    </td>
-                                                                                    <td class="text-left">
-                                                                                        <small
-                                                                                            style="font-size:8px;">USD</small>
-                                                                                        <strong>${{ number_format($product->price, 2) }}</strong>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            @endforeach
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
+                                                                                @if ($key === 12)
+                                                                                @break
+                                                                            @endif
+                                                                            <tr>
+                                                                                <td>{{ ++$key }}</td>
+                                                                                <td class="text-left px-2">
+                                                                                    <a
+                                                                                        href="{{ route('product.details', $product->slug) }}">{{ Str::limit($product->name, 70) }}</a>
+                                                                                </td>
+                                                                                <td class="text-left">
+                                                                                    <small
+                                                                                        style="font-size:8px;">USD</small>
+                                                                                    <strong>${{ number_format($product->price, 2) }}</strong>
+                                                                                </td>
+                                                                            </tr>
+                                                                        @endforeach
+                                                                    </tbody>
+                                                                </table>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                @endif
-                                            @endforeach
-                                        </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
                                     </div>
-
                                 </div>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="tab-pane" id="brand">
-                        {{-- Brand Sub Tab --}}
-                        <section>
-                            <div class="container p-0">
-                                <div class="row gx-0">
-                                    <div class="col-md-3">
-                                        <!-- Tabs nav -->
-                                        <div class="nav flex-column nav-pills nav-pills-custom bg-white active"
-                                            id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                            @foreach ($brands as $key => $item)
-                                                @if (count($item->brandsoftwareProducts) > 0)
-                                                    <a class="nav-link dicover_tab_sub rounded-0 {{ ($key == 0) ? 'active' : '' }}"
-                                                        id="v-pills-home-tab" data-toggle="pill"
-                                                        href="#category-{{ $item->id }}" role="tab"
-                                                        aria-controls="v-pills-home" aria-selected="true">
-                                                        <span
-                                                            class="font-weight-bold small text-uppercase text-start">{{ $item->title }}</span>
-                                                    </a>
-                                                @endif
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9 p-0">
-                                        <!-- Tabs content -->
-                                        <div class="tab-content p-0" id="v-pills-tabContent">
-                                            @foreach ($brands as $key => $item)
-                                                @if (count($item->brandsoftwareProducts) > 0)
-                                                    <div class="tab-pane fade p-2 rounded-0 bg-white {{ ($key == 0) ? 'active show' : '' }}"
-                                                        id="category-{{ $item->id }}" role="tabpanel"
-                                                        aria-labelledby="v-pills-profile-tab">
-                                                        <div class="panel">
-                                                            <div class="panel-heading">
-                                                                <div
-                                                                    class="row p-0 d-flex justify-content-center align-items-center">
-                                                                    <div class="col-lg-9">
-                                                                    </div>
-                                                                    <div class="col-lg-3 text-right">
-                                                                        <form action=" ">
-                                                                            <div class="btn_group">
-                                                                                <input type="text" class="form-control"
-                                                                                    placeholder="Search">
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="panel-body table-responsive">
-                                                                <div id="product-table">
-                                                                    <table class="table productDT">
-                                                                        <tbody>
-                                                                            @foreach ($item->brandsoftwareProducts as $key => $product)
-                                                                                <tr>
-                                                                                    <td>{{ ++$key }}</td>
-                                                                                    <td class="text-left px-2">
-                                                                                        <a
-                                                                                            href="{{ route('product.details', $product->slug) }}">{{ Str::limit($product->name, 70) }}</a>
-                                                                                    </td>
-                                                                                    <td class="text-left">
-                                                                                        <small
-                                                                                            style="font-size:8px;">USD</small>
-                                                                                        <strong>${{ number_format($product->price, 2) }}</strong>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            @endforeach
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endif
-                                            @endforeach
-                                        </div>
-                                    </div>
 
-                                </div>
                             </div>
-                        </section>
-                    </div>
-                    <div class="tab-pane" id="industry">
-                        {{-- Industry Sub Tab --}}
-                        <section>
-                            <div class="container p-0">
-                                <div class="row gx-0">
-                                    <div class="col-md-3">
-                                        <!-- Tabs nav -->
-                                        <div class="nav flex-column nav-pills nav-pills-custom bg-white" id="v-pills-tab"
-                                            role="tablist" aria-orientation="vertical">
-                                            @foreach ($industrys as $indkey => $item)
-                                                <a class="nav-link dicover_tab_sub rounded-0 {{ $indkey ===  0 ? 'active' : '' }}"
+                        </div>
+                    </section>
+                </div>
+                <div class="tab-pane" id="brand">
+                    {{-- Brand Sub Tab --}}
+                    <section>
+                        <div class="container p-0">
+                            <div class="row gx-0">
+                                <div class="col-md-3">
+                                    <!-- Tabs nav -->
+                                    <div class="nav flex-column nav-pills nav-pills-custom bg-white active"
+                                        id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                        @foreach ($brands as $key => $item)
+                                            @if (count($item->brandsoftwareProducts) > 0)
+                                                <a class="nav-link dicover_tab_sub rounded-0 {{ $key == 0 ? 'active' : '' }}"
                                                     id="v-pills-home-tab" data-toggle="pill"
-                                                    href="#industry-{{ $item->id }}" role="tab"
+                                                    href="#category-{{ $item->id }}" role="tab"
                                                     aria-controls="v-pills-home" aria-selected="true">
                                                     <span
-                                                        class="font-weight-bold small text-uppercase">{{ $item->title }}
-                                                    </span>
+                                                        class="font-weight-bold small text-uppercase text-start">{{ $item->title }}</span>
                                                 </a>
-                                            @endforeach
-
-
-                                        </div>
+                                            @endif
+                                        @endforeach
                                     </div>
-                                    <div class="col-md-9 p-0">
-                                        <!-- Tabs content -->
-                                        <div class="tab-content p-0" id="v-pills-tabContent">
-                                            @foreach ($industrys as $indkey => $item)
-                                                @php
-                                                    $product_ids = App\Models\Admin\MultiIndustry::where('industry_id', $item->id)->pluck('product_id');
-                                                    $industry_products = App\Models\Admin\Product::whereIn('id', $product_ids)
-                                                        ->where('product_status', 'product')
-                                                        ->where('product_type', 'software')
-                                                        ->get(['id', 'name', 'price', 'slug']);
-                                                    $industry_product_count = count($industry_products);
-                                                @endphp
-                                                {{-- @if ($industry_product_count > 0) --}}
-                                                <div class="tab-pane fade rounded-0 p-2 bg-white {{ $indkey === 0 ? 'active show' : '' }}"
-                                                    id="industry-{{ $item->id }}" role="tabpanel"
+                                </div>
+                                <div class="col-md-9 p-0">
+                                    <!-- Tabs content -->
+                                    <div class="tab-content p-0" id="v-pills-tabContent">
+                                        @foreach ($brands as $key => $item)
+                                            @if (count($item->brandsoftwareProducts) > 0)
+                                                <div class="tab-pane fade p-2 rounded-0 bg-white {{ $key == 0 ? 'active show' : '' }}"
+                                                    id="category-{{ $item->id }}" role="tabpanel"
                                                     aria-labelledby="v-pills-profile-tab">
                                                     <div class="panel">
-                                                        <div class="panel-heading pt-2">
+                                                        <div class="panel-heading">
                                                             <div
                                                                 class="row p-0 d-flex justify-content-center align-items-center">
                                                                 <div class="col-lg-9">
-
                                                                 </div>
                                                                 <div class="col-lg-3 text-right">
                                                                     <form action=" ">
@@ -624,482 +542,605 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                         <div class="panel-body table-responsive">
                                                             <div id="product-table">
-                                                                <table class="table productDT">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th width="5%">Sl</th>
-                                                                            <th width="77%">Product Name
-                                                                            </th>
-                                                                            <th width="18%">Price</th>
-                                                                        </tr>
-                                                                    </thead>
+                                                                <table class="table productDT3">
                                                                     <tbody>
-
-                                                                        @if ($industry_product_count > 0)
-                                                                            @foreach ($industry_products as $key => $item)
-                                                                                <tr>
-                                                                                    <td>{{ ++$key }}
-                                                                                    </td>
-                                                                                    <td class="text-left">
-                                                                                        <a
-                                                                                            href="{{ route('product.details', $item->slug) }}">
-                                                                                            {{ Str::limit($item->name, 80) }}
-                                                                                        </a>
-                                                                                    </td>
-                                                                                    <td class="text-left">
-                                                                                        <small
-                                                                                            style="font-size:8px;">USD</small>
-                                                                                        <strong>$
-                                                                                            {{ number_format($item->price, 2) }}</strong>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            @endforeach
-                                                                        @else
-                                                                            <tr>
-                                                                                <h6 class="text-cnter">No Product Available
-                                                                                </h6>
-                                                                            </tr>
+                                                                        @foreach ($item->brandsoftwareProducts as $key => $product)
+                                                                            @if ($key === 12)
+                                                                            @break
                                                                         @endif
-
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
+                                                                        <tr>
+                                                                            <td>{{ ++$key }}</td>
+                                                                            <td class="text-left px-2">
+                                                                                <a
+                                                                                    href="{{ route('product.details', $product->slug) }}">{{ Str::limit($product->name, 70) }}</a>
+                                                                            </td>
+                                                                            <td class="text-left">
+                                                                                <small
+                                                                                    style="font-size:8px;">USD</small>
+                                                                                <strong>${{ number_format($product->price, 2) }}</strong>
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tbody>
+                                                            </table>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {{-- @else --}}
-
-                                                {{-- @endif --}}
-                                            @endforeach
-                                        </div>
-                                    </div>
+                                            </div>
+                                        @endif
+                                    @endforeach
                                 </div>
                             </div>
-                        </section>
+
+                        </div>
                     </div>
-                    <div class="tab-pane" id="solution">
-                        {{-- Solution Sub Tab --}}
-                        <section>
-                            <div class="container p-0">
-                                <div class="row gx-0">
-                                    <div class="col-md-3">
-                                        <!-- Tabs nav -->
-                                        <div class="nav flex-column nav-pills nav-pills-custom bg-white" id="v-pills-tab"
-                                            role="tablist" aria-orientation="vertical">
-                                            @foreach ($solutions as $solkey => $item)
-                                                @php
-                                                    $solution_products = $item->solutionsoftwareProducts; // Eager load the associated products with product_status and product_type filters applied
-                                                    $solution_product_count = count($solution_products);
-                                                @endphp
+                </section>
+            </div>
+            <div class="tab-pane" id="industry">
+                {{-- Industry Sub Tab --}}
+                <section>
+                    <div class="container p-0">
+                        <div class="row gx-0">
+                            <div class="col-md-3">
+                                <!-- Tabs nav -->
+                                <div class="nav flex-column nav-pills nav-pills-custom bg-white" id="v-pills-tab"
+                                    role="tablist" aria-orientation="vertical">
+                                    @foreach ($industrys as $indkey => $item)
+                                        <a class="nav-link dicover_tab_sub rounded-0 {{ $indkey === 0 ? 'active' : '' }}"
+                                            id="v-pills-home-tab" data-toggle="pill"
+                                            href="#industry-{{ $item->id }}" role="tab"
+                                            aria-controls="v-pills-home" aria-selected="true">
+                                            <span
+                                                class="font-weight-bold small text-uppercase">{{ $item->title }}
+                                            </span>
+                                        </a>
+                                    @endforeach
 
 
-                                                <a class="nav-link dicover_tab_sub rounded-0 {{ $solkey === 0 ? 'active' : '' }}"
-                                                    id="v-pills-home-tab" data-toggle="pill"
-                                                    href="#solution-{{ $item->id }}" role="tab"
-                                                    aria-controls="v-pills-home" aria-selected="true">
-                                                    <span
-                                                        class="font-weight-bold small text-uppercase">{{ $item->name }}</span>
-                                                </a>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9 p-0">
-                                        <!-- Tabs content -->
-                                        <div class="tab-content p-0" id="v-pills-tabContent">
-                                            @foreach ($solutions as $solkey => $item)
-                                                {{-- @if ($solution_product_count > 0) --}}
-                                                <div class="tab-pane fade rounded-0 p-2 bg-white {{ $solkey === 0 ? 'active show' : '' }}"
-                                                    id="solution-{{ $item->id }}" role="tabpanel"
-                                                    aria-labelledby="v-pills-profile-tab">
-                                                    <div class="panel">
-                                                        <div class="panel">
-                                                            <div class="panel-heading pt-2">
-                                                                <div
-                                                                    class="row p-0 d-flex justify-content-center align-items-center">
-                                                                    <div class="col-lg-9">
+                                </div>
+                            </div>
+                            <div class="col-md-9 p-0">
+                                <!-- Tabs content -->
+                                <div class="tab-content p-0" id="v-pills-tabContent">
+                                    @foreach ($industrys as $indkey => $item)
+                                        @php
+                                            $product_ids = App\Models\Admin\MultiIndustry::where('industry_id', $item->id)->pluck('product_id');
+                                            $industry_products = App\Models\Admin\Product::whereIn('id', $product_ids)
+                                                ->where('product_status', 'product')
+                                                ->where('product_type', 'software')
+                                                ->limit(12)
+                                                ->get(['id', 'name', 'price', 'slug']);
+                                            $industry_product_count = count($industry_products);
+                                        @endphp
+                                        {{-- @if ($industry_product_count > 0) --}}
+                                        <div class="tab-pane fade rounded-0 p-2 bg-white {{ $indkey === 0 ? 'active show' : '' }}"
+                                            id="industry-{{ $item->id }}" role="tabpanel"
+                                            aria-labelledby="v-pills-profile-tab">
+                                            <div class="panel">
+                                                <div class="panel-heading pt-2">
+                                                    <div
+                                                        class="row p-0 d-flex justify-content-center align-items-center">
+                                                        <div class="col-lg-9">
 
-                                                                    </div>
-                                                                    <div class="col-lg-3 text-right">
-                                                                        <form action=" ">
-                                                                            <div class="btn_group">
-                                                                                <input type="text" class="form-control"
-                                                                                    placeholder="Search">
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
+                                                        </div>
+                                                        <div class="col-lg-3 text-right">
+                                                            <form action=" ">
+                                                                <div class="btn_group">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Search">
                                                                 </div>
-                                                            </div>
-
-                                                            <div class="panel-body table-responsive">
-                                                                <div id="product-table">
-                                                                    <table class="table productDT">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th width="5%">Sl</th>
-                                                                                <th width="77%">Product Name</th>
-                                                                                <th width="18%">Price</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody>
-
-                                                                            @if ($solution_product_count > 0)
-                                                                                @foreach ($solution_products as $key => $item)
-                                                                                    <tr>
-                                                                                        <td>{{ ++$key }}
-                                                                                        </td>
-                                                                                        <td class="text-left">
-                                                                                            <a
-                                                                                                href="{{ route('product.details', $item->slug) }}">
-                                                                                                {{ Str::limit($item->name, 80) }}
-                                                                                            </a>
-                                                                                        </td>
-                                                                                        <td class="text-left">
-                                                                                            <small
-                                                                                                style="font-size:8px;">USD</small>
-                                                                                            <strong>$
-                                                                                                {{ number_format($item->price, 2) }}</strong>
-                                                                                        </td>
-
-                                                                                    </tr>
-                                                                                @endforeach
-                                                                            @else
-                                                                                <tr>
-                                                                                    <h6 class="text-cnter">No Product
-                                                                                        Available</h6>
-                                                                                </tr>
-                                                                            @endif
-
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {{-- @endif --}}
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Tabs with icons on Card -->
-    </div>
-    <!---------End -------->
 
+                                                <div class="panel-body table-responsive">
+                                                    <div id="product-table">
+                                                        <table class="table productDT4">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th width="5%">Sl</th>
+                                                                    <th width="77%">Product Name
+                                                                    </th>
+                                                                    <th width="18%">Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
 
-    <section class="container mt-4 mb-5">
-        <div class="software_feature_title pb-3">
-            <h1 class="text-center ">Empowering Security Practitioners: Rapid7's Comprehensive Solutions</h1>
-        </div>
-        <div class="row d-flex justify-content-start align-items-center">
-            <div class="col-lg-6 col-sm-6">
+                                                                @if ($industry_product_count > 0)
+                                                                    @foreach ($industry_products as $key => $item)
+                                                                        <tr>
+                                                                            <td>{{ ++$key }}
+                                                                            </td>
+                                                                            <td class="text-left">
+                                                                                <a
+                                                                                    href="{{ route('product.details', $item->slug) }}">
+                                                                                    {{ Str::limit($item->name, 80) }}
+                                                                                </a>
+                                                                            </td>
+                                                                            <td class="text-left">
+                                                                                <small
+                                                                                    style="font-size:8px;">USD</small>
+                                                                                <strong>$
+                                                                                    {{ number_format($item->price, 2) }}</strong>
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endforeach
+                                                                @else
+                                                                    <tr>
+                                                                        <h6 class="text-cnter">No Product Available
+                                                                        </h6>
+                                                                    </tr>
+                                                                @endif
 
-                <iframe width="100%" height="300" src="https://www.youtube.com/embed/NMWF6tskH3M?autoplay=1&mute=1"
-                    title="Our Expertise" frameborder="0"
-                    allow="autoplay; fullscreen; picture-in-picture; camera; microphone; display-capture" allowfullscreen
-                    allowtransparency="true" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- @else --}}
 
-            </div>
-            <div class="col-lg-6 col-sm-6">
-                <div class="home_title">
-                    <h5 class="home_title_heading" style="text-align: left;"> Cloud Risk Management, Managed Threat
-                        Services, and More for Enhanced Readiness and Remediation </h5>
-                    <p class="home_title_text" style="text-align: left;">Rapid7 offers practitioner-first security
-                        solutions, including cloud risk management and managed threat services.
-                        They provide unlimited automated workflows, vulnerability management, and application security.
-                        Their platform focuses on improving readiness, responsiveness, remediation, and delivering results.
-                        Rapid7 also offers real-time analysis, security news, and research through their blog.</p>
-                    <div class="business_seftion_button d-flex justify-content-start">
-                        <a class="common_button2" href="product_filters.html">Talk to a specialist</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--======// our clint tab //======-->
-    <section class="clint_tab_section">
-        <div class="container">
-            <div class="clint_tab_content pb-3">
-                <!-- home title -->
-                <div class="home_title mt-3">
-                    <div class="software_feature_title">
-                        <h1 class="text-center ">Contents</h1>
-                    </div>
-                    <p class="home_title_text">Discover how our expertise has benefited organizations of <span
-                            class="font-weight-bold">all sizes and industries</span>
-                        <br> by maximizing the value of their IT solutions, leveraging emerging technologies, and creating
-                        innovative experiences.
-                    </p>
-                </div>
-                <!-- Client Tab Start -->
-                @if (!empty($story1) && !empty($story2) && !empty($story3))
-                    <div class="row">
-                        <div class="col-xs-12 ">
-                            <nav>
-                                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                    <a class="nav-item nav-link active" id="nav-healthcare" data-toggle="tab"
-                                        href="#nav-home" role="tab" aria-controls="nav-home"
-                                        aria-selected="true">{{ $story1->badge }}</a>
-                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
-                                        href="#nav-profile" role="tab" aria-controls="nav-profile"
-                                        aria-selected="false">{{ $story2->badge }}</a>
-                                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
-                                        href="#nav-contact" role="tab" aria-controls="nav-contact"
-                                        aria-selected="false">{{ $story3->badge }}</a>
-                                    <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about"
-                                        role="tab" aria-controls="nav-about"
-                                        aria-selected="false">{{ $story4->badge }}</a>
-                                </div>
-                            </nav>
-                            @php
-                                $tags_1 = explode(',', $story1->tags);
-                                $tags_2 = explode(',', $story2->tags);
-                                $tags_3 = explode(',', $story3->tags);
-                                $tags_4 = explode(',', $story4->tags);
-                            @endphp
-                            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                    aria-labelledby="nav-healthcare">
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
-                                            <div class="tab_side_image">
-                                                <img src="{{ asset('storage/' . $story1->image) }}" alt=""
-                                                    style="height: 230px;">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-6 col-sm-12">
-                                            <h5 class="home_title_heading" style="text-align: left;">{{ $story1->title }}
-                                            </h5>
-                                            <p>{{ $story1->header }}</p>
-                                            <div class="home_card_button p-2">
-                                                <a class="effect01" href="{{ route('blog.details', $story1->id) }}">Read
-                                                    more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                    aria-labelledby="nav-profile-tab">
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
-                                            <div class="tab_side_image">
-                                                <img src="{{ asset('storage/' . $story2->image) }}" alt=""
-                                                    style="height: 230px;">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-6 col-sm-12">
-                                            <h5 class="home_title_heading" style="text-align: left;">{{ $story2->title }}
-                                            </h5>
-                                            <p>{{ $story2->header }}</p>
-                                            <div class="home_card_button p-2">
-                                                <a class="effect01" href="{{ route('blog.details', $story2->id) }}">Read
-                                                    more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="nav-contact" role="tabpanel"
-                                    aria-labelledby="nav-contact-tab">
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
-                                            <div class="tab_side_image">
-                                                <img src="{{ asset('storage/' . $story3->image) }}" alt=""
-                                                    style="height: 230px;">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-6 col-sm-12">
-                                            <h5 class="home_title_heading" style="text-align: left;">{{ $story3->title }}
-                                            </h5>
-                                            <p>{{ $story3->header }}</p>
-                                            <div class="home_card_button p-2">
-                                                <a class="effect01" href="{{ route('story.details', $story3->id) }}">Read
-                                                    more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="nav-contact" role="tabpanel"
-                                    aria-labelledby="nav-contact-tab">
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
-                                            <div class="tab_side_image">
-                                                <img src="{{ asset('storage/' . $story4->image) }}" alt=""
-                                                    style="height: 230px;">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-6 col-sm-12">
-                                            <h5 class="home_title_heading" style="text-align: left;">{{ $story4->title }}
-                                            </h5>
-                                            <p>{{ $story4->header }}</p>
-                                            <div class="home_card_button p-2">
-                                                <a class="effect01" href="{{ route('story.details', $story4->id) }}">Read
-                                                    more</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        {{-- @endif --}}
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endif
-                <!-- Client Tab End -->
+                </section>
             </div>
+            <div class="tab-pane" id="solution">
+                {{-- Solution Sub Tab --}}
+                <section>
+                    <div class="container p-0">
+                        <div class="row gx-0">
+                            <div class="col-md-3">
+                                <!-- Tabs nav -->
+                                <div class="nav flex-column nav-pills nav-pills-custom bg-white" id="v-pills-tab"
+                                    role="tablist" aria-orientation="vertical">
+                                    @foreach ($solutions as $solkey => $item)
+                                        @php
+                                            $solution_products = $item->solutionsoftwareProducts; // Eager load the associated products with product_status and product_type filters applied
+                                            $solution_product_count = count($solution_products);
+                                        @endphp
+
+
+                                        <a class="nav-link dicover_tab_sub rounded-0 {{ $solkey === 0 ? 'active' : '' }}"
+                                            id="v-pills-home-tab" data-toggle="pill"
+                                            href="#solution-{{ $item->id }}" role="tab"
+                                            aria-controls="v-pills-home" aria-selected="true">
+                                            <span
+                                                class="font-weight-bold small text-uppercase">{{ $item->name }}</span>
+                                        </a>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="col-md-9 p-0">
+                                <!-- Tabs content -->
+                                <div class="tab-content p-0" id="v-pills-tabContent">
+                                    @foreach ($solutions as $solkey => $item)
+                                        {{-- @if ($solution_product_count > 0) --}}
+                                        <div class="tab-pane fade rounded-0 p-2 bg-white {{ $solkey === 0 ? 'active show' : '' }}"
+                                            id="solution-{{ $item->id }}" role="tabpanel"
+                                            aria-labelledby="v-pills-profile-tab">
+                                            <div class="panel">
+                                                <div class="panel">
+                                                    <div class="panel-heading pt-2">
+                                                        <div
+                                                            class="row p-0 d-flex justify-content-center align-items-center">
+                                                            <div class="col-lg-9">
+
+                                                            </div>
+                                                            <div class="col-lg-3 text-right">
+                                                                <form action=" ">
+                                                                    <div class="btn_group">
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="Search">
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel-body table-responsive">
+                                                        <div id="product-table">
+                                                            <table class="table productDT0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th width="5%">Sl</th>
+                                                                        <th width="77%">Product Name</th>
+                                                                        <th width="18%">Price</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                    @if ($solution_product_count > 0)
+                                                                        @foreach ($solution_products as $key => $item)
+                                                                            @if ($key === 12)
+                                                                            @break
+                                                                        @endif
+                                                                        <tr>
+                                                                            <td>{{ ++$key }}
+                                                                            </td>
+                                                                            <td class="text-left">
+                                                                                <a
+                                                                                    href="{{ route('product.details', $item->slug) }}">
+                                                                                    {{ Str::limit($item->name, 80) }}
+                                                                                </a>
+                                                                            </td>
+                                                                            <td class="text-left">
+                                                                                <small
+                                                                                    style="font-size:8px;">USD</small>
+                                                                                <strong>$
+                                                                                    {{ number_format($item->price, 2) }}</strong>
+                                                                            </td>
+
+                                                                        </tr>
+                                                                    @endforeach
+                                                                @else
+                                                                    <tr>
+                                                                        <h6 class="text-cnter">No Product
+                                                                            Available</h6>
+                                                                    </tr>
+                                                                @endif
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- @endif --}}
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
-    <!---------End -------->
-    <!--=====// Global call section //=====-->
-    @if (!empty($learnmore))
-        <section class="global_call_section section_padding">
-            <div class="container">
-                <!-- content -->
+    </div>
+</div>
+</div>
+<!-- End Tabs with icons on Card -->
+</div>
+<!---------End -------->
+
+
+<section class="container mt-4 mb-5">
+<div class="software_feature_title pb-3">
+<h1 class="text-center ">Empowering Security Practitioners: Rapid7's Comprehensive Solutions</h1>
+</div>
+<div class="row d-flex justify-content-start align-items-center">
+<div class="col-lg-6 col-sm-6">
+
+    <iframe width="100%" height="300" src="https://www.youtube.com/embed/NMWF6tskH3M?autoplay=1&mute=1"
+        title="Our Expertise" frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; camera; microphone; display-capture" allowfullscreen
+        allowtransparency="true" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+</div>
+<div class="col-lg-6 col-sm-6">
+    <div class="home_title">
+        <h5 class="home_title_heading" style="text-align: left;"> Cloud Risk Management, Managed Threat
+            Services, and More for Enhanced Readiness and Remediation </h5>
+        <p class="home_title_text" style="text-align: left;">Rapid7 offers practitioner-first security
+            solutions, including cloud risk management and managed threat services.
+            They provide unlimited automated workflows, vulnerability management, and application security.
+            Their platform focuses on improving readiness, responsiveness, remediation, and delivering results.
+            Rapid7 also offers real-time analysis, security news, and research through their blog.</p>
+        <div class="business_seftion_button d-flex justify-content-start">
+            <a class="common_button2" href="product_filters.html">Talk to a specialist</a>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<!--======// our clint tab //======-->
+<section class="clint_tab_section">
+<div class="container">
+<div class="clint_tab_content pb-3">
+    <!-- home title -->
+    <div class="home_title mt-3">
+        <div class="software_feature_title">
+            <h1 class="text-center ">Contents</h1>
+        </div>
+        <p class="home_title_text">Discover how our expertise has benefited organizations of <span
+                class="font-weight-bold">all sizes and industries</span>
+            <br> by maximizing the value of their IT solutions, leveraging emerging technologies, and creating
+            innovative experiences.
+        </p>
+    </div>
+    <!-- Client Tab Start -->
+    @if (!empty($story1) && !empty($story2) && !empty($story3))
+        <div class="row">
+            <div class="col-xs-12 ">
+                <nav>
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-healthcare" data-toggle="tab"
+                            href="#nav-home" role="tab" aria-controls="nav-home"
+                            aria-selected="true">{{ $story1->badge }}</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+                            href="#nav-profile" role="tab" aria-controls="nav-profile"
+                            aria-selected="false">{{ $story2->badge }}</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+                            href="#nav-contact" role="tab" aria-controls="nav-contact"
+                            aria-selected="false">{{ $story3->badge }}</a>
+                        <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about"
+                            role="tab" aria-controls="nav-about"
+                            aria-selected="false">{{ $story4->badge }}</a>
+                    </div>
+                </nav>
                 @php
-                    $sentence = $learnmore->consult_title;
+                    $tags_1 = explode(',', $story1->tags);
+                    $tags_2 = explode(',', $story2->tags);
+                    $tags_3 = explode(',', $story3->tags);
+                    $tags_4 = explode(',', $story4->tags);
                 @endphp
-                <div class="global_call_section_content mt-0">
-                    <div class="home_title" style="width: 100%; margin: 0px;">
-                        <h5 class="home_title_heading" style="text-align: left; color: #fff;">
-                            <span>{{ \Illuminate\Support\Str::substr($sentence, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($sentence, 1) }}
-                        </h5>
-                        <p class="home_title_text text-white" style="text-align: left;">
-                            {{ $learnmore->consult_short_des }}
-                        </p>
-                        <div class="business_seftion_button" style="text-align: left;">
-                            <a href="{{ route('whatwedo') }}">Explore our Business</a>
+                <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                        aria-labelledby="nav-healthcare">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="tab_side_image">
+                                    <img src="{{ asset('storage/' . $story1->image) }}" alt=""
+                                        style="height: 230px;">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-6 col-sm-12">
+                                <h5 class="home_title_heading" style="text-align: left;">{{ $story1->title }}
+                                </h5>
+                                <p>{{ $story1->header }}</p>
+                                <div class="home_card_button p-2">
+                                    <a class="effect01" href="{{ route('blog.details', $story1->id) }}">Read
+                                        more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                        aria-labelledby="nav-profile-tab">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="tab_side_image">
+                                    <img src="{{ asset('storage/' . $story2->image) }}" alt=""
+                                        style="height: 230px;">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-6 col-sm-12">
+                                <h5 class="home_title_heading" style="text-align: left;">{{ $story2->title }}
+                                </h5>
+                                <p>{{ $story2->header }}</p>
+                                <div class="home_card_button p-2">
+                                    <a class="effect01" href="{{ route('blog.details', $story2->id) }}">Read
+                                        more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                        aria-labelledby="nav-contact-tab">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="tab_side_image">
+                                    <img src="{{ asset('storage/' . $story3->image) }}" alt=""
+                                        style="height: 230px;">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-6 col-sm-12">
+                                <h5 class="home_title_heading" style="text-align: left;">{{ $story3->title }}
+                                </h5>
+                                <p>{{ $story3->header }}</p>
+                                <div class="home_card_button p-2">
+                                    <a class="effect01" href="{{ route('story.details', $story3->id) }}">Read
+                                        more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                        aria-labelledby="nav-contact-tab">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="tab_side_image">
+                                    <img src="{{ asset('storage/' . $story4->image) }}" alt=""
+                                        style="height: 230px;">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-6 col-sm-12">
+                                <h5 class="home_title_heading" style="text-align: left;">{{ $story4->title }}
+                                </h5>
+                                <p>{{ $story4->header }}</p>
+                                <div class="home_card_button p-2">
+                                    <a class="effect01" href="{{ route('story.details', $story4->id) }}">Read
+                                        more</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    @endif
-    <!---------End -------->
-    <!--=====// Tech solution //=====-->
-    @if (count($tech_datas) > 0)
-        <div class="section_wp2">
-            <div class="container">
-                @if (!empty($software_info->row_seven_title))
-                    <div class="solution_number_wrapper">
-                        <!-- title -->
-                        @php
-                            $sentence2 = $software_info->row_seven_title;
-                        @endphp
-                        <h5 class="home_title_heading" style="text-align: left;">
-                            <div class="software_feature_title">
-                                <h1 class="text-center pb-3">
-                                    <span>{{ \Illuminate\Support\Str::substr($sentence2, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($sentence2, 1) }}
-                                </h1>
-                            </div>
-                        </h5>
-                    </div>
-                @endif
-                <!-- tech wrapper -->
-                <div class="row">
-                    <!-- item -->
-                    @foreach ($tech_datas as $item)
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="tech_solution_item">
-                                <p class="tech_solution_title">{{ $item->header }}</p>
-                                <p class="tech_solution_text">{{ $item->short_description }}</p>
-                                <p class="tech_solution_award">{{ $item->footer }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
         </div>
     @endif
-    <!---------End -------->
-    <!--=====// We serve //=====-->
-    <div class="container pb-5">
-        <!-- section title -->
-        <div class="clint_help_section_heading_wrapper">
-            <!-- title -->
-            <h5 class="home_title_heading" style="text-align: left;">
-                <h5 class="home_title_heading" style="text-align: left;">
-                    <div class="software_feature_title">
-                        <h1 class="text-center pt-4 pb-4">
-                            Industries We Serve
-                        </h1>
-                    </div>
-                </h5>
-                @if (!empty($learnmore->industry_header))
-                    <p class="home_title_text">
-                        <span class="font-weight-bold">{{ $learnmore->industry_header }} </span>
-                    </p>
-                @endif
-        </div>
-        <!-- section content wrapper -->
-        <div class="row mb-4">
-            <!-- content -->
-            <div class="col-lg-9 col-sm-12">
-                <!-- we_serveItem_wrapper -->
-                <div class="row">
-                    <!-- item -->
-                    @if (!empty($industrys))
-                        @foreach ($industrys as $item)
-                            <div class="col-lg-3 col-sm-6">
-                                <a href="{{ route('industry.details', $item->id) }}" class="we_serve_item">
-                                    <div class="we_serve_item_image">
-                                        <img src="{{ asset('storage/' . $item->logo) }}" alt="">
-                                    </div>
-                                    <div class="we_serve_item_text">{{ $item->title }}</div>
-                                </a>
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
-            </div>
-            <!-- sidebar -->
-            <div class="col-lg-3 col-sm-12">
-                <div class="we_serve_title">
-                    <p>Private sector</p>
-                </div>
-                <!-- sidebar list -->
-                <div>
-                    @if ($random_industries)
-                        @foreach ($random_industries as $item)
-                            <div class="pt-2">
-                                <a href="{{ route('industry.details', $item->id) }}">
-                                    <div id="fed-bg">
-                                        <div class="p-2">
-                                            <h5 class="text-white brand_side_text">{{ $item->title }} ›</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
+    <!-- Client Tab End -->
+</div>
+</div>
+</section>
+<!---------End -------->
+<!--=====// Global call section //=====-->
+@if (!empty($learnmore))
+<section class="global_call_section section_padding">
+<div class="container">
+    <!-- content -->
+    @php
+        $sentence = $learnmore->consult_title;
+    @endphp
+    <div class="global_call_section_content mt-0">
+        <div class="home_title" style="width: 100%; margin: 0px;">
+            <h5 class="home_title_heading" style="text-align: left; color: #fff;">
+                <span>{{ \Illuminate\Support\Str::substr($sentence, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($sentence, 1) }}
+            </h5>
+            <p class="home_title_text text-white" style="text-align: left;">
+                {{ $learnmore->consult_short_des }}
+            </p>
+            <div class="business_seftion_button" style="text-align: left;">
+                <a href="{{ route('whatwedo') }}">Explore our Business</a>
             </div>
         </div>
     </div>
-    <!---------End -------->
-    <!--=====// Pageform section //=====-->
-    @include('frontend.partials.footer_contact')
-    <!---------End -------->
+</div>
+</section>
+@endif
+<!---------End -------->
+<!--=====// Tech solution //=====-->
+@if (count($tech_datas) > 0)
+<div class="section_wp2">
+<div class="container">
+    @if (!empty($software_info->row_seven_title))
+        <div class="solution_number_wrapper">
+            <!-- title -->
+            @php
+                $sentence2 = $software_info->row_seven_title;
+            @endphp
+            <h5 class="home_title_heading" style="text-align: left;">
+                <div class="software_feature_title">
+                    <h1 class="text-center pb-3">
+                        <span>{{ \Illuminate\Support\Str::substr($sentence2, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($sentence2, 1) }}
+                    </h1>
+                </div>
+            </h5>
+        </div>
+    @endif
+    <!-- tech wrapper -->
+    <div class="row">
+        <!-- item -->
+        @foreach ($tech_datas as $item)
+            <div class="col-lg-3 col-sm-6">
+                <div class="tech_solution_item">
+                    <p class="tech_solution_title">{{ $item->header }}</p>
+                    <p class="tech_solution_text">{{ $item->short_description }}</p>
+                    <p class="tech_solution_award">{{ $item->footer }}</p>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+</div>
+@endif
+<!---------End -------->
+<!--=====// We serve //=====-->
+<div class="container pb-5">
+<!-- section title -->
+<div class="clint_help_section_heading_wrapper">
+<!-- title -->
+<h5 class="home_title_heading" style="text-align: left;">
+    <h5 class="home_title_heading" style="text-align: left;">
+        <div class="software_feature_title">
+            <h1 class="text-center pt-4 pb-4">
+                Industries We Serve
+            </h1>
+        </div>
+    </h5>
+    @if (!empty($learnmore->industry_header))
+        <p class="home_title_text">
+            <span class="font-weight-bold">{{ $learnmore->industry_header }} </span>
+        </p>
+    @endif
+</div>
+<!-- section content wrapper -->
+<div class="row mb-4">
+<!-- content -->
+<div class="col-lg-9 col-sm-12">
+    <!-- we_serveItem_wrapper -->
+    <div class="row">
+        <!-- item -->
+        @if (!empty($industrys))
+            @foreach ($industrys as $item)
+                <div class="col-lg-3 col-sm-6">
+                    <a href="{{ route('industry.details', $item->id) }}" class="we_serve_item">
+                        <div class="we_serve_item_image">
+                            <img src="{{ asset('storage/' . $item->logo) }}" alt="">
+                        </div>
+                        <div class="we_serve_item_text">{{ $item->title }}</div>
+                    </a>
+                </div>
+            @endforeach
+        @endif
+    </div>
+</div>
+<!-- sidebar -->
+<div class="col-lg-3 col-sm-12">
+    <div class="we_serve_title">
+        <p>Private sector</p>
+    </div>
+    <!-- sidebar list -->
+    <div>
+        @if ($random_industries)
+            @foreach ($random_industries as $item)
+                <div class="pt-2">
+                    <a href="{{ route('industry.details', $item->id) }}">
+                        <div id="fed-bg">
+                            <div class="p-2">
+                                <h5 class="text-white brand_side_text">{{ $item->title }} ›</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+        @endif
+    </div>
+</div>
+</div>
+</div>
+<!---------End -------->
+<!--=====// Pageform section //=====-->
+@include('frontend.partials.footer_contact')
+<!---------End -------->
 @endsection
 
 @section('scripts')
-    <script>
-        $(document).ready(function() {
-            $('.productDT').DataTable({
-                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-                "iDisplayLength": 10,
-                "lengthMenu": [10, 26, 30, 50],
-                columnDefs: [{
-                    orderable: false,
-                    targets: [0, 1, 2],
-                }, ],
-            });
+<script>
+    $(document).ready(function() {
+        $('.productDT0').DataTable({
+            dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+            "iDisplayLength": 10,
+            "lengthMenu": [10, 26, 30, 50],
+            columnDefs: [{
+                orderable: false,
+                targets: [0, 1, 2],
+            }, ],
         });
-    </script>
+        $('.productDT4').DataTable({
+            dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+            "iDisplayLength": 10,
+            "lengthMenu": [10, 26, 30, 50],
+            columnDefs: [{
+                orderable: false,
+                targets: [0, 1, 2],
+            }, ],
+        });
+        $('.productDT3').DataTable({
+            dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+            "iDisplayLength": 10,
+            "lengthMenu": [10, 26, 30, 50],
+            columnDefs: [{
+                orderable: false,
+                targets: [0, 1, 2],
+            }, ],
+        });
+        $('.productDT2').DataTable({
+            dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+            "iDisplayLength": 10,
+            "lengthMenu": [10, 26, 30, 50],
+            columnDefs: [{
+                orderable: false,
+                targets: [0, 1, 2],
+            }, ],
+        });
+    });
+</script>
 @endsection

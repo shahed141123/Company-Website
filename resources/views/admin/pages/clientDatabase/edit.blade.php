@@ -70,7 +70,7 @@
                                         @csrf
                                         @method('PUT')
 
-                                        <div class="row mb-3">
+                                        {{-- <div class="row mb-3">
                                             <div class="col-sm-4">
                                                 <h6 class="mb-0">Sector</h6>
                                             </div>
@@ -94,7 +94,7 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
                                                 <h6 class="mb-0">Company Name</h6>

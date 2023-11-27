@@ -167,13 +167,18 @@ class HomeController extends Controller
             ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
             ->distinct()->inRandomOrder()->limit(12)->get();
 
-        $data['products'] = Product::where('product_type', 'software')->where('product_status', 'product')
-            ->select('products.id', 'products.rfq', 'products.slug', 'products.name', 'products.thumbnail', 'products.price', 'products.discount')
+        $randomIds = Product::where('product_type', 'software')
+            ->where('product_status', 'product')
             ->inRandomOrder()
             ->limit(16)
-            ->get();
-        $data['industrys'] = Industry::select('industries.id', 'industries.logo', 'industries.title')->orderBy('id', 'ASC')->limit(8)->get();
-        $data['random_industries'] = Industry::select('industries.id', 'industries.title')->orderBy('id', 'DESC')->limit(4)->get();
+            ->pluck('id');
+
+        $data['products'] = Product::whereIn('id', $randomIds)
+            ->get(['id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount']);
+
+        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'slug', 'logo', 'title']);
+        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'slug', 'title']);
+
         $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
         //dd($data['categories']);
         return view('frontend.pages.software.software_info', $data);
@@ -204,9 +209,9 @@ class HomeController extends Controller
             ->where('products.product_type', '=', 'hardware')
             ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
             ->distinct()->inRandomOrder()->limit(12)->get();
-        $data['industrys'] = Industry::select('industries.id', 'industries.logo', 'industries.title')->orderBy('id', 'ASC')->limit(8)->get();
+        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'slug', 'logo', 'title']);
         $data['tech_datas'] = TechnologyData::where('category', 'hardware')->orderBy('id', 'ASC')->get();
-        $data['random_industries'] = Industry::select('industries.id', 'industries.title')->orderBy('id', 'DESC')->limit(4)->get();
+        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'slug', 'title']);
         return view('frontend.pages.hardware.hardware_info', $data);
     }
 
@@ -295,8 +300,8 @@ class HomeController extends Controller
         $data['story2'] = $randomBlogPosts->last();
 
         $data['tech_datas'] = TechnologyData::where('category', 'hardware')->orderBy('id', 'ASC')->get();
-        $data['industrys'] = Industry::select('industries.id', 'industries.logo', 'industries.title', 'industries.slug')->orderBy('id', 'ASC')->limit(8)->get();
-        $data['random_industries'] = Industry::select('industries.id', 'industries.title', 'industries.slug')->orderBy('id', 'DESC')->limit(4)->get();
+        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'slug', 'logo', 'title']);
+        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'slug', 'title']);
 
         return view('frontend.pages.hardware.allhardware', $data);
     }
@@ -325,15 +330,8 @@ class HomeController extends Controller
             $data['story3'] = $learnmore->successStoryThree;
         }
 
-        $data['industrys'] = Industry::select('id', 'logo', 'title')
-            ->orderBy('id', 'ASC')
-            ->limit(8)
-            ->get();
-
-        $data['random_industries'] = Industry::select('id', 'title')
-            ->orderBy('id', 'DESC')
-            ->limit(4)
-            ->get();
+        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'slug', 'logo', 'title']);
+        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'slug', 'title']);
 
         return view('frontend.pages.learnmore.view', $data);
     }
@@ -385,14 +383,14 @@ class HomeController extends Controller
     {
         $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
         $data['solutions'] = SolutionDetail::orderBy('id', 'DESC')->select('solution_details.id', 'solution_details.name', 'solution_details.header', 'solution_details.banner_image', 'solution_details.slug')->get();
-        $data['industrys'] = Industry::select('industries.id', 'industries.logo', 'industries.title')->orderBy('id', 'ASC')->limit(8)->get();
-        $data['random_industries'] = Industry::select('industries.id', 'industries.title')->orderBy('id', 'DESC')->limit(4)->get();
         $data['story3'] = ClientStory::inRandomOrder()->first();
         $data['story4'] = ClientStory::inRandomOrder()->where('id', '!=', $data['story3']->id)->first();
         $data['story1'] = Blog::inRandomOrder()->first();
         $data['story2'] = Blog::inRandomOrder()->where('id', '!=', $data['story1']->id)->first();
         $data['techglossy'] = TechGlossy::inRandomOrder()->first();
         $data['tech_datas'] = TechnologyData::where('category', 'solution')->orderBy('id', 'ASC')->get();
+        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'slug', 'logo', 'title']);
+        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'slug', 'title']);
 
 
         return view('frontend.pages.solution.allsolution', $data);
@@ -401,18 +399,7 @@ class HomeController extends Controller
     //Feature Details
     public function SolutionDetails($id)
     {
-        $data['solution'] = SolutionDetail::with(
-            'rowOne',
-            'card1',
-            'card2',
-            'card3',
-            'card4',
-            'card5',
-            'card6',
-            'card7',
-            'card8',
-            'rowFour'
-        )->where('slug', $id)->first();
+        $data['solution'] = SolutionDetail::with('rowOne', 'card1', 'card2', 'card3', 'card4', 'card5', 'card6', 'card7', 'card8', 'rowFour')->where('slug', $id)->first();
 
         $data['solutions'] = SolutionDetail::where('id', '!=', $id)->get();
         return view('frontend.pages.solution.solution_details', $data);
@@ -610,7 +597,7 @@ class HomeController extends Controller
 
     //Product Details
 
-    
+
 
 
 
@@ -760,10 +747,9 @@ class HomeController extends Controller
 
     public function AllBrand()
     {
-        $data['top_brands'] = BrandPage::orderBy('id', 'Desc')->select('brand_pages.brand_id', 'brand_pages.id')->paginate(18);
+        $data['top_brands'] = Brand::where('category', 'Top')->orderBy('id', 'DESC')->paginate(18);
         $data['featured_brands'] = Brand::where('category', 'Featured')->orderBy('id', 'DESC')->paginate(18);
-        $data['featured_techglossys'] = Blog::inRandomOrder()->first();
-        $data['others'] = Brand::select('brands.id', 'brands.title', 'brands.slug')->orderBy('title', 'ASC')->get();
+        $data['others'] = Brand::orderBy('title', 'ASC')->select('id', 'slug', 'title')->get();
         return view('frontend.pages.brand.brand', $data);
     }
 
@@ -779,8 +765,8 @@ class HomeController extends Controller
         $data = [];
 
         $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
-        $data['industrys'] = Industry::select('industries.id', 'industries.logo', 'industries.title', 'industries.slug')->orderBy('id', 'ASC')->limit(8)->get();
-        $data['random_industries'] = Industry::select('industries.id', 'industries.title', 'industries.slug')->orderBy('id', 'DESC')->limit(4)->get();
+        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'slug', 'logo', 'title']);
+        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'slug', 'title']);
 
         // Use cached results for 'story3' and 'story4' as they are random client stories
         $randomClientStories = ClientStory::inRandomOrder()->limit(2)->get();
@@ -803,15 +789,7 @@ class HomeController extends Controller
 
     public function IndustryDetails($id)
     {
-        $data['industry'] = Industry::where('slug', $id)->with([
-            'industryPage.rowOne',
-            'industryPage.rowThree',
-            'industryPage.rowFive',
-            'industryPage.solutionCardOne',
-            'industryPage.solutionCardTwo',
-            'industryPage.solutionCardThree',
-            'industryPage.solutionCardFour',
-        ])->first();
+        $data['industry'] = Industry::where('slug', $id)->with(['industryPage.rowOne', 'industryPage.rowThree', 'industryPage.rowFive', 'industryPage.solutionCardOne', 'industryPage.solutionCardTwo', 'industryPage.solutionCardThree', 'industryPage.solutionCardFour',])->first();
 
         if (isset($data['industry']->industryPage)) {
             if (!empty($data['industry']->industryPage)) {

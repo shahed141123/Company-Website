@@ -47,7 +47,6 @@ return new class extends Migration
             $table->double('net_profit_amount')->nullable();
             $table->double('gross_profit_subtotal')->nullable();
             $table->double('gross_profit_amount')->nullable();
-
             $table->foreign('rfq_id')->references('id')->on('rfqs')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

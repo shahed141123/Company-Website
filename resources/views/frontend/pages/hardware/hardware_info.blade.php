@@ -24,22 +24,32 @@
             display: none;
         }
 
+        div.card {
+            border: 0;
+            margin-bottom: 25px;
+            margin-top: 0px;
+        }
+
         .dataTables_info {
             display: none;
         }
+
 
         thead {
             display: none;
         }
 
+
         .card .card-header .nav-tabs {
             padding: 0;
         }
+
 
         .nav-tabs {
             border: 0;
             border-radius: 3px;
         }
+
 
         .nav {
             display: flex;
@@ -49,14 +59,19 @@
             list-style: none;
         }
 
+
         .nav-tabs .nav-item {
             margin-bottom: -1px;
         }
+
 
         .nav-tabs .nav-item .nav-link.active {
             background-color: hsla(0, 0%, 100%, .2);
             transition: background-color .3s .2s;
         }
+
+
+
 
 
 
@@ -73,21 +88,90 @@
             background-color: transparent;
         }
 
+
         .nav-pills-custom .nav-link::before {
             display: none;
         }
 
+
         .nav-link {
             display: block;
         }
+
 
         .nav-tabs .nav-item .material-icons {
             margin: -1px 5px 0 0;
             vertical-align: middle;
         }
 
+
         .nav .nav-item {
             position: relative;
+        }
+
+
+        div.card {
+            border: 0;
+            margin-bottom: 30px;
+            margin-top: 0px !important;
+        }
+
+
+        .global_call_section_content {
+            max-width: 575px;
+            background-color: var(--heading);
+            padding: 50px;
+            margin-left: -15px;
+            margin-top: -10px !important;
+        }
+
+
+        @media screen and (max-width: 992px) {
+            #sync2 .item {
+                height: 70px;
+                padding: 8px 16px !important;
+            }
+
+            .brand_img_container {
+                width: 350px !important;
+                margin: auto;
+            }
+
+            .home_title_heading,
+            .home_title_text,
+            .business_seftion_button,
+            .thing_together_wrapper {
+                text-align: center !important;
+            }
+
+            .home_title_heading p {
+                text-align: center !important;
+            }
+
+            .global_call_section::after {
+                display: none;
+            }
+
+            .we_serve_title {
+                margin-top: 3rem;
+            }
+
+            .footer_top p {
+                font-size: 13px !important;
+            }
+
+            .footer_nav_list ul {
+                text-align: center !important;
+            }
+
+            .footer_item_wrapper p {
+                text-align: center;
+                margin: auto;
+            }
+
+            .footer_subscribe {
+                margin: auto !important;
+            }
         }
     </style>
     <!--======// Header Title //======-->
@@ -151,34 +235,48 @@
     </section>
     <!--======// Feature tab //======-->
     <section>
-        <div class="container mt-5 mb-5">
+        <div class="container mt-5">
             <div class="row">
-                <!-- first Card -->
-                @if (!empty($categories))
-                    @foreach ($categories as $item)
-                        <div class="col-lg-3 col-md-3 col-sm-6">
-                            <div class="iconbox">
-                                <div class="iconbox-icon pb-3">
-                                    <img src="{{ asset('storage/' . $item->image) }}" alt="" width="100px"
-                                        height="100px">
-                                </div>
-                                {{-- {{ Str::limit($item->title, 15) }} --}}
-                                <div class="featureinfo pt-2">
-                                    <h5 class="text-center" style="font-size:1.2rem; height:1rem;">
-                                        {{ Str::limit($item->title, 30) }}</h5>
-                                    <div class="text-center">
-                                        <div class="buttons_style py-3">
-                                            <div class="container_btn">
-                                                <a href="{{ route('category.html', $item->slug) }}" class="btns effect01"
-                                                    style="max-width: 120px;"><span>Details</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div
+                            class="card-header bg-white shadow-sm main-to-depp-gradient-2 p-5 card-header-area border-top-right-r">
+                            <div class="d-flex align-items-center">
+                                <h4 class="pe-2 text-white">Hardware Related</h4>
+                                <h4 class="pe-2 text-white">|</h4>
+                                <h4 class="text-white">Categories</h4>
                             </div>
                         </div>
-                    @endforeach
-                @endif
+                        <div class="card-header p-5 card-header-area border-bottom-left-r">
+                            <div class="row card-row-area">
+                                @if (!empty($categories))
+                                    @foreach ($categories as $category)
+                                        <div class="col-lg-3 mb-2">
+                                            <a href="{{ route('category.html', $category->slug) }}"
+                                                style="cursor: pointer;">
+                                                <div class="p-4 shadow-sm bg-white">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="icons_area pe-2">
+                                                            <img src="{{ asset('storage/' . $category->image) }}"
+                                                                alt="" height="60px" width="60px">
+                                                        </div>
+                                                        <div class="text_area">
+                                                            {{ $category->title }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="text_area text-end">
+                                                        <a href="{{ route('category.html', $category->slug) }}"><i
+                                                                class="fa-solid fa-plus"></i></a>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -193,7 +291,7 @@
                     <div class="software_feature_title">
                         <h1 class="text-center p-3">{{ $hardware_info->row_two_title }}</h1>
                     </div>
-                    <p class="home_title_text">
+                    <p class="home_title_text w-75 mx-auto pb-4">
                         {!! $hardware_info->row_two_short_description !!}
                     </p>
                 </div>
@@ -210,34 +308,36 @@
                                 <h1>{{ $category->title }}</h1>
                             </div>
                         @endforeach
-
                     </div>
-
                     <div id="sync1" class="owl-carousel owl-theme">
                         <div class="item">
-                            <div class="row gx-0">
+                            <div class="row gx-4">
                                 @foreach ($brands as $brand)
-                                    <div class="col-lg-3 col-md-2 col-sm-4">
-                                        <div class="ag-offer_item"
-                                            style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
-                                            <div class="ag-offer_visible-item">
-                                                <div class="ag-offer_img-box d-felx justify-content-center mx-auto">
-                                                    <img src="{{ asset('storage/' . $brand->image) }}" class="ag-offer_img"
-                                                        alt="{{ $brand->title }}" width="150px" height="150px" />
+                                    <div class="col-lg-2 col-sm-12">
+                                        <div class="card rounded-0 brand_img_container">
+                                            <div class="card-body image_box">
+                                                <div class="brand-images">
+                                                    <a href="{{ route('brandpage.html', $brand->slug) }}">
+                                                        <img src="{{ asset('storage/' . $brand->image) }}"
+                                                            class="img-fluid" alt="{{ $brand->title }}"> </a>
                                                 </div>
                                             </div>
-                                            <div class="ag-offer_hidden-item">
-                                                <div class="mx-auto">
-                                                    <div class="brand_btns"
-                                                        style="justify-content: center;background: #ae0a46;padding: 7px;color: white;font-size: 16px;display: flex;">
-                                                        <a class="text-white"
-                                                            href="{{ route('brandpage.html', $brand->slug) }}">Details
-                                                            | </a>
-                                                        <a class="text-white ms-1"
-                                                            href="{{ route('custom.product', $brand->slug) }}"><span>Shop</span>
-                                                        </a>
-                                                        </a>
-                                                    </div>
+                                            <div class="card-footer border-0 p-0 m-0">
+                                                <div class="brand_btns"
+                                                    style="justify-content: center;
+                                                      background: #ae0a46;
+                                                      color: white;
+                                                      font-size: 13px;
+                                                      display: flex;">
+                                                    <a class="text-white py-2"
+                                                        href="{{ route('brandpage.html', $brand->slug) }}">Details
+                                                        <i class="fa-solid fa-chevron-right ms-1"></i>
+                                                    </a>
+                                                    <span class="ms-3 me-3" style="background: #ffff;">||</span>
+                                                    <a class="text-white py-2"
+                                                        href="{{ route('custom.product', $brand->slug) }}">Shop
+                                                        <i class="fa-solid fa-chevron-right ms-1"></i>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -252,7 +352,7 @@
                         </div>
                         @foreach ($categories as $index => $category)
                             <div class="item">
-                                <div class="row gx-0">
+                                <div class="row gx-4">
                                     @php
                                         $related_brands = DB::table('brands')
                                             ->join('products', 'brands.id', '=', 'products.brand_id')
@@ -263,28 +363,31 @@
                                             ->paginate(12);
                                     @endphp
                                     @foreach ($related_brands as $related_brand)
-                                        <div class="col-lg-3 col-md-2 col-sm-4">
-                                            <div class="ag-offer_item"
-                                                style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
-                                                <div class="ag-offer_visible-item">
-                                                    <div class="ag-offer_img-box d-felx justify-content-center mx-auto">
-                                                        <img src="{{ asset('storage/' . $related_brand->image) }}"
-                                                            class="ag-offer_img" alt="{{ $related_brand->title }}"
-                                                            width="150px" height="150px" />
+                                        <div class="col-lg-2 col-sm-12">
+                                            <div class="card rounded-0 brand_img_container">
+                                                <div class="card-body image_box">
+                                                    <div class="brand-images">
+                                                        <a href="{{ route('brandpage.html', $related_brand->slug) }}">
+                                                            <img src="{{ asset('storage/' . $related_brand->image) }}"
+                                                                class="img-fluid" alt="{{ $related_brand->title }}"> </a>
                                                     </div>
                                                 </div>
-                                                <div class="ag-offer_hidden-item">
-                                                    <div class="mx-auto">
-                                                        <div class="brand_btns"
-                                                            style="justify-content: center;background: #ae0a46;padding: 7px;color: white;font-size: 16px;display: flex;">
-                                                            <a class="text-white"
-                                                                href="{{ route('brandpage.html', $related_brand->slug) }}">Details
-                                                                | </a>
-                                                            <a class="text-white ms-1"
-                                                                href="{{ route('custom.product', $related_brand->slug) }}"><span>Shop</span>
-                                                            </a>
-                                                            </a>
-                                                        </div>
+                                                <div class="card-footer border-0 p-0 m-0">
+                                                    <div class="brand_btns"
+                                                        style="justify-content: center;
+                                                      background: #ae0a46;
+                                                      color: white;
+                                                      font-size: 13px;
+                                                      display: flex;">
+                                                        <a class="text-white py-2"
+                                                            href="{{ route('brandpage.html', $related_brand->slug) }}">Details
+                                                            <i class="fa-solid fa-chevron-right ms-1"></i>
+                                                        </a>
+                                                        <span class="ms-3 me-3" style="background: #ffff;">||</span>
+                                                        <a class="text-white py-2"
+                                                            href="{{ route('custom.product', $related_brand->slug) }}">Shop
+                                                            <i class="fa-solid fa-chevron-right ms-1"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -299,8 +402,6 @@
                             </div>
                         @endforeach
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -309,7 +410,7 @@
     @if (!empty($hardware_info))
         <section class="container mt-3 mb-5">
             <div class="software_feature_title pb-5">
-                <h1 class="text-center ">{{ $hardware_info->row_four_title }}</h1>
+                <h1 class="text-center w-75 mx-auto">{{ $hardware_info->row_four_title }}</h1>
             </div>
             <div class="row d-flex justify-content-start align-items-center">
                 <div class="col-lg-6 col-sm-6">
@@ -321,12 +422,12 @@
                 </div>
                 <div class="col-lg-6 col-sm-6">
                     <div class="home_title">
-                        <h5 class="home_title_heading" style="text-align: left;">
+                        <h6 class="home_title_heading text-start" style="font-size: 30px;">
                             {{ $hardware_info->row_four_sub_title }}
-                        </h5>
-                        <p class="home_title_text" style="text-align: left;">
+                        </h6>
+                        <p class="home_title_text text-start">
                             {{ $hardware_info->row_four_short_description }}</p>
-                        <div class="business_seftion_button text-center">
+                        <div class="business_seftion_button text-start pt-0">
                             <a class="common_button2"
                                 href="{{ $hardware_info->row_four_btn_link }}">{{ $hardware_info->row_four_btn_name }}</a>
                         </div>
@@ -373,9 +474,9 @@
                                 <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
                                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                         aria-labelledby="nav-healthcare">
-                                        <div class="row">
+                                        <div class="row align-items-center">
                                             <div class="col-lg-4 col-md-4 col-sm-12">
-                                                <div class="tab_side_image p-5">
+                                                <div class="tab_side_image p-0">
                                                     <img src="{{ asset('storage/' . $tab_one->image) }}"
                                                         alt="{{ $tab_one->title }}">
                                                 </div>
@@ -391,7 +492,7 @@
                                         aria-labelledby="nav-profile-tab">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-12">
-                                                <div class="tab_side_image p-5">
+                                                <div class="tab_side_image p-0">
                                                     <img src="{{ asset('storage/' . $tab_two->image) }}"
                                                         alt="{{ $tab_two->title }}">
                                                 </div>
@@ -407,7 +508,7 @@
                                         aria-labelledby="nav-contact-tab">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-12">
-                                                <div class="tab_side_image p-5">
+                                                <div class="tab_side_image p-0">
                                                     <img src="{{ asset('storage/' . $tab_three->image) }}"
                                                         alt="{{ $tab_three->title }}">
                                                 </div>
@@ -423,7 +524,7 @@
                                         aria-labelledby="nav-about-tab">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-12">
-                                                <div class="tab_side_image p-5">
+                                                <div class="tab_side_image p-0">
                                                     <img src="{{ asset('storage/' . $tab_four->image) }}"
                                                         alt="{{ $tab_four->title }}">
                                                 </div>
@@ -449,7 +550,7 @@
         <section class="global_call_section section_padding">
             <div class="container">
                 <!-- content -->
-                <div class="global_call_section_content">
+                <div class="global_call_section_content my-3">
                     <div class="home_title" style="width: 100%; margin: 0px;">
                         <h5 class="home_title_heading" style="text-align: left; color: #fff;">
                             <span>{{ \Illuminate\Support\Str::substr($hardware_info->row_six_title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($hardware_info->row_six_title, 1) }}
@@ -512,12 +613,12 @@
                 <h5 class="home_title_heading" style="text-align: left;">
                     <h5 class="home_title_heading" style="text-align: left;">
                         <div class="software_feature_title">
-                            <h1 class="text-center pt-4 pb-4">
+                            <h1 class="text-center pt-4 pb-4 w-75 mx-auto">
                                 {{ $hardware_info->row_eight_title }}
                             </h1>
                         </div>
                     </h5>
-                    <p class="home_title_text">
+                    <p class="home_title_text pb-3">
                         <span class="font-weight-bold">{{ $hardware_info->row_eight_short_description }} </span>
                     </p>
             </div>
@@ -527,12 +628,12 @@
             <!-- content -->
             <div class="col-lg-9 col-sm-12">
                 <!-- we_serveItem_wrapper -->
-                <div class="row">
+                <div class="row gx-2">
                     <!-- item -->
                     @if ($industrys)
                         @foreach ($industrys as $item)
-                            <div class="col-lg-3 col-sm-6">
-                                <a href="{{ route('industry.details', $item->id) }}" class="we_serve_item">
+                            <div class="col-lg-3 col-sm-6 mb-2">
+                                <a href="{{ route('industry.details', $item->slug) }}" class="we_serve_item">
                                     <div class="we_serve_item_image">
                                         <img src="{{ asset('storage/' . $item->logo) }}" alt="">
                                     </div>
@@ -553,7 +654,7 @@
                     @if ($random_industries)
                         @foreach ($random_industries as $item)
                             <div class="pt-2">
-                                <a href="{{ route('industry.details', $item->id) }}">
+                                <a href="{{ route('industry.details', $item->slug) }}">
                                     <div id="fed-bg">
                                         <div class="p-2">
                                             <h5 class="text-white brand_side_text">{{ $item->title }} ›</h5>

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('job_registrations', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('client_id')->nullable();
             $table->string('name');
             $table->string('email');
             $table->text('address')->nullable();
@@ -66,6 +67,7 @@ return new class extends Migration
             $table->string('resume')->nullable();
             $table->string('linkedin')->nullable();
             $table->timestamps();
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade'); // assuming you have a users table from Laravel auth
         });
     }
 

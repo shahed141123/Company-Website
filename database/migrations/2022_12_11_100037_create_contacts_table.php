@@ -24,7 +24,10 @@ return new class extends Migration
             $table->longText('message', 255)->nullable();
             $table->string('ip_address', 100)->nullable();
             $table->string('msg_type')->nullable();
+            $table->string('msg_category')->nullable();
             $table->string('country')->nullable();
+            $table->string('support_tier')->nullable();
+            $table->text('support_tier_description')->nullable();
             $table->enum('status', ['pending', 'replied', 'on_going', 'closed'])->default('pending');
             $table->enum('type', ['support', 'contact'])->default('contact');
             $table->timestamps();

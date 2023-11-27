@@ -24,7 +24,7 @@ class Category extends Model
 
     public function subCathardwareProducts()
     {
-        return $this->products()->where('product_type', 'hardware');
+        return $this->products()->where('product_type', 'hardware')->inRandomOrder(11);
     }
 
     public function Catproducts()

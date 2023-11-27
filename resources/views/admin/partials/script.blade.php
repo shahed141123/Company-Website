@@ -14,6 +14,8 @@
 <script src="{{ asset('backend/assets/js/vendor/visualization/d3/d3_tooltip.js') }}"></script>
 
 <script src="{{ asset('backend/assets/js/vendor/tables/datatables/datatables.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/vendor/tables/datatables/extensions/buttons.min.js') }}"></script>
+{{-- <script src="../../../assets/js/vendor/tables/datatables/extensions/buttons.min.js"></script> --}}
 
 
 <script src="{{ asset('backend/assets/input-tags/js/tagsinput.js') }}"></script>
@@ -25,8 +27,6 @@
 <script src="{{ asset('backend/assets/js/vendor/forms/tags/tokenfield.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/chart.js') }}"></script>
 <script src="{{ asset('backend/assets/js/summernote.lite.js') }}"></script>
-{{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
-{{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script> --}}
 
 <script src="{{ asset('backend/assets/js/vendor/forms/wizards/steps.min.js') }}"></script>
 
@@ -46,6 +46,8 @@
 <script src="{{ asset('backend/assets/demo/pages/extra_sweetalert.js') }}"></script>
 <script src="{{ asset('backend/assets/demo/pages/form_controls_extended.js') }}"></script>
 <script src="{{ asset('backend/assets/demo/pages/datatables_advanced.js') }}"></script>
+<script src="{{ asset('backend/assets/demo/pages/datatables_extension_buttons_print.js') }}"></script>
+{{-- <script src="../../../assets/demo/pages/datatables_extension_buttons_print.js"></script> --}}
 
 
 {{-- <script src="{{ asset('backend/assets/demo/pages/editor_ckeditor_classic.js') }}"></script> --}}

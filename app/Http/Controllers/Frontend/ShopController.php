@@ -676,14 +676,6 @@ class ShopController extends Controller
 
 
 
-
-
-
-
-
-
-
-
         /// Filter For Brand
 
 
