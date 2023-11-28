@@ -2913,12 +2913,12 @@ a:hover {
 
 .tab_btn_icon {
     /* display: inline-block; */
-    /* background-color: #e5e2e0; */
-    padding-left: 12px;
+    background-color: #e5e2e0;
+    padding-left: 13px;
     padding-right: 12px;
-    padding-top: 1px;
-    height: 43px;
-    line-height: 40px;
+    padding-top: 2px;
+    height: 42px;
+    line-height: 43px;
     border: 1px solid #e5e2e0;
     width: 43px;
     text-align: center;
@@ -5270,7 +5270,8 @@ tr td:hover {
 .top-bar-right-side {
     position: relative;
     background-color: #ae0a46;
-    padding-right: 6rem;
+    /* padding-right: 6rem; */
+    padding-right: 4rem;
 }
 
 .drop-top {
@@ -5283,7 +5284,8 @@ tr td:hover {
 }
 
 .main-navbar {
-    padding: 0rem 5rem !important;
+    /* padding: 0rem 5rem !important; */
+    padding: 0rem 3rem !important;
 }
 
 .upper-content-menu {
@@ -5436,8 +5438,9 @@ tr td:hover {
 }
 
 .header-category-button-60 {
-    margin-left: 125px;
-    margin-top: 3px;
+    margin-right: 128px;
+    /* margin-top: 0px; */
+    margin-left: 2rem;
 }
 
 
