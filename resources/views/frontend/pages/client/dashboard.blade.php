@@ -57,12 +57,12 @@
                                         <li class="list_dashboard">Get exclusive <a href="{{route('all.category')}}" class="main_color">product categories, industry
                                                 solutions</a> and <a href="{{ route('shop.html') }}" class="main_color">product pricing.</a>
                                         </li>
-                                        <li class="list_dashboard">Create <a href="javascript:void(0);" class="main_color"> RFQ</a> for pricing requests <a
-                                                href="javascript:void(0);" class="main_color">& order templates and quotes</a>to save
+                                        <li class="list_dashboard">Create <a href="{{ route('client.rfq') }}" class="main_color"> RFQ</a> for pricing requests <a
+                                                href="{{ route('client.rfq') }}" class="main_color">& order templates and quotes</a>to save
                                             for later.
                                         <li class="list_dashboard">Check <a href="{{ route('software.common') }}" class="main_color"> Wish list, Product or Solution
                                                 showcase</a></li>
-                                        <a href="javascript:void(0);" class="common_button_dashboard mt-4">Create
+                                        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#rfqModal" class="common_button_dashboard mt-4">Create
                                             RFQ</a>
                                     </ul>
                                 </div>

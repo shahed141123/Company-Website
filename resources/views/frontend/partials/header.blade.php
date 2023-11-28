@@ -5,7 +5,7 @@
 
     .step-img {
         position: relative;
-        top: -12px;
+        top: -13px;
         left: -95px;
         right: 0px;
     }
@@ -94,16 +94,11 @@
                                 </a>
                                 <div class="dropdown-menu drop-down-menus" aria-labelledby="dropdownMenuButton">
                                     <div class="popover__content text-start">
-                                        <a href="{{ route('client.login') }}"
-                                            class="mx-auto py-2 btn common_button2 mb-2 top-info-text w-75"
-                                            style="font-size: 13px">
-                                            Sign In
-                                        </a>
                                         {{-- <div class="text-muted">
                                             First time here?
                                             <a href="#" class="main_color">Sign Up</a>
                                         </div> --}}
-                                        <hr class="text-muted" />
+
                                         @if (Auth::guard('client')->user())
                                             <li>
                                                 <i class="fa fa-user m-2"></i>
@@ -111,19 +106,28 @@
                                             </li>
                                             <li>
                                                 <i class="fa fa-envelope m-2"></i>
-                                                <a href="javascript:void(0)" class="">My Subscriptions</a>
+                                                <a href="{{ route('client.orders') }}" class="">My Orders</a>
                                             </li>
                                             <li>
                                                 <i class="fa fa-star m-2"></i>
-                                                <a href="javascript:void(0)" class="">My Favorites</a>
+                                                <a href="{{ route('client.rfq') }}" class="">My RFQs/Deals</a>
                                             </li>
                                             <li>
                                                 <i class="fa fa-list m-2"></i>
                                                 <a href="javascript:void(0)" class="">My Requests</a>
                                             </li>
                                             <hr class="text-muted" />
+                                        @else
+                                            <a href="{{ route('client.login') }}"
+                                                class="mx-auto py-2 btn common_button2 mb-2 top-info-text w-75"
+                                                style="font-size: 13px">
+                                                Sign In
+                                            </a>
+
+                                            <hr class="text-muted" />
                                         @endif
                                         <ul class="account p-0 text-muted text-start">
+
                                             @unless (Auth::guard('client')->user())
                                                 <li class="mb-2">
                                                     Sign In To Your
@@ -156,13 +160,13 @@
                 <div class="step-img d-lg-block d-sm-none">
                     <img src="https://i.ibb.co/3WKt3Mw/NGen-IT-left-color.png" alt=""
                         style="
-                    height: 74px;
+                    height: 75px;
                 ">
                 </div>
-                <a class="navbar-brand fw-bold upper-content-menu main-logo" href="">
+                <a class="navbar-brand fw-bold upper-content-menu main-logo" href="{{ route('homepage') }}">
                     <img class="img-fluid site-main-logo"
-                        src="http://ngenitltd.com/storage/nCPGDDeFYohQQYtTN0PtgYvMWnMDk86OnDH0uW2K.png"
-                        alt="">
+                        src="{{ !empty($setting->logo) && file_exists(asset('storage/' . $setting->logo)) ? asset('storage/' . $setting->logo) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}"
+                        alt="NGEN IT">
                 </a>
                 <!---Category--->
                 <div class="category-mobile">
@@ -266,7 +270,7 @@
                         <li class="nav-item dropdown position-static cool-link main-menu-specing">
                             <a class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                PRODUCT
+                                Our Services
                             </a>
                             <ul class="dropdown-menu full-container-dropdown border-0"
                                 style="border-top: 1px solid #ae0a460f !important;">
@@ -274,12 +278,12 @@
                                     <div class="row pt-5 pb-5 tech-top bg-white">
                                         <div class="col-lg-4">
                                             <p class="fw-bold"><span
-                                                    style="border-top: 4px solid #ae0a46;">Sof</span>tware
+                                                    style="border-top: 4px solid #ae0a46;">Com</span>mon Services
                                             </p>
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <a class="d-flex align-items-center" href="">
-                                                        <div>Software Software </div>
+                                                        <div>Software</div>
                                                         <div>
                                                             <i class="ph ph-caret-right menu_icons"></i>
                                                         </div>
@@ -468,7 +472,7 @@
                                                     @foreach ($solutions as $solution)
                                                         <div class="col-lg-6">
                                                             <a class="d-flex align-items-center"
-                                                                href="{{ isset($solution->slug) ? route('solution.details', ['id' => $solution->slug]) : '' }}">
+                                                                href="{{ !empty($solution->slug) ? route('solution.details', ['id' => $solution->slug]) : '' }}">
                                                                 <div>{{ Str::limit($solution->name, 20) }}</div>
                                                                 <div>
                                                                     <i class="ph ph-caret-right menu_icons"></i>
@@ -923,8 +927,9 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="rightOffcanvas" aria-labelledby="rightOffcanvasLabel">
     <div class="offcanvas-header">
         <a class="navbar-brand fw-bold upper-content-menu main-logo" href="">
-            <img height="50px" src="http://ngenitltd.com/storage/x2hdT6tgDe2LKI5NlFaV2Hi37dZal2yqVTjWp03y.png"
-                alt="">
+            <img height="50px"
+                src="{{ !empty($setting->logo) && file_exists(asset('storage/' . $setting->logo)) ? asset('storage/' . $setting->logo) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}"
+                alt="NGEN IT">
         </a>
 
         <button class="offcanvas-icons upper-content-menu text-reset" data-bs-dismiss="offcanvas" aria-label="Close"
@@ -965,7 +970,7 @@
                                             @foreach ($solutions as $item)
                                                 <div class="col-lg-6">
                                                     <a class="d-flex align-items-center"
-                                                        href="{{ isset($item->slug) ? route('solution.details', ['id' => $item->slug]) : '' }}">
+                                                        href="{{ !empty($item->slug) ? route('solution.details', ['id' => $item->slug]) : '' }}">
                                                         <div>{{ Str::limit($item->name, 20) }}</div>
                                                         <div>
                                                             <i class="ph ph-caret-right menu_icons"></i>
@@ -1042,7 +1047,7 @@
                 <li class="nav-item dropdown position-static cool-link main-menu-specing">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
-                        PRODUCT
+                        Our Services
                     </a>
                     <ul class="dropdown-menu full-container-dropdown border-0"
                         style="border-top: 1px solid #ae0a460f !important;">

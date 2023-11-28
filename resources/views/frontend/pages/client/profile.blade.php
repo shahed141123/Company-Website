@@ -387,10 +387,12 @@
                                                         <div class="mb-1 text-start">
                                                             <label class="form-label fw-bold" style="font-size: 14px"
                                                                 for="basicpill-phoneno-input">Phone</label>
-                                                            <input type="text" class="form-control form-control-sm"
+                                                            <input type="tel" class="form-control form-control-sm"
                                                                 id="basicpill-phoneno-input" name="phone"
                                                                 placeholder="Eg: (+880)1754348949"
-                                                                value="{{ $data->phone }}" />
+                                                                value="{{ $data->phone }}" title="Please enter a valid phone number in the format: (+XXX)XXXXXXXXX"
+                                                                pattern="^\(\+\d{1,3}\)\d{1,}$">
+
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
@@ -418,8 +420,9 @@
                                                             <label class="form-label fw-bold" style="font-size: 14px"
                                                                 for="basicpill-firstname-input">Company Name</label>
                                                             <input type="text" class="form-control form-control-sm"
-                                                                id="basicpill-firstname-input" placeholder="Eg: NGen IT"
-                                                                value="{{ $data->company_name }}" name="company_name" />
+                                                                name="company_name" id="basicpill-firstname-input"
+                                                                placeholder="Eg: NGen IT"
+                                                                value="{{ $data->company_name }}" />
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3">
@@ -473,7 +476,7 @@
                                                             <div class="col-lg-2 col-sm-12">
                                                                 <img id="showImage" class="border rounded-circle mt-3"
                                                                     src="{{ !empty($data->photo) ? url('upload/Profile/user/' . $data->photo) : url('upload/no_image.jpg') }}"
-                                                                    alt="Admin" width="50px" height="50px" />
+                                                                    alt="NGEN-Client" width="50px" height="50px" />
                                                             </div>
                                                         </div>
                                                     </div>

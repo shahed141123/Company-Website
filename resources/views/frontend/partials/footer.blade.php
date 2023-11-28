@@ -1,11 +1,3 @@
-@php
-    $setting = App\Models\Site::first();
-@endphp
-<!--=======// Footer Section//=========-->
-
-<style>
-
-</style>
 
 <!--=======// Footer Section//=========-->
 <footer class="container-fluid p-0" style="background: #222222;">

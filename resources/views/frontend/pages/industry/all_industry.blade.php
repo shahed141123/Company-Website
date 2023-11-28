@@ -286,22 +286,22 @@
                                 <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist"
                                     style="border-top-right-radius: 50px;border-bottom-left-radius: 50px;">
                                     <a class="nav-item nav-link active" id="nav-healthcare" data-toggle="tab"
-                                        href="#nav-home" role="tab" aria-controls="nav-home"
+                                        href="#nav-home-{{ $story1->id }}" role="tab" aria-controls="nav-home"
                                         aria-selected="true">{{ $story1->badge }}</a>
-                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile-{{ $story2->id }}"
                                         role="tab" aria-controls="nav-profile"
                                         aria-selected="false">{{ $story2->badge }}</a>
-                                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
+                                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact-{{ $story3->id }}"
                                         role="tab" aria-controls="nav-contact"
                                         aria-selected="false">{{ $story3->badge }}</a>
-                                    <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about"
+                                    <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about-{{ $story4->id }}"
                                         role="tab" aria-controls="nav-about"
                                         aria-selected="false">{{ $story4->badge }}</a>
                                 </div>
                             </nav>
                             <div class="tab-content bg-white shadow-sm" id="nav-tabContent"
                                 style="border-bottom-left-radius: 50px;">
-                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                <div class="tab-pane fade show active" id="nav-home-{{ $story1->id }}" role="tabpanel"
                                     aria-labelledby="nav-healthcare">
                                     <div class="row align-items-center">
                                         <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
@@ -310,7 +310,7 @@
                                             <h4 style="text-align: left;">{{ $story1->title }}</h4>
                                             <div style="text-align: justify">
                                                 <p class="mb-1">{{ $story1->header }}</p>
-                                                <p>{!! Str::limit($story1->short_des, 200) !!}......</p>
+                                                <p>{!! Str::limit(strip_tags($story1->short_des), 200) !!}</p>
                                             </div>
                                             <a href="" class="common_button2">Read
                                                 Details</a>
@@ -324,7 +324,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                <div class="tab-pane fade" id="nav-profile-{{ $story2->id }}" role="tabpanel"
                                     aria-labelledby="nav-profile-tab">
                                     <div class="row align-items-center">
                                         <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
@@ -332,7 +332,7 @@
                                             </h5>
                                             <h4 style="text-align: left;">{{ $story2->title }}</h4>
                                             <p class="mb-1">{{ $story2->header }}</p>
-                                            <p>{!! Str::limit($story2->short_des, 200) !!}......</p>
+                                            <p>{!! Str::limit(strip_tags($story2->short_des), 200) !!}</p>
                                             <a href="" class="common_button2">Read
                                                 Details</a>
                                         </div>
@@ -345,7 +345,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                <div class="tab-pane fade" id="nav-contact-{{ $story3->id }}" role="tabpanel"
                                     aria-labelledby="nav-contact-tab">
                                     <div class="row align-items-center">
                                         <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
@@ -353,7 +353,7 @@
                                             </h5>
                                             <h4 style="text-align: left;">{{ $story3->title }}</h4>
                                             <p class="mb-1">{{ $story3->header }}</p>
-                                            <p>{!! Str::limit($story3->short_des, 200) !!}......</p>
+                                            <p>{!! Str::limit(strip_tags($story2->short_des), 200) !!}</p>
                                             <a href="" class="common_button2">Read
                                                 Details</a>
                                         </div>
@@ -366,7 +366,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="nav-about" role="tabpanel"
+                                <div class="tab-pane fade" id="nav-about-{{ $story4->id }}" role="tabpanel"
                                     aria-labelledby="nav-about-tab">
                                     <div class="row align-items-center">
                                         <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
@@ -374,7 +374,7 @@
                                             </h5>
                                             <h4 style="text-align: left;">{{ $story4->title }}</h4>
                                             <p class="mb-1">{{ $story4->header }}</p>
-                                            <p>{!! Str::limit($story4->short_des, 200) !!}......</p>
+                                            <p>{!! Str::limit(strip_tags($story2->short_des), 200) !!}</p>
                                             <a href="" class="common_button2">Read
                                                 Details</a>
                                         </div>

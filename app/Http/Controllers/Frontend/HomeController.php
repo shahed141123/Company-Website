@@ -764,26 +764,27 @@ class HomeController extends Controller
 
         $data = [];
 
-        $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
-        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'slug', 'logo', 'title']);
-        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'slug', 'title']);
+        // Use Eloquent for LearnMore
+        $data['learnmore'] = LearnMore::latest()->first(['industry_header', 'consult_title', 'consult_short_des', 'background_image']);
 
-        // Use cached results for 'story3' and 'story4' as they are random client stories
-        $randomClientStories = ClientStory::inRandomOrder()->limit(2)->get();
-        $data['story3'] = $randomClientStories->first();
-        $data['story4'] = $randomClientStories->last();
+        // Use Eloquent for Industries
+        $data['industrys'] = Industry::orderBy('id')->limit(8)->get(['id', 'slug', 'logo', 'title']);
+        $data['random_industries'] = Industry::latest()->limit(4)->get(['id', 'slug', 'title']);
 
-        // Use cached results for 'story1' and 'story2' as they are random blog posts
-        $randomBlogPosts = Blog::inRandomOrder()->limit(2)->get();
-        $data['story1'] = $randomBlogPosts->first();
-        $data['story2'] = $randomBlogPosts->last();
+        // Use Eloquent for Random Client Stories
+        $data['story3'] = ClientStory::inRandomOrder()->first();
+        $data['story4'] = ClientStory::inRandomOrder()->skip(1)->first();
 
-        // Use cached result for 'techglossy' as it is a random TechGlossy entry
+        // Use Eloquent for Random Blog Posts
+        $data['story1'] = Blog::inRandomOrder()->first();
+        $data['story2'] = Blog::inRandomOrder()->skip(1)->first();
+
+        // Use Eloquent for Random TechGlossy
         $data['techglossy'] = TechGlossy::inRandomOrder()->first();
 
-        // Use cached results for 'tech_datas' as they are technology data with a specific category
-        $techDatas = TechnologyData::where('category', 'industry')->orderBy('id', 'ASC')->get();
-        $data['tech_datas'] = $techDatas;
+        // Use Eloquent for Technology Data
+        $data['tech_datas'] = TechnologyData::where('category', 'industry')->orderBy('id')->get();
+
         return view('frontend.pages.industry.all_industry', $data);
     }
 

@@ -1,38 +1,33 @@
 @extends('frontend.master')
 @section('content')
-    
-    <section class="mt-5 mb-3" id="sign-in-container-area">
-        <div class="row">
-            <div class="col-lg-4 offset-4">
-                <div class="partner-form-container sign-in-container mx-auto" style="width: ">
-                    <form action="{{ route('partner.login') }}" method="POST" id="partnerLoginForm"
-                        style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;height: 420px;">
+    <section id="sign-in-container-area">
+        <div class="row py-5">
+            <div class="col-lg-4 offset-lg-4">
+                <div class="partner-form-container sign-in-container mx-auto client_login">
+                    <form action="{{ route('partner.login') }}" method="POST" id="partnerLoginForm">
                         @csrf
                         <h2 class="main_color mb-1">Partner Login</h2>
 
-                        <input class="mt-3" name="email" type="email" placeholder="Email" required />
+                        <input class="mt-3" name="email" type="email" placeholder="Email" required/>
                         <span class="text-danger text-start p-0 m-0 email_validation" style="display: none;">Please input
                             valid email</span>
-                        <input class="mt-3" name="password" type="password" placeholder="Password" required />
+                        <input class="mt-3" name="password" type="password" placeholder="Password" required/>
                         <i class="fas fa-eye transform-v-center view-password"></i>
                         <h6 class="mt-4">Don't Have An Account ? <a href="javascript:void(0);"
                                 class="mb-3 mt-2 main_color" id="signUp">Register Now</a></h6>
-                        {{-- <div class="password-toggle mt-3">
-                            <input type="checkbox" id="showPassword" />
-                            <label for="showPassword">Show Password</label>
-                        </div> --}}
                         {{-- <a href="javascript:void(0);" class="mb-1 mt-3">Forgot your password?</a> --}}
-                        <button type="submit" class="partner-login-button mt-3">Sign In</button>
+                        <button type="submit" class="partner-login-button mt-4">Sign In</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
     <section>
-        <div class="container my-3" id="sign-up-container-area" style="display: none">
-            <div class="row">
+        <div class="container" id="sign-up-container-area" style="display: none">
+            <div class="row py-5">
                 <div class="col-lg-12">
-                    <div class="partner-container mt-3 mb-5" id="partner-login-container">
+                    <div class="partner-container" id="partner-login-container">
                         <div class="partner-form-container sign-up-container">
                             <form action="{{ route('partner.store') }}" method="POST" id="partnersignUpForm">
                                 @csrf

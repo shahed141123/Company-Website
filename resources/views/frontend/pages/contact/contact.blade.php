@@ -1,6 +1,5 @@
 @extends('frontend.master')
 @section('content')
-
     <!--======// Header Title //======-->
     <section class="common_product_header" style="background:url('{{ asset('frontend/images/Contact.jpg') }}');">
         <div class="container ">
@@ -23,19 +22,17 @@
                         <p>Get assistance with tracking an order, requesting a quote, contacting your account representative
                             and more by phone or over chat.</p>
                         <h5 class="text-black">NGen IT Global Headquarters</h5>
-                        <p>{{ !empty($setting->address) ? $setting->address : '' }} </p>
-                        <p>Whatsapp Number: <span
-                                class="main_color">{{ !empty($setting->whatsapp_number) ? $setting->whatsapp_number : '' }}</span>
-                            <br> Information and sales: <span class="main_color"><a
-                                    href="mailto:{{ !empty($setting->sales_email) ? $setting->sales_email : '' }}">{{ !empty($setting->sales_email) ? $setting->sales_email : '' }}</a></span>
-                            <br> Support Email: <span class="main_color">
-                                <a
-                                    href="mailto:{{ !empty($setting->support_email) ? $setting->support_email : '' }}">{{ !empty($setting->support_email) ? $setting->support_email : '' }}</a>
-                            </span>
-                            <br> Returns:
-                            <span class="main_color">
-                                <a
-                                    href="tel:+{{ !empty($setting->phone_one) ? $setting->phone_one : '' }}">{{ !empty($setting->phone_one) ? $setting->phone_one : '' }}</a>
+                        <p>{{ $setting->address ?? '' }}</p>
+                        <p>
+                            Whatsapp Number: <span class="main_color">{{ $setting->whatsapp_number ?? '' }}</span> <br>
+                            Information and sales: <span class="main_color">
+                                <a href="mailto:{{ $setting->sales_email ?? '' }}">{{ $setting->sales_email ?? '' }}</a>
+                            </span> <br>
+                            Support Email: <span class="main_color">
+                                <a href="mailto:{{ $setting->support_email ?? '' }}">{{ $setting->support_email ?? '' }}</a>
+                            </span> <br>
+                            Returns: <span class="main_color">
+                                <a href="tel:+{{ $setting->phone_one ?? '' }}">{{ $setting->phone_one ?? '' }}</a>
                             </span>
                         </p>
                         <!-- <h5><i class="fa-solid fa-phone"></i>NgenIT</h5> -->
@@ -85,8 +82,9 @@
                                                         valid email</span>
                                                 </div>
                                                 <div class="app-form-group">
-                                                    <input name="phone" type="text" class="app-form-control phone_number"
-                                                        placeholder="Contact Number" value="{{ old('phone') }}">
+                                                    <input name="phone" type="text"
+                                                        class="app-form-control phone_number" placeholder="Contact Number"
+                                                        value="{{ old('phone') }}">
                                                 </div>
                                                 <div class="app-form-group message">
                                                     <textarea name="message" class="app-form-control contact-message" rows="3" placeholder="Your Message" required></textarea>

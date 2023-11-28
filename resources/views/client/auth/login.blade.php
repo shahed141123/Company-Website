@@ -1,12 +1,11 @@
 @extends('frontend.master')
 @section('content')
-   
-    <section class="my-5" id="sign-in-container-area">
-        <div class="row">
+
+    <section id="sign-in-container-area">
+        <div class="row py-5">
             <div class="col-lg-4 offset-lg-4">
                 <div class="partner-form-container sign-in-container mx-auto client_login">
-                    <form action="{{ route('client.loginstore') }}" method="POST" id="partnerLoginForm"
-                        style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;height: 390px;">
+                    <form action="{{ route('client.loginstore') }}" method="POST" id="partnerLoginForm">
                         @csrf
                         <h2 class="main_color mb-1">Client Login</h2>
 
@@ -26,10 +25,10 @@
         </div>
     </section>
     <section>
-        <div class="container my-3" id="sign-up-container-area" style="display: none">
-            <div class="row">
+        <div class="container" id="sign-up-container-area" style="display: none">
+            <div class="row py-5">
                 <div class="col-lg-12">
-                    <div class="partner-container mt-3 mb-5" id="partner-login-container">
+                    <div class="partner-container" id="partner-login-container">
                         <div class="partner-form-container sign-up-container">
 
                             <form action="{{ route('clientRegister.store') }}" method="POST" id="partnersignUpForm">

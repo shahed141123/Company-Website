@@ -3942,20 +3942,13 @@ form input[type="file"] {
 #show-sidebar {
     position: fixed;
     left: 0;
-    top: 5.8rem;
+    top: 5rem;
     border-radius: 0 2px 2px 0px;
     width: 40px;
     transition-delay: 0.3s;
     padding: 10px;
     background: #ae0a46;
     z-index: 999;
-    /* position: absolute;
-    left: 0;
-    top: 2rem;
-    border-radius: 0 2px 2px 0px;
-    width: 40px;
-    transition-delay: 0.3s;
-    padding: 10px; */
 }
 
 .page-wrapper.toggled #show-sidebar {
@@ -3970,7 +3963,7 @@ form input[type="file"] {
     position: absolute;
     top: 0;
     left: -300px;
-    z-index: 999;
+    z-index: 99;
 }
 
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after {
@@ -4017,6 +4010,8 @@ form input[type="file"] {
 }
 
 .sidebar-wrapper .sidebar-brand #close-sidebar {
+    position:relative;
+    top:0.1rem;
     cursor: pointer;
     font-size: 20px;
 }
@@ -4717,9 +4712,14 @@ tr td:hover {
     bottom: 2.3rem;
 }
 
+#partnerLoginForm{
+    height: 26rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
 .partner-container {
     background: #fff;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     position: relative;
     overflow: hidden;
     width: 70%;
@@ -4730,7 +4730,7 @@ tr td:hover {
 
 .partner-form-container form {
     background: #fff;
-    margin-bottom: 3rem;
+    /* margin-bottom: 3rem; */
     display: flex;
     flex-direction: column;
     padding: 25px 70px;
@@ -4808,14 +4808,12 @@ tr td:hover {
     left: 0;
     width: 50%;
     z-index: 1;
-    height: 560px !important;
+    height: 40rem !important;
 }
 
 
 .sign-up-container form {
-    padding: 0 50px !important;
-    height: 605px !important;
-
+    padding: 25px 50px !important;
 
 }
 
@@ -4828,7 +4826,7 @@ tr td:hover {
     height: 100%;
     overflow: hidden;
     transition: transform .6s ease-in-out;
-    z-index: 100;
+    /* z-index: 100; */
 }
 
 

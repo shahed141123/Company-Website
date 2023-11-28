@@ -36,73 +36,72 @@ class HeaderComponentServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('frontend.partials.header', function ($view) {
+        View::composer(['frontend.partials.header', 'frontend.partials.footer'], function ($view) {
             $setting = Site::first();
+            $view->with(compact(
+                'setting'
 
+            ));
+        });
+        View::composer('frontend.partials.header', function ($view) {
             // Load industries with eager loading
-            $industrys = Industry::with('industryPage')->orderByDesc('id')
+            $industrys = Industry::with('industryPage')
+                ->latest('id')
                 ->limit(12)
                 ->get(['id', 'title', 'slug']);
 
             // Load features with eager loading and caching
-            $featuresAndEvents = Feature::orderByRaw('RAND()')
+            $featuresAndEvents = Feature::inRandomOrder()
                 ->limit(12)
-                ->select('id', 'title', 'image', 'created_at', 'badge')
-                ->get();
-
+                ->get(['id', 'title', 'image', 'created_at', 'badge']);
 
             $features = $featuresAndEvents->take(6);
             $feature_events = $featuresAndEvents->skip(2)->take(6);
 
             // Load solution details with eager loading and caching
-            $solutions = SolutionDetail::orderByDesc('id')
-                ->orderByRaw('RAND()')
+            $solutions = SolutionDetail::inRandomOrder()
                 ->limit(12)
                 ->get(['id', 'name', 'slug']);
 
             // Load brand pages with eager loading and caching
-            $brands = BrandPage::orderByDesc('id')
-                ->orderByRaw('RAND()')
+            $brands = BrandPage::inRandomOrder()
                 ->limit(6)
                 ->get(['id', 'brand_id']);
 
             // Load categories with caching
-            $categorys = Category::orderByDesc('id')
+            $categorys = Category::latest('id')
                 ->limit(6)
                 ->get(['id', 'slug', 'title']);
 
             // Load featured blogs with caching
             $blogs = Blog::where('featured', '1')
-                ->orderByRaw('RAND()')
+                ->inRandomOrder()
                 ->limit(6)
                 ->select('id', 'badge', 'title', 'image', 'created_at', 'created_by')
                 ->get();
 
             // Load featured client stories with caching
             $clientstorys = ClientStory::where('featured', '1')
-                ->orderByRaw('RAND()')
+                ->inRandomOrder()
                 ->limit(6)
                 ->select('id', 'badge', 'image', 'title', 'created_at', 'created_by')
                 ->get();
 
             // Load featured tech glossies with caching
-            $techglossys = DB::table('tech_glossies')->where('featured', '1')
-                ->orderByRaw('RAND()')
+            $techglossys = TechGlossy::where('featured', '1')
+                ->inRandomOrder()
                 ->limit(6)
                 ->select('id', 'title', 'created_at', 'created_by')
                 ->get();
+
             $cart_qty = Cart::count();
 
-            // Load all jobs
-            // $jobs = Job::all();
-
-            // Load latest categories (assuming 'id' is the primary key and already indexed)
+            // Load latest categories
             $categories = Category::latest('id')
                 ->limit(10)
                 ->get(['id', 'slug', 'title']);
 
             $view->with(compact(
-                'setting',
                 'industrys',
                 'features',
                 'feature_events',
@@ -116,5 +115,6 @@ class HeaderComponentServiceProvider extends ServiceProvider
                 'cart_qty'
             ));
         });
+
     }
 }
