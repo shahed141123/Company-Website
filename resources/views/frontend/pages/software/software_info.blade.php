@@ -18,6 +18,80 @@
             }
         </style>
     @endif
+    <style>
+        .animated-image {
+            padding: 30% 20% 20% 30%;
+            margin: -30% -20% -20% -30%;
+            border-radius: 0 0 0% 50%;
+            overflow: hidden;
+            animation: border-radius-right 12s ease-in-out infinite;
+            animation-delay: 8s;
+        }
+
+        .animated-image>div {
+            padding: 30% 20% 20% 30%;
+            margin: -30% -20% -20% -30%;
+            border-radius: 0 0 100% 0;
+            overflow: hidden;
+            animation: border-radius-left 20s ease-in-out infinite;
+            transform: rotate(25deg) translateX(2%);
+        }
+
+        .animated-image img {
+            transform: rotate(calc(25deg * -1)) translateY(-2%);
+            height: 370px;
+        }
+
+        @keyframes border-radius-left {
+            0% {
+                border-radius: 0 0 100% 0%;
+            }
+
+            50% {
+                border-radius: 0 0 50% 0%;
+            }
+
+            100% {
+                border-radius: 0 0 100% 0%;
+            }
+        }
+
+        @keyframes border-radius-right {
+            0% {
+                border-radius: 0 0 0% 50%;
+            }
+
+            50% {
+                border-radius: 0 0 0% 90%;
+            }
+
+            100% {
+                border-radius: 0 0 0% 50%;
+            }
+        }
+
+        p {
+            font-family: "Allumi Std Extended";
+            /* font-family: "Klinic Slab"; */
+        }
+
+        .software-info-paragraph {
+            font-size: 16px;
+            font-weight: 100;
+            line-height: 24px;
+            text-rendering: optimizeLegibility;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .software-info-title {
+            color: #222;
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        /* For Software_info Hover */
+    </style>
 
     <!--======// Header Title //======-->
     @if (!empty($software_info->banner_image))
@@ -61,12 +135,133 @@
             </ul>
         </div>
     </section>
+    <!--======// Information Section //======-->
+    <section>
+        <div class="container-fluid">
+            <div class="row gx-3 mx-5">
+                <div class="col-lg-8">
+                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="animated-image parbase section">
+                                    <div id="solution_image_1">
+                                        <img src="https://i.ibb.co/QHJkdmx/ai-generative-hands-keyboard-chatgpt.jpg"
+                                            alt="" alt="User talking with AI generated content engine. ChatGPT"
+                                            title="AI solutions" class="img-fluid"
+                                            style="background-color: rgb(212,208,202);">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3>
+                                    <span style="border-top: 3px solid black;">Op</span>erationalize data
+                                </h3>
+                                <p class="software-info-paragraph" style="text-align: justify;">The release of generative AI
+                                    tools like ChatGPT unlocked new ways for businesses to increase
+                                    productivity, grow revenue and gain a competitive edge. We’ll help you adopt and manage
+                                    generative AI to enhance employee-led processes and improve automation.</p>
+                                <button class="common_button2 effect02">Explore Our AI Solution</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 465px;">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12">
+                                <div>
+                                    <img class="pb-4" width="80px"
+                                        src="https://i.ibb.co/q7Lpjcg/software-deployment-icon.png" alt="">
+                                </div>
+                                <h1 class="software-info-title">
+                                    <span style="border-top: 3px solid black;">Op</span>erationalize data
+                                    </h3>
+                                    <p class="software-info-paragraph" style="text-align: justify;">The release of
+                                        generative AI tools like ChatGPT unlocked new ways for businesses to increase
+                                        productivity, grow revenue and gain a competitive edge. We’ll help you adopt and
+                                        manage
+                                        generative AI to enhance employee-led processes and improve automation.</p>
+                                    <a href="#" class="cool-link main_color">Explore Our AI Solution <i
+                                            class="fa-solid fa-arrow-right-long ps-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-3 mx-5 mt-3 mb-5">
+                <div class="col-lg-4">
+                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12">
+                                <div>
+                                    <img class="pb-4" width="80px"
+                                        src="https://i.ibb.co/q7Lpjcg/software-deployment-icon.png" alt="">
+                                </div>
+                                <h1 class="software-info-title">
+                                    <span style="border-top: 3px solid black;">Op</span>erationalize data
+                                    </h3>
+                                    <p class="software-info-paragraph" style="text-align: justify;">The release of
+                                        generative AI tools like ChatGPT unlocked new ways for businesses to increase
+                                        productivity, grow revenue and gain a competitive edge. We’ll help you adopt and
+                                        manage
+                                        generative AI to enhance employee-led processes and improve automation.</p>
+                                    <a href="#" class="cool-link main_color">Explore Our AI Solution <i
+                                            class="fa-solid fa-arrow-right-long ps-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12">
+                                <div>
+                                    <img class="pb-4" width="80px"
+                                        src="https://i.ibb.co/q7Lpjcg/software-deployment-icon.png" alt="">
+                                </div>
+                                <h1 class="software-info-title">
+                                    <span style="border-top: 3px solid black;">Op</span>erationalize data
+                                    </h3>
+                                    <p class="software-info-paragraph" style="text-align: justify;">The release of
+                                        generative AI tools like ChatGPT unlocked new ways for businesses to increase
+                                        productivity, grow revenue and gain a competitive edge. We’ll help you adopt and
+                                        manage
+                                        generative AI to enhance employee-led processes and improve automation.</p>
+                                    <a href="#" class="cool-link main_color">Explore Our AI Solution <i
+                                            class="fa-solid fa-arrow-right-long ps-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12">
+                                <div>
+                                    <img class="pb-4" width="80px"
+                                        src="https://i.ibb.co/q7Lpjcg/software-deployment-icon.png" alt="">
+                                </div>
+                                <h1 class="software-info-title">
+                                    <span style="border-top: 3px solid black;">G</span>enerative AI
+                                </h1>
+                                <p style="text-align: justify;">The release of generative AI tools like ChatGPT unlocked
+                                    new ways for businesses to increase
+                                    productivity, grow revenue and gain a competitive edge. We’ll help you adopt and manage
+                                    generative AI to enhance employee-led processes and improve automation.</p>
+                                <a href="#" class="cool-link main_color">Explore Our AI Solution <i
+                                        class="fa-solid fa-arrow-right-long ps-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!--======// Feature tab //======-->
     <section>
-        <div class="container">
-
+        <div class="container-fluid" style="padding-left: 4.2rem; padding-right: 4.2rem;">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 p-0">
                     <div class="card">
                         <div
                             class="card-header bg-white shadow-sm main-to-depp-gradient-2 p-5 card-header-area border-top-right-r">
@@ -80,19 +275,22 @@
                             <div class="row card-row-area">
                                 @if (!empty($categories))
                                     @foreach ($categories as $category)
-                                        <div class="col-lg-3 mb-2">
-                                            <a href="{{ route('category.html', $category->slug) }}" style="cursor: pointer;">
+                                        <div class="col-lg-3 mb-4">
+                                            <a href="{{ route('category.html', $category->slug) }}"
+                                                style="cursor: pointer;">
                                                 <div class="p-4 shadow-sm bg-white">
                                                     <div class="d-flex align-items-center">
                                                         <div class="icons_area pe-2">
-                                                            <img src="{{ asset('storage/' . $category->image) }}" alt="" height="60px" width="60px">
+                                                            <img src="{{ asset('storage/' . $category->image) }}"
+                                                                alt="" height="60px" width="60px">
                                                         </div>
                                                         <div class="text_area">
-                                                            {{$category->title}}
+                                                            {{ $category->title }}
                                                         </div>
                                                     </div>
                                                     <div class="text_area text-end">
-                                                        <a href="{{ route('category.html', $category->slug) }}"><i class="fa-solid fa-plus"></i></a>
+                                                        <a href="{{ route('category.html', $category->slug) }}"><i
+                                                                class="fa-solid fa-plus"></i></a>
                                                     </div>
                                                 </div>
                                             </a>
@@ -108,6 +306,36 @@
     </section>
 
     <!----------End--------->
+    <!--======// Our expert //======-->
+    @if (!empty($software_info))
+        <section class="container mt-3 mb-5">
+            <div class="software_feature_title pb-5">
+                <h1 class="text-center ">{{ $software_info->row_four_title }}</h1>
+            </div>
+            <div class="row d-flex justify-content-start align-items-center">
+                <div class="col-lg-6 col-sm-6">
+                    <iframe width="545" height="330"
+                        src="{{ $software_info->row_four_video_link }}?autoplay=1&mute=1" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="">
+                        <h5 class="home_title_heading" style="text-align: left;">
+                            {{ $software_info->row_four_sub_title }}
+                        </h5>
+                        <p class="home_title_text pt-3" style="text-align: left;">
+                            {{ $software_info->row_four_short_description }}</p>
+                        <div class="pt-3">
+                            <a class="common_button2"
+                                href="{{ $software_info->row_four_btn_link }}">{{ $software_info->row_four_btn_name }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
     <!--======// Nasted tab //======-->
     <div class="section_wp">
         <!--Tab Section-->
@@ -230,42 +458,9 @@
             </div>
         </div>
     </div>
-    <!--======// Our expert //======-->
-    @if (!empty($software_info))
-        <section class="container mt-3 mb-5">
-            <div class="software_feature_title pb-5">
-                <h1 class="text-center ">{{ $software_info->row_four_title }}</h1>
-            </div>
-            <div class="row d-flex justify-content-start align-items-center">
-                <div class="col-lg-6 col-sm-6">
-                    <iframe width="545" height="330"
-                        src="{{ $software_info->row_four_video_link }}?autoplay=1&mute=1" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                    <div class="">
-                        <h5 class="home_title_heading" style="text-align: left;">
-                            {{ $software_info->row_four_sub_title }}
-                        </h5>
-                        <p class="home_title_text pt-3" style="text-align: left;">
-                            {{ $software_info->row_four_short_description }}</p>
-                        <div class="pt-3">
-                            <a class="common_button2"
-                                href="{{ $software_info->row_four_btn_link }}">{{ $software_info->row_four_btn_name }}</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
+
     <!---------End -------->
     <!--======// our clint tab //======-->
-
-
-
-
 
     @if (!empty($software_info))
         <section class="clint_tab_section my-5 ">
@@ -325,7 +520,7 @@
                                             <div class="col-lg-6 col-md-6 col-sm-12">
                                                 <div class="showcase-industry">
                                                     <img src="{{ asset('storage/' . $tab_one->image) }}" alt="Picture">
-                                                    <div class="overlay">
+                                                    <div class="overlays">
                                                     </div>
                                                 </div>
                                             </div>
@@ -354,7 +549,7 @@
                                             <div class="col-lg-6 col-md-6 col-sm-12">
                                                 <div class="showcase-industry">
                                                     <img src="{{ asset('storage/' . $tab_two->image) }}" alt="Picture">
-                                                    <div class="overlay">
+                                                    <div class="overlays">
                                                     </div>
                                                 </div>
                                             </div>
@@ -384,7 +579,7 @@
                                                 <div class="showcase-industry">
                                                     <img src="{{ asset('storage/' . $tab_three->image) }}"
                                                         alt="Picture">
-                                                    <div class="overlay">
+                                                    <div class="overlays">
                                                     </div>
                                                 </div>
                                             </div>
@@ -413,7 +608,7 @@
                                             <div class="col-lg-6 col-md-6 col-sm-12">
                                                 <div class="showcase-industry">
                                                     <img src="{{ asset('storage/' . $tab_four->image) }}" alt="Picture">
-                                                    <div class="overlay">
+                                                    <div class="overlays">
                                                     </div>
                                                 </div>
                                             </div>
@@ -958,6 +1153,71 @@
         </div>
     </section>
     <!---------End -------->
+
+    <section>
+        <div class="container-fluid" style="padding-left: 4.2rem; padding-right: 4.2rem;">
+            <div class="home_title_heading my-5">
+                <div class="software_feature_title">
+                    <h1 class="text-center pb-3">
+                        <span>R</span>eal outcomes. Expert insights.
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row gx-3">
+                        <div class="col-lg-6">
+                            <div>
+                                <div class="container-ingfo">
+                                    <img src="https://www.insight.com/content/dam/insight-web/en_US/article-images/2023/how-vivli-is-enabling-scientific-discoveries-to-benefit-global-health-thumb.jpg"
+                                        alt="" />
+                                    <p>Client Story</p>
+                                    <p class="title-info">Wholesale Frontrunner Exceeds Customer Expectations With
+                                        99.95% Uptime</p>
+                                    <a href="#"> BUTTON </a>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="container-ingfo">
+                                    <img src="https://www.insight.com/content/dam/insight-web/en_US/article-images/2023/how-vivli-is-enabling-scientific-discoveries-to-benefit-global-health-thumb.jpg"
+                                        alt="" />
+                                    <p>Client Story</p>
+                                    <p class="title-info">Wholesale Frontrunner Exceeds Customer Expectations With
+                                        99.95% Uptime</p>
+                                    <div class="overlays"></div>
+                                    <div class="button">
+                                        <a href="#"> BUTTON </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div>
+                                    <div class="content-info">
+                                        <div class="grid">
+                                            <figure class="effect-sadie">
+                                                <img height="620px" width="100%"
+                                                    src="https://www.insight.com/content/dam/insight-web/en_US/article-images/2023/how-vivli-is-enabling-scientific-discoveries-to-benefit-global-health-thumb.jpg"
+                                                    alt="img02" />
+                                                <figcaption>
+                                                    <p>Client story</p>
+                                                    <h4>How Vivli Is Enabling Scientific Discoveries to Benefit Global
+                                                        Health</h4>
+                                                    <a href="#">View more</a>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        qaafafasfasfasfasf
+                    </div>
+                </div>
+            </div>
+    </section>
+
     <!--=====// Tech solution //=====-->
     @if (count($tech_datas) > 0)
         <div class="section_wp2">
@@ -994,71 +1254,58 @@
         </div>
     @endif
     <!---------End -------->
-    <!--=====// We serve //=====-->
-    <div class="container pb-5">
-        <!-- section title -->
-        <div class="clint_help_section_heading_wrapper">
-            <!-- title -->
-            <h5 class="home_title_heading" style="text-align: left;">
-                <h5 class="home_title_heading" style="text-align: left;">
-                    <div class="software_feature_title">
-                        <h1 class="text-center pt-4 pb-4">
-                            Industries We Serve
-                        </h1>
+    <section>
+        <div class="container">
+            <div class="row gx-4 p-2" style="
+                border-top: 1px solid #eee;
+    margin-top: 30px;">
+                <div class="col-lg-3" style="border-right: 1px solid #eee;">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <img class="img-fluid" src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg" alt="">
+                        </div>
+                        <a href="#" class="ps-3">
+                            <p class="m-0">Buy Product</p>
+                            <h6>The latest hardware and software</h6>
+                        </a>
                     </div>
-                </h5>
-                <p class="home_title_text solution_para pb-5">
-                    <span class="font-weight-bold">{{ $learnmore->industry_header }} </span>
-                </p>
-        </div>
-        <!-- section content wrapper -->
-        <div class="row mb-4">
-            <!-- content -->
-            <div class="col-lg-9 col-sm-12">
-                <!-- we_serveItem_wrapper -->
-                <div class="row">
-                    <!-- item -->
-
-                    @if ($industrys)
-                        @foreach ($industrys as $item)
-                            <div class="col-lg-3 col-sm-6">
-                                <a href="{{ isset($item->slug) ? route('industry.details', ['id' => $item->slug]) : '' }}"
-                                    class="we_serve_item mb-4">
-                                    <div class="we_serve_item_image">
-                                        <img src="{{ asset('storage/' . $item->logo) }}" alt="">
-                                    </div>
-                                    <div class="we_serve_item_text">{{ $item->title }}</div>
-                                </a>
-                            </div>
-                        @endforeach
-                    @endif
-
                 </div>
-            </div>
-            <!-- sidebar -->
-            <div class="col-lg-3 col-sm-12">
-
-                <div class="solution_sidebar">
-                    @if ($random_industries)
-                        @foreach ($random_industries as $item)
-                            <div class="pt-2">
-                                <a
-                                    href="{{ isset($item->slug) ? route('industry.details', ['id' => $item->slug]) : '' }}">
-                                    <div id="fed-bg">
-                                        <div class="p-2">
-                                            <h5 class="text-white brand_side_text">{{ $item->title }} ›</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        @endforeach
-                    @endif
-
+                <div class="col-lg-3" style="border-right: 1px solid #eee;">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <img class="img-fluid" src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg" alt="">
+                        </div>
+                        <a href="#" class="ps-3">
+                            <p class="m-0">Buy Product</p>
+                            <h6>The latest hardware and software</h6>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3" style="border-right: 1px solid #eee;">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <img class="img-fluid" src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg" alt="">
+                        </div>
+                        <a href="#" class="ps-3">
+                            <p class="m-0">Buy Product</p>
+                            <h6>The latest hardware and software</h6>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <img class="img-fluid" src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg" alt="">
+                        </div>
+                        <a href="#" class="ps-3">
+                            <p class="m-0">Buy Product</p>
+                            <h6>The latest hardware and software</h6>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!---------End -------->
+    </section>
     <!--=====// Pageform section //=====-->
     @include('frontend.partials.footer_contact')
     <!---------End -------->
