@@ -6,7 +6,7 @@
     .step-img {
         position: relative;
         top: -13px;
-        left: -95px;
+        left: -4rem;
         right: 0px;
     }
 </style>
@@ -780,7 +780,7 @@
                 <li class="nav-item dropdown position-static cool-link main-menu-specing">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
-                        SOLUTION
+                        OUR SERVICES
                     </a>
                     <ul class="dropdown-menu full-container-dropdown border-0"
                         style="border-top: 1px solid #ae0a460f !important;">
