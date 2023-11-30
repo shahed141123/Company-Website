@@ -90,19 +90,189 @@
             font-weight: 400;
         }
 
+        .blogs-area-bottom:hover {
+            transform: scale(1.2);
+            transition: all 0.5s;
+        }
+
         /* For Software_info Hover */
+        .hover {
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 60%;
+        }
+
+        .hover-overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 90;
+            transition: all 0.4s;
+        }
+
+        .hover img {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.3s;
+        }
+
+        .hover-content {
+            position: relative;
+            z-index: 99;
+        }
+
+
+        /* DEMO 2 ============================== */
+        .hover-2 .hover-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+        }
+
+        .hover-2-title {
+            position: absolute;
+            top: 65%;
+            left: 5%;
+            text-align: start;
+            width: 100%;
+            z-index: 99;
+            transition: all 0.3s;
+        }
+
+        .hover-3-title {
+            position: absolute;
+            top: 75%;
+            left: 5%;
+            text-align: start;
+            width: 100%;
+            z-index: 99;
+            transition: all 0.3s;
+        }
+
+        .hover-2-description {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            opacity: 0;
+            left: 5%;
+            text-align: start;
+            z-index: 99;
+            transition: all 0.3s;
+        }
+
+        .hover-2:hover .hover-2-title {
+            transform: translateY(-1.5rem);
+        }
+
+        .hover-3:hover .hover-3-title {
+            transform: translateY(-0.5rem);
+        }
+
+        .hover-2:hover .hover-2-description {
+            bottom: 0.5rem;
+            opacity: 1;
+        }
+
+        .hover-2:hover .hover-overlay {
+            background: #ae0a46;
+            height: 150px;
+            position: absolute;
+            top: 55%;
+        }
+
+
+
+
+        /* DEMO 4 ============================== */
+        .hover-second {
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 60%;
+            height: 38.5rem;
+        }
+
+        .hover-overlay-second {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 90;
+            transition: all 0.4s;
+        }
+
+        .hover-second img {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.3s;
+            height: 38.5rem
+        }
+
+        .hover-content {
+            position: relative;
+            z-index: 99;
+        }
+
+
+
+        .hover-4 .hover-overlay-second {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+        }
+
+        .hover-4 .hover-4-title {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            text-align: start;
+            width: 100%;
+            z-index: 99;
+            transition: all 0.3s;
+        }
+
+        .hover-4 .hover-4-description {
+            width: 100%;
+            position: absolute;
+            top: 95%;
+            opacity: 0;
+            left: 5%;
+            text-align: start;
+            z-index: 99;
+            transition: all 0.3s;
+        }
+
+        .hover-4:hover .hover-4-title {
+            transform: translateY(-1.5rem);
+        }
+
+        .hover-4:hover .hover-4-description {
+            bottom: 0.5rem;
+            opacity: 1;
+        }
+
+        .hover-4:hover .hover-overlay-second {
+            background: #ae0a46;
+            height: 150px;
+            position: absolute;
+            top: 76%;
+        }
     </style>
 
     <!--======// Header Title //======-->
     @if (!empty($software_info->banner_image))
         <section class="">
             <div>
-                <img src="{{ asset('storage/' . $software_info->banner_image) }}" alt="" class="img-fluid">
+                {{-- <img src="{{ asset('storage/' . $software_info->banner_image) }}" alt="" class="img-fluid"> --}}
+                <img src="{{ isset($software_info->banner_image) && file_exists(asset('storage/' . $software_info->banner_image)) ? asset('storage/' . $software_info->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
+                    alt="">
             </div>
         </section>
     @endif
     <!----------End--------->
-    <section class="mt-3">
+    <section class="pt-1">
         <div class="container my-3 mt-4">
             <ul class="breadcrumb text-left">
                 <a href="{{ route('homepage') }}">
@@ -136,9 +306,9 @@
         </div>
     </section>
     <!--======// Information Section //======-->
-    <section>
-        <div class="container-fluid">
-            <div class="row gx-3 mx-5">
+    <section><!--=====// Global call section //=====-->
+        <div class="container">
+            <div class="row gx-3">
                 <div class="col-lg-8">
                     <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
                         <div class="row align-items-center">
@@ -154,12 +324,12 @@
                             </div>
                             <div class="col-lg-6">
                                 <h3>
-                                    <span style="border-top: 3px solid black;">Op</span>erationalize data
+                                    <span style="border-top: 3px solid #ae0a46;">Op</span>erationalize data
                                 </h3>
                                 <p class="software-info-paragraph" style="text-align: justify;">The release of generative AI
                                     tools like ChatGPT unlocked new ways for businesses to increase
                                     productivity, grow revenue and gain a competitive edge. We’ll help you adopt and manage
-                                    generative AI to enhance employee-led processes and improve automation.</p>
+                                    generative.</p>
                                 <button class="common_button2 effect02">Explore Our AI Solution</button>
                             </div>
                         </div>
@@ -174,13 +344,12 @@
                                         src="https://i.ibb.co/q7Lpjcg/software-deployment-icon.png" alt="">
                                 </div>
                                 <h1 class="software-info-title">
-                                    <span style="border-top: 3px solid black;">Op</span>erationalize data
+                                    <span style="border-top: 3px solid #ae0a46;">Op</span>erationalize data
                                     </h3>
                                     <p class="software-info-paragraph" style="text-align: justify;">The release of
                                         generative AI tools like ChatGPT unlocked new ways for businesses to increase
                                         productivity, grow revenue and gain a competitive edge. We’ll help you adopt and
-                                        manage
-                                        generative AI to enhance employee-led processes and improve automation.</p>
+                                        manage generative.</p>
                                     <a href="#" class="cool-link main_color">Explore Our AI Solution <i
                                             class="fa-solid fa-arrow-right-long ps-1"></i></a>
                             </div>
@@ -188,7 +357,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row gx-3 mx-5 mt-3 mb-5">
+            <div class="row gx-3 mt-3 mb-5">
                 <div class="col-lg-4">
                     <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
                         <div class="row align-items-center">
@@ -198,13 +367,12 @@
                                         src="https://i.ibb.co/q7Lpjcg/software-deployment-icon.png" alt="">
                                 </div>
                                 <h1 class="software-info-title">
-                                    <span style="border-top: 3px solid black;">Op</span>erationalize data
+                                    <span style="border-top: 3px solid #ae0a46;">Op</span>erationalize data
                                     </h3>
                                     <p class="software-info-paragraph" style="text-align: justify;">The release of
                                         generative AI tools like ChatGPT unlocked new ways for businesses to increase
                                         productivity, grow revenue and gain a competitive edge. We’ll help you adopt and
-                                        manage
-                                        generative AI to enhance employee-led processes and improve automation.</p>
+                                        manage generative.</p>
                                     <a href="#" class="cool-link main_color">Explore Our AI Solution <i
                                             class="fa-solid fa-arrow-right-long ps-1"></i></a>
                             </div>
@@ -220,13 +388,12 @@
                                         src="https://i.ibb.co/q7Lpjcg/software-deployment-icon.png" alt="">
                                 </div>
                                 <h1 class="software-info-title">
-                                    <span style="border-top: 3px solid black;">Op</span>erationalize data
+                                    <span style="border-top: 3px solid #ae0a46;">Op</span>erationalize data
                                     </h3>
                                     <p class="software-info-paragraph" style="text-align: justify;">The release of
                                         generative AI tools like ChatGPT unlocked new ways for businesses to increase
                                         productivity, grow revenue and gain a competitive edge. We’ll help you adopt and
-                                        manage
-                                        generative AI to enhance employee-led processes and improve automation.</p>
+                                        manage generative.</p>
                                     <a href="#" class="cool-link main_color">Explore Our AI Solution <i
                                             class="fa-solid fa-arrow-right-long ps-1"></i></a>
                             </div>
@@ -242,12 +409,12 @@
                                         src="https://i.ibb.co/q7Lpjcg/software-deployment-icon.png" alt="">
                                 </div>
                                 <h1 class="software-info-title">
-                                    <span style="border-top: 3px solid black;">G</span>enerative AI
+                                    <span style="border-top: 3px solid #ae0a46;">G</span>enerative AI
                                 </h1>
                                 <p style="text-align: justify;">The release of generative AI tools like ChatGPT unlocked
                                     new ways for businesses to increase
                                     productivity, grow revenue and gain a competitive edge. We’ll help you adopt and manage
-                                    generative AI to enhance employee-led processes and improve automation.</p>
+                                    generative.</p>
                                 <a href="#" class="cool-link main_color">Explore Our AI Solution <i
                                         class="fa-solid fa-arrow-right-long ps-1"></i></a>
                             </div>
@@ -259,7 +426,7 @@
     </section>
     <!--======// Feature tab //======-->
     <section>
-        <div class="container-fluid" style="padding-left: 4.2rem; padding-right: 4.2rem;">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12 p-0">
                     <div class="card">
@@ -460,702 +627,9 @@
     </div>
 
     <!---------End -------->
-    <!--======// our clint tab //======-->
-
-    @if (!empty($software_info))
-        <section class="clint_tab_section my-5 ">
-            <div class="container">
-                <div class="clint_tab_content pb-3">
-                    <!-- home title -->
-                    <div class="home_title mt-3">
-                        <div class="software_feature_title">
-                            <h1 class="text-center ">{{ $software_info->row_five_title }} </h1>
-                        </div>
-                        <p class="home_title_text solution_para py-3 pb-4 mb-1">{!! $software_info->row_five_short_description !!}
-                        </p>
-                    </div>
-                    <!-- Client Tab Start -->
-                    <div class="row">
-                        <div class="col-xs-12 ">
-                            <div class="solurtion_tabing_area">
-                                <div class="tabing_menu_area pt-0">
-                                    <nav>
-                                        <div class="nav nav-tabs nav-fill text-capitalize" id="nav-tab" role="tablist">
-                                            <a class="nav-item nav-link active" id="nav-healthcare" data-toggle="tab"
-                                                href="#nav-home" role="tab" aria-controls="nav-home"
-                                                aria-selected="true">{!! Str::limit($tab_one->title, 15) !!}</a>
-                                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
-                                                href="#nav-profile" role="tab" aria-controls="nav-profile"
-                                                aria-selected="false">{!! Str::limit($tab_two->title, 15) !!}</a>
-                                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
-                                                href="#nav-contact" role="tab" aria-controls="nav-contact"
-                                                aria-selected="false">{!! Str::limit($tab_three->title, 15) !!}</a>
-                                            <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab"
-                                                href="#nav-about" role="tab" aria-controls="nav-about"
-                                                aria-selected="false">{!! Str::limit($tab_four->title, 15) !!}</a>
-                                        </div>
-                                    </nav>
-                                </div>
-                                <div class="tab-content py-0 px-3 px-sm-0" id="nav-tabContent">
-                                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                        aria-labelledby="nav-healthcare">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
-                                                @if (!empty($tab_one->badge))
-                                                    <h6 class="title-tag text-capitalize">{{ $tab_one->badge }}</h6>
-                                                @endif
-                                                <h4 class="home_title_heading text-capitalize text-start pb-2">
-                                                    {{ $tab_one->title }}</h4>
-                                                <div style="text-align: justify">
-                                                    <p class="mb-1">{{ $tab_one->header }}</p>
-                                                    <p>{!! Str::limit($tab_one->description, 550) !!}</p>
-                                                </div>
-                                                @if (!empty($tab_one->link))
-                                                    <a href="{{ $tab_one->link }}" class="icon-btns">
-                                                        <span class="fw-bold">Read Details</span>
-                                                        <i class="fa-solid fa-chevron-right"></i>
-                                                    </a>
-                                                @endif
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <div class="showcase-industry">
-                                                    <img src="{{ asset('storage/' . $tab_one->image) }}" alt="Picture">
-                                                    <div class="overlays">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                        aria-labelledby="nav-profile-tab">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
-                                                @if (!empty($tab_two->badge))
-                                                    <h6 class="title-tag text-capitalize">{{ $tab_two->badge }}</h6>
-                                                @endif
-                                                <h4 class="home_title_heading text-capitalize text-start pb-2">
-                                                    {{ $tab_two->title }}</h4>
-                                                <div style="text-align: justify">
-                                                    <p class="mb-1">{{ $tab_two->header }}</p>
-                                                    <p>{!! Str::limit($tab_two->description, 550) !!}</p>
-                                                </div>
-                                                @if (!empty($tab_two->link))
-                                                    <a href="{{ $tab_two->link }}" class="icon-btns">
-                                                        <span class="fw-bold">Read Details</span>
-                                                        <i class="fa-solid fa-chevron-right"></i>
-                                                    </a>
-                                                @endif
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <div class="showcase-industry">
-                                                    <img src="{{ asset('storage/' . $tab_two->image) }}" alt="Picture">
-                                                    <div class="overlays">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="nav-contact" role="tabpanel"
-                                        aria-labelledby="nav-contact-tab">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
-                                                @if (!empty($tab_three->badge))
-                                                    <h6 class="title-tag text-capitalize">{{ $tab_three->badge }}</h6>
-                                                @endif
-                                                <h4 class="home_title_heading text-capitalize text-start pb-2">
-                                                    {{ $tab_three->title }}</h4>
-                                                <div style="text-align: justify">
-                                                    <p class="mb-1">{{ $tab_three->header }}</p>
-                                                    <p>{!! Str::limit($tab_three->description, 550) !!}</p>
-                                                </div>
-                                                @if (!empty($tab_three->link))
-                                                    <a href="{{ $tab_three->link }}" class="icon-btns">
-                                                        <span class="fw-bold">Read Details</span>
-                                                        <i class="fa-solid fa-chevron-right"></i>
-                                                    </a>
-                                                @endif
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <div class="showcase-industry">
-                                                    <img src="{{ asset('storage/' . $tab_three->image) }}"
-                                                        alt="Picture">
-                                                    <div class="overlays">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="nav-about" role="tabpanel"
-                                        aria-labelledby="nav-about-tab">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
-                                                @if (!empty($tab_four->badge))
-                                                    <h6 class="title-tag text-capitalize">{{ $tab_four->badge }}</h6>
-                                                @endif
-                                                <h4 class="home_title_heading text-capitalize text-start pb-2">
-                                                    {{ $tab_four->title }}</h4>
-                                                <div style="text-align: justify">
-                                                    <p class="mb-1">{{ $tab_four->header }}</p>
-                                                    <p>{!! Str::limit($tab_four->description, 550) !!}</p>
-                                                </div>
-                                                @if (!empty($tab_four->link))
-                                                    <a href="{{ $tab_four->link }}" class="icon-btns">
-                                                        <span class="fw-bold">Read Details</span>
-                                                        <i class="fa-solid fa-chevron-right"></i>
-                                                    </a>
-                                                @endif
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <div class="showcase-industry">
-                                                    <img src="{{ asset('storage/' . $tab_four->image) }}" alt="Picture">
-                                                    <div class="overlays">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Client Tab End -->
-                </div>
-            </div>
-        </section>
-    @endif
-
-    <!---------End -------->
-    <!--=====// Global call section //=====-->
-    @if (!empty($software_info))
-        <section class="global_call_section">
-            <div class="container">
-                <!-- content -->
-                <div class="global_call_section_content">
-                    <div class="home_title" style="width: 100%; margin: 0px;">
-                        <h5 class="home_title_heading" style="text-align: left; color: #fff;">
-                            <span>{{ \Illuminate\Support\Str::substr($software_info->row_six_title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($software_info->row_six_title, 1) }}
-                        </h5>
-                        <p class="home_title_text text-white" style="text-align: left;">{!! $software_info->row_six_short_description !!}</p>
-                        @if (!empty($software_info->row_six_btn_name))
-                            <div class="business_seftion_button" style="text-align: left;">
-                                <a
-                                    href="{{ $software_info->row_six_btn_link }}">{{ $software_info->row_six_btn_name }}</a>
-                            </div>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-    <!---------End -------->
-    <!--=======// Popular products //======-->
-    <section class="popular_product_section section_padding">
-        <div class="container">
-            <div class="software_feature_title">
-                <h1 class="text-center">Popular Products</h1>
-            </div>
-            <div class="Container px-0">
-                <h3 class="Head" style="font-size:30px;">
-                    <a class="common_button3 shop_extra_btn" href="{{ route('shop') }}">Shop
-                        <i class="fa fa-arrow-right mx-2"></i>
-                    </a>
-                    <span class="Arrows"></span>
-                </h3>
-                <!-- Carousel Container -->
-                <div class="SlickCarousel">
-                    @if ($products)
-                        @foreach ($products as $item)
-                            <!-- Item -->
-                            <div class="ProductBlock mb-3 mt-3">
-                                <div class="Content">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="product-grid">
-                                                <div class="product-image">
-                                                    <a href="{{ route('product.details', $item->slug) }}"
-                                                        class="image d-flex justify-content-center align-items-center">
-                                                        <img class="pic-1" src="{{ asset($item->thumbnail) }}"
-                                                            style="width: 180px;height: 180px;"
-                                                            alt="{{ $item->name }}">
-                                                        <img class="pic-2" src="{{ asset($item->thumbnail) }}"
-                                                            style="height: 180px;" alt="{{ $item->name }}">
-                                                    </a>
-                                                    <ul class="product-links">
-                                                        <li><a href="#" data-tip="Quick View"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#productDetails{{ $item->id }}"><i
-                                                                    class="fa fa-eye text-white"></i></a>
-                                                        </li>
-                                                        <li><a href="#" data-tip="View Product"><i
-                                                                    class="fa fa-random text-white"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h3 class="titles mb-2 ask_for_price website-color text-center"
-                                                        style="height: 4.5rem;"><a
-                                                            href="{{ route('product.details', $item->slug) }}">{{ Str::limit($item->name, 85) }}</a>
-                                                    </h3>
-                                                    @if ($item->rfq == 1)
-                                                        <div class="price">
-                                                            <p class="text-muted text-center" style="height:25px;">
-                                                            </p>
-                                                            <a href=""
-                                                                class="d-flex justify-content-center align-items-center"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#rfq{{ $item->id }}">
-                                                                <button class="common_button effect01">
-                                                                    Ask For Price
-                                                                </button>
-                                                            </a>
-                                                        </div>
-                                                    @elseif ($item->price_status && $item->price_status == 'price')
-                                                        <div class="price">
-                                                            <p class="text-muted text-center"><small>USD</small>
-                                                                {{ number_format($item->price, 2) }} $
-                                                            </p>
-                                                            <div class="d-flex justify-content-center align-items-center">
-                                                                <form class="" action="{{ route('add.cart') }}"
-                                                                    method="post">
-                                                                    @csrf
-                                                                    <input type="hidden" name="product_id"
-                                                                        id="product_id" value="{{ $item->id }}">
-                                                                    <input type="hidden" name="name" id="name"
-                                                                        value="{{ $item->name }}">
-                                                                    <input type="hidden" name="qty" id="qty"
-                                                                        value="1">
-                                                                    <div data-mdb-toggle="popover" title="Add To Cart Now"
-                                                                        data-mdb-content="Add To Cart Now"
-                                                                        data-mdb-trigger="hover">
-                                                                        <button type="submit"
-                                                                            class="common_button effect01">
-                                                                            Add to Cart
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    @else
-                                                        <div class="price">
-                                                            <p class="text-muted text-center"
-                                                                style="text-decoration: line-through;text-decoration-thickness: 2px; text-decoration-color: #ae0a46;">
-                                                                USD
-                                                                {{ number_format($item->price, 2) }} $
-                                                            </p>
-                                                            <div class="d-flex justify-content-center align-items-center">
-                                                                <div data-mdb-toggle="popover" title="Your Price"
-                                                                    data-mdb-content="Your Price"
-                                                                    data-mdb-trigger="hover">
-                                                                    <button class="common_button effect01"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#askProductPrice">
-                                                                        Your Price
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
-                <!-- Carousel Container -->
-                @foreach ($products as $item)
-                    <!-- Modal -->
-                    <div class="modal fade" id="productDetails{{ $item->id }}" data-bs-backdrop="static"
-                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header py-2" style="background: #ae0a46;">
-                                    <h5 class="modal-title text-white" id="staticBackdropLabel">Product Details
-                                    </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <section class="container py-5">
-                                        <div class="row">
-                                            <!-- images -->
-                                            <div class="col-lg-4 col-sm-12 single_product_images">
-                                                <!-- gallery pic -->
-                                                <div class="mx-auto d-block">
-                                                    <img id="expand" class="geeks img-fluid rounded mx-auto d-block"
-                                                        src="{{ asset($item->thumbnail) }}">
-                                                </div>
-                                                {{-- <div class="img_gallery_wrapper row pt-1">
-                                                            <div class="col-3">
-                                                                <img class="img-fluid"
-                                                                    src="{{ asset($item->thumbnail) }}"
-                                                                    onclick="gfg(this);">
-                                                            </div>
-                                                        </div> --}}
-                                            </div>
-                                            <!-- content -->
-                                            <div class="col-lg-8 col-sm-12 pl-4">
-                                                <h3>{{ $item->name }}</h3>
-                                                {{-- <h6 class="text-dark product_code">SKU #00017-SW-JIR-002 | MF #00017-SW-JIR-002
-                                                            | NG #00017-SW-JIR-002
-                                                        </h6> --}}
-                                                <div class="row pt-3">
-                                                    <div class="col-lg-8">
-                                                        <p class="list_price mb-0">List
-                                                            Price</p>
-                                                        <div class="product__details__price ">
-                                                            <p class="mb-0">US $
-                                                                {{ $item->price }}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="stock-info">
-                                                            <p tabindex="0" class="prod-stock"
-                                                                id="product-avalialability-by-warehouse">
-                                                                <span aria-label="Stock Availability"
-                                                                    class="js-prod-available">
-                                                                    <i class="fa fa-info-circle text-success"></i>
-                                                                    Stock</span>
-                                                                <br>
-                                                                <span class="badge rounded-pill badge-danger"
-                                                                    style="font-size:17px">Unlimited</span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-10">
-                                                        <div>Tech overview</div>
-                                                        <div></div>
-                                                    </div>
-                                                </div>
-                                                <div class="row product_quantity_wraper justify-content-between"
-                                                    style="background-color: transparent !important;">
-                                                    <form action="http://127.0.0.1:8000/cart_store" method="post">
-                                                        <input type="hidden" name="_token"
-                                                            value="eEMopK8dBUi3ynpUBOlxSWb9P4zdUl3oQ030waKb">
-                                                        <input type="hidden" name="product_id" id="product_id"
-                                                            value="62">
-                                                        <input type="hidden" name="name" id="name"
-                                                            value="Jira Software Cloud Premium - subscription license (annual) - 100 users">
-                                                        <div class="row ">
-                                                            <div class="col-lg-12 col-sm-12 d-flex align-items-center">
-                                                                <div class="pro-qty">
-                                                                    <input type="hidden" name="product_id"
-                                                                        id="product_id" value="62">
-                                                                    <input type="hidden" name="name" id="name"
-                                                                        value="Jira Software Cloud Premium - subscription license (annual) - 100 users">
-                                                                    <div class="counter">
-                                                                        <span class="down"
-                                                                            onclick="decreaseCount(event, this)">-</span>
-                                                                        <input type="text" name="qty"
-                                                                            value="1" class="count_field">
-                                                                        <span class="up"
-                                                                            onclick="increaseCount(event, this)">+</span>
-                                                                    </div>
-                                                                </div>
-                                                                <button class="common_button2 ms-3" type="submit">Add to
-                                                                    Basket</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- Quick View Modal End --}}
-                    {{-- Ask For Price Modal Modal --}}
-                    <!-- Modal -->
-                    <div class="modal fade" id="askProductPrice" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header py-2" style="background: #ae0a46;">
-                                    <h5 class="modal-title text-white" id="staticBackdropLabel">Your Price Form
-                                    </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="container px-0">
-                                        <form>
-                                            <div class="py-2 px-2 bg-light rounded">
-                                                <div class="row mb-1">
-                                                    <div class="col">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                <span style="font-size: 12px;">Name</span>
-                                                                <span style="font-size: 12px;"> :</span>
-                                                            </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="text" name="name"
-                                                                    class="form-control form-control-sm w-100"
-                                                                    maxlength="100" placeholder="Enter Your Name"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                <span style="font-size: 12px;">Email</span>
-                                                                <span style="font-size: 12px;"> :</span>
-                                                            </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="text" name="email"
-                                                                    class="form-control form-control-sm w-100"
-                                                                    maxlength="100" placeholder="Enter Your Email"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-1">
-                                                    <div class="col">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                <span style="font-size: 12px;">Mobile</span>
-                                                                <span style="font-size: 12px;"> :</span>
-                                                            </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="number" name="name"
-                                                                    class="form-control form-control-sm w-100"
-                                                                    maxlength="100" placeholder="Enter Mobile Number"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                <span style="font-size: 12px;">C Name</span>
-                                                                <span style="font-size: 12px;"> :</span>
-                                                            </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="text" name="comapny"
-                                                                    class="form-control form-control-sm w-100"
-                                                                    maxlength="100" placeholder="Enter Company Name"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-1">
-                                                    <div class="col">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                <span style="font-size: 12px;">Quantity </span>
-                                                                <span style="font-size: 12px;"> :</span>
-                                                            </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="number" name="qty"
-                                                                    class="form-control form-control-sm w-100"
-                                                                    maxlength="100" placeholder="Enter Your Quantity"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                <span style="font-size: 12px;">Product</span>
-                                                                <span style="font-size: 12px;"> :</span>
-                                                            </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="file" name="custom_image"
-                                                                    class="form-control form-control-sm w-100"
-                                                                    maxlength="100" placeholder="Enter Product Image"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span style="font-size: 12px;">Type Message :</span>
-                                                                <textarea class="form-control form-control-sm w-100" id="message" name="message" rows="2"
-                                                                    placeholder="Enter Your Name"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="modal-footer me-2" style="padding: 0px;border: 0px;">
-                                    <button class="btn btn-sm" style="background: #ae0a46; color: white;"
-                                        role="button">Submit</button>
-                                    <!-- HTML !-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- Ask For Price Modal Modal End --}}
-                    {{-- Ask For Price Modal --}}
-                    <!-- Modal -->
-                    <div class="modal fade" id="rfq{{ $item->id }}" data-bs-backdrop="static"
-                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header py-2" style="background: #ae0a46;">
-                                    <h5 class="modal-title text-white" id="staticBackdropLabel">Ask For Price Form
-                                    </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="container px-0">
-                                        <form>
-                                            <div class="py-2 px-2 rounded">
-                                                <div class="row mb-1">
-                                                    <h6 class="mb-0"> {{ $item->name }}</h6>
-                                                </div>
-                                            </div>
-                                            <div class="py-2 px-2 bg-light rounded">
-                                                <div class="row mb-1">
-                                                    <div class="col">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                <span style="font-size: 12px;">Name</span>
-                                                                <span style="font-size: 12px;"> :</span>
-                                                            </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="text" name="name"
-                                                                    class="form-control form-control-sm w-100"
-                                                                    maxlength="100" placeholder="Enter Your Name"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                <span style="font-size: 12px;">Email</span>
-                                                                <span style="font-size: 12px;"> :</span>
-                                                            </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="text" name="email"
-                                                                    class="form-control form-control-sm w-100"
-                                                                    maxlength="100" placeholder="Enter Your Email"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-1">
-                                                    <div class="col">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                <span style="font-size: 12px;">Mobile</span>
-                                                                <span style="font-size: 12px;"> :</span>
-                                                            </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="number" name="name"
-                                                                    class="form-control form-control-sm w-100"
-                                                                    maxlength="100" placeholder="Enter Mobile Number"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                <span style="font-size: 12px;">C Name</span>
-                                                                <span style="font-size: 12px;"> :</span>
-                                                            </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="text" name="comapny"
-                                                                    class="form-control form-control-sm w-100"
-                                                                    maxlength="100" placeholder="Enter Company Name"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-1">
-                                                    <div class="col">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                <span style="font-size: 12px;">Quantity </span>
-                                                                <span style="font-size: 12px;"> :</span>
-                                                            </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="number" name="qty"
-                                                                    class="form-control form-control-sm w-100"
-                                                                    maxlength="100" placeholder="Enter Your Quantity"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                <span style="font-size: 12px;">Product</span>
-                                                                <span style="font-size: 12px;"> :</span>
-                                                            </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="file" name="custom_image"
-                                                                    class="form-control form-control-sm w-100"
-                                                                    maxlength="100" placeholder="Enter Product Image"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span style="font-size: 12px;">Type Message :</span>
-                                                                <textarea class="form-control form-control-sm w-100" id="message" name="message" rows="2"
-                                                                    placeholder="Enter Your Name"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="modal-footer me-2" style="padding: 0px;border: 0px;">
-                                    <button class="btn btn-sm" style="background: #ae0a46; color: white;"
-                                        role="button">Submit</button>
-                                    <!-- HTML !-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- Ask For Price Modal End --}}
-                @endforeach
-            </div>
-        </div>
-    </section>
-    <!---------End -------->
 
     <section>
-        <div class="container-fluid" style="padding-left: 4.2rem; padding-right: 4.2rem;">
+        <div class="container">
             <div class="home_title_heading my-5">
                 <div class="software_feature_title">
                     <h1 class="text-center pb-3">
@@ -1163,56 +637,106 @@
                     </h1>
                 </div>
             </div>
-            <div class="row">
+            <div class="row my-5">
                 <div class="col-lg-8">
-                    <div class="row gx-3">
+                    <div class="row">
                         <div class="col-lg-6">
                             <div>
-                                <div class="container-ingfo">
-                                    <img src="https://www.insight.com/content/dam/insight-web/en_US/article-images/2023/how-vivli-is-enabling-scientific-discoveries-to-benefit-global-health-thumb.jpg"
-                                        alt="" />
-                                    <p>Client Story</p>
-                                    <p class="title-info">Wholesale Frontrunner Exceeds Customer Expectations With
-                                        99.95% Uptime</p>
-                                    <a href="#"> BUTTON </a>
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <div class="container-ingfo">
-                                    <img src="https://www.insight.com/content/dam/insight-web/en_US/article-images/2023/how-vivli-is-enabling-scientific-discoveries-to-benefit-global-health-thumb.jpg"
-                                        alt="" />
-                                    <p>Client Story</p>
-                                    <p class="title-info">Wholesale Frontrunner Exceeds Customer Expectations With
-                                        99.95% Uptime</p>
-                                    <div class="overlays"></div>
-                                    <div class="button">
-                                        <a href="#"> BUTTON </a>
+                                <div class="hover hover-2 text-white rounded"><img
+                                        src="https://res.cloudinary.com/mhmd/image/upload/v1570786258/hoverSet-2_lt7geh.jpg"
+                                        alt="">
+                                    <div class="hover-overlay"></div>
+                                    <div class="hover-2-content px-5 py-4">
+                                        <p class="hover-2-title text-uppercase font-weight-bold mb-0">
+                                            <span class="font-weight-light">Client Story</span>
+                                            <br>
+                                            <span style="font-size: 20px; margin-right: 44px;">
+                                                adipisicing elit. adipisicing elit. adipisicing elit.
+                                            </span>
+                                        </p>
+
+                                        <p class="hover-2-description text-uppercase mb-0">
+                                            <a href="#" class="text-white">read more</a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div>
-                                    <div class="content-info">
-                                        <div class="grid">
-                                            <figure class="effect-sadie">
-                                                <img height="620px" width="100%"
-                                                    src="https://www.insight.com/content/dam/insight-web/en_US/article-images/2023/how-vivli-is-enabling-scientific-discoveries-to-benefit-global-health-thumb.jpg"
-                                                    alt="img02" />
-                                                <figcaption>
-                                                    <p>Client story</p>
-                                                    <h4>How Vivli Is Enabling Scientific Discoveries to Benefit Global
-                                                        Health</h4>
-                                                    <a href="#">View more</a>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
+                            <div class="mt-4">
+                                <div class="hover hover-2 text-white rounded"><img
+                                        src="https://res.cloudinary.com/mhmd/image/upload/v1570786258/hoverSet-2_lt7geh.jpg"
+                                        alt="">
+                                    <div class="hover-overlay"></div>
+                                    <div class="hover-2-content px-5 py-4">
+                                        <p class="hover-2-title text-uppercase font-weight-bold mb-0"> <span
+                                                class="font-weight-light">Client Story </span>Caption <br>
+                                            <span style="font-size: 20px; margin-right: 44px;">
+                                                adipisicing elit. adipisicing elit. adipisicing elit.
+                                            </span>
+
+                                        </p>
+
+                                        <p class="hover-2-description text-uppercase mb-0">
+                                            <a href="#" class="text-white">read more</a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-6">
+                            <div class="hover-4 hover-second  text-white rounded">
+                                <img class="img-fluid"
+                                    src="https://res.cloudinary.com/mhmd/image/upload/v1570786258/hoverSet-2_lt7geh.jpg"
+                                    alt="">
+                                <div class="hover-overlay-second"></div>
+                                <div class="hover-4-content px-5 py-4">
+                                    <p class="hover-4-title text-uppercase font-weight-bold mb-0">
+                                        <span class="font-weight-light">Client Story </span>Caption <br>
+                                        <span style="font-size: 20px; margin-right: 44px;">
+                                            adipisicing elit. adipisicing elit. adipisicing elit.
+                                        </span>
+                                    </p>
+                                    <p class="hover-4-description text-uppercase mb-0">
+                                        <a href="#" class="text-white">read more</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="col-lg-4">
-                        qaafafasfasfasfasf
+                </div>
+                <div class="col-lg-4">
+                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                        <h3>
+                            <span style="border-top: 3px solid #ae0a46;">Fe</span>atured leadership
+                        </h3>
+
+                        <div class="py-3">
+                            <a href="">
+                                <p class="mb-0 pb-2">Analyst report</p>
+                                <h6>Forrester: The Total Economic Impact of Cisco Success Tracks</h6>
+                            </a>
+                        </div>
+                        <hr class="m-1">
+                        <div class="py-3">
+                            <a href="">
+                                <p class="mb-0 pb-2">Analyst report</p>
+                                <h6>Forrester: The Total Economic Impact of Cisco Success Tracks</h6>
+                            </a>
+                        </div>
+                        <hr class="m-1">
+                        <div class="py-3">
+                            <a href="">
+                                <p class="mb-0 pb-2">Analyst report</p>
+                                <h6>Forrester: The Total Economic Impact of Cisco Success Tracks</h6>
+                            </a>
+                        </div>
+                        <hr class="m-1">
+                        <div class="py-3">
+                            <a href="">
+                                <p class="mb-0 pb-2">Analyst report</p>
+                                <h6>Forrester: The Total Economic Impact of Cisco Success Tracks</h6>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1254,16 +778,19 @@
         </div>
     @endif
     <!---------End -------->
+    <!--=====// Bootom Blogs section //=====-->
     <section>
         <div class="container">
-            <div class="row gx-4 p-2" style="
-                border-top: 1px solid #eee;
-    margin-top: 30px;">
+            <div class="row gx-4 p-2" style=" border-top: 1px solid #eee; margin-top: 30px;">
                 <div class="col-lg-3" style="border-right: 1px solid #eee;">
                     <div class="d-flex align-items-center">
-                        <div>
-                            <img class="img-fluid" src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg" alt="">
-                        </div>
+                        <a href="" class="blogs-area-bottom">
+                            <div>
+                                <img class="img-fluid"
+                                    src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg"
+                                    alt="">
+                            </div>
+                        </a>
                         <a href="#" class="ps-3">
                             <p class="m-0">Buy Product</p>
                             <h6>The latest hardware and software</h6>
@@ -1272,9 +799,13 @@
                 </div>
                 <div class="col-lg-3" style="border-right: 1px solid #eee;">
                     <div class="d-flex align-items-center">
-                        <div>
-                            <img class="img-fluid" src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg" alt="">
-                        </div>
+                        <a href="" class="blogs-area-bottom">
+                            <div>
+                                <img class="img-fluid"
+                                    src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg"
+                                    alt="">
+                            </div>
+                        </a>
                         <a href="#" class="ps-3">
                             <p class="m-0">Buy Product</p>
                             <h6>The latest hardware and software</h6>
@@ -1283,9 +814,13 @@
                 </div>
                 <div class="col-lg-3" style="border-right: 1px solid #eee;">
                     <div class="d-flex align-items-center">
-                        <div>
-                            <img class="img-fluid" src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg" alt="">
-                        </div>
+                        <a href="" class="blogs-area-bottom">
+                            <div>
+                                <img class="img-fluid"
+                                    src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg"
+                                    alt="">
+                            </div>
+                        </a>
                         <a href="#" class="ps-3">
                             <p class="m-0">Buy Product</p>
                             <h6>The latest hardware and software</h6>
@@ -1294,9 +829,13 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="d-flex align-items-center">
-                        <div>
-                            <img class="img-fluid" src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg" alt="">
-                        </div>
+                        <a href="" class="blogs-area-bottom">
+                            <div>
+                                <img class="img-fluid"
+                                    src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg"
+                                    alt="">
+                            </div>
+                        </a>
                         <a href="#" class="ps-3">
                             <p class="m-0">Buy Product</p>
                             <h6>The latest hardware and software</h6>
@@ -1306,6 +845,7 @@
             </div>
         </div>
     </section>
+    <!---------End -------->
     <!--=====// Pageform section //=====-->
     @include('frontend.partials.footer_contact')
     <!---------End -------->

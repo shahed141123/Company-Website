@@ -89,6 +89,132 @@
         .nav .nav-item {
             position: relative;
         }
+
+        /* New Product Design Start*/
+        .product-grid {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+
+        .product-grid .product-image {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-grid .product-image a.image {
+            display: block;
+        }
+
+        .product-grid .product-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-grid .product-image .pic-1 {
+            transition: all 0.4s ease-in-out 0s;
+        }
+
+        .product-grid:hover .product-image .pic-1 {
+            opacity: 0;
+        }
+
+        .product-grid .product-sale-label {
+            color: #fff;
+            background: #ff6c6c;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 6px;
+            border-radius: 3px;
+            position: absolute;
+            top: 7px;
+            right: 7px;
+        }
+
+        .product-grid .product-links {
+            background: #fff;
+            width: 200px;
+            padding: 10px 0;
+            margin: 0;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.08);
+            border-radius: 3px;
+            list-style: none;
+            opacity: 0;
+            transform: translateX(-50%);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transition: all 0.3s ease 0s;
+        }
+
+        .product-grid:hover .product-links {
+            opacity: 1;
+            bottom: 10px;
+        }
+
+        .product-grid .product-links li {
+            padding: 0 13px;
+            display: inline-block;
+        }
+
+        .product-grid .product-links li:last-child {
+            border-right: none;
+        }
+
+        .product-grid .product-links li a {
+            color: #333;
+            font-size: 15px;
+            display: block;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease 0s;
+        }
+
+        .product-grid .product-links li a:hover {
+            color: #1c6758;
+        }
+
+        .product-grid .product-content {
+            background: #fff;
+            padding: 15px;
+        }
+
+        .product-grid .title {
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: capitalize;
+            margin: 0 0 7px;
+        }
+
+        .product-grid .title a {
+            color: #333;
+            transition: all 0.3s ease 0s;
+        }
+
+        .product-grid .title a:hover {
+            color: #1c6758;
+        }
+
+        .product-grid .price {
+            color: #333;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .product-grid .price span {
+            color: #aaa;
+            font-size: 16px;
+            font-weight: 400;
+            text-decoration: line-through;
+        }
+
+        @media screen and (max-width: 990px) {
+            .product-grid {
+                margin-bottom: 30px;
+            }
+        }
+
+        /* New Product Design End*/
     </style>
     <!--======// Header Title //======-->
     <section class="common_product_header"
@@ -112,10 +238,90 @@
     </section>
     <!----------End--------->
     <!--=======// Popular products //======-->
+    <section>
+        <div class="container">
+            <div class="row my-5">
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="https://bestjquery.com/tutorial/product-grid/demo286/images/img-2.jpg">
+                                <img class="pic-2" src="https://bestjquery.com/tutorial/product-grid/demo286/images/img-2.jpg">
+                            </a>
+                            <ul class="product-links">
+                                <li><a href="#"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="titles"><a href="#">Men's Shirt</a></h3>
+                            <div class="price">$63.20</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="https://bestjquery.com/tutorial/product-grid/demo286/images/img-2.jpg">
+                                <img class="pic-2" src="https://bestjquery.com/tutorial/product-grid/demo286/images/img-2.jpg">
+                            </a>
+                            <span class="product-sale-label">7% off</span>
+                            <ul class="product-links">
+                                <li><a href="#"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="titles"><a href="#">Women's Top</a></h3>
+                            <div class="price">$32.36 <span>$37.00</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="https://bestjquery.com/tutorial/product-grid/demo286/images/img-2.jpg">
+                                <img class="pic-2" src="https://bestjquery.com/tutorial/product-grid/demo286/images/img-2.jpg">
+                            </a>
+                            <ul class="product-links">
+                                <li><a href="#"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="titles"><a href="#">Men's Shirt</a></h3>
+                            <div class="price">$63.20</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="https://bestjquery.com/tutorial/product-grid/demo286/images/img-2.jpg">
+                                <img class="pic-2" src="https://bestjquery.com/tutorial/product-grid/demo286/images/img-2.jpg">
+                            </a>
+                            <span class="product-sale-label">7% off</span>
+                            <ul class="product-links">
+                                <li><a href="#"><i class="fa fa-random"></i></a></li>
+                                <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="titles"><a href="#">Women's Top</a></h3>
+                            <div class="price">$32.36 <span>$37.00</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="popular_product_section section_padding">
         <div class="container">
             <div class="software_feature_title">
-                <h1 class="text-center">Random Products</h1>
+                <h1 class="text-center">Randoms Products</h1>
             </div>
             <div class="Container px-0">
                 <h3 class="Head" style="font-size:30px;">
@@ -208,7 +414,8 @@
                                                                     <button type="button"
                                                                         class="common_button effect01 add_to_cart"
                                                                         data-id="{{ $item->id }}"
-                                                                        data-name="{{ $item->name }}" data-quantity="1">
+                                                                        data-name="{{ $item->name }}"
+                                                                        data-quantity="1">
                                                                         Add to Cart</button>
                                                                 </div>
 
@@ -224,7 +431,8 @@
 
 
                                                                 <div data-mdb-toggle="popover" title="Your Price"
-                                                                    data-mdb-content="Your Price" data-mdb-trigger="hover">
+                                                                    data-mdb-content="Your Price"
+                                                                    data-mdb-trigger="hover">
                                                                     <button class="common_button effect01"
                                                                         data-bs-toggle="modal"
                                                                         data-bs-target="#askProductPrice">
