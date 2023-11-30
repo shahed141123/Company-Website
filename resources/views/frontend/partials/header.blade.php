@@ -771,10 +771,9 @@
         </button>
     </div>
     <div class="offcanvas-body">
-
         <div>
-            <form method="post" action="{{ route('product.search') }}" class="d-flex ms-auto upper-content-menu"
-                role="search">
+            <form method="post" action="{{ route('product.search') }}"
+                class="d-flex ms-auto upper-content-menu justify-content-center align-items-center" role="search">
                 @csrf
                 <div class="input-group flex-nowrap search-input-container">
                     <span class="input-group-text search-box-areas" id="addon-wrapping"><i
@@ -784,45 +783,64 @@
                         aria-describedby="addon-wrapping">
                 </div>
             </form>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown position-static cool-link main-menu-specing">
+            <hr>
+            <ul class="navbar-nav justify-content-end flex-grow-1 mt-3">
+                <li class="nav-item dropdown cool-link">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         OUR SERVICES
                     </a>
-                    <ul class="dropdown-menu full-container-dropdown border-0"
-                        style="border-top: 1px solid #ae0a460f !important;">
+                    <ul class="dropdown-menu mobile-container-dropdown">
                         <div class="container-fluid">
-                            <div class="row pt-5 pb-5 tech-top bg-white">
-                                <div class="col-lg-4">
-                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sol</span>utions
-
+                            <div class="row p-3 pt-2 tech-top bg-white">
+                                <div class="col-lg-12 col-sm-12 mb-4">
+                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Com</span>mon
+                                        Services
                                     </p>
                                     <div class="row">
-                                        @if ($solutions)
-                                            @foreach ($solutions as $item)
-                                                <div class="col-lg-6">
-                                                    <a class="d-flex align-items-center"
-                                                        href="{{ !empty($item->slug) ? route('solution.details', ['id' => $item->slug]) : '' }}">
-                                                        <div>{{ Str::limit($item->name, 20) }}</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
+                                        <div class="col-6 mb-2">
+                                            <a class="d-flex align-items-center" href="{{ route('software.info') }}">
+                                                <div>Software</div>
+                                                <div>
+                                                    <i class="ph ph-caret-right menu_icons"></i>
                                                 </div>
-                                            @endforeach
-                                        @endif
+                                            </a>
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <a class="d-flex align-items-center" href="javascript:void(0)">
+                                                <div>Training</div>
+                                                <div>
+                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <a class="d-flex align-items-center" href="{{ route('hardware.info') }}">
+                                                <div>Hardware</div>
+                                                <div>
+                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <a class="d-flex align-items-center" href="javascript:void(0)">
+                                                <div>Books</div>
+                                                <div>
+                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
-                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Ind</span>ustries
-
+                                <div class="col-lg-12 col-sm-12 mb-4">
+                                    <p class="fw-bold">
+                                        <span style="border-top: 4px solid #ae0a46;">Ind</span>ustry We Serve
                                     </p>
                                     <div class="row">
                                         @if (count($industrys) > 0)
                                             @foreach ($industrys as $industry)
                                                 @if ($industry->industryPage)
-                                                    <div class="col-lg-6">
+                                                    <div class="col-6 mb-2">
                                                         <a class="d-flex align-items-center"
                                                             href="{{ route('industry.details', $industry->slug) }}">
                                                             <div>{{ $industry->title }} </div>
@@ -836,17 +854,17 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
-                                    <p class="fw-bold"><span
-                                            style="border-top: 4px solid #ae0a46;">Tec</span>hnologies
+                                <div class="col-lg-12 col-sm-12 mb-4">
+                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sol</span>utions
+                                        We Provide
                                     </p>
                                     <div class="row">
-                                        @if ($features)
-                                            @foreach ($features as $item)
-                                                <div class="col-lg-12">
+                                        @if ($solutions)
+                                            @foreach ($solutions as $solution)
+                                                <div class="col-lg-12 mb-2">
                                                     <a class="d-flex align-items-center"
-                                                        href="{{ route('feature.details', $item->id) }}">
-                                                        <div>{{ Str::limit($item->title, 60) }}</div>
+                                                        href="{{ !empty($solution->slug) ? route('solution.details', ['id' => $solution->slug]) : '' }}">
+                                                        <div>{{ $solution->name }}</div>
                                                         <div>
                                                             <i class="ph ph-caret-right menu_icons"></i>
                                                         </div>
@@ -857,325 +875,65 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row pt-3 pb-3 tech-top">
-                                <div class="col-lg-4">
-                                    <a href="{{ route('whatwedo') }}" style="border-top: 3px solid #ae0a46;">
-                                        What We Do
-                                    </a>
-                                </div>
-                                <div class="col-lg-4">
-                                    <a href="{{ route('all.industry') }}" style="border-top: 3px solid #ae0a46;">
-                                        View All Industries
-                                    </a>
-                                </div>
-                                <div class="col-lg-4">
-                                    <a href="{{ route('all.solution') }}" style="border-top: 3px solid #ae0a46;">
-                                        View All Solutions
-                                    </a>
-                                </div>
-                            </div>
                         </div>
                     </ul>
                 </li>
-                <li class="nav-item dropdown position-static cool-link main-menu-specing">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        data-bs-auto-close="outside" aria-expanded="false">
-                        Our Services
-                    </a>
-                    <ul class="dropdown-menu full-container-dropdown border-0"
-                        style="border-top: 1px solid #ae0a460f !important;">
-                        <div class="container-fluid">
-                            <div class="row pt-5 pb-5 tech-top bg-white">
-                                <div class="col-lg-4">
-                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sof</span>tware
-
-                                    </p>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Har</span>dware
-
-                                    </p>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Tra</span>ining
-
-                                    </p>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row pt-3 pb-3 tech-top">
-                                <div class="col-lg-4">
-                                    <a href="" style="border-top: 3px solid #ae0a46;">
-                                        View All Software Software
-                                    </a>
-                                </div>
-                                <div class="col-lg-4">
-                                    <a href="" style="border-top: 3px solid #ae0a46;">
-                                        View All Hardware
-                                    </a>
-                                </div>
-                                <div class="col-lg-4">
-                                    <a href="" style="border-top: 3px solid #ae0a46;">
-                                        View All Training
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown position-static cool-link main-menu-specing">
+                <li class="nav-item dropdown cool-link">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         SHOP ONLINE
                     </a>
-                    <ul class="dropdown-menu full-container-dropdown border-0"
-                        style="border-top: 1px solid #ae0a460f !important;">
+                    <ul class="dropdown-menu mobile-container-dropdown">
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-lg-3 bg-white pt-5 pb-5 shop-menu-left">
-                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sho</span>p By
-                                        Product</p>
+                                <div class="col-lg-12 col-sm-12 mb-4">
+                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sho</span>p By</p>
                                     <div class="row">
-                                        <div class="col-lg-12">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
+                                        <div class="col-6 mb-2">
+                                            <a class="d-flex align-items-center"
+                                                href="{{ route('software.common') }}">
+                                                <div>Software</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
+                                        <div class="col-6 mb-2">
+                                            <a class="d-flex align-items-center"
+                                                href="{{ route('hardware.common') }}">
+                                                <div>Hardware</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
+                                        <div class="col-6 mb-2">
+                                            <a class="d-flex align-items-center" href="javascript:void(0)">
+                                                <div>Training</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
+                                        <div class="col-6 mb-2">
+                                            <a class="d-flex align-items-center" href="javascript:void(0)">
+                                                <div>Books</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
+                                        <div class="col-6 mb-2">
+                                            <a class="d-flex align-items-center" href="{{ route('shop') }}">
+                                                <div>Our Shop</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
+                                        <div class="col-6 mb-2">
+                                            <a class="d-flex align-items-center" href="{{ route('shop.html') }}">
+                                                <div>NGen IT Showcase</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
                                                 </div>
@@ -1183,13 +941,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 bg-white pt-5 pb-5">
+                                <div class="col-lg-12 col-sm-12 mb-4">
                                     <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sho</span>p By
                                         Category</p>
                                     <div class="row">
                                         @if (!empty($categorys))
                                             @foreach ($categorys as $shop_category)
-                                                <div class="col-lg-12 mb-2">
+                                                <div class="col-6 mb-2">
                                                     <a class="d-flex align-items-center"
                                                         href="{{ route('custom.product', $shop_category->slug) }}">
                                                         <div>{{ $shop_category->title }}</div>
@@ -1202,15 +960,14 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-lg-3 bg-white pt-5 pb-5">
+                                <div class="col-lg-12 col-sm-12 mb-4">
                                     <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sho</span>p By
-                                        Brand
-                                    </p>
+                                        Brand</p>
                                     <div class="row">
                                         @if ($brands)
                                             @foreach ($brands as $brand)
                                                 @if ($brand->brandPage)
-                                                    <div class="col-lg-6 mb-2">
+                                                    <div class="col-6 mb-2">
                                                         <a class="d-flex align-items-center"
                                                             href="{{ route('brand.products', $brand->slug) }}">
                                                             <div>
@@ -1226,149 +983,21 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-lg-3 pt-5 pb-5" style="background: #f7f6f5;">
-                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Exp</span>lore
+                                <div class="col-lg-12 col-sm-12 mb-4">
+                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Exp</span>lore Our
                                         Deals</p>
                                     <div class="row">
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
+                                        <div class="col-lg-12 mb-2">
+                                            <a class="d-flex align-items-center" href="{{ route('tech.deals') }}">
+                                                <div>Technology deals </div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
-                                                <div>
-                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a class="d-flex align-items-center" href="">
-                                                <div>Software Software </div>
+                                        <div class="col-lg-12">
+                                            <a class="d-flex align-items-center" href="{{ route('refurbished') }}">
+                                                <div>Certified refurbished </div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
                                                 </div>
@@ -1377,61 +1006,50 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row pt-3 pb-3 tech-top">
-                                <div class="col-lg-3 ps-0 pe-0">
-                                    <a href="{{ route('shop') }}" style="border-top: 3px solid #ae0a46;">
-                                        View All Shop
-                                    </a>
-                                </div>
-                                <div class="col-lg-3 ">
+                            <div class="row mt-3 mx-0 gx-0" style="background: #f7f6f5;">
+                                <div class="col-6 text-center">
                                     <a href="{{ route('all.category') }}"
                                         style="border-top: 3px solid #ae0a46;margin-left: -2.3rem;">
                                         View All Category
                                     </a>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-6 text-center">
                                     <a href="{{ route('all.brand') }}" style="border-top: 3px solid #ae0a46;">
                                         View All Brands
-                                    </a>
-                                </div>
-                                <div class="col-lg-3 ps-5">
-                                    <a href="" style="border-top: 3px solid #ae0a46;">
-                                        View All Deals
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </ul>
                 </li>
-                <li class="nav-item dropdown position-static cool-link">
+                <li class="nav-item dropdown cool-link">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         CONNECT US
                     </a>
-                    <ul class="dropdown-menu full-container-dropdown border-0"
-                        style="border-top: 1px solid #ae0a460f !important;;">
+                    <ul class="dropdown-menu mobile-container-dropdown">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-lg-4 p-left-rem pt-3 pb-3" style="background: #f7f6f5;">
-                                    <p class="fw-bold">
-                                        <span style="border-top: 4px solid #ae0a46;">Our</span> Company
+                                    <p class="fw-bold text-center">
+                                        <span style="border-top: 4px solid #ae0a46;">Soc</span>ial
                                     </p>
-                                    <li class="d-flex justify-content-start py-3">
+                                    <li class="d-flex justify-content-center py-3">
                                         <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
-                                            class="social_icons"><i class="h4 fa-brands fa-square-facebook"
+                                            class="social_icons"><i class="h1 fa-brands fa-square-facebook"
                                                 aria-hidden="true"></i></a>
                                         <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
                                             class="ms-2 social_icons">
-                                            <i class="h4 fa-brands fa-linkedin"></i></a>
+                                            <i class="h1 fa-brands fa-linkedin"></i></a>
                                         <a href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}"
                                             class="ms-2 social_icons">
-                                            <i class="h4 fa-brands fa-square-twitter"></i></a>
+                                            <i class="h1 fa-brands fa-square-twitter"></i></a>
                                         <a href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}"
                                             class="ms-2 social_icons">
-                                            <i class="h4 fa-brands fa-square-youtube"></i></a>
+                                            <i class="h1 fa-brands fa-square-youtube"></i></a>
                                         <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
                                             class="ms-2 social_icons">
-                                            <i class="h4 fa-brands fa-square-instagram"></i></a>
+                                            <i class="h1 fa-brands fa-square-instagram"></i></a>
                                     </li>
                                 </div>
                                 <div class="col-lg-8 p-right-rem pt-3 pb-3">
@@ -1441,9 +1059,28 @@
                                                 <span style="border-top: 4px solid #ae0a46;">Our</span> Company
                                             </p>
                                             <div class="row">
-                                                <div class="col-lg-12">
-                                                    <a class="d-flex align-items-center" href="">
-                                                        <div>Software Software </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center"
+                                                        href="{{ route('about') }}">
+                                                        <div>About Us </div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center"
+                                                        href="{{ route('portfolio') }}">
+                                                        <div>Portfolio </div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center"
+                                                        href="{{ route('contact') }}">
+                                                        <div>Contact Us </div>
                                                         <div>
                                                             <i class="ph ph-caret-right menu_icons"></i>
                                                         </div>
@@ -1457,9 +1094,19 @@
                                                 Us
                                             </p>
                                             <div class="row">
-                                                <div class="col-lg-12">
-                                                    <a class="d-flex align-items-center" href="">
-                                                        <div>Software Software </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center"
+                                                        href="{{ route('job.openings') }}">
+                                                        <div>Find Jobs</div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center"
+                                                        href="{{ route('job.registration') }}">
+                                                        <div>Job Registration</div>
                                                         <div>
                                                             <i class="ph ph-caret-right menu_icons"></i>
                                                         </div>
@@ -1469,13 +1116,30 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <p class="fw-bold">
-                                                <span style="border-top: 4px solid #ae0a46;">Par</span>Partner
+                                                <span style="border-top: 4px solid #ae0a46;">Par</span>tner
                                                 With Us
                                             </p>
                                             <div class="row">
-                                                <div class="col-lg-12">
-                                                    <a class="d-flex align-items-center" href="">
-                                                        <div>Software Software </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center"
+                                                        href="{{ route('partner.login') }}">
+                                                        <div>Partner Registration</div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center" href="javascript:void(0);">
+                                                        <div>Investor</div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center" href="javascript:void(0);">
+                                                        <div>News Room</div>
                                                         <div>
                                                             <i class="ph ph-caret-right menu_icons"></i>
                                                         </div>
@@ -1490,6 +1154,8 @@
                     </ul>
                 </li>
             </ul>
+
+            
             {{-- <div class="search-container">
                 <form method="post" action="{{ route('product.search') }}">
                     @csrf

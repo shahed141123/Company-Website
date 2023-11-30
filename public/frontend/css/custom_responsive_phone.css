@@ -5,6 +5,22 @@
 }
 
 @media only screen and (max-width: 600px) {
+
+    .search-input-container {
+        width: 21rem;
+        position: relative;
+        right: auto;
+    }
+    .mobile-container-dropdown {
+        position: static !important;
+        height: 380px;
+        transform: none;
+        border-radius: 0;
+        margin: 0;
+        margin-bottom: 10px !important;
+        overflow-y: scroll;
+        transform: translate(0px, 3px) !important;
+    }
     .page-wrapper {
         margin-top: 5.9rem !important;
     }
@@ -379,67 +395,39 @@
     }
 
 
-.fab-info-icon-wheel {
-    position: fixed;
-    bottom: 2.1rem;
-    left: 7rem;
-    /* border: 1px solid #eee; */
-    width: 10rem;
-    height: 10rem;
-    transition: all 0.3s ease;
-    transform-origin: bottom left;
-    transform: scale(0);
-}
-
-.fab-info-icon-checkbox:checked~.fab-info-icon-wheel {
-    transform: scale(1);
-}
-
-.fab-info-icon-action {
-    position: absolute;
-    background: #ae0a46;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: White !important;
-    transition: all 1s ease;
-    opacity: 0;
-}
-
-.fab-info-icon-checkbox:checked~.fab-info-icon-wheel .fab-info-icon-action {
-    opacity: 1;
-}
-
-.fab-info-icon-action:hover {
-    background-color: #760c33;
-}
-
-.fab-info-icon-wheel .fab-info-icon-action-1 {
-    left: 0;
-    bottom: -1rem;
-}
-
-.fab-info-icon-wheel .fab-info-icon-action-3 {
-    right: 3.4rem;
-    top: 0.5rem;
-}
-
-.fab-info-icon-wheel .fab-info-icon-action-2 {
-    left: 0.5rem;
-    bottom: 3.4rem;
-}
+    .fab-info-icon-wheel {
+        position: fixed;
+        bottom: 1.7rem;
+        left: 2rem;
+        width: 10.9rem;
+    }
 
 
+    .fab-info-icon-wheel .fab-info-icon-action-1 {
+        right: auto;
+        top: 0;
+        left: -0.4rem;
+    }
 
-.fab-info-icon-wheel .fab-info-icon-action-4 {
-    right: 0rem;
-    bottom: 3px;
-}
+    .fab-info-icon-wheel .fab-info-icon-action-2 {
+        right: 4.2rem;
+        top: 0.5rem;
+        left: auto;
+    }
 
-/* Fab icon end */
+    .fab-info-icon-wheel .fab-info-icon-action-3 {
+        right: 0.5rem;
+        bottom: 4rem;
+        left: auto;
+    }
+
+    .fab-info-icon-wheel .fab-info-icon-action-4 {
+        right: 0;
+        left: auto;
+        bottom: 0;
+    }
+
+    /* Fab icon end */
 
     .category-center {
         margin-right: 0rem !important;
