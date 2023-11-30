@@ -5314,8 +5314,8 @@ tr td:hover {
 }
 .popover__content {
     position: absolute;
-    left: -55px;
-    right: 0px;
+    left: -160px;
+    right: 65px;
     transform: translate(0, 10px);
     background-color: #fff;
     padding: 1rem 1.5rem;
