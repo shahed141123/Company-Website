@@ -43,17 +43,14 @@
         <!--=======// Footer Section//=========-->
         @if (str_contains(Route::current()->getName(), 'client'))
         @else
-            @include('frontend.partials.footer')
+        @include('frontend.partials.footer')
         @endif
-
     </div>
     <!----------End--------->
 
     <!--=======// Cookises Modals //=======-->
     @include('frontend.partials.cookies')
     <!----------End--------->
-
-
 
     <!--=======// Feedback Modals //=======-->
     @include('frontend.partials.feedback')
@@ -79,8 +76,6 @@
                 }, 100); // Same duration as preloader CSS animation
             }, 800); // Simulated delay in milliseconds
         });
-
-        
     </script>
 
 

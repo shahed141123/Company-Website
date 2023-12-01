@@ -315,112 +315,87 @@
                             <div class="col-lg-6">
                                 <div class="animated-image parbase section">
                                     <div id="solution_image_1">
-                                        <img src="https://i.ibb.co/QHJkdmx/ai-generative-hands-keyboard-chatgpt.jpg"
+                                        <img src="{{ isset($software_info->row_six_image) && file_exists(asset('storage/' . $software_info->row_six_image)) ? asset('storage/' . $software_info->row_six_image) : asset('frontend/images/no-row-img(580-326).png') }}"
                                             alt="" alt="User talking with AI generated content engine. ChatGPT"
-                                            title="AI solutions" class="img-fluid"
+                                            title="Software Information NGENIT" class="img-fluid"
                                             style="background-color: rgb(212,208,202);">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <h3>
-                                    <span style="border-top: 3px solid #ae0a46;">Op</span>erationalize data
+                                    <span
+                                        style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($software_info->row_six_title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($software_info->row_six_title, 1) }}
                                 </h3>
-                                <p class="software-info-paragraph" style="text-align: justify;">The release of generative AI
-                                    tools like ChatGPT unlocked new ways for businesses to increase
-                                    productivity, grow revenue and gain a competitive edge. We’ll help you adopt and manage
-                                    generative.</p>
-                                <button class="common_button2 effect02">Explore Our AI Solution</button>
+                                <p class="software-info-paragraph" style="text-align: justify;">
+                                    {!! $software_info->row_six_short_description !!}
+                                </p>
+                                @if (!empty($software_info->row_six_btn_name))
+                                    <a href="{{ $software_info->row_six_btn_link }}"
+                                        class="common_button2 effect02">{{ $software_info->row_six_btn_name }}</a>
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 465px;">
-                        <div class="row align-items-center">
-                            <div class="col-lg-12">
-                                <div>
-                                    <img class="pb-4" width="80px"
-                                        src="https://i.ibb.co/q7Lpjcg/software-deployment-icon.png" alt="">
+                @if ($tab_one)
+                    <div class="col-lg-4">
+                        <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                            <div class="row align-items-center">
+                                <div class="col-lg-12">
+                                    @if (isset($tab_one->image) && file_exists(asset('storage/' . $tab_one->image)))
+                                        <div>
+                                            <img class="pb-4" width="80px"
+                                                src="{{ asset('storage/' . $tab_one->image) }}" alt="">
+                                        </div>
+                                    @endif
+                                    <h1 class="software-info-title">
+                                        <span
+                                            style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tab_one->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tab_one->title, 1) }}
+                                    </h1>
+                                    <p class="software-info-paragraph" style="text-align: justify;">
+                                        {!! $tab_one->description !!}
+                                    </p>
+                                    @if (!empty($tab_one->btn_name))
+                                        <a href="{{ $tab_one->link }}"
+                                            class="common_button2 effect02">{{ $tab_one->btn_name }}</a>
+                                    @endif
                                 </div>
-                                <h1 class="software-info-title">
-                                    <span style="border-top: 3px solid #ae0a46;">Op</span>erationalize data
-                                    </h3>
-                                    <p class="software-info-paragraph" style="text-align: justify;">The release of
-                                        generative AI tools like ChatGPT unlocked new ways for businesses to increase
-                                        productivity, grow revenue and gain a competitive edge. We’ll help you adopt and
-                                        manage generative.</p>
-                                    <a href="#" class="cool-link main_color">Explore Our AI Solution <i
-                                            class="fa-solid fa-arrow-right-long ps-1"></i></a>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
             <div class="row gx-3 mt-3 mb-5">
-                <div class="col-lg-4">
-                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
-                        <div class="row align-items-center">
-                            <div class="col-lg-12">
-                                <div>
-                                    <img class="pb-4" width="80px"
-                                        src="https://i.ibb.co/q7Lpjcg/software-deployment-icon.png" alt="">
+                @if ($tabIds)
+                    @foreach ($tabIds as $tabId)
+                        <div class="col-lg-4">
+                            <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-12">
+                                        @if (isset($tabId->image) && file_exists(asset('storage/' . $tabId->image)))
+                                            <div>
+                                                <img class="pb-4" width="80px"
+                                                    src="{{ asset('storage/' . $tabId->image) }}" alt="">
+                                            </div>
+                                        @endif
+                                        <h1 class="software-info-title">
+                                            <span
+                                                style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tabId->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tabId->title, 1) }}
+                                        </h1>
+                                        <p class="software-info-paragraph" style="text-align: justify;">
+                                            {!! $tabId->description !!}
+                                        </p>
+                                        @if (!empty($tabId->btn_name))
+                                            <a href="{{ $tabId->link }}"
+                                                class="common_button2 effect02">{{ $tabId->btn_name }}</a>
+                                        @endif
+                                    </div>
                                 </div>
-                                <h1 class="software-info-title">
-                                    <span style="border-top: 3px solid #ae0a46;">Op</span>erationalize data
-                                    </h3>
-                                    <p class="software-info-paragraph" style="text-align: justify;">The release of
-                                        generative AI tools like ChatGPT unlocked new ways for businesses to increase
-                                        productivity, grow revenue and gain a competitive edge. We’ll help you adopt and
-                                        manage generative.</p>
-                                    <a href="#" class="cool-link main_color">Explore Our AI Solution <i
-                                            class="fa-solid fa-arrow-right-long ps-1"></i></a>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
-                        <div class="row align-items-center">
-                            <div class="col-lg-12">
-                                <div>
-                                    <img class="pb-4" width="80px"
-                                        src="https://i.ibb.co/q7Lpjcg/software-deployment-icon.png" alt="">
-                                </div>
-                                <h1 class="software-info-title">
-                                    <span style="border-top: 3px solid #ae0a46;">Op</span>erationalize data
-                                    </h3>
-                                    <p class="software-info-paragraph" style="text-align: justify;">The release of
-                                        generative AI tools like ChatGPT unlocked new ways for businesses to increase
-                                        productivity, grow revenue and gain a competitive edge. We’ll help you adopt and
-                                        manage generative.</p>
-                                    <a href="#" class="cool-link main_color">Explore Our AI Solution <i
-                                            class="fa-solid fa-arrow-right-long ps-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
-                        <div class="row align-items-center">
-                            <div class="col-lg-12">
-                                <div>
-                                    <img class="pb-4" width="80px"
-                                        src="https://i.ibb.co/q7Lpjcg/software-deployment-icon.png" alt="">
-                                </div>
-                                <h1 class="software-info-title">
-                                    <span style="border-top: 3px solid #ae0a46;">G</span>enerative AI
-                                </h1>
-                                <p style="text-align: justify;">The release of generative AI tools like ChatGPT unlocked
-                                    new ways for businesses to increase
-                                    productivity, grow revenue and gain a competitive edge. We’ll help you adopt and manage
-                                    generative.</p>
-                                <a href="#" class="cool-link main_color">Explore Our AI Solution <i
-                                        class="fa-solid fa-arrow-right-long ps-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>
@@ -642,8 +617,8 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div>
-                                <div class="hover hover-2 text-white rounded"><img
-                                        src="https://res.cloudinary.com/mhmd/image/upload/v1570786258/hoverSet-2_lt7geh.jpg"
+                                <div class="hover hover-2 text-white rounded">
+                                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1570786258/hoverSet-2_lt7geh.jpg"
                                         alt="">
                                     <div class="hover-overlay"></div>
                                     <div class="hover-2-content px-5 py-4">
@@ -662,8 +637,8 @@
                                 </div>
                             </div>
                             <div class="mt-4">
-                                <div class="hover hover-2 text-white rounded"><img
-                                        src="https://res.cloudinary.com/mhmd/image/upload/v1570786258/hoverSet-2_lt7geh.jpg"
+                                <div class="hover hover-2 text-white rounded">
+                                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1570786258/hoverSet-2_lt7geh.jpg"
                                         alt="">
                                     <div class="hover-overlay"></div>
                                     <div class="hover-2-content px-5 py-4">
@@ -672,7 +647,6 @@
                                             <span style="font-size: 20px; margin-right: 44px;">
                                                 adipisicing elit. adipisicing elit. adipisicing elit.
                                             </span>
-
                                         </p>
 
                                         <p class="hover-2-description text-uppercase mb-0">
@@ -743,7 +717,7 @@
     </section>
 
     <!--=====// Tech solution //=====-->
-    @if (count($tech_datas) > 0)
+    {{-- @if (count($tech_datas) > 0)
         <div class="section_wp2">
             <div class="container">
                 @if (!empty($software_info->row_seven_title))
@@ -776,13 +750,13 @@
                 </div>
             </div>
         </div>
-    @endif
+    @endif --}}
     <!---------End -------->
     <!--=====// Bootom Blogs section //=====-->
     <section>
         <div class="container">
-            <div class="row gx-4 p-2" style=" border-top: 1px solid #eee; margin-top: 30px;">
-                <div class="col-lg-3" style="border-right: 1px solid #eee;">
+            <div class="row gx-4 p-2" style="margin-top: 30px;margin-bottom:30px;">
+                {{-- <div class="col-lg-3" style="border-right: 1px solid #eee;">
                     <div class="d-flex align-items-center">
                         <a href="" class="blogs-area-bottom">
                             <div>
@@ -796,52 +770,28 @@
                             <h6>The latest hardware and software</h6>
                         </a>
                     </div>
-                </div>
-                <div class="col-lg-3" style="border-right: 1px solid #eee;">
-                    <div class="d-flex align-items-center">
-                        <a href="" class="blogs-area-bottom">
-                            <div>
-                                <img class="img-fluid"
-                                    src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg"
-                                    alt="">
+                </div> --}}
+                {{-- style="margin-bottom: 20px; box-shadow: 0px 3px 4px 0px #e6e6e5;" --}}
+                @if (count($tech_datas) > 0)
+                    @foreach ($tech_datas as $item)
+                        <div class="col-lg-3 mb-4" style="margin-bottom: 20px;">
+                            <div class="d-flex align-items-center" >
+                                <a href="javascript:void(0)" class="d-flex blogs-area-bottom justify-content-center align-items-center" style="width:90px;">
+                                    {{-- <div> --}}
+                                        <h1 class="mb-0" style="color:#ae0a46; font-family:cursive;">{{ $item->header }}</h1>
+                                        {{-- <img class="img-fluid"
+                                            src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg"
+                                            alt=""> --}}
+                                    {{-- </div> --}}
+                                </a>
+                                <a href="javascript:void(0)" class="ps-3">
+                                    <p class="m-0">{{ $item->footer }}</p>
+                                    <h6>{{ $item->short_description }}</h6>
+                                </a>
                             </div>
-                        </a>
-                        <a href="#" class="ps-3">
-                            <p class="m-0">Buy Product</p>
-                            <h6>The latest hardware and software</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3" style="border-right: 1px solid #eee;">
-                    <div class="d-flex align-items-center">
-                        <a href="" class="blogs-area-bottom">
-                            <div>
-                                <img class="img-fluid"
-                                    src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg"
-                                    alt="">
-                            </div>
-                        </a>
-                        <a href="#" class="ps-3">
-                            <p class="m-0">Buy Product</p>
-                            <h6>The latest hardware and software</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="d-flex align-items-center">
-                        <a href="" class="blogs-area-bottom">
-                            <div>
-                                <img class="img-fluid"
-                                    src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg"
-                                    alt="">
-                            </div>
-                        </a>
-                        <a href="#" class="ps-3">
-                            <p class="m-0">Buy Product</p>
-                            <h6>The latest hardware and software</h6>
-                        </a>
-                    </div>
-                </div>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>

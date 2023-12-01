@@ -5,7 +5,7 @@
 
     .step-img {
         position: relative;
-        top: -13px;
+        top: -14px;
         left: -4rem;
         right: 0px;
     }
@@ -158,7 +158,7 @@
         <nav class="navbar navbar-expand-lg p-2 main-navbar bg-white menu-section">
             <div class="container-fluid">
                 <div class="step-img d-lg-block d-sm-none">
-                    <img src="https://i.ibb.co/3WKt3Mw/NGen-IT-left-color.png" alt="" style="height: 75px;">
+                    <img src="https://i.ibb.co/3WKt3Mw/NGen-IT-left-color.png" alt="" style="height: 76px;">
                 </div>
                 <a class="navbar-brand fw-bold upper-content-menu main-logo" href="{{ route('homepage') }}">
                     <img class="img-fluid site-main-logo"

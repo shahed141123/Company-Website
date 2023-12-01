@@ -1,12 +1,12 @@
 @extends('frontend.master')
 @section('content')
     <style>
-        .outcome_smail_bussiness_title h2{
-                    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif ;
-                }
-        .global_call_section::after
-        {
-            background: url('{{asset('storage/'.$learnmore->background_image)}}');
+        .outcome_smail_bussiness_title h2 {
+            font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+        }
+
+        .global_call_section::after {
+            background: url('{{ asset('storage/' . $learnmore->background_image) }}');
             content: "";
             position: absolute;
             height: 230px;
@@ -20,6 +20,7 @@
             left: 0px;
             z-index: -1;
         }
+
         .global_call_section_content {
             max-width: 575px;
             background-color: var(--heading);
@@ -27,6 +28,7 @@
             margin-left: -15px;
             margin-top: 2.4rem;
         }
+
         .app-contact {
             margin-top: auto;
             font-size: 8px;
@@ -34,6 +36,7 @@
             position: absolute;
             bottom: 40px;
         }
+
         .service_common_content h3 {
             font-size: 29px;
             opacity: 0.9;
@@ -43,7 +46,6 @@
             color: #222;
             margin: 30px 0px;
         }
-
     </style>
 
     <!--======// Guidance and support {1} //======-->
@@ -96,8 +98,8 @@
                     <a href="#Contact" class="common_button2">Hear from our team</a>
                 </div>
                 <div class="col-lg-6 col-sm-12 p-4">
-                    <img class="img-fluid" src="{{ asset('storage/' . $feature->image) }}"
-                        alt="{{ $feature->badge }}" style="border-radius: 8px;">
+                    <img class="img-fluid" src="{{ asset('storage/' . $feature->image) }}" alt="{{ $feature->badge }}"
+                        style="border-radius: 8px;">
                 </div>
             </div>
         </div>
@@ -117,26 +119,50 @@
                 </div>
                 <div class="col-lg-5 col-sm-12">
                     <div class="industry_single_help_list">
-                        <h5>{{$row_one->list_title}}</h5>
+                        <h5>{{ $row_one->list_title }}</h5>
                         <ul>
 
                             <li class="d-flex">
-                                <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path fill="#AE1D48" d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z"/> </svg></div>
+                                <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px"
+                                        height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
+                                        xml:space="preserve">
+                                        <path fill="#AE1D48"
+                                            d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
+                                    </svg></div>
                                 <div><a href="javascript:void(0);">{{ $row_one->list_one }}</a></div>
                             </li>
 
                             <li class="d-flex">
-                                <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path fill="#AE1D48" d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z"/> </svg></div>
+                                <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px"
+                                        height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
+                                        xml:space="preserve">
+                                        <path fill="#AE1D48"
+                                            d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
+                                    </svg></div>
                                 <div><a href="javascript:void(0);">{{ $row_one->list_two }}</a></div>
                             </li>
 
                             <li class="d-flex">
-                                <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path fill="#AE1D48" d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z"/> </svg></div>
+                                <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px"
+                                        height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
+                                        xml:space="preserve">
+                                        <path fill="#AE1D48"
+                                            d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
+                                    </svg></div>
                                 <div><a href="javascript:void(0);">{{ $row_one->list_three }}</a></div>
                             </li>
 
                             <li class="d-flex">
-                                <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path fill="#AE1D48" d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z"/> </svg></div>
+                                <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px"
+                                        height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
+                                        xml:space="preserve">
+                                        <path fill="#AE1D48"
+                                            d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
+                                    </svg></div>
                                 <div><a href="javascript:void(0);">{{ $row_one->list_four }}</a></div>
                             </li>
 
@@ -153,25 +179,25 @@
     <!--=====// Global call section //=====-->
     <section class="global_call_section section_padding mt-2 mb-3">
         <div class="container">
-          <!-- content -->
-          @php
-            $sentence = $feature->row_four_title;
-          @endphp
-          <div class="global_call_section_content">
-            <div class="home_title" style="width: 100%; margin: 0px;">
-              <h5 class="home_title_heading" style="text-align: left; color: #fff;">
-                <span>{{\Illuminate\Support\Str::substr($sentence, 0, 1)}}</span>{{ \Illuminate\Support\Str::substr($sentence, 1) }}
+            <!-- content -->
+            @php
+                $sentence = $feature->row_four_title;
+            @endphp
+            <div class="global_call_section_content">
+                <div class="home_title" style="width: 100%; margin: 0px;">
+                    <h5 class="home_title_heading" style="text-align: left; color: #fff;">
+                        <span>{{ \Illuminate\Support\Str::substr($sentence, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($sentence, 1) }}
 
-              </h5>
-              <p class="home_title_text text-white" style="text-align: left;">{{$feature->row_four_header}}</p>
-              <div class="business_seftion_button" style="text-align: left;">
-                <a href="#Contact">Explore Our Business</a>
-              </div>
+                    </h5>
+                    <p class="home_title_text text-white" style="text-align: left;">{{ $feature->row_four_header }}</p>
+                    <div class="business_seftion_button" style="text-align: left;">
+                        <a href="#Contact">Explore Our Business</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
     </section>
-      <!---------End -------->
+    <!---------End -------->
 
     <!--======// Consulting services {2} //======-->
     @if ($row_two)
@@ -206,7 +232,7 @@
                 <h4 class="">{{ $feature->row_three_title }}</h4>
                 <p>{{ $feature->row_three_header }}</p>
                 <div class="d-flex justify-content-center">
-                    <a href="{{route('contact')}}" class="common_button3 text-center">Contact us to buy</a>
+                    <a href="{{ route('contact') }}" class="common_button3 text-center">Contact us to buy</a>
                 </div>
             </div>
 
@@ -220,7 +246,9 @@
             <!-- home title -->
             <div class="home_title">
                 <h5 class="home_title_heading mb-4 pb-4 callout" style="font-size: 27px;"> {!! $feature->footer !!}</h5>
-                <h4 class="section_title py-3 mt-4"><span class="topLine">{{\Illuminate\Support\Str::substr($feature->row_five_title, 0, 1)}}</span>{{ \Illuminate\Support\Str::substr($feature->row_five_title, 1) }}</h4>
+                <h4 class="section_title py-3 mt-4"><span
+                        class="topLine">{{ \Illuminate\Support\Str::substr($feature->row_five_title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($feature->row_five_title, 1) }}
+                </h4>
                 <h5 class="py-3">{!! $feature->row_five_header !!}</h5>
             </div>
 
@@ -264,5 +292,3 @@
     @include('frontend.partials.footer_contact')
     <!---------End -------->
 @endsection
-
-
