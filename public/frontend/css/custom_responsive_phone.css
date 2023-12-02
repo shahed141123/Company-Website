@@ -21,6 +21,9 @@
         overflow-y: scroll;
         transform: translate(0px, 3px) !important;
     }
+    .navbar-nav .nav-item.active>.nav-link {
+        border-bottom: none;
+    }
     .page-wrapper {
         margin-top: 5.9rem !important;
     }

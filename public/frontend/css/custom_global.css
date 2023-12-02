@@ -5358,12 +5358,7 @@ tr td:hover {
 }
 
 .cool-link::after {
-    content: "";
-    display: block;
-    width: 0;
     height: 3px;
-    background: #ae0a46;
-    transition: width 0.3s;
     margin-top: -3px !important;
 }
 

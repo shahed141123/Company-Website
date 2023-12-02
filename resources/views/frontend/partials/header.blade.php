@@ -778,14 +778,19 @@
                 <div class="input-group flex-nowrap search-input-container">
                     <span class="input-group-text search-box-areas" id="addon-wrapping"><i
                             class="fa-solid fa-magnifying-glass"></i></span>
-                    <input type="text" class="form-control search-input-field" id="search_text" name="search"
+                    <input class="form-control search-input-field search" id="search_text" name="search"
                         type="search" placeholder="Search for products, solutions & more..."
                         aria-describedby="addon-wrapping">
                 </div>
             </form>
+            <div class="row container mx-auto sticky-top">
+                <div class="card d-none shadow-lg bg-white border rounded-0 mt-0" id="search_container">
+
+                </div>
+            </div>
             <hr>
             <ul class="navbar-nav justify-content-end flex-grow-1 mt-3">
-                <li class="nav-item dropdown cool-link">
+                <li class="nav-item dropdown cool-link mb-1">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         OUR SERVICES
@@ -878,7 +883,7 @@
                         </div>
                     </ul>
                 </li>
-                <li class="nav-item dropdown cool-link">
+                <li class="nav-item dropdown cool-link mb-1">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         SHOP ONLINE
@@ -1022,39 +1027,39 @@
                         </div>
                     </ul>
                 </li>
-                <li class="nav-item dropdown cool-link">
+                <li class="nav-item dropdown cool-link mb-1">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         CONNECT US
                     </a>
-                    <ul class="dropdown-menu mobile-container-dropdown">
+                    <ul class="dropdown-menu mobile-container-dropdown pt-0">
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-lg-4 p-left-rem pt-3 pb-3" style="background: #f7f6f5;">
-                                    <p class="fw-bold text-center">
+                                <div class="col-12 text-center pt-3" style="background: #f7f6f5;">
+                                    <p class="fw-bold text-center mb-0">
                                         <span style="border-top: 4px solid #ae0a46;">Soc</span>ial
                                     </p>
                                     <li class="d-flex justify-content-center py-3">
                                         <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
-                                            class="social_icons"><i class="h1 fa-brands fa-square-facebook"
+                                            class="social_icons"><i class=fa-2xl fa-brands fa-square-facebook"
                                                 aria-hidden="true"></i></a>
                                         <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
                                             class="ms-2 social_icons">
-                                            <i class="h1 fa-brands fa-linkedin"></i></a>
+                                            <i class="fa-2xl  fa-brands fa-linkedin"></i></a>
                                         <a href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}"
                                             class="ms-2 social_icons">
-                                            <i class="h1 fa-brands fa-square-twitter"></i></a>
+                                            <i class="fa-2xl  fa-brands fa-square-twitter"></i></a>
                                         <a href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}"
                                             class="ms-2 social_icons">
-                                            <i class="h1 fa-brands fa-square-youtube"></i></a>
+                                            <i class="fa-2xl  fa-brands fa-square-youtube"></i></a>
                                         <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
                                             class="ms-2 social_icons">
-                                            <i class="h1 fa-brands fa-square-instagram"></i></a>
+                                            <i class="fa-2xl  fa-brands fa-square-instagram"></i></a>
                                     </li>
                                 </div>
-                                <div class="col-lg-8 p-right-rem pt-3 pb-3">
+                                <div class="col-12 pt-3 pb-3">
                                     <div class="row">
-                                        <div class="col-lg-4">
+                                        <div class="col-6 mb-4">
                                             <p class="fw-bold">
                                                 <span style="border-top: 4px solid #ae0a46;">Our</span> Company
                                             </p>
@@ -1088,7 +1093,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-6 mb-4">
                                             <p class="fw-bold">
                                                 <span style="border-top: 4px solid #ae0a46;">Car</span>eer With
                                                 Us
@@ -1114,7 +1119,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-8 mb-4">
                                             <p class="fw-bold">
                                                 <span style="border-top: 4px solid #ae0a46;">Par</span>tner
                                                 With Us
