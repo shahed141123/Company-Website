@@ -66,7 +66,7 @@
                                     <td class="text-center">{{ ++$key }}</td>
                                     <td>
                                         @if (!empty($row->image))
-                                            <img src="{{ asset('storage/thumb/' . $row->image) }}" alt="" width="25"
+                                            <img src="{{ asset('storage/' . $row->image) }}" alt="" width="25"
                                                 height="25">
                                         @endif
                                     </td>

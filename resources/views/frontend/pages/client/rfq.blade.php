@@ -4,7 +4,7 @@
         .page-wrapper {
             height: 100vh;
         }
-    </style>
+    </style> 
     <!--=========Content Wrapper=============-->
     <section class="content_wrapper">
         <div class="page-wrapper chiller-theme toggled">

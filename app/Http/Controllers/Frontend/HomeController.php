@@ -139,9 +139,6 @@ class HomeController extends Controller
 
         $data['products'] = $softwareProducts->merge($hardwareProducts)->shuffle()->take(10);
 
-
-
-
         return view('frontend.pages.home.index', $data);
     }
 
@@ -149,35 +146,28 @@ class HomeController extends Controller
     public function softwareInfo()
     {
         $data['software_info'] = SoftwareInfoPage::latest()->first();
+        $data['tab_one'] = Row::where('id', $data['software_info']->row_five_tab_one_id)->first();
         if (!empty($data['software_info'])) {
-            $data['tab_one'] = Row::where('id', $data['software_info']->row_five_tab_one_id)->first();
-            $data['tab_two'] = Row::where('id', $data['software_info']->row_five_tab_two_id)->first();
-            $data['tab_three'] = Row::where('id', $data['software_info']->row_five_tab_three_id)->first();
-            $data['tab_four'] = Row::where('id', $data['software_info']->row_five_tab_four_id)->first();
+            $data['tabIds'] = [
+                'tab_two' => Row::where('id', $data['software_info']->row_five_tab_two_id)->first(),
+                'tab_three' => Row::where('id', $data['software_info']->row_five_tab_three_id)->first(),
+                'tab_four' => Row::where('id', $data['software_info']->row_five_tab_four_id)->first(),
+            ];
         }
         $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
-        $data['categories'] = SubCategory::with('subCatsoftwareProducts')
-            ->join('products', 'sub_categories.id', '=', 'products.sub_cat_id')
+        $data['categories'] = DB::table('sub_categories')->join('products', 'sub_categories.id', '=', 'products.sub_cat_id')
             ->where('products.product_type', '=', 'software')
             ->select('sub_categories.id', 'sub_categories.slug', 'sub_categories.title', 'sub_categories.image')
             ->distinct()->inRandomOrder()->limit(12)->get();
-        $data['brands'] = Brand::with('brandsoftwareProducts')
-            ->join('products', 'brands.id', '=', 'products.brand_id')
+
+        $data['brands'] = DB::table('brands')->join('products', 'brands.id', '=', 'products.brand_id')
             ->where('products.product_type', '=', 'software')
             ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
             ->distinct()->inRandomOrder()->limit(12)->get();
 
-        $randomIds = Product::where('product_type', 'software')
-            ->where('product_status', 'product')
-            ->inRandomOrder()
-            ->limit(16)
-            ->pluck('id');
+        $brandIds = $data['brands']->pluck('id')->toArray();
 
-        $data['products'] = Product::whereIn('id', $randomIds)
-            ->get(['id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount']);
-
-        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'slug', 'logo', 'title']);
-        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'slug', 'title']);
+        $data['blogs'] = Blog::whereJsonContains('brand_id', $brandIds)->get();
 
         $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
         //dd($data['categories']);
@@ -691,27 +681,6 @@ class HomeController extends Controller
 
 
     ///Brand All Page
-
-
-    public function BrandCommon($brand)
-    {
-        //dd($brand);
-        $data['brand'] = Brand::where('slug', $brand)->first();
-        $data['top_brands'] = BrandPage::orderBy('id', 'Desc')->limit(10)->get();
-        //dd($data['top_brands']);
-        $data['featured_brands'] = Brand::where('category', 'featured')->get();
-        $data['others'] = Brand::where('category', 'others')->get();
-
-        $data['products'] = Product::where('brand_id', $data['brand']->id)->where('product_status', 'product')->get();
-        $data['categories'] = DB::table('categories')
-            ->join('products', 'categories.id', '=', 'products.cat_id')
-            ->join('brands', 'products.brand_id', '=', 'brands.id')
-            ->where('brands.id', '=', $brand)
-            ->select('categories.id', 'categories.title', 'categories.image', 'categories.slug')
-            ->get();
-
-        return view('frontend.pages.brand.brand_common', $data);
-    }
 
     public function BrandPage($id)
     {

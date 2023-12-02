@@ -7,10 +7,7 @@
 
     <!--======// Header Title //======-->
     <section class="common_product_header"
-        style="background-image: linear-gradient(
-            rgb(0 0 0 / 15%),
-            rgb(0 0 0 / 26%)
-            ),url({{ asset('frontend/images/location.jpg') }});">
+        style="background-image: linear-gradient(rgb(0 0 0 / 15%),rgb(0 0 0 / 26%)),url({{ asset('frontend/images/location.jpg') }});">
         <div>
             <div class="">
                 <div class="container ">

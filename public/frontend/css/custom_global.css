@@ -2553,12 +2553,9 @@ a:hover {
 }
 
 .search-container {
-    position: relative;
-    display: inline-block;
-    margin: 4px 2px;
-    height: 50px;
-    width: 50px;
-    vertical-align: bottom;
+    position: absolute;
+    z-index: 1;
+    top: 4.9rem;
 }
 
 .mglass {
@@ -5294,7 +5291,8 @@ tr td:hover {
     z-index: 9999;
 }
 .menu-section{
-    height: 3rem !important;
+    /* height: 3rem !important; */
+    height: 3.1rem !important;
 }
 .top-menu-area{
     padding-top: 4px;
@@ -5433,13 +5431,14 @@ tr td:hover {
 .search-input-container {
     width: 500px;
     position: relative;
-    right: 7rem;
+    /* right: 7rem; */
+    right: 4rem;
 }
 
 .header-category-button-60 {
-    margin-right: 128px;
+    margin-right: 6rem;
     /* margin-top: 0px; */
-    margin-left: 2rem;
+    margin-left: 4rem;
 }
 
 

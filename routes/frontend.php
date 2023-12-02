@@ -103,7 +103,6 @@ Route::get('/refurbished.html', [HomeController::class, 'Refurbished'])->name('r
 
 //Brand wise Shop
 Route::get('/brands/all', [HomeController::class, 'AllBrand'])->name('all.brand');
-Route::get('/brand/{id}/html', [HomeController::class, 'BrandCommon'])->name('brand.html');
 Route::get('/brandpage/{id}/html', [HomeController::class, 'BrandPage'])->name('brandpage.html');
 
 
