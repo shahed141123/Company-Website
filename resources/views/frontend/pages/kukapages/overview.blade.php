@@ -104,7 +104,7 @@
                         {{-- New One --}}
                         <div class="col-lg-6 col-sm-12 ">
                             <div class="d-flex justify-content-center">
-                                <img class="img-fluid" src="{{ isset($row_one->image) && file_exists(asset('storage/' . $row_one->image)) ? asset('storage/' . $row_one->image) : asset('frontend/images/no-row-img(580-326).png') }}" alt=""
+                                <img class="img-fluid" src="{{ !empty($row_one->image) && file_exists(asset('storage/' . $row_one->image)) ? asset('storage/' . $row_one->image) : asset('frontend/images/no-row-img(580-326).png') }}" alt=""
                                     style="border-radius: 7px 55px 7px 55px;">
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                         </div>
                         <div class="col-lg-6 col-sm-12 ">
                             <div class="d-flex justify-content-center">
-                                <img class="img-fluid" src="{{ isset($row_three->image) && file_exists(asset('storage/' . $row_three->image)) ? asset('storage/' . $row_three->image) : asset('frontend/images/no-row-img(580-326).png') }}" alt=""
+                                <img class="img-fluid" src="{{ !empty($row_three->image) && file_exists(asset('storage/' . $row_three->image)) ? asset('storage/' . $row_three->image) : asset('frontend/images/no-row-img(580-326).png') }}" alt=""
                                     style="border-radius: 55px 7px 55px 7px;">
                             </div>
                         </div>
@@ -186,7 +186,7 @@
             </div>
             @if (!empty($brandpage->row_six_image))
                 <div class="my-2">
-                    <img class="img-fluid" src="{{ isset($brandpage->row_six_image) && file_exists(asset('storage/' . $brandpage->row_six_image)) ? asset('storage/' . $brandpage->row_six_image) : asset('frontend/images/no-row-bg-img(1552-388).png') }}" alt="">
+                    <img class="img-fluid" src="{{ !empty($brandpage->row_six_image) && file_exists(asset('storage/' . $brandpage->row_six_image)) ? asset('storage/' . $brandpage->row_six_image) : asset('frontend/images/no-row-bg-img(1552-388).png') }}" alt="">
                 </div>
             @endif
             <div class="p-5 pb-0 pt-0">
@@ -208,7 +208,7 @@
                                 </div>
                                 <div class="col-lg-6 col-sm-12">
                                     <div class="d-flex justify-content-center">
-                                        <img class="img-fluid" src="{{ isset($row_four->image) && file_exists(asset('storage/' . $row_four->image)) ? asset('storage/' . $row_four->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                        <img class="img-fluid" src="{{ !empty($row_four->image) && file_exists(asset('storage/' . $row_four->image)) ? asset('storage/' . $row_four->image) : asset('frontend/images/no-row-img(580-326).png') }}"
                                             alt="" style="border-radius: 55px 7px 55px 7px;">
                                     </div>
                                 </div>
@@ -222,7 +222,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-sm-12 para_text">
                                     <div class="d-flex justify-content-center">
-                                        <img class="img-fluid" src="{{ isset($row_five->image) && file_exists(asset('storage/' . $row_five->image)) ? asset('storage/' . $row_five->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                        <img class="img-fluid" src="{{ !empty($row_five->image) && file_exists(asset('storage/' . $row_five->image)) ? asset('storage/' . $row_five->image) : asset('frontend/images/no-row-img(580-326).png') }}"
                                             style="border-radius: 7px 55px 7px 55px;">
                                     </div>
                                 </div>

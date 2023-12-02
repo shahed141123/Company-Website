@@ -145,7 +145,7 @@ class HomeController extends Controller
 
     public function softwareInfo()
     {
-        $data['software_info'] = SoftwareInfoPage::latest()->first();
+        $data['software_info'] = SoftwareInfoPage::latest()->firstOrFail();
         $data['tab_one'] = Row::where('id', $data['software_info']->row_five_tab_one_id)->first();
         if (!empty($data['software_info'])) {
             $data['tabIds'] = [
@@ -160,14 +160,19 @@ class HomeController extends Controller
             ->select('sub_categories.id', 'sub_categories.slug', 'sub_categories.title', 'sub_categories.image')
             ->distinct()->inRandomOrder()->limit(12)->get();
 
-        $data['brands'] = DB::table('brands')->join('products', 'brands.id', '=', 'products.brand_id')
-            ->where('products.product_type', '=', 'software')
-            ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
-            ->distinct()->inRandomOrder()->limit(12)->get();
+        $brandIds = Product::where('product_status', 'product')->where('product_type', 'software')->distinct()->pluck('brand_id')->toArray();
 
-        $brandIds = $data['brands']->pluck('id')->toArray();
+        $data['brands'] = Brand::whereIn('id', $brandIds)->limit(12)->get();
 
-        $data['blogs'] = Blog::whereJsonContains('brand_id', $brandIds)->get();
+        $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
+
+        $data['tech_glossies'] = TechGlossy::inRandomOrder()->limit(3)->get();
+
+        // dd($data['tech_glossies']);
+
+        $data['tech_glossy1'] = $data['tech_glossies']->first();
+        $data['tech_glossy2'] = $data['tech_glossies']->get(1);
+        $data['tech_glossy3'] = $data['tech_glossies']->get(2);
 
         $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
         //dd($data['categories']);

@@ -161,8 +161,10 @@
                     <img src="https://i.ibb.co/3WKt3Mw/NGen-IT-left-color.png" alt="" style="height: 76px;">
                 </div>
                 <a class="navbar-brand fw-bold upper-content-menu main-logo" href="{{ route('homepage') }}">
-                    <img class="img-fluid site-main-logo"
+                    {{-- <img class="img-fluid site-main-logo"
                         src="{{ !empty($setting->logo) && file_exists(asset('storage/' . $setting->logo)) ? asset('storage/' . $setting->logo) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}"
+                        alt="NGEN IT"> --}}
+                    <img class="img-fluid site-main-logo" src="{{ asset('storage/' . $setting->logo) }}"
                         alt="NGEN IT">
                 </a>
                 <!---Category--->
@@ -247,511 +249,555 @@
                     <i class="fa-solid fa-bars main_color" style="font-size: 18px !important;"></i>
                 </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <form class="d-flex ms-auto upper-content-menu" role="search">
+                    <form class="d-flex ms-auto upper-content-menu" method="post"
+                        action="{{ route('product.search') }}" role="search">
+                        @csrf
                         <div class="input-group flex-nowrap search-input-container">
                             <span class="input-group-text search-box-areas" id="addon-wrapping"><i
                                     class="fa-solid fa-magnifying-glass"></i></span>
-                            <input type="text" class="form-control search-input-field"
-                                placeholder="Search for products, solutions & more..."
+                            <input class="form-control search-input-field search" id="search_text" name="search"
+                                type="search" placeholder="Search for products, solutions & more..."
                                 aria-describedby="addon-wrapping">
                         </div>
                     </form>
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <hr>
                         <li class="nav-item dropdown position-static cool-link main-menu-specing">
-                            <a class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                OUR SERVICES
-                            </a>
-                            <ul class="dropdown-menu full-container-dropdown"
-                                style="border-top: 1px solid #ae0a460f !important;">
-                                <div class="container-fluid">
-                                    <div class="row pt-5 pb-5 tech-top bg-white">
-                                        <div class="col-lg-3">
-                                            <p class="fw-bold"><span
-                                                    style="border-top: 4px solid #ae0a46;">Com</span>mon Services
-                                            </p>
-                                            <div class="row">
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center"
-                                                        href="{{ route('software.info') }}">
-                                                        <div>Software</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center"
-                                                        href="{{ route('hardware.info') }}">
-                                                        <div>Hardware</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center" href="javascript:void(0)">
-                                                        <div>Training</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center" href="javascript:void(0)">
-                                                        <div>Books</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <p class="fw-bold"><span
-                                                    style="border-top: 4px solid #ae0a46;">Ind</span>ustry We Serve
-                                            </p>
-                                            <div class="row">
-                                                @if (count($industrys) > 0)
-                                                    @foreach ($industrys as $industry)
-                                                        @if ($industry->industryPage)
-                                                            <div class="col-lg-6 mb-2">
-                                                                <a class="d-flex align-items-center"
-                                                                    href="{{ route('industry.details', $industry->slug) }}">
-                                                                    <div>{{ $industry->title }} </div>
-                                                                    <div>
-                                                                        <i class="ph ph-caret-right menu_icons"></i>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        @endif
-                                                    @endforeach
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <p class="fw-bold"><span
-                                                    style="border-top: 4px solid #ae0a46;">Sol</span>utions We Provide
-                                            </p>
-                                            <div class="row">
-                                                @if ($solutions)
-                                                    @foreach ($solutions as $solution)
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                                <li class="nav-item dropdown position-static cool-link main-menu-specing">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                        OUR SERVICES
+                                    </a>
+                                    <ul class="dropdown-menu full-container-dropdown"
+                                        style="border-top: 1px solid #ae0a460f !important;">
+                                        <div class="container-fluid">
+                                            <div class="row pt-5 pb-5 tech-top bg-white">
+                                                <div class="col-lg-3">
+                                                    <p class="fw-bold"><span
+                                                            style="border-top: 4px solid #ae0a46;">Com</span>mon
+                                                        Services
+                                                    </p>
+                                                    <div class="row">
                                                         <div class="col-lg-12 mb-2">
                                                             <a class="d-flex align-items-center"
-                                                                href="{{ !empty($solution->slug) ? route('solution.details', ['id' => $solution->slug]) : '' }}">
-                                                                <div>{{ $solution->name }}</div>
+                                                                href="{{ route('software.info') }}">
+                                                                <div>Software</div>
                                                                 <div>
                                                                     <i class="ph ph-caret-right menu_icons"></i>
                                                                 </div>
                                                             </a>
                                                         </div>
-                                                    @endforeach
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row pt-3 pb-3 tech-top">
-                                        <div class="col-lg-3 text-center">
-                                            <a href="{{ route('whatwedo') }}" style="border-top: 3px solid #ae0a46;">
-                                                What We Do
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-5 text-center">
-                                            <a href="{{ route('all.industry') }}"
-                                                style="border-top: 3px solid #ae0a46;">
-                                                View All Industry
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4 text-center">
-                                            <a href="{{ route('all.solution') }}"
-                                                style="border-top: 3px solid #ae0a46;">
-                                                View All Solutions
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown position-static cool-link main-menu-specing">
-                            <a class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                TECH CONTENTS
-                            </a>
-                            <ul class="dropdown-menu full-container-dropdown"
-                                style="border-top: 1px solid #ae0a460f !important;">
-                                <div class="container-fluid px-0">
-                                    <div class="row pt-4 pb-4 tech-top gx-1">
-                                        <p class="fw-bold mb-2"><span
-                                                style="border-top: 4px solid #ae0a46;">Tre</span>ndy Content
-                                        </p>
-                                        <div class="row">
-                                            @if ($features)
-                                                @foreach ($features as $feature)
-                                                    <div class="col-lg-6 col-sm-12">
-                                                        <div class="d-flex align-items-center">
-                                                            <img src="{{ isset($feature->image) && file_exists(asset('storage/' . $feature->image)) ? asset('storage/' . $feature->image) : asset('frontend/images/banner-demo.png') }}"
-                                                                alt="" style="width:130px;height:70px;">
-                                                            <div class="ms-3">
-                                                                <a
-                                                                    href="{{ route('feature.details', $feature->id) }}">
-                                                                    <strong
-                                                                        style="font-size:14px;">{{ Str::limit($feature->title, 100) }}</strong>
-                                                                </a>
-                                                                <br>
-                                                                <span>{{ $feature->badge }} /
-                                                                    {{ $feature->created_at->format('d-m-Y') }}</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="row pt-4 pb-4 tech-top bg-white gx-1">
-                                        <div class="row">
-                                            @if ($blog)
-                                                <div class="col-lg-6 col-sm-12">
-                                                    <div class="d-flex align-items-center">
-                                                        <img src="{{ isset($blog->image) && file_exists(asset('storage/' . $blog->image)) ? asset('storage/' . $blog->image) : asset('frontend/images/banner-demo.png') }}"
-                                                            alt="" style="width:130px;height:70px;">
-                                                        <div class="ms-3">
-                                                            <a href="{{ route('feature.details', $blog->id) }}">
-                                                                <strong
-                                                                    style="font-size:14px;">{{ Str::limit($blog->title, 100) }}</strong>
-                                                            </a>
-                                                            <br>
-                                                            <span>{{ $blog->badge }} /
-                                                                {{ $blog->created_at->format('d-m-Y') }}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endif
-                                            @if ($techglossy)
-                                                <div class="col-lg-6 col-sm-12">
-                                                    <div class="d-flex align-items-center">
-                                                        <img src="{{ isset($techglossy->image) && file_exists(asset('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}"
-                                                            alt="" style="width:130px;height:65px;">
-                                                        <div class="ms-3">
-                                                            <a href="{{ route('feature.details', $techglossy->id) }}">
-                                                                <strong
-                                                                    style="font-size:14px;">{{ Str::limit($techglossy->title, 100) }}</strong>
-                                                            </a>
-                                                            <br>
-                                                            <span>{{ $techglossy->badge }} /
-                                                                {{ $techglossy->created_at->format('d-m-Y') }}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="row pt-3 pb-3 tech-top gx-1">
-                                        <div class="col-lg-6 text-center">
-                                            <a href="{{ route('all.blog') }}" style="border-top: 3px solid #ae0a46;">
-                                                View All Blogs
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6 text-center">
-                                            <a href="{{ route('all.techglossy') }}"
-                                                style="border-top: 3px solid #ae0a46;">
-                                                View All Techglossies
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown position-static cool-link main-menu-specing">
-                            <a class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                SHOP ONLINE
-                            </a>
-                            <ul class="dropdown-menu full-container-dropdown"
-                                style="border-top: 1px solid #ae0a460f !important;">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-lg-3 bg-white pt-5 pb-3 shop-menu-left">
-                                            <p class="fw-bold"><span
-                                                    style="border-top: 4px solid #ae0a46;">Sho</span>p By</p>
-                                            <div class="row">
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center"
-                                                        href="{{ route('software.common') }}">
-                                                        <div>Software</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center"
-                                                        href="{{ route('hardware.common') }}">
-                                                        <div>Hardware</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center" href="javascript:void(0)">
-                                                        <div>Training</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center" href="javascript:void(0)">
-                                                        <div>Books</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center" href="{{ route('shop') }}">
-                                                        <div>Our Shop</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 bg-white pt-5 pb-3">
-                                            <p class="fw-bold"><span
-                                                    style="border-top: 4px solid #ae0a46;">Sho</span>p By Category</p>
-                                            <div class="row">
-                                                @if (!empty($categorys))
-                                                    @foreach ($categorys as $shop_category)
                                                         <div class="col-lg-12 mb-2">
                                                             <a class="d-flex align-items-center"
-                                                                href="{{ route('custom.product', $shop_category->slug) }}">
-                                                                <div>{{ $shop_category->title }}</div>
+                                                                href="{{ route('hardware.info') }}">
+                                                                <div>Hardware</div>
                                                                 <div>
                                                                     <i class="ph ph-caret-right menu_icons"></i>
                                                                 </div>
                                                             </a>
                                                         </div>
-                                                    @endforeach
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 bg-white pt-5 pb-3">
-                                            <p class="fw-bold"><span
-                                                    style="border-top: 4px solid #ae0a46;">Sho</span>p By Brand</p>
-                                            <div class="row">
-                                                @if ($brands)
-                                                    @foreach ($brands as $brand)
-                                                        @if ($brand->brandPage)
-                                                            <div class="col-lg-6 mb-2">
-                                                                <a class="d-flex align-items-center"
-                                                                    href="{{ route('brand.products', $brand->slug) }}">
-                                                                    <div>
-                                                                        {{ $brand->title }}
+                                                        <div class="col-lg-12 mb-2">
+                                                            <a class="d-flex align-items-center"
+                                                                href="javascript:void(0)">
+                                                                <div>Training</div>
+                                                                <div>
+                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-lg-12 mb-2">
+                                                            <a class="d-flex align-items-center"
+                                                                href="javascript:void(0)">
+                                                                <div>Books</div>
+                                                                <div>
+                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5">
+                                                    <p class="fw-bold"><span
+                                                            style="border-top: 4px solid #ae0a46;">Ind</span>ustry We
+                                                        Serve
+                                                    </p>
+                                                    <div class="row">
+                                                        @if (count($industrys) > 0)
+                                                            @foreach ($industrys as $industry)
+                                                                {{-- @if ($industry->industryPage) --}}
+                                                                    <div class="col-lg-6 mb-2">
+                                                                        <a class="d-flex align-items-center"
+                                                                            href="{{ route('industry.details', $industry->slug) }}">
+                                                                            <div>{{ $industry->title }} </div>
+                                                                            <div>
+                                                                                <i
+                                                                                    class="ph ph-caret-right menu_icons"></i>
+                                                                            </div>
+                                                                        </a>
                                                                     </div>
-                                                                    <div>
-                                                                        <i class="ph ph-caret-right menu_icons"></i>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
+                                                                {{-- @endif --}}
+                                                            @endforeach
                                                         @endif
-                                                    @endforeach
-                                                @endif
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <p class="fw-bold"><span
+                                                            style="border-top: 4px solid #ae0a46;">Sol</span>utions We
+                                                        Provide
+                                                    </p>
+                                                    <div class="row">
+                                                        @if ($solutions)
+                                                            @foreach ($solutions as $solution)
+                                                                <div class="col-lg-12 mb-2">
+                                                                    <a class="d-flex align-items-center"
+                                                                        href="{{ !empty($solution->slug) ? route('solution.details', ['id' => $solution->slug]) : '' }}">
+                                                                        <div>{{ $solution->name }}</div>
+                                                                        <div>
+                                                                            <i
+                                                                                class="ph ph-caret-right menu_icons"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            @endforeach
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row pt-3 pb-3 tech-top">
+                                                <div class="col-lg-3 text-center">
+                                                    <a href="{{ route('whatwedo') }}"
+                                                        style="border-top: 3px solid #ae0a46;">
+                                                        What We Do
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-5 text-center">
+                                                    <a href="{{ route('all.industry') }}"
+                                                        style="border-top: 3px solid #ae0a46;">
+                                                        View All Industry
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-4 text-center">
+                                                    <a href="{{ route('all.solution') }}"
+                                                        style="border-top: 3px solid #ae0a46;">
+                                                        View All Solutions
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 pt-5 pb-3" style="background: #f7f6f5;">
-                                            <p class="fw-bold"><span
-                                                    style="border-top: 4px solid #ae0a46;">Exp</span>lore Our Deals</p>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown position-static cool-link main-menu-specing">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                        TECH CONTENTS
+                                    </a>
+                                    <ul class="dropdown-menu full-container-dropdown"
+                                        style="border-top: 1px solid #ae0a460f !important;">
+                                        <div class="container-fluid px-0">
+                                            <div class="row pt-4 pb-4 tech-top gx-1">
+                                                <p class="fw-bold mb-2"><span
+                                                        style="border-top: 4px solid #ae0a46;">Tre</span>ndy Content
+                                                </p>
+                                                <div class="row">
+                                                    @if ($features)
+                                                        @foreach ($features as $feature)
+                                                            <div class="col-lg-6 col-sm-12">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="{{ isset($feature->image) && file_exists(asset('storage/' . $feature->image)) ? asset('storage/' . $feature->image) : asset('frontend/images/banner-demo.png') }}"
+                                                                        alt=""
+                                                                        style="width:130px;height:70px;">
+                                                                    <div class="ms-3">
+                                                                        <a
+                                                                            href="{{ route('feature.details', $feature->id) }}">
+                                                                            <strong
+                                                                                style="font-size:14px;">{{ Str::limit($feature->title, 100) }}</strong>
+                                                                        </a>
+                                                                        <br>
+                                                                        <span>{{ $feature->badge }} /
+                                                                            {{ $feature->created_at->format('d-m-Y') }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="row pt-4 pb-4 tech-top bg-white gx-1">
+                                                <div class="row">
+                                                    @if ($blog)
+                                                        <div class="col-lg-6 col-sm-12">
+                                                            <div class="d-flex align-items-center">
+                                                                <img src="{{ isset($blog->image) && file_exists(asset('storage/' . $blog->image)) ? asset('storage/' . $blog->image) : asset('frontend/images/banner-demo.png') }}"
+                                                                    alt="" style="width:130px;height:70px;">
+                                                                <div class="ms-3">
+                                                                    <a
+                                                                        href="{{ route('feature.details', $blog->id) }}">
+                                                                        <strong
+                                                                            style="font-size:14px;">{{ Str::limit($blog->title, 100) }}</strong>
+                                                                    </a>
+                                                                    <br>
+                                                                    <span>{{ $blog->badge }} /
+                                                                        {{ $blog->created_at->format('d-m-Y') }}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                    @if ($techglossy)
+                                                        <div class="col-lg-6 col-sm-12">
+                                                            <div class="d-flex align-items-center">
+                                                                <img src="{{ isset($techglossy->image) && file_exists(asset('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}"
+                                                                    alt="" style="width:130px;height:65px;">
+                                                                <div class="ms-3">
+                                                                    <a
+                                                                        href="{{ route('feature.details', $techglossy->id) }}">
+                                                                        <strong
+                                                                            style="font-size:14px;">{{ Str::limit($techglossy->title, 100) }}</strong>
+                                                                    </a>
+                                                                    <br>
+                                                                    <span>{{ $techglossy->badge }} /
+                                                                        {{ $techglossy->created_at->format('d-m-Y') }}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="row pt-3 pb-3 tech-top gx-1">
+                                                <div class="col-lg-6 text-center">
+                                                    <a href="{{ route('all.blog') }}"
+                                                        style="border-top: 3px solid #ae0a46;">
+                                                        View All Blogs
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-6 text-center">
+                                                    <a href="{{ route('all.techglossy') }}"
+                                                        style="border-top: 3px solid #ae0a46;">
+                                                        View All Techglossies
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown position-static cool-link main-menu-specing">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                        SHOP ONLINE
+                                    </a>
+                                    <ul class="dropdown-menu full-container-dropdown"
+                                        style="border-top: 1px solid #ae0a460f !important;">
+                                        <div class="container-fluid">
                                             <div class="row">
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center"
-                                                        href="{{ route('tech.deals') }}">
-                                                        <div>Technology deals </div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                <div class="col-lg-3 bg-white pt-5 pb-3 shop-menu-left">
+                                                    <p class="fw-bold"><span
+                                                            style="border-top: 4px solid #ae0a46;">Sho</span>p By</p>
+                                                    <div class="row">
+                                                        <div class="col-lg-12 mb-2">
+                                                            <a class="d-flex align-items-center"
+                                                                href="{{ route('software.common') }}">
+                                                                <div>Software</div>
+                                                                <div>
+                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                                </div>
+                                                            </a>
                                                         </div>
-                                                    </a>
+                                                        <div class="col-lg-12 mb-2">
+                                                            <a class="d-flex align-items-center"
+                                                                href="{{ route('hardware.common') }}">
+                                                                <div>Hardware</div>
+                                                                <div>
+                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-lg-12 mb-2">
+                                                            <a class="d-flex align-items-center"
+                                                                href="javascript:void(0)">
+                                                                <div>Training</div>
+                                                                <div>
+                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-lg-12 mb-2">
+                                                            <a class="d-flex align-items-center"
+                                                                href="javascript:void(0)">
+                                                                <div>Books</div>
+                                                                <div>
+                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-lg-12 mb-2">
+                                                            <a class="d-flex align-items-center"
+                                                                href="{{ route('shop') }}">
+                                                                <div>Our Shop</div>
+                                                                <div>
+                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="col-lg-12">
-                                                    <a class="d-flex align-items-center"
-                                                        href="{{ route('refurbished') }}">
-                                                        <div>Certified refurbished </div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                <div class="col-lg-3 bg-white pt-5 pb-3">
+                                                    <p class="fw-bold"><span
+                                                            style="border-top: 4px solid #ae0a46;">Sho</span>p By
+                                                        Category</p>
+                                                    <div class="row">
+                                                        @if (!empty($categorys))
+                                                            @foreach ($categorys as $shop_category)
+                                                                <div class="col-lg-12 mb-2">
+                                                                    <a class="d-flex align-items-center"
+                                                                        href="{{ route('custom.product', $shop_category->slug) }}">
+                                                                        <div>{{ $shop_category->title }}</div>
+                                                                        <div>
+                                                                            <i
+                                                                                class="ph ph-caret-right menu_icons"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            @endforeach
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 bg-white pt-5 pb-3">
+                                                    <p class="fw-bold"><span
+                                                            style="border-top: 4px solid #ae0a46;">Sho</span>p By Brand
+                                                    </p>
+                                                    <div class="row">
+                                                        @if ($brands)
+                                                            @foreach ($brands as $brand)
+                                                                @if ($brand->brandPage)
+                                                                    <div class="col-lg-6 mb-2">
+                                                                        <a class="d-flex align-items-center"
+                                                                            href="{{ route('brand.products', $brand->slug) }}">
+                                                                            <div>
+                                                                                {{ $brand->title }}
+                                                                            </div>
+                                                                            <div>
+                                                                                <i
+                                                                                    class="ph ph-caret-right menu_icons"></i>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                @endif
+                                                            @endforeach
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 pt-5 pb-3" style="background: #f7f6f5;">
+                                                    <p class="fw-bold"><span
+                                                            style="border-top: 4px solid #ae0a46;">Exp</span>lore Our
+                                                        Deals</p>
+                                                    <div class="row">
+                                                        <div class="col-lg-12 mb-2">
+                                                            <a class="d-flex align-items-center"
+                                                                href="{{ route('tech.deals') }}">
+                                                                <div>Technology deals </div>
+                                                                <div>
+                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                                </div>
+                                                            </a>
                                                         </div>
-                                                    </a>
+                                                        <div class="col-lg-12">
+                                                            <a class="d-flex align-items-center"
+                                                                href="{{ route('refurbished') }}">
+                                                                <div>Certified refurbished </div>
+                                                                <div>
+                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row pt-3 pb-3 tech-top">
-                                        <div class="col-lg-3 ps-0 pe-0">
-                                            <a href="{{ route('shop.html') }}"
-                                                style="border-top: 3px solid #ae0a46;">
-                                                NGen IT Showcase
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-3 ">
-                                            <a href="{{ route('all.category') }}"
-                                                style="border-top: 3px solid #ae0a46;margin-left: -2.3rem;">
-                                                View All Category
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a href="{{ route('all.brand') }}"
-                                                style="border-top: 3px solid #ae0a46;">
-                                                View All Brands
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-2 ps-5">
-                                            {{-- <a href="" style="border-top: 3px solid #ae0a46;">
+                                            <div class="row pt-3 pb-3 tech-top">
+                                                <div class="col-lg-3 ps-0 pe-0">
+                                                    <a href="{{ route('shop.html') }}"
+                                                        style="border-top: 3px solid #ae0a46;">
+                                                        NGen IT Showcase
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-3 ">
+                                                    <a href="{{ route('all.category') }}"
+                                                        style="border-top: 3px solid #ae0a46;margin-left: -2.3rem;">
+                                                        View All Category
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <a href="{{ route('all.brand') }}"
+                                                        style="border-top: 3px solid #ae0a46;">
+                                                        View All Brands
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-2 ps-5">
+                                                    {{-- <a href="" style="border-top: 3px solid #ae0a46;">
                                                 View All Deals
                                             </a> --}}
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown position-static cool-link">
-                            <a class="nav-link dropdown-toggle pe-0" href="#" role="button"
-                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                CONNECT US
-                            </a>
-                            <ul class="dropdown-menu full-container-dropdown"
-                                style="border-top: 1px solid #ae0a460f !important; width: 89% !important;">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-lg-4 p-left-rem pt-3 pb-3" style="background: #f7f6f5;">
-                                            <p class="fw-bold text-center">
-                                                <span style="border-top: 4px solid #ae0a46;">Soc</span>ial
-                                            </p>
-                                            <li class="d-flex justify-content-center py-3">
-                                                <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
-                                                    class="social_icons"><i class="h1 fa-brands fa-square-facebook"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
-                                                    class="ms-2 social_icons">
-                                                    <i class="h1 fa-brands fa-linkedin"></i></a>
-                                                <a href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}"
-                                                    class="ms-2 social_icons">
-                                                    <i class="h1 fa-brands fa-square-twitter"></i></a>
-                                                <a href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}"
-                                                    class="ms-2 social_icons">
-                                                    <i class="h1 fa-brands fa-square-youtube"></i></a>
-                                                <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
-                                                    class="ms-2 social_icons">
-                                                    <i class="h1 fa-brands fa-square-instagram"></i></a>
-                                            </li>
-                                        </div>
-                                        <div class="col-lg-8 p-right-rem pt-3 pb-3">
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown position-static cool-link">
+                                    <a class="nav-link dropdown-toggle pe-0" href="#" role="button"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                        CONNECT US
+                                    </a>
+                                    <ul class="dropdown-menu full-container-dropdown"
+                                        style="border-top: 1px solid #ae0a460f !important; width: 89% !important;">
+                                        <div class="container-fluid">
                                             <div class="row">
-                                                <div class="col-lg-4">
-                                                    <p class="fw-bold">
-                                                        <span style="border-top: 4px solid #ae0a46;">Our</span> Company
+                                                <div class="col-lg-4 p-left-rem pt-3 pb-3"
+                                                    style="background: #f7f6f5;">
+                                                    <p class="fw-bold text-center">
+                                                        <span style="border-top: 4px solid #ae0a46;">Soc</span>ial
                                                     </p>
-                                                    <div class="row">
-                                                        <div class="col-lg-12 mb-2">
-                                                            <a class="d-flex align-items-center"
-                                                                href="{{ route('about') }}">
-                                                                <div>About Us </div>
-                                                                <div>
-                                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-lg-12 mb-2">
-                                                            <a class="d-flex align-items-center"
-                                                                href="{{ route('portfolio') }}">
-                                                                <div>Portfolio </div>
-                                                                <div>
-                                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-lg-12 mb-2">
-                                                            <a class="d-flex align-items-center"
-                                                                href="{{ route('contact') }}">
-                                                                <div>Contact Us </div>
-                                                                <div>
-                                                                    <i class="ph ph-caret-right menu_icons"></i>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
+                                                    <li class="d-flex justify-content-center py-3">
+                                                        <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
+                                                            class="social_icons"><i
+                                                                class="h1 fa-brands fa-square-facebook"
+                                                                aria-hidden="true"></i></a>
+                                                        <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
+                                                            class="ms-2 social_icons">
+                                                            <i class="h1 fa-brands fa-linkedin"></i></a>
+                                                        <a href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}"
+                                                            class="ms-2 social_icons">
+                                                            <i class="h1 fa-brands fa-square-twitter"></i></a>
+                                                        <a href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}"
+                                                            class="ms-2 social_icons">
+                                                            <i class="h1 fa-brands fa-square-youtube"></i></a>
+                                                        <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
+                                                            class="ms-2 social_icons">
+                                                            <i class="h1 fa-brands fa-square-instagram"></i></a>
+                                                    </li>
                                                 </div>
-                                                <div class="col-lg-4">
-                                                    <p class="fw-bold">
-                                                        <span style="border-top: 4px solid #ae0a46;">Car</span>eer With
-                                                        Us
-                                                    </p>
+                                                <div class="col-lg-8 p-right-rem pt-3 pb-3">
                                                     <div class="row">
-                                                        <div class="col-lg-12 mb-2">
-                                                            <a class="d-flex align-items-center"
-                                                                href="{{ route('job.openings') }}">
-                                                                <div>Find Jobs</div>
-                                                                <div>
-                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                        <div class="col-lg-4">
+                                                            <p class="fw-bold">
+                                                                <span style="border-top: 4px solid #ae0a46;">Our</span>
+                                                                Company
+                                                            </p>
+                                                            <div class="row">
+                                                                <div class="col-lg-12 mb-2">
+                                                                    <a class="d-flex align-items-center"
+                                                                        href="{{ route('about') }}">
+                                                                        <div>About Us </div>
+                                                                        <div>
+                                                                            <i
+                                                                                class="ph ph-caret-right menu_icons"></i>
+                                                                        </div>
+                                                                    </a>
                                                                 </div>
-                                                            </a>
+                                                                <div class="col-lg-12 mb-2">
+                                                                    <a class="d-flex align-items-center"
+                                                                        href="{{ route('portfolio') }}">
+                                                                        <div>Portfolio </div>
+                                                                        <div>
+                                                                            <i
+                                                                                class="ph ph-caret-right menu_icons"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-lg-12 mb-2">
+                                                                    <a class="d-flex align-items-center"
+                                                                        href="{{ route('contact') }}">
+                                                                        <div>Contact Us </div>
+                                                                        <div>
+                                                                            <i
+                                                                                class="ph ph-caret-right menu_icons"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-lg-12 mb-2">
-                                                            <a class="d-flex align-items-center"
-                                                                href="{{ route('job.registration') }}">
-                                                                <div>Job Registration</div>
-                                                                <div>
-                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                        <div class="col-lg-4">
+                                                            <p class="fw-bold">
+                                                                <span
+                                                                    style="border-top: 4px solid #ae0a46;">Car</span>eer
+                                                                With
+                                                                Us
+                                                            </p>
+                                                            <div class="row">
+                                                                <div class="col-lg-12 mb-2">
+                                                                    <a class="d-flex align-items-center"
+                                                                        href="{{ route('job.openings') }}">
+                                                                        <div>Find Jobs</div>
+                                                                        <div>
+                                                                            <i
+                                                                                class="ph ph-caret-right menu_icons"></i>
+                                                                        </div>
+                                                                    </a>
                                                                 </div>
-                                                            </a>
+                                                                <div class="col-lg-12 mb-2">
+                                                                    <a class="d-flex align-items-center"
+                                                                        href="{{ route('job.registration') }}">
+                                                                        <div>Job Registration</div>
+                                                                        <div>
+                                                                            <i
+                                                                                class="ph ph-caret-right menu_icons"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <p class="fw-bold">
-                                                        <span style="border-top: 4px solid #ae0a46;">Par</span>tner
-                                                        With Us
-                                                    </p>
-                                                    <div class="row">
-                                                        <div class="col-lg-12 mb-2">
-                                                            <a class="d-flex align-items-center"
-                                                                href="{{ route('partner.login') }}">
-                                                                <div>Partner Registration</div>
-                                                                <div>
-                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                        <div class="col-lg-4">
+                                                            <p class="fw-bold">
+                                                                <span
+                                                                    style="border-top: 4px solid #ae0a46;">Par</span>tner
+                                                                With Us
+                                                            </p>
+                                                            <div class="row">
+                                                                <div class="col-lg-12 mb-2">
+                                                                    <a class="d-flex align-items-center"
+                                                                        href="{{ route('partner.login') }}">
+                                                                        <div>Partner Registration</div>
+                                                                        <div>
+                                                                            <i
+                                                                                class="ph ph-caret-right menu_icons"></i>
+                                                                        </div>
+                                                                    </a>
                                                                 </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-lg-12 mb-2">
-                                                            <a class="d-flex align-items-center"
-                                                                href="javascript:void(0);">
-                                                                <div>Investor</div>
-                                                                <div>
-                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                                <div class="col-lg-12 mb-2">
+                                                                    <a class="d-flex align-items-center"
+                                                                        href="javascript:void(0);">
+                                                                        <div>Investor</div>
+                                                                        <div>
+                                                                            <i
+                                                                                class="ph ph-caret-right menu_icons"></i>
+                                                                        </div>
+                                                                    </a>
                                                                 </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-lg-12 mb-2">
-                                                            <a class="d-flex align-items-center"
-                                                                href="javascript:void(0);">
-                                                                <div>News Room</div>
-                                                                <div>
-                                                                    <i class="ph ph-caret-right menu_icons"></i>
+                                                                <div class="col-lg-12 mb-2">
+                                                                    <a class="d-flex align-items-center"
+                                                                        href="javascript:void(0);">
+                                                                        <div>News Room</div>
+                                                                        <div>
+                                                                            <i
+                                                                                class="ph ph-caret-right menu_icons"></i>
+                                                                        </div>
+                                                                    </a>
                                                                 </div>
-                                                            </a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </ul>
+                                </li>
                             </ul>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
+    </div>
+    <div class="row container">
+        <div class="card d-none shadow-lg bg-white border rounded-0 mt-0" id="search_container">
+        </div>
     </div>
 </div>
 
@@ -763,6 +809,9 @@
             <img height="50px"
                 src="{{ !empty($setting->logo) && file_exists(asset('storage/' . $setting->logo)) ? asset('storage/' . $setting->logo) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}"
                 alt="NGEN IT">
+            {{-- <img height="50px"
+                src="{{asset('storage/' . $setting->logo)}}"
+                alt="NGEN IT"> --}}
         </a>
 
         <button class="offcanvas-icons upper-content-menu text-reset" data-bs-dismiss="offcanvas" aria-label="Close"
@@ -778,13 +827,13 @@
                 <div class="input-group flex-nowrap search-input-container">
                     <span class="input-group-text search-box-areas" id="addon-wrapping"><i
                             class="fa-solid fa-magnifying-glass"></i></span>
-                    <input class="form-control search-input-field search" id="search_text" name="search"
+                    <input class="form-control search-input-field search" id="mobile_search_text" name="search"
                         type="search" placeholder="Search for products, solutions & more..."
                         aria-describedby="addon-wrapping">
                 </div>
             </form>
             <div class="row container mx-auto sticky-top">
-                <div class="card d-none shadow-lg bg-white border rounded-0 mt-0" id="search_container">
+                <div class="card d-none shadow-lg bg-white border rounded-0 mt-0" id="mobile_search_container">
 
                 </div>
             </div>

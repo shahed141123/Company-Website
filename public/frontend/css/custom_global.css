@@ -2586,12 +2586,12 @@ a:hover {
 
 .search {
     position: absolute;
-    left: 49px;
+    left: 0px;
     /* Button width-1px (Not 50px/100% because that will sometimes show a 1px line between the search box and button) */
     background-color: #f7f6f5;
     outline: none;
     border: none;
-    padding: 0;
+    padding: 5px;
     width: 0;
     height: 100%;
     z-index: 10;

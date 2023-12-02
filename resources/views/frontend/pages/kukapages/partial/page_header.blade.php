@@ -1,4 +1,7 @@
 <style>
+    .page-wrapper{
+        margin-top: -3.2rem;
+    }
     .main-header {
         position: relative;
     }
@@ -64,7 +67,9 @@
                 <h3 class="text-center text-white">{{ $brandpage->header }}</h3>
             </div>
         </div> --}}
-        <img src="{{ isset($brandpage->banner_image) && file_exists(asset('storage/' . $brandpage->banner_image)) ? asset('storage/' . $brandpage->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
+        {{-- <img src="{{ !empty($brandpage->banner_image) && file_exists(asset('storage/' . $brandpage->banner_image)) ? asset('storage/' . $brandpage->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
+            alt=""> --}}
+        <img src="{{ asset('storage/' . $brandpage->banner_image)}}"
             alt="">
     </div>
     <div class="container">
@@ -95,11 +100,14 @@
             <div class="col-lg-2 col-sm-12 me-3 extra-d-flex">
                 {{-- <img id="stand-logo" src="{{ asset('storage/' . $brandpage->brand_logo) }}" alt="{{ $brand->title }} - logo"
                     height="58px"> --}}
-                <img id="stand-logo" class="img-fluid"
+                <img id="stand-logo" class="img-fluid" height=""
+                    src="{{asset('storage/' . $brandpage->brand_logo)}}"
+                    alt="{{ $brand->title }} - logo" style="box-shadow: none;">
+                {{-- <img id="stand-logo" class="img-fluid"
                     src="{{ isset($brandpage->brand_logo) && file_exists(asset('storage/' . $brandpage->brand_logo))
                         ? asset('storage/' . $brandpage->brand_logo)
                         : asset('frontend/images/no-brand-logo.jpg') }}"
-                    alt="{{ $brand->title }} - logo" style="box-shadow: none;">
+                    alt="{{ $brand->title }} - logo" style="box-shadow: none;"> --}}
             </div>
             <div class="col-lg-1 col-sm-12 extra-d-flex">
                 <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">

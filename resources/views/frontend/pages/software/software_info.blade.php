@@ -265,9 +265,9 @@
     @if (!empty($software_info->banner_image))
         <section class="">
             <div>
-                {{-- <img src="{{ asset('storage/' . $software_info->banner_image) }}" alt="" class="img-fluid"> --}}
-                <img src="{{ isset($software_info->banner_image) && file_exists(asset('storage/' . $software_info->banner_image)) ? asset('storage/' . $software_info->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
-                    alt="">
+                <img src="{{ asset('storage/' . $software_info->banner_image) }}" alt="">
+                {{-- <img src="{{ !empty($software_info->banner_image) && file_exists(asset('storage/' . $software_info->banner_image)) ? asset('storage/' . $software_info->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
+                    alt=""> --}}
             </div>
         </section>
     @endif
@@ -315,10 +315,14 @@
                             <div class="col-lg-6">
                                 <div class="animated-image parbase section">
                                     <div id="solution_image_1">
-                                        <img src="{{ isset($software_info->row_six_image) && file_exists(asset('storage/' . $software_info->row_six_image)) ? asset('storage/' . $software_info->row_six_image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                        <img src="{{ asset('storage/' . $software_info->row_six_image) }}"
                                             alt="" alt="User talking with AI generated content engine. ChatGPT"
                                             title="Software Information NGENIT" class="img-fluid"
                                             style="background-color: rgb(212,208,202);">
+                                        {{-- <img src="{{ isset($software_info->row_six_image) && file_exists(asset('storage/' . $software_info->row_six_image)) ? asset('storage/' . $software_info->row_six_image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                            alt="" alt="User talking with AI generated content engine. ChatGPT"
+                                            title="Software Information NGENIT" class="img-fluid"
+                                            style="background-color: rgb(212,208,202);"> --}}
                                     </div>
                                 </div>
                             </div>
@@ -603,118 +607,120 @@
 
     <!---------End -------->
 
-    <section>
-        <div class="container">
-            <div class="home_title_heading my-5">
-                <div class="software_feature_title">
-                    <h1 class="text-center pb-3">
-                        <span>R</span>eal outcomes. Expert insights.
-                    </h1>
-                </div>
-            </div>
-            <div class="row my-5">
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div>
-                                <div class="hover hover-2 text-white rounded">
-                                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1570786258/hoverSet-2_lt7geh.jpg"
-                                        alt="">
-                                    <div class="hover-overlay"></div>
-                                    <div class="hover-2-content px-5 py-4">
-                                        <p class="hover-2-title text-uppercase font-weight-bold mb-0">
-                                            <span class="font-weight-light">Client Story</span>
-                                            <br>
-                                            <span style="font-size: 20px; margin-right: 44px;">
-                                                adipisicing elit. adipisicing elit. adipisicing elit.
-                                            </span>
-                                        </p>
-
-                                        <p class="hover-2-description text-uppercase mb-0">
-                                            <a href="#" class="text-white">read more</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <div class="hover hover-2 text-white rounded">
-                                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1570786258/hoverSet-2_lt7geh.jpg"
-                                        alt="">
-                                    <div class="hover-overlay"></div>
-                                    <div class="hover-2-content px-5 py-4">
-                                        <p class="hover-2-title text-uppercase font-weight-bold mb-0"> <span
-                                                class="font-weight-light">Client Story </span>Caption <br>
-                                            <span style="font-size: 20px; margin-right: 44px;">
-                                                adipisicing elit. adipisicing elit. adipisicing elit.
-                                            </span>
-                                        </p>
-
-                                        <p class="hover-2-description text-uppercase mb-0">
-                                            <a href="#" class="text-white">read more</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+    @if (!empty($software_info))
+        <section class="clint_tab_section my-5 ">
+            <div class="container">
+                <div class="clint_tab_content pb-3">
+                    <!-- home title -->
+                    <div class="home_title mt-3">
+                        <div class="software_feature_title">
+                            <h1 class="text-center ">{{ $software_info->row_five_title }} </h1>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="hover-4 hover-second  text-white rounded">
-                                <img class="img-fluid"
-                                    src="https://res.cloudinary.com/mhmd/image/upload/v1570786258/hoverSet-2_lt7geh.jpg"
-                                    alt="">
-                                <div class="hover-overlay-second"></div>
-                                <div class="hover-4-content px-5 py-4">
-                                    <p class="hover-4-title text-uppercase font-weight-bold mb-0">
-                                        <span class="font-weight-light">Client Story </span>Caption <br>
-                                        <span style="font-size: 20px; margin-right: 44px;">
-                                            adipisicing elit. adipisicing elit. adipisicing elit.
-                                        </span>
-                                    </p>
-                                    <p class="hover-4-description text-uppercase mb-0">
-                                        <a href="#" class="text-white">read more</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
+                        <p class="home_title_text solution_para py-3 pb-4 mb-1">{!! $software_info->row_five_short_description !!}
+                        </p>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
-                        <h3>
-                            <span style="border-top: 3px solid #ae0a46;">Fe</span>atured leadership
-                        </h3>
+                    <!-- Client Tab Start -->
+                    <div class="row my-5">
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                        @if (!empty($tech_glossy1->title))
+                                        <div>
+                                            <div class="hover hover-2 text-white rounded">
+                                                <img src="{{ !empty($tech_glossy1->image) && file_exists(asset('storage/' . $tech_glossy1->image)) ? asset('storage/' . $tech_glossy1->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                                    alt="">
+                                                <div class="hover-overlay"></div>
+                                                <div class="hover-2-content px-5 py-4">
+                                                    <p class="hover-2-title text-uppercase font-weight-bold mb-0">
+                                                        <span class="font-weight-light">{{$tech_glossy1->badge}}</span>
+                                                        <br>
+                                                        <span style="font-size: 20px; margin-right: 44px;">
+                                                            {{$tech_glossy1->title}}
+                                                        </span>
+                                                    </p>
 
-                        <div class="py-3">
-                            <a href="">
-                                <p class="mb-0 pb-2">Analyst report</p>
-                                <h6>Forrester: The Total Economic Impact of Cisco Success Tracks</h6>
-                            </a>
+                                                    <p class="hover-2-description text-uppercase mb-0">
+                                                        <a href="{{route('techglossy.details',$tech_glossy1->title)}}" class="text-white">read more</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endif
+                                        @if (!empty($tech_glossy2->title))
+                                            <div class="mt-4">
+                                                <div class="hover hover-2 text-white rounded">
+                                                    <img src="{{ isset($tech_glossy2->image) && file_exists(asset('storage/' . $tech_glossy2->image)) ? asset('storage/' . $tech_glossy2->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                                        alt="">
+                                                    <div class="hover-overlay"></div>
+                                                    <div class="hover-2-content px-5 py-4">
+                                                        <p class="hover-2-title text-uppercase font-weight-bold mb-0"> <span
+                                                                class="font-weight-light">{{$tech_glossy2->badge}} </span> <br>
+                                                            <span style="font-size: 20px; margin-right: 44px;">
+                                                                {{$tech_glossy2->title}}
+                                                            </span>
+                                                        </p>
+
+                                                        <p class="hover-2-description text-uppercase mb-0">
+                                                            <a href="{{route('techglossy.details',$tech_glossy2->title)}}" class="text-white">read more</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                @if (!empty($tech_glossy3->title))
+                                    <div class="col-lg-6">
+                                        <div class="hover-4 hover-second  text-white rounded">
+                                            <img class="img-fluid"
+                                                src="{{ isset($tech_glossy3->image) && file_exists(asset('storage/' . $tech_glossy3->image)) ? asset('storage/' . $tech_glossy3->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                                alt="">
+                                            <div class="hover-overlay-second"></div>
+                                            <div class="hover-4-content px-5 py-4">
+                                                <p class="hover-4-title text-uppercase font-weight-bold mb-0">
+                                                    <span class="font-weight-light">{{$tech_glossy3->badge}} </span> <br>
+                                                    <span style="font-size: 20px; margin-right: 44px;">
+                                                        {{$tech_glossy3->title}}
+                                                    </span>
+                                                </p>
+                                                <p class="hover-4-description text-uppercase mb-0">
+                                                    <a href="{{route('techglossy.details',$tech_glossy3->title)}}" class="text-white">read more</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+
+                            </div>
                         </div>
-                        <hr class="m-1">
-                        <div class="py-3">
-                            <a href="">
-                                <p class="mb-0 pb-2">Analyst report</p>
-                                <h6>Forrester: The Total Economic Impact of Cisco Success Tracks</h6>
-                            </a>
-                        </div>
-                        <hr class="m-1">
-                        <div class="py-3">
-                            <a href="">
-                                <p class="mb-0 pb-2">Analyst report</p>
-                                <h6>Forrester: The Total Economic Impact of Cisco Success Tracks</h6>
-                            </a>
-                        </div>
-                        <hr class="m-1">
-                        <div class="py-3">
-                            <a href="">
-                                <p class="mb-0 pb-2">Analyst report</p>
-                                <h6>Forrester: The Total Economic Impact of Cisco Success Tracks</h6>
-                            </a>
+                        <div class="col-lg-4">
+                            <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                                <h3>
+                                    <span style="border-top: 3px solid #ae0a46;">Fe</span>atured Content
+                                </h3>
+
+                                @if ($blogs)
+                                    @foreach ($blogs as $blog)
+                                        <div class="py-3">
+                                            <a href="{{route('blog.details',$blog->id)}}">
+                                                <p class="mb-0 pb-2">{{$blog->badge}}</p>
+                                                <h6>{{$blog->title}}</h6>
+                                            </a>
+                                        </div>
+                                        <hr class="m-1">
+                                    @endforeach
+                                @endif
+
+                            </div>
                         </div>
                     </div>
+                    <!-- Client Tab End -->
                 </div>
             </div>
-    </section>
+        </section>
+    @endif
+
+
+
 
     <!--=====// Tech solution //=====-->
     {{-- @if (count($tech_datas) > 0)
@@ -774,12 +780,15 @@
                 {{-- style="margin-bottom: 20px; box-shadow: 0px 3px 4px 0px #e6e6e5;" --}}
                 @if (count($tech_datas) > 0)
                     @foreach ($tech_datas as $item)
-                        <div class="col-lg-3 mb-4" style="margin-bottom: 20px;">
-                            <div class="d-flex align-items-center" >
-                                <a href="javascript:void(0)" class="d-flex blogs-area-bottom justify-content-center align-items-center" style="width:90px;">
+                        <div class="col-lg-3 mb-5" style="margin-bottom: 40px;">
+                            <div class="d-flex align-items-center">
+                                <a href="javascript:void(0)"
+                                    class="d-flex blogs-area-bottom justify-content-center align-items-center"
+                                    style="width:90px;">
                                     {{-- <div> --}}
-                                        <h1 class="mb-0" style="color:#ae0a46; font-family:cursive;">{{ $item->header }}</h1>
-                                        {{-- <img class="img-fluid"
+                                    <h1 class="mb-0" style="color:#ae0a46; font-family:cursive;">{{ $item->header }}
+                                    </h1>
+                                    {{-- <img class="img-fluid"
                                             src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg"
                                             alt=""> --}}
                                     {{-- </div> --}}
