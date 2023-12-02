@@ -12,7 +12,7 @@ nav > .nav.nav-tabs {
 .nav-tabs .nav-item.show .nav-link {
     border-bottom: 10px solid #ae0a46 !important;
     position: relative;
-    top: 9px;
+    top: 0px;
 }
 nav > div a.nav-item.nav-link,
 nav > div a.nav-item.nav-link.active {

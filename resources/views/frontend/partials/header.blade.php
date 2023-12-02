@@ -4,11 +4,11 @@
     }
 
     .step-img {
-        position: relative;
-        top: -14px;
-        left: -4rem;
-        right: 0px;
-    }
+    position: relative;
+    top: -14px;
+    left: -3.8rem;
+    right: 0px;
+}
 </style>
 <div class="fixed-section header mb-5" style="border-bottom: 1px solid #ae0a460f !important;">
     {{-- Top Bar Area --}}

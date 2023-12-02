@@ -306,7 +306,7 @@
         </div>
     </section>
     <!--======// Information Section //======-->
-    <section><!--=====// Global call section //=====-->
+    <section>
         <div class="container">
             <div class="row gx-3">
                 <div class="col-lg-8">
@@ -354,7 +354,8 @@
                                             style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tab_one->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tab_one->title, 1) }}
                                     </h1>
                                     <p class="software-info-paragraph" style="text-align: justify;">
-                                        {!! $tab_one->description !!}
+                                        {!! \Illuminate\Support\Str::words($tab_one->description, 55, $end = '...') !!}
+
                                     </p>
                                     @if (!empty($tab_one->btn_name))
                                         <a href="{{ $tab_one->link }}"
@@ -370,7 +371,7 @@
                 @if ($tabIds)
                     @foreach ($tabIds as $tabId)
                         <div class="col-lg-4">
-                            <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                            <div class="p-5" style="background-color:#f7f6f5!important; min-height: 465px;">
                                 <div class="row align-items-center">
                                     <div class="col-lg-12">
                                         @if (isset($tabId->image) && file_exists(asset('storage/' . $tabId->image)))
@@ -384,7 +385,7 @@
                                                 style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tabId->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tabId->title, 1) }}
                                         </h1>
                                         <p class="software-info-paragraph" style="text-align: justify;">
-                                            {!! $tabId->description !!}
+                                            {!! \Illuminate\Support\Str::words($tabId->description, 55, $end = '.') !!}
                                         </p>
                                         @if (!empty($tabId->btn_name))
                                             <a href="{{ $tabId->link }}"
@@ -402,9 +403,9 @@
     <!--======// Feature tab //======-->
     <section>
         <div class="container">
-            <div class="row">
+            <div class="row pt-5">
                 <div class="col-lg-12 p-0">
-                    <div class="card">
+                    <div class="card border-0">
                         <div
                             class="card-header bg-white shadow-sm main-to-depp-gradient-2 p-5 card-header-area border-top-right-r">
                             <div class="d-flex align-items-center">
@@ -446,17 +447,16 @@
             </div>
         </div>
     </section>
-
     <!----------End--------->
     <!--======// Our expert //======-->
     @if (!empty($software_info))
         <section class="container mt-3 mb-5">
-            <div class="software_feature_title pb-5">
+            <div class="software_feature_title py-5">
                 <h1 class="text-center ">{{ $software_info->row_four_title }}</h1>
             </div>
             <div class="row d-flex justify-content-start align-items-center">
                 <div class="col-lg-6 col-sm-6">
-                    <iframe width="545" height="330"
+                    <iframe width="100%" height="330"
                         src="{{ $software_info->row_four_video_link }}?autoplay=1&mute=1" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
@@ -464,10 +464,10 @@
                 </div>
                 <div class="col-lg-6 col-sm-6">
                     <div class="">
-                        <h5 class="home_title_heading" style="text-align: left;">
+                        <h5 class="home_title_heading w-75" style="text-align: start;">
                             {{ $software_info->row_four_sub_title }}
                         </h5>
-                        <p class="home_title_text pt-3" style="text-align: left;">
+                        <p class="home_title_text pt-3" style="text-align: justify;">
                             {{ $software_info->row_four_short_description }}</p>
                         <div class="pt-3">
                             <a class="common_button2"
@@ -600,9 +600,7 @@
             </div>
         </div>
     </div>
-
     <!---------End -------->
-
     <section>
         <div class="container">
             <div class="home_title_heading my-5">
@@ -643,7 +641,7 @@
                                     <div class="hover-overlay"></div>
                                     <div class="hover-2-content px-5 py-4">
                                         <p class="hover-2-title text-uppercase font-weight-bold mb-0"> <span
-                                                class="font-weight-light">Client Story </span>Caption <br>
+                                                class="font-weight-light">Client Story </span><br>
                                             <span style="font-size: 20px; margin-right: 44px;">
                                                 adipisicing elit. adipisicing elit. adipisicing elit.
                                             </span>
@@ -664,7 +662,7 @@
                                 <div class="hover-overlay-second"></div>
                                 <div class="hover-4-content px-5 py-4">
                                     <p class="hover-4-title text-uppercase font-weight-bold mb-0">
-                                        <span class="font-weight-light">Client Story </span>Caption <br>
+                                        <span class="font-weight-light">Client Story </span><br>
                                         <span style="font-size: 20px; margin-right: 44px;">
                                             adipisicing elit. adipisicing elit. adipisicing elit.
                                         </span>
@@ -715,82 +713,26 @@
                 </div>
             </div>
     </section>
-
-    <!--=====// Tech solution //=====-->
-    {{-- @if (count($tech_datas) > 0)
-        <div class="section_wp2">
-            <div class="container">
-                @if (!empty($software_info->row_seven_title))
-                    <div class="solution_number_wrapper">
-                        <!-- title -->
-                        @php
-                            $sentence2 = $software_info->row_seven_title;
-                        @endphp
-                        <h5 class="home_title_heading" style="text-align: left;">
-                            <div class="software_feature_title">
-                                <h1 class="text-center pb-3">
-                                    <span>{{ \Illuminate\Support\Str::substr($sentence2, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($sentence2, 1) }}
-                                </h1>
-                            </div>
-                        </h5>
-                    </div>
-                @endif
-                <!-- tech wrapper -->
-                <div class="row">
-                    <!-- item -->
-                    @foreach ($tech_datas as $item)
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="tech_solution_item">
-                                <p class="tech_solution_title">{{ $item->header }}</p>
-                                <p class="tech_solution_text">{{ $item->short_description }}</p>
-                                <p class="tech_solution_award">{{ $item->footer }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    @endif --}}
-    <!---------End -------->
     <!--=====// Bootom Blogs section //=====-->
     <section>
         <div class="container">
-            <div class="row gx-4 p-2" style="margin-top: 30px;margin-bottom:30px;">
-                {{-- <div class="col-lg-3" style="border-right: 1px solid #eee;">
-                    <div class="d-flex align-items-center">
-                        <a href="" class="blogs-area-bottom">
-                            <div>
-                                <img class="img-fluid"
-                                    src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg"
-                                    alt="">
-                            </div>
-                        </a>
-                        <a href="#" class="ps-3">
-                            <p class="m-0">Buy Product</p>
-                            <h6>The latest hardware and software</h6>
-                        </a>
-                    </div>
-                </div> --}}
-                {{-- style="margin-bottom: 20px; box-shadow: 0px 3px 4px 0px #e6e6e5;" --}}
+            <div class="row" style="border-top: 1px solid #eee;">
                 @if (count($tech_datas) > 0)
                     @foreach ($tech_datas as $item)
-                        <div class="col-lg-3 mb-4" style="margin-bottom: 20px;">
-                            <div class="d-flex align-items-center" >
-                                <a href="javascript:void(0)" class="d-flex blogs-area-bottom justify-content-center align-items-center" style="width:90px;">
-                                    {{-- <div> --}}
-                                        <h1 class="mb-0" style="color:#ae0a46; font-family:cursive;">{{ $item->header }}</h1>
-                                        {{-- <img class="img-fluid"
-                                            src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg"
-                                            alt=""> --}}
-                                    {{-- </div> --}}
-                                </a>
-                                <a href="javascript:void(0)" class="ps-3">
-                                    <p class="m-0">{{ $item->footer }}</p>
-                                    <h6>{{ $item->short_description }}</h6>
-                                </a>
+                <div class="col-lg-3 py-3">
+                    <div class="d-flex align-items-center">
+                        <div class="" style="border-right: 1px solid #eee; width: 35%;">
+                            <h1 class="pe-4 main_color text-end">{{ $item->header }}</h1>
+                        </div>
+                        <div class="" style="width: 65%;">
+                            <div class="ps-4" >
+                                <p class="m-0 main_color">{{ $item->footer }}</p>
+                                <p class="m-0">{{ $item->short_description }}</p>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+                </div>
+                @endforeach
                 @endif
             </div>
         </div>
