@@ -15,12 +15,12 @@ class DashboardController extends Controller
 {
     public function device_ip()
     {
-        if (session()->exists('dip')) {
-            $deviceip = session('dip');
-        } else {
-            session()->put('dip', '192.168.1.201');
-            $deviceip = '192.168.1.201';
-        }
+        // if (session()->exists('dip')) {
+        //     $deviceip = session('dip');
+        // } else {
+            session()->put('dip', '203.17.65.230');
+            $deviceip = '203.17.65.230';
+        // }
         return $deviceip;
     }
 
@@ -48,7 +48,8 @@ class DashboardController extends Controller
         $zk->connect();
         $zk->enableDevice();
 
-        $attendances = $zk->getAttendance();
+        $attendances = $zk->getAttendance(1);
+        // dd($attendances);
         $users = $zk->getUser(); // Retrieve user data from the device
         $currentMonthAttendances = array_filter($attendances, function ($attendance) {
             return date('Y-m-d', strtotime($attendance['timestamp'])) === date('Y-m-d');

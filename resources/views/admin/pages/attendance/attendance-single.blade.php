@@ -1,10 +1,8 @@
-
 @extends('admin.master')
 @section('title')
-<title>Attendance Sheet ({{ date('F', strtotime('last month')) }}) | {{ $user_name }}</title>
+    <title>Attendance Sheet ({{ date('F', strtotime('last month')) }}) | {{ $user_name }}</title>
 @endsection
 @section('content')
-
     <style>
         .page_titles {
             background-color: #307a9d;
@@ -13,15 +11,18 @@
             color: white;
             margin: auto;
         }
-        .dt-buttons{
+
+        .dt-buttons {
             margin: 5px 0px;
         }
-        .buttons-print{
+
+        .buttons-print {
             border-radius: 1px !important;
         }
-        .datatable-header{
+
+        .datatable-header {
             width: 100%;
-            padding:0px 10px;
+            padding: 0px 10px;
         }
     </style>
     <div class="content-wrapper">
@@ -54,15 +55,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h4 class="my-3 text-center page_titles px-2 py-1 w-lg-50">Attendance of {{ $user_name }} ({{ date('F', strtotime('last month')) }})
+                    <h4 class="my-3 text-center page_titles px-2 py-1 w-lg-50">Attendance of {{ $user_name }}
+                        ({{ date('F', strtotime('last month')) }})
                     </h4>
                 </div>
             </div>
             <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                 <div class="ml-12">
                     <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                        <table
-                            class="table attendance table-bordered table-hover text-center">
+                        <table class="table attendance table-bordered table-hover text-center">
                             <thead>
                                 <tr>
                                     <th>User ID</th>
@@ -78,8 +79,30 @@
                                         <td>{{ $attendance['user_id'] }}</td>
                                         <td>{{ $attendance['user_name'] }}</td>
                                         <td>{{ $attendance['date'] }}</td>
-                                        <td>{{ $attendance['check_in'] }}</td>
+                                        <td>
+                                            @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('09:05:00'))
+                                                <div
+                                                    class="d-flex align-items-center justify-content-center">
+                                                    <h5 class="text-danger fw-bold me-3">{{ $attendance['check_in'] }}</h5>
+                                                    @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('09:05:00') &&
+                                                            Carbon\Carbon::parse($attendance['check_in']) < Carbon\Carbon::parse('10:05:00'))
+                                                        <h5 class="text-danger fw-bold">L</h5>
+                                                    @endif
+
+                                                    @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('10:05:00'))
+                                                        <h5 class="text-danger fw-bold">Half Day (LL)</h5>
+                                                    @endif
+                                                </div>
+                                            @else
+                                                <span class="border-bottom-link">{{ $attendance['check_in'] }}</span>
+                                            @endif
+                                        </td>
                                         <td>{{ $attendance['check_out'] }}</td>
+                                        <td>
+                                            @if (Carbon\Carbon::parse($attendance['date'])->dayOfWeek == Carbon\Carbon::FRIDAY)
+                                                <span class="text-primary">Friday</span>
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

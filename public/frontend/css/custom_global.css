@@ -5390,6 +5390,7 @@ tr td:hover {
     /* border-top: 4px solid #ae0a46; */
     border-top: 3px solid #ae0a46;
     clip-path: polygon(0 0, 95% 0%, 100% 102%, 0% 100%);
+    height:29px;
 }
 
 .top-info-text {

@@ -156,13 +156,17 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <a class="" href="{{route('employeement.create')}}">
+                                                            <a class="" href="{{ route('employeement.create') }}">
                                                                 <i class="site_color icon-plus-circle2 mt-1"></i>
                                                             </a>
-                                                            <a class="" href="{{route('salary-form.show',$employee->id )}}" title="Salary Form">
+                                                            <a class=""
+                                                                href="{{ route('salary-form.show', $employee->id) }}"
+                                                                title="Salary Form">
                                                                 <i class="site_color ph-notepad mt-1"></i>
                                                             </a>
-                                                            <a class="" href="{{route('evaluation.show',$employee->id )}}" title="Evaluation Form">
+                                                            <a class=""
+                                                                href="{{ route('evaluation.show', $employee->id) }}"
+                                                                title="Evaluation Form">
                                                                 <i class="site_color icon-pencil mt-1"></i>
                                                             </a>
                                                         </td>
@@ -197,7 +201,7 @@
                                                         class="d-flex justify-content-between align-items-center content-info p-1">
                                                         <div class="select-mark-danger"></div>
                                                         <div class="select-titles text-start">Absent</div>
-                                                        <div class="mark-ammount">{{ 10 - count($attendanceData) }}</div>
+                                                        <div class="mark-ammount">{{ 11 - count($attendanceData) }}</div>
                                                     </div>
                                                 </div>
 
@@ -213,11 +217,35 @@
                                                 </tr>
                                                 @foreach ($attendanceData as $userId => $times)
                                                     <tr class="text-center" class="clickable-row"
-                                                     onclick="window.location='{{ route('attendance.single', $userId) }}'">
+                                                        onclick="window.location='{{ route('attendance.single', $userId) }}'">
                                                         {{-- <td><span class="border-bottom-link">{{ $userId }}</span></td> --}}
-                                                        <td><span class="border-bottom-link">{{ $times['user_name'] }}</span></td>
-                                                        <td><span class="border-bottom-link">{{ $times['check_in'] }}</span></td>
-                                                        <td><span class="border-bottom-link">{{ $times['check_out'] }}</span></td>
+                                                        <td><span
+                                                                class="border-bottom-link">{{ $times['user_name'] }}</span>
+                                                        </td>
+                                                        <td>
+                                                            @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:05:00'))
+                                                                <div
+                                                                    class="d-flex align-items-center justify-content-center">
+                                                                    <h5 class="text-danger fw-bold me-3">
+                                                                        {{ $times['check_in'] }}</h5>
+                                                                    @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:05:00') &&
+                                                                            Carbon\Carbon::parse($times['check_in']) < Carbon\Carbon::parse('10:05:00'))
+                                                                        <h5 class="text-danger fw-bold">L</h5>
+                                                                    @endif
+
+                                                                    @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('10:05:00'))
+                                                                        <h5 class="text-danger fw-bold">Half Day (LL)</h5>
+                                                                    @endif
+                                                                </div>
+                                                            @else
+                                                                <span
+                                                                    class="border-bottom-link">{{ $times['check_in'] }}</span>
+                                                            @endif
+
+                                                        </td>
+                                                        <td><span
+                                                                class="border-bottom-link">{{ $times['check_out'] }}</span>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             </table>
