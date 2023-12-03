@@ -285,7 +285,7 @@
 
             </div>
             @if (!empty($sproduct->overview))
-                <div class="row mb-5">
+                <div class="row ">
                     <div class="col-lg-6">
                         <div class="single-product-description" style="font-size: 14px;">
                             <h2 class="description-title">Overview</h2>
@@ -393,7 +393,7 @@
                 </div>
             @endif
             <div class="row mb-5">
-                <h2 class="company-tab-title mb-2 ps-0">
+                <h2 class="company-tab-title mb-5 ps-0">
                     <span style="font-size: 20px;">BUYERS WHO LIKED THIS PRODUCT ALSO LIKED</span>
                 </h2>
                 <div class="col">
@@ -448,7 +448,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     {{-- <h4 class="text-muted">Other {{ $sproduct->getBrandName() }} Products</h4> --}}
-                    <h2 class="company-tab-title mb-2 ps-0 bg-transparent fw-bold text-muted">
+                    <h2 class="company-tab-title mb-5 ps-0 bg-transparent fw-bold text-muted">
                         <span style="font-size: 24px;">Other {{ $sproduct->getBrandName() }} Products</span>
                     </h2>
                 </div>
@@ -1170,14 +1170,26 @@
 @endsection
 @section('scripts')
 <script>
-    $(".slick-slider").slick({
-        slidesToShow: 4,
-        infinite: false,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000
-        // dots: false, Boolean
-        // arrows: false, Boolean
+    $(document).ready(function(){
+        $(".slick-slider").slick({
+            slidesToShow: 4,
+            infinite: false,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            responsive: [
+                {
+                    breakpoint: 768, // Breakpoint for mobile devices
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        // You can adjust other settings for mobile devices here
+                    }
+                }
+            ]
+            // dots: false, Boolean
+            // arrows: false, Boolean
+        });
     });
 </script>
 <script>

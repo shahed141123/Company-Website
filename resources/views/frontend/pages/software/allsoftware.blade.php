@@ -415,6 +415,89 @@
         </div>
     </section>
     <!---------End -------->
+    <section>
+        <div class="container">
+            <div class="row gx-3">
+                <div class="col-lg-8">
+                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="animated-image parbase section">
+                                    <div id="solution_image_1">
+                                        <img src="https://www.insight.com/content/dam/insight-web/sitesections/solutions/images/ai-generative-hands-keyboard-chatgpt.jpg"
+                                            alt="" alt="User talking with AI generated content engine. ChatGPT"
+                                            title="Software Information NGENIT" class="img-fluid"
+                                            style="background-color: rgb(212,208,202);">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3>
+                                    <span style="border-top: 3px solid #ae0a46;">G</span>enerative AI
+                                </h3>
+                                <p class="software-info-paragraph" style="text-align: justify;">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolores eos, atque nulla
+                                    odio iusto itaque amet debitis aspernatur voluptatem voluptates? Ut rerum iste nobis,
+                                    officia fugiat aspernatur necessitatibus.
+                                </p>
+                                <a href="" class="common_button2 effect02">Product Show</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12">
+                                <div>
+                                    <img class="pb-4" width="80px"
+                                        src="https://www.insight.com/content/dam/insight-web/sitesections/solutions/icons/goals/software-deployment-icon.png"
+                                        alt="">
+                                </div>
+                                <h3>
+                                    <span style="border-top: 3px solid #ae0a46;">G</span>enerative AI
+                                </h3>
+                                <p class="software-info-paragraph" style="text-align: justify;">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolores eos, atque nulla
+                                    odio iusto itaque amet debitis aspernatur voluptatem voluptates? Ut rerum iste nobis,
+                                    officia fugiat aspernatur necessitatibus distinctio quas est nesciunt. Aperiam obcaecati
+                                    nulla quia id, culpa ipsa cumque tempora nemo perferendis dignissimos dolores odit quae
+                                    minus facere! Omnis culpa vero fugiat numquam?
+                                </p>
+                                <a href="" class="common_button2 effect02">Product Show</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-3 mt-3 mb-5">
+                <div class="col-lg-4">
+                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 465px;">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12">
+                                <div>
+                                    <img class="pb-4" width="80px"
+                                        src="https://www.insight.com/content/dam/insight-web/sitesections/solutions/icons/goals/software-deployment-icon.png"
+                                        alt="">
+                                </div>
+                                <h3>
+                                    <span style="border-top: 3px solid #ae0a46;">G</span>enerative AI
+                                </h3>
+                                <p class="software-info-paragraph" style="text-align: justify;">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolores eos, atque nulla
+                                    odio iusto itaque amet debitis aspernatur voluptatem voluptates? Ut rerum iste nobis,
+                                    officia fugiat aspernatur necessitatibus distinctio quas est nesciunt. Aperiam obcaecati
+                                    nulla quia id, culpa ipsa cumque tempora nemo perferendis dignissimos dolores odit quae
+                                    minus facere! Omnis culpa vero fugiat numquam?
+                                </p>
+                                <a href="" class="common_button2 effect02">Product Show</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!--=======// Popular products //======-->
     <section>
         <div class="container my-5">
@@ -617,22 +700,24 @@
         </div>
     </section>
     <!---------End -------->
-        <!---======= Nested Tab ======--->
-        <section>
-            <div class="container my-5">
-                <div class="nasted_tabbar_title py-3">
-                    <h5>Discover Our Extensive Range of Software Products and Categories</h5>
-                    <p class="home_title_text">Investigate Our Extensive Selection of Cutting-Edge Software Solutions and
-                        Categories</p>
-                </div>
-                <!-- Tabs with icons on Card -->
-                <div class="card card-nav-tabs p-0 rounded-0">
+    <!---======= Nested Tab ======--->
+    <section>
+        <div class="container my-5">
+            <div class="nasted_tabbar_title py-3">
+                <h5>Discover Our Extensive Range of Software Products and Categories</h5>
+                <p class="home_title_text">Investigate Our Extensive Selection of Cutting-Edge Software Solutions and
+                    Categories</p>
+            </div>
+            <!-- Tabs with icons on Card -->
+            <div style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+                <div class="card card-nav-tabs p-0 rounded-0 border-0 shadow-lg">
                     <div class="card-header-primary" style="background-color: #ae0a46;">
                         <div class="nav-tabs-navigation">
                             <div class="nav-tabs-wrapper">
                                 <ul class="nav nav-tabs row gx-0" data-tabs="tabs">
                                     <li class="nav-item col-lg-3">
-                                        <a class="nav-link py-3 active" href="#categories" data-toggle="tab"> Categories </a>
+                                        <a class="nav-link py-3 active" href="#categories" data-toggle="tab"> Categories
+                                        </a>
                                     </li>
                                     <li class="col-lg-3 nav-item">
                                         <a class="nav-link py-3" href="#brand" data-toggle="tab"> Brand </a>
@@ -647,14 +732,45 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card-header m-0 shadow-lg">
+                        <div class="row gx-0">
+                            <div class="col-md-3">
+                                <div>
+                                    <form action=" ">
+                                        <div class="btn_group">
+                                            <input type="text" class="form-control" placeholder="Search"
+                                                style="height: 41px;">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="table-responsive">
+                                    <table class="table mb-0">
+                                        <tbody>
+                                            <tr class="py-2">
+                                                <td class="py-2" width="3.8%">Sl</td>
+                                                <td class="py-2" width="85.5%" class="text-left px-2">
+                                                    Name
+                                                </td>
+                                                <td class="py-2" class="text-left">
+                                                    Price
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="tab-content">
+                <div class="tab-conten m-0">
                     <div class="tab-pane active" id="categories">
                         <div class="container p-0">
-                            <div class="row gx-0">
-                                <div class="col-md-3">
-                                    <div class="nav flex-column nav-pills nav-pills-custom bg-white active" id="v-pills-tab"
-                                        role="tablist" aria-orientation="vertical">
+                            <div class="row gx-1">
+                                <div class="col-md-3 p-0">
+                                    <div class="nav flex-column nav-pills nav-pills-custom bg-white active"
+                                        id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                         @foreach ($categories as $key => $item)
                                             @if (count($item->subCatsoftwareProducts) > 0)
                                                 <a class="nav-link dicover_tab_sub rounded-0 {{ $key == 0 ? 'active' : '' }}"
@@ -672,25 +788,10 @@
                                     <div class="tab-content p-0" id="v-pills-tabContent">
                                         @foreach ($categories as $key => $item)
                                             @if (count($item->subCatsoftwareProducts) > 0)
-                                                <div class="tab-pane fade p-2 rounded-0 bg-white {{ $key == 0 ? 'active show' : '' }}"
+                                                <div class="tab-pane fade rounded-0 bg-white {{ $key == 0 ? 'active show' : '' }}"
                                                     id="category-{{ $item->id }}" role="tabpanel"
                                                     aria-labelledby="v-pills-profile-tab">
                                                     <div class="panel">
-                                                        {{-- Panel Heading --}}
-                                                        <div class="panel-heading">
-                                                            <div
-                                                                class="row p-0 d-flex justify-content-center align-items-center">
-                                                                <div class="col-lg-9"></div>
-                                                                <div class="col-lg-3 text-right pb-2">
-                                                                    <form action=" ">
-                                                                        <div class="btn_group">
-                                                                            <input type="text" class="form-control"
-                                                                                placeholder="Search">
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                         {{-- Heading End --}}
                                                         <div class="panel-body table-responsive">
                                                             <div class="table-responsive">
@@ -701,13 +802,15 @@
                                                                             @break
                                                                         @endif
                                                                         <tr>
-                                                                            <td>{{ ++$key }}</td>
+                                                                            <td class="text-center">{{ ++$key }}
+                                                                            </td>
                                                                             <td class="text-left px-2">
                                                                                 <a
                                                                                     href="{{ route('product.details', $product->slug) }}">{{ Str::limit($product->name, 70) }}</a>
                                                                             </td>
                                                                             <td class="text-left">
-                                                                                <small style="font-size:8px;">USD</small>
+                                                                                <small
+                                                                                    style="font-size:8px;">USD</small>
                                                                                 <strong>${{ number_format($product->price, 2) }}</strong>
                                                                             </td>
                                                                         </tr>
@@ -727,44 +830,92 @@
                 </div>
             </div>
         </div>
-    </section>
-    <!---------End -------->
-    <!---======= Category Tab ======--->
-    <section class="container my-5">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="text-center text-capitalize fw-bold" style="color: #ae0a46;">Explore our Software Related
-                    Brands.
-                </h2>
-                <p class="text-center">We partner with top manufacturers to<br> bring you the best Software solutions to
-                    optimize your business and industry.</p>
-            </div>
+    </div>
+</section>
+<!---------End -------->
+<!---======= Category Tab ======--->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="text-center text-capitalize fw-bold" style="color: #ae0a46;">Explore our Software Related
+                Brands.
+            </h2>
+            <p class="text-center">We partner with top manufacturers to<br> bring you the best Software solutions to
+                optimize your business and industry.</p>
         </div>
-        <div class="row">
-            <div class="px-0" style="box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px">
-                <div id="sync2" class="owl-carousel owl-theme">
-                    <div class="item">
-                        <h1># All Category</h1>
-                    </div>
-                    @foreach ($categories as $index => $category)
-                        <div class="item">
-                            <h1>{{ $category->title }}</h1>
-                        </div>
-                    @endforeach
-
+    </div>
+    <div class="row">
+        <div class="px-0" style="box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px">
+            <div id="sync2" class="owl-carousel owl-theme">
+                <div class="item">
+                    <h1># All Category</h1>
                 </div>
+                @foreach ($categories as $index => $category)
+                    <div class="item">
+                        <h1>{{ $category->title }}</h1>
+                    </div>
+                @endforeach
 
-                <div id="sync1" class="owl-carousel owl-theme">
+            </div>
+
+            <div id="sync1" class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="row gx-0">
+                        @foreach ($brands as $brand)
+                            <div class="col-lg-3 col-md-2 col-sm-4">
+                                <div class="ag-offer_item"
+                                    style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
+                                    <div class="ag-offer_visible-item">
+                                        <div class="ag-offer_img-box d-felx justify-content-center mx-auto">
+                                            <img src="{{ asset('storage/' . $brand->image) }}" class="ag-offer_img"
+                                                alt="{{ $brand->title }}" width="150px" height="150px" />
+                                        </div>
+                                    </div>
+                                    <div class="ag-offer_hidden-item">
+                                        <div class="mx-auto">
+                                            <div class="brand_btns"
+                                                style="justify-content: center;background: #ae0a46;padding: 7px;color: white;font-size: 16px;display: flex;">
+                                                <a class="text-white"
+                                                    href="{{ route('brandpage.html', $brand->slug) }}">Details
+                                                    | </a>
+                                                <a class="text-white ms-1"
+                                                    href="{{ route('custom.product', $brand->slug) }}"><span>Shop</span>
+                                                </a>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        <div class="col-lg-12 col-md-12 col-sm-12 text-end mt-2 px-4"
+                            style="padding-top: 1rem; color: #ae0a46;">
+                            <a class="text-site" href="{{ route('all.brand') }}">See
+                                More <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                @foreach ($categories as $index => $category)
                     <div class="item">
                         <div class="row gx-0">
-                            @foreach ($brands as $brand)
+                            @php
+                                $related_brands = DB::table('brands')
+                                    ->join('products', 'brands.id', '=', 'products.brand_id')
+                                    ->join('sub_categories', 'products.sub_cat_id', '=', 'sub_categories.id')
+                                    ->where('sub_categories.id', '=', $category->id)
+                                    ->select('brands.id', 'brands.title', 'brands.image', 'brands.slug')
+                                    ->distinct()
+                                    ->paginate(12);
+                            @endphp
+                            @foreach ($related_brands as $related_brand)
                                 <div class="col-lg-3 col-md-2 col-sm-4">
                                     <div class="ag-offer_item"
                                         style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
                                         <div class="ag-offer_visible-item">
                                             <div class="ag-offer_img-box d-felx justify-content-center mx-auto">
-                                                <img src="{{ asset('storage/' . $brand->image) }}" class="ag-offer_img"
-                                                    alt="{{ $brand->title }}" width="150px" height="150px" />
+                                                <img src="{{ asset('storage/' . $related_brand->image) }}"
+                                                    class="ag-offer_img" alt="{{ $related_brand->title }}"
+                                                    width="150px" height="150px" />
                                             </div>
                                         </div>
                                         <div class="ag-offer_hidden-item">
@@ -772,10 +923,10 @@
                                                 <div class="brand_btns"
                                                     style="justify-content: center;background: #ae0a46;padding: 7px;color: white;font-size: 16px;display: flex;">
                                                     <a class="text-white"
-                                                        href="{{ route('brandpage.html', $brand->slug) }}">Details
+                                                        href="{{ route('brandpage.html', $related_brand->slug) }}">Details
                                                         | </a>
                                                     <a class="text-white ms-1"
-                                                        href="{{ route('custom.product', $brand->slug) }}"><span>Shop</span>
+                                                        href="{{ route('custom.product', $related_brand->slug) }}"><span>Shop</span>
                                                     </a>
                                                     </a>
                                                 </div>
@@ -786,64 +937,17 @@
                             @endforeach
                             <div class="col-lg-12 col-md-12 col-sm-12 text-end mt-2 px-4"
                                 style="padding-top: 1rem; color: #ae0a46;">
-                                <a class="text-site" href="{{ route('all.brand') }}">See
+                                <a class="text-site" href="{{ route('category.html', $category->slug) }}">See
                                     More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
-                    @foreach ($categories as $index => $category)
-                        <div class="item">
-                            <div class="row gx-0">
-                                @php
-                                    $related_brands = DB::table('brands')
-                                        ->join('products', 'brands.id', '=', 'products.brand_id')
-                                        ->join('sub_categories', 'products.sub_cat_id', '=', 'sub_categories.id')
-                                        ->where('sub_categories.id', '=', $category->id)
-                                        ->select('brands.id', 'brands.title', 'brands.image', 'brands.slug')
-                                        ->distinct()
-                                        ->paginate(12);
-                                @endphp
-                                @foreach ($related_brands as $related_brand)
-                                    <div class="col-lg-3 col-md-2 col-sm-4">
-                                        <div class="ag-offer_item"
-                                            style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
-                                            <div class="ag-offer_visible-item">
-                                                <div class="ag-offer_img-box d-felx justify-content-center mx-auto">
-                                                    <img src="{{ asset('storage/' . $related_brand->image) }}"
-                                                        class="ag-offer_img" alt="{{ $related_brand->title }}"
-                                                        width="150px" height="150px" />
-                                                </div>
-                                            </div>
-                                            <div class="ag-offer_hidden-item">
-                                                <div class="mx-auto">
-                                                    <div class="brand_btns"
-                                                        style="justify-content: center;background: #ae0a46;padding: 7px;color: white;font-size: 16px;display: flex;">
-                                                        <a class="text-white"
-                                                            href="{{ route('brandpage.html', $related_brand->slug) }}">Details
-                                                            | </a>
-                                                        <a class="text-white ms-1"
-                                                            href="{{ route('custom.product', $related_brand->slug) }}"><span>Shop</span>
-                                                        </a>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                                <div class="col-lg-12 col-md-12 col-sm-12 text-end mt-2 px-4"
-                                    style="padding-top: 1rem; color: #ae0a46;">
-                                    <a class="text-site" href="{{ route('category.html', $category->slug) }}">See
-                                        More <i class="fa-solid fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+                @endforeach
             </div>
         </div>
-    </section>
-    <!---------End -------->
+    </div>
+</section>
+<!---------End -------->
 <!--=====// Global call section //=====-->
 @if (!empty($learnmore))
     <section class="global_call_section section_padding">
@@ -875,7 +979,9 @@
     @if (count($tech_datas) > 0)
         <div class="section_wp2">
             <h2 class="text-center text-capitalize fw-bold main_color">Tech solution</h2>
-            <p class="text-center pb-4 w-50 mx-auto">We establish strategic partnerships with industry-leading manufacturers, ensuring the delivery of superior software solutions meticulously crafted to optimize and elevate your business and industry.</p>
+            <p class="text-center pb-4 w-50 mx-auto">We establish strategic partnerships with industry-leading
+                manufacturers, ensuring the delivery of superior software solutions meticulously crafted to optimize and
+                elevate your business and industry.</p>
             <div class="container">
                 @if (!empty($software_info->row_seven_title))
                     <div class="solution_number_wrapper">

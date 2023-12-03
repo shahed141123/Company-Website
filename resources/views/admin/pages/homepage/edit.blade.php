@@ -445,6 +445,7 @@
                                         <label class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Client Story One</label>
                                         <div class="input-group">
                                             <select name="solution1_id" class="form-control form-control-sm select" data-allow-clear="true" data-placeholder="Select Client Story">
+                                                <option value="" selected disabled>Select Client Story</option>
                                                 @foreach ($storys as $item)
                                                     <option value="{{ $item->id }}" @selected($item->id == $homePage->solution1_id)>
                                                         {{ $item->badge }}
@@ -460,6 +461,7 @@
                                         <div class="input-group">
                                             <select name="solution2_id" class="form-control form-control-sm select" data-allow-clear="true" data-placeholder="Select Client Story"
                                                 id="select7">
+                                                <option value="" selected disabled>Select Client Story</option>
                                                 @foreach ($storys as $item)
                                                     <option value="{{ $item->id }}"
                                                         {{ $item->id == $homePage->solution2_id ? 'selected' : '' }}>
@@ -476,6 +478,7 @@
                                         <div class="input-group">
                                             <select name="solution3_id" class="form-control form-control-sm select" data-allow-clear="true" data-placeholder="Select Client Story"
                                                 id="select8">
+                                                <option value="" selected disabled>Select Client Story</option>
                                                 @foreach ($storys as $item)
                                                     <option value="{{ $item->id }}"
                                                         {{ $item->id == $homePage->solution3_id ? 'selected' : '' }}>
@@ -493,6 +496,7 @@
                                         <div class="input-group">
                                             <select name="solution4_id" class="form-control form-control-sm select" data-allow-clear="true" data-placeholder="Select Client Story"
                                                 id="select9">
+                                                <option value="" selected disabled>Select Client Story</option>
                                                 @foreach ($storys as $item)
                                                     <option value="{{ $item->id }}"
                                                         {{ $item->id == $homePage->solution4_id ? 'selected' : '' }}>
