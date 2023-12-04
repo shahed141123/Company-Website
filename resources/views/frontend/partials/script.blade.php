@@ -325,6 +325,48 @@
 </script>
 <script>
     $(document).ready(function() {
+        var searchContainer = $('#mobile_search_container');
+        var path = "{{ route('global.search') }}";
+        var searchInput = $('#mobile_search_text');
+
+        searchInput.autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: path,
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        term: request.term
+                    },
+                    success: function(data) {
+
+                        if (searchContainer.hasClass('d-none')) {
+                            searchContainer.removeClass('d-none');
+                        }
+                        searchContainer.html(data);
+
+                    }
+                });
+            },
+            minLength: 1
+        });
+
+        searchInput.on('input', function() {
+            if (searchInput.val() === '') {
+                searchContainer.addClass('d-none');
+            }
+        });
+
+        searchInput.on('keydown', function(event) {
+            if (event.keyCode === 8 && searchInput.val() === '') {
+                searchContainer.addClass('d-none');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
         $('.add_to_cart_quantity').click(function() {
             var id = $(this).data('id');
             var name = $(this).data('name');

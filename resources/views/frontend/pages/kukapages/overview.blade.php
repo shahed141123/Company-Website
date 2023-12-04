@@ -104,8 +104,14 @@
                         {{-- New One --}}
                         <div class="col-lg-6 col-sm-12 ">
                             <div class="d-flex justify-content-center">
-                                <img class="img-fluid" src="{{ isset($row_one->image) && file_exists(asset('storage/' . $row_one->image)) ? asset('storage/' . $row_one->image) : asset('frontend/images/no-row-img(580-326).png') }}" alt=""
+                                <img class="img-fluid" src="{{ (!empty($row_one->image) && file_exists(public_path('storage/' . $row_one->image))) ? asset('storage/' . $row_one->image) : asset('frontend/images/no-row-img(580-326).png') }}" alt=""
                                     style="border-radius: 7px 55px 7px 55px;">
+                                {{-- @php
+                                    $imagePath = !empty($row_one->image) && file_exists(public_path('storage/' . $row_one->image)) ? asset('storage/' . $row_one->image) : asset('frontend/images/no-row-img(580-326).png');
+                                @endphp
+
+                                <img class="img-fluid" src="{{ $imagePath }}" alt=""
+                                    style="border-radius: 7px 55px 7px 55px;"> --}}
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12 para_text">
@@ -138,8 +144,9 @@
                         </div>
                         <div class="col-lg-6 col-sm-12 ">
                             <div class="d-flex justify-content-center">
-                                <img class="img-fluid" src="{{ isset($row_three->image) && file_exists(asset('storage/' . $row_three->image)) ? asset('storage/' . $row_three->image) : asset('frontend/images/no-row-img(580-326).png') }}" alt=""
-                                    style="border-radius: 55px 7px 55px 7px;">
+                                <img class="img-fluid"
+                                    src="{{ isset($row_three->image) && file_exists(public_path('storage/' . $row_three->image)) ? asset('storage/' . $row_three->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                    alt="" style="border-radius: 55px 7px 55px 7px;">
                             </div>
                         </div>
                     </div>
@@ -149,7 +156,8 @@
                         <!-- section title -->
                         <div class="col-lg-10 offset-1">
                             <h3 class="section_title mx-auto">{{ $brandpage->row_one_title }} </h3>
-                            <p class="mx-auto text-justify-align" style="text-align: center;">{{ $brandpage->row_one_header }} </p>
+                            <p class="mx-auto text-justify-align" style="text-align: center;">
+                                {{ $brandpage->row_one_header }} </p>
                         </div>
                         <!-- wrapper -->
                         <div class="row pt-2">
@@ -157,8 +165,10 @@
                             @if ($card1)
                                 <div class="col-lg-4 col-sm-12 para_text">
                                     <div class="software_chose_item">
-                                        <p class="software_chose_item_title para_text text-justify-align">{{ $card1->title }}</p>
-                                        <p class="software_chose_item_text para_text text-justify-align">{!! Str::limit($card1->short_des, 140) !!}</p>
+                                        <p class="software_chose_item_title para_text text-justify-align">
+                                            {{ $card1->title }}</p>
+                                        <p class="software_chose_item_text para_text text-justify-align">
+                                            {!! Str::limit($card1->short_des, 140) !!}</p>
                                     </div>
                                 </div>
                             @endif
@@ -166,8 +176,10 @@
                             @if ($card2)
                                 <div class="col-lg-4 col-sm-12">
                                     <div class="software_chose_item">
-                                        <p class="software_chose_item_title para_text text-justify-align">{{ $card2->title }}</p>
-                                        <p class="software_chose_item_text para_text text-justify-align">{!! Str::limit($card2->short_des, 140) !!}</p>
+                                        <p class="software_chose_item_title para_text text-justify-align">
+                                            {{ $card2->title }}</p>
+                                        <p class="software_chose_item_text para_text text-justify-align">
+                                            {!! Str::limit($card2->short_des, 140) !!}</p>
                                     </div>
                                 </div>
                             @endif
@@ -175,8 +187,10 @@
                             @if ($card3)
                                 <div class="col-lg-4 col-sm-12">
                                     <div class="software_chose_item">
-                                        <p class="software_chose_item_title para_text text-justify-align">{{ $card3->title }}</p>
-                                        <p class="software_chose_item_text para_text text-justify-align">{!! Str::limit($card3->short_des, 140) !!}</p>
+                                        <p class="software_chose_item_title para_text text-justify-align">
+                                            {{ $card3->title }}</p>
+                                        <p class="software_chose_item_text para_text text-justify-align">
+                                            {!! Str::limit($card3->short_des, 140) !!}</p>
                                     </div>
                                 </div>
                             @endif
@@ -186,7 +200,9 @@
             </div>
             @if (!empty($brandpage->row_six_image))
                 <div class="my-2">
-                    <img class="img-fluid" src="{{ isset($brandpage->row_six_image) && file_exists(asset('storage/' . $brandpage->row_six_image)) ? asset('storage/' . $brandpage->row_six_image) : asset('frontend/images/no-row-bg-img(1552-388).png') }}" alt="">
+                    <img class="img-fluid"
+                        src="{{ isset($brandpage->row_six_image) && file_exists(public_path('storage/' . $brandpage->row_six_image)) ? asset('storage/' . $brandpage->row_six_image) : asset('frontend/images/no-row-bg-img(1552-388).png') }}"
+                        alt="">
                 </div>
             @endif
             <div class="p-5 pb-0 pt-0">
@@ -208,7 +224,8 @@
                                 </div>
                                 <div class="col-lg-6 col-sm-12">
                                     <div class="d-flex justify-content-center">
-                                        <img class="img-fluid" src="{{ isset($row_four->image) && file_exists(asset('storage/' . $row_four->image)) ? asset('storage/' . $row_four->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                        <img class="img-fluid"
+                                            src="{{ isset($row_four->image) && file_exists(public_path('storage/' . $row_four->image)) ? asset('storage/' . $row_four->image) : asset('frontend/images/no-row-img(580-326).png') }}"
                                             alt="" style="border-radius: 55px 7px 55px 7px;">
                                     </div>
                                 </div>
@@ -222,7 +239,8 @@
                             <div class="row">
                                 <div class="col-lg-6 col-sm-12 para_text">
                                     <div class="d-flex justify-content-center">
-                                        <img class="img-fluid" src="{{ isset($row_five->image) && file_exists(asset('storage/' . $row_five->image)) ? asset('storage/' . $row_five->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                        <img class="img-fluid"
+                                            src="{{ isset($row_five->image) && file_exists(public_path('storage/' . $row_five->image)) ? asset('storage/' . $row_five->image) : asset('frontend/images/no-row-img(580-326).png') }}"
                                             style="border-radius: 7px 55px 7px 55px;">
                                     </div>
                                 </div>
@@ -260,16 +278,16 @@
         });
     </script>
     <script>
-    // Wait for the DOM to be ready
-    document.addEventListener('DOMContentLoaded', function() {
-        // Find the element with the class 'fixed-section'
-        var elementToRemoveClassFrom = document.querySelector('.fixed-section');
+        // Wait for the DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Find the element with the class 'fixed-section'
+            var elementToRemoveClassFrom = document.querySelector('.fixed-section');
 
-        // Check if the element is found before attempting to remove the class
-        if (elementToRemoveClassFrom) {
-            // Remove the class 'fixed-section'
-            elementToRemoveClassFrom.classList.remove('fixed-section');
-        }
-    });
-</script>
+            // Check if the element is found before attempting to remove the class
+            if (elementToRemoveClassFrom) {
+                // Remove the class 'fixed-section'
+                elementToRemoveClassFrom.classList.remove('fixed-section');
+            }
+        });
+    </script>
 @endsection
