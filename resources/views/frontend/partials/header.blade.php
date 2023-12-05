@@ -154,11 +154,10 @@
                     <img src="https://i.ibb.co/3WKt3Mw/NGen-IT-left-color.png" alt="" style="height: 74px;">
                 </div>
                 <a class="navbar-brand fw-bold upper-content-menu main-logo" href="{{ route('homepage') }}">
-                    {{-- <img class="img-fluid site-main-logo"
-                        src="{{ !empty($setting->logo) && file_exists(asset('storage/' . $setting->logo)) ? asset('storage/' . $setting->logo) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}"
-                        alt="NGEN IT"> --}}
-                    <img class="img-fluid site-main-logo" src="{{ asset('storage/' . $setting->logo) }}"
+                    <img class="img-fluid site-main-logo"
+                        src="{{ !empty($setting->logo) && file_exists(public_path('storage/' . $setting->logo)) ? asset('storage/' . $setting->logo) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}"
                         alt="NGEN IT">
+
                 </a>
                 <!---Category--->
                 <div class="category-mobile">
@@ -256,10 +255,8 @@
 
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <hr>
-                        <li class="nav-item dropdown position-static cool-link main-menu-specing">
-<<<<<<< HEAD
+                        <li class="nav-item dropdown position-static main-menu-specing">
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
                                 <li class="nav-item dropdown position-static cool-link main-menu-specing">
                                     <a class="nav-link dropdown-toggle" href="#" role="button"
                                         data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
@@ -275,86 +272,6 @@
                                                         Services
                                                     </p>
                                                     <div class="row">
-=======
-                            <a class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                OUR SERVICES
-                            </a>
-                            <ul class="dropdown-menu full-container-dropdown"
-                                style="border-top: 1px solid #ae0a460f !important;">
-                                <div class="container-fluid">
-                                    <div class="row pt-5 pb-5 tech-top bg-white">
-                                        <div class="col-lg-3">
-                                            <p class="fw-bold"><span
-                                                    style="border-top: 2px solid #ae0a46;">Com</span>mon Services
-                                            </p>
-                                            <div class="row">
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center"
-                                                        href="{{ route('software.info') }}">
-                                                        <div>Software</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center"
-                                                        href="{{ route('hardware.info') }}">
-                                                        <div>Hardware</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center" href="javascript:void(0)">
-                                                        <div>Training</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center" href="javascript:void(0)">
-                                                        <div>Books</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <p class="fw-bold"><span
-                                                    style="border-top: 2px solid #ae0a46;">Ind</span>ustry We Serve
-                                            </p>
-                                            <div class="row">
-                                                @if (count($industrys) > 0)
-                                                    @foreach ($industrys as $industry)
-                                                        @if ($industry->industryPage)
-                                                            <div class="col-lg-6 mb-2">
-                                                                <a class="d-flex align-items-center"
-                                                                    href="{{ route('industry.details', $industry->slug) }}">
-                                                                    <div>{{ $industry->title }} </div>
-                                                                    <div>
-                                                                        <i class="ph ph-caret-right menu_icons"></i>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        @endif
-                                                    @endforeach
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <p class="fw-bold"><span
-                                                    style="border-top: 2px solid #ae0a46;">Sol</span>utions We Provide
-                                            </p>
-                                            <div class="row">
-                                                @if ($solutions)
-                                                    @foreach ($solutions as $solution)
->>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                                         <div class="col-lg-12 mb-2">
                                                             <a class="d-flex align-items-center"
                                                                 href="{{ route('software.info') }}">
@@ -364,188 +281,6 @@
                                                                 </div>
                                                             </a>
                                                         </div>
-<<<<<<< HEAD
-=======
-                                                    @endforeach
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row pt-3 pb-3 tech-top">
-                                        <div class="col-lg-3 text-center">
-                                            <a href="{{ route('whatwedo') }}" style="border-top: 1.5px solid #ae0a46;">
-                                                What We Do
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-5 text-center">
-                                            <a href="{{ route('all.industry') }}"
-                                                style="border-top: 1.5px solid #ae0a46;">
-                                                View All Industry
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4 text-center">
-                                            <a href="{{ route('all.solution') }}"
-                                                style="border-top: 1.5px solid #ae0a46;">
-                                                View All Solutions
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown position-static cool-link main-menu-specing">
-                            <a class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                TECH CONTENTS
-                            </a>
-                            <ul class="dropdown-menu full-container-dropdown"
-                                style="border-top: 1px solid #ae0a460f !important; width: 82.8%;">
-                                <div class="container-fluid px-0">
-                                    <div class="row pt-4 pb-4 tech-top gx-1">
-                                        <p class="fw-bold mb-2"><span
-                                                style="border-top: 2px solid #ae0a46;">Tre</span>ndy Content
-                                        </p>
-                                        <div class="row">
-                                            @if ($features)
-                                                @foreach ($features as $feature)
-                                                    <div class="col-lg-6 col-sm-12">
-                                                        <div class="d-flex align-items-center">
-                                                            <img src="{{ isset($feature->image) && file_exists(asset('storage/' . $feature->image)) ? asset('storage/' . $feature->image) : asset('frontend/images/banner-demo.png') }}"
-                                                                alt="" style="width:130px;height:70px;">
-                                                            <div class="ms-3">
-                                                                <a
-                                                                    href="{{ route('feature.details', $feature->id) }}">
-                                                                    <strong
-                                                                        style="font-size:14px;">{{ Str::limit($feature->title, 100) }}</strong>
-                                                                </a>
-                                                                <br>
-                                                                <span>{{ $feature->badge }} /
-                                                                    {{ $feature->created_at->format('d-m-Y') }}</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="row pt-4 pb-4 tech-top bg-white gx-1">
-                                        <div class="row">
-                                            @if ($blog)
-                                                <div class="col-lg-6 col-sm-12">
-                                                    <div class="d-flex align-items-center">
-                                                        <img src="{{ isset($blog->image) && file_exists(asset('storage/' . $blog->image)) ? asset('storage/' . $blog->image) : asset('frontend/images/banner-demo.png') }}"
-                                                            alt="" style="width:130px;height:70px;">
-                                                        <div class="ms-3">
-                                                            <a href="{{ route('feature.details', $blog->id) }}">
-                                                                <strong
-                                                                    style="font-size:14px;">{{ Str::limit($blog->title, 100) }}</strong>
-                                                            </a>
-                                                            <br>
-                                                            <span>{{ $blog->badge }} /
-                                                                {{ $blog->created_at->format('d-m-Y') }}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endif
-                                            @if ($techglossy)
-                                                <div class="col-lg-6 col-sm-12">
-                                                    <div class="d-flex align-items-center">
-                                                        <img src="{{ isset($techglossy->image) && file_exists(asset('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}"
-                                                            alt="" style="width:130px;height:65px;">
-                                                        <div class="ms-3">
-                                                            <a href="{{ route('feature.details', $techglossy->id) }}">
-                                                                <strong
-                                                                    style="font-size:14px;">{{ Str::limit($techglossy->title, 100) }}</strong>
-                                                            </a>
-                                                            <br>
-                                                            <span>{{ $techglossy->badge }} /
-                                                                {{ $techglossy->created_at->format('d-m-Y') }}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="row pt-3 pb-3 tech-top gx-1">
-                                        <div class="col-lg-6 text-center">
-                                            <a href="{{ route('all.blog') }}" style="border-top: 1.5px solid #ae0a46;">
-                                                View All Blogs
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6 text-center">
-                                            <a href="{{ route('all.techglossy') }}"
-                                                style="border-top: 1.5px solid #ae0a46;">
-                                                View All Techglossies
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown position-static cool-link main-menu-specing">
-                            <a class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                SHOP ONLINE
-                            </a>
-                            <ul class="dropdown-menu full-container-dropdown"
-                                style="border-top: 1px solid #ae0a460f !important;">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-lg-3 bg-white pt-5 pb-3 shop-menu-left">
-                                            <p class="fw-bold"><span
-                                                    style="border-top: 2px solid #ae0a46;">Sho</span>p By</p>
-                                            <div class="row">
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center"
-                                                        href="{{ route('software.common') }}">
-                                                        <div>Software</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center"
-                                                        href="{{ route('hardware.common') }}">
-                                                        <div>Hardware</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center" href="javascript:void(0)">
-                                                        <div>Training</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center" href="javascript:void(0)">
-                                                        <div>Books</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-12 mb-2">
-                                                    <a class="d-flex align-items-center" href="{{ route('shop') }}">
-                                                        <div>Our Shop</div>
-                                                        <div>
-                                                            <i class="ph ph-caret-right menu_icons"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 bg-white pt-5 pb-3">
-                                            <p class="fw-bold"><span
-                                                    style="border-top: 2px solid #ae0a46;">Sho</span>p By Category</p>
-                                            <div class="row">
-                                                @if (!empty($categorys))
-                                                    @foreach ($categorys as $shop_category)
->>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                                         <div class="col-lg-12 mb-2">
                                                             <a class="d-flex align-items-center"
                                                                 href="{{ route('hardware.info') }}">
@@ -555,7 +290,6 @@
                                                                 </div>
                                                             </a>
                                                         </div>
-<<<<<<< HEAD
                                                         <div class="col-lg-12 mb-2">
                                                             <a class="d-flex align-items-center"
                                                                 href="javascript:void(0)">
@@ -594,24 +328,6 @@
                                                                                     class="ph ph-caret-right menu_icons"></i>
                                                                             </div>
                                                                         </a>
-=======
-                                                    @endforeach
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 bg-white pt-5 pb-3">
-                                            <p class="fw-bold"><span
-                                                    style="border-top: 2px solid #ae0a46;">Sho</span>p By Brand</p>
-                                            <div class="row">
-                                                @if ($brands)
-                                                    @foreach ($brands as $brand)
-                                                        @if ($brand->brandPage)
-                                                            <div class="col-lg-6 mb-2">
-                                                                <a class="d-flex align-items-center"
-                                                                    href="{{ route('brand.products', $brand->slug) }}">
-                                                                    <div>
-                                                                        {{ $brand->title }}
->>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                                                     </div>
                                                                 {{-- @endif --}}
                                                             @endforeach
@@ -662,7 +378,6 @@
                                                 </div>
                                             </div>
                                         </div>
-<<<<<<< HEAD
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown position-static cool-link main-menu-specing">
@@ -682,7 +397,7 @@
                                                         @foreach ($features as $feature)
                                                             <div class="col-lg-6 col-sm-12">
                                                                 <div class="d-flex align-items-center">
-                                                                    <img src="{{ isset($feature->image) && file_exists(asset('storage/' . $feature->image)) ? asset('storage/' . $feature->image) : asset('frontend/images/banner-demo.png') }}"
+                                                                    <img src="{{ isset($feature->image) && file_exists(public_path('storage/' . $feature->image)) ? asset('storage/' . $feature->image) : asset('frontend/images/banner-demo.png') }}"
                                                                         alt=""
                                                                         style="width:130px;height:70px;">
                                                                     <div class="ms-3">
@@ -706,7 +421,7 @@
                                                     @if ($blog)
                                                         <div class="col-lg-6 col-sm-12">
                                                             <div class="d-flex align-items-center">
-                                                                <img src="{{ isset($blog->image) && file_exists(asset('storage/' . $blog->image)) ? asset('storage/' . $blog->image) : asset('frontend/images/banner-demo.png') }}"
+                                                                <img src="{{ isset($blog->image) && file_exists(public_path('storage/' . $blog->image)) ? asset('storage/' . $blog->image) : asset('frontend/images/banner-demo.png') }}"
                                                                     alt="" style="width:130px;height:70px;">
                                                                 <div class="ms-3">
                                                                     <a
@@ -724,7 +439,7 @@
                                                     @if ($techglossy)
                                                         <div class="col-lg-6 col-sm-12">
                                                             <div class="d-flex align-items-center">
-                                                                <img src="{{ isset($techglossy->image) && file_exists(asset('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}"
+                                                                <img src="{{ isset($techglossy->image) && file_exists(public_path('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}"
                                                                     alt="" style="width:130px;height:65px;">
                                                                 <div class="ms-3">
                                                                     <a
@@ -766,11 +481,6 @@
                                     <ul class="dropdown-menu full-container-dropdown"
                                         style="border-top: 1px solid #ae0a460f !important;">
                                         <div class="container-fluid">
-=======
-                                        <div class="col-lg-2 pt-5 pb-3" style="background: #f7f6f5;">
-                                            <p class="fw-bold"><span
-                                                    style="border-top: 2px solid #ae0a46;">Exp</span>lore Our Deals</p>
->>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                             <div class="row">
                                                 <div class="col-lg-3 bg-white pt-5 pb-3 shop-menu-left">
                                                     <p class="fw-bold"><span
@@ -895,7 +605,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-<<<<<<< HEAD
                                             <div class="row pt-3 pb-3 tech-top">
                                                 <div class="col-lg-3 ps-0 pe-0">
                                                     <a href="{{ route('shop.html') }}"
@@ -917,37 +626,11 @@
                                                 </div>
                                                 <div class="col-lg-2 ps-5">
                                                     {{-- <a href="" style="border-top: 3px solid #ae0a46;">
-=======
-                                        </div>
-                                    </div>
-                                    <div class="row pt-3 pb-3 tech-top">
-                                        <div class="col-lg-3 ps-0 pe-0">
-                                            <a href="{{ route('shop.html') }}"
-                                                style="border-top: 1.5px solid #ae0a46;">
-                                                NGen IT Showcase
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-3 ">
-                                            <a href="{{ route('all.category') }}"
-                                                style="border-top: 1.5px solid #ae0a46;margin-left: -2.3rem;">
-                                                View All Category
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a href="{{ route('all.brand') }}"
-                                                style="border-top: 1.5px solid #ae0a46;">
-                                                View All Brands
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-2 ps-5">
-                                            {{-- <a href="" style="border-top: 1.5px solid #ae0a46;">
->>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                                 View All Deals
                                             </a> --}}
                                                 </div>
                                             </div>
                                         </div>
-<<<<<<< HEAD
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown position-static cool-link">
@@ -963,59 +646,6 @@
                                                     style="background: #f7f6f5;">
                                                     <p class="fw-bold text-center">
                                                         <span style="border-top: 4px solid #ae0a46;">Soc</span>ial
-=======
-                                    </div>
-                                </div>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown position-static cool-link">
-                            <a class="nav-link dropdown-toggle pe-0" href="#" role="button"
-                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                CONNECT US
-                            </a>
-                            <ul class="dropdown-menu full-container-dropdown"
-                                style="border-top: 1px solid #ae0a460f !important; width: 82.7% !important;">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-lg-4 p-left-rem pt-3 pb-3" style="background: #f7f6f5;">
-                                            <p class="fw-bold text-center">
-                                                <span style="border-top: 2px solid #ae0a46;">Soc</span>ial
-                                            </p>
-                                            <li class="d-flex justify-content-center py-3">
-                                                <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
-                                                    class="social_icons"><i class="h1 fa-brands fa-square-facebook"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
-                                                    class="ms-2 social_icons">
-                                                    <i class="h1 fa-brands fa-linkedin"></i></a>
-                                                <a href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}"
-                                                    class="ms-2 social_icons">
-                                                    <i class="h1 fa-brands fa-square-twitter"></i></a>
-                                                <a href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}"
-                                                    class="ms-2 social_icons">
-                                                    <i class="h1 fa-brands fa-square-youtube"></i></a>
-                                                <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
-                                                    class="ms-2 social_icons">
-                                                    <i class="h1 fa-brands fa-square-instagram"></i></a>
-                                            </li>
-                                            <div class="d-flex align-items-center">
-                                                <a class="pe-2" href="{{ route('contact') }}">
-                                                    <p class="m-0 main_color">Contact Us</p>
-                                                </a> |
-                                                <a class="pe-2" href="tel:+8801714243446">
-                                                    <p class="m-0 ps-2 main_color">+8801714243446</p>
-                                                </a> |
-                                                <a href="mail:mail:sales@ngenitltd.com">
-                                                    <p class="mb-0 ps-2 main_color">sales@ngenitltd.com</p>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 p-right-rem pt-3 pb-3">
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <p class="fw-bold">
-                                                        <span style="border-top: 2px solid #ae0a46;">Our</span> Company
->>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                                     </p>
                                                     <li class="d-flex justify-content-center py-3">
                                                         <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
@@ -1036,15 +666,7 @@
                                                             <i class="h1 fa-brands fa-square-instagram"></i></a>
                                                     </li>
                                                 </div>
-<<<<<<< HEAD
                                                 <div class="col-lg-8 p-right-rem pt-3 pb-3">
-=======
-                                                <div class="col-lg-4">
-                                                    <p class="fw-bold">
-                                                        <span style="border-top: 2px solid #ae0a46;">Car</span>eer With
-                                                        Us
-                                                    </p>
->>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                                     <div class="row">
                                                         <div class="col-lg-4">
                                                             <p class="fw-bold">
@@ -1114,7 +736,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-<<<<<<< HEAD
                                                         <div class="col-lg-4">
                                                             <p class="fw-bold">
                                                                 <span
@@ -1131,22 +752,6 @@
                                                                                 class="ph ph-caret-right menu_icons"></i>
                                                                         </div>
                                                                     </a>
-=======
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <p class="fw-bold">
-                                                        <span style="border-top: 2px solid #ae0a46;">Par</span>tner
-                                                        With Us
-                                                    </p>
-                                                    <div class="row">
-                                                        <div class="col-lg-12 mb-2">
-                                                            <a class="d-flex align-items-center"
-                                                                href="{{ route('partner.login') }}">
-                                                                <div>Partner Registration</div>
-                                                                <div>
-                                                                    <i class="ph ph-caret-right menu_icons"></i>
->>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                                                 </div>
                                                                 <div class="col-lg-12 mb-2">
                                                                     <a class="d-flex align-items-center"
@@ -1174,40 +779,17 @@
                                                 </div>
                                             </div>
                                         </div>
-<<<<<<< HEAD
                                     </ul>
                                 </li>
-=======
-                                    </div>
-                                    <div class="row p-2" style="background-color: #f7f6f5;">
-                                        <div class="col-lg-12">
-                                            <a href="https://maps.app.goo.gl/qboULpKzv6eiqpaQA" target="_blank">
-                                                <p class="m-0 text-end">Mahfuza Tower(5th Floor) 36-37, Probal
-                                                    Housing, Ring Road, Mohammadpur, Dhaka-1207, Bangladesh.</p>
-                                            </a>
-                                        </div>
-                                        {{-- <div class="col-lg-3">
-                                            <a href="{{ route('contact') }}"><p class="m-0">Contact Us</p></a>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <a href="tel:+8801714243446"><p class="m-0">+8801714243446</p></a>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <a href="mail:mail:sales@ngenitltd.com"><p class="mb-0">sales@ngenitltd.com</p></a>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <a href=""><p class="m-0">View Location</p></a>
-                                        </div> --}}
-                                    </div>
-                                </div>
->>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                             </ul>
+                        </li>
                 </div>
             </div>
         </nav>
     </div>
-    <div class="row container">
+    <div class="row container mx-auto sticky-top">
         <div class="card d-none shadow-lg bg-white border rounded-0 mt-0" id="search_container">
+
         </div>
     </div>
 </div>
@@ -1218,7 +800,7 @@
     <div class="offcanvas-header">
         <a class="navbar-brand fw-bold upper-content-menu main-logo" href="">
             <img height="50px"
-                src="{{ !empty($setting->logo) && file_exists(asset('storage/' . $setting->logo)) ? asset('storage/' . $setting->logo) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}"
+                src="{{ !empty($setting->logo) && file_exists(public_path('storage/' . $setting->logo)) ? asset('storage/' . $setting->logo) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}"
                 alt="NGEN IT">
             {{-- <img height="50px"
                 src="{{asset('storage/' . $setting->logo)}}"
@@ -1495,15 +1077,9 @@
                     <ul class="dropdown-menu mobile-container-dropdown pt-0">
                         <div class="container-fluid">
                             <div class="row">
-<<<<<<< HEAD
                                 <div class="col-12 text-center pt-3" style="background: #f7f6f5;">
                                     <p class="fw-bold text-center mb-0">
                                         <span style="border-top: 4px solid #ae0a46;">Soc</span>ial
-=======
-                                <div class="col-lg-4 p-left-rem pt-3 pb-3" style="background: #f7f6f5;">
-                                    <p class="fw-bold text-center">
-                                        <span style="border-top: 2px solid #ae0a46;">Soc</span>ial
->>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                     </p>
                                     <li class="d-flex justify-content-center py-3">
                                         <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
@@ -1637,16 +1213,6 @@
                 </li>
             </ul>
 
-
-            {{-- <div class="search-container">
-                <form method="post" action="{{ route('product.search') }}">
-                    @csrf
-                    <input class="search" id="search_text" name="search" type="search" placeholder="Search"
-                        style="width: 296px;">
-                    <label class="search_buttons searchbutton" for="search_text"><span
-                            class="mglass">&#9906;</span></label>
-                </form>
-            </div> --}}
         </div>
     </div>
 </div>

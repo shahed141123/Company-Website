@@ -363,8 +363,7 @@ class HomeController extends Controller
     public function FeatureDetails($id)
     {
         $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
-        $data['feature'] = Feature::with(['rowOne', 'rowTwo'])
-            ->where('id', $id)->first();
+        $data['feature'] = Feature::with(['rowOne', 'rowTwo'])->findOrFail($id);
 
         $data['row_one'] = $data['feature']->rowOne;
         $data['row_two'] = $data['feature']->rowTwo;

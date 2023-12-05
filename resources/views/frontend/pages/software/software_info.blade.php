@@ -363,20 +363,6 @@
         </div>
     </div>
     <!---------End -------->
-<<<<<<< HEAD
-
-    @if (!empty($software_info))
-        <section class="clint_tab_section my-5 ">
-            <div class="container">
-                <div class="clint_tab_content pb-3">
-                    <!-- home title -->
-                    <div class="home_title mt-3">
-                        <div class="software_feature_title">
-                            <h1 class="text-center ">{{ $software_info->row_five_title }} </h1>
-                        </div>
-                        <p class="home_title_text solution_para py-3 pb-4 mb-1">{!! $software_info->row_five_short_description !!}
-                        </p>
-=======
     <section>
         <div class="container">
             <div class="home_title_heading my-5">
@@ -549,77 +535,13 @@
                     <!-- Client Tab End -->
                 </div>
             </div>
-<<<<<<< HEAD
-        </section>
-    @endif
-
-
-
-
-    <!--=====// Tech solution //=====-->
-    {{-- @if (count($tech_datas) > 0)
-        <div class="section_wp2">
-            <div class="container">
-                @if (!empty($software_info->row_seven_title))
-                    <div class="solution_number_wrapper">
-                        <!-- title -->
-                        @php
-                            $sentence2 = $software_info->row_seven_title;
-                        @endphp
-                        <h5 class="home_title_heading" style="text-align: left;">
-                            <div class="software_feature_title">
-                                <h1 class="text-center pb-3">
-                                    <span>{{ \Illuminate\Support\Str::substr($sentence2, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($sentence2, 1) }}
-                                </h1>
-                            </div>
-                        </h5>
-                    </div>
-                @endif
-                <!-- tech wrapper -->
-                <div class="row">
-                    <!-- item -->
-                    @foreach ($tech_datas as $item)
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="tech_solution_item">
-                                <p class="tech_solution_title">{{ $item->header }}</p>
-                                <p class="tech_solution_text">{{ $item->short_description }}</p>
-                                <p class="tech_solution_award">{{ $item->footer }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    @endif --}}
-    <!---------End -------->
-=======
     </section>
->>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
     <!--=====// Bootom Blogs section //=====-->
     <section>
         <div class="container">
             <div class="row" style="border-top: 1px solid #eee;">
                 @if (count($tech_datas) > 0)
                     @foreach ($tech_datas as $item)
-<<<<<<< HEAD
-                        <div class="col-lg-3 mb-5" style="margin-bottom: 40px;">
-                            <div class="d-flex align-items-center">
-                                <a href="javascript:void(0)"
-                                    class="d-flex blogs-area-bottom justify-content-center align-items-center"
-                                    style="width:90px;">
-                                    {{-- <div> --}}
-                                    <h1 class="mb-0" style="color:#ae0a46; font-family:cursive;">{{ $item->header }}
-                                    </h1>
-                                    {{-- <img class="img-fluid"
-                                            src="https://www.insight.com/content/dam/insight-web/sitesections/home/images/buy-section/buy.jpg"
-                                            alt=""> --}}
-                                    {{-- </div> --}}
-                                </a>
-                                <a href="javascript:void(0)" class="ps-3">
-                                    <p class="m-0">{{ $item->footer }}</p>
-                                    <h6>{{ $item->short_description }}</h6>
-                                </a>
-=======
                 <div class="col-lg-3 py-3">
                     <div class="d-flex align-items-center">
                         <div class="" style="border-right: 1px solid #eee; width: 35%;">
@@ -629,7 +551,6 @@
                             <div class="ps-4" >
                                 <p class="m-0 main_color">{{ $item->footer }}</p>
                                 <p class="m-0">{{ $item->short_description }}</p>
->>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                             </div>
                         </div>
                     </div>
