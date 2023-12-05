@@ -1,4 +1,16 @@
-<!--============///* USE LINK *///=============-->
+<!--============///* USE LINK Final *///=============-->
+<script src="{{ asset('frontend/js/icons/font-awesome@6.js') }}" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
 
 <script src="{{ asset('frontend/js/jquery.min.js') }}"></script>
 <script src="{{ asset('frontend/js/jquery-ui.min.js') }}"></script>

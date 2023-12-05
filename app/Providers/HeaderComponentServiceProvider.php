@@ -37,11 +37,10 @@ class HeaderComponentServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer(['frontend.partials.header', 'frontend.partials.footer'], function ($view) {
+        View::composer(['frontend.partials.header', 'frontend.partials.footer', 'frontend.partials.head'], function ($view) {
             $setting = Site::first();
             $view->with(compact(
                 'setting'
-
             ));
         });
         View::composer('frontend.partials.header', function ($view) {
