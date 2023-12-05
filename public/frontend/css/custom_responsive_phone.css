@@ -1742,3 +1742,9 @@
         height: 200px;
     }
 }
+
+@media screen and (max-width: 990px) {
+    .custom-product-grid {
+        margin-bottom: 30px;
+    }
+}
