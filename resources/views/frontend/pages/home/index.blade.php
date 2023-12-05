@@ -37,12 +37,12 @@
                 <div class="item">
                     <div class="img-fill">
                         <img class="dots-img"
-                            src="{{ isset($home->branner1) && file_exists(asset('storage/' . $home->branner1)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
+                            src="{{ isset($home->branner1) && file_exists(public_path('storage/' . $home->branner1)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
                             alt="">
                         <div class="contain-wrapper">
                             <div class="dots-contain">
                                 <img class="dots-img"
-                                    src="{{ isset($home->branner1) && file_exists(asset('storage/' . $home->branner1)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
+                                    src="{{ isset($home->branner1) && file_exists(public_path('storage/' . $home->branner1)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
                                     alt="">
                             </div>
                             <div class="info w-50 mb-3">
@@ -71,12 +71,12 @@
             @if (!empty($home->branner2))
                 <div class="item">
                     <div class="img-fill">
-                        <img src="{{ isset($home->branner2) && file_exists(asset('storage/' . $home->branner2)) ? asset('storage/' . $home->branner2) : asset('frontend/images/banner-demo.png') }} "
+                        <img src="{{ isset($home->branner2) && file_exists(public_path('storage/' . $home->branner2)) ? asset('storage/' . $home->branner2) : asset('frontend/images/banner-demo.png') }} "
                             alt="">
                         <div class="contain-wrapper">
                             <div class="dots-contain">
                                 <img class="dots-img"
-                                    src="{{ isset($home->branner2) && file_exists(asset('storage/' . $home->branner2)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
+                                    src="{{ isset($home->branner2) && file_exists(public_path('storage/' . $home->branner2)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
                                     alt="">
                             </div>
                             <div class="info w-50 mb-3">
@@ -105,12 +105,12 @@
             @if (!empty($home->branner3))
                 <div class="item">
                     <div class="img-fill">
-                        <img src="{{ isset($home->branner3) && file_exists(asset('storage/' . $home->branner3)) ? asset('storage/' . $home->branner3) : asset('frontend/images/banner-demo.png') }} "
+                        <img src="{{ isset($home->branner3) && file_exists(public_path('storage/' . $home->branner3)) ? asset('storage/' . $home->branner3) : asset('frontend/images/banner-demo.png') }} "
                             alt="">
                         <div class="contain-wrapper">
                             <div class="dots-contain">
                                 <img class="dots-img"
-                                    src="{{ isset($home->branner3) && file_exists(asset('storage/' . $home->branner3)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
+                                    src="{{ isset($home->branner3) && file_exists(public_path('storage/' . $home->branner3)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
                                     alt="">
                             </div>
                             <div class="info w-50 mb-3">
@@ -322,7 +322,7 @@
                             <div class="showcase-industry-bottom" style="position: relative; overflow: hidden;">
                                 <!-- Add a pseudo-element for the overlay -->
                                 <div class="gradient-overlay"></div>
-                                <img class="img-fluid overlays-img" src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="Picture" style="border-top-right-radius: 60px;">
+                                <img class="img-fluid overlays-img" src="{{ isset($techglossy->image) && file_exists(public_path('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}" alt="Picture" style="border-top-right-radius: 60px;">
                             </div>
                         </div>
                     </div>
@@ -437,7 +437,7 @@
                                             </div>
                                             <div class="custom-product-content">
                                                 <a href="{{ route('product.details', $item->slug) }}">
-                                                <h3 class="custom-title"> {{Str::words($item->name, 10) }}</h3> 
+                                                <h3 class="custom-title"> {{Str::words($item->name, 10) }}</h3>
                                                 </a>
 
                                                 @if ($item->rfq == 1)

@@ -38,7 +38,7 @@
                         <div class="py-5 px-4 masthead-cards">
                             <div style="position: relative; top: -30px;">
                                 <div class="d-flex">
-                                    <a href="{{ $whatwedo->bannner_btn_one_link }}" class="w-50 pr-3"
+                                    <a href="{{ $whatwedo->bannner_btn_one_link }}" class="w-50 pe-3"
                                         style="height: 150px;">
                                         <div class="card border-0 border-bottom-red shadow-lg shadow-hover">
                                             <div class="card-body text-center p-4">
@@ -62,7 +62,7 @@
                                     </a>
                                 </div>
                                 <div class="d-flex">
-                                    <a href="{{ $whatwedo->bannner_btn_three_link }}" class="w-50 pr-3"
+                                    <a href="{{ $whatwedo->bannner_btn_three_link }}" class="w-50 pe-3"
                                         style="height: 150px;">
                                         <div class="card border-0 border-bottom-yellow shadow-lg shadow-hover">
                                             <div class="card-body text-center  p-4">
