@@ -13,27 +13,18 @@
 <script src="{{ asset('frontend/js/javascript.mr.js') }}"></script>
 <!-- slick slider -->
 <script src="{{ asset('frontend/js/plugin/owl-crousel@2.3.4.js') }}"></script>
-
-
-
 <!-- Datatable -->
 <script src="{{ asset('backend/assets/js/vendor/tables/datatables/datatables.min.js') }}"></script>
 <script src="{{ asset('backend/assets/demo/pages/datatables_advanced.js') }}"></script>
-
 <!-- Tiny MCe -->
 <script src="{{ asset('frontend/assets/js/text-editor/tiny-mce.min.js') }}"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
-
-
 <!-- Custom JS -->
 {{-- <script src="{{ asset('backend/assets/js/custom.js') }}"></script> --}}
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/filter.js') }}"></script>
-
 @yield('scripts')
-
 {!! Toastr::message() !!}
-
 <!-- Google Recaptcha  -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -57,8 +48,6 @@
             });
         });
     });
-
-
     // {{-- Slider --}}
     var $slider_ini = $(".Advance-Slider");
     var total_slide = 0;
@@ -88,10 +77,6 @@
 
         }
     });
-
-
-
-
     $("button.slick-arrow , .Advance-Slider ul.slick-dots li button").hover(function() {
         $(this).addClass("hover-in");
         $(this).removeClass("hover-out");
@@ -99,10 +84,6 @@
         $(this).removeClass("hover-in");
         $(this).addClass("hover-out");
     });
-
-
-
-
     $slider_ini.on('afterChange', function(event, slick, currentSlide) {
         // console.log('afterChange: ' + currentSlide);
 

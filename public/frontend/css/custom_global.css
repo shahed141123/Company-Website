@@ -43,11 +43,11 @@
     --topHover: #6f062d;
     --navColor: #3e332d;
     --heading: #222222;
+    --custom-shadow: box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 body html {
     scroll-behavior: smooth;
 }
-
 .og-image {
     width: 100%;
     /* Set the desired width */
@@ -648,7 +648,7 @@ body {
 }
 
 .custom_shadow {
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    box-shadow: var(--custom-shadow);
 }
 
 .slick-dotted.slick-slider {
