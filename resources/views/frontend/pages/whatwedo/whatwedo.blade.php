@@ -196,12 +196,12 @@
                                 <p class="text-justify w-75 w-sm-100">
                                     Among More than
                                     <strong style="font-family: 'Poppins', sans-serif; font-size:20px;">
-                                        {{ App\Models\Admin\Product::count() }}
+                                        {{ $productCount }}
                                         <small>products</small>
                                     </strong>
                                     and
                                     <strong style="font-family: 'Poppins', sans-serif;font-size:18px;">
-                                        {{ App\Models\Admin\Brand::count() }}
+                                        {{ $brandCount }}
                                         <small>brands</small>
                                     </strong>
                                     at your service, we can provide you with the tools
@@ -276,7 +276,7 @@
                             <div class="row">
                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                     <a href="{{ $whatwedo->row_one_btn_one_link }}">
-                                        <p class="text-center shadow px-2 py-4 service_card">
+                                        <p class="text-center custom_shadow px-2 py-4 service_card">
                                             <i class="fa-thin {{ $whatwedo->row_one_btn_one_icon }}"></i>
                                             {{ $whatwedo->row_one_btn_one_name }}
                                         </p>
@@ -284,7 +284,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                     <a href="{{ $whatwedo->row_one_btn_two_link }}">
-                                        <p class="text-center shadow px-2 py-4 service_card">
+                                        <p class="text-center custom_shadow px-2 py-4 service_card">
                                             <i class="fa-thin {{ $whatwedo->row_one_btn_two_icon }}-arrow-up"></i>
                                             {{ $whatwedo->row_one_btn_two_name }}
                                         </p>
@@ -292,7 +292,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                     <a href="{{ $whatwedo->row_one_btn_three_link }}">
-                                        <p class="text-center shadow px-2 py-4 service_card">
+                                        <p class="text-center custom_shadow px-2 py-4 service_card">
                                             <i class="fa-thin {{ $whatwedo->row_one_btn_three_icon }}"></i>
                                             {{ $whatwedo->row_one_btn_three_name }}
                                         </p>
@@ -302,7 +302,7 @@
                             <div class="row">
                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                     <a href="{{ $whatwedo->row_one_btn_four_link }}">
-                                        <p class="text-center shadow px-2 py-4 service_card">
+                                        <p class="text-center custom_shadow px-2 py-4 service_card">
                                             <i class="fa-thin {{ $whatwedo->row_one_btn_four_icon }}"></i>
                                             {{ $whatwedo->row_one_btn_four_name }}
                                         </p>
@@ -310,7 +310,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                     <a href="{{ $whatwedo->row_one_btn_five_link }}">
-                                        <p class="text-center shadow px-2 py-4 service_card">
+                                        <p class="text-center custom_shadow px-2 py-4 service_card">
                                             <i class="fa-thin {{ $whatwedo->row_one_btn_five_icon }}"></i>
                                             {{ $whatwedo->row_one_btn_five_name }}
                                         </p>
@@ -318,7 +318,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                     <a href="{{ $whatwedo->row_one_btn_six_link }}">
-                                        <p class="text-center shadow px-2 py-4 service_card">
+                                        <p class="text-center custom_shadow px-2 py-4 service_card">
                                             <i class="fa-thin {{ $whatwedo->row_one_btn_six_icon }}"></i>
                                             {{ $whatwedo->row_one_btn_six_name }}
                                         </p>
