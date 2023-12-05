@@ -343,12 +343,12 @@
                     <p class="text-justify w-75 w-sm-100">
                         Among More than
                         <strong style="font-family: 'Poppins', sans-serif; font-size:20px;">
-                            {{ App\Models\Admin\Product::where('product_status', 'product')->count() }}
+                            {{ $productCount }}
                             <small>products</small>
                         </strong>
                         and
                         <strong style="font-family: 'Poppins', sans-serif;font-size:18px;">
-                            {{ App\Models\Admin\Brand::count() }}
+                           {{ $brandCount }}
                             <small>brands</small>
                         </strong>
                         at your service, we can provide you with the tools
@@ -426,135 +426,82 @@
                                         <div class="custom-product-grid">
                                             <div class="custom-product-image">
                                                 <a href="{{ route('product.details', $item->slug) }}" class="image">
-                                                    <img width="180px" height="180px" class="pic-1"
+                                                    <img class="pic-1"
                                                         src="{{ asset($item->thumbnail) }}">
                                                 </a>
                                                 <ul class="custom-product-links">
                                                     <li><a href="#"><i class="fa fa-random text-white"></i></a></li>
-                                                    <li><a href="#"  data-bs-toggle="modal"
+                                                    <li><a href="#" data-bs-toggle="modal"
                                                         data-bs-target="#productDetails{{ $item->id }}"><i class="fa fa-search text-white"></i></a></li>
                                                 </ul>
                                             </div>
                                             <div class="custom-product-content">
-                                                <h3 class="custom-title"><a href="#">{{ route('product.details', $item->slug) }}</a></h3>
-                                                <div class="price py-3">
-                                                    <small>USD</small>
-                                                    --.-- $
-                                                </div>
-                                                <a href="" class="d-flex justify-content-center align-items-center">
-                                                    <button class="common_button effect01">
-                                                        Ask For Price
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="product-grid">
-                                            <div class="product-image">
-                                                <a href="{{ route('product.details', $item->slug) }}"
-                                                    class="image d-flex justify-content-center align-items-center">
-                                                    <img class="pic-1" src="{{ asset($item->thumbnail) }}"
-                                                        style="width: 180px;height: 180px;"
-                                                        alt="{{ $item->name }}">
-                                                    <img class="pic-2" src="{{ asset($item->thumbnail) }}"
-                                                        style="height: 180px;" alt="{{ $item->name }}">
+                                                <a href="{{ route('product.details', $item->slug) }}">
+                                                <h3 class="custom-title"> {{Str::words($item->name, 10) }}</h3> 
                                                 </a>
 
-                                                <ul class="product-links">
-                                                    <li><a href="#" data-tip="Quick View"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#productDetails{{ $item->id }}"><i
-                                                                class="fa fa-eye text-white"></i></a>
-                                                    </li>
-                                                    <li><a href="#" data-tip="View Product"><i
-                                                                class="fa fa-random text-white"></i></a></li>
-                                                </ul>
-
-
-                                            </div>
-                                            <div class="product-content">
-                                                <h3 class="titles mb-2 ask_for_price website-color text-center"
-                                                    style="height: 4.5rem;"><a
-                                                        href="{{ route('product.details', $item->slug) }}">{{ Str::limit($item->name, 85) }}</a>
-                                                </h3>
                                                 @if ($item->rfq == 1)
-                                                    <div class="price">
-                                                        <p class="text-muted text-center">
-                                                            <small class="price-usd">USD</small>
-                                                            $ --.--
-                                                        </p>
-                                                        <a href=""
-                                                            class="d-flex justify-content-center align-items-center"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $item->id }}">
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            {{-- <small class="price-usd">USD</small>
+                                                            --.-- $ --}}
+                                                        </div>
+                                                        <a href="" class="d-flex justify-content-center align-items-center" data-bs-toggle="modal"
+                                                        data-bs-target="#rfq{{ $item->id }}">
                                                             <button class="common_button effect01">
                                                                 Ask For Price
                                                             </button>
                                                         </a>
                                                     </div>
-                                                    {{-- @elseif ($item->price_status && $item->price_status == 'price') --}}
                                                 @elseif ($item->price_status && $item->price_status == 'rfq')
-                                                    <div class="price">
-                                                        <p class="text-muted text-center">
-                                                            <small class="price-usd">USD</small>
-                                                            $ --.--
-                                                        </p>
-                                                        <a href=""
-                                                            class="d-flex justify-content-center align-items-center"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $item->id }}">
-                                                            <button class="common_button effect01">
-                                                                Ask For Price
-                                                            </button>
-                                                        </a>
+                                                <div>
+                                                    <div class="price py-3">
+                                                        {{-- <small class="price-usd">USD</small>
+                                                        --.-- $ --}}
                                                     </div>
+                                                    <a href="" class="d-flex justify-content-center align-items-center" data-bs-toggle="modal"
+                                                    data-bs-target="#rfq{{ $item->id }}">
+                                                        <button class="common_button effect01">
+                                                            Ask For Price
+                                                        </button>
+                                                    </a>
+                                                </div>
                                                 @elseif ($item->price_status && $item->price_status == 'offer_price')
-                                                    <div class="price">
-                                                        <p class="text-muted text-center"
-                                                            style="text-decoration: line-through;text-decoration-thickness: 2px; text-decoration-color: #ae0a46;">
-                                                            <small class="price-usd">USD</small> $
-                                                            {{ number_format($item->price, 2) }}
-                                                        </p>
-                                                        <div class="d-flex justify-content-center align-items-center">
-                                                            <div data-mdb-toggle="popover" title="Your Price"
-                                                                data-mdb-content="Your Price"
-                                                                data-mdb-trigger="hover">
-                                                                <button class="common_button effect01"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#askProductPrice">
-                                                                    Your Price
-                                                                </button>
-                                                            </div>
-                                                        </div>
+                                                <div>
+                                                    <div class="price py-3">
+                                                        <small class="price-usd">USD</small>
+                                                        $ {{ number_format($item->price, 2) }}
                                                     </div>
+                                                    <a href="" class="d-flex justify-content-center align-items-center" data-bs-toggle="modal"
+                                                    data-bs-target="#rfq{{ $item->id }}">
+                                                        <button class="common_button effect01" data-bs-toggle="modal"
+                                                        data-bs-target="#askProductPrice">
+                                                        Your Price
+                                                        </button>
+                                                    </a>
+                                                </div>
                                                 @else
-                                                    <div class="price">
-                                                        <p class="text-muted text-center"><small
-                                                                class="price-usd">USD</small>
-                                                            $ {{ number_format($item->price, 2) }}
-                                                        </p>
-                                                        <div class="d-flex justify-content-center align-items-center">
-                                                            <div data-mdb-toggle="popover" title="Add To Cart Now"
-                                                                class="cart_button{{ $item->id }}"
-                                                                data-mdb-content="Add To Cart Now"
-                                                                data-mdb-trigger="hover">
-                                                                <button type="button"
-                                                                    class="common_button effect01 add_to_cart"
-                                                                    data-id="{{ $item->id }}"
-                                                                    data-name="{{ $item->name }}"
-                                                                    data-quantity="1">
-                                                                    Add to Cart</button>
-                                                            </div>
-                                                        </div>
+                                                <div>
+                                                    <div class="price py-3">
+                                                        <small class="price-usd">USD</small>
+                                                        $ {{ number_format($item->price, 2) }}
                                                     </div>
+                                                    <a href="" data-mdb-toggle="popover" title="Add To Cart Now"
+                                                    class="cart_button{{ $item->id }}"
+                                                    data-mdb-content="Add To Cart Now"
+                                                    data-mdb-trigger="hover">
+                                                        <button type="button"
+                                                        class="common_button effect01 add_to_cart"
+                                                        data-id="{{ $item->id }}"
+                                                        data-name="{{ $item->name }}"
+                                                        data-quantity="1">
+                                                        Add to Cart
+                                                        </button>
+                                                    </a>
+                                                </div>
                                                 @endif
-
                                             </div>
                                         </div>
-
-
-
                                     </div>
                                 </div>
                             </div>
