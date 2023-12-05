@@ -1,17 +1,4 @@
-/* ------------------------------------------------------------------------------
- *
- *  # Custom JS code
- *
- *  Place here all your custom js. Make sure it's loaded after app.js
- *
- * ---------------------------------------------------------------------------- */
-// Single Image Show
 
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
 
 function mainThamUrl(input) {
     if (input.files && input.files[0]) {
@@ -27,7 +14,7 @@ function mainThamUrl(input) {
 // Multi Image Show
 $(document).ready(function () {
     $('#multiImg').on('change', function () { //on file input change
-        alert('Multi image')
+        // alert('Multi image')
         if (window.File && window.FileReader && window.FileList && window
             .Blob) //check File API supported browser
         {
@@ -52,9 +39,8 @@ $(document).ready(function () {
             alert("Your browser doesn't support File API!"); //if File API is absent
         }
     });
-});
 
-$(document).ready(function () {
+    // input
     $(".phone_number").on("input", function (evt) {
         var self = $(this);
         self.val(self.val().replace(/[^0-9+()]/g, ''));
@@ -117,6 +103,8 @@ function onSubmit(token) {
 function onSubmit(token) {
     $('.get_quote_frm').submit();
 }
+
+
 
 // {{-- Software Hardware Tab Slider 16-07-23 --}}
 
@@ -226,67 +214,40 @@ $(document).ready(function () {
         },
         ],
     })
-})
 
-$(document).ready(function () {
     $('.select2').select2();
-});
-$(document).ready(function () {
     $('.select_country').select2();
-});
 
 
-
-
-
-// <!--- Search for Software and Hardware -->
-$(document).ready(function () {
+    // <!--- Search for Software and Hardware -->
     $("#softwareInput").on("keyup", function () {
         var value = $(this).val().toLowerCase();
         $("#softwareTable tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
-});
 
-
-$(document).ready(function () {
     $("#categoryInput").on("keyup", function () {
         var value = $(this).val().toLowerCase();
         $("#categoryTable tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
-});
 
-$(document).ready(function () {
-    $("#categoryInput").on("keyup", function () {
-        var value = $(this).val().toLowerCase();
-        $("#categoryTable tr").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-    });
-});
-
-$(document).ready(function () {
     $("#brandInput").on("keyup", function () {
         var value = $(this).val().toLowerCase();
         $("#brandTable tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
-});
 
-$(document).ready(function () {
     $("#industryInput").on("keyup", function () {
         var value = $(this).val().toLowerCase();
         $("#industryTable tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
-});
 
-$(document).ready(function () {
     $("#hardwareInput").on("keyup", function () {
         var value = $(this).val().toLowerCase();
         $("#hardwareTable tr").filter(function () {
@@ -297,16 +258,18 @@ $(document).ready(function () {
 
 // <!--- End Search for Software and Hardware -->
 
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
+
 
 $(document).ready(function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     var searchContainer = $('#search_container');
     // var path = "{{ route('global.search') }}";
-    var path = "/global-search";
+    var path = "global-search/";
     var searchInput = $('#search_text');
 
     searchInput.autocomplete({
@@ -316,7 +279,7 @@ $(document).ready(function () {
                 type: "POST",
                 dataType: "json",
                 data: {
-                    _token: "{{ csrf_token() }}",
+                    // _token: "{{ csrf_token() }}",
                     term: request.term
                 },
                 success: function (data) {
@@ -343,11 +306,10 @@ $(document).ready(function () {
             searchContainer.addClass('d-none');
         }
     });
-});
-$(document).ready(function () {
+
     var searchContainer = $('#mobile_search_container');
     // var path = "{{ route('global.search') }}";
-    var path = "/global-search";
+    var path = "global-search/";
     var searchInput = $('#mobile_search_text');
 
     searchInput.autocomplete({
@@ -357,8 +319,11 @@ $(document).ready(function () {
                 type: "POST",
                 dataType: "json",
                 data: {
-                    _token: "{{ csrf_token() }}",
+                    // _token: "{{ csrf_token() }}",
                     term: request.term
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function (data) {
 
@@ -384,8 +349,8 @@ $(document).ready(function () {
             searchContainer.addClass('d-none');
         }
     });
-});
-$(document).ready(function () {
+
+
     $('.add_to_cart_quantity').click(function () {
         var id = $(this).data('id');
         var name = $(this).data('name');
@@ -401,7 +366,7 @@ $(document).ready(function () {
         };
 
         $.ajax({
-            url: "{{ route('add.cart') }}",
+            url: "cart_store/",
             type: 'POST',
             data: formData,
             dataType: 'json',
@@ -419,8 +384,7 @@ $(document).ready(function () {
             }
         });
     });
-});
-$(document).ready(function () {
+
     $('.add_to_cart').click(function () {
         var id = $(this).data('id');
         var name = $(this).data('name');
@@ -435,7 +399,7 @@ $(document).ready(function () {
         };
 
         $.ajax({
-            url: "/cart_store",
+            url: "cart_store/",
             type: 'POST',
             data: formData,
             dataType: 'json',
@@ -454,13 +418,10 @@ $(document).ready(function () {
             }
         });
     });
-});
-
-// {{-- Editor --}}
 
 
+    // {{-- Editor --}}
 
-$(document).ready(function () {
 
     tinymce.init({
         selector: '#common',
@@ -504,9 +465,7 @@ $(document).ready(function () {
             //$("#profile_percentage").text('+')
         }
     });
-});
 
-$(document).ready(function () {
     $('#image').change(function (e) {
         //alert(5);
         var reader = new FileReader();
@@ -515,9 +474,8 @@ $(document).ready(function () {
         }
         reader.readAsDataURL(e.target.files['0']);
     });
-});
 
-$(document).ready(function () {
+
     $('#image1').change(function (e) {
         var reader = new FileReader();
         reader.onload = function (e) {
@@ -525,9 +483,8 @@ $(document).ready(function () {
         }
         reader.readAsDataURL(e.target.files['0']);
     });
-});
 
-$(document).ready(function () {
+
     $('#image2').change(function (e) {
         var reader = new FileReader();
         reader.onload = function (e) {
@@ -535,9 +492,8 @@ $(document).ready(function () {
         }
         reader.readAsDataURL(e.target.files['0']);
     });
-});
 
-$(document).ready(function () {
+
     $('#image3').change(function (e) {
         var reader = new FileReader();
         reader.onload = function (e) {
@@ -545,32 +501,30 @@ $(document).ready(function () {
         }
         reader.readAsDataURL(e.target.files['0']);
     });
-});
 
-$(document).ready(function () {
-    $('input[name=toggle]').change(function () {
-        var mode = $(this).prop('checked');
-        var id = $(this).val();
-        $.ajax({
-            url: "{{ route('client.status') }}",
-            type: "POST",
-            data: {
-                _token: '{{ csrf_token() }}',
-                mode: mode,
-                id: id,
-            },
-            success: function (response) {
+    // $('input[name=toggle]').change(function () {
+    //     var mode = $(this).prop('checked');
+    //     var id = $(this).val();
+    //     $.ajax({
+    //         url: "{{ route('client.status') }}",
+    //         type: "POST",
+    //         data: {
+    //             _token: '{{ csrf_token() }}',
+    //             mode: mode,
+    //             id: id,
+    //         },
+    //         success: function (response) {
 
-                if (response.status) {
-                    alert(response.msg);
-                } else {
-                    alert('Please Try Again!');
-                }
-            }
+    //             if (response.status) {
+    //                 alert(response.msg);
+    //             } else {
+    //                 alert('Please Try Again!');
+    //             }
+    //         }
 
-        })
+    //     })
 
-    })
+    // })
 })
 
 
@@ -661,11 +615,7 @@ $("#addToCart").click(function () {
 
 
 $(document).ready(function () {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+
     $('.rmvBtn').click(function (e) {
         var form = $(this).closest('form');
         //var dataID=$(this).data('id');
@@ -714,76 +664,6 @@ $('input[type="range"]').change(function () {
 
 
 
-// {{-- Slider --}}
-var $slider_ini = $(".Advance-Slider");
-var total_slide = 0;
-$slider_ini.on("init", function (event, slick, currentSlide, nextSlide) {
-    $('button.slick-arrow').append('<div class="thumb"></div>');
-    total_slide = slick.slideCount;
-    // console.log(total_slide);
-    next_img = $(slick.$slides[1]).find('img').attr('src');
-    prev_img = $(slick.$slides[total_slide - 1]).find('img').attr('src');
-    $('button.slick-next .thumb').append('<img src="' + next_img + '">');
-    $('button.slick-prev .thumb').append('<img src="' + prev_img + '">');
-
-});
-$slider_ini.slick({
-    autoplay: true,
-    autoplaySpeed: 10000,
-    speed: 2000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: true,
-    pauseOnHover: false,
-    infinite: false,
-    customPaging: function (slider, i) {
-        var thumb = $(slider.$slides[i]).find('.dots-img').attr('src');
-        // console.log(thumb);
-        return '<button><div class="mextrix"><a><img src="' + thumb + '"></a></div></button>';
-
-    }
-});
-
-
-
-
-$("button.slick-arrow , .Advance-Slider ul.slick-dots li button").hover(function () {
-    $(this).addClass("hover-in");
-    $(this).removeClass("hover-out");
-}, function () {
-    $(this).removeClass("hover-in");
-    $(this).addClass("hover-out");
-});
-
-
-
-
-$slider_ini.on('afterChange', function (event, slick, currentSlide) {
-    // console.log('afterChange: ' + currentSlide);
-
-    prev_img = $(slick.$slides[currentSlide - 1]).find('img').attr('src');
-    next_img = $(slick.$slides[currentSlide + 1]).find('img').attr('src');
-
-    if (currentSlide == total_slide) {
-        prev_img = $(currentSlide - 1).find('img').attr('src');
-    }
-
-    if (currentSlide == 0) {
-        // console.log('if call');
-        prev_img = $(slick.$slides[total_slide - 1]).find('img').attr('src');
-    }
-
-    if (currentSlide == total_slide - 1) {
-        next_img = $(slick.$slides[0]).find('img').attr('src');
-    }
-
-    $('button.slick-arrow ').find('img').remove();
-
-    $('button.slick-next .thumb').append('<img src="' + next_img + '">');
-    $('button.slick-prev .thumb').append('<img src="' + prev_img + '">');
-
-});
-// {{-- Slider --}}
 
 // {{-- Product Slider --}}
 $(document).ready(function () {

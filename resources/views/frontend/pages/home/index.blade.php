@@ -16,12 +16,12 @@
           z-index: 980; /* Adjust the z-index to be behind the image */
           pointer-events: none; /* Allows clicks to go through the overlay */
       }
-  
+
       .showcase-industry-bottom {
           position: relative;
           overflow: hidden;
       }
-  
+
       .overlays-img {
           border-top-right-radius: 60px;
           z-index: 980; /* Adjust the z-index to be in front of the overlay */
@@ -356,7 +356,7 @@
                         anytime.
                     </p>
                     <div class="mt-5 home_shop_button">
-                        <a href="{{ route('shop.html') }}" class="common_button effect01">Shop Now</a>
+                        <a href="{{ route('shop.html') }}" class="common_button effect01">Explore Shop</a>
                     </div>
                 </div>
             </div>
