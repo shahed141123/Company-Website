@@ -305,6 +305,236 @@ body html {
 }
 
 /* Home Page Partial CSS Start */
+
+.account_benefits_section a {
+    color: none !important;
+}
+
+.gradient_bg {
+    background-image: linear-gradient(
+        to right top,
+        #cb3a6f,
+        #dd2467,
+        #9f0940,
+        #98083d,
+        #91083a,
+        #c7024a,
+        #9f023c,
+        #970a3d,
+        #98083d,
+        #9f0940,
+        #a70a43,
+        #ae0a46
+    );
+}
+
+.detail_img img {
+    height: 100%;
+    border-top-right-radius: 40px;
+    margin-top: 3px;
+    -o-object-fit: cover;
+    font-family: "object-fit:cover";
+    object-fit: cover;
+}
+
+.grid-river {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1000px;
+    list-style: none;
+    text-align: start;
+    height: 14rem;
+}
+
+/* Common style */
+.grid-river figure {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    min-width: 320px;
+    max-width: 480px;
+    max-height: 360px;
+    width: 100%;
+    text-align: start;
+    cursor: pointer;
+    border-bottom-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+.grid-river figure img {
+    position: relative;
+    display: block;
+    min-height: 100%;
+    max-width: 100%;
+    /* opacity: 0.8; */
+}
+
+.grid-river figure figcaption {
+    padding: 2em;
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.25em;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.grid-river figure figcaption::before,
+.grid-river figure figcaption::after {
+    pointer-events: none;
+}
+
+.grid-river figure figcaption,
+.grid-river figure figcaption > a {
+    width: 100%;
+    height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid-river figure figcaption > a {
+    z-index: 1000;
+    text-indent: 200%;
+    white-space: nowrap;
+    font-size: 0;
+    /* opacity: 0; */
+}
+
+.grid-river figure h2 {
+    word-spacing: -0.15em;
+    font-weight: 300;
+}
+
+.grid-river figure h2 span {
+    font-weight: 800;
+}
+
+.grid-river figure h2,
+.grid-river figure p {
+    margin: 0;
+    color: black;
+}
+
+.grid-river figure p {
+    letter-spacing: 1px;
+    font-size: 68.5%;
+}
+
+/* Individual effects */
+
+/*---------------*/
+/***** Oscar *****/
+/*---------------*/
+
+figure.effect-oscar:hover {
+    background: -webkit-linear-gradient(
+        45deg,
+        #ae0a46 0%,
+        #ae0a46d1 40%,
+        #ae0a469c 100%
+    );
+    background: linear-gradient(
+        45deg,
+        #ae0a46 0%,
+        #ae0a46d1 40%,
+        #ae0a469c 100%
+    );
+}
+
+figure.effect-oscar figcaption {
+    padding: 30px;
+    background-color: rgb(174 10 70 / 15%);
+    -webkit-transition: background-color 0.35s;
+    transition: background-color 0.35s;
+}
+
+figure.effect-oscar figcaption::before {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    bottom: 30px;
+    left: 30px;
+    border: 0px solid #fff;
+    content: "";
+}
+
+figure.effect-oscar h4 {
+    color: white;
+    margin: 0% 0 10px 0;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+}
+
+figure.effect-oscar h5 {
+    color: white;
+    margin: 25% 0 0px 0;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    font-size: 16px;
+}
+
+figure.effect-oscar figcaption::before,
+figure.effect-oscar p {
+    /* opacity: 0; */
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+figure.effect-oscar:hover h4 {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+figure.effect-oscar:hover figcaption::before,
+figure.effect-oscar:hover p {
+    /* opacity: 1; */
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+figure.effect-oscar:hover figcaption {
+    background: -webkit-linear-gradient(
+        45deg,
+        #ae0a46 0%,
+        #ae0a46d1 40%,
+        #ae0a469c 100%
+    );
+    background: linear-gradient(
+        45deg,
+        #ae0a46 0%,
+        #ae0a46d1 40%,
+        #ae0a469c 100%
+    );
+    padding: 30px;
+}
+
+.details-titles {
+    position: relative;
+    bottom: -4rem;
+    border-top-right-radius: 40px;
+}
+
+.download-hover-btn:hover {
+    padding-right: 5px;
+}
+
+.details-color-3 {
+    background-color: #f6005b;
+}
+
+.details-color-2 {
+    background-color: #cf054f;
+}
+
+.details-color-1 {
+    background-color: #ae0a46;
+}
+
 .header-category-ml-60 {
     margin-left: 60px;
 }
@@ -332,9 +562,9 @@ body html {
     width: 20%;
 }
 
-.feature_descrip {
+/* .feature_descrip {
     height: 5rem;
-}
+} */
 
 .tag_btn {
     background-color: #f7f6f5;
@@ -343,13 +573,6 @@ body html {
     padding: 5px;
 }
 
-html,
-body {
-    padding: 0;
-    margin: 0;
-    overflow-x: hidden !important;
-    min-height: 100vh;
-}
 
 .brand_side_text {
     transition: 0.5s all !important;
@@ -761,188 +984,6 @@ h2 {
 .button-31:hover,
 .button-31:focus {
     opacity: 0.75;
-}
-
-.product-grid {
-    font-family: "Roboto", sans-serif;
-    border: 1px solid #eee;
-    transition: all 0.4s ease-in-out;
-}
-
-.product-grid:hover {
-    border-color: transparent;
-    box-shadow: 1px 2px 24px rgba(0, 0, 0, 0.08);
-}
-
-.product-grid .product-image {
-    overflow: hidden;
-    position: relative;
-}
-
-.product-grid .product-image a.image {
-    display: block;
-}
-
-.product-grid .product-image img {
-    width: 100%;
-}
-
-.product-grid .product-image .pic-1 {
-    transform: rotateY(0);
-    transition: all 0.5s ease;
-    width: 150px !important;
-    height: 140px !important;
-}
-
-.product-grid:hover .product-image .pic-1 {
-    opacity: 0;
-    transform: rotateY(180deg);
-}
-
-.product-grid .product-image .pic-2 {
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transform: rotateY(180deg);
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: all 0.5s ease;
-}
-
-.product-grid:hover .product-image .pic-2 {
-    opacity: 1;
-    transform: rotateY(60deg);
-}
-
-.product-grid .product-like-icon {
-    color: #fff;
-    font-size: 18px;
-    line-height: 20px;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    transition: all 0.55s ease-in-out;
-}
-
-.product-grid .product-like-icon:hover {
-    color: #0f62f9;
-}
-
-.product-grid .product-links {
-    background: #ae0a46;
-    text-align: center;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    position: absolute;
-    bottom: -40px;
-    left: 0;
-    transition: all 0.3s ease;
-}
-
-.product-grid:hover .product-links {
-    bottom: 0;
-}
-
-/* .product-grid:hover .product-links {
-    bottom: -40px;
-} */
-
-.product-grid .product-links li {
-    margin: 0 2px;
-    display: inline-block;
-}
-
-.product-grid .product-links li a {
-    color: #161616;
-    font-size: 16px;
-    line-height: 40px;
-    width: 40px;
-    height: 40px;
-    display: block;
-    transition: all 200ms ease 0s;
-}
-
-.product-grid .product-links li a:hover {
-    color: #0f62f9;
-}
-
-.product-grid .product-content {
-    padding: 15px;
-    position: relative;
-}
-
-.product-grid .titles {
-    font-size: 15px;
-    font-weight: 600;
-    text-transform: capitalize;
-    margin: 0 0 7px;
-}
-
-.product-grid .titles a {
-    color: #ae0a46;
-    transition: all 0.3s ease 0s;
-}
-
-.product-grid .titles a:hover {
-    color: #161616;
-}
-
-.product-grid .price {
-    color: #000;
-    font-size: 17px;
-    font-weight: 700;
-    margin: 0 0 5px;
-}
-
-.product-grid .price p {
-    font-family: "sans-serif";
-    font-size: 18px;
-}
-
-.product-grid .rating {
-    padding: 0;
-    list-style: none;
-    margin: 0;
-}
-
-.product-grid .rating li {
-    color: #ffb627;
-    font-size: 12px;
-}
-
-.product-grid .rating li.far {
-    color: #999;
-}
-
-.product-grid .rating li.count {
-    color: #52525c;
-    font-weight: 600;
-    display: inline-block;
-}
-
-.product-grid .add-to-cart {
-    color: #fff;
-    background: #ae0a46;
-    font-size: 15px;
-    text-align: center;
-    line-height: 44px;
-    width: 44px;
-    height: 44px;
-    border-radius: 30px;
-    display: block;
-    position: absolute;
-    right: 12px;
-    bottom: 10px;
-    transition: all 0.2s ease-in-out;
-}
-
-.product-grid:hover .add-to-cart {
-    color: #fff;
-    background: #ae0a46;
-    border-top-left-radius: 0;
 }
 
 .details_icon {

@@ -607,43 +607,27 @@
                 <h3 class="title_top_heading py-5">Our Success Starts With Our Culture.</h3>
             </div>
             <!-- wrapper -->
-
             <div class="row">
-                <!-- item -->
-                @if (!empty($success1))
-                    <div class="col-lg-4 col-sm-12">
-                        <div class="our_success_item">
-                            <p class="our_success_item_title">{{ $success1->title }}</p>
-                            <div class="our_success_item_body" style="height: 14rem; border: none;">
-                                {{ $success1->description }}
-                            </div>
-                        </div>
+                <div class="col-lg-4">
+                    <div class="details-color-1 text-white details-titles pt-4 ps-4 pb-3">
+                        <p class="pb-5">asdasdasdasd asd asd asd asd asd </p>
                     </div>
-                @endif
-                <!-- item -->
-                @if (!empty($success2))
-                    <div class="col-lg-4 col-sm-12">
-                        <div class="our_success_item">
-                            <p class="our_success_item_title our_success_item_title2">{{ $success2->title }}</p>
-                            <div class="our_success_item_body" style="height: 14rem; border: none;">
-                                {{ $success2->description }}
-                            </div>
-                        </div>
+                    <div class="grid-river">
+                        <figure class="effect-oscar">
+                            {{-- <img src="{{ asset('storage/' . $cardsection2->image) }}" alt="img09" /> --}}
+                            {{-- <img width="450px" height="300px"
+                                src="{{ isset($cardsection2->image) && file_exists(asset('storage/' . $cardsection2->image)) ? asset('storage/' . $cardsection2->image) : asset('frontend/images/no-details-img(660-550).png') }}"
+                                alt="img09" /> --}}
+                            <figcaption>
+                                {{-- <h4>{{$cardsection2->title }}</h4> --}}
+                                {{-- <p>{!! $cardsection2->short_des !!}</p> --}}
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae officia quidem illum nostrum, similique voluptatum iusto sapiente quae consequatur id modi quisquam! Id excepturi iusto illo adipisci repudiandae necessitatibus aut?</p>
+                                {{-- <h5 class="download-hover-btn">Download <i class="fa-solid fa-chevron-right"></i></h5> --}}
+                            </figcaption>
+                        </figure>
                     </div>
-                @endif
-                <!-- item -->
-                @if (!empty($success3))
-                    <div class="col-lg-4 col-sm-12">
-                        <div class="our_success_item">
-                            <p class="our_success_item_title our_success_item_title3">{{ $success3->title }}</p>
-                            <div class="our_success_item_body" style="height: 14rem; border: none;">
-                                {{ $success3->description }}
-                            </div>
-                        </div>
-                    </div>
-                @endif
+                </div>
             </div>
-
         </div>
     </section>
 @endif
