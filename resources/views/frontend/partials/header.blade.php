@@ -5,12 +5,12 @@
 
     .step-img {
         position: relative;
-        top: -14px;
-        left: -4rem;
+        top: -12px;
+        left: -3.8rem;
         right: 0px;
     }
 </style>
-<div class="fixed-section header mb-5" style="border-bottom: 1px solid #ae0a460f !important;">
+<div class="fixed-section header mb-5">
     {{-- Top Bar Area --}}
     <div class="container-fluid top-bar p-0">
         <div class="row gx-0 top-bar-bg">
@@ -35,31 +35,24 @@
                             margin: 0px;
                             transform: translate(50px, 18px) !important;">
                                 <div class="popover__content text-start">
-                                    <div class="text-muted">
+                                    {{-- <div class="text-muted">
                                         Call Us-
                                         <a href="tel:{{ $setting->phone_one }}"
                                             class="main_color">{{ $setting->phone_one }}</a>
-                                    </div>
+                                    </div> --}}
                                     <hr class="text-muted" />
-                                    <ul class="account p-0 text-muted text-start">
-                                        <li class="py-3 d-flex flex-column">
-                                            <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
-                                                class="social_icons"><i class="pe-2 h4 fa-brands fa-square-facebook"
-                                                    aria-hidden="true"></i>Facebook</a>
-                                            <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
-                                                class="social_icons">
-                                                <i class="pe-2 h4 fa-brands fa-linkedin"></i>Twitter</a>
-                                            <a href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}"
-                                                class="social_icons">
-                                                <i class="pe-2 h4 fa-brands fa-square-twitter"></i>Linkedin</a>
-                                            <a href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}"
-                                                class="social_icons">
-                                                <i class="pe-2 h4 fa-brands fa-square-youtube"></i>Youtube</a>
-                                            <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
-                                                class="social_icons">
-                                                <i class="pe-2 h4 fa-brands fa-square-instagram"></i>Instagram</a>
-                                        </li>
-                                    </ul>
+                                    <div class="d-flex flex-column align-items-center">
+                                        <a href="{{ route('client.login') }}"
+                                            class="mx-auto py-2 btn common_button2 mb-2 top-info-text w-100"
+                                            style="font-size: 13px">
+                                            <i class="fa-brands fa-whatsapp"></i> <span>Whats App</span>
+                                        </a>
+                                        <a href="{{ route('client.login') }}"
+                                            class="mx-auto py-2 btn common_button2 mb-2 top-info-text w-100"
+                                            style="font-size: 13px">
+                                            <i class="fa-brands fa-skype"></i> <span>Sign In</span>
+                                        </a>
+                                    </div>
                                     <hr class="text-muted" />
                                     <ul class="account p-0 text-muted text-start">
                                         <li>
@@ -93,7 +86,7 @@
                                     <span class="">MY</span><span class="">NGEN IT</span>
                                 </a>
                                 <div class="dropdown-menu drop-down-menus" aria-labelledby="dropdownMenuButton">
-                                    <div class="popover__content text-start">
+                                    <div class="popover__content-2 text-start">
                                         {{-- <div class="text-muted">
                                             First time here?
                                             <a href="#" class="main_color">Sign Up</a>
@@ -119,7 +112,7 @@
                                             <hr class="text-muted" />
                                         @else
                                             <a href="{{ route('client.login') }}"
-                                                class="mx-auto py-2 btn common_button2 mb-2 top-info-text w-75"
+                                                class="mx-auto py-2 btn common_button2 mb-2 top-info-text w-100"
                                                 style="font-size: 13px">
                                                 Sign In
                                             </a>
@@ -158,7 +151,7 @@
         <nav class="navbar navbar-expand-lg p-2 main-navbar bg-white menu-section">
             <div class="container-fluid">
                 <div class="step-img d-lg-block d-sm-none">
-                    <img src="https://i.ibb.co/3WKt3Mw/NGen-IT-left-color.png" alt="" style="height: 76px;">
+                    <img src="https://i.ibb.co/3WKt3Mw/NGen-IT-left-color.png" alt="" style="height: 74px;">
                 </div>
                 <a class="navbar-brand fw-bold upper-content-menu main-logo" href="{{ route('homepage') }}">
                     {{-- <img class="img-fluid site-main-logo"
@@ -210,7 +203,7 @@
                                                                 <div class="col-lg-3 col-sm-6">
                                                                     <div class="fw-bold nav_title mb-2"
                                                                         style="font-size: 15px;">
-                                                                        <span style="border-top: 4px solid #ae0a46;">
+                                                                        <span style="border-top: 2px solid #ae0a46;">
                                                                             {{ \Illuminate\Support\Str::substr($sub_category->title, 0, 3) }}
                                                                         </span>
                                                                         {{ \Illuminate\Support\Str::substr($sub_category->title, 3) }}
@@ -264,6 +257,7 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <hr>
                         <li class="nav-item dropdown position-static cool-link main-menu-specing">
+<<<<<<< HEAD
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
                                 <li class="nav-item dropdown position-static cool-link main-menu-specing">
@@ -281,6 +275,86 @@
                                                         Services
                                                     </p>
                                                     <div class="row">
+=======
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                OUR SERVICES
+                            </a>
+                            <ul class="dropdown-menu full-container-dropdown"
+                                style="border-top: 1px solid #ae0a460f !important;">
+                                <div class="container-fluid">
+                                    <div class="row pt-5 pb-5 tech-top bg-white">
+                                        <div class="col-lg-3">
+                                            <p class="fw-bold"><span
+                                                    style="border-top: 2px solid #ae0a46;">Com</span>mon Services
+                                            </p>
+                                            <div class="row">
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center"
+                                                        href="{{ route('software.info') }}">
+                                                        <div>Software</div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center"
+                                                        href="{{ route('hardware.info') }}">
+                                                        <div>Hardware</div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center" href="javascript:void(0)">
+                                                        <div>Training</div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center" href="javascript:void(0)">
+                                                        <div>Books</div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <p class="fw-bold"><span
+                                                    style="border-top: 2px solid #ae0a46;">Ind</span>ustry We Serve
+                                            </p>
+                                            <div class="row">
+                                                @if (count($industrys) > 0)
+                                                    @foreach ($industrys as $industry)
+                                                        @if ($industry->industryPage)
+                                                            <div class="col-lg-6 mb-2">
+                                                                <a class="d-flex align-items-center"
+                                                                    href="{{ route('industry.details', $industry->slug) }}">
+                                                                    <div>{{ $industry->title }} </div>
+                                                                    <div>
+                                                                        <i class="ph ph-caret-right menu_icons"></i>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <p class="fw-bold"><span
+                                                    style="border-top: 2px solid #ae0a46;">Sol</span>utions We Provide
+                                            </p>
+                                            <div class="row">
+                                                @if ($solutions)
+                                                    @foreach ($solutions as $solution)
+>>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                                         <div class="col-lg-12 mb-2">
                                                             <a class="d-flex align-items-center"
                                                                 href="{{ route('software.info') }}">
@@ -290,6 +364,188 @@
                                                                 </div>
                                                             </a>
                                                         </div>
+<<<<<<< HEAD
+=======
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row pt-3 pb-3 tech-top">
+                                        <div class="col-lg-3 text-center">
+                                            <a href="{{ route('whatwedo') }}" style="border-top: 1.5px solid #ae0a46;">
+                                                What We Do
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-5 text-center">
+                                            <a href="{{ route('all.industry') }}"
+                                                style="border-top: 1.5px solid #ae0a46;">
+                                                View All Industry
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-4 text-center">
+                                            <a href="{{ route('all.solution') }}"
+                                                style="border-top: 1.5px solid #ae0a46;">
+                                                View All Solutions
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown position-static cool-link main-menu-specing">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                TECH CONTENTS
+                            </a>
+                            <ul class="dropdown-menu full-container-dropdown"
+                                style="border-top: 1px solid #ae0a460f !important; width: 82.8%;">
+                                <div class="container-fluid px-0">
+                                    <div class="row pt-4 pb-4 tech-top gx-1">
+                                        <p class="fw-bold mb-2"><span
+                                                style="border-top: 2px solid #ae0a46;">Tre</span>ndy Content
+                                        </p>
+                                        <div class="row">
+                                            @if ($features)
+                                                @foreach ($features as $feature)
+                                                    <div class="col-lg-6 col-sm-12">
+                                                        <div class="d-flex align-items-center">
+                                                            <img src="{{ isset($feature->image) && file_exists(asset('storage/' . $feature->image)) ? asset('storage/' . $feature->image) : asset('frontend/images/banner-demo.png') }}"
+                                                                alt="" style="width:130px;height:70px;">
+                                                            <div class="ms-3">
+                                                                <a
+                                                                    href="{{ route('feature.details', $feature->id) }}">
+                                                                    <strong
+                                                                        style="font-size:14px;">{{ Str::limit($feature->title, 100) }}</strong>
+                                                                </a>
+                                                                <br>
+                                                                <span>{{ $feature->badge }} /
+                                                                    {{ $feature->created_at->format('d-m-Y') }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="row pt-4 pb-4 tech-top bg-white gx-1">
+                                        <div class="row">
+                                            @if ($blog)
+                                                <div class="col-lg-6 col-sm-12">
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="{{ isset($blog->image) && file_exists(asset('storage/' . $blog->image)) ? asset('storage/' . $blog->image) : asset('frontend/images/banner-demo.png') }}"
+                                                            alt="" style="width:130px;height:70px;">
+                                                        <div class="ms-3">
+                                                            <a href="{{ route('feature.details', $blog->id) }}">
+                                                                <strong
+                                                                    style="font-size:14px;">{{ Str::limit($blog->title, 100) }}</strong>
+                                                            </a>
+                                                            <br>
+                                                            <span>{{ $blog->badge }} /
+                                                                {{ $blog->created_at->format('d-m-Y') }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                            @if ($techglossy)
+                                                <div class="col-lg-6 col-sm-12">
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="{{ isset($techglossy->image) && file_exists(asset('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}"
+                                                            alt="" style="width:130px;height:65px;">
+                                                        <div class="ms-3">
+                                                            <a href="{{ route('feature.details', $techglossy->id) }}">
+                                                                <strong
+                                                                    style="font-size:14px;">{{ Str::limit($techglossy->title, 100) }}</strong>
+                                                            </a>
+                                                            <br>
+                                                            <span>{{ $techglossy->badge }} /
+                                                                {{ $techglossy->created_at->format('d-m-Y') }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="row pt-3 pb-3 tech-top gx-1">
+                                        <div class="col-lg-6 text-center">
+                                            <a href="{{ route('all.blog') }}" style="border-top: 1.5px solid #ae0a46;">
+                                                View All Blogs
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 text-center">
+                                            <a href="{{ route('all.techglossy') }}"
+                                                style="border-top: 1.5px solid #ae0a46;">
+                                                View All Techglossies
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown position-static cool-link main-menu-specing">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                SHOP ONLINE
+                            </a>
+                            <ul class="dropdown-menu full-container-dropdown"
+                                style="border-top: 1px solid #ae0a460f !important;">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-3 bg-white pt-5 pb-3 shop-menu-left">
+                                            <p class="fw-bold"><span
+                                                    style="border-top: 2px solid #ae0a46;">Sho</span>p By</p>
+                                            <div class="row">
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center"
+                                                        href="{{ route('software.common') }}">
+                                                        <div>Software</div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center"
+                                                        href="{{ route('hardware.common') }}">
+                                                        <div>Hardware</div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center" href="javascript:void(0)">
+                                                        <div>Training</div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center" href="javascript:void(0)">
+                                                        <div>Books</div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center" href="{{ route('shop') }}">
+                                                        <div>Our Shop</div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 bg-white pt-5 pb-3">
+                                            <p class="fw-bold"><span
+                                                    style="border-top: 2px solid #ae0a46;">Sho</span>p By Category</p>
+                                            <div class="row">
+                                                @if (!empty($categorys))
+                                                    @foreach ($categorys as $shop_category)
+>>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                                         <div class="col-lg-12 mb-2">
                                                             <a class="d-flex align-items-center"
                                                                 href="{{ route('hardware.info') }}">
@@ -299,6 +555,7 @@
                                                                 </div>
                                                             </a>
                                                         </div>
+<<<<<<< HEAD
                                                         <div class="col-lg-12 mb-2">
                                                             <a class="d-flex align-items-center"
                                                                 href="javascript:void(0)">
@@ -337,6 +594,24 @@
                                                                                     class="ph ph-caret-right menu_icons"></i>
                                                                             </div>
                                                                         </a>
+=======
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 bg-white pt-5 pb-3">
+                                            <p class="fw-bold"><span
+                                                    style="border-top: 2px solid #ae0a46;">Sho</span>p By Brand</p>
+                                            <div class="row">
+                                                @if ($brands)
+                                                    @foreach ($brands as $brand)
+                                                        @if ($brand->brandPage)
+                                                            <div class="col-lg-6 mb-2">
+                                                                <a class="d-flex align-items-center"
+                                                                    href="{{ route('brand.products', $brand->slug) }}">
+                                                                    <div>
+                                                                        {{ $brand->title }}
+>>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                                                     </div>
                                                                 {{-- @endif --}}
                                                             @endforeach
@@ -387,6 +662,7 @@
                                                 </div>
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown position-static cool-link main-menu-specing">
@@ -490,6 +766,11 @@
                                     <ul class="dropdown-menu full-container-dropdown"
                                         style="border-top: 1px solid #ae0a460f !important;">
                                         <div class="container-fluid">
+=======
+                                        <div class="col-lg-2 pt-5 pb-3" style="background: #f7f6f5;">
+                                            <p class="fw-bold"><span
+                                                    style="border-top: 2px solid #ae0a46;">Exp</span>lore Our Deals</p>
+>>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                             <div class="row">
                                                 <div class="col-lg-3 bg-white pt-5 pb-3 shop-menu-left">
                                                     <p class="fw-bold"><span
@@ -614,6 +895,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+<<<<<<< HEAD
                                             <div class="row pt-3 pb-3 tech-top">
                                                 <div class="col-lg-3 ps-0 pe-0">
                                                     <a href="{{ route('shop.html') }}"
@@ -635,11 +917,37 @@
                                                 </div>
                                                 <div class="col-lg-2 ps-5">
                                                     {{-- <a href="" style="border-top: 3px solid #ae0a46;">
+=======
+                                        </div>
+                                    </div>
+                                    <div class="row pt-3 pb-3 tech-top">
+                                        <div class="col-lg-3 ps-0 pe-0">
+                                            <a href="{{ route('shop.html') }}"
+                                                style="border-top: 1.5px solid #ae0a46;">
+                                                NGen IT Showcase
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-3 ">
+                                            <a href="{{ route('all.category') }}"
+                                                style="border-top: 1.5px solid #ae0a46;margin-left: -2.3rem;">
+                                                View All Category
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <a href="{{ route('all.brand') }}"
+                                                style="border-top: 1.5px solid #ae0a46;">
+                                                View All Brands
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-2 ps-5">
+                                            {{-- <a href="" style="border-top: 1.5px solid #ae0a46;">
+>>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                                 View All Deals
                                             </a> --}}
                                                 </div>
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown position-static cool-link">
@@ -655,6 +963,59 @@
                                                     style="background: #f7f6f5;">
                                                     <p class="fw-bold text-center">
                                                         <span style="border-top: 4px solid #ae0a46;">Soc</span>ial
+=======
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown position-static cool-link">
+                            <a class="nav-link dropdown-toggle pe-0" href="#" role="button"
+                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                CONNECT US
+                            </a>
+                            <ul class="dropdown-menu full-container-dropdown"
+                                style="border-top: 1px solid #ae0a460f !important; width: 82.7% !important;">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-4 p-left-rem pt-3 pb-3" style="background: #f7f6f5;">
+                                            <p class="fw-bold text-center">
+                                                <span style="border-top: 2px solid #ae0a46;">Soc</span>ial
+                                            </p>
+                                            <li class="d-flex justify-content-center py-3">
+                                                <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
+                                                    class="social_icons"><i class="h1 fa-brands fa-square-facebook"
+                                                        aria-hidden="true"></i></a>
+                                                <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
+                                                    class="ms-2 social_icons">
+                                                    <i class="h1 fa-brands fa-linkedin"></i></a>
+                                                <a href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}"
+                                                    class="ms-2 social_icons">
+                                                    <i class="h1 fa-brands fa-square-twitter"></i></a>
+                                                <a href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}"
+                                                    class="ms-2 social_icons">
+                                                    <i class="h1 fa-brands fa-square-youtube"></i></a>
+                                                <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
+                                                    class="ms-2 social_icons">
+                                                    <i class="h1 fa-brands fa-square-instagram"></i></a>
+                                            </li>
+                                            <div class="d-flex align-items-center">
+                                                <a class="pe-2" href="{{ route('contact') }}">
+                                                    <p class="m-0 main_color">Contact Us</p>
+                                                </a> |
+                                                <a class="pe-2" href="tel:+8801714243446">
+                                                    <p class="m-0 ps-2 main_color">+8801714243446</p>
+                                                </a> |
+                                                <a href="mail:mail:sales@ngenitltd.com">
+                                                    <p class="mb-0 ps-2 main_color">sales@ngenitltd.com</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8 p-right-rem pt-3 pb-3">
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <p class="fw-bold">
+                                                        <span style="border-top: 2px solid #ae0a46;">Our</span> Company
+>>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                                     </p>
                                                     <li class="d-flex justify-content-center py-3">
                                                         <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
@@ -675,7 +1036,15 @@
                                                             <i class="h1 fa-brands fa-square-instagram"></i></a>
                                                     </li>
                                                 </div>
+<<<<<<< HEAD
                                                 <div class="col-lg-8 p-right-rem pt-3 pb-3">
+=======
+                                                <div class="col-lg-4">
+                                                    <p class="fw-bold">
+                                                        <span style="border-top: 2px solid #ae0a46;">Car</span>eer With
+                                                        Us
+                                                    </p>
+>>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                                     <div class="row">
                                                         <div class="col-lg-4">
                                                             <p class="fw-bold">
@@ -745,6 +1114,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+<<<<<<< HEAD
                                                         <div class="col-lg-4">
                                                             <p class="fw-bold">
                                                                 <span
@@ -761,6 +1131,22 @@
                                                                                 class="ph ph-caret-right menu_icons"></i>
                                                                         </div>
                                                                     </a>
+=======
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <p class="fw-bold">
+                                                        <span style="border-top: 2px solid #ae0a46;">Par</span>tner
+                                                        With Us
+                                                    </p>
+                                                    <div class="row">
+                                                        <div class="col-lg-12 mb-2">
+                                                            <a class="d-flex align-items-center"
+                                                                href="{{ route('partner.login') }}">
+                                                                <div>Partner Registration</div>
+                                                                <div>
+                                                                    <i class="ph ph-caret-right menu_icons"></i>
+>>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                                                 </div>
                                                                 <div class="col-lg-12 mb-2">
                                                                     <a class="d-flex align-items-center"
@@ -788,8 +1174,33 @@
                                                 </div>
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                     </ul>
                                 </li>
+=======
+                                    </div>
+                                    <div class="row p-2" style="background-color: #f7f6f5;">
+                                        <div class="col-lg-12">
+                                            <a href="https://maps.app.goo.gl/qboULpKzv6eiqpaQA" target="_blank">
+                                                <p class="m-0 text-end">Mahfuza Tower(5th Floor) 36-37, Probal
+                                                    Housing, Ring Road, Mohammadpur, Dhaka-1207, Bangladesh.</p>
+                                            </a>
+                                        </div>
+                                        {{-- <div class="col-lg-3">
+                                            <a href="{{ route('contact') }}"><p class="m-0">Contact Us</p></a>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <a href="tel:+8801714243446"><p class="m-0">+8801714243446</p></a>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <a href="mail:mail:sales@ngenitltd.com"><p class="mb-0">sales@ngenitltd.com</p></a>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <a href=""><p class="m-0">View Location</p></a>
+                                        </div> --}}
+                                    </div>
+                                </div>
+>>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                             </ul>
                 </div>
             </div>
@@ -848,7 +1259,7 @@
                         <div class="container-fluid">
                             <div class="row p-3 pt-2 tech-top bg-white">
                                 <div class="col-lg-12 col-sm-12 mb-4">
-                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Com</span>mon
+                                    <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Com</span>mon
                                         Services
                                     </p>
                                     <div class="row">
@@ -888,7 +1299,7 @@
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
                                     <p class="fw-bold">
-                                        <span style="border-top: 4px solid #ae0a46;">Ind</span>ustry We Serve
+                                        <span style="border-top: 2px solid #ae0a46;">Ind</span>ustry We Serve
                                     </p>
                                     <div class="row">
                                         @if (count($industrys) > 0)
@@ -909,7 +1320,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
-                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sol</span>utions
+                                    <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Sol</span>utions
                                         We Provide
                                     </p>
                                     <div class="row">
@@ -941,7 +1352,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-lg-12 col-sm-12 mb-4">
-                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sho</span>p By</p>
+                                    <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Sho</span>p By</p>
                                     <div class="row">
                                         <div class="col-6 mb-2">
                                             <a class="d-flex align-items-center"
@@ -996,7 +1407,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
-                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sho</span>p By
+                                    <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Sho</span>p By
                                         Category</p>
                                     <div class="row">
                                         @if (!empty($categorys))
@@ -1015,7 +1426,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
-                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sho</span>p By
+                                    <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Sho</span>p By
                                         Brand</p>
                                     <div class="row">
                                         @if ($brands)
@@ -1038,7 +1449,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
-                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Exp</span>lore Our
+                                    <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Exp</span>lore Our
                                         Deals</p>
                                     <div class="row">
                                         <div class="col-lg-12 mb-2">
@@ -1063,12 +1474,12 @@
                             <div class="row mt-3 mx-0 gx-0" style="background: #f7f6f5;">
                                 <div class="col-6 text-center">
                                     <a href="{{ route('all.category') }}"
-                                        style="border-top: 3px solid #ae0a46;margin-left: -2.3rem;">
+                                        style="border-top: 1.5px solid #ae0a46;margin-left: -2.3rem;">
                                         View All Category
                                     </a>
                                 </div>
                                 <div class="col-6 text-center">
-                                    <a href="{{ route('all.brand') }}" style="border-top: 3px solid #ae0a46;">
+                                    <a href="{{ route('all.brand') }}" style="border-top: 1.5px solid #ae0a46;">
                                         View All Brands
                                     </a>
                                 </div>
@@ -1084,9 +1495,15 @@
                     <ul class="dropdown-menu mobile-container-dropdown pt-0">
                         <div class="container-fluid">
                             <div class="row">
+<<<<<<< HEAD
                                 <div class="col-12 text-center pt-3" style="background: #f7f6f5;">
                                     <p class="fw-bold text-center mb-0">
                                         <span style="border-top: 4px solid #ae0a46;">Soc</span>ial
+=======
+                                <div class="col-lg-4 p-left-rem pt-3 pb-3" style="background: #f7f6f5;">
+                                    <p class="fw-bold text-center">
+                                        <span style="border-top: 2px solid #ae0a46;">Soc</span>ial
+>>>>>>> 82e38bf1ab695af0e7f5c11648232ef19f494ce6
                                     </p>
                                     <li class="d-flex justify-content-center py-3">
                                         <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
@@ -1110,7 +1527,7 @@
                                     <div class="row">
                                         <div class="col-6 mb-4">
                                             <p class="fw-bold">
-                                                <span style="border-top: 4px solid #ae0a46;">Our</span> Company
+                                                <span style="border-top: 2px solid #ae0a46;">Our</span> Company
                                             </p>
                                             <div class="row">
                                                 <div class="col-lg-12 mb-2">
@@ -1144,7 +1561,7 @@
                                         </div>
                                         <div class="col-6 mb-4">
                                             <p class="fw-bold">
-                                                <span style="border-top: 4px solid #ae0a46;">Car</span>eer With
+                                                <span style="border-top: 2px solid #ae0a46;">Car</span>eer With
                                                 Us
                                             </p>
                                             <div class="row">
@@ -1170,7 +1587,7 @@
                                         </div>
                                         <div class="col-8 mb-4">
                                             <p class="fw-bold">
-                                                <span style="border-top: 4px solid #ae0a46;">Par</span>tner
+                                                <span style="border-top: 2px solid #ae0a46;">Par</span>tner
                                                 With Us
                                             </p>
                                             <div class="row">
@@ -1202,6 +1619,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <p class="m-0">Contact Us</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <p class="m-0">+8801714243446</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <p class="m-0">sales@ngenitltd.com</p>
                                 </div>
                             </div>
                         </div>

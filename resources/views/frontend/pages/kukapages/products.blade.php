@@ -36,7 +36,7 @@
                     </div>
                     <div class="row mt-2">
                         @foreach ($industry->products as $product)
-                            <div class="custom-col-5 col-sm-6 col-md-4 px-4">
+                            <div class="custom-col-5 col-sm-6 col-md-4 px-4 mb-4">
                                 <div class="card rounded-0" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
                                     <div class="card-body" style="height:22rem;">
                                         {{-- <div class="new-video">
@@ -85,6 +85,7 @@
                         </div>
                     </div>
                     <div class="row mt-2">
+                        asdasdasdasdasd
                         @foreach ($solution->products as $product)
                             <div class="custom-col-5 col-sm-6 col-md-4 px-4 mb-3">
                                 <div class="card rounded-0" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">

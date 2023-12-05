@@ -72,7 +72,7 @@
         <img src="{{ asset('storage/' . $brandpage->banner_image)}}"
             alt="">
     </div>
-    <div class="container">
+    <div class="container d-lg-block d-sm-none">
         <div class="row d-lg-flex align-items-center">
             <div class="col pt-1">
                 <ul class="d-lg-flex align-items-center brand-bread-crumb my-2">
@@ -97,7 +97,7 @@
 <section class="header" id="myHeader">
     <div class="brand-page-header-container container">
         <div class="row d-lg-flex align-items-center">
-            <div class="col-lg-2 col-sm-12 me-3 extra-d-flex">
+            <div class="col-lg-2 col-sm-6 me-3 extra-d-flex">
                 {{-- <img id="stand-logo" src="{{ asset('storage/' . $brandpage->brand_logo) }}" alt="{{ $brand->title }} - logo"
                     height="58px"> --}}
                 <img id="stand-logo" class="img-fluid" height=""
@@ -109,7 +109,7 @@
                         : asset('frontend/images/no-brand-logo.jpg') }}"
                     alt="{{ $brand->title }} - logo" style="box-shadow: none;"> --}}
             </div>
-            <div class="col-lg-1 col-sm-12 extra-d-flex">
+            <div class="col-lg-1 col-sm-6 extra-d-flex">
                 <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     {{-- <img class="stand-header-icons video-corporate"
                         src="https://img.directindustry.com/media/ps/images/common/stand/video-icon.gif"
