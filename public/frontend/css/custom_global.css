@@ -43,7 +43,7 @@
     --topHover: #6f062d;
     --navColor: #3e332d;
     --heading: #222222;
-    --custom-shadow: box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    --custom-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 body html {
     scroll-behavior: smooth;
