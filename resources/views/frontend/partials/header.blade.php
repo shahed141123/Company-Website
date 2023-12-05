@@ -14,7 +14,7 @@
     {{-- Top Bar Area --}}
     <div class="container-fluid top-bar p-0">
         <div class="row gx-0 top-bar-bg">
-            <div class="col-lg-8 top-bar-curve-area">
+            <div class="col-lg-8 top-bar-curve-area d-lg-block d-sm-none">
                 {{-- Empty Are --}}
             </div>
             <div class="col-lg-4 top-bar-right-side">
@@ -149,7 +149,7 @@
     {{-- Menu And Logo Area --}}
     <div>
         <nav class="navbar navbar-expand-lg p-2 main-navbar bg-white menu-section">
-            <div class="container-fluid">
+            <div class="container-fluid d-flex align-items-center">
                 <div class="step-img d-lg-block d-sm-none">
                     <img src="https://i.ibb.co/3WKt3Mw/NGen-IT-left-color.png" alt="" style="height: 74px;">
                 </div>

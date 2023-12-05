@@ -5,10 +5,6 @@
             font-size: 4em !important;
         }
 
-        .img-fluid {
-            border-radius: 15px;
-        }
-
         .masthead a {
             color: #ae0a46;
         }
@@ -29,9 +25,9 @@
         <div class="container">
             @if (!empty($whatwedo))
                 <div class="row align-items-center">
-                    <div class="col-lg-7 py-5">
-                        <h1 class="mb-4 w-75">{{ $whatwedo->bannner_title }}</h1>
-                        <p class="text-white w-75" style="text-align: justify;">{!! $whatwedo->bannner_description !!} </p>
+                    <div class="col-lg-7 py-4">
+                        <h1 class="mb-4">{{ $whatwedo->bannner_title }}</h1>
+                        <p class="text-white" style="text-align: justify;letter-spacing: normal;">{!! $whatwedo->bannner_description !!} </p>
                         <a class="common_button3 py-3" href="{{ route('contact') }}">Talk with us</a>
                     </div>
                     <div class="col-lg-5">
@@ -187,11 +183,11 @@
             @endif
             {{-- Shop Product Added --}}
             <section class="pt-4 learn_more">
-                <div class="container">
+                <div class="container py-4">
                     <div class="row">
                         <!-- content -->
-                        <div class="col-lg-8 col-sm-12 pb-3">
-                            <div class="home_shop_product_wrapper">
+                        <div class="col-lg-8 col-sm-12">
+                            <div class="home_shop_product_wrapper home_shop_product">
                                 <h5> Shop Products and Hardware</h5>
                                 <p class="text-justify w-75 w-sm-100">
                                     Among More than
@@ -201,21 +197,20 @@
                                     </strong>
                                     and
                                     <strong style="font-family: 'Poppins', sans-serif;font-size:18px;">
-                                        {{ $brandCount }}
+                                       {{ $brandCount }}
                                         <small>brands</small>
                                     </strong>
                                     at your service, we can provide you with the tools
-                                    you need to succeed. Additionally, you may easily ask your exact requirements or contact
-                                    us at
+                                    you need to succeed. Additionally, you may easily ask your exact requirements or contact us at
                                     anytime.
                                 </p>
-                                <div class="d-flex justify-content-start mt-5">
+                                <div class="mt-5 home_shop_button">
                                     <a href="{{ route('shop.html') }}" class="common_button effect01">Online Shop</a>
                                 </div>
                             </div>
                         </div>
                         <!-- product brand -->
-                        <div class="col-lg-4 col-sm-12 d-flex justify-content-start">
+                        <div class="col-lg-4 col-sm-12 product_brand">
                             <div>
                                 <div class="">
                                     <a href="{{ route('hardware.info') }}">
@@ -254,7 +249,6 @@
                                     </a>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -335,18 +329,9 @@
                 <div class="row pt-5 pb-5">
                     <div class="col-lg-6 col-md-6" col-sm-12>
                         <div class="what-we-do_side_text">
-                            {{-- <h1 class="pb-4" style="line-height: 10px !important;">{{$row_two->badge}}</h1> --}}
                             <h1 class="pb-3" style="line-height: 30px !important;">{{ $row_two->title }}</h1>
                             <p>{!! $row_two->description !!}</p>
-                            {{-- <div class="">
-                                <ul class="" style="list-style-type: circle !important;">
-                                    <li class="">As a service</li>
-                                    <li class="">Managed storage, backup and recovery</li>
-                                    <li class="">Managed cloud, network and compute</li>
-                                    <li class="">Managed support</li>
-                                    <li class="">Insight Cloud Care</li>
-                                </ul>
-                            </div> --}}
+
                             @if (!empty($row_two->btn_name))
                                 <a class="common_button2" href="{{ $row_two->link }}">{{ $row_two->btn_name }}</a>
                             @endif

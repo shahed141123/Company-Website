@@ -113,11 +113,11 @@
                                     src="{{ isset($home->branner3) && file_exists(public_path('storage/' . $home->branner3)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
                                     alt="">
                             </div>
-                            <div class="info w-50 mb-3">
+                            <div class="info w-lg-50 mb-3">
                                 @if ($home->banner3_title)
                                     <div>
                                         <h3><strong>{{ $home->banner3_title }}</strong></h3>
-                                        <h5 class="text-white my-4 w-75 mx-auto">
+                                        <h5 class="text-white my-4 w-lg-75 mx-auto">
                                             {{ $home->banner3_short_description }}
                                         </h5>
                                     </div>
