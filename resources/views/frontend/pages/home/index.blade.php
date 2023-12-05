@@ -423,6 +423,33 @@
                             <div class="Content">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12">
+                                        <div class="custom-product-grid">
+                                            <div class="custom-product-image">
+                                                <a href="{{ route('product.details', $item->slug) }}" class="image">
+                                                    <img width="180px" height="180px" class="pic-1"
+                                                        src="{{ asset($item->thumbnail) }}">
+                                                </a>
+                                                <ul class="custom-product-links">
+                                                    <li><a href="#"><i class="fa fa-random text-white"></i></a></li>
+                                                    <li><a href="#"  data-bs-toggle="modal"
+                                                        data-bs-target="#productDetails{{ $item->id }}"><i class="fa fa-search text-white"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="custom-product-content">
+                                                <h3 class="custom-title"><a href="#">{{ route('product.details', $item->slug) }}</a></h3>
+                                                <div class="price py-3">
+                                                    <small>USD</small>
+                                                    --.-- $
+                                                </div>
+                                                <a href="" class="d-flex justify-content-center align-items-center">
+                                                    <button class="common_button effect01">
+                                                        Ask For Price
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
+
+
                                         <div class="product-grid">
                                             <div class="product-image">
                                                 <a href="{{ route('product.details', $item->slug) }}"
@@ -525,6 +552,9 @@
 
                                             </div>
                                         </div>
+
+
+
                                     </div>
                                 </div>
                             </div>
