@@ -8262,7 +8262,7 @@ nav > div a.nav-item.nav-link.active {
     text-align: center !important;
     color: #000 !important;
     border-radius: 0;
-    font-size: 22px;
+    font-size: 22px !important;
     border: 0;
     position: relative;
     top: 9px;

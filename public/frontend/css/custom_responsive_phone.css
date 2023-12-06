@@ -283,7 +283,7 @@
     nav>div a.nav-item.nav-link,
     nav>div a.nav-item.nav-link.active {
         padding: 5px;
-        font-size: 14px;
+        font-size: 14px !important;
     }
     .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
         border-bottom: 4px solid #ae0a46 !important;
