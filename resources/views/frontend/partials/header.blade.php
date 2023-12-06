@@ -1,16 +1,4 @@
-<style>
-    .page-wrapper {
-        margin-top: 4.88rem;
-    }
-
-    .step-img {
-        position: relative;
-        top: -12px;
-        left: -3.8rem;
-        right: 0px;
-    }
-</style>
-<div class="fixed-section header mb-5">
+<div class="fixed-section header">
     {{-- Top Bar Area --}}
     <div class="container-fluid top-bar p-0">
         <div class="row gx-0 top-bar-bg">
