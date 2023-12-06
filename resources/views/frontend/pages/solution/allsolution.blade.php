@@ -319,7 +319,7 @@
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                 aria-labelledby="nav-home-tab">
                                 <div class="row align-items-center">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-5">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-lg-5 ps-sm-0">
                                         <h6 class="title-tag text-capitalize mb-2">{{ $story1->badge }}</h6>
                                         <h4 class="home_title_heading text-capitalize text-start pb-2">
                                             {{ $story1->title }}</h4>
@@ -343,7 +343,7 @@
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                 aria-labelledby="nav-profile-tab">
                                 <div class="row align-items-center">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-5">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-lg-5 ps-sm-0">
                                         <h6 class="title-tag text-capitalize mb-2">{{ $story2->badge }}</h6>
                                         <h4 class="home_title_heading text-capitalize text-start pb-2">
                                             {{ $story2->title }}</h4>
@@ -367,7 +367,7 @@
                             <div class="tab-pane fade" id="nav-contact" role="tabpanel"
                                 aria-labelledby="nav-contact-tab">
                                 <div class="row align-items-center">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-5">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-lg-5 ps-sm-0">
                                         <h6 class="title-tag text-capitalize mb-2">{{ $story3->badge }}</h6>
                                         <h4 class="home_title_heading text-capitalize text-start pb-2">
                                             {{ $story3->title }}</h4>
@@ -391,7 +391,7 @@
                             <div class="tab-pane fade" id="nav-about" role="tabpanel"
                                 aria-labelledby="nav-about-tab">
                                 <div class="row align-items-center">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-5">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-lg-5 ps-sm-0">
                                         <h6 class="title-tag text-capitalize mb-2">{{ $story4->badge }}</h6>
                                         <h4 class="home_title_heading text-capitalize text-start pb-2">
                                             {{ $story4->title }}</h4>
