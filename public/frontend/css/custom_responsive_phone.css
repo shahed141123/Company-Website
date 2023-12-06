@@ -575,7 +575,7 @@
 }
 
 /* For Mobile View */
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 480px) {
     .home_card_button {
         margin-top: 0.6rem;
     }
@@ -704,17 +704,24 @@
     }
 
     .footer_top {
-        padding: 9px 0px 1px;
+        padding: 4px;
     }
 
     .footer_top p {
-        font-size: 17px !important;
-        line-height: 17px;
+        font-size: 1.3rem;
+        line-height: 1;
     }
 
     .footer_item_wrapper {
-        padding: 20px;
+        padding: 0px 0px 30px 0px;
         text-align: center;
+    }
+    .footer_item_wrapper h6 {
+        text-align: center;
+    }
+    .footer_item_wrapper p {
+        text-align: center;
+        width: 100% !important;
     }
 
     .footer_text {
@@ -736,7 +743,7 @@
     }
 
     .footer_subscribe .input-group-btns {
-        width: 44% !important;
+        width: 40% !important;
     }
 
     .home_title_text {
@@ -745,11 +752,8 @@
 
     .footer_link_text {
         font-family: "Allumi Std Extended";
-        color: var(--text-white);
-        padding-right: 5%;
-        text-align: center;
         font-size: 14px;
-        padding-top: 10px !important;
+        padding-top: 0px;
     }
 
     .social_areas {
@@ -912,16 +916,8 @@
     .profile-menu li {
         margin-bottom: 15px;
     }
-    .footer_top p {
-        font-size: 13px;
-    }
-    .footer_item_wrapper h6 {
-        text-align: center;
-    }
-    .footer_item_wrapper p {
-        text-align: center;
-        width: 100% !important;
-    }
+
+
     #myform {
         display: flex;
         justify-content: center;
@@ -1164,7 +1160,7 @@
     }
 }
 
-@media all and (max-width: 710px) {
+@media all and (max-width: 768px) {
     .breadcrumb {
         height: 30px;
     }
@@ -1217,6 +1213,10 @@
 }
 
 @media only screen and (max-width: 480px) {
+    .breadcrumb__item {
+        padding: 0 30px;
+    }
+
     .home_card_wrapper {
         margin-top: 9rem !important;
     }

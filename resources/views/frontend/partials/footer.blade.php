@@ -2,8 +2,8 @@
 <!--=======// Footer Section//=========-->
 <footer class="container-fluid p-0" style="background: #222222;">
     <!-- footyer gradient -->
-    <div class="footer_top" style="">
-        <p class="">We determined to pace with Next Generation Information Technology.</p>
+    <div class="footer_top">
+        <p class="mb-0">We determined to pace with Next Generation Information Technology.</p>
     </div>
     <!-- main footer -->
     <div class="footer_middle pt-3">
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <!-- item -->
-                <div class="col-lg-2 col-md-2 col-sm-12 footer_item_wrapper">
+                <div class="col-lg-2 col-md-2 col-6 footer_item_wrapper">
                     <!-- title -->
                     <h6 class="home_title_text" style="text-align: start;"><span
                             style="border-bottom: 5px solid #ae0a46;">Abo</span>ut & Contact</h6>
@@ -55,6 +55,28 @@
                             <li>
                                 <a href="{{ route('contact') }}">Contact</a> & <a
                                     href="{{ route('support') }}">Supports</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-6 footer_item_wrapper">
+                    <!-- title -->
+                    <h6 class="home_title_text" style="text-align: start;"><span
+                            style="border-bottom: 5px solid #ae0a46;">Kno</span>wledge Base</h6>
+                    <!-- nav list -->
+                    <div class="footer_nav_list pt-2">
+                        <ul class="footer_link_text">
+                            <li>
+                                <a href="{{ route('all.blog') }}">NGEN IT Blogs</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('all.techglossy') }}">Tech Contents</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('all.story') }}">Our Client Stories</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('faq') }}">FAQs</a>
                             </li>
                         </ul>
                     </div>
@@ -86,28 +108,7 @@
                     </div>
                 </div>
                 <!-- item -->
-                <div class="col-lg-2 col-md-2 col-sm-12 footer_item_wrapper">
-                    <!-- title -->
-                    <h6 class="home_title_text" style="text-align: start;"><span
-                            style="border-bottom: 5px solid #ae0a46;">Kno</span>wledge Base</h6>
-                    <!-- nav list -->
-                    <div class="footer_nav_list pt-2">
-                        <ul class="footer_link_text">
-                            <li>
-                                <a href="{{ route('all.blog') }}">Blogs</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('all.techglossy') }}">Tech Glossary</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('all.story') }}">Client Stories</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('faq') }}">FAQs</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

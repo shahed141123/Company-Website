@@ -116,7 +116,7 @@
                                             style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tab_one->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tab_one->title, 1) }}
                                     </h1>
                                     <p class="software-info-paragraph" style="text-align: justify;">
-                                        {!! \Illuminate\Support\Str::words($tab_one->description, 55, $end = '...') !!}
+                                        {!! Str::words($tab_one->description, 55, $end = '...') !!}
 
                                     </p>
                                     @if (!empty($tab_one->btn_name))

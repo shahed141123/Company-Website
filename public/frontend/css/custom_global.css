@@ -548,14 +548,7 @@ figure.effect-oscar:hover figcaption {
     font-weight: 400;
 }
 
-.footer_top {
-    background: #ae0a46;
-    border-top: 1px solid #ae0a46;
-    border-bottom: 1px solid #ae0a46;
-}
-.footer_top p {
-    font-size: 1.5rem;
-}
+
 
 .custom_col-2 {
     flex: 0 0 auto;
@@ -2979,8 +2972,8 @@ h2.company-tab-title {
 .content-details {
     position: absolute;
     text-align: center;
-    padding-left: 1em;
-    padding-right: 1em;
+    /* padding-left: 1em; */
+    padding: 1em;
     width: 100%;
     top: 50%;
     left: 50%;
@@ -2997,7 +2990,7 @@ h2.company-tab-title {
     top: 50%;
     left: 50%;
     height: 100%;
-    background: #3e3d3d;
+    background: #181818;
     opacity: 0.9;
 }
 
@@ -8398,7 +8391,7 @@ nav > div a.nav-item.nav-link:focus {
 .tabing_menu_area {
     padding-top: 0px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
-    padding: 20px;
+    padding: 26px 18px;
     background-color: white;
     border-top-right-radius: 40px;
     border-bottom-left-radius: 30px;
@@ -15641,49 +15634,19 @@ switch input:checked + .slider {
            footer section
       =========================*/
 /*============ Start ==============*/
-
-/* .footer_top p {
-    font-family: "Klinic Slab";
-    text-align: center;
-    font-size: 32px;
-    line-height: 20px;
-    color: var(--text-white);
-
-  } */
 .footer_top {
-    font-family: "Klinic Slab";
-    padding: 25px 0px 1px;
     background: #ae0a46;
-    line-height: 0px !important;
     height: 54px;
-}
-.footer_top {
-    padding: 13px 0px 1px;
-    background: #ae0a46;
-    line-height: 0px !important;
-}
-
-.footer_top {
-    font-family: "Klinic Slab";
-    /* padding: 15px 0px 1px; */
-    background: #ae0a46;
-    line-height: 0px !important;
-    height: 54px;
-}
-
-.footer_top {
-    font-family: "Klinic Slab";
-    padding: 15px 0px 1px; /* Adjust the padding value as needed */
-    background: #ae0a46;
-    line-height: 0 !important;
-    height: 54px;
+    padding: 15px 0px; /* Adjust the padding value as needed */
+    border-top: 1px solid #ae0a46;
+    border-bottom: 1px solid #ae0a46;
 }
 
 .footer_top p {
     font-family: "Klinic Slab";
     text-align: center;
-    font-size: 22px;
-    line-height: 0px;
+    font-size: 2rem;
+    line-height: 0.6;
     color: var(--text-white);
 }
 
@@ -15691,7 +15654,7 @@ switch input:checked + .slider {
 .footer_text {
     font-family: "Allumi Std Extended";
     color: var(--text-white);
-    padding-right: 5%px;
+    padding-right: 5px;
     text-align: justify;
     font-size: 0.8rem;
 }
