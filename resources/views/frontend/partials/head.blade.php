@@ -30,9 +30,7 @@
 
 <!-- Css link -->
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/custom_global.css') }}">
-
-<link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/custom_responsive_tablet.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/custom_responsive_phone.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/custom_responsive.css') }}">
 
 {{-- Custom Style 6-7-2023 End --}}
 
