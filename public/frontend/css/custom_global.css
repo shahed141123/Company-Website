@@ -421,7 +421,7 @@ figure.effect-oscar:hover {
 
 figure.effect-oscar figcaption {
     padding: 20px;
-    background-color: rgb(174 10 70 / 55%);
+    background-color: rgb(75 67 70 / 72%);
     -webkit-transition: background-color 0.35s;
     transition: background-color 0.35s;
 }
@@ -489,6 +489,8 @@ figure.effect-oscar:hover figcaption {
     bottom: -4rem;
     border-top-right-radius: 40px;
     color: #ae0a46;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .download-hover-btn:hover {
@@ -15708,7 +15710,7 @@ switch input:checked + .slider {
     padding-right: 5%;
     text-align: justify;
     font-size: 0.8rem;
-    padding-top: 10px !important;
+    padding-top: 10px;
 }
 
 .footer_bottom_text {
