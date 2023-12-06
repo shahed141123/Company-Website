@@ -177,10 +177,9 @@
         <div class="row">
             @if ($home)
                 <div class="home_banner_bottom_title w-75 mx-auto py-3 ">
-                    <h6 class="home_title_heading pb-2"
-                        style="font-size: 24px;line-height: 28px; text-transform: capitalize"> {{ $home->header1 }}
+                    <h6 class="home_title_heading home_banner_bt-title pb-2"> {{ $home->header1 }}
                     </h6>
-                    <p class="home_title_text" style="font-size: 16px !important">{{ $home->header2 }}</p>
+                    <p class="home_title_text">{{ $home->header2 }}</p>
                 </div>
             @endif
         </div>
@@ -298,12 +297,7 @@
 <section>
     <div class="container">
         @if (!empty($techglossy))
-            <div class="row bg-white mt-5 mb-5"
-                style="
-            border-top-right-radius: 60px;
-            border-bottom-left-radius: 60px;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-          ">
+            <div class="row bg-white mt-5 mb-5 magazine_content">
                 <div class="col-lg-12">
                     <div class="row align-items-center">
                         <div class="col-lg-6">
@@ -325,7 +319,7 @@
                             <div class="showcase-industry-bottom" style="position: relative; overflow: hidden;">
                                 <!-- Add a pseudo-element for the overlay -->
                                 <div class="gradient-overlay"></div>
-                                <img class="img-fluid overlays-img"
+                                <img class="img-fluid overlays-img d-lg-block d-sm-none"
                                     src="{{ isset($techglossy->image) && file_exists(public_path('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}"
                                     alt="Picture" style="border-top-right-radius: 60px;">
                             </div>

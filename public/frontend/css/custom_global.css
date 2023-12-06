@@ -293,6 +293,16 @@ a:hover {
 .client_story_box{
     margin-top: -2rem;
 }
+.magazine_content{
+    border-top-right-radius: 60px;
+    border-bottom-left-radius: 60px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+.home_banner_bt-title{
+    font-size: 24px; 
+    line-height: 1.2; 
+    text-transform: capitalize;
+}
 .home_banner_card {
     padding-top: 1.8rem;
     padding-bottom: 1.8rem;
