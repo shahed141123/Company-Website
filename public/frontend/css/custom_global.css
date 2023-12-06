@@ -44,7 +44,10 @@
     --heading: #222222;
     --custom-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-body html {
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
     scroll-behavior: smooth;
 }
 .og-image {
@@ -287,7 +290,9 @@ a:hover {
     position: relative;
     z-index: 5;
 }
-
+.client_story_box{
+    margin-top: -2rem;
+}
 .home_banner_card {
     padding-top: 1.8rem;
     padding-bottom: 1.8rem;

@@ -148,7 +148,7 @@
             <div class="row gx-5 mx-auto banner_bottom_box">
                 <div class="col px-2">
                     @if (!empty($home->btn1_title))
-                        <div class="border bg-light custom_shadow px-3 home_banner_card">
+                        <div class="border bg-light custom_shadow px-lg-3 px-sm-1 home_banner_card">
                             <h2 class="text-center home_banner_card_title">{{ $home->btn1_title }}</h2>
                             <div class="home_card_button">
                                 <a class="effect01" href="{{ $home->btn1_link }}">{{ $home->btn1_name }}</a>
@@ -157,7 +157,7 @@
                     @endif
                 </div>
                 <div class="col px-2">
-                    <div class="border bg-light custom_shadow px-3 home_banner_card">
+                    <div class="border bg-light custom_shadow px-lg-3 px-sm-1 home_banner_card">
                         <h2 class="text-center home_banner_card_title">{{ $home->btn2_title }}</h2>
                         <div class="home_card_button">
                             <a class="effect01" href="{{ $home->btn2_link }}">{{ $home->btn2_name }}</a>
@@ -172,9 +172,9 @@
 
 <!--======// Business section //======-->
 @if (!empty($feature1) && !empty($feature2) && !empty($feature3) && !empty($feature4) && !empty($feature5))
-    <section class="container pt-4">
+    <section class="container">
         <!-- home title -->
-        <div class="row my-3">
+        <div class="row">
             @if ($home)
                 <div class="home_banner_bottom_title w-75 mx-auto py-3 ">
                     <h6 class="home_title_heading pb-2"
@@ -417,7 +417,7 @@
 @if (!empty($story1) | !empty($story2) | !empty($story3) | !empty($story4))
     <section>
         <div class="container my-4 mb-5">
-            <h2 class="text-center pb-4">Our <span class="main_color">Client</span> Story</h2>
+            <h2 class="text-center">Our <span class="main_color">Client</span> Story</h2>
             <div class="row">
                 @if (!empty($story1))
                     <div class="col-lg-3">
@@ -641,89 +641,7 @@
     </div>
 </section>
 <!---------End -------->
-
-<!--======// Learn clint history //======-->
-@if (!empty($story1) | !empty($story2) | !empty($story3) | !empty($story4))
-    <section class="account_benefits_section_wp mt-3">
-        <div class="container">
-            <!-- title -->
-            <div class="section_title story_title">
-                <h3 class="title_top_heading">Our Few Services at Clients.</h3>
-            </div>
-
-            <div class="row d-flex justify-content-center">
-                <!--------item------->
-                @if (!empty($story1))
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="client_stories_item">
-                            <a href="{{ route('story.details', $story1->id) }}">
-                                <img class="" src="{{ asset('storage/' . $story1->image) }}"
-                                    alt="{{ $story1->badge }}" width="280px" height="160px">
-                                <h6 class="mt-4">{{ $story1->badge }}</h6>
-                                <h3>
-                                    <strong>{{ Str::limit($story1->title, 65) }}</strong>
-                                </h3>
-                            </a>
-                        </div>
-                    </div>
-                @endif
-                <!--------item------->
-                @if (!empty($story2))
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="client_stories_item">
-                            <a href="{{ route('story.details', $story2->id) }}">
-                                <img class="" src="{{ asset('storage/' . $story2->image) }}"
-                                    alt="{{ $story2->badge }}" width="280px" height="160px">
-                                <h6 class="mt-4">{{ $story2->badge }}</h6>
-                                <h3>
-                                    <strong>{{ Str::limit($story2->title, 65) }}</strong>
-                                </h3>
-                            </a>
-                        </div>
-                    </div>
-                @endif
-                <!--------item------->
-                @if (!empty($story3))
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="client_stories_item">
-                            <a href="{{ route('story.details', $story3->id) }}">
-                                <img class="" src="{{ asset('storage/' . $story3->image) }}"
-                                    alt="{{ $story3->badge }}" width="280px" height="160px">
-                                <h6 class="mt-4">{{ $story3->badge }}</h6>
-                                <h3>
-                                    <strong>{{ Str::limit($story3->title, 65) }}</strong>
-                                </h3>
-                            </a>
-                        </div>
-                    </div>
-                @endif
-                <!--------item------->
-                @if (!empty($story4))
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="client_stories_item">
-                            <a href="{{ route('story.details', $story4->id) }}">
-                                <img class="" src="{{ asset('storage/' . $story4->image) }}"
-                                    alt="{{ $story4->badge }}" width="280px" height="160px">
-                                <h6 class="mt-4">{{ $story4->badge }}</h6>
-                                <h3>
-                                    <strong>{{ Str::limit($story4->title, 65) }}</strong>
-                                </h3>
-                            </a>
-                        </div>
-                    </div>
-                @endif
-            </div>
-            <!-- button -->
-            <div class="learn_clint_history_btn">
-                <a href="{{ route('all.story') }}">See all client stories</a>
-            </div>
-        </div>
-    </section>
-@endif
-<!---------End -------->
-
 <!---------Our Success Section-------->
-
 <section>
     <div class="container my-4 mb-5">
         <h2 class="text-center pb-4">Our Success <span class="main_color">Starts With</span> Our Culture.</h2>

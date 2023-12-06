@@ -40,12 +40,10 @@
     .menu-section {
         height: 4rem !important;
     }
-    .home_banner_card {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        height: auto !important;
-        margin-bottom: 1rem;
-    }
+    
+
+
+
     .custom_col-2 {
         flex: 0 0 auto;
         width: 95% !important;
@@ -159,12 +157,17 @@
         width: 100% !important;
         padding-top: 4rem !important;
     }
-    .home_banner_card h2 {
-        font-size: 14px;
+
+
+    .home_banner_card {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        height: auto !important;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
-    .home_card_button a {
-        padding: 10px 10px !important;
-        margin-top: 1rem !important;
+    .home_banner_card h2 {
+        font-size: 12px;
     }
     .mobile-sm-none {
         display: none !important;
@@ -513,16 +516,7 @@
         padding: 20px 16px 28px;
         margin-bottom: 20px;
     }
-    .home_card_button a {
-        display: inline-block;
-        padding: 13px 30px;
-        color: var(--mainColor);
-        border: 1px solid var(--subColor);
-        font-size: 14px;
-        font-weight: 500;
-        background: var(--primaryColor);
-        transition: all 0.3s linear;
-    }
+    
     .sub_tabs_button {
         border-bottom: 2px solid silver;
         padding-top: 0px;
@@ -550,9 +544,7 @@
         display: block;
         height: 200px;
     }
-    .home_card_button {
-        margin-top: 0.6rem;
-    }
+    
     .header-category-ml-60 {
         margin-left: 5px;
     }
@@ -567,21 +559,18 @@
         overflow: hidden;
         outline: none;
     }
+    .home_card_button {
+        margin-top: 0.6rem;
+    }
     .home_card_button a {
         display: inline-block;
-        padding: 7px 6px;
+        padding: 5px 5px;
         color: var(--mainColor);
-        border: 1px solid var(--subColor);
+        border: 1px solid #e3dfdf;
         font-size: 11px;
         font-weight: 500;
         background: var(--primaryColor);
         transition: all 0.3s linear;
-    }
-    .home_banner_card {
-        margin-top: 1rem;
-    }
-    .home_banner_card_title {
-        font-size: 16px !important;
     }
     .home_title_heading {
         font-family: "Klinic Slab";
@@ -650,7 +639,10 @@
         padding-top: 10px;
     }
     .Head {
-        font-size: 26px !important;
+        font-size: 20px !important;
+    }
+    .slick-list{
+        margin: 11px;
     }
     .banner_bottom_box {
         width: 95%;
