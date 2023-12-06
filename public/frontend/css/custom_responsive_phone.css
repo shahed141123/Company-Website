@@ -5,6 +5,13 @@
 }
 
 @media only screen and (max-width: 600px) {
+    .success-area {
+        padding: 10px 10px;
+        margin: 3px;
+    }
+    .success-area-content {
+        margin-top: 25px;
+    }    
 
     .search-input-container {
         width: 21rem;
@@ -39,8 +46,8 @@
     }
 
     .home_banner_card {
-        padding-top: 1.8rem;
-        padding-bottom: 1.8rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         height: auto !important;
         margin-bottom: 1rem;
     }
@@ -183,7 +190,7 @@
     }
 
     .home_banner_card h2 {
-        font-size: 20px !important;
+        font-size: 14px;
     }
 
     .home_card_button a {
@@ -376,6 +383,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        text-align: center;
     }
 
     .side_box_image {

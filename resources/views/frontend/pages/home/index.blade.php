@@ -7,26 +7,29 @@
     <!--<meta property="og:url" content="URL to your blog post">-->
     <style>
         .gradient-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(to right, #ffffff, #ffffffd1, #77777700, #3b3b3b00, #00000000);
-          z-index: 980; /* Adjust the z-index to be behind the image */
-          pointer-events: none; /* Allows clicks to go through the overlay */
-      }
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #ffffff, #ffffffd1, #77777700, #3b3b3b00, #00000000);
+            z-index: 980;
+            /* Adjust the z-index to be behind the image */
+            pointer-events: none;
+            /* Allows clicks to go through the overlay */
+        }
 
-      .showcase-industry-bottom {
-          position: relative;
-          overflow: hidden;
-      }
+        .showcase-industry-bottom {
+            position: relative;
+            overflow: hidden;
+        }
 
-      .overlays-img {
-          border-top-right-radius: 60px;
-          z-index: 980; /* Adjust the z-index to be in front of the overlay */
-      }
-  </style>
+        .overlays-img {
+            border-top-right-radius: 60px;
+            z-index: 980;
+            /* Adjust the z-index to be in front of the overlay */
+        }
+    </style>
 @endsection
 <!--======// Banner Section //======-->
 @if (!empty($home->branner1) && !empty($home->branner2) && !empty($home->branner3))
@@ -322,7 +325,9 @@
                             <div class="showcase-industry-bottom" style="position: relative; overflow: hidden;">
                                 <!-- Add a pseudo-element for the overlay -->
                                 <div class="gradient-overlay"></div>
-                                <img class="img-fluid overlays-img" src="{{ isset($techglossy->image) && file_exists(public_path('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}" alt="Picture" style="border-top-right-radius: 60px;">
+                                <img class="img-fluid overlays-img"
+                                    src="{{ isset($techglossy->image) && file_exists(public_path('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}"
+                                    alt="Picture" style="border-top-right-radius: 60px;">
                             </div>
                         </div>
                     </div>
@@ -348,7 +353,7 @@
                         </strong>
                         and
                         <strong style="font-family: 'Poppins', sans-serif;font-size:18px;">
-                           {{ $brandCount }}
+                            {{ $brandCount }}
                             <small>brands</small>
                         </strong>
                         at your service, we can provide you with the tools
@@ -408,10 +413,123 @@
     </div>
 </section>
 <!---------End -------->
-
+<!--=======// Client Story //======-->
+@if (!empty($story1) | !empty($story2) | !empty($story3) | !empty($story4))
+    <section>
+        <div class="container my-4 mb-5">
+            <h2 class="text-center pb-4">Our <span class="main_color">Client</span> Story</h2>
+            <div class="row">
+                @if (!empty($story1))
+                    <div class="col-lg-3">
+                        <div class="client_story_box">
+                            <div class="details-color-1 details-titles pt-4 ps-4 pb-3">
+                                <p class="pb-5">{{ $story1->badge }}</p>
+                            </div>
+                            <div class="grid-river">
+                                <figure class="effect-oscar">
+                                    {{-- <img src="{{ asset('storage/' . $cardsection2->image) }}" alt="img09" /> --}}
+                                    <img src="{{ isset($story1->image) && file_exists(public_path('storage/' . $story1->image)) ? asset('storage/' . $story1->image) : asset('frontend/images/banner-demo.png') }} "
+                                        alt="">
+                                    <figcaption>
+                                        <h6> {{ Str::words($story1->title, 10) }}</h6>
+                                        <p>{{ Str::words($story1->header, 10) }}</p>
+                                        <h5 class="download-hover-btn">
+                                            <a class="text-white"
+                                                href="{{ route('story.details', $story1->id) }}">Read Story <i
+                                                    class="fa-solid fa-chevron-right"
+                                                    style="font-size: 12px;"></i></a>
+                                        </h5>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                @if (!empty($story2))
+                    <div class="col-lg-3">
+                        <div class="client_story_box">
+                            <div class="details-color-1 details-titles pt-4 ps-4 pb-3">
+                                <p class="pb-5">{{ $story2->badge }}</p>
+                            </div>
+                            <div class="grid-river">
+                                <figure class="effect-oscar">
+                                    {{-- <img src="{{ asset('storage/' . $cardsection2->image) }}" alt="img09" /> --}}
+                                    <img src="{{ isset($story2->image) && file_exists(public_path('storage/' . $story2->image)) ? asset('storage/' . $story2->image) : asset('frontend/images/banner-demo.png') }} "
+                                        alt="">
+                                    <figcaption>
+                                        <h6> {{ Str::words($story2->title, 10) }}</h6>
+                                        <p>{{ Str::words($story2->header, 10) }}</p>
+                                        <h5 class="download-hover-btn">
+                                            <a class="text-white"
+                                                href="{{ route('story.details', $story2->id) }}">Read Story <i
+                                                    class="fa-solid fa-chevron-right"
+                                                    style="font-size: 12px;"></i></a>
+                                        </h5>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                @if (!empty($story3))
+                    <div class="col-lg-3">
+                        <div class="client_story_box">
+                            <div class="details-color-1 details-titles pt-4 ps-4 pb-3">
+                                <p class="pb-5">{{ $story3->badge }}</p>
+                            </div>
+                            <div class="grid-river">
+                                <figure class="effect-oscar">
+                                    {{-- <img src="{{ asset('storage/' . $cardsection2->image) }}" alt="img09" /> --}}
+                                    <img src="{{ isset($story3->image) && file_exists(public_path('storage/' . $story3->image)) ? asset('storage/' . $story3->image) : asset('frontend/images/banner-demo.png') }} "
+                                        alt="">
+                                    <figcaption>
+                                        <h6> {{ Str::words($story3->title, 10) }}</h6>
+                                        <p>{{ Str::words($story3->header, 10) }}</p>
+                                        <h5 class="download-hover-btn"></i></a>
+                                            <a class="text-white"
+                                                href="{{ route('story.details', $story3->id) }}">Read Story <i
+                                                    class="fa-solid fa-chevron-right"
+                                                    style="font-size: 12px;"></i></a>
+                                        </h5>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                @if (!empty($story4))
+                    <div class="col-lg-3">
+                        <div class="client_story_box">
+                            <div class="details-color-1 details-titles pt-4 ps-4 pb-3">
+                                <p class="pb-5">{{ $story4->badge }}</p>
+                            </div>
+                            <div class="grid-river">
+                                <figure class="effect-oscar">
+                                    {{-- <img src="{{ asset('storage/' . $cardsection2->image) }}" alt="img09" /> --}}
+                                    <img src="{{ isset($story4->image) && file_exists(public_path('storage/' . $story4->image)) ? asset('storage/' . $story4->image) : asset('frontend/images/banner-demo.png') }} "
+                                        alt="">
+                                    <figcaption>
+                                        <h6> {{ Str::words($story4->title, 10) }}</h6>
+                                        <p>{{ Str::words($story4->header, 10) }}</p>
+                                        <h5 class="download-hover-btn">
+                                            <a class="text-white"
+                                                href="{{ route('story.details', $story4->id) }}">Read Story <i
+                                                    class="fa-solid fa-chevron-right"
+                                                    style="font-size: 12px;"></i></a>
+                                        </h5>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </section>
+@endif
 <!--=======// Popular products //======-->
 <section>
-    <div class="container">
+    <div class="container p-0">
         <div class="Container mt-5 px-0">
             <h3 class="Head" style="font-size:30px;">Random Products <span class="Arrows"></span></h3>
             <!-- Carousel Container -->
@@ -426,18 +544,19 @@
                                         <div class="custom-product-grid">
                                             <div class="custom-product-image">
                                                 <a href="{{ route('product.details', $item->slug) }}" class="image">
-                                                    <img class="pic-1"
-                                                        src="{{ asset($item->thumbnail) }}">
+                                                    <img class="pic-1" src="{{ asset($item->thumbnail) }}">
                                                 </a>
                                                 <ul class="custom-product-links">
-                                                    <li><a href="#"><i class="fa fa-random text-white"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-random text-white"></i></a>
+                                                    </li>
                                                     <li><a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#productDetails{{ $item->id }}"><i class="fa fa-search text-white"></i></a></li>
+                                                            data-bs-target="#productDetails{{ $item->id }}"><i
+                                                                class="fa fa-search text-white"></i></a></li>
                                                 </ul>
                                             </div>
                                             <div class="custom-product-content">
                                                 <a href="{{ route('product.details', $item->slug) }}">
-                                                <h3 class="custom-title"> {{Str::words($item->name, 10) }}</h3>
+                                                    <h3 class="custom-title"> {{ Str::words($item->name, 10) }}</h3>
                                                 </a>
 
                                                 @if ($item->rfq == 1)
@@ -446,59 +565,66 @@
                                                             {{-- <small class="price-usd">USD</small>
                                                             --.-- $ --}}
                                                         </div>
-                                                        <a href="" class="d-flex justify-content-center align-items-center" data-bs-toggle="modal"
-                                                        data-bs-target="#rfq{{ $item->id }}">
+                                                        <a href=""
+                                                            class="d-flex justify-content-center align-items-center"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $item->id }}">
                                                             <button class="common_button effect01">
                                                                 Ask For Price
                                                             </button>
                                                         </a>
                                                     </div>
                                                 @elseif ($item->price_status && $item->price_status == 'rfq')
-                                                <div>
-                                                    <div class="price py-3">
-                                                        {{-- <small class="price-usd">USD</small>
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            {{-- <small class="price-usd">USD</small>
                                                         --.-- $ --}}
+                                                        </div>
+                                                        <a href=""
+                                                            class="d-flex justify-content-center align-items-center"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $item->id }}">
+                                                            <button class="common_button effect01">
+                                                                Ask For Price
+                                                            </button>
+                                                        </a>
                                                     </div>
-                                                    <a href="" class="d-flex justify-content-center align-items-center" data-bs-toggle="modal"
-                                                    data-bs-target="#rfq{{ $item->id }}">
-                                                        <button class="common_button effect01">
-                                                            Ask For Price
-                                                        </button>
-                                                    </a>
-                                                </div>
                                                 @elseif ($item->price_status && $item->price_status == 'offer_price')
-                                                <div>
-                                                    <div class="price py-3">
-                                                        <small class="price-usd">USD</small>
-                                                        $ {{ number_format($item->price, 2) }}
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            <small class="price-usd">USD</small>
+                                                            $ {{ number_format($item->price, 2) }}
+                                                        </div>
+                                                        <a href=""
+                                                            class="d-flex justify-content-center align-items-center"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $item->id }}">
+                                                            <button class="common_button effect01"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#askProductPrice">
+                                                                Your Price
+                                                            </button>
+                                                        </a>
                                                     </div>
-                                                    <a href="" class="d-flex justify-content-center align-items-center" data-bs-toggle="modal"
-                                                    data-bs-target="#rfq{{ $item->id }}">
-                                                        <button class="common_button effect01" data-bs-toggle="modal"
-                                                        data-bs-target="#askProductPrice">
-                                                        Your Price
-                                                        </button>
-                                                    </a>
-                                                </div>
                                                 @else
-                                                <div>
-                                                    <div class="price py-3">
-                                                        <small class="price-usd">USD</small>
-                                                        $ {{ number_format($item->price, 2) }}
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            <small class="price-usd">USD</small>
+                                                            $ {{ number_format($item->price, 2) }}
+                                                        </div>
+                                                        <a href="" data-mdb-toggle="popover"
+                                                            title="Add To Cart Now"
+                                                            class="cart_button{{ $item->id }}"
+                                                            data-mdb-content="Add To Cart Now"
+                                                            data-mdb-trigger="hover">
+                                                            <button type="button"
+                                                                class="common_button effect01 add_to_cart"
+                                                                data-id="{{ $item->id }}"
+                                                                data-name="{{ $item->name }}" data-quantity="1">
+                                                                Add to Cart
+                                                            </button>
+                                                        </a>
                                                     </div>
-                                                    <a href="" data-mdb-toggle="popover" title="Add To Cart Now"
-                                                    class="cart_button{{ $item->id }}"
-                                                    data-mdb-content="Add To Cart Now"
-                                                    data-mdb-trigger="hover">
-                                                        <button type="button"
-                                                        class="common_button effect01 add_to_cart"
-                                                        data-id="{{ $item->id }}"
-                                                        data-name="{{ $item->name }}"
-                                                        data-quantity="1">
-                                                        Add to Cart
-                                                        </button>
-                                                    </a>
-                                                </div>
                                                 @endif
                                             </div>
                                         </div>
@@ -587,7 +713,6 @@
                     </div>
                 @endif
             </div>
-
             <!-- button -->
             <div class="learn_clint_history_btn">
                 <a href="{{ route('all.story') }}">See all client stories</a>
@@ -597,39 +722,45 @@
 @endif
 <!---------End -------->
 
+<!---------Our Success Section-------->
 
-<!--======// our success section //======-->
-@if (!empty($success1) && !empty($success2) && !empty($success3))
-    <section class="container">
-        <div class="our_success_wrapper">
-            <!-- title -->
-            <div class="section_title">
-                <h3 class="title_top_heading py-5">Our Success Starts With Our Culture.</h3>
-            </div>
-            <!-- wrapper -->
-            <div class="row">
+<section>
+    <div class="container my-4 mb-5">
+        <h2 class="text-center pb-4">Our Success <span class="main_color">Starts With</span> Our Culture.</h2>
+        <div class="row success-area">
+            @if (!empty($success1->title))
                 <div class="col-lg-4">
-                    <div class="details-color-1 text-white details-titles pt-4 ps-4 pb-3">
-                        <p class="pb-5">asdasdasdasd asd asd asd asd asd </p>
-                    </div>
-                    <div class="grid-river">
-                        <figure class="effect-oscar">
-                            {{-- <img src="{{ asset('storage/' . $cardsection2->image) }}" alt="img09" /> --}}
-                            {{-- <img width="450px" height="300px"
-                                src="{{ isset($cardsection2->image) && file_exists(asset('storage/' . $cardsection2->image)) ? asset('storage/' . $cardsection2->image) : asset('frontend/images/no-details-img(660-550).png') }}"
-                                alt="img09" /> --}}
-                            <figcaption>
-                                {{-- <h4>{{$cardsection2->title }}</h4> --}}
-                                {{-- <p>{!! $cardsection2->short_des !!}</p> --}}
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae officia quidem illum nostrum, similique voluptatum iusto sapiente quae consequatur id modi quisquam! Id excepturi iusto illo adipisci repudiandae necessitatibus aut?</p>
-                                {{-- <h5 class="download-hover-btn">Download <i class="fa-solid fa-chevron-right"></i></h5> --}}
-                            </figcaption>
-                        </figure>
+                    <!---------Column  Content -------->
+                    <div class="success-area-content success-area-content-first">
+                        <div class="success-divider-one"></div>
+                        <h4 class="success-divider-title-one pb-2">{{ $success1->title }}</h4>
+                        <p>{{ $success1->description }}</p>
                     </div>
                 </div>
-            </div>
+            @endif
+            @if (!empty($success2->title))
+                <div class="col-lg-4">
+                    <!---------Column  Content -------->
+                    <div class="success-area-content">
+                        <div class="success-divider-two"></div>
+                        <h4 class="success-divider-title-two pb-2">{{ $success2->title }}</h4>
+                        <p>{{ $success2->description }}</p>
+                    </div>
+                </div>
+            @endif
+            @if (!empty($success3->title))
+                <div class="col-lg-4">
+                    <!---------Column  Content -------->
+                    <div class="success-area-content">
+                        <div class="success-divider-three"></div>
+                        <h4 class="success-divider-title-three pb-2">{{ $success3->title }} </h4>
+                        <p>{{ $success3->description }}</p>
+                    </div>
+                </div>
+            @endif
         </div>
-    </section>
-@endif
+    </div>
+</section>
+
 <!---------End -------->
 @endsection
