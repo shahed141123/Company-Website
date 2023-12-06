@@ -21,16 +21,16 @@
             <div class="col-lg-6">
                 <div class="row">
                     @if (is_countable($brands) && count($brands) > 0)
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-5">
                             <h5 class="fw-bold border-bottom">Brands</h5>
                             @foreach ($brands as $brand)
                                 <h6><a class="search_titles"
-                                        href="{{ route('brandpage.html', $brand->slug) }}">{{ $brand->title }}</a></h6>
+                                        href="{{ route('brand.overview', $brand->slug) }}">{{ $brand->title }}</a></h6>
                             @endforeach
                         </div>
                     @endif
                     @if (is_countable($categorys) && count($categorys) > 0)
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-7">
                             <h5 class="fw-bold border-bottom">Categorys</h5>
                             @foreach ($categorys as $category)
                                 <h6><a class="search_titles"
@@ -55,7 +55,7 @@
 
                 <div class="row mt-2">
                     @if (is_countable($industries) && count($industries) > 0)
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-5">
                             <h5 class="fw-bold border-bottom">Industries</h5>
                             @foreach ($industries as $industrie)
                                 <h6><a class="search_titles" href="javascript:void(0);">{{ $industrie->title }}</a>
@@ -64,7 +64,7 @@
                         </div>
                     @endif
                     @if (is_countable($solutions) && count($solutions) > 0)
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-7">
                             <h5 class="fw-bold border-bottom">Solutions</h5>
                             @foreach ($solutions as $solution)
                                 <h6><a class="search_titles"

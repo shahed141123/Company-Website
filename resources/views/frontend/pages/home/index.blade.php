@@ -5,31 +5,6 @@
     <!--<meta property="og:description" content="Description of your blog post">-->
     <meta property="og:image" content="{{ asset('storage/' . $home->branner1) }}">
     <!--<meta property="og:url" content="URL to your blog post">-->
-    <style>
-        .gradient-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, #ffffff, #ffffffd1, #77777700, #3b3b3b00, #00000000);
-            z-index: 980;
-            /* Adjust the z-index to be behind the image */
-            pointer-events: none;
-            /* Allows clicks to go through the overlay */
-        }
-
-        .showcase-industry-bottom {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .overlays-img {
-            border-top-right-radius: 60px;
-            z-index: 980;
-            /* Adjust the z-index to be in front of the overlay */
-        }
-    </style>
 @endsection
 <!--======// Banner Section //======-->
 @if (!empty($home->branner1) && !empty($home->branner2) && !empty($home->branner3))
@@ -307,19 +282,19 @@
                                 <h2>
                                     {{ $techglossy->title }}
                                 </h2>
-                                <p class="pt-0 mt-0 w-75" style="text-align: justify">
-                                    {!! Str::limit($techglossy->short_des, 220) !!}
+                                <p class="pt-0 mt-0 w-lg-75 w-sm-100" style="text-align: justify">
+                                    {!! Str::words(strip_tags($techglossy->short_des), 35) !!}
                                     {{-- {{ $techglossy->header }} --}}
                                 </p>
                                 <a href="{{ route('techglossy.details', $techglossy->id) }}"
                                     class="common_button2 text-white">Read More</a>
                             </div>
                         </div>
-                        <div class="col-lg-6 p-0">
+                        <div class="col-lg-6 p-0 d-lg-block d-sm-none">
                             <div class="showcase-industry-bottom" style="position: relative; overflow: hidden;">
                                 <!-- Add a pseudo-element for the overlay -->
                                 <div class="gradient-overlay"></div>
-                                <img class="img-fluid overlays-img d-lg-block d-sm-none"
+                                <img class="img-fluid overlays-img"
                                     src="{{ isset($techglossy->image) && file_exists(public_path('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}"
                                     alt="Picture" style="border-top-right-radius: 60px;">
                             </div>
@@ -362,8 +337,7 @@
             <!-- product brand -->
             <div class="col-lg-4 col-sm-12 product_brand">
                 <div>
-                    <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Pri</span>vate Sector
-                    </p>
+
                     <div class="">
                         <a href="{{ route('all.category') }}">
                             <div id="fed-bg">

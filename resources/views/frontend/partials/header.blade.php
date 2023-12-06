@@ -145,14 +145,13 @@
                     <img class="img-fluid site-main-logo"
                         src="{{ !empty($setting->logo) && file_exists(public_path('storage/' . $setting->logo)) ? asset('storage/' . $setting->logo) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}"
                         alt="NGEN IT">
-
                 </a>
                 <!---Category--->
                 <div class="category-mobile">
                     <div class="dropdown position-static header-category-button-60">
-                        <a class="tab_btn_icon upper-content-menu" href="#" role="button"
-                            id="dropdownMenuLink2" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                            aria-expanded="false" style="padding-left: none !important;">
+                        <a class="tab_btn_icon upper-content-menu" href="#" role="button" id="dropdownMenuLink2"
+                            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"
+                            style="padding-left: none !important;">
                             <i class="fa-solid fa-bars" style="font-size: 18px !important;"></i>
                         </a>
                         <ul class="dropdown-menu w-100 extra_category" aria-labelledby="dropdownMenuLink2">
@@ -222,6 +221,19 @@
                     </div>
                 </div>
                 <!---Category--->
+
+                <form method="post" action="{{ route('product.search') }}"
+                    class="d-flex upper-content-menu justify-content-center align-items-center d-lg-none"
+                    role="search">
+                    @csrf
+                    <div class="input-group flex-nowrap search-input-container">
+                        <span class="input-group-text search-box-areas" id="addon-wrapping"><i
+                                class="fa-solid fa-magnifying-glass"></i></span>
+                        <input class="form-control search-input-field search" id="mobile_search_text" name="search"
+                            type="search" placeholder="Search From Here..."
+                            aria-describedby="addon-wrapping">
+                    </div>
+                </form>
 
                 <a href="javascript:void(0)" class="nvabar-toggler tab_btn_icon upper-content-menu d-lg-none"
                     type="button" data-bs-toggle="offcanvas" data-bs-target="#rightOffcanvas"
@@ -307,16 +319,16 @@
                                                         @if (count($industrys) > 0)
                                                             @foreach ($industrys as $industry)
                                                                 {{-- @if ($industry->industryPage) --}}
-                                                                    <div class="col-lg-6 mb-2">
-                                                                        <a class="d-flex align-items-center"
-                                                                            href="{{ route('industry.details', $industry->slug) }}">
-                                                                            <div>{{ $industry->title }} </div>
-                                                                            <div>
-                                                                                <i
-                                                                                    class="ph ph-caret-right menu_icons"></i>
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
+                                                                <div class="col-lg-6 mb-2">
+                                                                    <a class="d-flex align-items-center"
+                                                                        href="{{ route('industry.details', $industry->slug) }}">
+                                                                        <div>{{ $industry->title }} </div>
+                                                                        <div>
+                                                                            <i
+                                                                                class="ph ph-caret-right menu_icons"></i>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
                                                                 {{-- @endif --}}
                                                             @endforeach
                                                         @endif
@@ -780,6 +792,11 @@
 
         </div>
     </div>
+    <div class="row container mx-auto sticky-top">
+        <div class="card d-none shadow-lg bg-white border rounded-0 mt-0" id="mobile_search_container">
+
+        </div>
+    </div>
 </div>
 
 
@@ -795,6 +812,8 @@
                 alt="NGEN IT"> --}}
         </a>
 
+
+
         <button class="offcanvas-icons upper-content-menu text-reset" data-bs-dismiss="offcanvas" aria-label="Close"
             style="padding-left: none !important;">
             <i class="fa-solid fa-xmark" style="font-size: 18px !important;"></i>
@@ -802,23 +821,8 @@
     </div>
     <div class="offcanvas-body">
         <div>
-            <form method="post" action="{{ route('product.search') }}"
-                class="d-flex ms-auto upper-content-menu justify-content-center align-items-center" role="search">
-                @csrf
-                <div class="input-group flex-nowrap search-input-container">
-                    <span class="input-group-text search-box-areas" id="addon-wrapping"><i
-                            class="fa-solid fa-magnifying-glass"></i></span>
-                    <input class="form-control search-input-field search" id="mobile_search_text" name="search"
-                        type="search" placeholder="Search for products, solutions & more..."
-                        aria-describedby="addon-wrapping">
-                </div>
-            </form>
-            <div class="row container mx-auto sticky-top">
-                <div class="card d-none shadow-lg bg-white border rounded-0 mt-0" id="mobile_search_container">
 
-                </div>
-            </div>
-            <hr>
+            {{-- <hr> --}}
             <ul class="navbar-nav justify-content-end flex-grow-1 mt-3">
                 <li class="nav-item dropdown cool-link mb-1">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

@@ -1,26 +1,6 @@
 @extends('frontend.master')
 @section('content')
-    <style>
-        .fa-4x {
-            font-size: 4em !important;
-        }
-
-        .masthead a {
-            color: #ae0a46;
-        }
-
-        .service_card {
-            font-size: 14px !important;
-            color: #303030;
-        }
-
-        .learn_more {
-            padding-bottom: 40px;
-            background: #ffffff;
-            border-top: 0px solid silver;
-            border-bottom: 0px solid silver;
-        }
-    </style>
+   
     <div class="masthead">
         <div class="container">
             @if (!empty($whatwedo))
