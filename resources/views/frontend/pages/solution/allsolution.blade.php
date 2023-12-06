@@ -72,12 +72,12 @@
     </div>
 </section>
 <!--=======// Techincal Expertise //========-->
-<section class="container mb-3 pt-4">
+<section class="container mb-3 pt-lg-4 pt-sm-2">
     <div class="section_text_wrapper">
-        <h4 class="section_title solution_main_title"><samp class="topLine">O</samp>ur technical expertise, broad
+        <h4 class="section_title solution_main_title"><samp class="topLine">Our</samp> technical expertise, broad
             solutions portfolio and supply chain capabilities give us the right resources and scale to achieve more for
             you.</h4>
-        <p style="font-size:20px; text-align: center;">How would you like to start your transformation journey? We’re
+        <p class="mb-0 text-center">How would you like to start your transformation journey? We’re
             ready to deliver:</p>
     </div>
     <div class="container">
@@ -124,7 +124,7 @@
                 <h4 class="main_color text-center">No Solution Found !</h4>
             @endif
             <div class="col-lg-12">
-                <div class="d-flex justify-content-center mt-5 mb-5">
+                <div class="d-flex justify-content-center mt-lg-5 mt-sm-3">
                     <button class="common_button2 effect02" id="load-more-solution">View More</button>
                     <button class="common_button2 effect02" id="show-less-solution" style="display: none;">Show
                         Less</button>
@@ -279,7 +279,7 @@
         </div>
     </section> --}}
 <!--======// our clint tab //======-->
-<section class="clint_tab_section my-5">
+<section class="clint_tab_section my-5 my-sm-3">
     <div class="container">
         <div class="clint_tab_content pb-3">
             <!-- home title -->
@@ -297,7 +297,7 @@
             <div class="row">
                 <div class="col-xs-12 ">
                     <div class="solurtion_tabing_area">
-                        <div class="tabing_menu_area pt-1">
+                        <div class="tabing_menu_area">
                             <nav>
                                 <div class="nav nav-tabs nav-fill text-capitalize" id="nav-tab" role="tablist">
                                     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
@@ -319,7 +319,7 @@
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                 aria-labelledby="nav-home-tab">
                                 <div class="row align-items-center">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-lg-5 ps-sm-0">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 tab_content_padding">
                                         <h6 class="title-tag text-capitalize mb-2">{{ $story1->badge }}</h6>
                                         <h4 class="home_title_heading text-capitalize text-start pb-2">
                                             {{ $story1->title }}</h4>
@@ -331,7 +331,7 @@
                                                 class="fw-bold">Read
                                                 Details</span> <i class="fa-solid fa-chevron-right"></i></a>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 d-lg-block d-sm-none">
                                         <div class="showcase-industry">
                                             <img src="{{ asset('storage/' . $story1->image) }}" alt="Picture">
                                             <div class="overlay">
@@ -343,7 +343,7 @@
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                 aria-labelledby="nav-profile-tab">
                                 <div class="row align-items-center">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-lg-5 ps-sm-0">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-5">
                                         <h6 class="title-tag text-capitalize mb-2">{{ $story2->badge }}</h6>
                                         <h4 class="home_title_heading text-capitalize text-start pb-2">
                                             {{ $story2->title }}</h4>
@@ -355,7 +355,7 @@
                                                 class="fw-bold">Read
                                                 Details</span> <i class="fa-solid fa-chevron-right"></i></a>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 d-lg-block d-sm-none">
                                         <div class="showcase-industry">
                                             <img src="{{ asset('storage/' . $story2->image) }}" alt="Picture">
                                             <div class="overlay">
@@ -367,7 +367,7 @@
                             <div class="tab-pane fade" id="nav-contact" role="tabpanel"
                                 aria-labelledby="nav-contact-tab">
                                 <div class="row align-items-center">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-lg-5 ps-sm-0">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-5">
                                         <h6 class="title-tag text-capitalize mb-2">{{ $story3->badge }}</h6>
                                         <h4 class="home_title_heading text-capitalize text-start pb-2">
                                             {{ $story3->title }}</h4>
@@ -379,7 +379,7 @@
                                                 class="fw-bold">Read
                                                 Details</span> <i class="fa-solid fa-chevron-right"></i></a>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 d-lg-block d-sm-none">
                                         <div class="showcase-industry">
                                             <img src="{{ asset('storage/' . $story3->image) }}" alt="Picture">
                                             <div class="overlay">
@@ -391,7 +391,7 @@
                             <div class="tab-pane fade" id="nav-about" role="tabpanel"
                                 aria-labelledby="nav-about-tab">
                                 <div class="row align-items-center">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-lg-5 ps-sm-0">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-5">
                                         <h6 class="title-tag text-capitalize mb-2">{{ $story4->badge }}</h6>
                                         <h4 class="home_title_heading text-capitalize text-start pb-2">
                                             {{ $story4->title }}</h4>
@@ -404,7 +404,7 @@
                                             <i class="fa-solid fa-chevron-right"></i>
                                         </a>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 d-lg-block d-sm-none">
                                         <div class="showcase-industry">
                                             <img src="{{ asset('storage/' . $story4->image) }}" alt="Picture">
                                             <div class="overlay">
@@ -523,7 +523,7 @@
 
                 @if ($industrys)
                     @foreach ($industrys as $item)
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-3 col-4">
                             <a href="{{ isset($item->slug) ? route('industry.details', ['id' => $item->slug]) : '' }}"
                                 class="we_serve_item mb-4">
                                 <div class="we_serve_item_image">
@@ -544,8 +544,7 @@
                 @if ($random_industries)
                     @foreach ($random_industries as $item)
                         <div class="pt-2">
-                            <a
-                                href="{{ isset($item->slug) ? route('industry.details', ['id' => $item->slug]) : '' }}">
+                            <a href="{{ isset($item->slug) ? route('industry.details', ['id' => $item->slug]) : '' }}">
                                 <div id="fed-bg">
                                     <div class="p-2">
                                         <h5 class="text-white brand_side_text">{{ $item->title }} ›</h5>

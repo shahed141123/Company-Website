@@ -1,6 +1,17 @@
 /* Extra Small Devices (e.g., Smartphones) */
 @media only screen and (max-width: 576px) {
     /* Styles for screens up to 576 pixels wide */
+    .my-sm-3 {
+        margin-top: 1rem!important;
+        margin-bottom: 1rem!important;
+    }
+    .outcome_smail_bussiness_title {
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+    .padding_top{
+        padding-top: 2rem;
+    }
     .menu-section {
         height: 3rem !important;
     }
@@ -92,10 +103,8 @@
     }
     .common_button2 {
         padding: 8px 43px !important;
-        cursor: pointer;
-        margin: auto !important;
+        margin: 0px;
         text-align: center;
-        margin-bottom: 1rem !important;
     }
     .popover__content-2 {
         position: absolute;
@@ -209,9 +218,11 @@
     .common_product_header h1 {
         font-size: 35px !important;
     }
-    .container p {
-        font-size: 14px;
+    .section_text_wrapper p {
+        font-size: 1rem;
         text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
     }
     .Container {
         margin: 1.6rem;
@@ -242,7 +253,8 @@
         text-align: center !important;
     }
     .solution_main_title {
-        font-size: 22px !important;
+        font-size: 17px !important;
+        font-weight: 600;
     }
     nav > .nav.nav-tabs {
         border: none;
@@ -269,8 +281,15 @@
     }
     .title-tag {
         text-align: center;
-        margin-top: 2rem;
+        margin-top: 1rem;
         font-size: 18px;
+    }
+
+    .tab_content_padding {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 
     .masthead h1 {
@@ -574,12 +593,12 @@
     }
     .home_title_heading {
         font-family: "Klinic Slab";
-        font-size: 18px;
+        font-size: 20px;
         color: var(--heading);
         font-weight: 600;
         margin-top: 10px;
         margin-bottom: 12px;
-        line-height: 1.1;
+        line-height: 1.2;
     }
     .home_banner_bt-title {
         font-size: 17px;
@@ -633,6 +652,9 @@
     }
     .business_item_button {
         margin-bottom: 2rem;
+    }
+    .tabing_menu_area{
+        padding: 13px 15px 24px 15px;
     }
     .title_top_heading {
         font-size: 26px !important;

@@ -299,8 +299,8 @@ a:hover {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   }
 .home_banner_bt-title{
-    font-size: 24px; 
-    line-height: 1.2; 
+    font-size: 24px;
+    line-height: 1.2;
     text-transform: capitalize;
 }
 .home_banner_card {
@@ -5747,9 +5747,10 @@ body {
     font-family: "Allumi Std Extended";
 }
 
+.section_text_wrapper h4 {
+    margin: 10px 0px;
+}
 .section_title {
-    /* font-family: cambian;
-  */
     font-family: "Allumi Std Extended";
     opacity: 0.9;
     font-size: 32px;
@@ -5765,16 +5766,11 @@ body {
     font-weight: 100;
 }
 
-.section_text_wrapper h4 {
-    font-size: 32px;
-    font-weight: 400;
-    margin: 10px 0px;
-    opacity: 9.2;
-}
+
 
 .section_text_wrapper p {
-    font-size: 16px;
-    line-height: 30px;
+    font-size: 20px;
+    line-height: 1.4;
     color: var(--navColor);
 }
 
@@ -8350,7 +8346,7 @@ nav > div a.nav-item.nav-link:focus {
 .tabing_menu_area {
     padding-top: 0px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
-    padding: 26px 18px;
+    padding: 1rem 0rem 1rem 1rem;
     background-color: white;
     border-top-right-radius: 40px;
     border-bottom-left-radius: 30px;
@@ -12687,7 +12683,8 @@ switch input:checked + .slider {
 }
 
 .outcome_smail_bussiness_title {
-    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 30px;
 }
 
 .outcome_smail_bussiness_title h2 {
@@ -12714,6 +12711,12 @@ switch input:checked + .slider {
     background-color: #9f177a !important;
     border: none;
     opacity: 1;
+}
+
+.tab_content_padding {
+    padding-left: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 /*-----------------*/
