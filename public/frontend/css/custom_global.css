@@ -49,11 +49,19 @@ body html {
 }
 .og-image {
     width: 100%;
-    /* Set the desired width */
     height: 100%;
-    /* Set the desired height */
     object-fit: contain;
-    /* Apply object-fit: contain; styling */
+}
+
+a {
+    color: #5e5e5e;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ae0a46;
+    text-decoration: none;
 }
 
 .font-number {
@@ -2398,13 +2406,7 @@ select:focus-visible {
     font-size: 14px;
 }
 
-a {
-    color: #5e5e5e;
-}
 
-a:hover {
-    color: #ae0a46;
-}
 
 .modal-backdrop {
     z-index: 0;
@@ -4105,9 +4107,7 @@ form input[type="file"] {
     width: 75%;
     margin: auto;
 }
-.outcome_smail_bussiness_title h2 {
-    font-family: "Klinic Slab";
-}
+
 
 .solution_main_title {
     padding: 0px 5%;
@@ -4783,7 +4783,7 @@ tr td:hover {
 
 .fab-info-icon-wrapper {
     position: fixed;
-    bottom: 1.8rem;
+    bottom: 2.2rem;
     right: 8rem;
 }
 
@@ -5239,9 +5239,6 @@ tr td:hover {
     margin-left: 5rem;
 }
 
-a {
-    cursor: pointer;
-}
 
 .shop-menu-left {
     padding-left: 5rem;
@@ -5313,11 +5310,6 @@ a {
     100% {
         border-radius: 0 0 0% 50%;
     }
-}
-
-p {
-    font-family: "Allumi Std Extended";
-    /* font-family: "Klinic Slab"; */
 }
 
 .software-info-paragraph {
@@ -5663,9 +5655,7 @@ p {
     display: none !important;
 }
 
-a {
-    text-decoration: none !important;
-}
+
 
 /* Default Css Start */
 .business_item_title {
@@ -5800,13 +5790,6 @@ body {
     background: var(--dark-crimson);
 }
 
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: none;
-}
 
 /*Fixed position*/
 .stick {
@@ -6632,16 +6615,7 @@ ul {
     width: 100%;
 }
 
-.process-scetion .slider-nav-item {
-    position: relative;
-    flex-grow: 0;
-    flex-shrink: 0;
-    border-radius: 50%;
-    text-align: center;
-    background: #000;
-    cursor: pointer;
-    transition: all 0.4s ease;
-}
+
 
 .social-overlap {
     height: 54px !important;
@@ -6678,16 +6652,8 @@ ul {
     display: flex;
 }
 
-.process-scetion .slider-nav-item {
-    position: relative;
-    flex-grow: 0;
-    flex-shrink: 0;
-    border-radius: 50%;
-    text-align: center;
-    background: #fff;
-    cursor: pointer;
-    transition: all 0.4s ease;
-}
+
+
 
 .slider-nav-item:before {
     position: absolute;
@@ -6699,6 +6665,17 @@ ul {
     border-radius: 50%;
     border: 1px solid #fff;
     animation: 1.5s linear 0s normal none infinite focuse;
+}
+
+.process-scetion .slider-nav-item {
+    position: relative;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-radius: 50%;
+    text-align: center;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.4s ease;
 }
 
 .process-scetion .slider-nav-item:nth-child(1) {
@@ -8630,10 +8607,7 @@ input.qtyminus {
     color: #ae0a46 !important;
     background-color: none !important;
 }
-a {
-    /* color: white !important; */
-    text-decoration: none !important;
-}
+
 
 /*
   .nav-item{
@@ -12703,8 +12677,8 @@ switch input:checked + .slider {
 
 .outcome_smail_bussiness_title h2 {
     font-size: 36px;
-    font-family: cursive;
-    line-height: 44px;
+    font-family: "Klinic Slab";
+    line-height: 1.2;
     color: #222;
     text-align: center;
 }
@@ -15701,7 +15675,7 @@ switch input:checked + .slider {
     color: var(--text-white);
     padding-right: 5px;
     text-align: justify;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .footer_link_text {
@@ -15709,16 +15683,17 @@ switch input:checked + .slider {
     color: var(--text-white);
     padding-right: 5%;
     text-align: justify;
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding-top: 10px;
 }
 
 .footer_bottom_text {
     font-family: "Allumi Std Extended";
-    color: var(--text-white);
-    padding-right: 5%;
-    text-align: justify;
-    font-size: 14px;
+    display: flex;
+    color: white;
+    justify-content: end;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
 }
 
 /*------------------------*/
@@ -15733,17 +15708,12 @@ switch input:checked + .slider {
 }
 
 .footer_item_wrapper h6 {
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: 500;
     margin-bottom: 12px;
     color: var(--text-white);
 }
 
-.footer_item_wrapper p {
-    color: var(--text-white);
-    padding-right: 5%px;
-    text-align: justify;
-}
 
 .footer_item_logo {
     margin-top: 40px;

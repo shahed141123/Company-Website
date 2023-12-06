@@ -15,7 +15,7 @@
                         <!-- title -->
                         <h6><span style="border-bottom: 5px solid #ae0a46;">New</span>sletter</h6>
                         <!-- text -->
-                        <p class="footer_text pt-4 w-75">
+                        <p class="footer_text pt-lg-2 pt-sm-2 w-lg-75 w-sm-100 mb-0">
                             Sign up to receive the IT content that matters most to you.
                             You can update your preferences or unsubscribe any time.
                         </p>
@@ -144,10 +144,35 @@
         </div>
     </div>
     <!-- footer bottom -->
-    <div class="footer_bottom container">
+    <div class="container">
+        <div class="row px-lg-4 px-sm-0 align-items-center">
+            <div class="col-lg-6">
+                <div>
+                    <p class="m-0 p-0 text-white">&copy {{ date('Y') }} NgenIt</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div>
+                    <ul class="footer_bottom_text">
+                        <li>
+                            <a class="text-white" href="{{ route('privacy.policy') }}">Privacy policy &nbsp;|&nbsp; </a>
+                        </li>
+                        <li>
+                            <a class="text-white" href="{{ route('terms.policy') }}">Terms & Conditions &nbsp;|&nbsp; </a>
+                        </li>
+                        <li>
+                            <a class="text-white" href="" data-bs-toggle="modal" data-bs-target="#cookies_modal">Cookies</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- <div class="footer_bottom container">
         <div class="footer_bottom_wrapper">
+
             <!-- copy -->
-            <div class="footer_copy">&copy {{ date('Y') }} NgenIt</div>
+            <div class="footer_copy"></div>
             <!-- footer bottom list -->
             <div class="footer_bottom_list">
                 <ul class="footer_bottom_text">
@@ -157,19 +182,13 @@
                     <li>
                         <a href="{{ route('terms.policy') }}">Terms & Conditions &nbsp;|&nbsp; </a>
                     </li>
-                    {{-- <li>
-                              <a href="ngenit/web_accessibility.html">Web Accessibility</a>
-                          </li> --}}
                     <li>
                         <a href="" data-bs-toggle="modal" data-bs-target="#cookies_modal">Cookies</a>
                     </li>
-                    {{-- <li>
-                              <label for="show_cookies">Cookies settings</label>
-                          </li> --}}
                 </ul>
             </div>
         </div>
-    </div>
+    </div> --}}
 </footer>
 <!----------End--------->
 {{-- Ask For Price Modal --}}

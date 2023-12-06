@@ -684,13 +684,12 @@
         display: contents;
     }
     .footer_subscribe {
-        width: 90% !important;
+        width: 80% !important;
         justify-content: center;
         display: flex;
-        margin-left: 1rem;
     }
     .footer_subscribe .input-group-btns {
-        width: 40% !important;
+        width: 30% !important;
     }
     .home_title_text {
         text-align: center !important;
@@ -699,6 +698,9 @@
         font-family: "Allumi Std Extended";
         font-size: 14px;
         padding-top: 0px;
+    }
+    .footer_bottom_text{
+        justify-content: center;
     }
     .social_areas {
         border: none !important;
@@ -720,7 +722,7 @@
         height: 30px;
         width: 30px;
         margin: 15px 10px;
-        line-height: 28px;
+        line-height: 1.2;
     }
     .dropend:hover > .dropdown-menu {
         position: absolute;
@@ -818,6 +820,21 @@
     .navbar_menus {
         padding: 10px !important;
     }
+
+    .outcome_smail_bussiness_title h2 {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+    .outcome_smail_bussiness_title .lineTop{
+        width: 20%;
+        margin: 0px 0px 15px 13px;
+    }
+
+    .outcome_smail_bussiness_title .lineBottom{
+        width: 20%;
+        margin: 15px 15px 0px auto;
+    }
+
 }
 
 /* Small Devices (e.g., Tablets) */
