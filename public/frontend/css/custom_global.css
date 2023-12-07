@@ -2583,7 +2583,10 @@ select:focus-visible {
     /* background-color: white;
         color: black; */
 }
-
+#mobile_search_container {
+    height: 80vh;
+    overflow-y: scroll;
+}
 .cool-link {
     display: inline-block;
     color: #000;

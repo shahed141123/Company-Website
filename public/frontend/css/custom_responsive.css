@@ -695,6 +695,7 @@
     }
 
     .company-tab-title {
+        font-size: 20px;
         text-align: center;
         border-bottom: none !important;
     }
