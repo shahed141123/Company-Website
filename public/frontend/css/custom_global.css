@@ -3220,8 +3220,12 @@ h2.company-tab-title {
     width: auto;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
     padding: 10px 10px 10px 20px;
-    /* margin-left: 25px;
-    margin-right: 25px; */
+    background-color: #fff;
+}
+.mobile-brand-page-header-container {
+    width: auto;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 10px 10px 20px;
     background-color: #fff;
 }
 

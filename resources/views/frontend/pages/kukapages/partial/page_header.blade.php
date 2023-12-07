@@ -63,8 +63,8 @@
             </div>
             <div class="col-lg-8 col-sm-12">
                 <div class="common_button2 d-lg-none d-sm-block">
-                    <a href="javascript:void(0)" class="dropdown-toggle w-100 text-white" type="button" data-bs-toggle="dropdown"
-                        data-bs-auto-close="outside" aria-expanded="false">
+                    <a href="javascript:void(0)" class="dropdown-toggle w-100 text-white" type="button"
+                        data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                         Brand Menus
                     </a>
                     <ul class="dropdown-menu drop-items-brand">
@@ -128,7 +128,7 @@
 
 
 <section class="header d-lg-none d-sm-block" id="mobileHeader">
-    <div class="brand-page-header-container container">
+    <div class="mobile-brand-page-header-container container">
         <div class="row d-lg-flex align-items-center">
             <div class="col-lg-12">
                 <div class="d-flex justify-content-between align-items-center">
@@ -192,37 +192,69 @@
 </section>
 
 <script>
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     window.onscroll = function() {
+    //         myFunction();
+    //     };
+
+    //     var header = document.getElementById("myHeader");
+    //     var container = document.querySelector(".brand-page-header-container");
+    //     var sticky = header.offsetTop;
+
+    //     function myFunction() {
+    //         if (window.pageYOffset > sticky) {
+    //             header.classList.add("sticky");
+    //             container.classList.remove("container");
+    //             container.classList.add("container-fluid");
+    //         } else {
+    //             header.classList.remove("sticky");
+    //             container.classList.remove("container-fluid");
+    //             container.classList.add("container");
+    //         }
+    //     }
+    // });
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     window.onscroll = function() {
+    //         myFunction();
+    //     };
+
+    //     var header = document.getElementById("mobileHeader");
+    //     var container = document.querySelector(".mobile-brand-page-header-container");
+    //     var sticky = header.offsetTop;
+
+    //     function myFunction() {
+    //         if (window.pageYOffset > sticky) {
+    //             header.classList.add("sticky");
+    //             container.classList.remove("container");
+    //             container.classList.add("container-fluid");
+    //         } else {
+    //             header.classList.remove("sticky");
+    //             container.classList.remove("container-fluid");
+    //             container.classList.add("container");
+    //         }
+    //     }
+    // });
+
     document.addEventListener("DOMContentLoaded", function() {
-        window.onscroll = function() {
-            myFunction();
-        };
+        var isMobile = window.innerWidth <= 768; // Adjust the threshold as needed
 
-        var header = document.getElementById("myHeader");
-        var container = document.querySelector(".brand-page-header-container");
-        var sticky = header.offsetTop;
+        var header, container, sticky;
 
-        function myFunction() {
-            if (window.pageYOffset > sticky) {
-                header.classList.add("sticky");
-                container.classList.remove("container");
-                container.classList.add("container-fluid");
-            } else {
-                header.classList.remove("sticky");
-                container.classList.remove("container-fluid");
-                container.classList.add("container");
-            }
+        if (isMobile) {
+            header = document.getElementById("mobileHeader");
+            container = document.querySelector(".mobile-brand-page-header-container");
+            sticky = header.offsetTop;
+        } else {
+            header = document.getElementById("myHeader");
+            container = document.querySelector(".brand-page-header-container");
+            sticky = header.offsetTop;
         }
-    });
-    document.addEventListener("DOMContentLoaded", function() {
+
         window.onscroll = function() {
-            myFunction();
+            handleScroll(header, container, sticky);
         };
 
-        var header = document.getElementById("mobileHeader");
-        var container = document.querySelector(".brand-page-header-container");
-        var sticky = header.offsetTop;
-
-        function myFunction() {
+        function handleScroll(header, container, sticky) {
             if (window.pageYOffset > sticky) {
                 header.classList.add("sticky");
                 container.classList.remove("container");

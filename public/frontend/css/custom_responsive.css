@@ -28,6 +28,12 @@
         padding: 0px 10px;
         background-color: #fff;
     }
+    .mobile-brand-page-header-container {
+        width: auto;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+        padding: 0px 10px;
+        background-color: #fff;
+    }
 
     .active-brands {
         padding: 5px;
