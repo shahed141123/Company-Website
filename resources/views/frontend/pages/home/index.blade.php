@@ -537,7 +537,7 @@
                                                             class="d-flex justify-content-center align-items-center"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#rfq{{ $item->id }}">
-                                                            <button class="common_button effect01">
+                                                            <button class="common_button effect01 popular_product-button">
                                                                 Ask For Price
                                                             </button>
                                                         </a>
@@ -552,7 +552,7 @@
                                                             class="d-flex justify-content-center align-items-center"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#rfq{{ $item->id }}">
-                                                            <button class="common_button effect01">
+                                                            <button class="common_button effect01 popular_product-button">
                                                                 Ask For Price
                                                             </button>
                                                         </a>

@@ -40,11 +40,12 @@
         </div>
     </section>
     <!---------End -------->
+    <!--======// Information Section //======-->
     <section>
-        <div class="container">
+        <div class="container mt-4">
             <div class="row gx-3">
                 <div class="col-lg-8">
-                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 465px;">
                         <div class="row align-items-center">
                             <div class="col-lg-6">
                                 <div class="animated-image parbase section">
@@ -61,41 +62,15 @@
                                     <span style="border-top: 3px solid #ae0a46;">G</span>enerative AI
                                 </h3>
                                 <p class="software-info-paragraph" style="text-align: justify;">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolores eos, atque nulla
-                                    odio iusto itaque amet debitis aspernatur voluptatem voluptates? Ut rerum iste nobis,
-                                    officia fugiat aspernatur necessitatibus.
+                                    The release of generative AI tools like ChatGPT unlocked new ways for businesses to
+                                    increase productivity, grow revenue and gain a competitive edge. We’ll help you adopt
+                                    and manage generative AI to enhance employee-led processes and improve automation.
                                 </p>
-                                <a href="" class="common_button2 effect02">Product Show</a>
+                                <a href="#" class="common_button2 effect02 cool-link">Explore our data solutions</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
-                        <div class="row align-items-center">
-                            <div class="col-lg-12">
-                                <div>
-                                    <img class="pb-4" width="80px"
-                                        src="https://www.insight.com/content/dam/insight-web/sitesections/solutions/icons/goals/software-deployment-icon.png"
-                                        alt="">
-                                </div>
-                                <h3>
-                                    <span style="border-top: 3px solid #ae0a46;">G</span>enerative AI
-                                </h3>
-                                <p class="software-info-paragraph" style="text-align: justify;">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolores eos, atque nulla
-                                    odio iusto itaque amet debitis aspernatur voluptatem voluptates? Ut rerum iste nobis,
-                                    officia fugiat aspernatur necessitatibus distinctio quas est nesciunt. Aperiam obcaecati
-                                    nulla quia id, culpa ipsa cumque tempora nemo perferendis dignissimos dolores odit quae
-                                    minus facere! Omnis culpa vero fugiat numquam?
-                                </p>
-                                <a href="" class="common_button2 effect02">Product Show</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row gx-3 mt-3 mb-5">
                 <div class="col-lg-4">
                     <div class="p-5" style="background-color:#f7f6f5!important; min-height: 465px;">
                         <div class="row align-items-center">
@@ -105,17 +80,83 @@
                                         src="https://www.insight.com/content/dam/insight-web/sitesections/solutions/icons/goals/software-deployment-icon.png"
                                         alt="">
                                 </div>
-                                <h3>
-                                    <span style="border-top: 3px solid #ae0a46;">G</span>enerative AI
-                                </h3>
+                                <h1 class="software-info-title">
+                                    <span style="border-top: 3px solid #ae0a46;">O</span>perationalize data
+                                </h1>
                                 <p class="software-info-paragraph" style="text-align: justify;">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolores eos, atque nulla
-                                    odio iusto itaque amet debitis aspernatur voluptatem voluptates? Ut rerum iste nobis,
-                                    officia fugiat aspernatur necessitatibus distinctio quas est nesciunt. Aperiam obcaecati
-                                    nulla quia id, culpa ipsa cumque tempora nemo perferendis dignissimos dolores odit quae
-                                    minus facere! Omnis culpa vero fugiat numquam?
+                                    Data is the foundation for success — offering real-time insights that can fundamentally
+                                    improve operations. Develop an ecosystem that increases data visibility and flexibility.
+
                                 </p>
-                                <a href="" class="common_button2 effect02">Product Show</a>
+                                <a href="#" class="common_button2 effect02 cool-link">Explore our data solutions</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-3 mt-3">
+                <div class="col-lg-4">
+                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 465px;">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12">
+                                <div>
+                                    <img class="pb-4" width="80px"
+                                        src="https://www.insight.com/content/dam/insight-web/sitesections/solutions/icons/goals/software-deployment-icon.png"
+                                        alt="">
+                                </div>
+                                <h1 class="software-info-title">
+                                    <span style="border-top: 3px solid #ae0a46;">O</span>perationalize data
+                                </h1>
+                                <p class="software-info-paragraph" style="text-align: justify;">
+                                    Data is the foundation for success — offering real-time insights that can fundamentally
+                                    improve operations. Develop an ecosystem that increases data visibility and flexibility.
+
+                                </p>
+                                <a href="#" class="common_button2 effect02 cool-link">Explore our data solutions</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 465px;">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12">
+                                <div>
+                                    <img class="pb-4" width="80px"
+                                        src="https://www.insight.com/content/dam/insight-web/sitesections/solutions/icons/goals/software-deployment-icon.png"
+                                        alt="">
+                                </div>
+                                <h1 class="software-info-title">
+                                    <span style="border-top: 3px solid #ae0a46;">O</span>perationalize data
+                                </h1>
+                                <p class="software-info-paragraph" style="text-align: justify;">
+                                    Data is the foundation for success — offering real-time insights that can fundamentally
+                                    improve operations. Develop an ecosystem that increases data visibility and flexibility.
+
+                                </p>
+                                <a href="#" class="common_button2 effect02 cool-link">Explore our data solutions</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 465px;">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12">
+                                <div>
+                                    <img class="pb-4" width="80px"
+                                        src="https://www.insight.com/content/dam/insight-web/sitesections/solutions/icons/goals/software-deployment-icon.png"
+                                        alt="">
+                                </div>
+                                <h1 class="software-info-title">
+                                    <span style="border-top: 3px solid #ae0a46;">O</span>perationalize data
+                                </h1>
+                                <p class="software-info-paragraph" style="text-align: justify;">
+                                    Data is the foundation for success — offering real-time insights that can fundamentally
+                                    improve operations. Develop an ecosystem that increases data visibility and flexibility.
+
+                                </p>
+                                <a href="#" class="common_button2 effect02 cool-link">Explore our data solutions</a>
                             </div>
                         </div>
                     </div>
@@ -125,202 +166,114 @@
     </section>
     <!--=======// Popular products //======-->
     <section>
-        <div class="container my-5">
-            <div class="Container">
-                <h3 class="Head">Featured Products <span class="Arrows"></span></h3>
+        <div class="container p-0">
+            <div class="Container mt-5 px-0">
+                <h3 class="Head" style="font-size:30px;">Random Products <span class="Arrows"></span></h3>
                 <!-- Carousel Container -->
-                <div class="SlickCarousel row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="custom-product-grid">
-                            <div class="custom-product-image">
-                                <a href="#" class="image">
-                                    <img class="pic-1"
-                                        src="https://staticfiles.acronis.com/images/content/28234cac9b11c6179ff6460d2f01b448.jpg">
-                                </a>
-                                <ul class="custom-product-links">
-                                    <li><a href="#"><i class="fa fa-random text-white"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-search text-white"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="custom-product-content">
-                                <h3 class="custom-title"><a href="#">Corel PaintShop Pro 2018 - upgrade license - 1
-                                        user</a></h3>
-                                <div class="price py-3">
-                                    <small>USD</small>
-                                    --.-- $
+                <div class="SlickCarousel">
+                    @if ($products)
+                        @foreach ($products as $item)
+                            <!-- Item -->
+                            <div class="ProductBlock mb-3 mt-3">
+                                <div class="Content">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="custom-product-grid">
+                                                <div class="custom-product-image">
+                                                    <a href="{{ route('product.details', $item->slug) }}" class="image">
+                                                        <img class="pic-1" src="{{ asset($item->thumbnail) }}">
+                                                    </a>
+                                                    <ul class="custom-product-links">
+                                                        <li><a href="#"><i class="fa fa-random text-white"></i></a>
+                                                        </li>
+                                                        <li><a href="#" data-bs-toggle="modal"
+                                                                data-bs-target="#productDetails{{ $item->id }}"><i
+                                                                    class="fa fa-search text-white"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="custom-product-content">
+                                                    <a href="{{ route('product.details', $item->slug) }}">
+                                                        <h3 class="custom-title"> {{ Str::words($item->name, 10) }}</h3>
+                                                    </a>
+
+                                                    @if ($item->rfq == 1)
+                                                        <div>
+                                                            <div class="price py-3">
+                                                                {{-- <small class="price-usd">USD</small>
+                                                            --.-- $ --}}
+                                                            </div>
+                                                            <a href=""
+                                                                class="d-flex justify-content-center align-items-center"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#rfq{{ $item->id }}">
+                                                                <button class="common_button effect01 popular_product-button">
+                                                                    Ask For Price
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                    @elseif ($item->price_status && $item->price_status == 'rfq')
+                                                        <div>
+                                                            <div class="price py-3">
+                                                                {{-- <small class="price-usd">USD</small>
+                                                        --.-- $ --}}
+                                                            </div>
+                                                            <a href=""
+                                                                class="d-flex justify-content-center align-items-center"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#rfq{{ $item->id }}">
+                                                                <button class="common_button effect01 popular_product-button">
+                                                                    Ask For Price
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                    @elseif ($item->price_status && $item->price_status == 'offer_price')
+                                                        <div>
+                                                            <div class="price py-3">
+                                                                <small class="price-usd">USD</small>
+                                                                $ {{ number_format($item->price, 2) }}
+                                                            </div>
+                                                            <a href=""
+                                                                class="d-flex justify-content-center align-items-center"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#rfq{{ $item->id }}">
+                                                                <button class="common_button effect01"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#askProductPrice">
+                                                                    Your Price
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                    @else
+                                                        <div>
+                                                            <div class="price py-3">
+                                                                <small class="price-usd">USD</small>
+                                                                $ {{ number_format($item->price, 2) }}
+                                                            </div>
+                                                            <a href="" data-mdb-toggle="popover"
+                                                                title="Add To Cart Now"
+                                                                class="cart_button{{ $item->id }}"
+                                                                data-mdb-content="Add To Cart Now"
+                                                                data-mdb-trigger="hover">
+                                                                <button type="button"
+                                                                    class="common_button effect01 add_to_cart"
+                                                                    data-id="{{ $item->id }}"
+                                                                    data-name="{{ $item->name }}" data-quantity="1">
+                                                                    Add to Cart
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a href="" class="d-flex justify-content-center align-items-center">
-                                    <button class="common_button effect01">
-                                        Ask For Price
-                                    </button>
-                                </a>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="custom-product-grid">
-                            <div class="custom-product-image">
-                                <a href="#" class="image">
-                                    <img class="pic-1"
-                                        src="https://staticfiles.acronis.com/images/content/28234cac9b11c6179ff6460d2f01b448.jpg">
-                                </a>
-                                <ul class="custom-product-links">
-                                    <li><a href="#"><i class="fa fa-random text-white"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-search text-white"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="custom-product-content">
-                                <h3 class="custom-title"><a href="#">Corel PaintShop Pro 2018 - upgrade license - 1
-                                        user</a></h3>
-                                <div class="price py-3">
-                                    <small>USD</small>
-                                    --.-- $
-                                </div>
-                                <a href="" class="d-flex justify-content-center align-items-center">
-                                    <button class="common_button effect01">
-                                        Ask For Price
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="custom-product-grid">
-                            <div class="custom-product-image">
-                                <a href="#" class="image">
-                                    <img class="pic-1"
-                                        src="https://staticfiles.acronis.com/images/content/28234cac9b11c6179ff6460d2f01b448.jpg">
-                                </a>
-                                <ul class="custom-product-links">
-                                    <li><a href="#"><i class="fa fa-random text-white"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-search text-white"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="custom-product-content">
-                                <h3 class="custom-title"><a href="#">Corel PaintShop Pro 2018 - upgrade license - 1
-                                        user</a></h3>
-                                <div class="price py-3">
-                                    <small>USD</small>
-                                    --.-- $
-                                </div>
-                                <a href="" class="d-flex justify-content-center align-items-center">
-                                    <button class="common_button effect01">
-                                        Ask For Price
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="custom-product-grid">
-                            <div class="custom-product-image">
-                                <a href="#" class="image">
-                                    <img class="pic-1"
-                                        src="https://staticfiles.acronis.com/images/content/28234cac9b11c6179ff6460d2f01b448.jpg">
-                                </a>
-                                <ul class="custom-product-links">
-                                    <li><a href="#"><i class="fa fa-random text-white"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-search text-white"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="custom-product-content">
-                                <h3 class="custom-title"><a href="#">Corel PaintShop Pro 2018 - upgrade license - 1
-                                        user</a></h3>
-                                <div class="price py-3">
-                                    <small>USD</small>
-                                    --.-- $
-                                </div>
-                                <a href="" class="d-flex justify-content-center align-items-center">
-                                    <button class="common_button effect01">
-                                        Ask For Price
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="custom-product-grid">
-                            <div class="custom-product-image">
-                                <a href="#" class="image">
-                                    <img class="pic-1"
-                                        src="https://staticfiles.acronis.com/images/content/28234cac9b11c6179ff6460d2f01b448.jpg">
-                                </a>
-                                <ul class="custom-product-links">
-                                    <li><a href="#"><i class="fa fa-random text-white"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-search text-white"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="custom-product-content">
-                                <h3 class="custom-title"><a href="#">Corel PaintShop Pro 2018 - upgrade license - 1
-                                        user</a></h3>
-                                <div class="price py-3">
-                                    <small>USD</small>
-                                    --.-- $
-                                </div>
-                                <a href="" class="d-flex justify-content-center align-items-center">
-                                    <button class="common_button effect01">
-                                        Ask For Price
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="custom-product-grid">
-                            <div class="custom-product-image">
-                                <a href="#" class="image">
-                                    <img class="pic-1"
-                                        src="https://staticfiles.acronis.com/images/content/28234cac9b11c6179ff6460d2f01b448.jpg">
-                                </a>
-                                <ul class="custom-product-links">
-                                    <li><a href="#"><i class="fa fa-random text-white"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-search text-white"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="custom-product-content">
-                                <h3 class="custom-title"><a href="#">Corel PaintShop Pro 2018 - upgrade license - 1
-                                        user</a></h3>
-                                <div class="price py-3">
-                                    <small>USD</small>
-                                    --.-- $
-                                </div>
-                                <a href="" class="d-flex justify-content-center align-items-center">
-                                    <button class="common_button effect01">
-                                        Ask For Price
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="custom-product-grid">
-                            <div class="custom-product-image">
-                                <a href="#" class="image">
-                                    <img class="pic-1"
-                                        src="https://staticfiles.acronis.com/images/content/28234cac9b11c6179ff6460d2f01b448.jpg">
-                                </a>
-                                <ul class="custom-product-links">
-                                    <li><a href="#"><i class="fa fa-random text-white"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-search text-white"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="custom-product-content">
-                                <h3 class="custom-title"><a href="#">Corel PaintShop Pro 2018 - upgrade license - 1
-                                        user</a></h3>
-                                <div class="price py-3">
-                                    <small>USD</small>
-                                    --.-- $
-                                </div>
-                                <a href="" class="d-flex justify-content-center align-items-center">
-                                    <button class="common_button effect01">
-                                        Ask For Price
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
                 <!-- Carousel Container -->
+                @include('frontend.pages.home.rfq_modal')
             </div>
         </div>
     </section>
@@ -427,7 +380,8 @@
                                                                             @break
                                                                         @endif
                                                                         <tr>
-                                                                            <td class="text-center">{{ ++$key }}
+                                                                            <td class="text-center">
+                                                                                {{ ++$key }}
                                                                             </td>
                                                                             <td class="text-left px-2">
                                                                                 <a

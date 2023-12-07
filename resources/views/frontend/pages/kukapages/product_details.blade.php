@@ -294,11 +294,6 @@
                                 @endif
 
                             </div>
-                            {{-- <div class="col-lg-12">
-                                    <button class="btns effect02" style="max-width: 290px !important; height: 50px;"><i
-                                            class="fa-regular fa-address-book me-2"></i> </button>
-                                </div> --}}
-                            {{-- </div> --}}
                         </div>
                     </div>
                 </div>
@@ -519,7 +514,6 @@
             </div>
         </div>
     </section>
-
     {{-- History --}}
     {{-- <section>
         <div class="container mb-5">
@@ -934,14 +928,10 @@
                         </div>
                     @endforeach
                 @endif
-
             </div>
         </div>
     </div>
 </section>
-
-
-
 <!-- left modal -->
 <div class="modal modal_outer fade" id="get_quote_modal" tabindex="-1" role="dialog"
     aria-labelledby="myModalLabel2">
@@ -1187,7 +1177,4 @@
 </div>
 <!-- modal -->
 <!-- //left modal -->
-
-
-
 @endsection

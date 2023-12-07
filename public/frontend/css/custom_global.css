@@ -2879,9 +2879,13 @@ select:focus-visible {
     padding-left: 10px;
     padding-right: 10px;
 }
-
+.popular_product-button{
+    margin-top: 1.8rem;}
 .brand-bread-crumb {
-    font-size: 1.3rem;
+    font-size: 1rem;
+}
+.navigation-container{
+    width: 82%;
 }
 
 .stand-header-nav {
@@ -5337,6 +5341,9 @@ tr td:hover {
 ::placeholder {
     color: #ced4da;
     font-size: 12px;
+}
+.main_header_area{
+    height: 75px;
 }
 
 .fixed-section {
