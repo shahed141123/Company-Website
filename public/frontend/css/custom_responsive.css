@@ -44,7 +44,7 @@
         margin-bottom: 0.5rem;
         background-color: #fff;
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-        padding-top: 15px;
+        padding-top: 0px;
     }
 
     .brand-p-title {
@@ -80,9 +80,9 @@
         border-bottom: none;
     }
 
-    .page-wrapper {
+    /* .page-wrapper {
         margin-top: 5.2rem;
-    }
+    } */
 
     .custom_col-2 {
         flex: 0 0 auto;
@@ -643,15 +643,32 @@
     }
 
     .eyebrow_title {
-        margin-top: 2rem;
+        margin-top: 0rem;
         text-align: center;
-        font-size: 21px;
+        font-size: 20px;
+    }
+    .company-tab-para {
+        margin-top: 1rem;
+        font-family: "Allumi Std Extended";
+        text-align: justify;
+        font-size: 15px;
+    }
+    .brandpage_row{
+        padding-top: 1rem;
+        padding-bottom: 1.5rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        margin: 0.8rem;
+        border: 1px solid #eee;
     }
 
     .para_text {
         margin-bottom: 2rem;
     }
-
+    .company-tab-para a{
+        width: 50%;
+        margin: 5px 25%;
+    }
     .para_text a {
         display: flex;
         justify-content: center;
@@ -660,7 +677,20 @@
     .para_text h2 {
         margin-top: 0.8rem;
     }
-
+    .brandpage_bg_image{
+        height: 195px;
+    }
+    .row_left_image{
+        margin-top: 1rem;
+        max-width: 422px;
+        width: 422px;
+        height: 237px;
+    }
+    .row_right_image{
+        max-width: 422px;
+        width: 422px;
+        height: 237px;
+    }
     .text-justify-align {
         text-align: justify !important;
     }

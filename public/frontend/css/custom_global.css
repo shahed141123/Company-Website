@@ -2877,7 +2877,7 @@ select:focus-visible {
 }
 
 .brand-bread-crumb {
-    font-size: 16px;
+    font-size: 1.3rem;
 }
 
 .stand-header-nav {
@@ -2893,24 +2893,52 @@ select:focus-visible {
     padding: 10px;
 }
 
-h2.company-tab-title {
+.company-tab-title {
     margin: 0 0 10px;
-    font: 18px "Century Gothic", Verdana, sans-serif;
+    font-size: 1.6rem;
+    font-family: "Allumi Std Extended";
     color: #555;
     border-bottom: #dadbdf solid 1px;
+    line-height: 1.5;
 }
 
 .company-tab-title span {
-    /* font-size: 25px; */
     color: #4a4c4e;
     padding: 0 12px 0 12px;
-    /* background-color: #ffffff; */
     background-color: #f6f6f6;
     position: relative;
     top: 15px;
     left: 4rem;
 }
+.company-tab-para {
+    margin-top: 2rem;
+    font-family: "Allumi Std Extended";
+    text-align: justify;
+    font-size: 16px;
+}
+.eyebrow:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #4e4fa9;
+    width: calc(100% + 10px);
+    height: 4px;
+    border-radius: 5px;
+}
 
+.eyebrow_title {
+    font-family: "Allumi Std Extended";
+    text-align: start;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+.brandpage_row{
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+}
 .brandpage_product_title {
     font-size: 12px;
     color: #535659 !important;
@@ -3232,9 +3260,10 @@ h2.company-tab-title {
 .brand-page-content {
     margin-top: 1.7rem;
     margin-bottom: 1.7rem;
-    padding: 20px 0px 10px;
+    /* padding: 20px 0px 10px; */
+    padding: 0px;
     background-color: #fff;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--custom-shadow);
 }
 
 .brand-page-content-inner {
@@ -16353,22 +16382,7 @@ thead {
     padding-bottom: 5px;
 }
 
-.eyebrow:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    background-color: #4e4fa9;
-    width: calc(100% + 10px);
-    height: 4px;
-    border-radius: 5px;
-}
 
-.eyebrow_title {
-    font-family: "Allumi Std Extended";
-    /* font-family: "Klinic Slab"; */
-    text-align: start;
-}
 
 .sticky {
     position: fixed;

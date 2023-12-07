@@ -3,14 +3,16 @@
         <img src="{{ !empty($brandpage->banner_image) && file_exists(public_path('storage/' . $brandpage->banner_image)) ? asset('storage/' . $brandpage->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
             alt="">
     </div>
-    {{-- <div class="container d-lg-block d-sm-none">
+    <div class="container d-lg-block d-sm-none">
         <div class="row d-lg-flex align-items-center">
             <div class="col pt-1">
                 <ul class="d-lg-flex align-items-center brand-bread-crumb my-2">
-                    <li><i class="fa-solid fa-house-chimney me-2"></i></li>
-                    <li class="fw-bold"><a href="#">{{ $brand->title }}</a></li>
+                    <li><a href="{{route('homepage')}}"><i class="fa-solid fa-house-chimney me-2"></i></a></li>
+                    <li><a href="{{route('all.brand')}}">All Brands</a></li>
                     <li class="bread-crumb-spacer">></li>
-                    <li> {{ Route::current()->getName() == 'brand.overview' ? 'Overview' : '' }}
+                    <li><a href="#">{{ $brand->title }}</a></li>
+                    <li class="bread-crumb-spacer">></li>
+                    <li class="fw-bold"> {{ Route::current()->getName() == 'brand.overview' ? 'Overview' : '' }}
                         {{ Route::current()->getName() == 'brand.products' ? 'Products' : '' }}
                         {{ Route::current()->getName() == 'brand.pdf' ? 'Catalogs' : '' }}
                         {{ Route::current()->getName() == 'brand.content' ? 'Contents' : '' }}
@@ -23,7 +25,7 @@
                 </ul>
             </div>
         </div>
-    </div> --}}
+    </div>
 </section>
 <section class="header d-lg-block d-sm-none" id="myHeader">
     <div class="brand-page-header-container container">
