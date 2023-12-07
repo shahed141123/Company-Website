@@ -28,7 +28,7 @@
 <!--======// Header Title //======-->
 <section class="">
     <div>
-        <img src="{{ asset('frontend/images/solutions-banner.jpg') }}" alt="" class="img-fluid">
+        <img src="{{ asset('frontend/images/solutions-banner.jpg') }}" alt="" class="img-fluid page-top-banner">
         {{-- <img src="{{ asset('frontend/assets/images/solutions-banner.jpg') }}" alt="" class="img-fluid"> --}}
     </div>
 </section>
@@ -523,7 +523,7 @@
 
                 @if ($industrys)
                     @foreach ($industrys as $item)
-                        <div class="col-lg-3 col-4">
+                        <div class="col-lg-3 col-6">
                             <a href="{{ isset($item->slug) ? route('industry.details', ['id' => $item->slug]) : '' }}"
                                 class="we_serve_item mb-4">
                                 <div class="we_serve_item_image">

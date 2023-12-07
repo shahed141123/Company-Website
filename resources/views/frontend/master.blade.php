@@ -31,7 +31,6 @@
 {{-- <body onload="myFunction()"> --}}
 
 <body>
-
     <div id="loading" style="margin-top: 0rem !important"></div>
 
     <!--======// Nav Menu //========-->

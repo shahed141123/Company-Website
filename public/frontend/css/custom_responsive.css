@@ -44,6 +44,35 @@
         padding-top: 0px;
     }
 
+    .solution_contact_wrapper {
+        background-color: #252525;
+        padding: 0px 0px !important;
+    }
+    .thing_together_wrapper h5 {
+        color: #fff;
+        font-size: 25px;
+        font-family: "Klinic Slab";
+        margin-top: 29px;
+    }
+    .thing_together_wrapper h4 {
+        color: #fff;
+        font-size: 25px;
+        font-family: "Klinic Slab";
+        font-weight: 400;
+        margin-top: 30px;
+    }
+    .thing_together_wrapper p {
+        color: #fff;
+        font-size: 13px;
+        font-family: "Allumi Std Extended";
+        font-weight: 400;
+    }
+    .page-top-banner{
+        height: 130px;
+    }
+    .main_header_area {
+        height: 85px;
+    }
     .single-product-description {
         margin-top: 1rem;
     }
