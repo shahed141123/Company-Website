@@ -333,10 +333,10 @@
     </section>
     <!--======// Information block tab //======-->
     <section>
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-lg-12 p-0">
+                    <div class="card border-0">
                         <div
                             class="card-header bg-white shadow-sm main-to-depp-gradient-2 p-5 card-header-area border-top-right-r">
                             <div class="d-flex align-items-center">
@@ -345,24 +345,24 @@
                                 <h4 class="text-white">Categories</h4>
                             </div>
                         </div>
-                        <div class="card-header p-5 card-header-area border-bottom-left-r">
+                        <div class="card-header p-lg-5 p-4 card-header-area border-bottom-left-r">
                             <div class="row card-row-area">
                                 @if (!empty($categories))
                                     @foreach ($categories as $category)
-                                        <div class="col-lg-3 mb-2">
+                                        <div class="col-lg-3 col-6 mb-4">
                                             <a href="{{ route('category.html', $category->slug) }}"
                                                 style="cursor: pointer;">
-                                                <div class="p-4 shadow-sm bg-white">
-                                                    <div class="d-flex align-items-center">
+                                                <div class="p-lg-4 p-4 shadow-sm bg-white">
+                                                    <div class="d-lg-flex align-items-center">
                                                         <div class="icons_area pe-2">
-                                                            <img src="{{ asset('storage/' . $category->image) }}"
-                                                                alt="" height="60px" width="60px">
+                                                            <img class="category_icon" src="{{ asset('storage/' . $category->image) }}"
+                                                                alt="">
                                                         </div>
                                                         <div class="text_area">
                                                             {{ $category->title }}
                                                         </div>
                                                     </div>
-                                                    <div class="text_area text-end">
+                                                    <div class="text_area text-end d-lg-block d-sm-none">
                                                         <a href="{{ route('category.html', $category->slug) }}"><i
                                                                 class="fa-solid fa-plus"></i></a>
                                                     </div>
@@ -411,7 +411,7 @@
                         <div class="item">
                             <div class="row gx-4">
                                 @foreach ($brands as $brand)
-                                    <div class="col-lg-2 col-sm-12">
+                                    <div class="col-lg-2 col-4">
                                         <div class="card rounded-0 brand_img_container">
                                             <div class="card-body image_box">
                                                 <div class="brand-images">
@@ -461,7 +461,7 @@
                                             ->paginate(12);
                                     @endphp
                                     @foreach ($related_brands as $related_brand)
-                                        <div class="col-lg-2 col-sm-12">
+                                        <div class="col-lg-2 col-4">
                                             <div class="card rounded-0 brand_img_container">
                                                 <div class="card-body image_box">
                                                     <div class="brand-images">
@@ -506,28 +506,30 @@
     </div>
     <!--======// Our expert //======-->
     @if (!empty($hardware_info))
-        <section class="container mt-3 mb-5">
-            <div class="software_feature_title pb-5">
-                <h1 class="text-center w-75 mx-auto">{{ $hardware_info->row_four_title }}</h1>
-            </div>
-            <div class="row d-flex justify-content-start align-items-center">
-                <div class="col-lg-6 col-sm-6">
-                    <iframe width="545" height="330"
-                        src="{{ $hardware_info->row_four_video_link }}?autoplay=1&mute=1" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
+        <section>
+            <div class="container mt-3 mb-5 video_row">
+                <div class="software_feature_title py-lg-5 py-3">
+                    <h1 class="text-center ">{{ $hardware_info->row_four_title }}</h1>
                 </div>
-                <div class="col-lg-6 col-sm-6">
-                    <div class="home_title">
-                        <h6 class="home_title_heading text-start" style="font-size: 30px;">
-                            {{ $hardware_info->row_four_sub_title }}
-                        </h6>
-                        <p class="home_title_text text-start">
-                            {{ $hardware_info->row_four_short_description }}</p>
-                        <div class="business_seftion_button text-start pt-0">
-                            <a class="common_button2"
-                                href="{{ $hardware_info->row_four_btn_link }}">{{ $hardware_info->row_four_btn_name }}</a>
+                <div class="row d-flex justify-content-start align-items-center">
+                    <div class="col-lg-6 col-sm-6">
+                        <iframe width="100%" height="330"
+                            src="{{ $hardware_info->row_four_video_link }}?autoplay=1&mute=1" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="">
+                            <h5 class="home_title_heading w-75" style="text-align: start;">
+                                {{ $hardware_info->row_four_sub_title }}
+                            </h5>
+                            <p class="home_title_text pt-3" style="text-align: justify;">
+                                {{ $hardware_info->row_four_short_description }}</p>
+                            <div class="pt-3">
+                                <a class="common_button2"
+                                    href="{{ $hardware_info->row_four_btn_link }}">{{ $hardware_info->row_four_btn_name }}</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -538,7 +540,7 @@
     <!--======// our clint tab //======-->
 
     <!--=====// Global call section //=====-->
-    
+
     <!---------End -------->
     <!--=====// Tech solution //=====-->
     @if (count($tech_datas) > 0)
