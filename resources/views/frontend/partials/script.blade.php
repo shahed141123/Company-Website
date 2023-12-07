@@ -114,162 +114,160 @@
 
 
 <script>
-    $(document).ready(function () {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    var searchContainer = $('#search_container');
-    var path = "{{ route('global.search') }}";
-    var searchInput = $('#search_text');
-
-    searchInput.autocomplete({
-        source: function (request, response) {
-            $.ajax({
-                url: path,
-                type: "POST",
-                dataType: "json",
-                data: {
-                    // _token: "{{ csrf_token() }}",
-                    term: request.term
-                },
-                success: function (data) {
-
-                    if (searchContainer.hasClass('d-none')) {
-                        searchContainer.removeClass('d-none');
-                    }
-                    searchContainer.html(data);
-
-                }
-            });
-        },
-        minLength: 1
-    });
-
-    searchInput.on('input', function () {
-        if (searchInput.val() === '') {
-            searchContainer.addClass('d-none');
-        }
-    });
-
-    searchInput.on('keydown', function (event) {
-        if (event.keyCode === 8 && searchInput.val() === '') {
-            searchContainer.addClass('d-none');
-        }
-    });
-
-    var searchContainer = $('#mobile_search_container');
-    var path = "{{ route('global.search') }}";
-    var searchInput = $('#mobile_search_text');
-
-    searchInput.autocomplete({
-        source: function (request, response) {
-            $.ajax({
-                url: path,
-                type: "POST",
-                dataType: "json",
-                data: {
-                    // _token: "{{ csrf_token() }}",
-                    term: request.term
-                },
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function (data) {
-
-                    if (searchContainer.hasClass('d-none')) {
-                        searchContainer.removeClass('d-none');
-                    }
-                    searchContainer.html(data);
-
-                }
-            });
-        },
-        minLength: 1
-    });
-
-    searchInput.on('input', function () {
-        if (searchInput.val() === '') {
-            searchContainer.addClass('d-none');
-        }
-    });
-
-    searchInput.on('keydown', function (event) {
-        if (event.keyCode === 8 && searchInput.val() === '') {
-            searchContainer.addClass('d-none');
-        }
-    });
-
-
-    $('.add_to_cart_quantity').click(function () {
-        var id = $(this).data('id');
-        var name = $(this).data('name');
-        var quantity = $('.input-qty').val();
-        // alert(quantity);
-        var button = $('.cart_quantity_button' + id);
-        var cart_header = $('#cartQty');
-
-        var formData = {
-            product_id: id,
-            name: name,
-            qty: quantity
-        };
-
-        $.ajax({
-            url: "{{ route('cart.add') }}",
-            type: 'POST',
-            data: formData,
-            dataType: 'json',
-            success: function (response) {
-                toastr.success('Successfully Added to Your Cart');
-                cart_header.empty();
-                cart_header.append('<span class="add_cart_count">' + response
-                    .cartHeader + '</span>');
-                button.empty();
-                button.append(
-                );
-            },
-            error: function (xhr, status, error) {
-                console.error(xhr.responseText);
+    $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-    });
 
-    $('.add_to_cart').click(function () {
-        var id = $(this).data('id');
-        var name = $(this).data('name');
-        var quantity = $(this).data('quantity');
-        var button = $('.cart_button' + id);
-        var cart_header = $('#cartQty');
+        var searchContainer = $('#search_container');
+        var path = "{{ route('global.search') }}";
+        var searchInput = $('#search_text');
 
-        var formData = {
-            product_id: id,
-            name: name,
-            qty: quantity
-        };
+        searchInput.autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: path,
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        // _token: "{{ csrf_token() }}",
+                        term: request.term
+                    },
+                    success: function(data) {
 
-        $.ajax({
-            url: "{{ route('cart.add') }}",
-            type: 'POST',
-            data: formData,
-            dataType: 'json',
-            success: function (response) {
-                toastr.success('Successfully Added to Your Cart');
-                cart_header.empty();
-                cart_header.append('<span class="add_cart_count">' + response
-                    .cartHeader + '</span>');
-                button.empty();
-                button.append(
-                );
+                        if (searchContainer.hasClass('d-none')) {
+                            searchContainer.removeClass('d-none');
+                        }
+                        searchContainer.html(data);
 
+                    }
+                });
             },
-            error: function (xhr, status, error) {
-                console.error(xhr.responseText);
+            minLength: 1
+        });
+
+        searchInput.on('input', function() {
+            if (searchInput.val() === '') {
+                searchContainer.addClass('d-none');
             }
         });
-    });
+
+        searchInput.on('keydown', function(event) {
+            if (event.keyCode === 8 && searchInput.val() === '') {
+                searchContainer.addClass('d-none');
+            }
+        });
+
+        var searchContainer = $('#mobile_search_container');
+        var path = "{{ route('global.search') }}";
+        var searchInput = $('#mobile_search_text');
+
+        searchInput.autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: path,
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        // _token: "{{ csrf_token() }}",
+                        term: request.term
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(data) {
+
+                        if (searchContainer.hasClass('d-none')) {
+                            searchContainer.removeClass('d-none');
+                        }
+                        searchContainer.html(data);
+
+                    }
+                });
+            },
+            minLength: 1
+        });
+
+        searchInput.on('input', function() {
+            if (searchInput.val() === '') {
+                searchContainer.addClass('d-none');
+            }
+        });
+
+        searchInput.on('keydown', function(event) {
+            if (event.keyCode === 8 && searchInput.val() === '') {
+                searchContainer.addClass('d-none');
+            }
+        });
+
+
+        $('.add_to_cart_quantity').click(function() {
+            var id = $(this).data('id');
+            var name = $(this).data('name');
+            var quantity = $('.input-qty').val();
+            // alert(quantity);
+            var button = $('.cart_quantity_button' + id);
+            var cart_header = $('#cartQty');
+
+            var formData = {
+                product_id: id,
+                name: name,
+                qty: quantity
+            };
+
+            $.ajax({
+                url: "{{ route('cart.add') }}",
+                type: 'POST',
+                data: formData,
+                dataType: 'json',
+                success: function(response) {
+                    toastr.success('Successfully Added to Your Cart');
+                    cart_header.empty();
+                    cart_header.append('<span class="add_cart_count">' + response
+                        .cartHeader + '</span>');
+                    button.empty();
+                    button.append();
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+
+        $('.add_to_cart').click(function() {
+            var id = $(this).data('id');
+            var name = $(this).data('name');
+            var quantity = $(this).data('quantity');
+            var button = $('.cart_button' + id);
+            var cart_header = $('#cartQty');
+
+            var formData = {
+                product_id: id,
+                name: name,
+                qty: quantity
+            };
+
+            $.ajax({
+                url: "{{ route('cart.add') }}",
+                type: 'POST',
+                data: formData,
+                dataType: 'json',
+                success: function(response) {
+                    toastr.success('Successfully Added to Your Cart');
+                    cart_header.empty();
+                    cart_header.append('<span class="add_cart_count">' + response
+                        .cartHeader + '</span>');
+                    button.empty();
+                    button.append();
+
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
     });
 </script>
 
@@ -460,5 +458,113 @@
             $("#Rfquser").toggle(this.checked);
         });
 
+    });
+</script>
+
+{{-- Software Info Page --}}
+
+<script>
+    $(document).ready(function() {
+
+        var sync1 = $("#sync1");
+        var sync2 = $("#sync2");
+        var slidesPerPage = 3; //globaly define number of elements per page
+        var syncedSecondary = true;
+
+        sync1.owlCarousel({
+            items: 1,
+            slideSpeed: 2000,
+            nav: true,
+            autoplay: false,
+            // autoplayTimeout: 3000, // Adjust this value to set the interval
+            dots: true,
+            loop: true,
+            responsiveRefreshRate: 200,
+            navText: [
+                '<i class="fa-solid fa-arrow-left"></i>',
+                '<i class="fa-solid fa-arrow-right"></i>',
+            ],
+        }).on('changed.owl.carousel', syncPosition);
+
+        sync2
+            .on('initialized.owl.carousel', function() {
+                sync2.find(".owl-item").eq(0).addClass("current");
+            })
+            .owlCarousel({
+                items: slidesPerPage,
+                dots: true,
+                nav: false,
+                smartSpeed: 200,
+                slideSpeed: 500,
+                slideBy: slidesPerPage, //alternatively you can slide by 1, this way the active slide will stick to the first item in the second carousel
+                responsiveRefreshRate: 100
+            }).on('changed.owl.carousel', syncPosition2);
+
+        function syncPosition(el) {
+            //if you set loop to false, you have to restore this next line
+            //var current = el.item.index;
+
+            //if you disable loop you have to comment this block
+            var count = el.item.count - 1;
+            var current = Math.round(el.item.index - (el.item.count / 2) - .5);
+
+            if (current < 0) {
+                current = count;
+            }
+            if (current > count) {
+                current = 0;
+            }
+
+            //end block
+
+            sync2
+                .find(".owl-item")
+                .removeClass("current")
+                .eq(current)
+                .addClass("current");
+            var onscreen = sync2.find('.owl-item.active').length - 1;
+            var start = sync2.find('.owl-item.active').first().index();
+            var end = sync2.find('.owl-item.active').last().index();
+
+            if (current > end) {
+                sync2.data('owl.carousel').to(current, 100, true);
+            }
+            if (current < start) {
+                sync2.data('owl.carousel').to(current - onscreen, 100, true);
+            }
+        }
+
+        function syncPosition2(el) {
+            if (syncedSecondary) {
+                var number = el.item.index;
+                sync1.data('owl.carousel').to(number, 100, true);
+            }
+        }
+
+        sync2.on("click", ".owl-item", function(e) {
+            e.preventDefault();
+            var number = $(this).index();
+            sync1.data('owl.carousel').to(number, 300, true);
+        });
+    });
+    // {{-- for Counter --}}
+    var buttonPlus = $(".qty-btn-plus");
+    var buttonMinus = $(".qty-btn-minus");
+
+    var incrementPlus = buttonPlus.click(function() {
+        var $n = $(this)
+            .parent(".qty-container")
+            .find(".input-qty");
+        $n.val(Number($n.val()) + 1);
+    });
+
+    var incrementMinus = buttonMinus.click(function() {
+        var $n = $(this)
+            .parent(".qty-container")
+            .find(".input-qty");
+        var amount = Number($n.val());
+        if (amount > 0) {
+            $n.val(amount - 1);
+        }
     });
 </script>

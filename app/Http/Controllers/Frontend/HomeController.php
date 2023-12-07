@@ -846,7 +846,7 @@ class HomeController extends Controller
     public function globalSearch(Request $request)
     {
         $query = $request->get('term', '');
-        $data['products'] = Product::where('name', 'LIKE', '%' . $query . '%')->where('product_status', 'product')->limit(5)->get(['id', 'name', 'slug', 'thumbnail', 'price', 'discount', 'rfq', 'qty', 'stock']);
+        $data['products'] = Product::where('name', 'LIKE', '%' . $query . '%')->where('product_status', 'product')->limit(10)->get(['id', 'name', 'slug', 'thumbnail', 'price', 'discount', 'rfq', 'qty', 'stock']);
         $data['solutions'] = SolutionDetail::where('name', 'LIKE', '%' . $query . '%')->limit(5)->get(['id', 'name']);
         $data['industries'] = Industry::where('title', 'LIKE', '%' . $query . '%')->limit(5)->get(['id', 'title']);
         $data['blogs'] = Blog::where('title', 'LIKE', '%' . $query . '%')->limit(5)->get(['id', 'title']);

@@ -1,5 +1,5 @@
 <style>
-    .search_titles{
+    .search_titles {
         font-size: 17px;
         color: #ae0a46 !important;
         text-transform: capitalize;
@@ -18,6 +18,38 @@
         (is_countable($tech_glossys) && count($tech_glossys) > 0))
     <div class="card-body">
         <div class="row">
+            <div class="col-12 p-2 d-lg-none mb-3">
+                @if (count($products) > 0)
+                    <!-- First Product Start -->
+                    @foreach ($products as $product)
+                        <div class="row m-0 p-2 rounded-0  bg-white rounded-0 d-flex align-items-center"
+                            style="border-bottom: 2px solid #dee2e6;">
+                            <div class="col-2 m-0 p-0">
+                                <img class="" height="60px" width="60px" src="{{ asset($product->thumbnail) }}"
+                                    alt="{{ $product->name }}">
+                            </div>
+                            <div class="col-10 col-sm-12">
+                                <a class="search_titles"
+                                    href="{{ route('product.details', ['id' => $product->slug]) }}">
+                                    <h6 class="my-1" style="color: #ae0a46;">
+                                        {{ $product->name }}
+                                    </h6>
+                                </a>
+
+                            </div>
+
+                        </div>
+                    @endforeach
+                    <!-- First Product End -->
+                @else
+                    <div class="col-md-12 col-sm-12">
+                        <div class="row m-0 p-2 shadow-lg bg-white border rounded d-flex align-items-center">
+                            <h4 class="text-danger text-center">No Product Found. Search again.
+                            </h4>
+                        </div>
+                    </div>
+                @endif
+            </div>
             <div class="col-lg-6">
                 <div class="row">
                     @if (is_countable($brands) && count($brands) > 0)
@@ -105,7 +137,7 @@
                     </div>
                 @endif
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 d-lg-block d-sm-none">
                 @if (count($products) > 0)
                     <!-- First Product Start -->
                     @foreach ($products as $product)

@@ -2,12 +2,14 @@
 @media only screen and (max-width: 576px) {
 
     /* Styles for screens up to 576 pixels wide */
-    .text-sm-center{
+    .text-sm-center {
         text-align: center;
     }
-    .align-items-sm-center{
+
+    .align-items-sm-center {
         text-align: center;
     }
+
     .my-sm-3 {
         margin-top: 1rem !important;
         margin-bottom: 1rem !important;
@@ -26,41 +28,50 @@
         display: flex;
         justify-content: center;
     }
-    .single-product-container{
+
+    .single-product-container {
         padding: 0px;
     }
-    .single-product-details{
+
+    .single-product-details {
         padding: 10px;
     }
+
     .need_help {
         display: inline-block;
         color: #666666;
         text-align: center;
         padding-top: 0px;
     }
-    .single-product-description{
+
+    .single-product-description {
         margin-top: 1rem;
     }
-    .brand-product-btn{
+
+    .brand-product-btn {
         font-size: 14px;
-    width: 100%;
-    padding: 10px;
+        width: 100%;
+        padding: 10px;
     }
-    .need_help h6{
+
+    .need_help h6 {
         font-size: 12px;
     }
+
     .brand-page-header-container {
         width: auto;
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
         padding: 0px 10px;
         background-color: #fff;
     }
-    .custom-col-5{
+
+    .custom-col-5 {
         width: 100%;
         flex: 0 0 auto;
         position: relative;
         left: -2px;
     }
+
     .mobile-brand-page-header-container {
         width: auto;
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
@@ -351,10 +362,6 @@
         border-bottom: 4px solid #ae0a46 !important;
     }
 
-    .home_title_heading {
-        text-align: center !important;
-    }
-
     .tabs_title {
         text-align: center !important;
     }
@@ -398,7 +405,8 @@
         margin-bottom: 0.8rem;
         font-size: 17px;
     }
-    .title-tag:after{
+
+    .title-tag:after {
         width: 100%;
     }
 
@@ -676,13 +684,15 @@
         text-align: center;
         font-size: 20px;
     }
+
     .company-tab-para {
         margin-top: 1rem;
         font-family: "Allumi Std Extended";
         text-align: justify;
         font-size: 15px;
     }
-    .brandpage_row{
+
+    .brandpage_row {
         padding-top: 1rem;
         padding-bottom: 1.5rem;
         padding-right: 1rem;
@@ -694,10 +704,12 @@
     .para_text {
         margin-bottom: 2rem;
     }
-    .company-tab-para a{
+
+    .company-tab-para a {
         width: 50%;
         margin: 5px 25%;
     }
+
     .para_text a {
         display: flex;
         justify-content: center;
@@ -706,20 +718,24 @@
     .para_text h2 {
         margin-top: 0.8rem;
     }
-    .brandpage_bg_image{
+
+    .brandpage_bg_image {
         height: 195px;
     }
-    .row_left_image{
+
+    .row_left_image {
         margin-top: 1rem;
         max-width: 422px;
         width: 422px;
         height: 237px;
     }
-    .row_right_image{
+
+    .row_right_image {
         max-width: 422px;
         width: 422px;
         height: 237px;
     }
+
     .text-justify-align {
         text-align: justify !important;
     }
@@ -799,6 +815,28 @@
         padding: 0px 5%;
     }
 
+    .card-row-area {
+        margin-top: -1.8rem;
+        --bs-gutter-x: 0.5rem;
+    }
+
+    .category_icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .video_row {
+        /* margin: 0.8rem; */
+        border: 1px solid #eee;
+        padding: 1rem 0.5rem;
+        text-align: center;
+    }
+
+    .text_area {
+        height: 3rem;
+        line-height: 1.2;
+    }
+
     .slider_inage img {
         width: 100%;
         object-fit: fill;
@@ -838,15 +876,26 @@
         background: var(--primaryColor);
         transition: all 0.3s linear;
     }
-
+    .software_feature_title h1{
+        font-size: 23px;
+        line-height: 1.3;
+    }
     .home_title_heading {
         font-family: "Klinic Slab";
         font-size: 20px;
+        width: 100% !important;
         color: var(--heading);
         font-weight: 600;
         margin-top: 10px;
         margin-bottom: 12px;
         line-height: 1.2;
+        text-align: center !important;
+    }
+    .home_title_text {
+        line-height: 1.5;
+    }
+    .home_title_text {
+        text-align: center !important;
     }
 
     .home_banner_bt-title {
@@ -879,6 +928,19 @@
         margin-bottom: 2rem;
     }
 
+    .hover_content_title {
+        font-size: 17px;
+        margin-right: 0px;
+    }
+
+    .hover img {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 0.3s;
+        height: 300px;
+    }
     .product_brand {
         display: flex;
         justify-content: center !important;
@@ -979,9 +1041,7 @@
         width: 30% !important;
     }
 
-    .home_title_text {
-        text-align: center !important;
-    }
+
 
     .footer_link_text {
         font-family: "Allumi Std Extended";
@@ -1074,10 +1134,6 @@
     #myform {
         display: flex;
         justify-content: center;
-    }
-
-    .home_title_text {
-        text-align: center !important;
     }
 
     .footer_nav_list ul {
