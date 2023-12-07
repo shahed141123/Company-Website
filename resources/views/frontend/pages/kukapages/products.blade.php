@@ -1,17 +1,12 @@
 @extends('frontend.master')
 @section('content')
-    <style>
-        .company-tab-title span {
-            background-color: #f6f6f6
-        }
-    </style>
     @include('frontend.pages.kukapages.partial.page_header')
     <section class="header" id="myHeader">
-        <div class="container mb-5 pb-3">
-            <div class="row mt-4">
+        <div class="container">
+            <div class="row pt-3">
                 <div class="col-lg-12">
-                    <h2 class="company-tab-title">
-                        <span>All {{ ucfirst($brand->title) }} Products</span>
+                    <h2 class="company-tab-title-products ps-2">
+                        <span>All <strong class="fw-normal" style="color: #A80B6E;">{{ ucfirst($brand->title) }}</strong> Products</span>
                     </h2>
                 </div>
             </div>
@@ -20,15 +15,14 @@
                     <i class="fa fa-spinner fa-spin text-success"></i> Loading...
                 </div>
                 @include('frontend.pages.kukapages.partial.product_pagination')
-
             </div>
         </div>
         @foreach ($industries as $industry)
             @if (count($industry->products) > 0)
                 <div class="container mb-5 pb-3">
                     <div class="row mt-4">
-                        <div class="col-lg-12">
-                            <h2 class="company-tab-title">
+                        <div class="col-lg-12 p-0">
+                            <h2 class="company-tab-title-products">
                                 <span style="font-size: 20px;">{{ ucfirst($brand->title) }} Products for
                                     {{ ucfirst($industry->title) }} Industry</span>
                             </h2>
@@ -36,7 +30,7 @@
                     </div>
                     <div class="row mt-2">
                         @foreach ($industry->products as $product)
-                            <div class="custom-col-5 col-sm-6 col-md-4 px-4 mb-4">
+                            <div class="custom-col-5 col-md-4 col-sm-12">
                                 <div class="card rounded-0" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
                                     <div class="card-body" style="height:22rem;">
                                         {{-- <div class="new-video">
@@ -78,7 +72,7 @@
                 <div class="container mb-5 pb-3">
                     <div class="row mt-4">
                         <div class="col-lg-12">
-                            <h2 class="company-tab-title">
+                            <h2 class="company-tab-title-products">
                                 <span style="font-size: 20px;">{{ ucfirst($brand->title) }} Products for
                                     {{ ucfirst($solution->name) }} Industry</span>
                             </h2>
@@ -87,7 +81,7 @@
                     <div class="row mt-2">
                         asdasdasdasdasd
                         @foreach ($solution->products as $product)
-                            <div class="custom-col-5 col-sm-6 col-md-4 px-4 mb-3">
+                            <div class="custom-col-5 col-sm-6 col-md-4 px-4">
                                 <div class="card rounded-0" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
                                     <div class="card-body" style="height:22rem;">
                                         {{-- <div class="new-video">
@@ -125,13 +119,13 @@
     </section>
 
     <section>
-        <div class="container mb-3 related_search_card">
+        <div class="container related_search_card">
             <div class="row">
                 <div class="col">
                     <div class="p-2">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h2 class="company-tab-title">
+                                <h2 class="company-tab-title-products">
                                     <span style="font-size: 20px; background-color: #eeeeee;">Related Searches</span>
                                 </h2>
                             </div>
@@ -139,7 +133,7 @@
                         <div class="container">
                             <div class="row py-3">
                                 @foreach ($related_search['categories'] as $related_category)
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3 p-0">
                                         <a href="{{ route('category.html', $related_category->slug) }}"
                                             class="related_search_links"><i
                                                 class="fa-solid fa-angles-right text-danger"></i>
@@ -147,7 +141,7 @@
                                     </div>
                                 @endforeach
                                 @foreach ($related_search['brands'] as $related_brand)
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3 p-0">
                                         <a href="{{ route('brand.overview', $related_brand->slug) }}"
                                             class="related_search_links"><i
                                                 class="fa-solid fa-angles-right text-danger"></i>
@@ -156,7 +150,7 @@
                                 @endforeach
                                 @foreach ($related_search['solutions'] as $related_solution)
                                     @if (!empty($related_solution->slug))
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-3 p-0">
                                             <a href="{{ route('solution.details', $related_solution->slug) }}"
                                                 class="related_search_links"><i
                                                     class="fa-solid fa-angles-right text-danger"></i>
@@ -167,7 +161,7 @@
                                 @endforeach
                                 @foreach ($related_search['industries'] as $related_industry)
                                     @if (!empty($related_industry->slug))
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-3 p-0">
                                             <a href="{{ route('industry.details', $related_industry->slug) }}"
                                                 class="related_search_links"><i
                                                     class="fa-solid fa-angles-right text-danger"></i>

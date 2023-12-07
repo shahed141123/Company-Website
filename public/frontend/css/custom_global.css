@@ -314,6 +314,10 @@ a:hover {
     display: flex;
     justify-content: end !important;
 }
+.img_gallery_wrapper{
+    display: flex;
+    justify-content: center;
+}
 
 .business_seftion_button {
     padding-top: 1.8rem;
@@ -2901,14 +2905,17 @@ h2.company-tab-title {
 }
 
 .company-tab-title span {
-    /* font-size: 25px; */
     color: #4a4c4e;
     padding: 0 12px 0 12px;
-    /* background-color: #ffffff; */
-    background-color: #f6f6f6;
     position: relative;
-    top: 15px;
+    background-color: white;
+    top: 12px;
     left: 4rem;
+}
+.company-tab-title-products span {
+    color: #4a4c4e;
+    position: relative;
+    font-size: 25px;
 }
 
 .brandpage_product_title {
@@ -3339,9 +3346,14 @@ h2.company-tab-title {
     overflow: hidden;
     width: 100%;
     display: block;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px -3px 3px;
+    box-shadow: var(--custom-shadow);
 }
 
+.element-brands-logo{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
 .brand-sub-image {
     display: flex;
     height: 30px;
@@ -12269,17 +12281,6 @@ switch input:checked+.slider {
 .single_product_images {
     padding: 10px 20px;
 }
-
-.img_gallery_wrapper {
-    margin-top: 50px;
-}
-
-.geeks:hover {
-    transform: scale(1.1);
-    transition: 0.5s;
-    cursor: crosshair;
-}
-
 .img_gallery_wrapper img {
     width: 100px;
     opacity: 0.5;
@@ -12451,7 +12452,7 @@ switch input:checked+.slider {
 .need_help {
     display: inline-block;
     color: #666666;
-    text-align: center;
+    text-align: end;
 }
 
 .product_your_purchase {
@@ -16298,6 +16299,14 @@ thead {
 /* All Software end */
 
 /* Kuka Page Design Start */
+.brand_prduct{
+    padding-left: 20px !important;
+    padding-bottom: 30px !important;
+}
+.custom-col-5{
+    width: 20%;
+    flex: 0 0 auto;
+}
 .slick-slider .element {
     height: 480px;
     background-color: #000;
