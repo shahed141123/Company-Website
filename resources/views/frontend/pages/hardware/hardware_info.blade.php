@@ -234,6 +234,104 @@
         </div>
     </section>
     <!--======// Feature tab //======-->
+
+
+    <!--======// Information block tab //======-->
+    <section>
+        <div class="container">
+            <div class="row gx-3">
+                <div class="col-lg-8">
+                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="animated-image parbase section">
+                                    <div id="solution_image_1">
+                                        <img src="{{ isset($hardware_info->row_six_image) && file_exists(public_path('storage/' . $hardware_info->row_six_image)) ? asset('storage/' . $hardware_info->row_six_image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                            alt="{{$hardware_info->row_six_title}}"
+                                            title="Software Information NGENIT" class="img-fluid"
+                                            style="background-color: rgb(212,208,202);">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3>
+                                    <span
+                                        style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($hardware_info->row_six_title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($hardware_info->row_six_title, 1) }}
+                                </h3>
+                                <p class="software-info-paragraph" style="text-align: justify;">
+                                    {!! $hardware_info->row_six_short_description !!}
+                                </p>
+                                @if (!empty($hardware_info->row_six_btn_name))
+                                    <a href="{{ $hardware_info->row_six_btn_link }}"
+                                        class="common_button2 effect02">{{ $hardware_info->row_six_btn_name }}</a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if ($tab_one)
+                    <div class="col-lg-4">
+                        <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                            <div class="row align-items-center">
+                                <div class="col-lg-12">
+                                    @if (isset($tab_one->image) && file_exists(public_path('storage/' . $tab_one->image)))
+                                        <div>
+                                            <img class="pb-4" width="80px"
+                                                src="{{ asset('storage/' . $tab_one->image) }}" alt="">
+                                        </div>
+                                    @endif
+                                    <h1 class="software-info-title">
+                                        <span
+                                            style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tab_one->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tab_one->title, 1) }}
+                                    </h1>
+                                    <p class="software-info-paragraph" style="text-align: justify;">
+                                        {!! Str::words($tab_one->description, 55, $end = '...') !!}
+
+                                    </p>
+                                    @if (!empty($tab_one->btn_name))
+                                        <a href="{{ $tab_one->link }}"
+                                            class="common_button2 effect02">{{ $tab_one->btn_name }}</a>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            </div>
+            <div class="row gx-3 mt-3 mb-5">
+                @if ($tabIds)
+                    @foreach ($tabIds as $tabId)
+                        <div class="col-lg-4">
+                            <div class="p-5" style="background-color:#f7f6f5!important; min-height: 465px;">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-12">
+                                        @if (isset($tabId->image) && file_exists(public_path('storage/' . $tabId->image)))
+                                            <div>
+                                                <img class="pb-4" width="80px"
+                                                    src="{{ asset('storage/' . $tabId->image) }}" alt="">
+                                            </div>
+                                        @endif
+                                        <h1 class="software-info-title">
+                                            <span
+                                                style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tabId->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tabId->title, 1) }}
+                                        </h1>
+                                        <p class="software-info-paragraph" style="text-align: justify;">
+                                            {!! \Illuminate\Support\Str::words($tabId->description, 55, $end = '.') !!}
+                                        </p>
+                                        @if (!empty($tabId->btn_name))
+                                            <a href="{{ $tabId->link }}"
+                                                class="common_button2 effect02">{{ $tabId->btn_name }}</a>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+    </section>
+    <!--======// Information block tab //======-->
     <section>
         <div class="container mt-5">
             <div class="row">
@@ -438,135 +536,9 @@
     @endif
     <!---------End -------->
     <!--======// our clint tab //======-->
-    @if (!empty($hardware_info))
-        <section class="clint_tab_section">
-            <div class="container">
-                <div class="clint_tab_content pb-3">
-                    <!-- home title -->
-                    <div class="home_title mt-3">
-                        <div class="software_feature_title">
-                            <h1 class="text-center">{{ $hardware_info->row_five_title }}</h1>
-                        </div>
-                        <p class="home_title_text">
-                            {!! $hardware_info->row_five_short_description !!}
-                        </p>
-                    </div>
-                    <!-- Client Tab Start -->
-                    <div class="row">
-                        @if (!empty($tab_one))
-                            <div class="col-xs-12 ">
-                                <nav>
-                                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                        <a class="nav-item nav-link active" id="nav-healthcare" data-toggle="tab"
-                                            href="#nav-home" role="tab" aria-controls="nav-home"
-                                            aria-selected="true">{{ $tab_one->title }}</a>
-                                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
-                                            href="#nav-profile" role="tab" aria-controls="nav-profile"
-                                            aria-selected="false">{{ $tab_two->title }}</a>
-                                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
-                                            href="#nav-contact" role="tab" aria-controls="nav-contact"
-                                            aria-selected="false">{{ $tab_three->title }}</a>
-                                        <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab"
-                                            href="#nav-about" role="tab" aria-controls="nav-about"
-                                            aria-selected="false">{{ $tab_four->title }}</a>
-                                    </div>
-                                </nav>
-                                <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                        aria-labelledby="nav-healthcare">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                                <div class="tab_side_image p-0">
-                                                    <img src="{{ asset('storage/' . $tab_one->image) }}"
-                                                        alt="{{ $tab_one->title }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8 col-md-6 col-sm-12">
-                                                <h5 class="home_title_heading" style="text-align: left;">
-                                                    {{ $tab_one->title }} </h5>
-                                                <p>{!! $tab_one->description !!}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                        aria-labelledby="nav-profile-tab">
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                                <div class="tab_side_image p-0">
-                                                    <img src="{{ asset('storage/' . $tab_two->image) }}"
-                                                        alt="{{ $tab_two->title }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8 col-md-6 col-sm-12">
-                                                <h5 class="home_title_heading" style="text-align: left;">
-                                                    {{ $tab_two->title }} </h5>
-                                                <p>{!! $tab_two->description !!}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="nav-contact" role="tabpanel"
-                                        aria-labelledby="nav-contact-tab">
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                                <div class="tab_side_image p-0">
-                                                    <img src="{{ asset('storage/' . $tab_three->image) }}"
-                                                        alt="{{ $tab_three->title }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8 col-md-6 col-sm-12">
-                                                <h5 class="home_title_heading" style="text-align: left;">
-                                                    {{ $tab_three->title }} </h5>
-                                                <p>{!! $tab_three->description !!}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="nav-about" role="tabpanel"
-                                        aria-labelledby="nav-about-tab">
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                                <div class="tab_side_image p-0">
-                                                    <img src="{{ asset('storage/' . $tab_four->image) }}"
-                                                        alt="{{ $tab_four->title }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8 col-md-6 col-sm-12">
-                                                <h5 class="home_title_heading" style="text-align: left;">
-                                                    {{ $tab_four->title }} </h5>
-                                                <p>{!! $tab_four->description !!}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                    </div>
-                    <!-- Client Tab End -->
-                </div>
-            </div>
-        </section>
-    @endif
+
     <!--=====// Global call section //=====-->
-    @if (!empty($hardware_info))
-        <section class="global_call_section section_padding">
-            <div class="container">
-                <!-- content -->
-                <div class="global_call_section_content my-3">
-                    <div class="home_title" style="width: 100%; margin: 0px;">
-                        <h5 class="home_title_heading" style="text-align: left; color: #fff;">
-                            <span>{{ \Illuminate\Support\Str::substr($hardware_info->row_six_title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($hardware_info->row_six_title, 1) }}
-                        </h5>
-                        <p class="home_title_text text-white" style="text-align: left;">{!! $hardware_info->row_six_short_description !!}</p>
-                        @if (!empty($hardware_info->row_six_btn_name))
-                            <div class="business_seftion_button" style="text-align: left;">
-                                <a
-                                    href="{{ $hardware_info->row_six_btn_link }}">{{ $hardware_info->row_six_btn_name }}</a>
-                            </div>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
+    
     <!---------End -------->
     <!--=====// Tech solution //=====-->
     @if (count($tech_datas) > 0)

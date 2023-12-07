@@ -611,7 +611,6 @@
                     innovative experiences.
                 </p>
             </div>
-            asdasd
         </div>
     </div>
 </section>
