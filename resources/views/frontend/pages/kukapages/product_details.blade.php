@@ -1,34 +1,5 @@
 @extends('frontend.master')
 @section('content')
-    <style>
-        /* Slider Need Here */
-        .slick-slider .element-brands {
-            height: 480px;
-            color: #fff;
-            border-radius: 5px;
-            display: inline-block;
-            margin: 0px 10px;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            font-size: 20px;
-        }
-
-        .slick-slider .slick-disabled {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .element-brands {
-            margin-right: 20px !important;
-        }
-    </style>
     @include('frontend.pages.kukapages.partial.page_header')
 
 
@@ -40,7 +11,7 @@
                     <div class="col-lg-6 col-sm-12 single_product_images">
                         <!-- gallery pic -->
                         <div class="mx-auto d-block">
-                            <img id="expand" class="geeks img-fluid rounded mx-auto d-block"
+                            <img id="expand" class="geeks img-fluid mx-auto d-block w-100"
                                 src="{{ asset($sproduct->thumbnail) }}">
                         </div>
                         @php
@@ -49,7 +20,7 @@
 
                         <div class="img_gallery_wrapper row pt-1">
                             @foreach ($imgs as $data)
-                                <div class="col-3">
+                                <div class="col-2 p-1">
                                     <img class="img-fluid" src="{{ asset($data->photo) }}" onclick="gfg(this);">
                                 </div>
                             @endforeach
@@ -57,7 +28,7 @@
                     </div>
 
                     <div class="col-lg-6 col-sm-12 col-xs-12">
-                        <div class="single-product-details pt-3">
+                        <div class="single-product-details pt-2">
                             <h4>{{ $sproduct->name }}</h4>
                             <ul class="d-flex align-items-center p-1">
                                 <li class="me-1">
@@ -73,8 +44,8 @@
                                             class="fa-solid fa-tag me-1 single-bp-tag"></i>{{ $sproduct->product_code }}</p>
                                 </li>
                             </ul>
-                            <div class="row p-2">
-                                {!! $sproduct->short_desc !!}
+                            <div class="row">
+                                <p class="p-0">{!! $sproduct->short_desc !!}</p>
                             </div>
                             <div class="row d-flex align-items-center gx-0">
                                 <div class="col-sm-4">
@@ -88,52 +59,100 @@
                             </div>
 
                             {{-- <div class="row mt-5"> --}}
-                            <div class="row product_quantity_wraper justify-content-between mt-5"
+                            <div class="row product_quantity_wraper justify-content-between"
                                 style="background-color: transparent !important;">
                                 @if ($sproduct->rfq == 1)
-                                    <div class="row justify-content-between align-items-center">
-                                        {{-- <a class="common_button" href="{{route('contact')}}">Call Ngen It for price</a> --}}
-                                        <div class="need_help col-lg-5 col-sm-12">
-                                            <button class="common_button" id="modal_view_left" data-toggle="modal"
-                                                data-target="#get_quote_modal" style="width: 100%;">Ask For Price</button>
+                                    <div class="d-lg-block d-sm-none p-0">
+                                        <div class="row justify-content-between align-items-center p-0">
+                                            {{-- <a class="common_button" href="{{route('contact')}}">Call Ngen It for price</a> --}}
+                                            <div class="need_help col-lg-6 col-sm-6">
+                                                <button class="common_button" id="modal_view_left" data-toggle="modal"
+                                                    data-target="#get_quote_modal" style="width: 100%;">Ask For
+                                                    Price</button>
+                                            </div>
+                                            <div class="need_help col-lg-6 col-sm-6">
+                                                <h6>Need Help Ordering?</h6>
+                                                <h6>Call <strong>{{ App\Models\Admin\Setting::first()->mobile }}</strong>
+                                                </h6>
+                                            </div>
                                         </div>
-                                        <div class="need_help col-lg-7 col-sm-12">
-                                            <h6 class="m-2">Need Help Ordering?</h6>
-                                            <h6>Call <strong>{{ App\Models\Admin\Setting::first()->mobile }}</strong>
-                                            </h6>
+                                        <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-3 px-4"
+                                            style="width:100%; background: #f4efe4;">
+                                            <div class="stock-info">
+                                                <p tabindex="0" class="prod-stock mb-0"
+                                                    id="product-avalialability-by-warehouse">
+                                                    <span aria-label="Stock Availability" class="js-prod-available"> <i
+                                                            class="fa fa-info-circle text-success"></i> Stock</span> <br>
+                                                    @if ($sproduct->qty > 0)
+                                                        <span class="text-success"
+                                                            style="font-size:17px">{{ $sproduct->qty }}
+                                                            in stock</span>
+                                                    @else
+                                                        <span class="text-danger pb-2"
+                                                            style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>
+                                                    @endif
+                                                </p>
+                                            </div>
+                                            <div class="text-end">
+                                                <p class="list_price mb-0">Custom Pricing</p>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#askProductPrice">
+                                                    <span class="fw-bold" style="color: #ae0a46;">Get A Quote</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-2 px-4"
-                                        style="width:100%; background: #f4efe4;">
-                                        <div class="stock-info">
-                                            <p tabindex="0" class="prod-stock mb-0"
-                                                id="product-avalialability-by-warehouse">
-                                                <span aria-label="Stock Availability" class="js-prod-available"> <i
-                                                        class="fa fa-info-circle text-success"></i> Stock</span> <br>
-                                                @if ($sproduct->qty > 0)
-                                                    <span class="text-success" style="font-size:17px">{{ $sproduct->qty }}
-                                                        in stock</span>
-                                                @else
-                                                    <span class="text-danger pb-2"
-                                                        style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>
-                                                @endif
-                                            </p>
-                                        </div>
+                                    <div class="d-lg-none d-sm-block p-0">
                                         <div>
-                                            <p class="list_price mb-0 me-3">Custom Pricing</p>
-                                            <a href="" data-bs-toggle="modal" data-bs-target="#askProductPrice">
-                                                <span class="fw-bold" style="color: #ae0a46;">Get A Quote</span>
-                                            </a>
+                                            <div class="row justify-content-between align-items-center p-0">
+                                                {{-- <a class="common_button" href="{{route('contact')}}">Call Ngen It for price</a> --}}
+                                                <div class="need_help col-6">
+                                                    <button class="common_button brand-product-btn" id="modal_view_left"
+                                                        data-toggle="modal" data-target="#get_quote_modal"
+                                                        style="width: 100%;">Ask For Price</button>
+                                                </div>
+                                                <div class="need_help col-6 p-0">
+                                                    <h6>Need Help Ordering?</h6>
+                                                    <h6>Call
+                                                        <strong>{{ App\Models\Admin\Setting::first()->mobile }}</strong>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-3 px-4"
+                                                style="width:100%; background: #f4efe4;">
+                                                <div class="stock-info">
+                                                    <p tabindex="0" class="prod-stock mb-0"
+                                                        id="product-avalialability-by-warehouse">
+                                                        <span aria-label="Stock Availability" class="js-prod-available"> <i
+                                                                class="fa fa-info-circle text-success"></i> Stock</span>
+                                                        <br>
+                                                        @if ($sproduct->qty > 0)
+                                                            <span class="text-success"
+                                                                style="font-size:17px">{{ $sproduct->qty }}
+                                                                in stock</span>
+                                                        @else
+                                                            <span class="text-danger pb-2"
+                                                                style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                                <div class="text-end">
+                                                    <p class="list_price mb-0">Custom Pricing</p>
+                                                    <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#askProductPrice">
+                                                        <span class="fw-bold" style="color: #ae0a46;">Get A Quote</span>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 @elseif ($sproduct->price_status && $sproduct->price_status == 'rfq')
                                     <div class="row justify-content-between align-items-center">
                                         {{-- <a class="common_button" href="{{route('contact')}}">Call Ngen It for price</a> --}}
-                                        <div class="need_help col-lg-5 col-sm-12">
+                                        <div class="need_help col-lg-5 col-sm-12 p-0">
                                             <button class="common_button" id="modal_view_left" data-toggle="modal"
                                                 data-target="#get_quote_modal" style="width: 100%;">Ask For Price</button>
                                         </div>
-                                        <div class="need_help col-lg-7 col-sm-12">
+                                        <div class="need_help col-lg-7 col-sm-12 p-0">
                                             <h6 class="m-2">Need Help Ordering?</h6>
                                             <h6>Call <strong>{{ App\Models\Admin\Setting::first()->mobile }}</strong>
                                             </h6>
@@ -147,7 +166,8 @@
                                                 <span aria-label="Stock Availability" class="js-prod-available"> <i
                                                         class="fa fa-info-circle text-success"></i> Stock</span> <br>
                                                 @if ($sproduct->qty > 0)
-                                                    <span class="text-success" style="font-size:17px">{{ $sproduct->qty }}
+                                                    <span class="text-success"
+                                                        style="font-size:17px">{{ $sproduct->qty }}
                                                         in stock</span>
                                                 @else
                                                     <span class="text-danger pb-2"
@@ -288,7 +308,7 @@
                 <div class="row ">
                     <div class="col-lg-6">
                         <div class="single-product-description" style="font-size: 14px;">
-                            <h2 class="description-title">Overview</h2>
+                            <h2 class="description-title fw-bold">Overview</h2>
                             <div class="container pb-3">
                                 <div class="row ps-2">
                                     <div class="col-lg-12 pe-0">
@@ -304,7 +324,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="single-product-description " style="font-size: 14px;">
-                            <h2 class="description-title">Specification</h2>
+                            <h2 class="description-title fw-bold">Specification</h2>
                             <div class="container pb-3 specification-areas-brand">
                                 @if (!empty($sproduct->specification))
                                     <div class="row gx-1 px-2">
@@ -331,7 +351,7 @@
                 @if (!empty($sproduct->accessories))
                     <div class="col-lg-6">
                         <div class="single-product-description" style="font-size: 14px;">
-                            <h2 class="description-title">Accessories</h2>
+                            <h2 class="description-title fw-bold">Accessories</h2>
                             <div class="container pb-3">
                                 <div class="row ps-2">
                                     <div class="col-lg-12 pe-0">
@@ -358,7 +378,7 @@
                     @if (count($documents) > 4)
                         <div class="col-lg-6">
                             <div class="single-product-description " style="font-size: 14px;">
-                                <h2 class="description-title">Video</h2>
+                                <h2 class="description-title fw-bold">Video</h2>
                                 <div class="container pb-3 mt-3 video-areas-brand">
                                     <iframe class="responsive-iframe" src="https://www.youtube.com/embed/tgbNymZ7vqY"
                                         style="width: 100%;height: 228px;"></iframe>
@@ -369,17 +389,19 @@
                     @if (count($documents) > 0)
                         <div class="col-lg-6">
                             <div class="single-product-description" style="font-size: 14px;">
-                                <h2 class="description-title">CATALOGS</h2>
+                                <h2 class="description-title fw-bold">CATALOGS</h2>
                                 <div class="container pb-3">
                                     <div class="row mt-3">
                                         @foreach ($documents as $document)
                                             <div class="col-lg-6">
                                                 <div>
-                                                    <embed class="pdf_image" src="{{asset('storage/files/'.$document->document)}}" width="100%" height="175px" />
+                                                    <embed class="pdf_image"
+                                                        src="{{ asset('storage/files/' . $document->document) }}"
+                                                        width="100%" height="175px" />
                                                     {{-- <img src=""
                                                         height="175px" width="100%" alt=""> --}}
                                                     <div class="catalog-details text-center">
-                                                        <p class="m-0 p-1">{{$document->title}}</p>
+                                                        <p class="m-0 p-1">{{ $document->title }}</p>
                                                         {{-- <p class="p-1 m-0">2 Pages</p> --}}
                                                     </div>
                                                 </div>
@@ -402,9 +424,9 @@
                         @if (count($products) > 0)
                             @foreach ($products as $product)
                                 <div class="custom-col-5 col-sm-6 col-md-4 px-4">
-                                    <div class="card rounded-0"
-                                        style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
-                                        <div class="card-body" style="height:22rem;">
+                                    <div class="card rounded-0 border-0 m-2">
+                                        <div class="card-body"
+                                            style="height:22rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                                             {{-- <div class="new-video">
                                                 <div class="icon-small video"></div>
                                             </div> --}}
@@ -448,8 +470,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     {{-- <h4 class="text-muted">Other {{ $sproduct->getBrandName() }} Products</h4> --}}
-                    <h2 class="company-tab-title mb-5 ps-0 bg-transparent fw-bold text-muted">
-                        <span style="font-size: 24px;">Other {{ $sproduct->getBrandName() }} Products</span>
+                    <h2 class="company-tab-title mb-5 ps-0">
+                        <span style="font-size: 20px;">Other {{ $sproduct->getBrandName() }} Products</span>
                     </h2>
                 </div>
                 <div class="col-lg-12">
@@ -457,9 +479,9 @@
                         @if (count($brand_products) > 0)
                             @foreach ($brand_products as $brand_product)
                                 <div class="custom-col-5 col-sm-6 col-md-4 px-4">
-                                    <div class="card rounded-0"
-                                        style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
-                                        <div class="card-body" style="height:22rem;">
+                                    <div class="card rounded-0 border-0 m-2">
+                                        <div class="card-body"
+                                            style="height:22rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                                             {{-- <div class="new-video">
                                                 <div class="icon-small video"></div>
                                             </div> --}}
@@ -836,7 +858,7 @@
     </section> --}}
     {{-- Related Search --}}
     <section>
-        <div class="container mb-3 related_search_card">
+        <div class="container related_search_card">
             <div class="row">
                 <div class="col">
                     <div class="p-2">
@@ -905,8 +927,9 @@
                     @foreach ($related_search['brands'] as $brand_logo)
                         <div class="element-brands-logo">
                             <a href="">
-                                <img src="{{ asset('storage/' . $brand_logo->image) }}"
-                                    alt="{{ $brand_logo->title }}" width="100px" height="60px">
+                                <img width="100px" height="60px"
+                                    src="{{ !empty($brand_logo->image) && file_exists(public_path('storage/' . $brand_logo->image)) ? asset('storage/' . $brand_logo->image) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}"
+                                    alt="{{ $brand_logo->title }}">
                             </a>
                         </div>
                     @endforeach
@@ -1167,186 +1190,4 @@
 
 
 
-@endsection
-@section('scripts')
-<script>
-    $(document).ready(function(){
-        $(".slick-slider").slick({
-            slidesToShow: 4,
-            infinite: false,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            responsive: [
-                {
-                    breakpoint: 768, // Breakpoint for mobile devices
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        // You can adjust other settings for mobile devices here
-                    }
-                }
-            ]
-            // dots: false, Boolean
-            // arrows: false, Boolean
-        });
-    });
-</script>
-<script>
-    $(".slick-slider-brand-logo").slick({
-        slidesToShow: 7,
-        infinite: false,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000
-        // dots: false, Boolean
-        // arrows: false, Boolean
-    });
-</script>
-<script>
-    if ($('.product__slider-main').length) {
-        var $slider = $('.product__slider-main')
-            .on('init', function(slick) {
-                $('.product__slider-main').fadeIn(1000);
-            })
-            .slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: true,
-                autoplay: true,
-                lazyLoad: 'ondemand',
-                autoplaySpeed: 3000,
-                asNavFor: '.product__slider-thmb'
-            });
-
-        var $slider2 = $('.product__slider-thmb')
-            .on('init', function(slick) {
-                $('.product__slider-thmb').fadeIn(1000);
-            })
-            .slick({
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                lazyLoad: 'ondemand',
-                asNavFor: '.product__slider-main',
-                dots: false,
-                centerMode: false,
-                focusOnSelect: true
-            });
-
-        //remove active class from all thumbnail slides
-        $('.product__slider-thmb .slick-slide').removeClass('slick-active');
-
-        //set active class to first thumbnail slides
-        $('.product__slider-thmb .slick-slide').eq(0).addClass('slick-active');
-
-        // On before slide change match active thumbnail to current slide
-        $('.product__slider-main').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-            var mySlideNumber = nextSlide;
-            $('.product__slider-thmb .slick-slide').removeClass('slick-active');
-            $('.product__slider-thmb .slick-slide').eq(mySlideNumber).addClass('slick-active');
-        });
-
-
-        // init slider
-        require(['js-sliderWithProgressbar'], function(slider) {
-
-            $('.product__slider-main').each(function() {
-
-                me.slider = new slider($(this), options, sliderOptions, previewSliderOptions);
-
-
-
-            });
-        });
-        var options = {
-            progressbarSelector: '.bJS_progressbar',
-            slideSelector: '.bJS_slider',
-            previewSlideSelector: '.bJS_previewSlider',
-            progressInterval: '',
-            onCustomProgressbar: function($slide, $progressbar) {}
-        }
-
-        // slick slider options
-        // see: https://kenwheeler.github.io/slick/
-        var sliderOptions = {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            fade: true,
-            autoplay: true
-        }
-
-        // slick slider options
-        // see: https://kenwheeler.github.io/slick/
-        var previewSliderOptions = {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            dots: false,
-            focusOnSelect: true,
-            centerMode: true
-        }
-    }
-</script>
-<script>
-    function gfg(imgs) {
-        var expandImg = document.getElementById("expand");
-        var imgText = document.getElementById("geeks");
-        expandImg.src = imgs.src;
-        imgText.innerHTML = imgs.alt;
-        expandImg.parentElement.style.display = "block";
-    }
-</script>
-
-<script>
-    //----- Quantity
-    function increaseCount(a, b) {
-        var input = b.previousElementSibling;
-        var value = parseInt(input.value, 10);
-        value = isNaN(value) ? 0 : value;
-        value++;
-        input.value = value;
-    }
-
-    function decreaseCount(a, b) {
-        var input = b.nextElementSibling;
-        var value = parseInt(input.value, 10);
-        if (value > 1) {
-            value = isNaN(value) ? 0 : value;
-            value--;
-            input.value = value;
-        }
-    }
-</script>
-
-<script>
-    //---- Sidebar Tab Product
-
-
-    function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-</script>
-
-
-<script>
-    $(document).ready(function() {
-        $('#editRfquser').click(function() {
-            $("#Rfquser").toggle(this.checked);
-        });
-
-    });
-</script>
 @endsection

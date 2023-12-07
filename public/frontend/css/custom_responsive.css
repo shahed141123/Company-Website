@@ -22,11 +22,44 @@
         padding-top: 2rem;
     }
 
+    .company-tab-title-products span {
+        display: flex;
+        justify-content: center;
+    }
+    .single-product-container{
+        padding: 0px;
+    }
+    .single-product-details{
+        padding: 10px;
+    }
+    .need_help {
+        display: inline-block;
+        color: #666666;
+        text-align: center;
+        padding-top: 0px;
+    }
+    .single-product-description{
+        margin-top: 1rem;
+    }
+    .brand-product-btn{
+        font-size: 14px;
+    width: 100%;
+    padding: 10px;
+    }
+    .need_help h6{
+        font-size: 12px;
+    }
     .brand-page-header-container {
         width: auto;
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
         padding: 0px 10px;
         background-color: #fff;
+    }
+    .custom-col-5{
+        width: 100%;
+        flex: 0 0 auto;
+        position: relative;
+        left: -2px;
     }
     .mobile-brand-page-header-container {
         width: auto;
@@ -79,10 +112,6 @@
     .navbar-nav .nav-item.active>.nav-link {
         border-bottom: none;
     }
-
-    /* .page-wrapper {
-        margin-top: 5.2rem;
-    } */
 
     .custom_col-2 {
         flex: 0 0 auto;

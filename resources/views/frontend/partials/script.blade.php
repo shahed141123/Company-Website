@@ -272,3 +272,193 @@
     });
     });
 </script>
+
+{{-- Brand Page Single Product --}}
+<script>
+    $(document).ready(function() {
+        $(".slick-slider").slick({
+            slidesToShow: 4,
+            infinite: false,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 6000,
+            responsive: [{
+                breakpoint: 768, // Breakpoint for mobile devices
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    // You can adjust other settings for mobile devices here
+                }
+            }]
+            // dots: false, Boolean
+            // arrows: false, Boolean
+        });
+    });
+</script>
+<script>
+    $(".slick-slider-brand-logo").slick({
+        slidesToShow: 10,
+        infinite: false,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 6000,
+        arrows: false, // Hide navigation arrows on mobile
+        dots: false,
+        responsive: [{
+                breakpoint: 768, // Define the breakpoint for mobile devices
+                settings: {
+                    slidesToShow: 3, // Show 3 slides on mobile devices
+                    arrows: false, // Hide navigation arrows on mobile
+                    dots: false // Hide navigation dots on mobile
+                }
+            }
+            // You can add more breakpoints and settings if needed
+        ]
+    });
+</script>
+<script>
+    if ($('.product__slider-main').length) {
+        var $slider = $('.product__slider-main')
+            .on('init', function(slick) {
+                $('.product__slider-main').fadeIn(1000);
+            })
+            .slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                autoplay: true,
+                lazyLoad: 'ondemand',
+                autoplaySpeed: 6000,
+                asNavFor: '.product__slider-thmb'
+            });
+
+        var $slider2 = $('.product__slider-thmb')
+            .on('init', function(slick) {
+                $('.product__slider-thmb').fadeIn(1000);
+            })
+            .slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                lazyLoad: 'ondemand',
+                asNavFor: '.product__slider-main',
+                dots: false,
+                centerMode: false,
+                focusOnSelect: true
+            });
+
+        //remove active class from all thumbnail slides
+        $('.product__slider-thmb .slick-slide').removeClass('slick-active');
+
+        //set active class to first thumbnail slides
+        $('.product__slider-thmb .slick-slide').eq(0).addClass('slick-active');
+
+        // On before slide change match active thumbnail to current slide
+        $('.product__slider-main').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+            var mySlideNumber = nextSlide;
+            $('.product__slider-thmb .slick-slide').removeClass('slick-active');
+            $('.product__slider-thmb .slick-slide').eq(mySlideNumber).addClass('slick-active');
+        });
+
+
+        // init slider
+        require(['js-sliderWithProgressbar'], function(slider) {
+
+            $('.product__slider-main').each(function() {
+
+                me.slider = new slider($(this), options, sliderOptions, previewSliderOptions);
+
+
+
+            });
+        });
+        var options = {
+            progressbarSelector: '.bJS_progressbar',
+            slideSelector: '.bJS_slider',
+            previewSlideSelector: '.bJS_previewSlider',
+            progressInterval: '',
+            onCustomProgressbar: function($slide, $progressbar) {}
+        }
+
+        // slick slider options
+        // see: https://kenwheeler.github.io/slick/
+        var sliderOptions = {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            autoplay: true
+        }
+
+        // slick slider options
+        // see: https://kenwheeler.github.io/slick/
+        var previewSliderOptions = {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            dots: false,
+            focusOnSelect: true,
+            centerMode: true
+        }
+    }
+</script>
+<script>
+    function gfg(imgs) {
+        var expandImg = document.getElementById("expand");
+        var imgText = document.getElementById("geeks");
+        expandImg.src = imgs.src;
+        imgText.innerHTML = imgs.alt;
+        expandImg.parentElement.style.display = "block";
+    }
+</script>
+
+<script>
+    //----- Quantity
+    function increaseCount(a, b) {
+        var input = b.previousElementSibling;
+        var value = parseInt(input.value, 10);
+        value = isNaN(value) ? 0 : value;
+        value++;
+        input.value = value;
+    }
+
+    function decreaseCount(a, b) {
+        var input = b.nextElementSibling;
+        var value = parseInt(input.value, 10);
+        if (value > 1) {
+            value = isNaN(value) ? 0 : value;
+            value--;
+            input.value = value;
+        }
+    }
+</script>
+
+<script>
+    //---- Sidebar Tab Product
+
+
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#editRfquser').click(function() {
+            $("#Rfquser").toggle(this.checked);
+        });
+
+    });
+</script>
