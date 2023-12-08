@@ -2923,7 +2923,7 @@ select:focus-visible {
     left: 4rem;
 }
 .company-tab-para {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     font-family: "Allumi Std Extended";
     text-align: justify;
     font-size: 16px;
@@ -2950,7 +2950,11 @@ select:focus-visible {
     padding-bottom: 2rem;
     padding-right: 1.5rem;
     padding-left: 1.5rem;
-}.company-tab-title-products span {
+    display: flex;
+    align-items: center;
+}
+
+.company-tab-title-products span {
     color: #4a4c4e;
     position: relative;
     font-size: 25px;
@@ -7122,7 +7126,7 @@ ul {
 
 .masthead a {
     color: #ae0a46;
-    text-decoration: underline;
+    text-decoration: none;
     z-index: 1;
 }
 
