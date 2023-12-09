@@ -3529,6 +3529,19 @@ select:focus-visible {
 /* News & Contents */
 
 /* For News & Trends Page Design */
+.main_catalogue{
+    box-shadow: var(--custom-shadow);
+}
+.main_catalogue:hover{
+    transform: scale(1.05);
+    transition: all 0.4s;
+}
+.catalogue-description{
+    font-size: 12px;
+}
+.catalogue-titles{
+    height: 3rem;
+}
 .main .content .image-container {
     position: relative;
     display: inline-block;
