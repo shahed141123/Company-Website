@@ -9,11 +9,11 @@
                         <div class="col-lg-12">
                             {{-- <h3 class="mb-3 brand-p-title d-lg-block d-sm-none" style="color:#555;">{{ ucfirst($brand->title) }}</h3> --}}
 
-                            <h3 class="eyebrow_title"></h3>
+                            {{-- <h3 class="eyebrow_title"></h3> --}}
                             <h5 class="company-tab-title mb-2 border-bottom">
                                 <span class="rounded-pill text-black bg-white">{{ $brandpage->row_six_title }}</span>
                             </h5>
-                            <p class="company-tab-para">
+                            <p class="company-tab-para pt-3">
                                 {!! $brandpage->row_six_header !!}
                             </p>
                         </div>

@@ -3,11 +3,17 @@
     @include('frontend.pages.kukapages.partial.page_header')
     <section class="header" id="myHeader">
         <div class="container">
-            <div class="row pt-3">
-                <div class="col-lg-12 p-0>
-                    <h2 class="company-tab-title-products">
-                        <span>All <strong class="fw-normal" style="color: #A80B6E;">{{ ucfirst($brand->title) }}</strong> Products</span>
-                    </h2>
+            <div class="row pt-3 pb-3 px-3">
+                <div class="col-lg-12 p-0">
+                    <h5 class="company-tab-title mb-2 border-bottom">
+                        <span class="rounded-pill text-black bg-white">
+                            All <strong class="fw-normal" style="color: #A80B6E;">{{ ucfirst($brand->title) }}</strong> Products
+                        </span>
+                    </h5>
+                    {{-- <h2 class="company-tab-title-products">
+                        <span style="font-size: 20px;">All <strong class="fw-normal"
+                                style="color: #A80B6E;">{{ ucfirst($brand->title) }}</strong> Products</span>
+                    </h2> --}}
                 </div>
             </div>
             <div class="allProducts">
@@ -30,36 +36,37 @@
                     </div>
                     <div class="row">
                         @foreach ($industry->products as $product)
-                        <div class="custom-col-5 col-sm-6 col-md-4 brand_prduct">
-                            <div class="card rounded-0 border-0" style="box-shadow: var(--custom-shadow)">
-                                <div class="card-body" style="height:21rem;">
-                                    {{-- <div class="new-video">
+                            <div class="custom-col-5 col-sm-6 col-md-4 brand_prduct">
+                                <div class="card rounded-0 border-0" style="box-shadow: var(--custom-shadow)">
+                                    <div class="card-body" style="height:21rem;">
+                                        {{-- <div class="new-video">
                                         <div class="icon-small video"></div>
                                     </div> --}}
-                                    <div class="image-section">
-                                        <img src="{{ file_exists($product->thumbnail) ? asset($product->thumbnail) : asset('upload/no_image.jpg') }}"
-                                            alt="" width="100%" height="180px;">
-                                    </div>
-                
-                                    <div class="content-section text-center py-3">
-                                        <a href="{{ route('product.details', $product->slug) }}">
-                                            <p class="pb-0 mb-0 text-muted brandpage_product_title">{{ Str::words($product->name, 25) }}</p>
-                                        </a>
-                                        <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
-                                            {{ $product->getCategoryName() }}</span>
-                                        <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
-                                            {{ $product->sku_code }}</span>
-                                        {{-- <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                        <div class="image-section">
+                                            <img src="{{ file_exists($product->thumbnail) ? asset($product->thumbnail) : asset('upload/no_image.jpg') }}"
+                                                alt="" width="100%" height="180px;">
+                                        </div>
+
+                                        <div class="content-section text-center py-3">
+                                            <a href="{{ route('product.details', $product->slug) }}">
+                                                <p class="pb-0 mb-0 text-muted brandpage_product_title">
+                                                    {{ Str::words($product->name, 25) }}</p>
+                                            </a>
+                                            <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                {{ $product->getCategoryName() }}</span>
+                                            <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                {{ $product->sku_code }}</span>
+                                            {{-- <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
                                             {{ $product->product_code }}</span> --}}
-                                        @if ($product->price_status == 'price' && !empty($product->price))
-                                            <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
-                                                {{ $product->price }}</span>
-                                        @endif
-                                        {{-- <span style="font-size: 10px"><i class="fa-solid fa-tag"></i> KR 4 AGILUS</span> --}}
+                                            @if ($product->price_status == 'price' && !empty($product->price))
+                                                <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
+                                                    {{ $product->price }}</span>
+                                            @endif
+                                            {{-- <span style="font-size: 10px"><i class="fa-solid fa-tag"></i> KR 4 AGILUS</span> --}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
 
                     </div>
@@ -80,36 +87,37 @@
                     </div>
                     <div class="row mt-2">
                         @foreach ($solution->products as $product)
-                        <div class="custom-col-5 col-sm-6 col-md-4 brand_prduct">
-                            <div class="card rounded-0 border-0" style="box-shadow: var(--custom-shadow)">
-                                <div class="card-body" style="height:21rem;">
-                                    {{-- <div class="new-video">
+                            <div class="custom-col-5 col-sm-6 col-md-4 brand_prduct">
+                                <div class="card rounded-0 border-0" style="box-shadow: var(--custom-shadow)">
+                                    <div class="card-body" style="height:21rem;">
+                                        {{-- <div class="new-video">
                                         <div class="icon-small video"></div>
                                     </div> --}}
-                                    <div class="image-section">
-                                        <img src="{{ file_exists($product->thumbnail) ? asset($product->thumbnail) : asset('upload/no_image.jpg') }}"
-                                            alt="" width="100%" height="180px;">
-                                    </div>
-                
-                                    <div class="content-section text-center py-3">
-                                        <a href="{{ route('product.details', $product->slug) }}">
-                                            <p class="pb-0 mb-0 text-muted brandpage_product_title">{{ Str::words($product->name, 25) }}</p>
-                                        </a>
-                                        <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
-                                            {{ $product->getCategoryName() }}</span>
-                                        <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
-                                            {{ $product->sku_code }}</span>
-                                        {{-- <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                        <div class="image-section">
+                                            <img src="{{ file_exists($product->thumbnail) ? asset($product->thumbnail) : asset('upload/no_image.jpg') }}"
+                                                alt="" width="100%" height="180px;">
+                                        </div>
+
+                                        <div class="content-section text-center py-3">
+                                            <a href="{{ route('product.details', $product->slug) }}">
+                                                <p class="pb-0 mb-0 text-muted brandpage_product_title">
+                                                    {{ Str::words($product->name, 25) }}</p>
+                                            </a>
+                                            <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                {{ $product->getCategoryName() }}</span>
+                                            <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                {{ $product->sku_code }}</span>
+                                            {{-- <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
                                             {{ $product->product_code }}</span> --}}
-                                        @if ($product->price_status == 'price' && !empty($product->price))
-                                            <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
-                                                {{ $product->price }}</span>
-                                        @endif
-                                        {{-- <span style="font-size: 10px"><i class="fa-solid fa-tag"></i> KR 4 AGILUS</span> --}}
+                                            @if ($product->price_status == 'price' && !empty($product->price))
+                                                <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
+                                                    {{ $product->price }}</span>
+                                            @endif
+                                            {{-- <span style="font-size: 10px"><i class="fa-solid fa-tag"></i> KR 4 AGILUS</span> --}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -270,16 +278,16 @@
         }
     </script>
     <script>
-    // Wait for the DOM to be ready
-    document.addEventListener('DOMContentLoaded', function() {
-        // Find the element with the class 'fixed-section'
-        var elementToRemoveClassFrom = document.querySelector('.fixed-section');
+        // Wait for the DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Find the element with the class 'fixed-section'
+            var elementToRemoveClassFrom = document.querySelector('.fixed-section');
 
-        // Check if the element is found before attempting to remove the class
-        if (elementToRemoveClassFrom) {
-            // Remove the class 'fixed-section'
-            elementToRemoveClassFrom.classList.remove('fixed-section');
-        }
-    });
-</script>
+            // Check if the element is found before attempting to remove the class
+            if (elementToRemoveClassFrom) {
+                // Remove the class 'fixed-section'
+                elementToRemoveClassFrom.classList.remove('fixed-section');
+            }
+        });
+    </script>
 @endsection

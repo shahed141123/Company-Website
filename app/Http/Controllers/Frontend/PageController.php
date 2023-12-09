@@ -152,8 +152,8 @@ class PageController extends Controller
     }
 
     function brandPdf($id) {
-        $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title', 'image')->first();
-        $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'brand_logo', 'header']);
+        $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title', 'image')->firstOrFail();
+        $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->firstOrFail(['id', 'banner_image', 'brand_logo', 'header']);
         $data['related_search'] = [
             'categories' =>  Category::inRandomOrder()->limit(2)->get(),
             'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
@@ -211,25 +211,6 @@ class PageController extends Controller
         return view('frontend.pages.blogs.blog_details', $data);
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
