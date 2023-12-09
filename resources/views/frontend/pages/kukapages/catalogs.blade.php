@@ -2,8 +2,8 @@
 @section('content')
     @include('frontend.pages.kukapages.partial.page_header')
     <section class="header" id="myHeader">
-        <div class="page_header_container mx-5 mb-5 pb-3">
-            <div class="row mt-4">
+        <div class="container">
+            <div class="row my-4">
                 <div class="col-lg-12">
                     <h2 class="company-tab-title">
                         <span>{{ ucfirst($brand->title) }} Brochures</span>
@@ -11,19 +11,39 @@
                 </div>
             </div>
             <div class="row">
+                <div class="custom-col-5 col-6">
+                    <div class="card shadow-none rounded-0 border-0">
+                        <div class="card-header">
+                            <div>
+                                <img src="https://i.ibb.co/qrf6F81/Screenshot-1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-col-5 col-6">
+
+                </div>
+                <div class="custom-col-5 col-6">
+
+                </div>
+                <div class="custom-col-5 col-6">
+
+                </div>
+            </div>
+            <div class="row py-3">
                 <h4 class="main_color text-center">No Brochures Found !</h4>
             </div>
         </div>
     </section>
     <section>
-        <div class="page_header_container mx-5 mb-3 related_search_card">
+        <div class="container related_search_card">
             <div class="row">
                 <div class="col">
                     <div class="p-2">
                         <div class="row">
                             <div class="col-lg-12">
                                 <h2 class="company-tab-title">
-                                    <span style="font-size: 20px;">Related Searches</span>
+                                    <span style="font-size: 20px; background-color: #eeeeee;">Related Searches</span>
                                 </h2>
                             </div>
                         </div>

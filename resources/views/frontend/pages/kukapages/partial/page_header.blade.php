@@ -38,8 +38,17 @@
                 </div>
             </div>
             <div class="col-lg-1 col-sm-6 extra-d-flex">
+                {{-- <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <img src="{{ asset('frontend/images/no-video-icon.png') }}" alt="">
+                </a> --}}
                 <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <span class="text-muted">No video Available</span>
+                    <?php
+                    if (isset($href) && !empty($href)) {
+                        echo '<im class="img-fluid custom-video-icon" src="' . asset('frontend/images/video-icon.png') . '" alt="">';
+                    } else {
+                        echo '<img class="img-fluid custom-video-icon" src="' . asset('frontend/images/no-video-icon.png') . '" alt="">';
+                    }
+                    ?>
                 </a>
                 {{-- <!-- Modal -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
