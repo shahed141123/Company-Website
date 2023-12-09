@@ -667,8 +667,8 @@
     }
 
     .site-main-logo {
-        height: 45px;
-        width: 90px;
+        height: 50px;
+        width: 85px;
     }
 
     .popover__content {
@@ -1424,6 +1424,9 @@
     }
     .footer_item_wrapper{
         padding: 12px;
+    }
+    .footer_item_wrapper h6{
+        font-size: 18px;
     }
 }
 

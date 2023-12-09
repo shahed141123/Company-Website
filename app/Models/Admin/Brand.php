@@ -9,6 +9,16 @@ class Brand extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    
+    public function scopeTop($query)
+    {
+        return $query->where('category', 'Top');
+    }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('category', 'Featured');
+    }
 
     public function brandsoftwareProducts()
     {
@@ -38,4 +48,5 @@ class Brand extends Model
     {
         return $this->hasOne(BrandPage::class);
     }
+
 }
