@@ -53,7 +53,8 @@ body {
     scroll-behavior: smooth;
     font-family: "Allumi Std Extended";
 }
-body{
+
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -320,7 +321,8 @@ a:hover {
     display: flex;
     justify-content: end !important;
 }
-.img_gallery_wrapper{
+
+.img_gallery_wrapper {
     display: flex;
     justify-content: center;
 }
@@ -555,7 +557,7 @@ figure.effect-oscar:hover figcaption {
 }
 
 .title_top_heading {
-    font-family:"Allumi Std Extended";
+    font-family: "Allumi Std Extended";
     font-size: 36px;
     line-height: 36px;
     color: var(--heading);
@@ -902,7 +904,7 @@ h2 {
 .footer_nav_list ul {
     margin: 0px;
     padding: 0px;
-    line-height: 28px !important;
+    line-height: 2;
     color: #c9c9c9 !important;
 }
 
@@ -2504,6 +2506,7 @@ select:focus-visible {
     background-color: #f7f6f5;
     color: black;
 }
+
 .search-box-areas {
     border-bottom-left-radius: 35px;
     border-top-left-radius: 35px;
@@ -2525,6 +2528,7 @@ select:focus-visible {
     /* right: 7rem; */
     right: 4rem;
 }
+
 .search {
     position: absolute;
     left: 0px;
@@ -2589,10 +2593,12 @@ select:focus-visible {
     /* background-color: white;
         color: black; */
 }
+
 #mobile_search_container {
     height: 80vh;
     overflow-y: scroll;
 }
+
 .cool-link {
     display: inline-block;
     color: #000;
@@ -2888,12 +2894,16 @@ select:focus-visible {
     padding-left: 10px;
     padding-right: 10px;
 }
-.popular_product-button{
-    margin-top: 1.8rem;}
+
+.popular_product-button {
+    margin-top: 1.8rem;
+}
+
 .brand-bread-crumb {
     font-size: 1rem;
 }
-.navigation-container{
+
+.navigation-container {
     width: 82%;
 }
 
@@ -2928,12 +2938,14 @@ select:focus-visible {
     top: 12px;
     left: 4rem;
 }
+
 .company-tab-para {
     /* margin-top: 2rem; */
     font-family: "Allumi Std Extended";
     text-align: justify;
     font-size: 16px;
 }
+
 .eyebrow:after {
     content: "";
     position: absolute;
@@ -2951,7 +2963,8 @@ select:focus-visible {
     font-size: 1.6rem;
     line-height: 1.5;
 }
-.brandpage_row{
+
+.brandpage_row {
     padding-top: 4rem;
     padding-bottom: 2rem;
     padding-right: 1.5rem;
@@ -2960,16 +2973,26 @@ select:focus-visible {
     align-items: center;
 }
 
+.row_left_image {
+    box-shadow: var(--custom-shadow);
+}
+
+.row_right_image {
+    box-shadow: var(--custom-shadow);
+}
+
 .company-tab-title-products span {
     color: #4a4c4e;
     position: relative;
     font-size: 25px;
     margin-left: 1.4rem;
 }
-.site-main-logo-contents{
+
+.site-main-logo-contents {
     height: 250px;
     width: 100%;
 }
+
 .tech-contetns-para {
     min-height: 9.3rem;
     border-bottom: 1px solid #eee;
@@ -3287,6 +3310,7 @@ select:focus-visible {
     padding: 10px 10px 10px 20px;
     background-color: #fff;
 }
+
 .mobile-brand-page-header-container {
     width: auto;
     box-shadow: var(--custom-shadow);
@@ -3408,11 +3432,12 @@ select:focus-visible {
     box-shadow: var(--custom-shadow);
 }
 
-.element-brands-logo{
+.element-brands-logo {
     display: flex !important;
     justify-content: center;
     align-items: center;
 }
+
 .brand-sub-image {
     display: flex;
     height: 30px;
@@ -3529,19 +3554,25 @@ select:focus-visible {
 /* News & Contents */
 
 /* For News & Trends Page Design */
-.main_catalogue{
+.main_catalogue {
     box-shadow: var(--custom-shadow);
 }
-.main_catalogue:hover{
-    transform: scale(1.05);
+
+.main_catalogue:hover {
+    transform: scale(1.01);
     transition: all 0.4s;
 }
-.catalogue-description{
+
+.catalogue-description {
     font-size: 12px;
 }
-.catalogue-titles{
+
+.catalogue-titles {
     height: 3rem;
+    font-size: 17px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
 .main .content .image-container {
     position: relative;
     display: inline-block;
@@ -4587,6 +4618,7 @@ tr td:hover {
     width: 60px;
     height: 60px;
 }
+
 .card-row-area {
     margin-top: -3rem;
 }
@@ -5367,7 +5399,8 @@ tr td:hover {
     padding-right: 5rem;
     padding-left: 5rem;
 }
-.custom-video-icon{
+
+.custom-video-icon {
     width: 30px;
     height: 30px;
 }
@@ -5386,7 +5419,8 @@ tr td:hover {
     color: #ced4da;
     font-size: 12px;
 }
-.main_header_area{
+
+.main_header_area {
     height: 75px;
 }
 
@@ -7258,6 +7292,7 @@ ul {
     font-size: 14px !important;
     color: #303030;
 }
+
 /* .service_card:hover {
     box-shadow: none !important;
     transition: 0.5s ease-in-out;
@@ -8447,10 +8482,12 @@ nav>div a.nav-item.nav-link:focus {
     z-index: 980;
     pointer-events: none;
 }
+
 .overlays-img {
     border-top-right-radius: 60px;
     z-index: 980;
 }
+
 .showcase-industry .overlay {
     width: 100%;
     height: 500px;
@@ -12359,6 +12396,7 @@ switch input:checked+.slider {
 .single_product_images {
     padding: 10px 20px;
 }
+
 .img_gallery_wrapper img {
     width: 100px;
     opacity: 0.5;
@@ -16378,14 +16416,16 @@ thead {
 /* All Software end */
 
 /* Kuka Page Design Start */
-.brand_prduct{
+.brand_prduct {
     padding-left: 20px !important;
     padding-bottom: 30px !important;
 }
-.custom-col-5{
+
+.custom-col-5 {
     width: 20%;
     flex: 0 0 auto;
 }
+
 .slick-slider .element {
     height: 480px;
     background-color: #000;
@@ -17282,9 +17322,8 @@ thead {
 
 
 }
-</style>
-{{-- For Only Tab --}}
-<style>
+
+
 .tab-content {
     background: transparent !important;
     line-height: 25px;
@@ -17339,3 +17378,4 @@ thead {
     font-size: 11.0px;
     font-weight: 400;
 }
+

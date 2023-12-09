@@ -3,7 +3,7 @@
         <img src="{{ !empty($brandpage->banner_image) && file_exists(public_path('storage/' . $brandpage->banner_image)) ? asset('storage/' . $brandpage->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
             alt="">
     </div>
-    <div class="container d-lg-block d-sm-none">
+    {{-- <div class="container d-lg-block d-sm-none">
         <div class="row d-lg-flex align-items-center">
             <div class="col pt-1">
                 <ul class="d-lg-flex align-items-center brand-bread-crumb my-2">
@@ -25,7 +25,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> --}}
 </section>
 <section class="header d-lg-block d-sm-none" id="myHeader">
     <div class="brand-page-header-container container">
@@ -44,7 +44,7 @@
                 <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <?php
                     if (isset($href) && !empty($href)) {
-                        echo '<im class="img-fluid custom-video-icon" src="' . asset('frontend/images/video-icon.png') . '" alt="">';
+                        echo '<img class="img-fluid custom-video-icon" src="' . asset('frontend/images/video-icon.png') . '" alt="">';
                     } else {
                         echo '<img class="img-fluid custom-video-icon" src="' . asset('frontend/images/no-video-icon.png') . '" alt="">';
                     }
@@ -113,7 +113,13 @@
                     </div>
                     <div>
                         <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            <span class="text-muted">No video Available</span>
+                            <?php
+                            if (isset($href) && !empty($href)) {
+                                echo '<img class="img-fluid custom-video-icon" src="' . asset('frontend/images/video-icon.png') . '" alt="">';
+                            } else {
+                                echo '<img class="img-fluid custom-video-icon" src="' . asset('frontend/images/no-video-icon.png') . '" alt="">';
+                            }
+                            ?>
                         </a>
                         {{-- <!-- Modal -->
                         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"

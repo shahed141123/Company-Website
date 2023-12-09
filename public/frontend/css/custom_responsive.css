@@ -1416,6 +1416,15 @@
     .navbar-expand-lg .navbar-nav .nav-link {
         font-size: 12px !important;
     }
+    .main-menu-specing {
+        margin-right: 0.4rem;
+    }
+    .footer_link_text{
+        font-size: 0.9rem;
+    }
+    .footer_item_wrapper{
+        padding: 12px;
+    }
 }
 
 

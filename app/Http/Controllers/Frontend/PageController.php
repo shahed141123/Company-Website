@@ -3,21 +3,22 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Admin\Row;
+use App\Models\Admin\Blog;
 use App\Models\Admin\Brand;
 use Illuminate\Http\Request;
 use App\Models\Admin\Product;
-use App\Models\Admin\BrandPage;
-use App\Models\Admin\ClientStory;
-use App\Models\Admin\SolutionCard;
-use App\Http\Controllers\Controller;
-use App\Models\Admin\Blog;
 use App\Models\Admin\Category;
-use App\Models\Admin\DocumentPdf;
 use App\Models\Admin\Industry;
+use App\Models\Admin\BrandPage;
+use App\Models\Admin\TechGlossy;
+use App\Models\Admin\ClientStory;
+use App\Models\Admin\DocumentPdf;
+use App\Models\Admin\SolutionCard;
+use Illuminate\Support\Facades\DB;
 use App\Models\Admin\MultiIndustry;
 use App\Models\Admin\MultiSolution;
+use App\Http\Controllers\Controller;
 use App\Models\Admin\SolutionDetail;
-use App\Models\Admin\TechGlossy;
 use Brian2694\Toastr\Facades\Toastr;
 
 class PageController extends Controller
@@ -101,8 +102,8 @@ class PageController extends Controller
             $data['related_search'] = [
                 'categories' =>  Category::inRandomOrder()->limit(2)->get(),
                 'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
-                'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id','slug','name'),
-                'industries' =>  Industry::inRandomOrder()->limit(4)->get('id','slug','title'),
+                'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id', 'slug', 'name'),
+                'industries' =>  Industry::inRandomOrder()->limit(4)->get('id', 'slug', 'title'),
             ];
             // dd($data['related_search']['categories']);
 
@@ -124,7 +125,7 @@ class PageController extends Controller
         if (!empty($data['sproduct']->cat_id)) {
             $data['products'] = Product::where('cat_id', $data['sproduct']->cat_id)
                 ->where('product_status', 'product')
-                ->select('id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'sku_code', 'mf_code', 'product_code','cat_id', 'brand_id')
+                ->select('id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'sku_code', 'mf_code', 'product_code', 'cat_id', 'brand_id')
                 ->limit(12)
                 ->distinct()
                 ->get();
@@ -137,8 +138,8 @@ class PageController extends Controller
         $data['related_search'] = [
             'categories' =>  Category::where('id', '!=', $data['sproduct']->cat_id)->inRandomOrder()->limit(2)->get(),
             'brands' =>  Brand::where('id', '!=', $data['sproduct']->brand_id)->inRandomOrder()->limit(20)->get(),
-            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id','slug','name'),
-            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id','slug','title'),
+            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id', 'slug', 'name'),
+            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id', 'slug', 'title'),
         ];
         $data['brand_products'] = Product::where('brand_id', $data['sproduct']->brand_id)->where('id', '!=', $data['sproduct']->id)->inRandomOrder()->where('product_status', 'product')->limit(20)->get();
 
@@ -151,18 +152,35 @@ class PageController extends Controller
         }
     }
 
-    function brandPdf($id) {
+    public function brandPdf($id)
+    {
+
         $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title', 'image')->firstOrFail();
         $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->firstOrFail(['id', 'banner_image', 'brand_logo', 'header']);
+
+        $brandId = $data['brand']->id;
+        $data['brand_documents'] = DocumentPdf::where('brand_id', $brandId)->get();
+        $data['product_documents'] = DocumentPdf::join('products', 'document_pdfs.product_id', '=', 'products.id')
+            ->where('products.brand_id', '=', $brandId)
+            ->select('document_pdfs.id', 'document_pdfs.title', 'document_pdfs.document')
+            ->distinct()
+            ->paginate(18);
+        $mergedData = $data['brand_documents']->concat($data['product_documents']);
+        // Convert the merged data to an array
+        $data['documents'] = $mergedData->toArray();
+
         $data['related_search'] = [
             'categories' =>  Category::inRandomOrder()->limit(2)->get(),
             'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
-            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id','slug','name'),
-            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id','slug','title'),
+            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id', 'slug', 'name'),
+            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id', 'slug', 'title'),
         ];
         return view('frontend.pages.kukapages.catalogs', $data);
     }
-    public function content($id) {
+
+
+    public function content($id)
+    {
         $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title', 'image')->first();
         $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'brand_logo', 'header']);
         $id = json_encode($data['brand']->id);
@@ -178,12 +196,13 @@ class PageController extends Controller
         $data['related_search'] = [
             'categories' =>  Category::inRandomOrder()->limit(2)->get(),
             'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
-            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id','slug','name'),
-            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id','slug','title'),
+            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id', 'slug', 'name'),
+            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id', 'slug', 'title'),
         ];
         return view('frontend.pages.kukapages.contents', $data);
     }
-    public function blogDetails($id) {
+    public function blogDetails($id)
+    {
         $data['content'] = Blog::where('id', $id)->first();
         $data['items'] = Blog::inRandomOrder()->limit(4)->get();
 
@@ -191,13 +210,13 @@ class PageController extends Controller
         $data['related_search'] = [
             'categories' =>  Category::inRandomOrder()->limit(2)->get(),
             'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
-            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id','slug','name'),
-            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id','slug','title'),
+            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id', 'slug', 'name'),
+            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id', 'slug', 'title'),
         ];
         return view('frontend.pages.kukapages.content_single', $data);
-
     }
-    public function storyDetails($id) {
+    public function storyDetails($id)
+    {
         $data['blog'] = Blog::where('id', $id)->first();
         $data['storys'] = Blog::inRandomOrder()->limit(4)->get();
 
@@ -205,11 +224,10 @@ class PageController extends Controller
         $data['related_search'] = [
             'categories' =>  Category::inRandomOrder()->limit(2)->get(),
             'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
-            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id','slug','name'),
-            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id','slug','title'),
+            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id', 'slug', 'name'),
+            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id', 'slug', 'title'),
         ];
         return view('frontend.pages.blogs.blog_details', $data);
-
     }
 
 

@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-lg-4 top-bar-right-side">
                     <div class="d-flex justify-content-between align-items-center top-menu-area">
-    
+
                         <div class="">
                             {{-- <span class="text-white">My</span><span class="text-white">NGen It</span> --}}
                             <div class="dropdown drop-top">
@@ -80,7 +80,7 @@
                                                 First time here?
                                                 <a href="#" class="main_color">Sign Up</a>
                                             </div> --}}
-    
+
                                             @if (Auth::guard('client')->user())
                                                 <li>
                                                     <i class="fa fa-user m-2"></i>
@@ -105,11 +105,11 @@
                                                     style="font-size: 13px">
                                                     Sign In
                                                 </a>
-    
+
                                                 <hr class="text-muted" />
                                             @endif
                                             <ul class="account p-0 text-muted text-start">
-    
+
                                                 @unless (Auth::guard('client')->user())
                                                     <li class="mb-2">
                                                         Sign In To Your
@@ -160,7 +160,7 @@
                                     <div class="container-fluid">
                                         <div class="row tab_area_main p-2 category-center">
                                             <!-- Assuming $categories is already available in your controller or view -->
-    
+
                                             <div class="col-md-3 tab_key_btns p-0 ">
                                                 <div class="nav nav-custom flex-column nav-pills2 nav-pills-custom2"
                                                     id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -176,7 +176,7 @@
                                                     @endforeach
                                                 </div>
                                             </div>
-    
+
                                             <div class="col-md-9 p-0">
                                                 <div class="tab-content" id="v-pills-tabContent">
                                                     @foreach ($categories as $key => $category)
@@ -184,7 +184,7 @@
                                                             id="v-pills-home{{ $category->id }}" role="tabpanel"
                                                             aria-labelledby="v-pills-home-tab{{ $category->id }}"
                                                             style="height: 22rem;">
-    
+
                                                             <div class="row p-3">
                                                                 @foreach ($category->subCategorys as $sub_category)
                                                                     <div class="col-lg-3 col-sm-6">
@@ -195,7 +195,7 @@
                                                                             </span>
                                                                             {{ \Illuminate\Support\Str::substr($sub_category->title, 3) }}
                                                                         </div>
-    
+
                                                                         @foreach ($sub_category->subsubCategorys as $item)
                                                                             <li class="my-2"
                                                                                 style="line-height: 1.2rem !important;">
@@ -214,7 +214,7 @@
                                                     @endforeach
                                                 </div>
                                             </div>
-    
+
                                         </div>
                                     </div>
                                 </section>
@@ -222,7 +222,7 @@
                         </div>
                     </div>
                     <!---Category--->
-    
+
                     <form method="post" action="{{ route('product.search') }}"
                         class="d-flex upper-content-menu justify-content-center align-items-center d-lg-none"
                         role="search">
@@ -235,7 +235,7 @@
                                 aria-describedby="addon-wrapping">
                         </div>
                     </form>
-    
+
                     <a href="javascript:void(0)" class="nvabar-toggler tab_btn_icon upper-content-menu d-lg-none"
                         type="button" data-bs-toggle="offcanvas" data-bs-target="#rightOffcanvas"
                         aria-controls="rightOffcanvas">
@@ -253,7 +253,7 @@
                                     aria-describedby="addon-wrapping">
                             </div>
                         </form>
-    
+
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <hr>
                             <li class="nav-item dropdown position-static main-menu-specing">
@@ -639,7 +639,7 @@
                                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                             CONNECT US
                                         </a>
-                                        <ul class="dropdown-menu full-container-dropdown navigation-container"
+                                        <ul class="dropdown-menu full-container-dropdown"
                                             style="border-top: 1px solid #ae0a460f !important;">
                                             <div class="container-fluid">
                                                 <div class="row">
@@ -793,12 +793,12 @@
         </div>
         <div class="row container mx-auto sticky-top">
             <div class="card d-none shadow-lg bg-white border rounded-0 mt-0" id="search_container">
-    
+
             </div>
         </div>
         <div class="row container mx-auto sticky-top">
             <div class="card d-none shadow-lg bg-white border rounded-0 mt-0" id="mobile_search_container">
-    
+
             </div>
         </div>
     </div>

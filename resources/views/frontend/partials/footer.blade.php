@@ -146,7 +146,7 @@
     <!-- footer bottom -->
     <div class="container">
         <div class="row px-lg-4 px-sm-0 align-items-center">
-            <div class="col-lg-6 text-sm-center">
+            <div class="col-lg-6 text-lg-start text-sm-center">
                 <div>
                     <p class="m-0 p-0 text-white">&copy {{ date('Y') }} NgenIt</p>
                 </div>

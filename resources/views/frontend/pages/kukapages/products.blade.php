@@ -140,7 +140,7 @@
                         <div class="container">
                             <div class="row py-3">
                                 @foreach ($related_search['categories'] as $related_category)
-                                    <div class="col-sm-3 p-0">
+                                    <div class="col-sm-3 col-6 p-0">
                                         <a href="{{ route('category.html', $related_category->slug) }}"
                                             class="related_search_links"><i
                                                 class="fa-solid fa-angles-right text-danger"></i>
@@ -148,7 +148,7 @@
                                     </div>
                                 @endforeach
                                 @foreach ($related_search['brands'] as $related_brand)
-                                    <div class="col-sm-3 p-0">
+                                    <div class="col-sm-3 col-6 p-0">
                                         <a href="{{ route('brand.overview', $related_brand->slug) }}"
                                             class="related_search_links"><i
                                                 class="fa-solid fa-angles-right text-danger"></i>
@@ -157,7 +157,7 @@
                                 @endforeach
                                 @foreach ($related_search['solutions'] as $related_solution)
                                     @if (!empty($related_solution->slug))
-                                        <div class="col-sm-3 p-0">
+                                        <div class="col-sm-3 col-6 p-0">
                                             <a href="{{ route('solution.details', $related_solution->slug) }}"
                                                 class="related_search_links"><i
                                                     class="fa-solid fa-angles-right text-danger"></i>
@@ -168,7 +168,7 @@
                                 @endforeach
                                 @foreach ($related_search['industries'] as $related_industry)
                                     @if (!empty($related_industry->slug))
-                                        <div class="col-sm-3 p-0">
+                                        <div class="col-sm-3 col-6 p-0">
                                             <a href="{{ route('industry.details', $related_industry->slug) }}"
                                                 class="related_search_links"><i
                                                     class="fa-solid fa-angles-right text-danger"></i>
