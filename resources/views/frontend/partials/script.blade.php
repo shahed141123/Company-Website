@@ -17,13 +17,12 @@
 <script src="{{ asset('backend/assets/js/vendor/tables/datatables/datatables.min.js') }}"></script>
 <script src="{{ asset('backend/assets/demo/pages/datatables_advanced.js') }}"></script>
 <!-- Tiny MCe -->
-<script src="{{ asset('frontend/assets/js/text-editor/tiny-mce.min.js') }}"></script>
+<script src="https://cdn.tiny.cloud/1/n4jpbhtanca801bcjejx1pc9j033yn0de5ral6e7r0wd6383/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <!-- Custom JS -->
 {{-- <script src="{{ asset('backend/assets/js/custom.js') }}"></script> --}}
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/filter.js') }}"></script>
-@yield('scripts')
 {!! Toastr::message() !!}
 <!-- Google Recaptcha  -->
 <script>
@@ -567,4 +566,43 @@
             $n.val(amount - 1);
         }
     });
+
+    // {{-- Sidebar --}}
+    jQuery(function($) {
+
+        $(".sidebar-dropdown > a").click(function() {
+            $(".sidebar-submenu").slideUp(200);
+            if (
+                $(this)
+                .parent()
+                .hasClass("active")
+            ) {
+                $(".sidebar-dropdown").removeClass("active");
+                $(this)
+                    .parent()
+                    .removeClass("active");
+            } else {
+                $(".sidebar-dropdown").removeClass("active");
+                $(this)
+                    .next(".sidebar-submenu")
+                    .slideDown(200);
+                $(this)
+                    .parent()
+                    .addClass("active");
+            }
+        });
+
+        $("#close-sidebar").click(function() {
+            $(".page-wrapper").removeClass("toggled");
+        });
+        $("#show-sidebar").click(function() {
+            $(".page-wrapper").addClass("toggled");
+        });
+
+
+    });
+    // {{-- Sidebar --}}
 </script>
+
+
+@yield('scripts')

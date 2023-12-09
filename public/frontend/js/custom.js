@@ -267,22 +267,27 @@ $(document).ready(function () {
     // {{-- Editor --}}
 
 
+    // tinymce.init({
+    //     selector: '#common',
+    //     plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker',
+    //     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    //     tinycomments_mode: 'embedded',
+    //     tinycomments_author: 'Author name',
+    //     mergetags_list: [{
+    //         value: 'First.Name',
+    //         title: 'First Name'
+    //     },
+    //     {
+    //         value: 'Email',
+    //         title: 'Email'
+    //     },
+    //     ],
+    // });
     tinymce.init({
         selector: '#common',
-        plugins: 'tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
-        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-        tinycomments_mode: 'embedded',
-        tinycomments_author: 'Author name',
-        mergetags_list: [{
-            value: 'First.Name',
-            title: 'First Name'
-        },
-        {
-            value: 'Email',
-            title: 'Email'
-        },
-        ],
-    });
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+      });
 
     $("#common").on("keypress", function () {
         var limiteCaracteres = 255;
@@ -587,41 +592,7 @@ $(function () {
 
 
 
-// {{-- Sidebar --}}
-jQuery(function ($) {
 
-    $(".sidebar-dropdown > a").click(function () {
-        $(".sidebar-submenu").slideUp(200);
-        if (
-            $(this)
-                .parent()
-                .hasClass("active")
-        ) {
-            $(".sidebar-dropdown").removeClass("active");
-            $(this)
-                .parent()
-                .removeClass("active");
-        } else {
-            $(".sidebar-dropdown").removeClass("active");
-            $(this)
-                .next(".sidebar-submenu")
-                .slideDown(200);
-            $(this)
-                .parent()
-                .addClass("active");
-        }
-    });
-
-    $("#close-sidebar").click(function () {
-        $(".page-wrapper").removeClass("toggled");
-    });
-    $("#show-sidebar").click(function () {
-        $(".page-wrapper").addClass("toggled");
-    });
-
-
-});
-// {{-- Sidebar --}}
 
 
 

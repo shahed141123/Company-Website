@@ -33,7 +33,7 @@
             <div class="col-lg-2 col-sm-6 me-3 extra-d-flex">
                 <div>
                     <img id="stand-logo" class="img-fluid" height=""
-                        src="http://ngenitltd.com/storage/BbXjqfGfxBEJmLGq1697946011.png"
+                        src="{{ !empty($brandpage->brand_logo) && file_exists(public_path('storage/' . $brandpage->brand_logo)) ? asset('storage/' . $brandpage->brand_logo) : asset('frontend/images/no-banner(1920-330).png') }}"
                         alt="{{ $brand->title }} - logo">
                 </div>
             </div>
