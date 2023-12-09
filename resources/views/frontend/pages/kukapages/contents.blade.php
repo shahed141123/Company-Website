@@ -24,8 +24,11 @@
                                     <a href="{{ route('techglossy.details', $techglossy->id) }}" target="_blank">
                                         <div class="content-overlay-brand"></div>
                                         <div>
-                                            <img class="content-image" src="{{ asset('storage/' . $techglossy->image) }}"
-                                                alt="">
+                                            {{-- <img class="content-image" src="{{ asset('storage/' . $techglossy->image) }}"
+                                                alt=""> --}}
+                                                <img class="img-fluid site-main-logo-contents"
+                                                src="{{ !empty($clientStory->image) && file_exists(public_path('storage/' . $clientStory->image)) ? asset('storage/' . $clientStory->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                                alt="NGEN IT">
                                         </div>
                                         <div>
                                             <p class="p-1" style="font-size: 12px;text-align:center;">
@@ -34,8 +37,10 @@
                                         <div class="content-details fadeIn-bottom fadeIn-left-brand">
                                             <p class="brand-news-trends-title">{{ $techglossy->badge }}</p>
                                             <hr class="p-1 pt-1 m-0 text-white">
+                                           <div class="tech-contetns-para">
                                             <p>{!! $techglossy->header !!}</p>
-                                            <div class="description-footer-brand inline-center text-white">
+                                           </div>
+                                            <div class="description-footer-brand inline-center text-white pt-2">
                                                 <a href="{{ route('techglossy.details', $techglossy->id) }}"
                                                     class="link text-white"><i class="fa fa-plus-circle me-2"></i>More
                                                     information</a>
@@ -70,8 +75,11 @@
                                     <a href="{{ route('blog.details', $blog->id) }}" target="_blank">
                                         <div class="content-overlay-brand"></div>
                                         <div>
-                                            <img class="content-image" src="{{ asset('storage/' . $blog->image) }}"
-                                                alt="">
+                                            {{-- <img class="content-image" src="{{ asset('storage/' . $blog->image) }}"
+                                                alt=""> --}}
+                                                <img class="img-fluid site-main-logo-contents"
+                                                src="{{ !empty($blog->image) && file_exists(public_path('storage/' . $blog->image)) ? asset('storage/' . $blog->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                                alt="NGEN IT">
                                         </div>
                                         <div>
                                             <p class="p-1" style="font-size: 12px;text-align:center;">
@@ -80,8 +88,10 @@
                                         <div class="content-details fadeIn-bottom fadeIn-left-brand">
                                             <p class="brand-news-trends-title">{{ $blog->badge }}</p>
                                             <hr class="p-1 pt-1 m-0 text-white">
-                                            <p>{!! $blog->header !!}</p>
-                                            <div class="description-footer-brand inline-center text-white">
+                                            <div class="tech-contetns-para">
+                                                <p>{!! $blog->header !!}</p>
+                                            </div>
+                                            <div class="description-footer-brand inline-center text-white pt-2">
                                                 <a href="{{ route('blog.details', $blog->id) }}" class="link text-white"><i
                                                         class="fa fa-plus-circle me-2"></i>More information</a>
                                             </div>
@@ -99,8 +109,9 @@
                                     <a href="{{ route('story.details', $clientStory->id) }}" target="_blank">
                                         <div class="content-overlay-brand"></div>
                                         <div>
-                                            <img class="content-image" src="{{ asset('storage/' . $clientStory->image) }}"
-                                                alt="">
+                                            <img class="img-fluid site-main-logo-contents"
+                                                src="{{ !empty($clientStory->image) && file_exists(public_path('storage/' . $clientStory->image)) ? asset('storage/' . $clientStory->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                                alt="NGEN IT">
                                         </div>
                                         <div>
                                             <p class="p-1" style="font-size: 12px;text-align:center;">
@@ -110,7 +121,7 @@
                                             <p class="brand-news-trends-title">{{ $clientStory->badge }}</p>
                                             <hr class="p-1 pt-1 m-0 text-white">
                                             <p>{!! $clientStory->header !!}</p>
-                                            <div class="description-footer-brand inline-center text-white">
+                                            <div class="description-footer-brand inline-center text-white pt-2">
                                                 <a href="{{ route('story.details', $clientStory->id) }}"
                                                     class="link text-white"><i class="fa fa-plus-circle me-2"></i>More
                                                     information</a>
@@ -131,14 +142,14 @@
     </section>
 
     <section>
-        <div class="page_header_container mx-5 mb-3 related_search_card">
+        <div class="container related_search_card">
             <div class="row">
                 <div class="col">
                     <div class="p-2">
                         <div class="row">
                             <div class="col-lg-12">
                                 <h2 class="company-tab-title">
-                                    <span style="font-size: 20px;">Related Searches</span>
+                                    <span style="font-size: 20px; background-color: #eeeeee;">Related Searches</span>
                                 </h2>
                             </div>
                         </div>
@@ -191,17 +202,17 @@
     <!---------End -------->
 @endsection
 @section('scripts')
-<script>
-    // Wait for the DOM to be ready
-    document.addEventListener('DOMContentLoaded', function() {
-        // Find the element with the class 'fixed-section'
-        var elementToRemoveClassFrom = document.querySelector('.fixed-section');
+    <script>
+        // Wait for the DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Find the element with the class 'fixed-section'
+            var elementToRemoveClassFrom = document.querySelector('.fixed-section');
 
-        // Check if the element is found before attempting to remove the class
-        if (elementToRemoveClassFrom) {
-            // Remove the class 'fixed-section'
-            elementToRemoveClassFrom.classList.remove('fixed-section');
-        }
-    });
-</script>
+            // Check if the element is found before attempting to remove the class
+            if (elementToRemoveClassFrom) {
+                // Remove the class 'fixed-section'
+                elementToRemoveClassFrom.classList.remove('fixed-section');
+            }
+        });
+    </script>
 @endsection

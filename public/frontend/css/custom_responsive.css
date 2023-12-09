@@ -51,13 +51,13 @@
     .thing_together_wrapper h5 {
         color: #fff;
         font-size: 25px;
-        font-family: "Klinic Slab";
+        font-family: "Allumi Std Extended";
         margin-top: 29px;
     }
     .thing_together_wrapper h4 {
         color: #fff;
         font-size: 25px;
-        font-family: "Klinic Slab";
+        font-family: "Allumi Std Extended";
         font-weight: 400;
         margin-top: 30px;
     }
@@ -800,7 +800,7 @@
     }
 
     .home_card_item_title {
-        font-family: "Klinic Slab";
+        font-family: "Allumi Std Extended";
         font-size: 28px;
         font-weight: 300;
         color: var(--heading);
@@ -911,7 +911,7 @@
         line-height: 1.3;
     }
     .home_title_heading {
-        font-family: "Klinic Slab";
+        font-family: "Allumi Std Extended";
         font-size: 20px;
         width: 100% !important;
         color: var(--heading);
@@ -944,7 +944,7 @@
 
     .home_shop_product_wrapper h5 {
         font-size: 26px;
-        font-family: "Klinic Slab";
+        font-family: "Allumi Std Extended";
         font-weight: 400;
         opacity: 0.8;
         margin-bottom: 13px;
@@ -1411,9 +1411,16 @@
     }
 }
 
-/* Medium Devices (e.g., Small Desktops) */
-@media only screen and (min-width: 769px) and (max-width: 992px) {
+/* Medium Devices (e.g., Laptop) */
+@media only screen and (min-width: 992px){
+    .navbar-expand-lg .navbar-nav .nav-link {
+        font-size: 12px !important;
+    }
+}
 
+
+
+@media only screen and (min-width: 769px) and (max-width: 992px) {
     /* Styles for screens between 769 and 992 pixels wide */
     .our-team {
         margin-bottom: 30px;

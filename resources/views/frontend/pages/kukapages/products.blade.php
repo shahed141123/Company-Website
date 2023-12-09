@@ -4,8 +4,8 @@
     <section class="header" id="myHeader">
         <div class="container">
             <div class="row pt-3">
-                <div class="col-lg-12">
-                    <h2 class="company-tab-title-products ps-2">
+                <div class="col-lg-12 p-0>
+                    <h2 class="company-tab-title-products">
                         <span>All <strong class="fw-normal" style="color: #A80B6E;">{{ ucfirst($brand->title) }}</strong> Products</span>
                     </h2>
                 </div>
@@ -19,8 +19,8 @@
         </div>
         @foreach ($industries as $industry)
             @if (count($industry->products) > 0)
-                <div class="container mb-5 pb-3">
-                    <div class="row mt-4">
+                <div class="container">
+                    <div class="row">
                         <div class="col-lg-12 p-0">
                             <h2 class="company-tab-title-products">
                                 <span style="font-size: 20px;">{{ ucfirst($brand->title) }} Products for
@@ -28,7 +28,7 @@
                             </h2>
                         </div>
                     </div>
-                    <div class="row mt-2">
+                    <div class="row">
                         @foreach ($industry->products as $product)
                         <div class="custom-col-5 col-sm-6 col-md-4 brand_prduct">
                             <div class="card rounded-0 border-0" style="box-shadow: var(--custom-shadow)">
@@ -69,8 +69,8 @@
         @endforeach
         @foreach ($solutions as $solution)
             @if (count($solution->products) > 0)
-                <div class="container mb-5 pb-3">
-                    <div class="row mt-4">
+                <div class="container">
+                    <div class="row">
                         <div class="col-lg-12">
                             <h2 class="company-tab-title-products">
                                 <span style="font-size: 20px;">{{ ucfirst($brand->title) }} Products for
