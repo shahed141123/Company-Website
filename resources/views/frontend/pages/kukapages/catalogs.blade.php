@@ -12,22 +12,89 @@
             </div>
             <div class="row">
                 <div class="custom-col-5 col-6">
-                    <div class="card shadow-none rounded-0 border-0">
-                        <div class="card-header">
-                            <div>
-                                <img src="https://i.ibb.co/qrf6F81/Screenshot-1.png" alt="">
+                    <div class="main_catalogue mb-2">
+                        <div class="card shadow-none rounded-0 border-0">
+                            <div class="cad-body">
+                                <a href="">
+                                    <div>
+                                        <img class="img-fluid" src="https://img.directindustry.com/pdf/repository_di/19903/mi-3144-euro-z-800v-mi-3143-euro-z-440v-guide-en-1052334_1mg.jpg" alt="">
+                                    </div>
+                                    <div class="text-center catalogue-description p-2">
+                                        <p class="p-0 m-0 catalogue-titles">MI 3144 Euro Z 800V and MI 3143 Euro Z 440V guide EN</p>
+                                        <p class="p-0 m-0">20 Pages</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="custom-col-5 col-6">
-
+                    <div class="main_catalogue mb-2">
+                        <div class="card shadow-none rounded-0 border-0">
+                            <div class="cad-body">
+                                <a href="">
+                                    <div>
+                                        <img class="img-fluid" src="https://img.directindustry.com/pdf/repository_di/19903/mi-3144-euro-z-800v-mi-3143-euro-z-440v-guide-en-1052334_1mg.jpg" alt="">
+                                    </div>
+                                    <div class="text-center catalogue-description p-2">
+                                        <p class="p-0 m-0 catalogue-titles">MI 3144 Euro Z 800V and MI 3143 Euro Z 440V guide EN</p>
+                                        <p class="p-0 m-0">20 Pages</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="custom-col-5 col-6">
-
+                    <div class="main_catalogue mb-2">
+                        <div class="card shadow-none rounded-0 border-0">
+                            <div class="cad-body">
+                                <a href="">
+                                    <div>
+                                        <img class="img-fluid" src="https://img.directindustry.com/pdf/repository_di/19903/mi-3144-euro-z-800v-mi-3143-euro-z-440v-guide-en-1052334_1mg.jpg" alt="">
+                                    </div>
+                                    <div class="text-center catalogue-description p-2">
+                                        <p class="p-0 m-0 catalogue-titles">MI 3144 Euro Z 800V and MI 3143 Euro Z 440V guide EN</p>
+                                        <p class="p-0 m-0">20 Pages</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="custom-col-5 col-6">
-
+                    <div class="main_catalogue mb-2">
+                        <div class="card shadow-none rounded-0 border-0">
+                            <div class="cad-body">
+                                <a href="">
+                                    <div>
+                                        <img class="img-fluid" src="https://img.directindustry.com/pdf/repository_di/19903/mi-3144-euro-z-800v-mi-3143-euro-z-440v-guide-en-1052334_1mg.jpg" alt="">
+                                    </div>
+                                    <div class="text-center catalogue-description p-2">
+                                        <p class="p-0 m-0 catalogue-titles">MI 3144 Euro Z 800V and MI 3143 Euro Z 440V guide EN</p>
+                                        <p class="p-0 m-0">20 Pages</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-col-5 col-6">
+                    <div class="main_catalogue mb-2">
+                        <div class="card shadow-none rounded-0 border-0">
+                            <div class="cad-body">
+                                <a href="">
+                                    <div>
+                                        <img class="img-fluid" src="https://img.directindustry.com/pdf/repository_di/19903/mi-3144-euro-z-800v-mi-3143-euro-z-440v-guide-en-1052334_1mg.jpg" alt="">
+                                    </div>
+                                    <div class="text-center catalogue-description p-2">
+                                        <p class="p-0 m-0 catalogue-titles">MI 3144 Euro Z 800V and MI 3143 Euro Z 440V guide EN</p>
+                                        <p class="p-0 m-0">20 Pages</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row py-3">
