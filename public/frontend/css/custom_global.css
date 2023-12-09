@@ -1526,28 +1526,7 @@ div.card .card-header {
     margin-bottom: -1px;
 }
 
-.nav-tabs .nav-item .nav-link.active {
-    background-color: hsla(0, 0%, 100%, 0.2);
-    transition: background-color 0.3s 0.2s;
-}
 
-.nav-tabs .nav-item .nav-link {
-    border: 0 !important;
-    color: #fff !important;
-    font-weight: 500;
-}
-
-.nav-tabs .nav-item .nav-link {
-    color: #fff;
-    border: 0;
-    margin: 0;
-    border-radius: 3px;
-    line-height: 0px !important;
-    text-transform: uppercase;
-    font-size: 12px;
-    padding: 15px 15px;
-    background-color: transparent;
-}
 
 .nav-tabs .nav-item .material-icons {
     margin: -1px 5px 0 0;
@@ -4430,10 +4409,6 @@ form input[type="file"] {
 
 .brand-links a:hover {
     color: #020202 !important;
-}
-
-.brand_img_container {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
 }
 
 /* Hardware Info Logo */
@@ -16201,23 +16176,7 @@ thead {
     margin-bottom: -1px;
 }
 
-.nav-tabs .nav-item .nav-link.active {
-    background-color: hsla(0, 0%, 100%, 0.2);
-    transition: background-color 0.3s 0.2s;
-}
 
-.nav-tabs .nav-item .nav-link {
-    color: #fff;
-    border: 0;
-    margin: 0;
-    border-radius: 3px;
-    text-transform: uppercase;
-    font-size: 12px;
-    border: 0 !important;
-    font-weight: 500;
-    padding: 27px 25px !important;
-    background-color: transparent;
-}
 
 .nav-pills-custom .nav-link::before {
     display: none;
@@ -17330,18 +17289,6 @@ thead {
     padding: 0px;
 }
 
-.nav-tabs .nav-link,
-.nav-tabs .nav-item .nav-link {
-    /* background-color: #ae0a46; */
-    border: 1px solid #ae0a46 !important;
-    padding: 2px 20px 4px !important;
-    border-radius: 20px;
-    font-size: 11.0px;
-    font-weight: 400 !important;
-    color: #ae0a46 !important;
-    margin: 0 !important;
-    text-transform: uppercase;
-}
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
@@ -17379,3 +17326,202 @@ thead {
     font-weight: 400;
 }
 
+
+/* Brand Page Design */
+ /* Must be in this page */
+ 
+
+
+.nav-tabs .nav-item .nav-link.active {
+    background-color: hsla(0, 0%, 100%, 0.2);
+    transition: background-color 0.3s 0.2s;
+}
+.nav-tabs .nav-item .nav-link {
+    color: #fff;
+    border: 0;
+    margin: 0;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 15px;
+    background-color: transparent;
+    line-height: 24px;
+    transition: background-color .3s 0s;
+}
+
+.nav-tabs .nav-link,
+.nav-tabs .nav-item .nav-link {
+    border: 1px solid #ae0a46 !important;
+    padding: 2px 20px 4px !important;
+    border-radius: 20px;
+    font-size: 11.0px;
+    font-weight: 400 !important;
+    color: #ae0a46 !important;
+}
+ nav>.nav.nav-tabs {
+    background: none;
+}
+
+nav>div a.nav-item.nav-link.active:after {
+
+    content: none !important;
+}
+
+.letter_content_item .letter_content_title {
+    font-weight: 600;
+    padding-left: 14px;
+}
+
+/* Must be in this page */
+
+/* tab */
+.container .title {
+    color: #3c4858;
+    text-decoration: none;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    min-height: 32px;
+}
+
+.container .title h3 {
+    font-size: 25px;
+    font-weight: 300;
+}
+
+div.card {
+    border: 0;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-radius: 6px;
+    color: rgba(0, 0, 0, .87);
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+div.card.card-plain {
+    background: transparent;
+    box-shadow: none;
+}
+
+div.card .card-header {
+    border-radius: 3px;
+    padding: 5px 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -30px;
+    border: 0;
+    background: linear-gradient(60deg, #eee, #bdbdbd);
+}
+
+.card-plain .card-header:not(.card-avatar) {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.div.card .card-body {
+    padding: 15px 30px;
+}
+
+div.card .card-header-primary {
+    background: linear-gradient(60deg, #ab47bc, #7b1fa2);
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgba(156, 39, 176, .6);
+}
+
+div.card .card-header-danger {
+    background: linear-gradient(60deg, #ef5350, #d32f2f);
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgba(244, 67, 54, .6);
+}
+
+.card-nav-tabs .card-header {
+    margin-top: -30px !important;
+}
+
+.card .card-header .nav-tabs {
+    padding: 0;
+}
+
+.nav-tabs {
+    border: 0;
+    border-radius: 3px;
+    padding: 0 15px;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.nav-tabs .nav-item {
+    margin: 2px;
+}
+
+
+.nav-link {
+    display: block;
+}
+
+.nav-tabs .nav-item .material-icons {
+    margin: -1px 5px 0 0;
+    vertical-align: middle;
+}
+
+.nav .nav-item {
+    position: relative;
+}
+
+
+
+.multi_tab_content ul li a {
+    color: #000000;
+    font-weight: 400
+}
+
+/* Most Important */
+.brand-images {
+    display: inline;
+    justify-content: center;
+    align-items: center;
+}
+
+.image_box {
+    display: flex;
+    align-items: center;
+    height: 155px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.image_box_features {
+    display: flex;
+    align-items: center;
+    height: 160px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.brand-links a {
+    color: #ae0a46 !important;
+}
+
+.brand-links a:hover {
+    color: #020202 !important;
+}
+
+.brand_img_container {
+    box-shadow: var(--custom-shadow);
+}
+
+nav>div a.nav-item.nav-link,
+nav>div a.nav-item.nav-link.active {
+    border: none;
+    padding: 10px 21px !important;
+    color: #fff !important;
+    background: #ae0a46;
+    border-radius: 0;
+    text-align: start;
+    width: 50px;
+}
