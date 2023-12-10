@@ -74,9 +74,8 @@
                                 <div class="animated-image parbase section">
                                     <div id="solution_image_1">
                                         <img src="{{ isset($software_info->row_six_image) && file_exists(public_path('storage/' . $software_info->row_six_image)) ? asset('storage/' . $software_info->row_six_image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                                            alt="{{$software_info->row_six_title}}"
-                                            title="Software Information NGENIT" class="img-fluid"
-                                            style="background-color: rgb(212,208,202);">
+                                            alt="{{ $software_info->row_six_title }}" title="Software Information NGENIT"
+                                            class="img-fluid" style="background-color: rgb(212,208,202);">
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +146,8 @@
                                         </p>
                                         @if (!empty($tabId->btn_name))
                                             <a href="{{ $tabId->link }}"
-                                                class="common_button2 effect02">{{ $tabId->btn_name }}</a>
+                                                class="common_button2 effect02">{{ $tabId->btn_name }}
+                                            </a>
                                         @endif
                                     </div>
                                 </div>
@@ -182,7 +182,8 @@
                                                 <div class="p-lg-4 p-4 shadow-sm bg-white">
                                                     <div class="d-lg-flex align-items-center">
                                                         <div class="icons_area pe-2">
-                                                            <img class="category_icon" src="{{ asset('storage/' . $category->image) }}"
+                                                            <img class="category_icon"
+                                                                src="{{ asset('storage/' . $category->image) }}"
                                                                 alt="">
                                                         </div>
                                                         <div class="text_area">
@@ -470,29 +471,40 @@
             <!-- Client Tab End -->
     </section>
     <!--=====// Bootom Blogs section //=====-->
-    <section>
-        <div class="container mb-4">
-            <div class="row gy-4" style="border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
-                @if (count($tech_datas) > 0)
+    @if (count($tech_datas) > 0)
+        <div class="section_wp2">
+            <div class="container">
+                @if (!empty($software_info->row_seven_title))
+                    <div class="solution_number_wrapper">
+                        <!-- title -->
+                        @php
+                            $sentence2 = $software_info->row_seven_title;
+                        @endphp
+                        <h5 class="home_title_heading" style="text-align: left;">
+                            <div class="software_feature_title">
+                                <h1 class="text-center pb-3">
+                                    <span>{{ \Illuminate\Support\Str::substr($sentence2, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($sentence2, 1) }}
+                                </h1>
+                            </div>
+                        </h5>
+                    </div>
+                @endif
+                <!-- tech wrapper -->
+                <div class="row">
+                    <!-- item -->
                     @foreach ($tech_datas as $item)
-                        <div class="col-lg-3 col-6 py-3">
-                            <div class="d-flex align-items-center">
-                                <div class="" style="border-right: 1px solid #eee; width: 35%;">
-                                    <h1 class="pe-4 main_color text-end">{{ $item->header }}</h1>
-                                </div>
-                                <div class="" style="width: 65%;">
-                                    <div class="ps-4">
-                                        <p class="m-0 main_color">{{ $item->footer }}</p>
-                                        <p class="m-0">{{ $item->short_description }}</p>
-                                    </div>
-                                </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="tech_solution_item">
+                                <p class="tech_solution_title">{{ $item->header }}</p>
+                                <p class="tech_solution_text">{{ $item->short_description }}</p>
+                                <p class="tech_solution_award">{{ $item->footer }}</p>
                             </div>
                         </div>
                     @endforeach
-                @endif
+                </div>
             </div>
         </div>
-    </section>
+    @endif
     <!---------End -------->
     <!--=====// Pageform section //=====-->
     @include('frontend.partials.footer_contact')

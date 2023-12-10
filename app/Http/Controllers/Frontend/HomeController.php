@@ -722,8 +722,8 @@ class HomeController extends Controller
 
     public function AllBrand()
     {
-        $data['top_brands'] = Brand::top()->latest('id')->paginate(18);
-        $data['featured_brands'] = Brand::featured()->latest('id')->paginate(18);
+        $data['top_brands'] = Brand::top()->latest('id')->paginate(18, ['*'], 'top_brands');
+        $data['featured_brands'] = Brand::featured()->latest('id')->paginate(18, ['*'], 'featured_brands');
         $data['others'] = Brand::orderBy('title', 'ASC')->select('id', 'slug', 'title')->get();
         return view('frontend.pages.brand.brand', $data);
     }

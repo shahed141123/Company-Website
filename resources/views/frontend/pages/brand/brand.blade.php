@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h5 class="home_title_heading">Top Brands</h5>
+                    <h5 class="home_title_heading"><span class="main_color fw-bold">Top</span> Brands</h5>
                 </div>
             </div>
             <div class="row">
@@ -73,7 +73,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h5 class="home_title_heading">Featured Brands</h5>
+                    <h5 class="home_title_heading"><span class="main_color fw-bold">Featured</span> Brands</h5>
                 </div>
             </div>
             <div class="row">
@@ -106,7 +106,7 @@
         <div class="container">
             <div class="row">
                 <div class="text-center py-3">
-                    <h2>Explore all the <strong>Brands</strong> Ngen It offers. </h2>
+                    <h2>Discover <span class="main_color fw-bold">NGen IT's</span> Brand Showcase.</h2>
                 </div>
                 <div class="col-lg-12 ">
                     <div class="row mb-1">

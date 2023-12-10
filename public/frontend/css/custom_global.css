@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
 
 /* font face for Allumi Std Extended */
 @font-face {
@@ -10,24 +10,6 @@
     font-display: swap;
 }
 
-/* font face for Klinic Slab */
-@font-face {
-    font-family: "Allumi Std Extended";
-    src: url("../css/font/klinic_slab/KlinicSlab-Medium.woff2") format("woff2"),
-        url("../css/font/klinic_slab/KlinicSlab-Medium.woff") format("woff");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Allumi Std Extended";
-    src: url("../css/font/klinic_slab/KlinicSlab-Light.woff2") format("woff2"),
-        url("../css/font/klinic_slab/KlinicSlab-Light.woff") format("woff");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
 
 /* Custom columns */
 :root {
@@ -261,20 +243,7 @@ a:hover {
 /* Software Hardware Tab 16-07-23 */
 
 /* Extra Css */
-.common_button_accept {
-    padding: 9px 20px;
-    cursor: pointer;
-    font-family: "Allumi Std Extended";
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    display: inline-block;
-    background-color: var(--crimson);
-    transition: 0.3s;
-    outline: none;
-    border: none;
-    color: white;
-}
+/*common button*/
 
 .common_product_header h1 {
     font-size: 50px !important;
@@ -847,8 +816,7 @@ figure.effect-oscar:hover figcaption {
     color: #fff;
     font-size: 2rem;
     font-weight: 300;
-    font-family: "allumi-2-std", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     text-transform: capitalize;
 }
 
@@ -908,24 +876,7 @@ h2 {
     color: #c9c9c9 !important;
 }
 
-.common_button2 input::placeholder {
-    color: white;
-    padding: 5px;
-}
 
-.common_button2 input:focus {
-    border: 1px solid #00000057 !important;
-    border-color: inherit;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-}
-
-.common_button2 input:active {
-    border: 1px solid #00000057 !important;
-    border-color: inherit;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-}
 
 .accordion {
     display: flex;
@@ -1602,20 +1553,7 @@ footer p a:hover {
     max-width: initial;
 }
 
-.common_button3 {
-    padding: 5px 22px;
-    cursor: pointer;
-    font-family: "Allumi Std Extended";
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    display: inline-block;
-    background-color: #fff;
-    color: #ae0a46;
-    transition: 0.3s;
-    outline: none;
-    border: none;
-}
+
 
 .word {
     position: absolute;
@@ -5465,9 +5403,9 @@ tr td:hover {
 }
 
 .software-info-paragraph {
-    font-size: 16px;
-    font-weight: 100;
-    line-height: 24px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3;
     text-rendering: optimizeLegibility;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -5672,7 +5610,7 @@ tr td:hover {
     height: 100%;
     background-color: #d9d9d9;
     color: #252525;
-    font-family: "Klinic Slab" !important;
+    font-family: "Allumi Std Extended" !important;
     border-radius: 4px;
     letter-spacing: 1px;
     transition: all 0.3s ease;
@@ -5705,7 +5643,7 @@ tr td:hover {
 .breadcrumb__item a {
     background-color: #d9d9d9;
     color: #252525;
-    font-family: "Klinic Slab" !important;
+    font-family: "Allumi Std Extended" !important;
 }
 
 .breadcrumb__item:hover {
@@ -5734,7 +5672,7 @@ tr td:hover {
 }
 
 /*25-05-23 */
-/* font face for Klinic Slab End*/
+/* font face for Allumi Std Extended End*/
 * {
     padding: 0;
     margin: 0;
@@ -5811,7 +5749,7 @@ tr td:hover {
 
 /* Default Css Start */
 .business_item_title {
-    font-family: "Klinic Slab" !important;
+    font-family: "Allumi Std Extended" !important;
     font-weight: bold;
     text-transform: capitalize;
     font-size: 18px;
@@ -5834,8 +5772,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-weight: 400;
     font-style: normal;
     color: #222;
@@ -5844,7 +5781,7 @@ h6 {
     line-height: 1.4;
 }
 
-/* font face for Klinic Slab End*/
+/* font face for Allumi Std Extended End*/
 /* Preloader Css Start */
 /* Preloader Css end */
 /* Default Css Start */
@@ -5941,83 +5878,6 @@ p {
     z-index: 999999999999;
     margin: 0 auto;
     width: 100%;
-}
-
-/*common button*/
-.common_button {
-    padding: 10px 40px;
-    cursor: pointer;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    display: inline-block;
-    background-color: #fff;
-    color: #ae0a46;
-    border: 1px solid #c5c5c5;
-}
-
-.common_button6 {
-    padding: 10px 40px;
-    cursor: pointer;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    display: inline-block;
-    background-color: #353434;
-    color: #ffffff;
-    border: 1px solid #5f5753;
-}
-
-.common_button:hover {
-    background-color: #ae0a46;
-    /* border: 0px solid #5f5753;
-  */
-    color: white !important;
-    transition: 0.3s;
-}
-
-.common_button2 {
-    padding: 15px 20px;
-    cursor: pointer;
-    font-family: "Allumi Std Extended";
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    display: inline-block;
-    background-color: var(--crimson);
-    transition: 0.3s;
-    outline: none;
-    border: none;
-    color: white;
-}
-
-.common_button2:hover {
-    background-color: var(--dark-crimson);
-    color: #fff;
-}
-
-.common_button3 {
-    padding: 15px 20px;
-    cursor: pointer;
-    font-family: "Allumi Std Extended";
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    display: inline-block;
-    background-color: #fff;
-    color: #ae0a46;
-    transition: 0.3s;
-    outline: none;
-    border: none;
-}
-
-.common_button3:hover {
-    background-color: var(--navColor);
-    color: var(--bgColor);
 }
 
 .section_padding {
@@ -8375,13 +8235,39 @@ nav>.nav.nav-tabs {
 nav>div a.nav-item.nav-link,
 nav>div a.nav-item.nav-link.active {
     text-align: center !important;
-    color: #000 !important;
+    background: #ae0a46;
+    color: #fff !important;
     border-radius: 0;
-    font-size: 22px !important;
-    border: 0;
+    font-size: 17px;
+    border: none;
     position: relative;
+    padding: 10px 15px !important;
     top: 9px;
+    width: 50px;
+
 }
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+    background-color: #ae0a46 !important;
+    border: 1px solid #ae0a46 !important;
+    padding: 2px 20px 4px !important;
+    border-radius: 20px;
+    font-size: 11.0px;
+    font-weight: 400 !important;
+    color: #fff !important;
+    margin: 0 !important;
+    text-transform: uppercase;
+
+}
+
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+    border: none;
+    border-radius: 0;
+    transition: background 0.2s linear;
+}
+
 
 .tab-content {
     background: transparent;
@@ -8389,12 +8275,13 @@ nav>div a.nav-item.nav-link.active {
     padding: 20px 25px;
 }
 
-nav>div a.nav-item.nav-link:hover,
+/* nav>div a.nav-item.nav-link:hover,
 nav>div a.nav-item.nav-link:focus {
     border: none;
     border-radius: 0;
+    padding: 10px 21px !important;
     transition: background 0.2s linear;
-}
+} */
 
 .showcase-industry {
     width: 100%;
@@ -10086,8 +9973,7 @@ form .btn input[type="submit"] {
     padding: 5px 15px;
     margin-top: 10px;
     cursor: pointer;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-size: 16px;
     text-align: center;
     border: 1px solid #3e332d;
@@ -10143,8 +10029,7 @@ form .btn input[type="submit"] {
     padding: 0px 20px;
     background-color: var(--crimson);
     border-radius: 50px;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .apply_job_form_title h1 {
@@ -10360,8 +10245,7 @@ form .btn input[type="submit"] {
     margin-top: 40px;
     padding: 10px 40px;
     cursor: pointer;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-size: 18px;
     font-weight: 500;
     text-align: center;
@@ -10399,8 +10283,7 @@ form .btn input[type="submit"] {
     padding: 0px 20px;
     background-color: var(--crimson);
     border-radius: 50px;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .support_assistance_header h1 {
@@ -10533,8 +10416,7 @@ form .btn input[type="submit"] {
     line-height: 44px;
     color: rgb(255, 252, 252);
     padding: 0px 15%;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 /*-----------*/
@@ -10564,8 +10446,7 @@ form .btn input[type="submit"] {
     text-align: center;
     margin-bottom: 10px;
     color: #222;
-    font-family: "allumi-2-std", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-weight: 300;
     font-size: 16px;
     /*display: -webkit-box;
@@ -10656,15 +10537,13 @@ form .btn input[type="submit"] {
     line-height: 44px;
     color: rgb(255, 252, 252);
     padding: 0% 10%;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .search_all_tech_deals_btn {
     padding: 20px 40px;
     cursor: pointer;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-size: 18px;
     font-weight: 500;
     line-height: normal;
@@ -10683,8 +10562,7 @@ form .btn input[type="submit"] {
 .shop_refurbished_btn {
     padding: 20px 40px;
     cursor: pointer;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-size: 18px;
     font-weight: 500;
     line-height: normal;
@@ -10748,8 +10626,7 @@ form .btn input[type="submit"] {
 .tech_deals_content_name {
     margin-bottom: 10px;
     color: #222;
-    font-family: "allumi-2-std", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-weight: 300;
     font-size: 22px;
     display: -webkit-box;
@@ -11451,8 +11328,7 @@ switch input:checked+.slider {
 .btn_footer_cookises {
     padding: 10px 20px;
     cursor: pointer;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-size: 18px;
     font-weight: 500;
     text-align: center;
@@ -11528,8 +11404,7 @@ switch input:checked+.slider {
     color: #fff;
     font-weight: bolder;
     padding: 0% 10%;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .tech_glossary_header h1 {
@@ -11547,8 +11422,7 @@ switch input:checked+.slider {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-style: normal;
     text-rendering: optimizeLegibility;
     color: #3e332d;
@@ -11665,8 +11539,7 @@ switch input:checked+.slider {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-style: normal;
     text-rendering: optimizeLegibility;
     color: #3e332d;
@@ -11680,8 +11553,7 @@ switch input:checked+.slider {
     color: #222;
     font-size: 16px;
     font-weight: 100;
-    font-family: "allumi-2-std", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .featured_articles_item h3 span {
@@ -11710,7 +11582,7 @@ switch input:checked+.slider {
              Sitemap page
           ==========================*/
 /*================================================*/
-.sitemap_content {}
+
 
 .sitemap_content h2 {
     font-size: 32px;
@@ -12166,15 +12038,13 @@ switch input:checked+.slider {
     line-height: 30px;
     color: rgb(255, 252, 252);
     padding: 0% 10%;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .search_all_product_btn {
     padding: 20px 40px;
     cursor: pointer;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-size: 18px;
     font-weight: 500;
     line-height: normal;
@@ -12193,8 +12063,7 @@ switch input:checked+.slider {
 .create_your_account_btn {
     padding: 20px 40px;
     cursor: pointer;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-size: 18px;
     font-weight: 500;
     line-height: normal;
@@ -12225,8 +12094,7 @@ switch input:checked+.slider {
     text-align: center;
     margin-bottom: 10px;
     color: #ae0a46;
-    font-family: "allumi-2-std", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-weight: 300;
     font-size: 24px;
     display: -webkit-box;
@@ -12263,15 +12131,13 @@ switch input:checked+.slider {
     line-height: 20px;
     color: rgb(255, 252, 252);
     padding: 0% 10%;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .finding_product_btn {
     padding: 20px 40px;
     cursor: pointer;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-size: 18px;
     font-weight: 500;
     line-height: normal;
@@ -12309,8 +12175,7 @@ switch input:checked+.slider {
 }
 
 .transform_devices_blog p {
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-size: 18px;
     color: #88817d;
 }
@@ -12318,8 +12183,7 @@ switch input:checked+.slider {
 .transform_devices_blog a {
     padding: 10px 40px;
     cursor: pointer;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-size: 18px;
     font-weight: 500;
     text-align: center;
@@ -12716,8 +12580,7 @@ switch input:checked+.slider {
 }
 
 .outcome_assetType a {
-    font-family: "allumi-2-std", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-style: normal;
     margin: 0 auto 25px !important;
     padding: 8px 20px 7px;
@@ -12922,8 +12785,7 @@ switch input:checked+.slider {
     font-weight: 400;
     line-height: 32px;
     margin-bottom: -10px;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     text-align: center;
 }
 
@@ -12933,8 +12795,7 @@ switch input:checked+.slider {
     line-height: 44px;
     color: #222;
     font-weight: 100;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .circleImage {
@@ -12950,8 +12811,7 @@ switch input:checked+.slider {
     font-size: 18px;
     color: #3e332d;
     font-weight: 100;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -13103,8 +12963,7 @@ switch input:checked+.slider {
     margin: 10px 0;
     color: black;
     font-size: 16px;
-    font-family: "allumi-2-std", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .product_content_item h3 {
@@ -13113,8 +12972,7 @@ switch input:checked+.slider {
     font-weight: bold;
     line-height: 1.2;
     font-style: normal;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     text-rendering: optimizeLegibility;
     color: #ae0a46;
 }
@@ -13123,16 +12981,14 @@ switch input:checked+.slider {
     margin: 10px 0;
     color: #6c757d;
     font-size: 14px;
-    font-family: "allumi-2-std", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .product_content_item p {
     color: #3e332d;
     font-size: 14px;
     font-weight: 100;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-style: normal;
     line-height: 24px;
     margin-bottom: 0;
@@ -13205,8 +13061,7 @@ switch input:checked+.slider {
     font-size: 36px;
     color: #495057;
     font-weight: 100;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .client_stories_item {
@@ -13276,8 +13131,7 @@ switch input:checked+.slider {
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
-    font-family: "allumi-2-std", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .client_stories_filter_category input[type="checkbox"] {
@@ -13318,8 +13172,7 @@ switch input:checked+.slider {
     margin: 10px 0;
     color: #6c757d;
     font-size: 14px;
-    font-family: "allumi-2-std", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .client_stories_content_item h3 {
@@ -13328,8 +13181,7 @@ switch input:checked+.slider {
     font-weight: 100;
     line-height: 1.2;
     font-style: normal;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     text-rendering: optimizeLegibility;
 }
 
@@ -13337,8 +13189,7 @@ switch input:checked+.slider {
     color: #3e332d;
     font-size: 14px;
     font-weight: 100;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-style: normal;
     line-height: 24px;
 }
@@ -13386,8 +13237,7 @@ switch input:checked+.slider {
 }
 
 .assetType a {
-    font-family: "allumi-2-std", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-style: normal;
     border-top: 0px solid #d40e8c;
     margin: 0 auto 25px !important;
@@ -13481,8 +13331,7 @@ switch input:checked+.slider {
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-style: normal;
     text-rendering: optimizeLegibility;
     color: #3e332d;
@@ -13496,8 +13345,7 @@ switch input:checked+.slider {
     padding: 20px 40px;
     background: #ae0a46;
     color: white;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-style: normal;
 }
 
@@ -13544,8 +13392,7 @@ switch input:checked+.slider {
     color: #222;
     font-size: 16px;
     font-weight: 100;
-    font-family: "allumi-2-std", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .discover_more_item h3 span {
@@ -13610,27 +13457,7 @@ switch input:checked+.slider {
           ==========================*/
 /*=======================================*/
 
-/*common button*/
-.common_button_dashboard {
-    padding: 10px 40px;
-    cursor: pointer;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    display: inline-block;
-    background-color: #ae0a46;
-    color: white;
-}
 
-.common_button_dashboard:hover {
-    background-color: #7a0932;
-    color: white;
-    transition: 0.3s;
-}
-
-/*-----End-----*/
 
 /*Sidebar & Content Show hide Setting*/
 .content_wrapper {
@@ -13809,8 +13636,7 @@ switch input:checked+.slider {
 
 .content_resources_search form {
     width: 80%;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .content_resources_search input[type="text"] {
@@ -13958,8 +13784,7 @@ switch input:checked+.slider {
     font-size: 18px;
     margin: 10px 0;
     cursor: default;
-    font-family: "allumi-2-std", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .card-thumb ul {
@@ -13987,8 +13812,7 @@ switch input:checked+.slider {
 .order_tracking_btn a {
     padding: 10px 20px;
     cursor: pointer;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-size: 18px;
     text-align: center;
     border: 1px solid #3e332d;
@@ -14072,8 +13896,7 @@ switch input:checked+.slider {
 .common_button_logout {
     padding: 5px 20px;
     cursor: pointer;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     font-size: 16px;
     font-weight: 500;
     text-align: center;
@@ -14125,8 +13948,7 @@ switch input:checked+.slider {
 .client_dashboard_welcome_section p {
     font-size: 18px;
     line-height: 44px;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     color: #222;
 }
 
@@ -14145,8 +13967,7 @@ switch input:checked+.slider {
 .client_dashboard_blog ul li a {
     font-size: 18px;
     line-height: 44px;
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
     color: #ae0a46;
 }
 
@@ -15703,7 +15524,7 @@ switch input:checked+.slider {
 }
 
 .home_shop_product_wrapper p {
-    font-family: "Klinic Slab" !important;
+    font-family: "Allumi Std Extended" !important;
     font-size: 16px;
     font-family: Arial;
     margin-bottom: 20px;
@@ -16493,8 +16314,7 @@ thead {
 /* Learn More Page Design */
 
 .outcome_smail_bussiness_title h2 {
-    font-family: "klinic-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial,
-        sans-serif;
+    font-family: "Allumi Std Extended";
 }
 
 .global_call_section_content {
@@ -17290,30 +17110,7 @@ thead {
 }
 
 
-.nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
-    background-color: #ae0a46 !important;
-    border: 1px solid #ae0a46 !important;
-    padding: 2px 20px 4px !important;
-    border-radius: 20px;
-    font-size: 11.0px;
-    font-weight: 400 !important;
-    color: #fff !important;
-    margin: 0 !important;
-    text-transform: uppercase;
-}
 
-.nav-tabs .nav-link:focus,
-.nav-tabs .nav-link:hover {
-    border: 1px solid #ae0a46 !important;
-    /* padding: 2px 20px 1px !important; */
-    border-radius: 20px;
-    font-size: 11.0px;
-    font-weight: 400 !important;
-    /* color: #ffffff !important; */
-    margin: 0 !important;
-    text-transform: uppercase;
-}
 
 .extra_button_learn_more {
     color: #fff;
@@ -17329,7 +17126,7 @@ thead {
 
 /* Brand Page Design */
  /* Must be in this page */
- 
+
 
 
 .nav-tabs .nav-item .nav-link.active {
@@ -17515,13 +17312,3 @@ div.card .card-header-danger {
     box-shadow: var(--custom-shadow);
 }
 
-nav>div a.nav-item.nav-link,
-nav>div a.nav-item.nav-link.active {
-    border: none;
-    padding: 10px 21px !important;
-    color: #fff !important;
-    background: #ae0a46;
-    border-radius: 0;
-    text-align: start;
-    width: 50px;
-}
