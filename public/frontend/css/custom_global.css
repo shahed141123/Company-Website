@@ -80,7 +80,12 @@ tr {
     border: 1px solid #d9d8d8;
     vertical-align: middle;
 }
+.custom_shadow {
+    box-shadow: var(--custom-shadow);
+}
 /* ----------------------------- Global Css End ----------------------------- */
+
+
 /* ------------------------------- Main Button ------------------------------ */
 .home-btn {
     color: #fff;
@@ -151,8 +156,6 @@ tr {
     color: var(--primaryColor);
     background-color: var(--subColor);
 }
-
-
 
 
 
@@ -296,6 +299,250 @@ tr {
 /* -------------------------------------------------------------------------- */
 /* Home Card Section */
 /* -------------------------------------------------------------------------- */
+
+
+/* ------------------------------- Home Banner ------------------------------ */
+.Advance-Slider {
+    float: left;
+    width: 100%;
+    overflow: hidden;
+}
+.story_title {
+    padding-bottom: 3rem;
+    color: #3e332d;
+    margin-top: 4rem;
+}
+.Advance-Slider .img-fill {
+    position: relative;
+    height: 100%;
+}
+.Advance-Slider .img-fill img {
+    height: 100%;
+    width: 100%;
+    animation: myMove 10s linear infinite;
+}
+.Advance-Slider .item {
+    height: 65%;
+    overflow: hidden;
+    outline: none;
+}
+.Advance-Slider button.slick-next.slick-arrow {
+    right: 0;
+    left: auto;
+}
+.Advance-Slider button.slick-arrow:before {
+    content: "\f104";
+    top: 0;
+    left: 0;
+    margin: auto;
+    font-size: 18px;
+}
+.Advance-Slider button.slick-next.slick-arrow:before {
+    transform: scaleX(-1);
+    display: block;
+}
+.Advance-Slider .img-fill:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.Advance-Slider ul.slick-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.Advance-Slider ul.slick-dots li {
+    display: inline-block;
+    height: auto;
+    padding: 0 5px;
+    line-height: 0px;
+}
+.Advance-Slider ul.slick-dots li button {
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background: #fff;
+    border: none;
+    font-size: 0;
+    padding: 0;
+    opacity: 0.5;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.Advance-Slider ul.slick-dots li.slick-active button {
+    opacity: 1;
+}
+.Advance-Slider button.slick-arrow {
+    display: none;
+    perspective: 360px;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    height: 50px;
+    width: 50px;
+    background: #fff;
+    border: none;
+    margin: auto;
+    font-size: 0;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+}
+.Advance-Slider button.slick-arrow .thumb {
+    display: none;
+    position: absolute;
+    height: 100px;
+    width: 150px;
+    left: 100%;
+    top: -28px;
+    transform-origin: 0% 0%;
+    transform: rotate3d(1, 0, 0, 90deg);
+}
+.Advance-Slider button.slick-arrow .thumb img {
+    height: 100%;
+    width: 100%;
+}
+.Advance-Slider button.slick-next .thumb {
+    left: auto;
+    right: 100%;
+}
+.Advance-Slider button.slick-prev.hover-out .thumb,
+.Advance-Slider button.slick-prev .thumb {
+    animation: out-left 300ms ease 0ms 1 forwards;
+}
+.Advance-Slider button.slick-prev.hover-in .thumb {
+    animation: in-left 300ms ease 0ms 1 forwards;
+}
+.Advance-Slider button.slick-next.hover-out .thumb,
+.Advance-Slider button.slick-next .thumb {
+    animation: out-right 300ms ease 0ms 1 forwards;
+    transform-origin: 100% 50%;
+}
+.Advance-Slider button.slick-next.hover-in .thumb {
+    animation: in-right 300ms ease 0ms 1 forwards;
+}
+.Advance-Slider button.slick-prev:hover {
+    transform: translateX(-100%);
+}
+.Advance-Slider button.slick-prev {
+    transition: all 0.3s ease;
+}
+.Advance-Slider button.slick-next:hover {
+    transform: translateX(100%);
+}
+.Advance-Slider button.slick-next {
+    transition: all 0.3s ease;
+}
+.Advance-Slider ul.slick-dots li button img {
+    height: 0;
+    width: 20px;
+    top: 0;
+    object-fit: cover;
+    transition: height 0.2s ease 0.2s, width 0.2s ease 0s;
+    position: relative;
+    left: -50%;
+}
+.Advance-Slider ul.slick-dots li button a {
+    position: absolute;
+    height: 90px;
+    bottom: calc(100%);
+    width: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    transition: all 0.2s ease 0.2s;
+    padding-bottom: 10px;
+}
+.Advance-Slider ul.slick-dots li button:hover a img {
+}
+.Advance-Slider ul.slick-dots li button:hover img {
+    height: 80px;
+    width: 140px;
+    transition: height 0.2s ease, width 0.2s ease 0.2s;
+}
+.Advance-Slider ul.slick-dots li button:hover a {
+    width: 140px;
+    transition: all 0.3s ease 0s;
+}
+.Advance-Slider ul.slick-dots li button:hover {
+    opacity: 1;
+}
+.Advance-Slider ul.slick-dots li button:before {
+    content: "";
+    bottom: calc(100% + -10px);
+    left: 7px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0px;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: var(--white);
+    border-width: 10px;
+    margin-left: -10px;
+    opacity: 0;
+    transition: 0.3s ease 350ms;
+}
+.Advance-Slider ul.slick-dots li button:hover:before {
+    opacity: 1;
+    transition: 0.3s ease 0s;
+}
+.Advance-Slider .item.slick-active {
+    animation: Slick-FastSwipeIn 1s both;
+}
+.Advance-Slider .item .contain-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.Advance-Slider .item .contain-wrapper .dots-contain {
+    display: none;
+}
+.Advance-Slider .item h3 {
+    margin: 0px;
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: 300;
+    font-family: var(--primary-font);
+    text-transform: capitalize;
+}
+.Advance-Slider .item {
+    color: var(--white);
+}
+.Advance-Slider .item h5 {
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 10px 0 0;
+    margin: 0;
+    text-transform: capitalize;
+}
+.Advance-Slider .item .contain-wrapper .info {
+    max-width: 1200px;
+}
+
+
+
 .banner_bottom_box {
     width: 75%;
     position: relative;
@@ -714,247 +961,7 @@ figure.effect-oscar:hover figcaption {
 .brand_side_text {
     transition: 0.5s all;
 }
-.Advance-Slider {
-    float: left;
-    width: 100%;
-    overflow: hidden;
-}
-.story_title {
-    padding-bottom: 3rem;
-    color: #3e332d;
-    margin-top: 4rem;
-}
-.Advance-Slider .img-fill {
-    position: relative;
-    height: 100%;
-}
-.Advance-Slider .img-fill img {
-    height: 100%;
-    width: 100%;
-    animation: myMove 10s linear infinite;
-}
-.Advance-Slider .item {
-    height: 65%;
-    overflow: hidden;
-    outline: none;
-}
-.Advance-Slider button.slick-next.slick-arrow {
-    right: 0;
-    left: auto;
-}
-.Advance-Slider button.slick-arrow:before {
-    content: "\f104";
-    top: 0;
-    left: 0;
-    margin: auto;
-    font-size: 18px;
-}
-.Advance-Slider button.slick-next.slick-arrow:before {
-    transform: scaleX(-1);
-    display: block;
-}
-.Advance-Slider .img-fill:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-.Advance-Slider ul.slick-dots {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-.Advance-Slider ul.slick-dots li {
-    display: inline-block;
-    height: auto;
-    padding: 0 5px;
-    line-height: 0px;
-}
-.Advance-Slider ul.slick-dots li button {
-    height: 15px;
-    width: 15px;
-    border-radius: 100%;
-    background: #fff;
-    border: none;
-    font-size: 0;
-    padding: 0;
-    opacity: 0.5;
-    outline: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-.Advance-Slider ul.slick-dots li.slick-active button {
-    opacity: 1;
-}
-.Advance-Slider button.slick-arrow {
-    display: none;
-    perspective: 360px;
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    bottom: 0;
-    height: 50px;
-    width: 50px;
-    background: #fff;
-    border: none;
-    margin: auto;
-    font-size: 0;
-    text-align: center;
-    outline: none;
-    cursor: pointer;
-}
-.Advance-Slider button.slick-arrow .thumb {
-    display: none;
-    position: absolute;
-    height: 100px;
-    width: 150px;
-    left: 100%;
-    top: -28px;
-    transform-origin: 0% 0%;
-    transform: rotate3d(1, 0, 0, 90deg);
-}
-.Advance-Slider button.slick-arrow .thumb img {
-    height: 100%;
-    width: 100%;
-}
-.Advance-Slider button.slick-next .thumb {
-    left: auto;
-    right: 100%;
-}
-.Advance-Slider button.slick-prev.hover-out .thumb,
-.Advance-Slider button.slick-prev .thumb {
-    animation: out-left 300ms ease 0ms 1 forwards;
-}
-.Advance-Slider button.slick-prev.hover-in .thumb {
-    animation: in-left 300ms ease 0ms 1 forwards;
-}
-.Advance-Slider button.slick-next.hover-out .thumb,
-.Advance-Slider button.slick-next .thumb {
-    animation: out-right 300ms ease 0ms 1 forwards;
-    transform-origin: 100% 50%;
-}
-.Advance-Slider button.slick-next.hover-in .thumb {
-    animation: in-right 300ms ease 0ms 1 forwards;
-}
-.Advance-Slider button.slick-prev:hover {
-    transform: translateX(-100%);
-}
-.Advance-Slider button.slick-prev {
-    transition: all 0.3s ease;
-}
-.Advance-Slider button.slick-next:hover {
-    transform: translateX(100%);
-}
-.Advance-Slider button.slick-next {
-    transition: all 0.3s ease;
-}
-.Advance-Slider ul.slick-dots li button img {
-    height: 0;
-    width: 20px;
-    top: 0;
-    object-fit: cover;
-    transition: height 0.2s ease 0.2s, width 0.2s ease 0s;
-    position: relative;
-    left: -50%;
-}
-.Advance-Slider ul.slick-dots li button a {
-    position: absolute;
-    height: 90px;
-    bottom: calc(100%);
-    width: 0;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    transition: all 0.2s ease 0.2s;
-    padding-bottom: 10px;
-}
-.Advance-Slider ul.slick-dots li button:hover a img {
-}
-.Advance-Slider ul.slick-dots li button:hover img {
-    height: 80px;
-    width: 140px;
-    transition: height 0.2s ease, width 0.2s ease 0.2s;
-}
-.Advance-Slider ul.slick-dots li button:hover a {
-    width: 140px;
-    transition: all 0.3s ease 0s;
-}
-.Advance-Slider ul.slick-dots li button:hover {
-    opacity: 1;
-}
-.Advance-Slider ul.slick-dots li button:before {
-    content: "";
-    bottom: calc(100% + -10px);
-    left: 7px;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0px;
-    position: absolute;
-    pointer-events: none;
-    border-color: rgba(255, 255, 255, 0);
-    border-top-color: var(--white);
-    border-width: 10px;
-    margin-left: -10px;
-    opacity: 0;
-    transition: 0.3s ease 350ms;
-}
-.Advance-Slider ul.slick-dots li button:hover:before {
-    opacity: 1;
-    transition: 0.3s ease 0s;
-}
-.Advance-Slider .item.slick-active {
-    animation: Slick-FastSwipeIn 1s both;
-}
-.Advance-Slider .item .contain-wrapper {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-.Advance-Slider .item .contain-wrapper .dots-contain {
-    display: none;
-}
-.Advance-Slider .item h3 {
-    margin: 0px;
-    color: var(--white);
-    font-size: 2rem;
-    font-weight: 300;
-    font-family: var(--primary-font);
-    text-transform: capitalize;
-}
-.Advance-Slider .item {
-    color: var(--white);
-}
-.Advance-Slider .item h5 {
-    font-family: var(--primary-font);
-    font-size: 1rem;
-    font-weight: 300;
-    padding: 10px 0 0;
-    margin: 0;
-    text-transform: capitalize;
-}
-.Advance-Slider .item .contain-wrapper .info {
-    max-width: 1200px;
-}
-.custom_shadow {
-    box-shadow: var(--custom-shadow);
-}
+
 .slick-dotted.slick-slider {
     margin-bottom: -100px;
 }
@@ -4127,17 +4134,17 @@ tr td:hover {
     float: right;
 }
 /***** CSS Magic to Highlight Stars on Hover *****/
-.rating>input:checked~label, 
+.rating>input:checked~label,
 /* show gold star when clicked */
-.rating:not(:checked)>label:hover, 
+.rating:not(:checked)>label:hover,
 /* hover current star */
 .rating:not(:checked)>label:hover~label {
     color: #ffd700;
 }
 /* hover previous stars in list */
-.rating>input:checked+label:hover, 
+.rating>input:checked+label:hover,
 /* hover current star when changing rating */
-.rating>input:checked~label:hover, .rating>label:hover~input:checked~label, 
+.rating>input:checked~label:hover, .rating>label:hover~input:checked~label,
 /* lighten current selection */
 .rating>input:checked~label:hover~label {
     color: #ffed85;
@@ -5933,12 +5940,12 @@ ul {
 }
 /* .masthead .masthead-cards .card:hover {
     margin-top: -.25rem;
-    margin-bottom: .25rem 
+    margin-bottom: .25rem
 }
 */
 /*.masthead .masthead-cards .card:active {
     margin-top: inherit;
-    margin-bottom: inherit 
+    margin-bottom: inherit
 }
 */
 .masthead .masthead-cards .card.border-bottom-blue:hover {
@@ -13059,7 +13066,7 @@ switch input:checked + .slider {
     padding: 20px 20px 10px 20px;
 }
 /* Private Sector Design */
-/*======================= 
+/*=======================
 /*======================= footer section =========================*/
 /*============ Start ==============*/
 .footer_top {
