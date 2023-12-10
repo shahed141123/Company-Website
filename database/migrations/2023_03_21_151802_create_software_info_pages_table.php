@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('row_five_tab_three_id')->nullable();
             $table->unsignedBigInteger('row_five_tab_four_id')->nullable();
             $table->string('banner_image')->nullable();
+            $table->enum('type', ['info','common'])->default('info')->nullable();
             $table->string('banner_title')->nullable();
             $table->string('banner_short_description')->nullable();
             $table->string('banner_btn_name')->nullable();

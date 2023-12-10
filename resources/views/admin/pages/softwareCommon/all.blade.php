@@ -9,7 +9,7 @@
                     <div class="breadcrumb py-2">
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house me-2"></i> Home</a>
                         <a href="{{ route('site-content.index') }}" class="breadcrumb-item">Site Content</a>
-                        <a href="{{ route('hardware-info-page.index') }}" class="breadcrumb-item">Hardware Info Page</a>
+                        <a href="{{ route('software-common-page.index') }}" class="breadcrumb-item">Sofware Common Page</a>
                     </div>
                     <a href="#breadcrumb_elements"
                         class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
@@ -24,8 +24,8 @@
             <div class="d-flex align-items-center py-1 bg-white">
                 {{-- Add Details Start --}}
                 <div class="text-success nav-link cat-tab3">
-                    <a href="{{ route('hardware-info-page.create') }}" data-bs-toggle="tooltip" data-bs-placement="top"
-                        title="Add Solution Details"
+                    <a href="{{ route('software-common-page.create') }}" data-bs-toggle="tooltip"
+                        data-bs-placement="top" title="Add Solution Details"
                         class="mx-3 btn btn-sm btn-info btn-labeled custom_btn btn-labeled-start float-start">
                         <span class="btn-labeled-icon bg-black bg-opacity-20">
                             <i class="icon-plus2"></i>
@@ -33,8 +33,8 @@
                         Add
                     </a>
 
-                    <div class="text-center" style="margin-left: 5.5rem;">
-                        <h5 class="ms-1 mb-0" style="color: #247297;">Hardware Info Page</h5>
+                    <div class="text-center" style="margin-left: 4.5rem;">
+                        <h5 class="ms-1 mb-0" style="color: #247297;">Software Common Page</h5>
                     </div>
                 </div>
                 {{-- Add Details End --}}
@@ -53,19 +53,18 @@
                             $words = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
                         @endphp
 
-                        @if (count($hardwareInfoPages)>0)
-                            @foreach ($hardwareInfoPages as $key => $hardwareInfoPage)
+                        @if (count($softwareCommons)>0)
+                            @foreach ($softwareCommons as $key => $softwareCommon)
                                 <tr>
-                                    <td class="text-center">{{ $loop->iteration }}</td>
-                                    <td>
-                                        {{ isset($words[$key]) ? Str::ucfirst($words[$key]) . ' ' . 'Tamplate' : 'Number out of range' }}
+                                    <td class="text-center">{{ $loop->iteration }} </td>
+                                    <td>{{ isset($words[$key]) ? Str::ucfirst($words[$key]) . ' ' . 'Tamplate' : 'Number out of range' }}
                                     </td>
                                     <td>
-                                        <a href="{{ route('hardware-info-page.edit', [$hardwareInfoPage->id]) }}"
+                                        <a href="{{ route('software-common-page.edit', [$softwareCommon->id]) }}"
                                             class="text-primary">
                                             <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
                                         </a>
-                                        <a href="{{ route('hardware-info-page.destroy', [$hardwareInfoPage->id]) }}"
+                                        <a href="{{ route('software-common-page.destroy', [$softwareCommon->id]) }}"
                                             class="text-danger delete">
                                             <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
                                         </a>
@@ -83,18 +82,4 @@
         </div>
     </div>
 @endsection
-{{-- @once
-    @push('scripts')
-        <script type="text/javascript">
-            $('.hardwareInfoDt').DataTable({
-                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-                "iDisplayLength": 10,
-                "lengthMenu": [10, 25, 30, 50],
-                columnDefs: [{
-                    orderable: false,
-                    targets: [2],
-                }, ],
-            });
-        </script>
-    @endpush
-@endonce --}}
+

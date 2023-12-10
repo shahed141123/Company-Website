@@ -129,7 +129,9 @@ use App\Http\Controllers\Admin\PaymentMethodDetailsController;
 use App\Http\Controllers\Admin\PolicyAcknowledgmentsController;
 use App\Http\Controllers\Client\ClientSupportMessageController;
 use App\Http\Controllers\Admin\FrontendNavbarMenuItemController;
+use App\Http\Controllers\Admin\HardwareCommonController;
 use App\Http\Controllers\Admin\PortfolioClientFeedbackController;
+use App\Http\Controllers\Admin\SoftwareCommonController;
 use App\Http\Controllers\Marketing\MarketingTeamTargetController;
 use App\Http\Controllers\Marketing\MarketingManagerRoleController;
 
@@ -468,6 +470,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'what-we-do-page'           => WhatWeDoPageController::class, // done
             'software-info-page'        => SoftwareInfoPageController::class, // done
             'hardware-info-page'        => HardwareInfoPageController::class, // done
+            'software-common-page'      => SoftwareCommonController::class, // done
+            'hardware-common-page'      => HardwareCommonController::class, // done
 
             'banking'                   => BankingController::class, // allmost - pending
             'tax-vat'                   => TaxVatController::class, // done

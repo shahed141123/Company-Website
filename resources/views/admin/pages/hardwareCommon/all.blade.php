@@ -9,7 +9,7 @@
                     <div class="breadcrumb py-2">
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house me-2"></i> Home</a>
                         <a href="{{ route('site-content.index') }}" class="breadcrumb-item">Site Content</a>
-                        <a href="{{ route('hardware-info-page.index') }}" class="breadcrumb-item">Hardware Info Page</a>
+                        <a href="{{ route('hardware-common-page.index') }}" class="breadcrumb-item">Hardware Common Page</a>
                     </div>
                     <a href="#breadcrumb_elements"
                         class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
@@ -24,7 +24,7 @@
             <div class="d-flex align-items-center py-1 bg-white">
                 {{-- Add Details Start --}}
                 <div class="text-success nav-link cat-tab3">
-                    <a href="{{ route('hardware-info-page.create') }}" data-bs-toggle="tooltip" data-bs-placement="top"
+                    <a href="{{ route('hardware-common-page.create') }}" data-bs-toggle="tooltip" data-bs-placement="top"
                         title="Add Solution Details"
                         class="mx-3 btn btn-sm btn-info btn-labeled custom_btn btn-labeled-start float-start">
                         <span class="btn-labeled-icon bg-black bg-opacity-20">
@@ -34,7 +34,7 @@
                     </a>
 
                     <div class="text-center" style="margin-left: 5.5rem;">
-                        <h5 class="ms-1 mb-0" style="color: #247297;">Hardware Info Page</h5>
+                        <h5 class="ms-1 mb-0" style="color: #247297;">Hardware Common Page</h5>
                     </div>
                 </div>
                 {{-- Add Details End --}}
@@ -53,19 +53,19 @@
                             $words = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
                         @endphp
 
-                        @if (count($hardwareInfoPages)>0)
-                            @foreach ($hardwareInfoPages as $key => $hardwareInfoPage)
+                        @if (count($hardwareCommons)>0)
+                            @foreach ($hardwareCommons as $key => $hardwareCommon)
                                 <tr>
                                     <td class="text-center">{{ $loop->iteration }}</td>
                                     <td>
                                         {{ isset($words[$key]) ? Str::ucfirst($words[$key]) . ' ' . 'Tamplate' : 'Number out of range' }}
                                     </td>
                                     <td>
-                                        <a href="{{ route('hardware-info-page.edit', [$hardwareInfoPage->id]) }}"
+                                        <a href="{{ route('hardware-common-page.edit', [$hardwareCommon->id]) }}"
                                             class="text-primary">
                                             <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
                                         </a>
-                                        <a href="{{ route('hardware-info-page.destroy', [$hardwareInfoPage->id]) }}"
+                                        <a href="{{ route('hardware-common-page.destroy', [$hardwareCommon->id]) }}"
                                             class="text-danger delete">
                                             <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
                                         </a>

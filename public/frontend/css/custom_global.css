@@ -14371,3 +14371,12 @@ div.card .card-header-danger {
 .brand_img_container {
     box-shadow: var(--custom-shadow);
 }
+
+
+.page_top_banner {
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+

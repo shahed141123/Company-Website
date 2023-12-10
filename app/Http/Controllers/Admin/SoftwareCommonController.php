@@ -11,17 +11,12 @@ use Illuminate\Support\Facades\File;
 use App\Models\Admin\SoftwareInfoPage;
 use Illuminate\Support\Facades\Validator;
 
-class SoftwareInfoPageController extends Controller
+class SoftwareCommonController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $data['softwareInfoPages'] = SoftwareInfoPage::orderBy('id','DESC')->select('id')->get();
-        return view('admin.pages.softwareInfoPage.all', $data);
+        $data['softwareCommons'] = SoftwareInfoPage::where('type','common')->orderBy('id','DESC')->select('id')->get();
+        return view('admin.pages.softwareCommon.all', $data);
     }
 
     /**
@@ -32,7 +27,7 @@ class SoftwareInfoPageController extends Controller
     public function create()
     {
         $data['rows'] = Row::orderBy('id','DESC')->select('rows.id', 'rows.title')->whereNotNull('image')->get();
-        return view('admin.pages.softwareInfoPage.add', $data);
+        return view('admin.pages.softwareCommon.add', $data);
     }
 
     /**
@@ -77,6 +72,7 @@ class SoftwareInfoPageController extends Controller
                 'row_five_tab_four_id'        => $request->row_five_tab_four_id,
                 'banner_image'                => $globalFunBannerImage['status'] == 1 ? $bannerImage->hashName() : null,
                 'banner_title'                => $request->banner_title,
+                'type'                        => 'common',
                 'banner_short_description'    => $request->banner_short_description,
                 'banner_btn_name'             => $request->banner_btn_name,
                 'banner_btn_link'             => $request->banner_btn_link,
@@ -128,9 +124,9 @@ class SoftwareInfoPageController extends Controller
      */
     public function edit($id)
     {
-        $data['softwareInfoPage'] = SoftwareInfoPage::find($id);
+        $data['softwareCommon'] = SoftwareInfoPage::find($id);
         $data['rows'] = Row::orderBy('id','DESC')->select('rows.id', 'rows.title')->whereNotNull('image')->get();
-        return view('admin.pages.softwareInfoPage.edit', $data);
+        return view('admin.pages.softwareCommon.edit', $data);
     }
 
     /**
@@ -152,7 +148,7 @@ class SoftwareInfoPageController extends Controller
                 'mimes' => 'The :attribute must be a file of type: PNG - JPEG - JPG'
             ],
         );
-        $softwareInfoPage = SoftwareInfoPage::find($id);
+        $softwareCommon = SoftwareInfoPage::find($id);
 
         if ($validator->passes()) {
             $bannerImage = $request->banner_image;
@@ -165,8 +161,8 @@ class SoftwareInfoPageController extends Controller
 
                 // Delete old logo files stored on disk
                 $paths = [
-                    storage_path("app/public/{$softwareInfoPage->banner_image}"),
-                    storage_path("app/public/requestImg/{$softwareInfoPage->banner_image}")
+                    storage_path("app/public/{$softwareCommon->banner_image}"),
+                    storage_path("app/public/requestImg/{$softwareCommon->banner_image}")
                 ];
                 foreach ($paths as $path) {
                     if (File::exists($path)) {
@@ -183,8 +179,8 @@ class SoftwareInfoPageController extends Controller
 
                 // Delete old logo files stored on disk
                 $paths = [
-                    storage_path("app/public/{$softwareInfoPage->row_six_image}"),
-                    storage_path("app/public/requestImg/{$softwareInfoPage->row_six_image}")
+                    storage_path("app/public/{$softwareCommon->row_six_image}"),
+                    storage_path("app/public/requestImg/{$softwareCommon->row_six_image}")
                 ];
                 foreach ($paths as $path) {
                     if (File::exists($path)) {
@@ -196,12 +192,12 @@ class SoftwareInfoPageController extends Controller
                 $globalFunRowSixImage = ['status' => 0];
             }
 
-            $softwareInfoPage->update([
+            $softwareCommon->update([
                 'row_five_tab_one_id'         => $request->row_five_tab_one_id,
                 'row_five_tab_two_id'         => $request->row_five_tab_two_id,
                 'row_five_tab_three_id'       => $request->row_five_tab_three_id,
                 'row_five_tab_four_id'        => $request->row_five_tab_four_id,
-                'banner_image'                => $globalFunBannerImage['status'] == 1 ? $bannerImage->hashName() : $softwareInfoPage->banner_image,
+                'banner_image'                => $globalFunBannerImage['status'] == 1 ? $bannerImage->hashName() : $softwareCommon->banner_image,
                 'banner_title'                => $request->banner_title,
                 'banner_short_description'    => $request->banner_short_description,
                 'banner_btn_name'             => $request->banner_btn_name,
@@ -220,7 +216,7 @@ class SoftwareInfoPageController extends Controller
                 'row_six_short_description'   => $request->row_six_short_description,
                 'row_six_btn_name'            => $request->row_six_btn_name,
                 'row_six_btn_link'            => $request->row_six_btn_link,
-                'row_six_image'               => $globalFunRowSixImage['status'] == 1 ? $rowSixImage->hashName() : $softwareInfoPage->row_six_image,
+                'row_six_image'               => $globalFunRowSixImage['status'] == 1 ? $rowSixImage->hashName() : $softwareCommon->row_six_image,
                 'row_seven_title'             => $request->row_seven_title,
                 'row_eight_title'             => $request->row_eight_title,
                 'row_eight_short_description' => $request->row_eight_short_description,
@@ -243,12 +239,12 @@ class SoftwareInfoPageController extends Controller
      */
     public function destroy($id)
     {
-        $softwareInfoPage = SoftwareInfoPage::find($id);
+        $softwareCommon = SoftwareInfoPage::find($id);
 
         //banner_image
         $paths = [
-            storage_path('app/public/') . $softwareInfoPage->banner_image,
-            storage_path('app/public/requestImg/') . $softwareInfoPage->banner_image
+            storage_path('app/public/') . $softwareCommon->banner_image,
+            storage_path('app/public/requestImg/') . $softwareCommon->banner_image
         ];
 
         // Delete any existing logo and requestImg images
@@ -258,8 +254,8 @@ class SoftwareInfoPageController extends Controller
             }
         }
         $paths = [
-            storage_path('app/public/') . $softwareInfoPage->row_six_image,
-            storage_path('app/public/requestImg/') . $softwareInfoPage->row_six_image
+            storage_path('app/public/') . $softwareCommon->row_six_image,
+            storage_path('app/public/requestImg/') . $softwareCommon->row_six_image
         ];
 
         // Delete any existing logo and requestImg images
@@ -270,6 +266,6 @@ class SoftwareInfoPageController extends Controller
         }
 
 
-        $softwareInfoPage->delete();
+        $softwareCommon->delete();
     }
 }

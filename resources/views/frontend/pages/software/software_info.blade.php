@@ -21,11 +21,10 @@
 
     <!--======// Header Title //======-->
     @if (!empty($software_info->banner_image))
-        <section class="">
+        <section>
             <div>
-                <img src="{{ asset('storage/' . $software_info->banner_image) }}" alt="">
-                {{-- <img src="{{ !empty($software_info->banner_image) && file_exists(public_path('storage/' . $software_info->banner_image)) ? asset('storage/' . $software_info->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
-                    alt=""> --}}
+                <img class="page_top_banner" src="{{ !empty($software_info->banner_image) && file_exists(public_path('storage/' . $software_info->banner_image)) ? asset('storage/' . $software_info->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
+                    alt="NGEN IT Software">
             </div>
         </section>
     @endif

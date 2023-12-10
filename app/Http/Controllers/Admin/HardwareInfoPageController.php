@@ -20,7 +20,7 @@ class HardwareInfoPageController extends Controller
      */
     public function index()
     {
-        $data['hardwareInfoPages'] = HardwareInfoPage::orderBy('id','DESC')->select('id')->get();
+        $data['hardwareInfoPages'] = HardwareInfoPage::where('type','info')->orderBy('id','DESC')->select('id')->get();
         return view('admin.pages.hardwareInfoPage.all', $data);
     }
 
@@ -76,6 +76,7 @@ class HardwareInfoPageController extends Controller
                 'row_five_tab_three_id'       => $request->row_five_tab_three_id,
                 'row_five_tab_four_id'        => $request->row_five_tab_four_id,
                 'banner_image'                => $globalFunBannerImage['status'] == 1 ? $bannerImage->hashName() : null,
+                'type'                        => 'info',
                 'banner_title'                => $request->banner_title,
                 'banner_short_description'    => $request->banner_short_description,
                 'banner_btn_name'             => $request->banner_btn_name,

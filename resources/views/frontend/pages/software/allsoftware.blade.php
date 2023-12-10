@@ -20,7 +20,7 @@
         </style>
     @endif
     <!--======// Header custom-Title //======-->
-    <section class="common_product_header"
+    {{-- <section class="common_product_header"
         style="background-image: url('{{ asset('frontend/images/software_common.jpg') }}');">
         <div class="container ">
             <h1><strong>Softwares for Your Business</strong></h1>
@@ -38,7 +38,12 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
+        <section>
+            <div>
+                <img class="page_top_banner" src="{{ asset('frontend/images/software_common.jpg') }}" alt="NGEN IT Software">
+            </div>
+        </section>
     <!---------End -------->
     <!--======// Information Section //======-->
     <section>

@@ -11,17 +11,17 @@ use Illuminate\Support\Facades\File;
 use App\Models\Admin\HardwareInfoPage;
 use Illuminate\Support\Facades\Validator;
 
-class HardwareInfoPageController extends Controller
+class HardwareCommonController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $data['hardwareInfoPages'] = HardwareInfoPage::orderBy('id','DESC')->select('id')->get();
-        return view('admin.pages.hardwareInfoPage.all', $data);
+        $data['hardwareCommons'] = HardwareInfoPage::where('type','common')->orderBy('id','DESC')->select('id')->get();
+        return view('admin.pages.hardwareCommon.all', $data);
     }
 
     /**
@@ -32,7 +32,7 @@ class HardwareInfoPageController extends Controller
     public function create()
     {
         $data['rows'] = Row::orderBy('id','DESC')->select('rows.id', 'rows.title')->whereNotNull('image')->get();
-        return view('admin.pages.hardwareInfoPage.add', $data);
+        return view('admin.pages.hardwareCommon.add', $data);
     }
 
     /**
@@ -76,6 +76,7 @@ class HardwareInfoPageController extends Controller
                 'row_five_tab_three_id'       => $request->row_five_tab_three_id,
                 'row_five_tab_four_id'        => $request->row_five_tab_four_id,
                 'banner_image'                => $globalFunBannerImage['status'] == 1 ? $bannerImage->hashName() : null,
+                'type'                        => 'common',
                 'banner_title'                => $request->banner_title,
                 'banner_short_description'    => $request->banner_short_description,
                 'banner_btn_name'             => $request->banner_btn_name,
@@ -128,9 +129,9 @@ class HardwareInfoPageController extends Controller
      */
     public function edit($id)
     {
-        $data['hardwareInfoPage'] = HardwareInfoPage::find($id);
+        $data['hardwareCommon'] = HardwareInfoPage::find($id);
         $data['rows'] = Row::orderBy('id','DESC')->select('rows.id', 'rows.title')->whereNotNull('image')->get();
-        return view('admin.pages.hardwareInfoPage.edit', $data);
+        return view('admin.pages.hardwareCommon.edit', $data);
     }
 
     /**
@@ -152,7 +153,7 @@ class HardwareInfoPageController extends Controller
                 'mimes' => 'The :attribute must be a file of type: png - jpeg - jpg'
             ],
         );
-        $hardwareInfoPage = HardwareInfoPage::find($id);
+        $hardwareCommon = HardwareInfoPage::find($id);
 
         if ($validator->passes()) {
             $bannerImage = $request->banner_image;
@@ -165,8 +166,8 @@ class HardwareInfoPageController extends Controller
 
                 // Delete old logo files stored on disk
                 $paths = [
-                    storage_path("app/public/{$hardwareInfoPage->banner_image}"),
-                    storage_path("app/public/requestImg/{$hardwareInfoPage->banner_image}")
+                    storage_path("app/public/{$hardwareCommon->banner_image}"),
+                    storage_path("app/public/requestImg/{$hardwareCommon->banner_image}")
                 ];
                 foreach ($paths as $path) {
                     if (File::exists($path)) {
@@ -180,8 +181,8 @@ class HardwareInfoPageController extends Controller
                 $globalFunRowSixImage = Helper::customUpload($rowSixImage, $uploadPath, 380, 210);
 
                 $paths = [
-                    storage_path("app/public/{$hardwareInfoPage->row_six_image}"),
-                    storage_path("app/public/requestImg/{$hardwareInfoPage->row_six_image}")
+                    storage_path("app/public/{$hardwareCommon->row_six_image}"),
+                    storage_path("app/public/requestImg/{$hardwareCommon->row_six_image}")
                 ];
                 foreach ($paths as $path) {
                     if (File::exists($path)) {
@@ -193,12 +194,12 @@ class HardwareInfoPageController extends Controller
                 $globalFunRowSixImage = ['status' => 0];
             }
 
-            $hardwareInfoPage->update([
+            $hardwareCommon->update([
                 'row_five_tab_one_id'         => $request->row_five_tab_one_id,
                 'row_five_tab_two_id'         => $request->row_five_tab_two_id,
                 'row_five_tab_three_id'       => $request->row_five_tab_three_id,
                 'row_five_tab_four_id'        => $request->row_five_tab_four_id,
-                'banner_image'                => $globalFunBannerImage['status'] == 1 ? $bannerImage->hashName() : $hardwareInfoPage->banner_image,
+                'banner_image'                => $globalFunBannerImage['status'] == 1 ? $bannerImage->hashName() : $hardwareCommon->banner_image,
                 'banner_title'                => $request->banner_title,
                 'banner_short_description'    => $request->banner_short_description,
                 'banner_btn_name'             => $request->banner_btn_name,
@@ -217,7 +218,7 @@ class HardwareInfoPageController extends Controller
                 'row_six_short_description'   => $request->row_six_short_description,
                 'row_six_btn_name'            => $request->row_six_btn_name,
                 'row_six_btn_link'            => $request->row_six_btn_link,
-                'row_six_image'               => $globalFunRowSixImage['status'] == 1 ? $rowSixImage->hashName() : $hardwareInfoPage->row_six_image,
+                'row_six_image'               => $globalFunRowSixImage['status'] == 1 ? $rowSixImage->hashName() : $hardwareCommon->row_six_image,
                 'row_seven_title'             => $request->row_seven_title,
                 'row_eight_title'             => $request->row_eight_title,
                 'row_eight_short_description' => $request->row_eight_short_description,
@@ -240,12 +241,12 @@ class HardwareInfoPageController extends Controller
      */
     public function destroy($id)
     {
-        $hardwareInfoPage = HardwareInfoPage::find($id);
+        $hardwareCommon = HardwareInfoPage::find($id);
 
         //banner_image
         $paths = [
-            storage_path('app/public/') . $hardwareInfoPage->banner_image,
-            storage_path('app/public/requestImg/') . $hardwareInfoPage->banner_image
+            storage_path('app/public/') . $hardwareCommon->banner_image,
+            storage_path('app/public/requestImg/') . $hardwareCommon->banner_image
         ];
 
         // Delete any existing logo and requestImg images
@@ -255,8 +256,8 @@ class HardwareInfoPageController extends Controller
             }
         }
         $paths = [
-            storage_path('app/public/') . $hardwareInfoPage->row_six_image,
-            storage_path('app/public/requestImg/') . $hardwareInfoPage->row_six_image
+            storage_path('app/public/') . $hardwareCommon->row_six_image,
+            storage_path('app/public/requestImg/') . $hardwareCommon->row_six_image
         ];
 
         // Delete any existing logo and requestImg images
@@ -265,6 +266,6 @@ class HardwareInfoPageController extends Controller
                 File::delete($path);
             }
         }
-        $hardwareInfoPage->delete();
+        $hardwareCommon->delete();
     }
 }

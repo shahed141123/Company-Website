@@ -20,7 +20,7 @@
             </div>
         </div>
         <!-- /page header -->
-        <div class="content pt-0 w-50 mx-auto mt-2">
+        <div class="content pt-0 w-lg-50 w-100 mx-auto mt-2">
             <div class="d-flex align-items-center py-1 bg-white">
                 {{-- Add Details Start --}}
                 <div class="text-success nav-link cat-tab3">

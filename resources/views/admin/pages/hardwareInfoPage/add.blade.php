@@ -7,7 +7,7 @@
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house me-2"></i> Home</a>
-                        <a href="{{ route('hardware-info-page.index') }}" class="breadcrumb-item">Site Content</a>
+                        <a href="{{ route('site-content.index') }}" class="breadcrumb-item">Site Content</a>
                         <a href="{{ route('hardware-info-page.index') }}" class="breadcrumb-item">Hardware Info Page</a>
                         <a href="" class="breadcrumb-item">Add</a>
                     </div>
@@ -206,7 +206,7 @@
                                         <label
                                             class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row Five Tab One</label>
                                             <select name="row_five_tab_one_id" class="form-control select"
-                                            data-placeholder="Chose Row Five Tab One">
+                                            data-placeholder="Chose Row Five Tab One" data-allow-clear="true">
                                             <option></option>
                                             @foreach ($rows as $row)
                                                 <option value="{{ $row->id }}">{{ $row->title }} </option>
@@ -219,7 +219,7 @@
                                             class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
                                             Five Tab Two</label>
                                             <select name="row_five_tab_two_id" class="form-control select"
-                                            data-placeholder="Chose Row Five Tab Two">
+                                            data-placeholder="Chose Row Five Tab Two" data-allow-clear="true">
                                             <option></option>
                                             @foreach ($rows as $row)
                                                 <option value="{{ $row->id }}">{{ $row->title }} </option>
@@ -232,7 +232,7 @@
                                             class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
                                             Five Tab Three</label>
                                             <select name="row_five_tab_three_id" class="form-control select"
-                                            data-placeholder="Chose Row Five Tab Three">
+                                            data-placeholder="Chose Row Five Tab Three" data-allow-clear="true">
                                             <option></option>
                                             @foreach ($rows as $row)
                                                 <option value="{{ $row->id }}">{{ $row->title }} </option>
@@ -245,7 +245,7 @@
                                             class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
                                             Five Tab Four</label>
                                             <select name="row_five_tab_four_id" class="form-control select"
-                                            data-placeholder="Chose Row Five Tab Four">
+                                            data-placeholder="Chose Row Five Tab Four" data-allow-clear="true">
                                             <option></option>
                                             @foreach ($rows as $row)
                                                 <option value="{{ $row->id }}">{{ $row->title }} </option>

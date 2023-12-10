@@ -8,7 +8,7 @@
                     <div class="breadcrumb py-2">
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house me-2"></i> Home</a>
                         <a href="{{ route('site-content.index') }}" class="breadcrumb-item">Site Content</a>
-                        <a href="{{ route('software-info-page.index') }}" class="breadcrumb-item">Sofware Info Page</a>
+                        <a href="{{ route('software-common-page.index') }}" class="breadcrumb-item">Sofware Common Page</a>
                         <a href="" class="breadcrumb-item">Edit</a>
                     </div>
                     <a href="#breadcrumb_elements"
@@ -27,16 +27,16 @@
                 <div class="d-flex align-items-center justify-content-start main_bg py-1">
                     <div class="ms-2">
                         <a class="btn btn-primary btn-rounded rounded-circle btn-icon back-btn"
-                            href="{{ route('software-info-page.index') }}">
+                            href="{{ route('software-common-page.index') }}">
                             <i class="fa-solid fa-arrow-left main_color"></i>
                         </a>
                     </div>
                     <div class="me-2" style="margin-left: 23rem;">
-                        <p class="text-white p-0 m-0 fw-bold"> Edit Sofware Info Page Form</p>
+                        <p class="text-white p-0 m-0 fw-bold"> Edit Sofware Common Page Form</p>
                     </div>
                 </div>
             </div>
-            <form method="post" action="{{ route('software-info-page.update', $softwareInfoPage->id) }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('software-common-page.update', $softwareCommon->id) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="card">
@@ -52,9 +52,9 @@
                                             class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Banner Image </label>
                                         <div class="input-group">
                                             <input name="banner_image" type="file" class="form-control form-control-sm w-75"
-                                                placeholder="Enter Software Banner Image" value="{{ $softwareInfoPage->banner_image }}">
+                                                placeholder="Enter Software Banner Image" value="{{ $softwareCommon->banner_image }}">
                                             <img class="px-1" id="showImage" height="30px" width="50px"
-                                                src="{{asset('storage/requestImg/'.$softwareInfoPage->banner_image)}}" alt="">
+                                                src="{{asset('storage/requestImg/'.$softwareCommon->banner_image)}}" alt="">
                                         </div>
 
                                     </div>
@@ -65,7 +65,7 @@
                                         <div class="input-group">
                                             <input name="banner_title" maxlength="255" type="text"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Banner Title" value="{{ $softwareInfoPage->banner_title }}">
+                                                placeholder="Enter Software Banner Title" value="{{ $softwareCommon->banner_title }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -75,7 +75,7 @@
                                         <div class="input-group">
                                             <input name="banner_short_description" type="text"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Banner Short Description" value="{{ $softwareInfoPage->banner_short_description }}">
+                                                placeholder="Enter Software Banner Short Description" value="{{ $softwareCommon->banner_short_description }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -85,7 +85,7 @@
                                         <div class="input-group">
                                             <input name="banner_btn_name" type="text" maxlength="255"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Banner Btn Name" value="{{ $softwareInfoPage->banner_btn_name }}">
+                                                placeholder="Enter Software Banner Btn Name" value="{{ $softwareCommon->banner_btn_name }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -95,7 +95,7 @@
                                         <div class="input-group">
                                             <input name="banner_btn_link" type="text" maxlength="100"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Banner Btn Name" value="{{ $softwareInfoPage->banner_btn_link }}">
+                                                placeholder="Enter Software Banner Btn Name" value="{{ $softwareCommon->banner_btn_link }}">
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                                         <div class="input-group">
                                             <input name="row_two_title" maxlength="100" type="text"
                                                 class="form-control form-control-sm" placeholder="Enter Software Card Title"
-                                                value="{{ $softwareInfoPage->row_two_title }}">
+                                                value="{{ $softwareCommon->row_two_title }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -121,7 +121,7 @@
                                         <div class="input-group">
                                             <input name="row_two_short_description" type="text"
                                                 class="form-control form-control-sm" placeholder="Enter Software Card Title"
-                                                value="{{ $softwareInfoPage->row_two_short_description }}">
+                                                value="{{ $softwareCommon->row_two_short_description }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -137,7 +137,7 @@
                                         <div class="input-group">
                                             <input name="row_four_title" type="text" maxlength="255"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Four Title " value="{{ $softwareInfoPage->row_four_title }}">
+                                                placeholder="Enter Software Row Four Title " value="{{ $softwareCommon->row_four_title }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -148,7 +148,7 @@
                                         <div class="input-group">
                                             <input name="row_four_short_description" type="text"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Four Short Description " value="{{ $softwareInfoPage->row_four_short_description }}">
+                                                placeholder="Enter Software Row Four Short Description " value="{{ $softwareCommon->row_four_short_description }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -159,7 +159,7 @@
                                         <div class="input-group">
                                             <input name="row_four_video_link" type="text" maxlength="100"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Four Video Link" value="{{ $softwareInfoPage->row_four_video_link }}">
+                                                placeholder="Enter Software Row Four Video Link" value="{{ $softwareCommon->row_four_video_link }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -170,7 +170,7 @@
                                         <div class="input-group">
                                             <input name="row_four_btn_name" type="text" maxlength="250"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Four Btn Name" value="{{ $softwareInfoPage->row_four_btn_name }}">
+                                                placeholder="Enter Software Row Four Btn Name" value="{{ $softwareCommon->row_four_btn_name }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -180,7 +180,7 @@
                                         <div class="input-group">
                                             <input name="row_four_sub_title" type="text" maxlength="250"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Four Sub Title" value="{{ $softwareInfoPage->row_four_sub_title }}">
+                                                placeholder="Enter Software Row Four Sub Title" value="{{ $softwareCommon->row_four_sub_title }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -191,7 +191,7 @@
                                         <div class="input-group">
                                             <input name="row_four_btn_link" type="text" maxlength="250"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Four Btn Link" value="{{ $softwareInfoPage->row_four_btn_link }}">
+                                                placeholder="Enter Software Row Four Btn Link" value="{{ $softwareCommon->row_four_btn_link }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -207,7 +207,7 @@
                                         <div class="input-group">
                                             <input name="row_seven_title" type="text" maxlength="250"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Seven Title" value="{{ $softwareInfoPage->row_seven_title }}">
+                                                placeholder="Enter Software Row Seven Title" value="{{ $softwareCommon->row_seven_title }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -226,7 +226,7 @@
                                             data-placeholder="Chose Row Five Tab One" data-allow-clear="true">
                                             <option></option>
                                             @foreach ($rows as $row)
-                                                <option value="{{ $row->id }}" @selected($row->id == $softwareInfoPage->row_five_tab_one_id)>{{ $row->title }} </option>
+                                                <option value="{{ $row->id }}" @selected($row->id == $softwareCommon->row_five_tab_one_id)>{{ $row->title }} </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -239,7 +239,7 @@
                                             data-placeholder="Chose Row Five Tab Two" data-allow-clear="true">
                                             <option></option>
                                             @foreach ($rows as $row)
-                                                <option value="{{ $row->id }}" @selected($row->id == $softwareInfoPage->row_five_tab_two_id)>{{ $row->title }} </option>
+                                                <option value="{{ $row->id }}" @selected($row->id == $softwareCommon->row_five_tab_two_id)>{{ $row->title }} </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -252,7 +252,7 @@
                                             data-placeholder="Chose row five tab Three " data-allow-clear="true">
                                             <option></option>
                                             @foreach ($rows as $row)
-                                                <option value="{{ $row->id }}" @selected($row->id == $softwareInfoPage->row_five_tab_three_id)>{{ $row->title }} </option>
+                                                <option value="{{ $row->id }}" @selected($row->id == $softwareCommon->row_five_tab_three_id)>{{ $row->title }} </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -265,7 +265,7 @@
                                             data-placeholder="Chose row five tab Four " data-allow-clear="true">
                                             <option></option>
                                             @foreach ($rows as $row)
-                                                <option value="{{ $row->id }}" @selected($row->id == $softwareInfoPage->row_five_tab_four_id)>{{ $row->title }} </option>
+                                                <option value="{{ $row->id }}" @selected($row->id == $softwareCommon->row_five_tab_four_id)>{{ $row->title }} </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -277,7 +277,7 @@
                                         <div class="input-group">
                                             <input name="row_five_title" type="text" maxlength="250"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Five Title" value="{{ $softwareInfoPage->row_five_title }}">
+                                                placeholder="Enter Software Row Five Title" value="{{ $softwareCommon->row_five_title }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -288,7 +288,7 @@
                                         <div class="input-group">
                                             <input name="row_five_short_description" type="text" maxlength="250"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Five Short Description" value="{{ $softwareInfoPage->row_five_short_description }}">
+                                                placeholder="Enter Software Row Five Short Description" value="{{ $softwareCommon->row_five_short_description }}">
                                         </div>
                                     </div>
                                 </div>
@@ -303,7 +303,7 @@
                                         <div class="input-group">
                                             <input name="row_six_title" type="text" maxlength="250"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Six Title" value="{{ $softwareInfoPage->row_six_title }}">
+                                                placeholder="Enter Software Row Six Title" value="{{ $softwareCommon->row_six_title }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -314,7 +314,7 @@
                                         <div class="input-group">
                                             <input name="row_six_short_description" type="text"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Six Short Description" value="{{ $softwareInfoPage->row_six_short_description }}">
+                                                placeholder="Enter Software Row Six Short Description" value="{{ $softwareCommon->row_six_short_description }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -325,7 +325,7 @@
                                         <div class="input-group">
                                             <input name="row_six_btn_name" type="text"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Six Btn Name" value="{{ $softwareInfoPage->row_six_btn_name }}">
+                                                placeholder="Enter Software Row Six Btn Name" value="{{ $softwareCommon->row_six_btn_name }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -336,7 +336,7 @@
                                         <div class="input-group">
                                             <input name="row_six_btn_link" type="text"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Six Btn Link" value="{{ $softwareInfoPage->row_six_btn_link }}">
+                                                placeholder="Enter Software Row Six Btn Link" value="{{ $softwareCommon->row_six_btn_link }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -347,9 +347,9 @@
                                         <div class="input-group">
                                             <input name="row_six_image" type="file"
                                                 class="form-control form-control-sm w-75"
-                                                placeholder="Enter Software Row Six Image" value="{{ $softwareInfoPage->row_six_image }}">
+                                                placeholder="Enter Software Row Six Image" value="{{ $softwareCommon->row_six_image }}">
                                             <img class="px-1" id="showImage1" height="30px" width="50px"
-                                                src="{{asset('storage/requestImg/'.$softwareInfoPage->row_six_image)}}" alt="">
+                                                src="{{asset('storage/requestImg/'.$softwareCommon->row_six_image)}}" alt="">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -365,7 +365,7 @@
                                         <div class="input-group">
                                             <input name="row_eight_title" type="text" maxlength="250"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Eight Title " value="{{ $softwareInfoPage->row_eight_title }}">
+                                                placeholder="Enter Software Row Eight Title " value="{{ $softwareCommon->row_eight_title }}">
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -376,7 +376,7 @@
                                         <div class="input-group">
                                             <input name="row_eight_short_description" type="text" maxlength="250"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Software Row Eight Short Description" value="{{ $softwareInfoPage->row_eight_short_description }}">
+                                                placeholder="Enter Software Row Eight Short Description" value="{{ $softwareCommon->row_eight_short_description }}">
                                         </div>
                                     </div>
                                     {{--  --}}
