@@ -1,7 +1,36 @@
 /* Extra Small Devices (e.g., Smartphones) */
 @media only screen and (max-width: 576px) {
-
-    /* Styles for screens up to 576 pixels wide */
+    .what-we-do-title {
+        width: 100%;
+    }
+    .masthead h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+    .masthead p {
+        font-size: 16px;
+        text-align: center !important;
+    }
+    .masthead a {
+        color: #ae0a46;
+        text-decoration: none;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        width: 52%;
+        margin: auto;
+    }
+    .what-we-banner-card {
+        font-family: "Allumi Std Extended";
+    }
+    .what-we-do-banner-card {
+        width: 100% !important;
+        margin: 10px !important;
+    }
+    .banenr-cards {
+        margin-bottom: 10px !important;
+        padding: 0px !important;
+    }
     .text-sm-center {
         text-align: center;
     }
@@ -72,7 +101,7 @@
         font-family: "Allumi Std Extended";
         font-weight: 400;
     }
-    .page-top-banner{
+    .page-top-banner {
         height: 130px;
     }
     .main_header_area {
@@ -154,7 +183,7 @@
         transform: translate(0px, 3px) !important;
     }
 
-    .navbar-nav .nav-item.active>.nav-link {
+    .navbar-nav .nav-item.active > .nav-link {
         border-bottom: none;
     }
 
@@ -271,7 +300,7 @@
     }
 
     .learn_more {
-        padding-top: 15px !important;
+        padding-top: 0px !important;
     }
 
     .learn_clint_history_btn {
@@ -304,7 +333,7 @@
     }
 
     .home_banner_card h2 {
-        font-size: 13px;
+        font-size: 10px;
     }
 
     .mobile-sm-none {
@@ -385,8 +414,8 @@
         border-top-right-radius: 0px;
     }
 
-    nav>div a.nav-item.nav-link,
-    nav>div a.nav-item.nav-link.active {
+    nav > div a.nav-item.nav-link,
+    nav > div a.nav-item.nav-link.active {
         padding: 5px;
         font-size: 14px !important;
     }
@@ -405,7 +434,7 @@
         font-weight: 600;
     }
 
-    nav>.nav.nav-tabs {
+    nav > .nav.nav-tabs {
         border: none;
         color: #fff;
         border-radius: 0;
@@ -451,15 +480,6 @@
         padding-bottom: 2rem;
     }
 
-    .masthead h1 {
-        color: #fff;
-        font-weight: 700;
-        font-size: 30px !important;
-        line-height: 1.1;
-        z-index: 1;
-        text-align: center;
-    }
-
     .common_button3 {
         display: flex;
         justify-content: center;
@@ -469,15 +489,27 @@
 
     .what-we-do_side_text h1 {
         text-align: center;
+        padding-top: 15px !important;
     }
 
+    .software_feature_title h4 {
+        font-size: var(--header-font-size);
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
     .service_card {
-        width: 50%;
+        width: 100%;
         margin: auto;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
     }
-
+    .what-link {
+        margin-top: 2.3rem;
+    }
+    .section-margin {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
     .what-we-do_side_text {
         display: flex;
         flex-direction: column;
@@ -527,7 +559,6 @@
         width: 50%;
         margin: 0rem auto 1rem;
     }
-
 
     .side_box_image {
         display: flex;
@@ -911,7 +942,7 @@
         background: var(--primaryColor);
         transition: all 0.3s linear;
     }
-    .software_feature_title h1{
+    .software_feature_title h1 {
         font-size: 23px;
         line-height: 1.3;
     }
@@ -1037,8 +1068,7 @@
     }
 
     .footer_top p {
-        font-size: 1.2rem;
-        line-height: 1;
+        font-size: 15px;
     }
 
     .footer_item_wrapper {
@@ -1054,10 +1084,13 @@
         text-align: center;
         width: 100% !important;
     }
-
+    .btn-area {
+        display: flex;
+        justify-content: center;
+    }
     .footer_text {
         font-family: "Allumi Std Extended";
-        color: var(--text-white);
+        color: var(--white);
         padding-right: 0% !important;
         text-align: justify !important;
         font-size: 14px !important;
@@ -1075,8 +1108,6 @@
     .footer_subscribe .input-group-btns {
         width: 30% !important;
     }
-
-
 
     .footer_link_text {
         font-family: "Allumi Std Extended";
@@ -1099,6 +1130,8 @@
 
     .home_banner_bottom_title {
         width: 100% !important;
+        position: relative;
+        top: -7rem;
     }
 
     .headlines {
@@ -1117,7 +1150,7 @@
         line-height: 1.2;
     }
 
-    .dropend:hover>.dropdown-menu {
+    .dropend:hover > .dropdown-menu {
         position: absolute;
         top: 0;
         left: 100%;
@@ -1254,7 +1287,6 @@
 
 /* Small Devices (e.g., Tablets) */
 @media only screen and (min-width: 577px) and (max-width: 768px) {
-
     /* Styles for screens between 577 and 768 pixels wide */
     .flipbookkk-title {
         font-size: 2.5vw !important;
@@ -1417,25 +1449,23 @@
 }
 
 /* Medium Devices (e.g., Laptop) */
-@media only screen and (min-width: 992px){
+@media only screen and (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .nav-link {
         font-size: 12px !important;
     }
     .main-menu-specing {
         margin-right: 0.4rem;
     }
-    .footer_link_text{
+    .footer_link_text {
         font-size: 0.9rem;
     }
-    .footer_item_wrapper{
+    .footer_item_wrapper {
         padding: 12px;
     }
-    .footer_item_wrapper h6{
+    .footer_item_wrapper h6 {
         font-size: 18px;
     }
 }
-
-
 
 @media only screen and (min-width: 769px) and (max-width: 992px) {
     /* Styles for screens between 769 and 992 pixels wide */
@@ -1529,14 +1559,6 @@
 
     .nav-pills-custom3 .nav-link.active::before {
         opacity: 1;
-    }
-
-    .masthead h1 {
-        font-size: 2.8rem;
-    }
-
-    .masthead h2 {
-        font-size: 1.5rem;
     }
 
     .bbb_slider_container {
@@ -1906,7 +1928,6 @@
 
 /* Large Devices (e.g., Desktops) */
 @media only screen and (min-width: 993px) and (max-width: 1200px) {
-
     /* Styles for screens between 993 and 1200 pixels wide */
     .cart_body_wrapper {
         flex-direction: row;
@@ -1934,7 +1955,6 @@
 
 /* Extra Large Devices (e.g., Larger Desktops) */
 @media only screen and (min-width: 1201px) {
-
     /* Styles for screens 1201 pixels and wider */
     .menu-section {
         height: 3rem;

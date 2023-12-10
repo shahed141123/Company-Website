@@ -51,31 +51,32 @@
     var $slider_ini = $(".Advance-Slider");
     var total_slide = 0;
     $slider_ini.on("init", function(event, slick, currentSlide, nextSlide) {
-        $('button.slick-arrow').append('<div class="thumb"></div>');
-        total_slide = slick.slideCount;
-        // console.log(total_slide);
-        next_img = $(slick.$slides[1]).find('img').attr('src');
-        prev_img = $(slick.$slides[total_slide - 1]).find('img').attr('src');
-        $('button.slick-next .thumb').append('<img src="' + next_img + '">');
-        $('button.slick-prev .thumb').append('<img src="' + prev_img + '">');
+    $('button.slick-arrow').append('<div class="thumb"></div>');
+    total_slide = slick.slideCount;
+    // console.log(total_slide);
+    next_img = $(slick.$slides[1]).find('img').attr('src');
+    prev_img = $(slick.$slides[total_slide - 1]).find('img').attr('src');
+    $('button.slick-next .thumb').append('<img src="' + next_img + '">');
+    $('button.slick-prev .thumb').append('<img src="' + prev_img + '">');
+});
 
-    });
-    $slider_ini.slick({
-        autoplay: true,
-        autoplaySpeed: 10000,
-        speed: 2000,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: true,
-        pauseOnHover: false,
-        infinite: false,
-        customPaging: function(slider, i) {
-            var thumb = $(slider.$slides[i]).find('.dots-img').attr('src');
-            // console.log(thumb);
-            return '<button><div class="mextrix"><a><img src="' + thumb + '"></a></div></button>';
-
-        }
-    });
+$slider_ini.slick({
+    autoplay: true,
+    autoplaySpeed: 10000,
+    speed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: false,
+    pauseOnHover: false,
+    infinite: false,
+    prevArrow: false, // Remove the previous (left) arrow
+    nextArrow: false, // Remove the next (right) arrow
+    customPaging: function(slider, i) {
+        var thumb = $(slider.$slides[i]).find('.dots-img').attr('src');
+        // console.log(thumb);
+        return '<button><div class="mextrix"><a><img src="' + thumb + '"></a></div></button>';
+    }
+});
     $("button.slick-arrow , .Advance-Slider ul.slick-dots li button").hover(function() {
         $(this).addClass("hover-in");
         $(this).removeClass("hover-out");
