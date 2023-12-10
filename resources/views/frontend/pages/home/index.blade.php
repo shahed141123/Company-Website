@@ -125,8 +125,8 @@
                     @if (!empty($home->btn1_title))
                         <div class="border bg-light custom_shadow px-lg-3 px-sm-1 home_banner_card">
                             <h2 class="text-center home_banner_card_title">{{ $home->btn1_title }}</h2>
-                            <div class="home_card_button">
-                                <a class="btn-white" href="{{ $home->btn1_link }}">{{ $home->btn1_name }}</a>
+                            <div class="home_card_button d-flex justify-content-center">
+                                <a class="home-btn" href="{{ $home->btn1_link }}">{{ $home->btn1_name }}</a>
                             </div>
                         </div>
                     @endif
@@ -134,8 +134,8 @@
                 <div class="col px-2">
                     <div class="border bg-light custom_shadow px-lg-3 px-sm-1 home_banner_card">
                         <h2 class="text-center home_banner_card_title">{{ $home->btn2_title }}</h2>
-                        <div class="home_card_button">
-                            <a class="btn-white" href="{{ $home->btn2_link }}">{{ $home->btn2_name }}</a>
+                        <div class="home_card_button d-flex justify-content-center">
+                            <a class="home-btn" href="{{ $home->btn2_link }}">{{ $home->btn2_name }}</a>
                         </div>
                     </div>
                 </div>
@@ -144,7 +144,6 @@
     </section>
 @endif
 <!---------End -------->
-
 <!--======// Business section //======-->
 @if (!empty($feature1) && !empty($feature2) && !empty($feature3) && !empty($feature4) && !empty($feature5))
     <section class="container">
