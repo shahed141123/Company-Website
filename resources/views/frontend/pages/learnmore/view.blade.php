@@ -4,14 +4,13 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <style>
         .global_call_section::after {
-            background: url('{{ asset('storage/' . $learnmore->background_image) }}');
+            background: url('https://www.insight.com/content/dam/insight-web/sitesections/home/images/homepage-eye-video-frame.jpg');
             content: "";
             position: absolute;
             height: 230px;
             background-position: top center;
             background-repeat: no-repeat;
             background-size: cover;
-            /* background-attachment: fixed; */
             width: 100%;
             background-color: #cbc4c3;
             top: 25%;
@@ -23,10 +22,7 @@
 
     <!--======// Header Title //======-->
     <section class="common_product_header"
-        style="background-image: linear-gradient(
-        rgba(0,0,0,0.8),
-        rgba(0,0,0,0.8)
-        ),url('{{ asset('storage/' . $learnmore->image_banner) }}');">
+        style="background-image:url(https://i.ibb.co/FWFKjVL/Learn-More-Banner-NGen-IT.jpg);">
         {{-- style="background-image: url('{{ asset('storage/' . $learnmore->image_banner) }}');"> --}}
         <div>
             <div class="">
@@ -73,7 +69,7 @@
                         <!--BUTTON START-->
                         <div class="d-flex justify-content-center align-items-center">
                             <div class="m-4">
-                                <a class="common_button2" href="{{ route('contact') }}">Hear from our team</a>
+                                <a class="btn-white" href="{{ route('contact') }}">Hear from our team</a>
                             </div>
                         </div>
                     </div>
@@ -138,117 +134,111 @@
     <!--=======// Techincal Expertise //========-->
     <!--======// our clint tab //======-->
     <section>
-        <div class="container rounded-lg bg-light">
-            <div class="row">
-                <div class="text-center mt-5">
-                    <h3>{{ $learnmore->success_story_title }}</h3>
-                    <p>
-                        <span class=""><a href="{{ route('all.story') }}" class="fw-bold"
-                                style="color: #ae0a46;">View all client
-                                stories →</a>
-                        </span>
-                    </p>
-                </div>
-                <div>
-                    <ul class="nav nav-tabs d-flex justify-content-center border-0 mt-3" id="myTab" role="tablist">
-                        @if (!empty($story1->badge))
-                            @php
-                                $tags_1 = explode(',', $story1->tags);
-                            @endphp
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
-                                    type="button" role="tab" aria-controls="home"
-                                    style="padding: 18px 20px 20px !important;"
-                                    aria-selected="true">{{ $story1->badge }}</button>
-                            </li>
-                        @endif
-                        @if (!empty($story2->badge))
-                            @php
-                                $tags_2 = explode(',', $story2->tags);
-                            @endphp
-                            <li class="nav-item ms-2" role="presentation">
-                                <button class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                                    type="button" role="tab" aria-controls="profile"
-                                    style="padding: 18px 20px 20px !important;"
-                                    aria-selected="false">{{ $story2->badge }}</button>
-                            </li>
-                        @endif
-                        @if (!empty($story3->badge))
-                            @php
-                                $tags_3 = explode(',', $story3->tags);
-                            @endphp
-                            <li class="nav-item ms-2" role="presentation">
-                                <button class="nav-link " id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
-                                    type="button" role="tab" aria-controls="contact"
-                                    style="padding: 18px 20px 20px !important;"
-                                    aria-selected="false">{{ $story3->badge }}</button>
-                            </li>
-                        @endif
-                    </ul>
-                    
-
-                    <div class="tab-content mt-5 mb-3" id="myTabContent">
-                        @if (!empty($story1->badge))
-                            <div class="tab-pane fade show active" id="home" role="tabpanel"
-                                aria-labelledby="home-tab">
-                                <div class="row d-flex align-items-center">
-                                    <div class="col-lg-5">
-                                        <img class="img-fluid rounded-pill"
-                                            src="{{ asset('storage/' . $story1->image) }}" alt="">
-                                        {{-- <img class="img-fluid rounded-pill" src="{{ asset('storage/' . $story1->image) }}" alt=""> --}}
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <h2>{{ $story1->title }}</h2>
-                                        <p>{{ $story1->header }}</p>
-                                        <div class="text-start p-2">
-                                            <a class="common_button2 effect01"
-                                                href="{{ route('story.details', $story1->id) }}">Read
-                                                more</a>
+        <div class="container-fluid rounded-lg bg-light pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="text-center mt-5">
+                        <h3>{{ $learnmore->success_story_title }}</h3>
+                    </div>
+                    <div>
+                        <ul class="nav nav-tabs d-flex justify-content-center border-0 mt-3" id="myTab" role="tablist">
+                            @if (!empty($story1->badge))
+                                @php
+                                    $tags_1 = explode(',', $story1->tags);
+                                @endphp
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                                        type="button" role="tab" aria-controls="home"
+                                        aria-selected="true">{{ $story1->badge }}</button>
+                                </li>
+                            @endif
+                            @if (!empty($story2->badge))
+                                @php
+                                    $tags_2 = explode(',', $story2->tags);
+                                @endphp
+                                <li class="nav-item ms-2" role="presentation">
+                                    <button class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                                        type="button" role="tab" aria-controls="profile"
+                                        aria-selected="false">{{ $story2->badge }}</button>
+                                </li>
+                            @endif
+                            @if (!empty($story3->badge))
+                                @php
+                                    $tags_3 = explode(',', $story3->tags);
+                                @endphp
+                                <li class="nav-item ms-2" role="presentation">
+                                    <button class="nav-link " id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                                        type="button" role="tab" aria-controls="contact"
+                                        aria-selected="false">{{ $story3->badge }}</button>
+                                </li>
+                            @endif
+                        </ul>
+    
+    
+                        <div class="tab-content mt-5 mb-3" id="myTabContent">
+                            @if (!empty($story1->badge))
+                                <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-lg-5">
+                                            <img class="img-fluid"
+                                                src="{{ !empty($story1->image) && file_exists(public_path('storage/' . $story1->image)) ? asset('storage/' . $story1->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                                alt="NGEN IT">
+                                            {{-- <img class="img-fluid rounded-pill" src="{{ asset('storage/' . $story1->image) }}" alt=""> --}}
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <h2>{{ $story1->title }}</h2>
+                                            <p>{{ $story1->header }}</p>
+                                            <div class="text-start p-2">
+                                                <a href="{{ route('all.story') }}" class="fw-bold"
+                                                    style="color: #ae0a46;">View all client
+                                                    stories →</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endif
-                        @if (!empty($story2->badge))
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="row d-flex align-items-center">
-                                    <div class="col-lg-5">
-                                        {{-- <img class="img-fluid rounded-pill" src="{{ asset('storage/' . $story2->image) }}" alt=""> --}}
-                                        <img class="img-fluid rounded-pill"
-                                            src="{{ asset('storage/' . $story2->image) }}" alt="">
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <h2>{{ $story2->title }}</h2>
-                                        <p>{{ $story2->header }}</p>
-                                        <div class="text-start p-2">
-                                            <a class="common_button2 effect01"
-                                                href="{{ route('story.details', $story1->id) }}">Read
-                                                more</a>
+                            @endif
+                            @if (!empty($story2->badge))
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-lg-5">
+                                            <img class="img-fluid"
+                                                src="{{ !empty($story2->image) && file_exists(public_path('storage/' . $story2->image)) ? asset('storage/' . $story2->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                                alt="NGEN IT">
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <h2>{{ $story2->title }}</h2>
+                                            <p>{{ $story2->header }}</p>
+                                            <div class="text-start p-2">
+                                                <a href="{{ route('all.story') }}" class="fw-bold"
+                                                    style="color: #ae0a46;">View all client
+                                                    stories →</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endif
-                        @if (!empty($story3->badge))
-                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                <div class="row d-flex align-items-center">
-                                    <div class="col-lg-5">
-                                        {{-- <img class="img-fluid rounded-pill" src="{{ asset('storage/' . $story2->image) }}" alt=""> --}}
-                                        <img class="img-fluid rounded-pill"
-                                            src="{{ asset('storage/' . $story3->image) }}" alt="">
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <h2>{{ $story3->title }}</h2>
-                                        <p>{{ $story3->header }}</p>
-                                        <div class="text-start p-2">
-                                            <a class="common_button2 effect01"
-                                                href="{{ route('story.details', $story1->id) }}">Read
-                                                more</a>
+                            @endif
+                            @if (!empty($story3->badge))
+                                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-lg-5">
+                                            <img class="img-fluid"
+                                                src="{{ !empty($story3->image) && file_exists(public_path('storage/' . $story3->image)) ? asset('storage/' . $story3->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                                alt="NGEN IT">
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <h2>{{ $story3->title }}</h2>
+                                            <p>{{ $story3->header }}</p>
+                                            <div class="text-start p-2">
+                                                <a href="{{ route('all.story') }}" class="fw-bold"
+                                                    style="color: #ae0a46;">View all client
+                                                    stories →</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endif
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
@@ -272,7 +262,7 @@
                     <p class="home_title_text text-white" style="text-align: left;">{{ $learnmore->consult_short_des }}
                     </p>
                     <div class="business_seftion_button" style="text-align: left;">
-                        <a href="{{ route('contact') }}">Explore business outcomes</a>
+                        <a href="{{ route('contact') }}" class="btn-white">Explore business outcomes</a>
                     </div>
                 </div>
             </div>

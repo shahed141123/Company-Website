@@ -9,13 +9,13 @@
     <div class="footer_middle pt-3">
         <div class="container pb-3">
             <div class="row">
-                <div class="row footer_middle_wrapper">
+                <div class="row footer_middle_wrapper my-5">
                     <!-- item -->
                     <div class="col-lg-6 col-md-6 col-sm-12 footer_item_wrapper">
                         <!-- title -->
                         <h6><span style="border-bottom: 5px solid #ae0a46;">New</span>sletter</h6>
                         <!-- text -->
-                        <p class="footer_text pt-lg-2 pt-sm-2 w-lg-75 w-sm-100 mb-0">
+                        <p class="footer_text pt-4">
                             Sign up to receive the IT content that matters most to you.
                             You can update your preferences or unsubscribe any time.
                         </p>
@@ -27,7 +27,7 @@
                                 <input type="email" class="form-control" placeholder="Enter your email"
                                     style="height: 37px;">
                                 <span class="input-group-btns ml-1" style="width:30%;">
-                                    <button class="btns effect01 px-1" type="submit"
+                                    <button class="newsletter-btns" type="submit"
                                         style="line-height: 36px;border-top-right-radius: 5px;border-bottom-right-radius: 5px;">Subscribe</button>
                                 </span>
                         </form>
@@ -39,7 +39,7 @@
                     <h6 class="home_title_text" style="text-align: start;"><span
                             style="border-bottom: 5px solid #ae0a46;">Abo</span>ut & Contact</h6>
                     <!-- nav list -->
-                    <div class="footer_nav_list pt-2">
+                    <div class="footer_nav_list pt-4">
                         <ul class="footer_link_text">
                             <li>
                                 <a href="{{route('about')}}">Company</a> & <a
@@ -64,7 +64,7 @@
                     <h6 class="home_title_text" style="text-align: start;"><span
                             style="border-bottom: 5px solid #ae0a46;">Kno</span>wledge Base</h6>
                     <!-- nav list -->
-                    <div class="footer_nav_list pt-2">
+                    <div class="footer_nav_list pt-4">
                         <ul class="footer_link_text">
                             <li>
                                 <a href="{{ route('all.blog') }}">NGEN IT Blogs</a>
@@ -87,7 +87,7 @@
                     <h6 class="home_title_text" style="text-align: start;"><span
                             style="border-bottom: 5px solid #ae0a46;">Pro</span>duct & Services</h6>
                     <!-- nav list -->
-                    <div class="footer_nav_list pt-2">
+                    <div class="footer_nav_list pt-4">
                         <ul class="footer_link_text">
                             <li>
                                 <a href="{{ route('software.common') }}">Software</a> & <a
@@ -168,27 +168,6 @@
             </div>
         </div>
     </div>
-    {{-- <div class="footer_bottom container">
-        <div class="footer_bottom_wrapper">
-
-            <!-- copy -->
-            <div class="footer_copy"></div>
-            <!-- footer bottom list -->
-            <div class="footer_bottom_list">
-                <ul class="footer_bottom_text">
-                    <li>
-                        <a href="{{ route('privacy.policy') }}">Privacy policy &nbsp;|&nbsp; </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('terms.policy') }}">Terms & Conditions &nbsp;|&nbsp; </a>
-                    </li>
-                    <li>
-                        <a href="" data-bs-toggle="modal" data-bs-target="#cookies_modal">Cookies</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div> --}}
 </footer>
 <!----------End--------->
 {{-- Ask For Price Modal --}}
@@ -296,12 +275,6 @@
                 </div>
 
                 {{-- Accordion --}}
-
-
-
-
-
-
             </div>
         </div>
     </div>
