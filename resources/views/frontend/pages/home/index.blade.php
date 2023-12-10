@@ -126,7 +126,7 @@
                         <div class="border bg-light custom_shadow px-lg-3 px-sm-1 home_banner_card">
                             <h2 class="text-center home_banner_card_title">{{ $home->btn1_title }}</h2>
                             <div class="home_card_button">
-                                <a class="effect01" href="{{ $home->btn1_link }}">{{ $home->btn1_name }}</a>
+                                <a class="btn-white" href="{{ $home->btn1_link }}">{{ $home->btn1_name }}</a>
                             </div>
                         </div>
                     @endif
@@ -135,7 +135,7 @@
                     <div class="border bg-light custom_shadow px-lg-3 px-sm-1 home_banner_card">
                         <h2 class="text-center home_banner_card_title">{{ $home->btn2_title }}</h2>
                         <div class="home_card_button">
-                            <a class="effect01" href="{{ $home->btn2_link }}">{{ $home->btn2_name }}</a>
+                            <a class="btn-white" href="{{ $home->btn2_link }}">{{ $home->btn2_name }}</a>
                         </div>
                     </div>
                 </div>
