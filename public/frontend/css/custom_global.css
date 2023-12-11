@@ -32,6 +32,33 @@
     --badge-font-size: 1.25rem;
     /*20px*/
 }
+@media only screen and (max-width: 1400px) {
+    :root {
+        --primary-color: #ae0a46;
+        --secondary-color: #880736;
+        --paragraph-color: #3e332d;
+        --heading-color: #1a1715;
+        --white: #fff;
+        --black: #000;
+        --main-bg-color: #fff;
+        --secondary-bg-color: #f7f6f5;
+        --border-color: #eee;
+        --secoandaryborder-color: #bbbbbb;
+        --custom-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        --primary-font: "Allumi Std Extended";
+        --number-font: "Poppins", sans-serif;
+        --section-title-font-size: 1.5rem;
+        /*28px*/
+        --header-font-size: 1rem;
+        /*18px*/
+        --content-title-font-size: 1.25rem;
+        /*24px*/
+        --paragraph-font-size: 14px;
+        /*16px*/
+        --badge-font-size: 1.125rem;
+        /*20px*/
+    }
+}
 
 /* Global Css Start */
 html,
@@ -1398,7 +1425,7 @@ figure.effect-oscar:hover figcaption {
     font-family: var(--primary-font);
     font-size: 36px;
     line-height: 36px;
-    color: var(--heading);
+    color: var(--heading-);
     margin-bottom: 14px;
     font-weight: 400;
 }
@@ -5433,6 +5460,9 @@ tr td:hover {
     position: relative;
     padding-bottom: 60%;
 }
+.hover_content_title {
+    font-size: var(--paragraph-font-size);
+}
 
 .hover-overlay {
     width: 100%;
@@ -5459,28 +5489,35 @@ tr td:hover {
 }
 
 /* DEMO 2 ============================== */
+.blocks-content{
+    height: 35rem;
+}
 .hover-2 .hover-overlay {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
 }
 
 .hover-2-title {
     position: absolute;
+    font-size: var(--badge-font-size);
     top: 65%;
-    left: 5%;
+    left: 0%;
     text-align: start;
     width: 100%;
     z-index: 99;
     transition: all 0.3s;
+    padding: 0px 1rem;
 }
 
 .hover-3-title {
     position: absolute;
+    font-size: var(--badge-font-size);
     top: 75%;
-    left: 5%;
+    left: 0%;
     text-align: start;
     width: 100%;
     z-index: 99;
     transition: all 0.3s;
+    padding: 0px 1rem;
 }
 
 .hover-2-description {
@@ -5519,7 +5556,7 @@ tr td:hover {
     overflow: hidden;
     position: relative;
     padding-bottom: 60%;
-    height: 38.5rem;
+    height: 34.2rem;
 }
 
 .hover-overlay-second {
@@ -5552,12 +5589,14 @@ tr td:hover {
 
 .hover-4 .hover-4-title {
     position: absolute;
+    font-size: var(--badge-font-size);
     bottom: 5%;
-    left: 5%;
+    left: 0%;
     text-align: start;
     width: 100%;
     z-index: 99;
     transition: all 0.3s;
+    padding: 0px 1rem;
 }
 
 .hover-4 .hover-4-description {
@@ -5586,7 +5625,9 @@ tr td:hover {
     position: absolute;
     top: 72%;
 }
-
+.block_blog_badge{
+    font-weight: 600;
+}
 /* Software Info Page Design End */
 /* Custom Main Css Start */
 /* 25-05-2023 */
@@ -5598,10 +5639,9 @@ tr td:hover {
     top: 50%;
     width: 100%;
     height: 26px;
+    font-size: var(--paragraph-font-size);
     transform: translateY(-50%);
     z-index: 1;
-    /* justify-content: center;
-    */
 }
 
 .breadcrumb a {
@@ -5618,13 +5658,11 @@ tr td:hover {
     border-radius: 4px;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    /* text-transform: uppercase;
-    */
     position: relative;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: var(--paragraph-font-size);
     transform: skew(-21deg);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
     margin: 5px;
@@ -5801,7 +5839,7 @@ tr td:hover {
 .title_top_heading {
     font-size: 36px;
     line-height: 48px;
-    color: var(--heading);
+    color: var(--heading-color);
     margin-bottom: 14px;
     font-weight: 100;
 }
@@ -12281,7 +12319,7 @@ switch input:checked+.slider {
     font-family: var(--primary-font);
     font-size: 36px;
     line-height: 48px;
-    color: var(--heading);
+    color: var(--heading-);
     margin-bottom: 14px;
     font-weight: 400;
 }
@@ -12449,24 +12487,19 @@ switch input:checked+.slider {
 }
 
 /*-----------------*/
-.tech_solution_item {
-    padding: 20px 30px 30px;
-    background-color: var(--white);
-    margin-bottom: 20px;
-    box-shadow: 0px 3px 4px 0px #e6e6e5;
-}
+
 
 /*-----------------*/
 .outcome_headline h1 {
     background-image: linear-gradient(45deg, #ae0a46, #582873);
     background-size: 100%;
+    text-align: center;
+    margin: 20px 0px;
+    font-weight: bold;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
-    text-align: center;
-    margin: 20px 0px;
-    font-weight: bold;
 }
 
 .beTopLine {
@@ -12524,8 +12557,15 @@ switch input:checked+.slider {
     margin: 20px 0px;
 }
 
+.tech_solution_item {
+    padding: 20px 30px 20px;
+    background-color: var(--white);
+    margin-bottom: 20px;
+    box-shadow: var(--custom-shadow);
+}
+
 .tech_solution_title {
-    font-size: 3em;
+    font-size: 2.6rem;
     background: linear-gradient(to right,
             #ae0a46 0%,
             #ae0a46,
@@ -12534,22 +12574,21 @@ switch input:checked+.slider {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 10px;
-    line-height: inherit;
 }
 
 .tech_solution_text {
-    color: #222;
+    color: var(--black);
     font-weight: 100;
     display: block;
-    font-size: 13px;
-    line-height: 24px;
-    height: 90px;
+    font-size: var(--header-font-size);
+    height: 4.5rem;
     margin-bottom: 0;
+    padding-top: 0.5rem;
 }
 
 .tech_solution_award {
-    font-size: 12px;
-    color: var(--navColor);
+    font-size: var(--paragraph-font-size);
+    color: var(--heading-color);
 }
 
 /*---------------*/
@@ -13923,7 +13962,7 @@ switch input:checked+.slider {
 }
 
 .cart_product_price {
-    color: var(--heading);
+    color: var(--heading-);
     font-size: 16px;
     font-weight: 500;
 }
@@ -13981,7 +14020,7 @@ switch input:checked+.slider {
 
 .summury_count ul li span,
 .summury_count_total {
-    color: var(--heading);
+    color: var(--heading-);
     font-size: 16px;
     font-weight: 500;
 }
@@ -14078,7 +14117,7 @@ switch input:checked+.slider {
 
 .contact_left_title {
     font-size: 22px;
-    color: var(--heading);
+    color: var(--heading-);
     line-height: 33px;
     margin-bottom: 10px;
     font-weight: 300;
@@ -14111,7 +14150,7 @@ switch input:checked+.slider {
 .contact_call_title {
     font-size: 40px;
     font-weight: 500;
-    color: var(--heading);
+    color: var(--heading-);
     line-height: 47px;
     margin-bottom: 10px;
 }
@@ -14155,7 +14194,7 @@ switch input:checked+.slider {
 .contact_global_title {
     font-size: 34px;
     line-height: 42px;
-    color: var(--heading);
+    color: var(--heading-);
     font-weight: 200;
     margin-bottom: 20px;
 }
@@ -14516,7 +14555,7 @@ switch input:checked+.slider {
 
 .product_veiw_details_item_content p {
     font-size: 21px;
-    color: var(--heading);
+    color: var(--heading-);
     font-weight: 300;
 }
 
@@ -14700,14 +14739,14 @@ switch input:checked+.slider {
 
 .clint_tab_area_thumbnail_caption p {
     font-size: 22px;
-    color: var(--heading);
+    color: var(--heading-);
     font-weight: 300;
 }
 
 .clint_tab_content_title {
     font-size: 2rem;
     line-height: 1.16667;
-    color: var(--heading);
+    color: var(--heading-);
     font-weight: 200;
     margin-bottom: 10px;
 }
@@ -14718,7 +14757,7 @@ switch input:checked+.slider {
 
 .clint_tab_content_text_title {
     font-size: 22px;
-    color: var(--heading);
+    color: var(--heading-);
     font-weight: 300;
     margin-bottom: 10px;
 }
@@ -14757,7 +14796,7 @@ switch input:checked+.slider {
     height: 6px;
     width: 6px;
     border-radius: 50%;
-    background-color: var(--heading);
+    background-color: var(--heading-);
 }
 
 .clint_tab_content_text_area_list ul li::after {
@@ -14803,7 +14842,7 @@ switch input:checked+.slider {
 
 .clint_help_item_title {
     font-size: 26px;
-    color: var(--heading);
+    color: var(--heading-);
     font-weight: 400;
     line-height: 32px;
     margin-bottom: 20px;
@@ -14878,7 +14917,7 @@ switch input:checked+.slider {
 
 .we_serve_title p {
     font-size: 18px;
-    color: var(--heading);
+    color: var(--heading-);
     font-weight: 300;
     position: relative;
 }
@@ -15055,7 +15094,7 @@ switch input:checked+.slider {
     font-family: var(--primary-font);
     font-size: 30px;
     font-weight: 300;
-    color: var(--heading);
+    color: var(--heading-);
     text-align: center;
     line-height: 38px;
     margin-bottom: 24px;
@@ -15068,14 +15107,11 @@ switch input:checked+.slider {
 
 .home_title_heading {
     font-family: var(--primary-font);
-    /* font-size: 36px;
-   */
-    font-size: 26px;
-    color: var(--heading);
+    font-size: var(--content-title-font-size);
+    color: var(--heading-);
     font-weight: 500;
     margin: 10px 0px;
     text-align: center;
-    line-height: 37px;
 }
 
 .home_title_heading span {
@@ -15093,11 +15129,9 @@ switch input:checked+.slider {
 }
 
 .home_title_text {
-    color: var(--navColor);
+    color: var(--heading-color);
     text-align: center;
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 300;
+    font-size: var(--paragraph-font-size);
 }
 
 .business_seftion_button {
@@ -15889,10 +15923,6 @@ thead {
 }
 
 /* Kuka Page Design End */
-.hover_content_title {
-    font-size: 20px;
-    margin-right: 44px;
-}
 
 /* Learn More Page Design */
 .outcome_smail_bussiness_title h2 {
