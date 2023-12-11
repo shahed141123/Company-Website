@@ -32,7 +32,36 @@
     --badge-font-size: 1.25rem;
     /*20px*/
 }
-@media only screen and (max-width: 1400px) {
+
+@media only screen and (min-width: 992px) and (max-width: 1400px) {
+    :root {
+        --primary-color: #ae0a46;
+        --secondary-color: #880736;
+        --paragraph-color: #3e332d;
+        --heading-color: #1a1715;
+        --white: #fff;
+        --black: #000;
+        --main-bg-color: #fff;
+        --secondary-bg-color: #f7f6f5;
+        --border-color: #eee;
+        --secoandaryborder-color: #bbbbbb;
+        --custom-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        --primary-font: "Allumi Std Extended";
+        --number-font: "Poppins", sans-serif;
+        --section-title-font-size: 1.5rem;
+        /*28px*/
+        --header-font-size: 1rem;
+        /*18px*/
+        --content-title-font-size: 1.25rem;
+        /*24px*/
+        --paragraph-font-size: 14px;
+        /*16px*/
+        --badge-font-size: 1.125rem;
+        /*20px*/
+    }
+}
+
+@media only screen and (max-width: 576px) {
     :root {
         --primary-color: #ae0a46;
         --secondary-color: #880736;
@@ -6161,11 +6190,11 @@ tr td:hover {
     font-size: 18px;
     letter-spacing: 1px;
     text-transform: capitalize;
-    color: var(--navColor);
+    color: var(--black);
 }
 
 .software_feature_title {
-    color: var(--navColor);
+    color: var(--black);
 }
 
 .software_feature_title h1 {
