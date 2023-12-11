@@ -7,7 +7,7 @@
             background: url('https://www.insight.com/content/dam/insight-web/sitesections/home/images/homepage-eye-video-frame.jpg');
             content: "";
             position: absolute;
-            height: 230px;
+            height: 250px;
             background-position: top center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -82,7 +82,7 @@
     <section>
         <div class="container py-3">
             <div class="row py-2">
-                <h2 class="text-center text-capitalize py-2">{{ $learnmore->header_one }}</h2>
+                <h2 class="text-center text-capitalize py-3 section-titles">{{ $learnmore->header_one }}</h2>
                 <p class="text-center py-1">{{ $learnmore->header_two }}</p>
             </div>
             <div class="row">
@@ -92,7 +92,7 @@
                             style="background-image: url('{{ asset('frontend/images/Frame 4 (4).jpg') }}');">
                             <div class="wedo-cards__content">
                                 <h3 class="wedo-cards__heading">{{ Str::limit($learnmore->box_one_title, 18) }}</h3>
-                                <p class="wedo-cards__sub-heading">{!! $learnmore->box_one_short_des !!}.
+                                <p class="wedo-cards__sub-heading">{!! $learnmore->box_one_short_des !!}. <br>
                                     <a class="wedo-cards__cta" href="{{ $learnmore->box_one_link }}">Explore
                                         {{ $learnmore->box_one_title }}</a>
                                 </p>
@@ -137,7 +137,7 @@
         <div class="container-fluid rounded-lg bg-light pb-5">
             <div class="container">
                 <div class="row">
-                    <div class="text-center mt-5">
+                    <div class="text-center mt-4">
                         <h3>{{ $learnmore->success_story_title }}</h3>
                     </div>
                     <div>
@@ -181,14 +181,14 @@
                                     aria-labelledby="home-tab">
                                     <div class="row d-flex align-items-center">
                                         <div class="col-lg-5">
-                                            <img class="img-fluid"
+                                            <img class="img-fluid story-tab"
                                                 src="{{ !empty($story1->image) && file_exists(public_path('storage/' . $story1->image)) ? asset('storage/' . $story1->image) : asset('frontend/images/no-row-img(580-326).png') }}"
                                                 alt="NGEN IT">
                                             {{-- <img class="img-fluid rounded-pill" src="{{ asset('storage/' . $story1->image) }}" alt=""> --}}
                                         </div>
                                         <div class="col-lg-7">
-                                            <h2>{{ $story1->title }}</h2>
-                                            <p>{{ $story1->header }}</p>
+                                            <h2 class="story-title pb-3">{{ $story1->title }}</h2>
+                                            <p class="text-justify">{{ $story1->header }}</p>
                                             <div class="text-start p-2">
                                                 <a href="{{ route('all.story') }}" class="fw-bold"
                                                     style="color: #ae0a46;">View all client
@@ -202,12 +202,12 @@
                                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                     <div class="row d-flex align-items-center">
                                         <div class="col-lg-5">
-                                            <img class="img-fluid"
+                                            <img class="img-fluid story-tab"
                                                 src="{{ !empty($story2->image) && file_exists(public_path('storage/' . $story2->image)) ? asset('storage/' . $story2->image) : asset('frontend/images/no-row-img(580-326).png') }}"
                                                 alt="NGEN IT">
                                         </div>
                                         <div class="col-lg-7">
-                                            <h2>{{ $story2->title }}</h2>
+                                            <h2 class="story-title pb-3">{{ $story2->title }}</h2>
                                             <p>{{ $story2->header }}</p>
                                             <div class="text-start p-2">
                                                 <a href="{{ route('all.story') }}" class="fw-bold"
@@ -222,12 +222,12 @@
                                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                                     <div class="row d-flex align-items-center">
                                         <div class="col-lg-5">
-                                            <img class="img-fluid"
+                                            <img class="img-fluid story-tab"
                                                 src="{{ !empty($story3->image) && file_exists(public_path('storage/' . $story3->image)) ? asset('storage/' . $story3->image) : asset('frontend/images/no-row-img(580-326).png') }}"
                                                 alt="NGEN IT">
                                         </div>
                                         <div class="col-lg-7">
-                                            <h2>{{ $story3->title }}</h2>
+                                            <h2 class="story-title pb-3">{{ $story3->title }}</h2>
                                             <p>{{ $story3->header }}</p>
                                             <div class="text-start p-2">
                                                 <a href="{{ route('all.story') }}" class="fw-bold"
@@ -261,7 +261,7 @@
                     </h5>
                     <p class="home_title_text text-white" style="text-align: left;">{{ $learnmore->consult_short_des }}
                     </p>
-                    <div class="business_seftion_button" style="text-align: left;">
+                    <div class="d-flex justify-content-start">
                         <a href="{{ route('contact') }}" class="btn-white">Explore business outcomes</a>
                     </div>
                 </div>
@@ -269,33 +269,8 @@
         </div>
     </section>
     <!---------End -------->
-
-    {{-- <section>
-        <div class="container mt-5 mb-5">
-            <div class="row mt-5 mb-5">
-                <div class="col-lg-6">
-                    <div>
-                        <img class="img-fluid"
-                            src="https://www.insight.com/content/dam/insight-web/en_US/article-images/gated-content/the-path-to-digital-transformation/the-path-to-digital-transformation-report-thumbnail.png"
-                            alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <p class="marginB20"><span class="extra_button_learn_more">Analyst report</span></p>
-                    <h2>The No. 1 technology initiative for 2023 is optimization.</h2>
-                    <p>Leading organizations are preparing for the future through three IT initiatives — data and
-                        application modernization, platform performance and security integrations. Discover insights,
-                        roadblocks and solutions for success in our 2023 survey report.</p>
-                    <div class="home_card_button text-start p-2">
-                        <a class="effect01" href="">Read
-                            more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
     <!--=====// We serve //=====-->
-    <div class="container pb-5">
+    <div class="container">
         <!-- section title -->
         <div class="clint_help_section_heading_wrapper">
             <!-- title -->
@@ -307,7 +282,7 @@
                         </h1>
                     </div>
                 </h5>
-                <p class="home_title_text">
+                <p class="home_title_text what-we-description">
                     <span class="font-weight-bold">{{ $learnmore->industry_header }} </span>
                 </p>
         </div>
@@ -318,15 +293,15 @@
                 <!-- we_serveItem_wrapper -->
                 <div class="row">
                     <!-- item -->
-
-
                     @if ($industrys)
                         @foreach ($industrys as $item)
                             <div class="col-lg-3 col-sm-6 p-1">
                                 <div class="we_serve_item">
                                     <a href="{{ route('industry.details', $item->id) }}">
                                         <div class="we_serve_item_image">
-                                            <img src="{{ asset('storage/' . $item->logo) }}" alt="">
+                                            <img class="img-fluid"
+                                            src="{{ !empty($item->logo) && file_exists(public_path('storage/' . $item->logo)) ? asset('storage/' . $item->logo) : asset('frontend/images/no-industy-img.png') }}"
+                                            alt="NGEN IT">
                                         </div>
                                         <div class="we_serve_item_text">{{ $item->title }}</div>
                                     </a>
@@ -340,7 +315,8 @@
             </div>
             <!-- sidebar -->
             <div class="col-lg-3 col-sm-12">
-
+                <p class="fw-bold top-line-title pt-2"><span style="border-top: 4px solid #ae0a46;">Exp</span>lore
+                </p>
                 <!-- sidebar list -->
                 <div>
                     @if ($random_industries)

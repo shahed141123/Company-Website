@@ -1,207 +1,36 @@
 @extends('frontend.master')
 @section('content')
-    @if (!empty($hardware_info->row_six_image))
+    @if (!empty($software_info->row_six_image))
         <style>
             .global_call_section::after {
-                background: url('{{ asset('storage/' . $hardware_info->row_six_image) }}');
+                background: url('{{ asset('storage/' . $software_info->row_six_image) }}');
                 content: "";
                 position: absolute;
                 height: 250px;
                 background-position: top center;
                 background-repeat: no-repeat;
                 background-size: cover;
-                /* background-attachment: fixed; */
                 width: 100%;
                 background-color: #cbc4c3;
-                top: 16%;
+                top: 13%;
                 left: 0px;
                 z-index: -1;
             }
         </style>
     @endif
-    <style>
-        .datatable-header {
-            display: none;
-        }
 
-        div.card {
-            border: 0;
-            margin-bottom: 25px;
-            margin-top: 0px;
-        }
-
-        .dataTables_info {
-            display: none;
-        }
-
-
-        thead {
-            display: none;
-        }
-
-
-        .card .card-header .nav-tabs {
-            padding: 0;
-        }
-
-
-        .nav-tabs {
-            border: 0;
-            border-radius: 3px;
-        }
-
-
-        .nav {
-            display: flex;
-            flex-wrap: wrap;
-            padding-left: 0;
-            margin-bottom: 0;
-            list-style: none;
-        }
-
-
-        .nav-tabs .nav-item {
-            margin-bottom: -1px;
-        }
-
-
-        .nav-tabs .nav-item .nav-link.active {
-            background-color: hsla(0, 0%, 100%, .2);
-            transition: background-color .3s .2s;
-        }
-
-
-
-
-
-
-        .nav-tabs .nav-item .nav-link {
-            color: #fff;
-            border: 0;
-            margin: 0;
-            border-radius: 3px;
-            text-transform: uppercase;
-            font-size: 12px;
-            border: 0 !important;
-            font-weight: 500;
-            padding: 27px 25px !important;
-            background-color: transparent;
-        }
-
-
-        .nav-pills-custom .nav-link::before {
-            display: none;
-        }
-
-
-        .nav-link {
-            display: block;
-        }
-
-
-        .nav-tabs .nav-item .material-icons {
-            margin: -1px 5px 0 0;
-            vertical-align: middle;
-        }
-
-
-        .nav .nav-item {
-            position: relative;
-        }
-
-
-        div.card {
-            border: 0;
-            margin-bottom: 30px;
-            margin-top: 0px !important;
-        }
-
-
-        .global_call_section_content {
-            max-width: 575px;
-            background-color: var(--heading);
-            padding: 50px;
-            margin-left: -15px;
-            margin-top: -10px !important;
-        }
-
-
-        @media screen and (max-width: 992px) {
-            #sync2 .item {
-                height: 70px;
-                padding: 8px 16px !important;
-            }
-
-            .brand_img_container {
-                width: 350px !important;
-                margin: auto;
-            }
-
-            .home_title_heading,
-            .home_title_text,
-            .business_seftion_button,
-            .thing_together_wrapper {
-                text-align: center !important;
-            }
-
-            .home_title_heading p {
-                text-align: center !important;
-            }
-
-            .global_call_section::after {
-                display: none;
-            }
-
-            .we_serve_title {
-                margin-top: 3rem;
-            }
-
-            .footer_top p {
-                font-size: 13px !important;
-            }
-
-            .footer_nav_list ul {
-                text-align: center !important;
-            }
-
-            .footer_item_wrapper p {
-                text-align: center;
-                margin: auto;
-            }
-
-            .footer_subscribe {
-                margin: auto !important;
-            }
-        }
-    </style>
     <!--======// Header Title //======-->
-    @if (!empty($hardware_info))
-        <section class="common_product_header"
-            style="background-image: linear-gradient(
-            rgba(0,0,0,0.8),
-            rgba(0,0,0,0.8)
-            ),url('{{ asset('storage/' . $hardware_info->banner_image) }}');">
-            <div class="container ">
-                <h1>{!! $hardware_info->banner_title !!}</h1>
-                <p class="text-center text-white">{!! $hardware_info->banner_short_description !!} </p>
-                <div class="row ">
-                    <!--BUTTON START-->
-                    <div class="d-flex justify-content-center align-items-center">
-                        <div class="m-4">
-                            <a class="common_button2" href="#Contact">Talk to a specialist</a>
-                        </div>
-                        <div class="m-4">
-                            <a class="common_button2"
-                                href="{{ $hardware_info->banner_btn_link }}">{{ $hardware_info->banner_btn_name }}</a>
-                        </div>
-                    </div>
-                </div>
+    @if (!empty($software_info->banner_image))
+        <section>
+            <div>
+                <img class="page_top_banner" src="{{ !empty($software_info->banner_image) && file_exists(public_path('storage/' . $software_info->banner_image)) ? asset('storage/' . $software_info->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
+                    alt="NGEN IT Software">
             </div>
         </section>
     @endif
     <!----------End--------->
-    <section class="mt-3">
-        <div class="container my-3">
+    <section class="pt-1">
+        <div class="container my-3 mt-4">
             <ul class="breadcrumb text-left">
                 <a href="{{ route('homepage') }}">
                     <li class="breadcrumb__item breadcrumb__item-firstChild">
@@ -223,47 +52,43 @@
                 <li class="breadcrumb_divider">
                     <span>></span>
                 </li>
-                <a href="{{ route('hardware.info') }}">
+                <a href="{{ route('software.info') }}">
                     <li class="breadcrumb__item active">
                         <span class="breadcrumb__inner">
-                            <span class="breadcrumb__title">Hardware Info</span>
+                            <span class="breadcrumb__title">Software Info</span>
                         </span>
                     </li>
                 </a>
             </ul>
         </div>
     </section>
-    <!--======// Feature tab //======-->
-
-
-    <!--======// Information block tab //======-->
+    <!--======// Information Section //======-->
     <section>
         <div class="container">
             <div class="row gx-3">
                 <div class="col-lg-8">
-                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                    <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
                         <div class="row align-items-center">
                             <div class="col-lg-6">
                                 <div class="animated-image parbase section">
                                     <div id="solution_image_1">
-                                        <img src="{{ isset($hardware_info->row_six_image) && file_exists(public_path('storage/' . $hardware_info->row_six_image)) ? asset('storage/' . $hardware_info->row_six_image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                                            alt="{{$hardware_info->row_six_title}}"
-                                            title="Software Information NGENIT" class="img-fluid"
-                                            style="background-color: rgb(212,208,202);">
+                                        <img src="{{ isset($software_info->row_six_image) && file_exists(public_path('storage/' . $software_info->row_six_image)) ? asset('storage/' . $software_info->row_six_image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                            alt="{{ $software_info->row_six_title }}" title="Software Information NGENIT"
+                                            class="img-fluid" style="background-color: rgb(212,208,202);">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <h3>
+                                <h3 class="software-info-title">
                                     <span
-                                        style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($hardware_info->row_six_title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($hardware_info->row_six_title, 1) }}
+                                        style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($software_info->row_six_title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($software_info->row_six_title, 1) }}
                                 </h3>
                                 <p class="software-info-paragraph" style="text-align: justify;">
-                                    {!! $hardware_info->row_six_short_description !!}
+                                    {!! $software_info->row_six_short_description !!}
                                 </p>
-                                @if (!empty($hardware_info->row_six_btn_name))
-                                    <a href="{{ $hardware_info->row_six_btn_link }}"
-                                        class="common_button2 effect02">{{ $hardware_info->row_six_btn_name }}</a>
+                                @if (!empty($software_info->row_six_btn_name))
+                                    <a href="{{ $software_info->row_six_btn_link }}"
+                                        class="cool-link main_color">{{ $software_info->row_six_btn_name }}</a>
                                 @endif
                             </div>
                         </div>
@@ -271,7 +96,7 @@
                 </div>
                 @if ($tab_one)
                     <div class="col-lg-4">
-                        <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                        <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
                             <div class="row align-items-center">
                                 <div class="col-lg-12">
                                     @if (isset($tab_one->image) && file_exists(public_path('storage/' . $tab_one->image)))
@@ -290,7 +115,7 @@
                                     </p>
                                     @if (!empty($tab_one->btn_name))
                                         <a href="{{ $tab_one->link }}"
-                                            class="common_button2 effect02">{{ $tab_one->btn_name }}</a>
+                                            class="cool-link main_color">{{ $tab_one->btn_name }}</a>
                                     @endif
                                 </div>
                             </div>
@@ -302,7 +127,7 @@
                 @if ($tabIds)
                     @foreach ($tabIds as $tabId)
                         <div class="col-lg-4">
-                            <div class="p-5" style="background-color:#f7f6f5!important; min-height: 465px;">
+                            <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
                                 <div class="row align-items-center">
                                     <div class="col-lg-12">
                                         @if (isset($tabId->image) && file_exists(public_path('storage/' . $tabId->image)))
@@ -320,7 +145,8 @@
                                         </p>
                                         @if (!empty($tabId->btn_name))
                                             <a href="{{ $tabId->link }}"
-                                                class="common_button2 effect02">{{ $tabId->btn_name }}</a>
+                                                class="cool-link main_color">{{ $tabId->btn_name }}
+                                            </a>
                                         @endif
                                     </div>
                                 </div>
@@ -331,7 +157,7 @@
             </div>
         </div>
     </section>
-    <!--======// Information block tab //======-->
+    <!--======// Feature tab //======-->
     <section>
         <div class="container">
             <div class="row pt-5">
@@ -340,7 +166,7 @@
                         <div
                             class="card-header bg-white shadow-sm main-to-depp-gradient-2 p-5 card-header-area border-top-right-r">
                             <div class="d-flex align-items-center">
-                                <h4 class="pe-2 text-white">Hardware Related</h4>
+                                <h4 class="pe-2 text-white">Software Related</h4>
                                 <h4 class="pe-2 text-white">|</h4>
                                 <h4 class="text-white">Categories</h4>
                             </div>
@@ -355,8 +181,12 @@
                                                 <div class="p-lg-4 p-4 shadow-sm bg-white">
                                                     <div class="d-lg-flex align-items-center">
                                                         <div class="icons_area pe-2">
-                                                            <img class="category_icon" src="{{ asset('storage/' . $category->image) }}"
-                                                                alt="">
+                                                            {{-- <img class="category_icon"
+                                                                src="{{ asset('storage/' . $category->image) }}"
+                                                                alt=""> --}}
+                                                                <img class="img-fluid"
+        src="{{ !empty($category->image) && file_exists(public_path('storage/' . $category->image)) ? asset('storage/' . $category->image) : asset('frontend/images/no-img-png.png') }}"
+        alt="NGEN IT">
                                                         </div>
                                                         <div class="text_area">
                                                             {{ $category->title }}
@@ -379,8 +209,41 @@
         </div>
     </section>
     <!----------End--------->
+    <!--======// Our expert //======-->
+    @if (!empty($hardware_info))
+        <section>
+            <div class="container mt-3 mb-5 video_row">
+                <div class="software_feature_title py-lg-5 py-3">
+                    <h1 class="text-center ">{{ $hardware_info->row_four_title }}</h1>
+                </div>
+                <div class="row d-flex justify-content-start align-items-center">
+                    <div class="col-lg-6 col-sm-6">
+                        <iframe width="100%" height="330"
+                            src="{{ $hardware_info->row_four_video_link }}?autoplay=1&mute=1" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="">
+                            <h5 class="home_title_heading w-75" style="text-align: start;">
+                                {{ $hardware_info->row_four_sub_title }}
+                            </h5>
+                            <p class="home_title_text pt-3" style="text-align: justify;">
+                                {{ $hardware_info->row_four_short_description }}</p>
+                            <div class="pt-3">
+                                <a class="btn-color"
+                                    href="{{ $hardware_info->row_four_btn_link }}">{{ $hardware_info->row_four_btn_name }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
     <!--======// Nasted tab //======-->
-    <div class="section_wp">
+    <!--======// Nasted tab //======-->
+    <div class="section_wp pt-5">
         <!--Tab Section-->
         <div class="container mb-5">
             <!-- home title -->
@@ -411,13 +274,14 @@
                         <div class="item">
                             <div class="row gx-4">
                                 @foreach ($brands as $brand)
-                                    <div class="col-lg-2 col-4">
-                                        <div class="card rounded-0 brand_img_container">
+                                    <div class="col-lg-2 col-6">
+                                        <div class="card rounded-0 brand_img_container mb-4">
                                             <div class="card-body image_box">
                                                 <div class="brand-images">
                                                     <a href="{{ route('brandpage.html', $brand->slug) }}">
                                                         <img src="{{ asset('storage/' . $brand->image) }}"
-                                                            class="img-fluid" alt="{{ $brand->title }}"> </a>
+                                                            class="img-fluid" alt="{{ $brand->title }}"> 
+                                                    </a>
                                                 </div>
                                             </div>
                                             <div class="card-footer border-0 p-0 m-0">
@@ -442,7 +306,7 @@
                                     </div>
                                 @endforeach
                                 <div class="col-lg-12 col-md-12 col-sm-12 text-end mt-2 px-4"
-                                    style="padding-top: 1rem; color: #ae0a46;">
+                                    style="color: #ae0a46;">
                                     <a class="text-site" href="{{ route('all.brand') }}">See
                                         More <i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
@@ -461,8 +325,8 @@
                                             ->paginate(12);
                                     @endphp
                                     @foreach ($related_brands as $related_brand)
-                                        <div class="col-lg-2 col-4">
-                                            <div class="card rounded-0 brand_img_container">
+                                        <div class="col-lg-2 col-6">
+                                            <div class="card rounded-0 brand_img_container mb-4">
                                                 <div class="card-body image_box">
                                                     <div class="brand-images">
                                                         <a href="{{ route('brandpage.html', $related_brand->slug) }}">
@@ -504,53 +368,124 @@
             </div>
         </div>
     </div>
-    <!--======// Our expert //======-->
-    @if (!empty($hardware_info))
-        <section>
-            <div class="container mt-3 mb-5 video_row">
-                <div class="software_feature_title py-lg-5 py-3">
-                    <h1 class="text-center ">{{ $hardware_info->row_four_title }}</h1>
+    <!---------End -------->
+    <section>
+        <div class="container">
+            <div class="home_title_heading my-5">
+                <div class="software_feature_title">
+                    <h1 class="text-center pb-3">
+                        <span>R</span>eal outcomes. Expert insights.
+                    </h1>
                 </div>
-                <div class="row d-flex justify-content-start align-items-center">
-                    <div class="col-lg-6 col-sm-6">
-                        <iframe width="100%" height="330"
-                            src="{{ $hardware_info->row_four_video_link }}?autoplay=1&mute=1" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="">
-                            <h5 class="home_title_heading w-75" style="text-align: start;">
-                                {{ $hardware_info->row_four_sub_title }}
-                            </h5>
-                            <p class="home_title_text pt-3" style="text-align: justify;">
-                                {{ $hardware_info->row_four_short_description }}</p>
-                            <div class="pt-3">
-                                <a class="common_button2"
-                                    href="{{ $hardware_info->row_four_btn_link }}">{{ $hardware_info->row_four_btn_name }}</a>
-                            </div>
+            </div>
+            <!-- Client Tab Start -->
+            <div class="row my-5 align-items-center">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-lg-6 mb-lg-1 mb-4">
+                            @if (!empty($tech_glossy1->title))
+                                <div>
+                                    <div class="hover hover-2 text-white rounded">
+                                        <img src="{{ !empty($tech_glossy1->image) && file_exists(public_path('storage/' . $tech_glossy1->image)) ? asset('storage/' . $tech_glossy1->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                            alt="">
+                                        <div class="hover-overlay"></div>
+                                        <div class="hover-2-content px-5 py-4">
+                                            <p class="hover-2-title text-uppercase font-weight-bold mb-0">
+                                                <span class="font-weight-light">{{ $tech_glossy1->badge }}</span>
+                                                <br>
+                                                <span class="hover_content_title">
+                                                    {{ $tech_glossy1->title }}
+                                                </span>
+                                            </p>
+
+                                            <p class="hover-2-description text-uppercase mb-0">
+                                                <a href="{{ route('techglossy.details', $tech_glossy1->title) }}"
+                                                    class="text-white">read more</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                            @if (!empty($tech_glossy2->title))
+                                <div class="mt-4">
+                                    <div class="hover hover-2 text-white rounded">
+                                        <img src="{{ isset($tech_glossy2->image) && file_exists(public_path('storage/' . $tech_glossy2->image)) ? asset('storage/' . $tech_glossy2->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                            alt="">
+                                        <div class="hover-overlay"></div>
+                                        <div class="hover-2-content px-5 py-4">
+                                            <p class="hover-2-title text-uppercase font-weight-bold mb-0"> <span
+                                                    class="font-weight-light">{{ $tech_glossy2->badge }} </span> <br>
+                                                <span class="hover_content_title">
+                                                    {{ $tech_glossy2->title }}
+                                                </span>
+                                            </p>
+
+                                            <p class="hover-2-description text-uppercase mb-0">
+                                                <a href="{{ route('techglossy.details', $tech_glossy2->title) }}"
+                                                    class="text-white">read more</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
+                        @if (!empty($tech_glossy3->title))
+                            <div class="col-lg-6 mb-lg-1 mb-4">
+                                <div class="hover-4 hover-second  text-white rounded">
+                                    <img class="img-fluid"
+                                        src="{{ isset($tech_glossy3->image) && file_exists(public_path('storage/' . $tech_glossy3->image)) ? asset('storage/' . $tech_glossy3->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                        alt="">
+                                    <div class="hover-overlay-second"></div>
+                                    <div class="hover-4-content px-5 py-4">
+                                        <p class="hover-4-title text-uppercase font-weight-bold mb-0">
+                                            <span class="font-weight-light">{{ $tech_glossy3->badge }} </span> <br>
+                                            <span class="hover_content_title">
+                                                {{ $tech_glossy3->title }}
+                                            </span>
+                                        </p>
+                                        <p class="hover-4-description text-uppercase mb-0">
+                                            <a href="{{ route('techglossy.details', $tech_glossy3->title) }}"
+                                                class="text-white">read more</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
+                        <h3>
+                            <span style="border-top: 3px solid #ae0a46;">Fe</span>atured Content
+                        </h3>
+
+                        @if ($blogs)
+                            @foreach ($blogs as $blog)
+                                <div class="py-3">
+                                    <a href="{{ route('blog.details', $blog->id) }}">
+                                        <p class="mb-0 pb-2">{{ $blog->badge }}</p>
+                                        <h6>{{ $blog->title }}</h6>
+                                    </a>
+                                </div>
+                                <hr class="m-1">
+                            @endforeach
+                        @endif
+
                     </div>
                 </div>
             </div>
-        </section>
-    @endif
-    <!---------End -------->
-    <!--======// our clint tab //======-->
-
-    <!--=====// Global call section //=====-->
-
-    <!---------End -------->
-    <!--=====// Tech solution //=====-->
+            <!-- Client Tab End -->
+    </section>
+    <!--=====// Bootom Blogs section //=====-->
     @if (count($tech_datas) > 0)
         <div class="section_wp2">
             <div class="container">
-                @if (!empty($hardware_info->row_seven_title))
+                @if (!empty($software_info->row_seven_title))
                     <div class="solution_number_wrapper">
                         <!-- title -->
                         @php
-                            $sentence2 = $hardware_info->row_seven_title;
+                            $sentence2 = $software_info->row_seven_title;
                         @endphp
                         <h5 class="home_title_heading" style="text-align: left;">
                             <div class="software_feature_title">
@@ -578,72 +513,16 @@
         </div>
     @endif
     <!---------End -------->
-    <!--=====// We serve //=====-->
-    <div class="container pb-5">
-        <!-- section title -->
-        @if (!empty($hardware_info))
-            <div class="clint_help_section_heading_wrapper">
-                <!-- title -->
-                <h5 class="home_title_heading" style="text-align: left;">
-                    <h5 class="home_title_heading" style="text-align: left;">
-                        <div class="software_feature_title">
-                            <h1 class="text-center pt-4 pb-4 w-75 mx-auto">
-                                {{ $hardware_info->row_eight_title }}
-                            </h1>
-                        </div>
-                    </h5>
-                    <p class="home_title_text pb-3">
-                        <span class="font-weight-bold">{{ $hardware_info->row_eight_short_description }} </span>
-                    </p>
-            </div>
-        @endif
-        <!-- section content wrapper -->
-        <div class="row mb-4">
-            <!-- content -->
-            <div class="col-lg-9 col-sm-12">
-                <!-- we_serveItem_wrapper -->
-                <div class="row gx-2">
-                    <!-- item -->
-                    @if ($industrys)
-                        @foreach ($industrys as $item)
-                            <div class="col-lg-3 col-sm-6 mb-2">
-                                <a href="{{ route('industry.details', $item->slug) }}" class="we_serve_item">
-                                    <div class="we_serve_item_image">
-                                        <img src="{{ asset('storage/' . $item->logo) }}" alt="">
-                                    </div>
-                                    <div class="we_serve_item_text">{{ $item->title }}</div>
-                                </a>
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
-            </div>
-            <!-- sidebar -->
-            <div class="col-lg-3 col-sm-12">
-                <div class="we_serve_title">
-                    <p>Private sector</p>
-                </div>
-                <!-- sidebar list -->
-                <div>
-                    @if ($random_industries)
-                        @foreach ($random_industries as $item)
-                            <div class="pt-2">
-                                <a href="{{ route('industry.details', $item->slug) }}">
-                                    <div id="fed-bg">
-                                        <div class="p-2">
-                                            <h5 class="text-white brand_side_text">{{ $item->title }} ›</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
-    <!---------End -------->
     <!--=====// Pageform section //=====-->
     @include('frontend.partials.footer_contact')
     <!---------End -------->
 @endsection
+@push('scripts')
+    <script type="text/javascript">
+        const scrollContainer = document.querySelector(".sub_tabs_button");
+        scrollContainer.addEventListener("wheel", (evt) => {
+            evt.preventDefault();
+            scrollContainer.scrollLeft += evt.deltaY;
+        });
+    </script>
+@endpush

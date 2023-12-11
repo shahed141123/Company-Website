@@ -19,32 +19,75 @@
             }
         </style>
     @endif
+    <style>
+        .nav-tabs .nav-link, .nav-tabs .nav-item .nav-link {
+    border: 1px solid #ae0a46;
+    padding: 20px;
+    border-radius: 0px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--primary-color);
+    background: var(--white);
+}
+.nav-tabs {
+    border: 0;
+    border-radius: 3px;
+    padding: 0px;
+}
+.nav-tabs .nav-item .nav-link.active {
+    border: 1px solid #161515;
+    padding: 5px 20px 5px;
+    border-radius: 0px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--white);
+    background: #161618d9;
+}
+.nav-pills-custom .nav-link{
+    font-size: 16px;
+}
+    </style>
     <!--======// Header custom-Title //======-->
-    {{-- <section class="common_product_header"
-        style="background-image: url('{{ asset('frontend/images/software_common.jpg') }}');">
-        <div class="container ">
-            <h1><strong>Softwares for Your Business</strong></h1>
-            <p class="text-center text-white" style="font-size: 15px;">Explore our wide selection of software products and
-                services <br> created to simplify and improve your business processes </p>
-            <div class="row ">
-                <!--BUTTON START-->
-                <div class="d-flex justify-content-center align-items-center">
-                    <div class="m-4">
-                        <a class="common_button2" href="{{ route('software.info') }}">More Details </a>
-                    </div>
-                    <div class="m-4">
-                        <a class="common_button2" href="{{ route('contact') }}">Contact Us</a>
-                    </div>
-                </div>
-            </div>
+    <section>
+        <div>
+            <img class="page_top_banner" src="{{ asset('frontend/images/software_common.jpg') }}"
+                alt="NGEN IT Software">
         </div>
-    </section> --}}
-        <section>
-            <div>
-                <img class="page_top_banner" src="{{ asset('frontend/images/software_common.jpg') }}" alt="NGEN IT Software">
-            </div>
-        </section>
+    </section>
     <!---------End -------->
+    <section class="pt-1">
+        <div class="container my-3 mt-4">
+            <ul class="breadcrumb text-left">
+                <a href="{{ route('homepage') }}">
+                    <li class="breadcrumb__item breadcrumb__item-firstChild">
+                        <span class="breadcrumb__inner">
+                            <span class="breadcrumb__title">Home</span>
+                        </span>
+                    </li>
+                </a>
+                <li class="breadcrumb_divider">
+                    <span>></span>
+                </li>
+                <a href="{{ route('whatwedo') }}">
+                    <li class="breadcrumb__item">
+                        <span class="breadcrumb__inner">
+                            <span class="breadcrumb__title">What We Do</span>
+                        </span>
+                    </li>
+                </a>
+                <li class="breadcrumb_divider">
+                    <span>></span>
+                </li>
+                <a href="{{ route('software.common') }}">
+                    <li class="breadcrumb__item active">
+                        <span class="breadcrumb__inner">
+                            <span class="breadcrumb__title">Software Common</span>
+                        </span>
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </section>
     <!--======// Information Section //======-->
     <section>
         <div class="container mt-4">
@@ -173,7 +216,7 @@
     <section>
         <div class="container p-0">
             <div class="Container mt-5 px-0">
-                <h3 class="Head" style="font-size:30px;">Random Products <span class="Arrows"></span></h3>
+                <h3 class="Head main_color">Recent Products <span class="Arrows"></span></h3>
                 <!-- Carousel Container -->
                 <div class="SlickCarousel">
                     @if ($products)
@@ -186,7 +229,10 @@
                                             <div class="custom-product-grid">
                                                 <div class="custom-product-image">
                                                     <a href="{{ route('product.details', $item->slug) }}" class="image">
-                                                        <img class="pic-1" src="{{ asset($item->thumbnail) }}">
+                                                        {{-- <img class="pic-1" src="{{ asset($item->thumbnail) }}"> --}}
+                                                        <img class="img-fluid"
+                                                            src="{{ !empty($item->thumbnail) && file_exists(public_path($item->thumbnail)) ? asset($item->thumbnail) : asset('frontend/images/random-no-img.png') }}"
+                                                            alt="NGEN IT">
                                                     </a>
                                                     <ul class="custom-product-links">
                                                         <li><a href="#"><i class="fa fa-random text-white"></i></a>
@@ -200,8 +246,23 @@
                                                     <a href="{{ route('product.details', $item->slug) }}">
                                                         <h3 class="custom-title"> {{ Str::words($item->name, 10) }}</h3>
                                                     </a>
-
+    
                                                     @if ($item->rfq == 1)
+                                                        <div>
+                                                            <div class="price py-3">
+                                                                {{-- <small class="price-usd">USD</small>
+                                                                --.-- $ --}}
+                                                            </div>
+                                                            <a href=""
+                                                                class="d-flex justify-content-center align-items-center"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#rfq{{ $item->id }}">
+                                                                <button class="btn-color popular_product-button">
+                                                                    Ask For Price
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                    @elseif ($item->price_status && $item->price_status == 'rfq')
                                                         <div>
                                                             <div class="price py-3">
                                                                 {{-- <small class="price-usd">USD</small>
@@ -211,22 +272,7 @@
                                                                 class="d-flex justify-content-center align-items-center"
                                                                 data-bs-toggle="modal"
                                                                 data-bs-target="#rfq{{ $item->id }}">
-                                                                <button class="common_button effect01 popular_product-button">
-                                                                    Ask For Price
-                                                                </button>
-                                                            </a>
-                                                        </div>
-                                                    @elseif ($item->price_status && $item->price_status == 'rfq')
-                                                        <div>
-                                                            <div class="price py-3">
-                                                                {{-- <small class="price-usd">USD</small>
-                                                        --.-- $ --}}
-                                                            </div>
-                                                            <a href=""
-                                                                class="d-flex justify-content-center align-items-center"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#rfq{{ $item->id }}">
-                                                                <button class="common_button effect01 popular_product-button">
+                                                                <button class="btn-color popular_product-button">
                                                                     Ask For Price
                                                                 </button>
                                                             </a>
@@ -241,8 +287,7 @@
                                                                 class="d-flex justify-content-center align-items-center"
                                                                 data-bs-toggle="modal"
                                                                 data-bs-target="#rfq{{ $item->id }}">
-                                                                <button class="common_button effect01"
-                                                                    data-bs-toggle="modal"
+                                                                <button class="btn-color" data-bs-toggle="modal"
                                                                     data-bs-target="#askProductPrice">
                                                                     Your Price
                                                                 </button>
@@ -259,8 +304,7 @@
                                                                 class="cart_button{{ $item->id }}"
                                                                 data-mdb-content="Add To Cart Now"
                                                                 data-mdb-trigger="hover">
-                                                                <button type="button"
-                                                                    class="common_button effect01 add_to_cart"
+                                                                <button type="button" class="btn-color add_to_cart"
                                                                     data-id="{{ $item->id }}"
                                                                     data-name="{{ $item->name }}" data-quantity="1">
                                                                     Add to Cart
@@ -298,24 +342,24 @@
                         <div class="nav-tabs-navigation">
                             <div class="nav-tabs-wrapper">
                                 <ul class="nav nav-tabs row gx-0" data-tabs="tabs">
-                                    <li class="nav-item col-lg-3">
+                                    <li class="nav-item col">
                                         <a class="nav-link py-3 active" href="#categories" data-toggle="tab"> Categories
                                         </a>
                                     </li>
-                                    <li class="col-lg-3 nav-item">
+                                    <li class="col nav-item">
                                         <a class="nav-link py-3" href="#brand" data-toggle="tab"> Brand </a>
                                     </li>
-                                    <li class="col-lg-3 nav-item">
+                                    <li class="col nav-item">
                                         <a class="nav-link py-3" href="#industry" data-toggle="tab"> Industry </a>
                                     </li>
-                                    <li class="col-lg-3 nav-item">
+                                    <li class="col nav-item">
                                         <a class="nav-link py-3" href="#solution" data-toggle="tab"> Solution </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="card-header m-0 shadow-lg">
+                    <div class="card-header m-0 p-0">
                         <div class="row gx-0">
                             <div class="col-md-3">
                                 <div>
@@ -328,12 +372,12 @@
                                 </div>
                             </div>
                             <div class="col-md-9">
-                                <div class="table-responsive">
+                                <div class="table-responsive ps-1">
                                     <table class="table mb-0">
                                         <tbody>
                                             <tr class="py-2">
-                                                <td class="py-2" width="3.8%">Sl</td>
-                                                <td class="py-2" width="85.5%" class="text-left px-2">
+                                                <td class="py-2" width="4.7%">Sl</td>
+                                                <td class="py-2" width="83.8%" class="text-left px-2">
                                                     Name
                                                 </td>
                                                 <td class="py-2" class="text-left">
@@ -367,7 +411,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <div class="col-md-9 p-0">
+                                <div class="col-md-9 ps-1">
                                     <div class="tab-content p-0" id="v-pills-tabContent">
                                         @foreach ($categories as $key => $item)
                                             @if (count($item->subCatsoftwareProducts) > 0)
@@ -439,41 +483,44 @@
                         <h1>{{ $category->title }}</h1>
                     </div>
                 @endforeach
-
             </div>
-
             <div id="sync1" class="owl-carousel owl-theme">
                 <div class="item">
-                    <div class="row gx-0">
+                    <div class="row gx-4">
                         @foreach ($brands as $brand)
-                            <div class="col-lg-3 col-md-2 col-sm-4">
-                                <div class="ag-offer_item"
-                                    style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
-                                    <div class="ag-offer_visible-item">
-                                        <div class="ag-offer_img-box d-felx justify-content-center mx-auto">
-                                            <img src="{{ asset('storage/' . $brand->image) }}" class="ag-offer_img"
-                                                alt="{{ $brand->title }}" width="150px" height="150px" />
+                            <div class="col-lg-2 col-6">
+                                <div class="card rounded-0 brand_img_container mb-4">
+                                    <div class="card-body image_box">
+                                        <div class="brand-images">
+                                            <a href="{{ route('brandpage.html', $brand->slug) }}">
+                                                <img src="{{ asset('storage/' . $brand->image) }}"
+                                                    class="img-fluid" alt="{{ $brand->title }}"> 
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="ag-offer_hidden-item">
-                                        <div class="mx-auto">
-                                            <div class="brand_btns"
-                                                style="justify-content: center;background: #ae0a46;padding: 7px;color: white;font-size: 16px;display: flex;">
-                                                <a class="text-white"
-                                                    href="{{ route('brandpage.html', $brand->slug) }}">Details
-                                                    | </a>
-                                                <a class="text-white ms-1"
-                                                    href="{{ route('custom.product', $brand->slug) }}"><span>Shop</span>
-                                                </a>
-                                                </a>
-                                            </div>
+                                    <div class="card-footer border-0 p-0 m-0">
+                                        <div class="brand_btns"
+                                            style="justify-content: center;
+                                              background: #ae0a46;
+                                              color: white;
+                                              font-size: 13px;
+                                              display: flex;">
+                                            <a class="text-white py-2"
+                                                href="{{ route('brandpage.html', $brand->slug) }}">Details
+                                                <i class="fa-solid fa-chevron-right ms-1"></i>
+                                            </a>
+                                            <span class="ms-3 me-3" style="background: #ffff;">||</span>
+                                            <a class="text-white py-2"
+                                                href="{{ route('custom.product', $brand->slug) }}">Shop
+                                                <i class="fa-solid fa-chevron-right ms-1"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
                         <div class="col-lg-12 col-md-12 col-sm-12 text-end mt-2 px-4"
-                            style="padding-top: 1rem; color: #ae0a46;">
+                            style="color: #ae0a46;">
                             <a class="text-site" href="{{ route('all.brand') }}">See
                                 More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
@@ -481,39 +528,42 @@
                 </div>
                 @foreach ($categories as $index => $category)
                     <div class="item">
-                        <div class="row gx-0">
+                        <div class="row gx-4">
                             @php
                                 $related_brands = DB::table('brands')
                                     ->join('products', 'brands.id', '=', 'products.brand_id')
-                                    ->join('sub_categories', 'products.sub_cat_id', '=', 'sub_categories.id')
-                                    ->where('sub_categories.id', '=', $category->id)
+                                    ->join('categories', 'products.cat_id', '=', 'categories.id')
+                                    ->where('categories.id', '=', $category->id)
                                     ->select('brands.id', 'brands.title', 'brands.image', 'brands.slug')
                                     ->distinct()
                                     ->paginate(12);
                             @endphp
                             @foreach ($related_brands as $related_brand)
-                                <div class="col-lg-3 col-md-2 col-sm-4">
-                                    <div class="ag-offer_item"
-                                        style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
-                                        <div class="ag-offer_visible-item">
-                                            <div class="ag-offer_img-box d-felx justify-content-center mx-auto">
-                                                <img src="{{ asset('storage/' . $related_brand->image) }}"
-                                                    class="ag-offer_img" alt="{{ $related_brand->title }}"
-                                                    width="150px" height="150px" />
+                                <div class="col-lg-2 col-6">
+                                    <div class="card rounded-0 brand_img_container mb-4">
+                                        <div class="card-body image_box">
+                                            <div class="brand-images">
+                                                <a href="{{ route('brandpage.html', $related_brand->slug) }}">
+                                                    <img src="{{ asset('storage/' . $related_brand->image) }}"
+                                                        class="img-fluid" alt="{{ $related_brand->title }}"> </a>
                                             </div>
                                         </div>
-                                        <div class="ag-offer_hidden-item">
-                                            <div class="mx-auto">
-                                                <div class="brand_btns"
-                                                    style="justify-content: center;background: #ae0a46;padding: 7px;color: white;font-size: 16px;display: flex;">
-                                                    <a class="text-white"
-                                                        href="{{ route('brandpage.html', $related_brand->slug) }}">Details
-                                                        | </a>
-                                                    <a class="text-white ms-1"
-                                                        href="{{ route('custom.product', $related_brand->slug) }}"><span>Shop</span>
-                                                    </a>
-                                                    </a>
-                                                </div>
+                                        <div class="card-footer border-0 p-0 m-0">
+                                            <div class="brand_btns"
+                                                style="justify-content: center;
+                                              background: #ae0a46;
+                                              color: white;
+                                              font-size: 13px;
+                                              display: flex;">
+                                                <a class="text-white py-2"
+                                                    href="{{ route('brandpage.html', $related_brand->slug) }}">Details
+                                                    <i class="fa-solid fa-chevron-right ms-1"></i>
+                                                </a>
+                                                <span class="ms-3 me-3" style="background: #ffff;">||</span>
+                                                <a class="text-white py-2"
+                                                    href="{{ route('custom.product', $related_brand->slug) }}">Shop
+                                                    <i class="fa-solid fa-chevron-right ms-1"></i>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -562,8 +612,8 @@
     <!--=====// Tech solution //=====-->
     @if (count($tech_datas) > 0)
         <div class="section_wp2">
-            <h2 class="text-center text-capitalize fw-bold main_color">Tech solution</h2>
-            <p class="text-center pb-4 w-50 mx-auto">We establish strategic partnerships with industry-leading
+            <h2 class="text-center text-capitalize fw-bold main_color tech-title">Tech solution</h2>
+            <p class="text-center pb-4 w-50 mx-auto width-full">We establish strategic partnerships with industry-leading
                 manufacturers, ensuring the delivery of superior software solutions meticulously crafted to optimize and
                 elevate your business and industry.</p>
             <div class="container">
@@ -600,26 +650,7 @@
     @endif
     <!---------End -------->
 </section>
-<!--======// our clint tab //======-->
-<section class="clint_tab_section">
-    <div class="container">
-        <div class="clint_tab_content pb-3">
-            <!-- home title -->
-            <div class="home_title mt-3">
-                <div class="software_feature_title">
-                    <h1 class="text-center ">Contents</h1>
-                </div>
-                <p class="home_title_text">Discover how our expertise has benefited organizations of <span
-                        class="font-weight-bold">all sizes and industries</span>
-                    <br> by maximizing the value of their IT solutions, leveraging emerging technologies, and
-                    creating
-                    innovative experiences.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-<!---------End -------->
+
 <!--=====// We serve //=====-->
 <section>
     <div class="container pb-5">
@@ -664,7 +695,7 @@
                 <!-- sidebar -->
                 <div class="col-lg-3 col-sm-12">
                     <div class="we_serve_title">
-                        <p>Private sector</p>
+                        <p class="fw-bold top-line-title"><span style="border-top: 4px solid #ae0a46;">Exp</span>lore</p>
                     </div>
                     <!-- sidebar list -->
                     <div>

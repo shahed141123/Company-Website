@@ -67,7 +67,7 @@
         <div class="container">
             <div class="row gx-3">
                 <div class="col-lg-8">
-                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                    <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
                         <div class="row align-items-center">
                             <div class="col-lg-6">
                                 <div class="animated-image parbase section">
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <h3>
+                                <h3 class="software-info-title">
                                     <span
                                         style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($software_info->row_six_title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($software_info->row_six_title, 1) }}
                                 </h3>
@@ -88,7 +88,7 @@
                                 </p>
                                 @if (!empty($software_info->row_six_btn_name))
                                     <a href="{{ $software_info->row_six_btn_link }}"
-                                        class="common_button2 effect02">{{ $software_info->row_six_btn_name }}</a>
+                                        class="cool-link main_color">{{ $software_info->row_six_btn_name }}</a>
                                 @endif
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                 </div>
                 @if ($tab_one)
                     <div class="col-lg-4">
-                        <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                        <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
                             <div class="row align-items-center">
                                 <div class="col-lg-12">
                                     @if (isset($tab_one->image) && file_exists(public_path('storage/' . $tab_one->image)))
@@ -115,7 +115,7 @@
                                     </p>
                                     @if (!empty($tab_one->btn_name))
                                         <a href="{{ $tab_one->link }}"
-                                            class="common_button2 effect02">{{ $tab_one->btn_name }}</a>
+                                            class="cool-link main_color">{{ $tab_one->btn_name }}</a>
                                     @endif
                                 </div>
                             </div>
@@ -127,7 +127,7 @@
                 @if ($tabIds)
                     @foreach ($tabIds as $tabId)
                         <div class="col-lg-4">
-                            <div class="p-5" style="background-color:#f7f6f5!important; min-height: 465px;">
+                            <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
                                 <div class="row align-items-center">
                                     <div class="col-lg-12">
                                         @if (isset($tabId->image) && file_exists(public_path('storage/' . $tabId->image)))
@@ -145,7 +145,7 @@
                                         </p>
                                         @if (!empty($tabId->btn_name))
                                             <a href="{{ $tabId->link }}"
-                                                class="common_button2 effect02">{{ $tabId->btn_name }}
+                                                class="cool-link main_color">{{ $tabId->btn_name }}
                                             </a>
                                         @endif
                                     </div>
@@ -181,9 +181,12 @@
                                                 <div class="p-lg-4 p-4 shadow-sm bg-white">
                                                     <div class="d-lg-flex align-items-center">
                                                         <div class="icons_area pe-2">
-                                                            <img class="category_icon"
+                                                            {{-- <img class="category_icon"
                                                                 src="{{ asset('storage/' . $category->image) }}"
-                                                                alt="">
+                                                                alt=""> --}}
+                                                                <img class="img-fluid"
+        src="{{ !empty($category->image) && file_exists(public_path('storage/' . $category->image)) ? asset('storage/' . $category->image) : asset('frontend/images/no-img-png.png') }}"
+        alt="NGEN IT">
                                                         </div>
                                                         <div class="text_area">
                                                             {{ $category->title }}
@@ -229,7 +232,7 @@
                             <p class="home_title_text pt-3" style="text-align: justify;">
                                 {{ $software_info->row_four_short_description }}</p>
                             <div class="pt-3">
-                                <a class="common_button2"
+                                <a class="btn-color"
                                     href="{{ $software_info->row_four_btn_link }}">{{ $software_info->row_four_btn_name }}</a>
                             </div>
                         </div>
@@ -239,17 +242,18 @@
         </section>
     @endif
     <!--======// Nasted tab //======-->
-    <div class="section_wp">
+    <!--======// Nasted tab //======-->
+    <div class="section_wp pt-5">
         <!--Tab Section-->
         <div class="container mb-5">
             <!-- home title -->
-            @if (!empty($software_info))
+            @if (!empty($hardware_info))
                 <div class="nasted_tabbar_title">
                     <div class="software_feature_title">
-                        <h1 class="text-center p-3">{{ $software_info->row_two_title }}</h1>
+                        <h1 class="text-center p-3">{{ $hardware_info->row_two_title }}</h1>
                     </div>
-                    <p class="home_title_text pb-4">
-                        {!! $software_info->row_two_short_description !!}
+                    <p class="home_title_text w-75 mx-auto pb-4">
+                        {!! $hardware_info->row_two_short_description !!}
                     </p>
                 </div>
             @endif
@@ -265,42 +269,44 @@
                                 <h1>{{ $category->title }}</h1>
                             </div>
                         @endforeach
-
                     </div>
-
                     <div id="sync1" class="owl-carousel owl-theme">
                         <div class="item">
-                            <div class="row gx-0">
+                            <div class="row gx-4">
                                 @foreach ($brands as $brand)
-                                    <div class="col-lg-3 col-md-2 col-4">
-                                        <div class="ag-offer_item"
-                                            style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
-                                            <div class="ag-offer_visible-item">
-                                                <div class="ag-offer_img-box d-felx justify-content-center mx-auto">
-                                                    <img src="{{ asset('storage/' . $brand->image) }}"
-                                                        class="ag-offer_img" alt="{{ $brand->title }}" width="150px"
-                                                        height="150px" />
+                                    <div class="col-lg-2 col-6">
+                                        <div class="card rounded-0 brand_img_container mb-4">
+                                            <div class="card-body image_box">
+                                                <div class="brand-images">
+                                                    <a href="{{ route('brandpage.html', $brand->slug) }}">
+                                                        <img src="{{ asset('storage/' . $brand->image) }}"
+                                                            class="img-fluid" alt="{{ $brand->title }}"> 
+                                                    </a>
                                                 </div>
                                             </div>
-                                            <div class="ag-offer_hidden-item">
-                                                <div class="mx-auto">
-                                                    <div class="brand_btns"
-                                                        style="justify-content: center;background: #ae0a46;padding: 7px;color: white;font-size: 16px;display: flex;">
-                                                        <a class="text-white"
-                                                            href="{{ route('brandpage.html', $brand->slug) }}">Details
-                                                            | </a>
-                                                        <a class="text-white ms-1"
-                                                            href="{{ route('custom.product', $brand->slug) }}"><span>Shop</span>
-                                                        </a>
-                                                        </a>
-                                                    </div>
+                                            <div class="card-footer border-0 p-0 m-0">
+                                                <div class="brand_btns"
+                                                    style="justify-content: center;
+                                                      background: #ae0a46;
+                                                      color: white;
+                                                      font-size: 13px;
+                                                      display: flex;">
+                                                    <a class="text-white py-2"
+                                                        href="{{ route('brandpage.html', $brand->slug) }}">Details
+                                                        <i class="fa-solid fa-chevron-right ms-1"></i>
+                                                    </a>
+                                                    <span class="ms-3 me-3" style="background: #ffff;">||</span>
+                                                    <a class="text-white py-2"
+                                                        href="{{ route('custom.product', $brand->slug) }}">Shop
+                                                        <i class="fa-solid fa-chevron-right ms-1"></i>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
                                 <div class="col-lg-12 col-md-12 col-sm-12 text-end mt-2 px-4"
-                                    style="padding-top: 1rem; color: #ae0a46;">
+                                    style="color: #ae0a46;">
                                     <a class="text-site" href="{{ route('all.brand') }}">See
                                         More <i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
@@ -308,39 +314,42 @@
                         </div>
                         @foreach ($categories as $index => $category)
                             <div class="item">
-                                <div class="row gx-0">
+                                <div class="row gx-4">
                                     @php
                                         $related_brands = DB::table('brands')
                                             ->join('products', 'brands.id', '=', 'products.brand_id')
-                                            ->join('sub_categories', 'products.sub_cat_id', '=', 'sub_categories.id')
-                                            ->where('sub_categories.id', '=', $category->id)
+                                            ->join('categories', 'products.cat_id', '=', 'categories.id')
+                                            ->where('categories.id', '=', $category->id)
                                             ->select('brands.id', 'brands.title', 'brands.image', 'brands.slug')
                                             ->distinct()
                                             ->paginate(12);
                                     @endphp
                                     @foreach ($related_brands as $related_brand)
-                                        <div class="col-lg-3 col-md-2 col-4">
-                                            <div class="ag-offer_item"
-                                                style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
-                                                <div class="ag-offer_visible-item">
-                                                    <div class="ag-offer_img-box d-felx justify-content-center mx-auto">
-                                                        <img src="{{ asset('storage/' . $related_brand->image) }}"
-                                                            class="ag-offer_img" alt="{{ $related_brand->title }}"
-                                                            width="150px" height="150px" />
+                                        <div class="col-lg-2 col-6">
+                                            <div class="card rounded-0 brand_img_container mb-4">
+                                                <div class="card-body image_box">
+                                                    <div class="brand-images">
+                                                        <a href="{{ route('brandpage.html', $related_brand->slug) }}">
+                                                            <img src="{{ asset('storage/' . $related_brand->image) }}"
+                                                                class="img-fluid" alt="{{ $related_brand->title }}"> </a>
                                                     </div>
                                                 </div>
-                                                <div class="ag-offer_hidden-item">
-                                                    <div class="mx-auto">
-                                                        <div class="brand_btns"
-                                                            style="justify-content: center;background: #ae0a46;padding: 7px;color: white;font-size: 16px;display: flex;">
-                                                            <a class="text-white"
-                                                                href="{{ route('brandpage.html', $related_brand->slug) }}">Details
-                                                                | </a>
-                                                            <a class="text-white ms-1"
-                                                                href="{{ route('custom.product', $related_brand->slug) }}"><span>Shop</span>
-                                                            </a>
-                                                            </a>
-                                                        </div>
+                                                <div class="card-footer border-0 p-0 m-0">
+                                                    <div class="brand_btns"
+                                                        style="justify-content: center;
+                                                      background: #ae0a46;
+                                                      color: white;
+                                                      font-size: 13px;
+                                                      display: flex;">
+                                                        <a class="text-white py-2"
+                                                            href="{{ route('brandpage.html', $related_brand->slug) }}">Details
+                                                            <i class="fa-solid fa-chevron-right ms-1"></i>
+                                                        </a>
+                                                        <span class="ms-3 me-3" style="background: #ffff;">||</span>
+                                                        <a class="text-white py-2"
+                                                            href="{{ route('custom.product', $related_brand->slug) }}">Shop
+                                                            <i class="fa-solid fa-chevron-right ms-1"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -355,7 +364,6 @@
                             </div>
                         @endforeach
                     </div>
-
                 </div>
             </div>
         </div>
@@ -371,7 +379,7 @@
                 </div>
             </div>
             <!-- Client Tab Start -->
-            <div class="row my-5">
+            <div class="row my-5 align-items-center">
                 <div class="col-lg-8">
                     <div class="row">
                         <div class="col-lg-6 mb-lg-1 mb-4">
@@ -447,7 +455,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="p-5" style="background-color:#f7f6f5!important; min-height: 460px;">
+                    <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
                         <h3>
                             <span style="border-top: 3px solid #ae0a46;">Fe</span>atured Content
                         </h3>
