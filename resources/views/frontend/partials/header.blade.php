@@ -15,14 +15,10 @@
                                 <a href="javascript:void(0)" class="dropdown-toggle top-info-text top-info-text text-white"
                                     type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown"
                                     data-bs-auto-close="outside" aria-expanded="false">
-                                    <i class="fa-solid fa-phone-volume me-1" style="transform: rotate(-35deg);"></i>
-                                    SUPPORT | {{ $setting->phone_one }}
+                                    <i class="fa-solid fa-phone-volume me-1" style="transform: rotate(7deg);"></i>
+                                    SUPPORT <span class="number-font header_top_phone">| {{ $setting->phone_one }}</span>
                                 </a>
-                                <div class="dropdown-menu drop-down-menus2" aria-labelledby="dropdownMenuButton"
-                                    style="position: absolute;
-                                inset: 0px auto auto 0px;
-                                margin: 0px;
-                                transform: translate(50px, 18px) !important;">
+                                <div class="dropdown-menu drop-down-menus2" aria-labelledby="dropdownMenuButton">
                                     <div class="popover__content text-start">
                                         {{-- <div class="text-muted">
                                             Call Us-
@@ -140,7 +136,7 @@
             <nav class="navbar navbar-expand-lg p-2 main-navbar bg-white menu-section">
                 <div class="container-fluid d-flex align-items-center">
                     <div class="step-img d-lg-block d-sm-none">
-                        <img src="https://i.ibb.co/3WKt3Mw/NGen-IT-left-color.png" alt="" style="height: 74px;">
+                        <img src="https://i.ibb.co/3WKt3Mw/NGen-IT-left-color.png" alt="">
                     </div>
                     <a class="navbar-brand fw-bold upper-content-menu main-logo" href="{{ route('homepage') }}">
                         <img class="img-fluid site-main-logo"
@@ -256,9 +252,9 @@
 
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <hr>
-                            <li class="nav-item dropdown position-static main-menu-specing">
+                            <li class="nav-item dropdown position-static main-menu-spacing">
                                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                                    <li class="nav-item dropdown position-static cool-link main-menu-specing">
+                                    <li class="nav-item dropdown position-static cool-link sub-menu-spacing">
                                         <a class="nav-link dropdown-toggle" href="#" role="button"
                                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                             OUR SERVICES
@@ -381,7 +377,7 @@
                                             </div>
                                         </ul>
                                     </li>
-                                    <li class="nav-item dropdown position-static cool-link main-menu-specing">
+                                    <li class="nav-item dropdown position-static cool-link sub-menu-spacing">
                                         <a class="nav-link dropdown-toggle" href="#" role="button"
                                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                             TECH CONTENTS
@@ -474,7 +470,7 @@
                                             </div>
                                         </ul>
                                     </li>
-                                    <li class="nav-item dropdown position-static cool-link main-menu-specing">
+                                    <li class="nav-item dropdown position-static cool-link sub-menu-spacing">
                                         <a class="nav-link dropdown-toggle" href="#" role="button"
                                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                             SHOP ONLINE
@@ -634,7 +630,7 @@
                                             </div>
                                         </ul>
                                     </li>
-                                    <li class="nav-item dropdown position-static cool-link ">
+                                    <li class="nav-item dropdown position-static cool-link">
                                         <a class="nav-link dropdown-toggle pe-0" href="#" role="button"
                                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                             CONNECT US

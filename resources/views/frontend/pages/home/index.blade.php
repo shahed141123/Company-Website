@@ -118,7 +118,7 @@
 {{-- Banner Bottom Card --}}
 @if (!empty($home->btn1_title) && !empty($home->btn2_title))
     <section>
-        <div class="container px-4">
+        <div class="container px-lg-4 px-2">
             <div class="row gx-5 mx-auto banner_bottom_box">
                 <div class="col px-2">
                     @if (!empty($home->btn1_title))
@@ -149,7 +149,7 @@
         <!-- home title -->
         <div class="row">
             @if ($home)
-                <div class="home_banner_bottom_title w-75 mx-auto py-3 ">
+                <div class="home_banner_bottom_title mx-auto py-3 px-lg-4">
                     <h6 class="home_title_heading home_banner_bt-title pb-2"> {{ $home->header1 }}
                     </h6>
                     <p class="home_title_text">{{ $home->header2 }}</p>

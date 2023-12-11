@@ -29,14 +29,17 @@
     .what-we-do-title {
         width: 100%;
     }
+
     .masthead h1 {
         font-size: 24px;
         text-align: center;
     }
+
     .masthead p {
         font-size: 16px;
         text-align: center !important;
     }
+
     .masthead a {
         color: #ae0a46;
         text-decoration: none;
@@ -46,17 +49,21 @@
         width: 52%;
         margin: auto;
     }
+
     .what-we-banner-card {
         font-family: "Allumi Std Extended";
     }
+
     .what-we-do-banner-card {
         width: 100% !important;
         margin: 10px !important;
     }
+
     .banenr-cards {
         margin-bottom: 10px !important;
         padding: 0px !important;
     }
+
     .text-sm-center {
         text-align: center;
     }
@@ -71,7 +78,7 @@
     }
 
     /* -------------------------------- HomePage -------------------------------- */
-    .page_top_banner{
+    .page_top_banner {
         height: 7rem;
     }
 
@@ -128,6 +135,7 @@
         font-family: "Allumi Std Extended";
         margin-top: 29px;
     }
+
     .thing_together_wrapper h4 {
         color: #fff;
         font-size: 25px;
@@ -135,18 +143,22 @@
         font-weight: 400;
         margin-top: 30px;
     }
+
     .thing_together_wrapper p {
         color: #fff;
         font-size: 13px;
         font-family: "Allumi Std Extended";
         font-weight: 400;
     }
+
     .page-top-banner {
         height: 130px;
     }
+
     .main_header_area {
         height: 85px;
     }
+
     .single-product-description {
         margin-top: 1rem;
     }
@@ -223,7 +235,7 @@
         transform: translate(0px, 3px) !important;
     }
 
-    .navbar-nav .nav-item.active > .nav-link {
+    .navbar-nav .nav-item.active>.nav-link {
         border-bottom: none;
     }
 
@@ -326,7 +338,8 @@
     }
 
     .home_banner_bottom_title {
-        width: 1000% !important;
+        width: 100% !important;
+        position: relative;
     }
 
     .feature_description {
@@ -365,15 +378,15 @@
     }
 
     .home_banner_card {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
         height: auto !important;
         margin-top: 1rem;
         margin-bottom: 1rem;
     }
 
     .home_banner_card h2 {
-        font-size: 10px;
+        font-size: 13px;
     }
 
     .mobile-sm-none {
@@ -451,8 +464,8 @@
         border-top-right-radius: 0px;
     }
 
-    nav > div a.nav-item.nav-link,
-    nav > div a.nav-item.nav-link.active {
+    nav>div a.nav-item.nav-link,
+    nav>div a.nav-item.nav-link.active {
         padding: 5px;
         font-size: 14px !important;
     }
@@ -471,7 +484,7 @@
         font-weight: 600;
     }
 
-    nav > .nav.nav-tabs {
+    nav>.nav.nav-tabs {
         border: none;
         color: #fff;
         border-radius: 0;
@@ -534,19 +547,23 @@
         padding-left: 0px !important;
         padding-right: 0px !important;
     }
+
     .service_card {
         width: 100%;
         margin: auto;
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
     }
+
     .what-link {
         margin-top: 2.3rem;
     }
+
     .section-margin {
         margin-top: 2rem;
         margin-bottom: 2rem;
     }
+
     .what-we-do_side_text {
         display: flex;
         flex-direction: column;
@@ -866,6 +883,7 @@
 
     .magazine_content {
         margin: 5px;
+        padding: 1rem 6px;
     }
 
     .home_card_wrapper {
@@ -971,14 +989,15 @@
 
     .home_card_button a {
         display: inline-block;
-        padding: 5px 5px;
-        color: var(--mainColor);
+        padding: 7px 10px;
+        color: var(--primary-color);
         border: 1px solid #e3dfdf;
         font-size: 14px;
         font-weight: 500;
-        background: var(--primaryColor);
+        background: var(--white);
         transition: all 0.3s linear;
     }
+
     .software_feature_title h1 {
         font-size: 24px;
         line-height: 1.3;
@@ -998,11 +1017,11 @@
         line-height: 1.2;
         text-align: center !important;
     }
+
     .home_title_text {
         line-height: 1.5;
-    }
-    .home_title_text {
         text-align: center !important;
+        font-size: 14px;
     }
 
     .home_banner_bt-title {
@@ -1053,6 +1072,7 @@
         transition: all 0.3s;
         height: 300px;
     }
+
     .product_brand {
         display: flex;
         justify-content: center !important;
@@ -1130,10 +1150,12 @@
         text-align: center;
         width: 100% !important;
     }
+
     .btn-area {
         display: flex;
         justify-content: center;
     }
+
     .footer_text {
         font-family: "Allumi Std Extended";
         color: var(--white);
@@ -1174,11 +1196,7 @@
         margin: 12px 10px !important;
     }
 
-    .home_banner_bottom_title {
-        width: 100% !important;
-        position: relative;
-        top: -7rem;
-    }
+
 
     .headlines {
         left: 20px;
@@ -1196,7 +1214,7 @@
         line-height: 1.2;
     }
 
-    .dropend:hover > .dropdown-menu {
+    .dropend:hover>.dropdown-menu {
         position: absolute;
         top: 0;
         left: 100%;
@@ -1333,6 +1351,7 @@
 
 /* Small Devices (e.g., Tablets) */
 @media only screen and (min-width: 577px) and (max-width: 768px) {
+
     /* Styles for screens between 577 and 768 pixels wide */
     .flipbookkk-title {
         font-size: 2.5vw !important;
@@ -1512,20 +1531,24 @@
         font-size: 15px !important;
     }
     .main-menu-specing {
-        margin-right: 2.1rem;
+        margin-right: 2.8rem;
     }
+
     .footer_link_text {
         font-size: 0.9rem;
     }
+
     .footer_item_wrapper {
         padding: 12px;
     }
+
     .footer_item_wrapper h6 {
         font-size: 18px;
     }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 992px) {
+
     /* Styles for screens between 769 and 992 pixels wide */
     .our-team {
         margin-bottom: 30px;
@@ -1987,6 +2010,7 @@
 /* Large Devices (e.g., Desktops) */
 @media only screen and (min-width: 993px) and (max-width: 1200px) {
     /* Styles for screens between 993 and 1200 pixels wide */
+
     .cart_body_wrapper {
         flex-direction: row;
     }
@@ -2011,8 +2035,43 @@
     }
 }
 
+@media only screen and (min-width: 992px) and (max-width: 1400px) {
+    .header_top_phone {
+        display: none;
+    }
+    .sub-menu-spacing {
+        margin: auto;
+    }
+}
+
+@media only screen and (min-width: 1430px) and (max-width: 1588px) {
+    .sub-menu-spacing {
+        margin: auto 1rem;
+    }
+}
+
+@media only screen and (min-width: 1588px) and (max-width: 1666px) {
+    .sub-menu-spacing {
+        margin: auto 1rem;
+    }
+}
+
+@media only screen and (min-width: 1666px) and (max-width: 1800px) {
+    .sub-menu-spacing {
+        margin: auto 1.3rem;
+    }
+}
+
+
+/* @media only screen and (min-width: 1800px) and (max-width: 1800px) {
+    .sub-menu-spacing{
+        margin: auto 1rem;
+    }
+} */
+
 /* Extra Large Devices (e.g., Larger Desktops) */
 @media only screen and (min-width: 1201px) {
+
     /* Styles for screens 1201 pixels and wider */
     .menu-section {
         height: 3rem;
