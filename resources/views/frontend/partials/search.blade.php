@@ -25,10 +25,10 @@
                         <div class="row m-0 p-2 rounded-0  bg-white rounded-0 d-flex align-items-center"
                             style="border-bottom: 2px solid #dee2e6;">
                             <div class="col-2 m-0 p-0">
-                                <img class="" height="60px" width="60px" src="{{ asset($product->thumbnail) }}"
+                                <img class="" height="50px" width="50px" src="{{ asset($product->thumbnail) }}"
                                     alt="{{ $product->name }}">
                             </div>
-                            <div class="col-10 col-sm-12">
+                            <div class="col-10 col-sm-12 ps-lg-2 ps-4">
                                 <a class="search_titles"
                                     href="{{ route('product.details', ['id' => $product->slug]) }}">
                                     <h6 class="my-1" style="color: #ae0a46;">
