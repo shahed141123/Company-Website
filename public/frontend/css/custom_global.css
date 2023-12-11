@@ -158,12 +158,12 @@ tr {
     color: var(--primary-color);
     border: 1px solid var(--border-color);
     font-weight: 500;
-    background: var(--primaryColor);
+    background: var(--primary-color);
     transition: all 0.3s linear;
 }
 
 .home_card_button a:hover {
-    color: var(--primaryColor);
+    color: var(--primary-color);
     background-color: var(--subColor);
 }
 
@@ -200,7 +200,6 @@ tr {
 }
 
 .btn-color:hover span {
-    letter-spacing: 0.13em;
     color: #333;
 }
 
@@ -252,10 +251,15 @@ tr {
 .btn-white:hover {
     border: 1px solid var(--primary-color);
     background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--white) !important;
     transition: all 0.8s ease-in-out;
 }
-
+.about-column-first {
+    text-align: justify;
+}
+.about-column-first h2{
+    font-size: 25px;
+}
 /*btn_text*/
 .btn-white span {
     transition: all 0.2s ease-out;
@@ -595,7 +599,7 @@ tr {
 }
 .bg-site {
     color: white;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .swiper-container-android .swiper-slide,
 .swiper-wrapper {
@@ -1016,7 +1020,7 @@ figure.effect-oscar:hover figcaption {
 }
 .accordion-button:not(.collapsed) {
     color: #ffffff;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0
         var(--bs-accordion-border-color);
 }
@@ -1320,7 +1324,7 @@ figure.effect-oscar:hover figcaption {
     top: 5rem;
 }
 .ui-slider-horizontal .ui-slider-range {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .ui-slider-handle {
     background-color: rgb(233 236 239);
@@ -1592,22 +1596,22 @@ footer p a:hover {
     position: relative;
 }
 .ag-offer_item:nth-child(1) .ag-offer_hidden-item {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .ag-offer_item:nth-child(2) .ag-offer_hidden-item {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .ag-offer_item:nth-child(3) .ag-offer_hidden-item {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .ag-offer_item:nth-child(4) .ag-offer_hidden-item {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .ag-offer_item:nth-child(5) .ag-offer_hidden-item {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .ag-offer_item:nth-child(6) .ag-offer_hidden-item {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .ag-offer_item:hover .ag-offer_visible-item {
     opacity: 0;
@@ -2067,7 +2071,7 @@ select:focus-visible {
     color: #ae0a46;
 }
 .main_bg {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .callout-num {
     color: white;
@@ -2901,7 +2905,7 @@ select:focus-visible {
     text-align: center;
 }
 .software_chose_item {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     padding: 15px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-top: 5px solid #ae0a46;
@@ -4394,7 +4398,7 @@ tr td:hover {
 }
 .top-bar-right-side {
     position: relative;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     /* padding-right: 6rem;
     */
     padding-right: 4rem;
@@ -4923,7 +4927,7 @@ tr td:hover {
     width: 18rem;
 }
 #fed-bg:hover {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     background-image: url("../images/glossary-hero.jpg");
     background-position: left center;
     background-repeat: no-repeat;
@@ -5180,7 +5184,7 @@ tr td:hover {
     margin: 0px;
 }
 .iconbox-icon_about {
-    /* background-color: var(--primaryColor);
+    /* background-color: var(--primary-color);
     */
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
     border-radius: 50%;
@@ -5349,7 +5353,7 @@ ul {
     position: absolute;
     width: 0.6em;
     height: 0.6em;
-    /* background-color: var(--primaryColor);
+    /* background-color: var(--primary-color);
     */
     border-radius: 50%;
     transition: 0.5s cubic-bezier(0.5, -0.5, 0.25, 1.5);
@@ -5371,7 +5375,7 @@ ul {
     width: 100%;
     height: 100%;
     border-radius: 0;
-    /* background-color: var(--primaryColor);
+    /* background-color: var(--primary-color);
     */
 }
 .list_order:hover::before {
@@ -5937,7 +5941,7 @@ ul {
     color: #ae0a46;
 }
 .private_sector a:hover {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: white;
     transition: 0.6s ease-in;
     padding: 5px;
@@ -5950,7 +5954,7 @@ ul {
 .masthead {
     padding: 2rem 0 4rem;
     position: relative;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     background-image: url(https://startbootstrap.com/assets/img/overlay.svg),
         linear-gradient(45deg, #ae0a46 0%, #ae0a46 100%);
     background-size: cover;
@@ -6533,7 +6537,7 @@ button:focus {
     outline: none;
     border-radius: 25px;
     transition: all 0.5s ease-in-out;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     /* padding-right: 20px;
     */
     /* margin-right: 10px;
@@ -6566,7 +6570,7 @@ button:focus {
     width: 220px;
     border-radius: 30px;
     border: none;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
 .input-search:focus {
@@ -6956,7 +6960,7 @@ a:hover {
 }
 .qty-btn:hover {
     border: 1px solid #ae0a46;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: white;
 }
 /*---------------------------*/
@@ -7026,7 +7030,7 @@ nav > div a.nav-item.nav-link.active {
 }
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     border: 1px solid #ae0a46;
     padding: 2px 20px 4px;
     border-radius: 20px;
@@ -7201,7 +7205,7 @@ nav > div a.nav-item.nav-link.active {
 .page-item.active .page-link {
     z-index: 3;
     color: var(--white);
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     border-color: #ae0a46;
 }
 /* input[type="range"]{
@@ -7233,7 +7237,7 @@ nav > div a.nav-item.nav-link.active {
     text-align: center;
 }
 .product_menu a:hover {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: white;
     transition: all 0.5s;
 }
@@ -7250,7 +7254,7 @@ nav > div a.nav-item.nav-link.active {
     box-shadow: none;
 }
 .product-header {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: white;
     padding: 5px 10px 1px;
 }
@@ -7260,7 +7264,7 @@ nav > div a.nav-item.nav-link.active {
     color: white;
 }
 .title {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .area_title {
     text-decoration: none;
@@ -7277,18 +7281,18 @@ nav > div a.nav-item.nav-link.active {
 }
 .job_search_btn {
     border: 1px solid #ae0a46;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: white;
 }
 .product_btn:hover {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: white;
 }
 .product_btn {
     border: 1px solid #ae0a46;
 }
 .product_btn_dropdown {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: white;
 }
 .product_btn_dropdown:hover {
@@ -7396,7 +7400,7 @@ input.qtyminus {
     border: none;
 }
 .dropdown-items_drop {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .dropdown-item:hover {
     color: #ae0a46;
@@ -7417,7 +7421,7 @@ input.qtyminus {
 }
 .navbar_top {
     font-family: var(--primary-font);
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .add_cart a {
     font-size: 1.1em;
@@ -7446,7 +7450,7 @@ input.qtyminus {
     line-height: 30px;
     font-size: 16px;
     height: 35px;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: white;
     outline: none;
     height: 100%;
@@ -7455,7 +7459,7 @@ input.qtyminus {
 }
 .search-btn {
     border: none;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: white;
     padding: 0px 0px 0px 0px;
     margin: 0;
@@ -7519,7 +7523,7 @@ input.qtyminus {
     padding: 0;
     margin: 10px auto;
     cursor: pointer;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .checkbox:checked + label:before,
 .checkbox:not(:checked) + label:before {
@@ -7567,7 +7571,7 @@ input.qtyminus {
     font-family: var(--primary-font);
     width: 100%;
     height: 100%;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg");
     background-position: bottom center;
     background-repeat: no-repeat;
@@ -7587,7 +7591,7 @@ input.qtyminus {
     font-family: var(--primary-font);
     width: 100%;
     height: 115%;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg");
     background-position: bottom center;
     background-repeat: no-repeat;
@@ -8555,7 +8559,7 @@ form .btn input[type="submit"] {
     font-size: 16px;
 }
 .apply_item_wrapper {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     padding: 10px 15px;
     margin: 10px 0px;
 }
@@ -8960,7 +8964,7 @@ form .btn input[type="submit"] {
     line-height: normal;
     text-align: center;
     display: inline-block;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: var(--white);
 }
 .search_all_tech_deals_btn:hover {
@@ -9479,7 +9483,7 @@ switch input:checked + .slider {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(25px);
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 /* Rounded sliders */
 .slider.round {
@@ -10214,7 +10218,7 @@ switch input:checked + .slider {
     line-height: normal;
     text-align: center;
     display: inline-block;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: var(--white);
 }
 .search_all_product_btn:hover {
@@ -10636,7 +10640,7 @@ switch input:checked + .slider {
     transition: all linear 0.3s;
 }
 .product_button:hover {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     border-color: #ae0a46;
     color: var(--white);
     transition: all linear 0.3s;
@@ -10959,7 +10963,7 @@ switch input:checked + .slider {
 }
 .product_apply_filter_btn a {
     padding: 10px 30px;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
 }
@@ -11009,7 +11013,7 @@ switch input:checked + .slider {
 }
 .product_add_bascket_btn a {
     padding: 10px 30px;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
 }
@@ -11179,18 +11183,18 @@ switch input:checked + .slider {
 .page-item.active .page-link {
     z-index: 1;
     color: var(--white);
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     border-color: #ae0a46;
 }
 .pagination li a {
-    color: #ae0a46;
+    color: black;
     display: inline-block;
     padding: 6px 11px;
     text-decoration: none;
     transition: all 1ms linear 1ms;
 }
 .pagination li a:hover {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: #ffffff;
     display: inline-block;
     padding: 6px 11px;
@@ -11445,7 +11449,7 @@ switch input:checked + .slider {
 }
 .client_db_about ul li a {
     color: white;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     padding: 4px 8px;
     border-radius: 5px;
 }
@@ -11480,7 +11484,7 @@ switch input:checked + .slider {
 }
 .personal_product_list_add_item button {
     color: white;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     padding: 10px 20px;
     outline: none;
     border: 1px solid gray;
@@ -11495,7 +11499,7 @@ switch input:checked + .slider {
     font-size: 18px;
 }
 .btn_add_to_card {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     color: var(--white);
     padding: 10px 20px;
     outline: none;
@@ -11533,7 +11537,7 @@ switch input:checked + .slider {
 }
 .content_resources_search button {
     width: 23%;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     border: none;
     color: var(--white);
     padding: 10px 0px;
@@ -11803,17 +11807,20 @@ switch input:checked + .slider {
 }
 .about_seo_text {
     margin: 0 0 30px;
-    color: var(--white);
+}
+.about_seo_text h2{
+    font-size: var(--section-title-font-size);
 }
 .about_seo_text h4 {
-    font-size: 34px;
+    font-size: 25px;
     color: white;
     font-family: var(--primary-font);
     margin-bottom: 20px;
 }
 .about_seo_text p {
-    font-size: 14px;
-    color: white;
+    font-size: 16px;
+    color: black;
+    text-align: justify;
 }
 .about_seo_text p strong {
     display: block;
@@ -11881,7 +11888,7 @@ switch input:checked + .slider {
 }
 .cart_header {
     padding: 15px 20px;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     margin-bottom: 10px;
     border: 1px solid #cbc4c3;
 }
@@ -11917,7 +11924,7 @@ switch input:checked + .slider {
     width: 100%;
 }
 .your_cart {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     border: 1px solid #cbc4c3;
 }
 .your_cart_header {
@@ -12009,7 +12016,7 @@ switch input:checked + .slider {
 }
 .cart_sidebar_sumury {
     width: 100%;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     border: 1px solid #cbc4c3;
 }
 .cart_summury_title {
@@ -12095,7 +12102,7 @@ switch input:checked + .slider {
 }
 .banner_contact_title {
     text-align: center;
-    color: var(--primaryColor);
+    color: var(--primary-color);
     font-size: 54px;
     line-height: 62px;
     font-weight: 300;
@@ -12107,7 +12114,7 @@ switch input:checked + .slider {
     position: absolute;
     height: 5px;
     width: 40px;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     bottom: -15%;
     left: 6px;
 }
@@ -12161,13 +12168,13 @@ switch input:checked + .slider {
 .contact_chat_button {
     padding: 10px 15px;
     background: var(--primary-color);
-    color: var(--primaryColor);
+    color: var(--primary-color);
     display: inline-flex;
     align-items: center;
     gap: 10px;
 }
 .contact_chat_button:hover {
-    color: var(--primaryColor);
+    color: var(--primary-color);
 }
 .contact_chat_button span {
     font-size: 14px;
@@ -12472,11 +12479,11 @@ switch input:checked + .slider {
     padding-right: 0px;
     display: block;
     background-color: var(--primary-color);
-    color: var(--primaryColor);
+    color: var(--primary-color);
     transition: all linear 0.3s;
 }
 .industry_solution_item_button:hover {
-    color: var(--primaryColor);
+    color: var(--primary-color);
     background-color: var(--topHover);
 }
 /* industry page end */
@@ -12518,7 +12525,7 @@ switch input:checked + .slider {
 /*================================*/
 /*Benefits of Software*/
 .software_chose_item {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     padding: 15px;
     border: 1px solid #d4d0ca;
     box-shadow: 0px 0px 10px #00000008;
@@ -12615,7 +12622,7 @@ switch input:checked + .slider {
 .clint_tab_btn_content ul li {
 }
 .clint_tab_btn_content ul li a {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     border: 1px solid var(--subColor);
     padding: 5px 20px 5px;
     border-radius: 20px;
@@ -12627,7 +12634,7 @@ switch input:checked + .slider {
     cursor: pointer;
 }
 .clint_tab_btn_content ul li a.nav-link.active {
-    color: var(--primaryColor);
+    color: var(--primary-color);
     background-color: var(--topHover);
 }
 .clint_tab_area_thumbnail_image {
@@ -12769,7 +12776,7 @@ switch input:checked + .slider {
 }
 .clint_help_button:hover {
     background-color: var(--topHover);
-    color: var(--primaryColor);
+    color: var(--primary-color);
 }
 /*---globa call section----*/
 .global_call_section {
@@ -12817,7 +12824,7 @@ switch input:checked + .slider {
     content: "";
     position: absolute;
     height: 2px;
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
     width: 25px;
     top: -5px;
     left: 0px;
@@ -12878,7 +12885,7 @@ switch input:checked + .slider {
     line-height: 30px;
     display: block;
     font-weight: 300;
-    color: var(--primaryColor);
+    color: var(--primary-color);
     padding: 15px;
 }
 /*=============================*/
@@ -12970,13 +12977,11 @@ switch input:checked + .slider {
 }
 .home_title_heading {
     font-family: var(--primary-font);
-    /* font-size: 36px;
-   */
-    font-size: 26px;
+    font-size: var(--section-title-font-size);
     color: var(--heading);
     font-weight: 500;
     margin: 10px 0px;
-    text-align: center;
+    text-align: start;
     line-height: 37px;
 }
 .home_title_heading span {
@@ -12993,10 +12998,13 @@ switch input:checked + .slider {
 }
 .home_title_text {
     color: var(--navColor);
-    text-align: center;
+    text-align: start;
     font-size: 16px;
     line-height: 20px;
     font-weight: 300;
+}
+.home_title_text p{
+    text-align: start;
 }
 .business_seftion_button {
     text-align: center;
@@ -13009,11 +13017,11 @@ switch input:checked + .slider {
     border: 1px solid var(--subColor);
     font-size: 14px;
     font-weight: 500;
-    background: var(--primaryColor);
+    background: var(--primary-color);
     transition: all 0.3s linear;
 }
 .business_seftion_button a:hover {
-    color: var(--primaryColor);
+    color: var(--primary-color);
     background-color: var(--subColor);
 }
 /*------Learn clint history (Style.css)------*/
@@ -13080,7 +13088,7 @@ switch input:checked + .slider {
     display: grid;
     place-content: center;
     font-size: 22px;
-    color: var(--primaryColor);
+    color: var(--primary-color);
 }
 .our_success_item_title2 {
     background-color: #9f177a;
@@ -13811,22 +13819,22 @@ thead {
     border-right: 1px solid #ae0a46;
 }
 .ag-offer_item:nth-child(1) .ag-offer_hidden-item {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .ag-offer_item:nth-child(2) .ag-offer_hidden-item {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .ag-offer_item:nth-child(3) .ag-offer_hidden-item {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .ag-offer_item:nth-child(4) .ag-offer_hidden-item {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .ag-offer_item:nth-child(5) .ag-offer_hidden-item {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .ag-offer_item:nth-child(6) .ag-offer_hidden-item {
-    background-color: var(--primaryColor);
+    background-color: var(--primary-color);
 }
 .ag-offer_item:hover .ag-offer_visible-item {
     opacity: 0;
