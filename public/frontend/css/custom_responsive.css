@@ -19,6 +19,7 @@
 
     .blocks-content {
         padding: 2rem !important;
+        height: 100%;
     }
 
     .animated-image {
@@ -245,7 +246,15 @@
     .navbar-nav .nav-item.active>.nav-link {
         border-bottom: none;
     }
-
+    #sync1 .item{
+        padding: 0px 5px;
+    }
+    #sync2 .item{
+        padding: 0px 5px;
+    }
+    #sync3 .item{
+        padding: 0px 5px;
+    }
     .custom_col-2 {
         flex: 0 0 auto;
         width: 95% !important;
@@ -968,6 +977,10 @@
         line-height: 1.1;
     }
 
+    .brand_img_container{
+        width: 100%;
+    }
+
     .slider_inage img {
         width: 100%;
         object-fit: fill;
@@ -1022,8 +1035,8 @@
         width: 100% !important;
         color: var(--heading);
         font-weight: 400;
-        margin-top: 12px;
-        margin-bottom: 12px;
+        margin-top: 1.5rem !important;
+    margin-bottom: 1rem !important;
         line-height: 1.2;
         text-align: center !important;
     }
