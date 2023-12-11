@@ -23,7 +23,7 @@
                         <!-- sidebar -->
                         <div class="col-lg-3">
                             <!-- Toggle button -->
-                            <button class="btn btn-outline-secondary mb-3 w-100 d-lg-none" type="button"
+                            <button class="btn-color d-lg-none" type="button"
                                 data-mdb-toggle="collapse" data-mdb-target="#filterContent" aria-controls="filterContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
                                 <span>Show filter</span>
