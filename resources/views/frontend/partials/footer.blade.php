@@ -39,7 +39,7 @@
                     <h6 class="home_title_text" style="text-align: start;"><span
                             style="border-bottom: 5px solid #ae0a46;">Abo</span>ut & Contact</h6>
                     <!-- nav list -->
-                    <div class="footer_nav_list pt-4">
+                    <div class="footer_nav_list pt-lg-4 pt-2">
                         <ul class="footer_link_text">
                             <li>
                                 <a href="{{route('about')}}">Company</a> & <a
@@ -64,7 +64,7 @@
                     <h6 class="home_title_text" style="text-align: start;"><span
                             style="border-bottom: 5px solid #ae0a46;">Kno</span>wledge Base</h6>
                     <!-- nav list -->
-                    <div class="footer_nav_list pt-4">
+                    <div class="footer_nav_list pt-lg-4 pt-2">
                         <ul class="footer_link_text">
                             <li>
                                 <a href="{{ route('all.blog') }}">NGEN IT Blogs</a>
@@ -87,7 +87,7 @@
                     <h6 class="home_title_text" style="text-align: start;"><span
                             style="border-bottom: 5px solid #ae0a46;">Pro</span>duct & Services</h6>
                     <!-- nav list -->
-                    <div class="footer_nav_list pt-4">
+                    <div class="footer_nav_list pt-lg-4 pt-2">
                         <ul class="footer_link_text">
                             <li>
                                 <a href="{{ route('software.common') }}">Software</a> & <a

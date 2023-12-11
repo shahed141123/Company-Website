@@ -1,5 +1,26 @@
 /* Extra Small Devices (e.g., Smartphones) */
 @media only screen and (max-width: 576px) {
+    .hover-2-title {
+    position: absolute;
+    top: 65%;
+    left: 1%;
+    text-align: start;
+    width: 100%;
+    z-index: 99;
+    transition: all 0.3s;
+    padding: 5px;
+}
+    .blocks-content{
+        padding: 2rem !important;
+    }
+    .animated-image {
+        padding: 10% 10% 10% 20%;
+        margin: -20% -20% 20% -30%;
+        border-radius: 0 0 0% 50%;
+        overflow: hidden;
+        animation: border-radius-right 12s ease-in-out infinite;
+        animation-delay: 8s;
+    }
     .what-we-do-title {
         width: 100%;
     }
@@ -89,10 +110,23 @@
         background-color: #252525;
         padding: 0px 0px !important;
     }
-
+    .top-line-title{
+        margin-top: 2rem;
+    }
+    .story-title {
+        font-size: 20px;
+        text-align: center;
+        padding-top: 30px;
+    }
+    .text-justify{
+        text-align: justify;
+    }
+    .btn-white{
+        font-size: 0.8rem;
+    }
     .thing_together_wrapper h5 {
         color: #fff;
-        font-size: 25px;
+        font-size: 23px;
         font-family: "Allumi Std Extended";
         margin-top: 29px;
     }
@@ -1016,10 +1050,15 @@
     }
 
     .hover_content_title {
-        font-size: 17px;
+        font-size: 16px;
         margin-right: 0px;
     }
-
+    .width-full{
+        width: 100% !important;
+    }
+    .tech_solution_item{
+        text-align: center;
+    }
     .hover img {
         width: 100%;
         position: absolute;
@@ -1467,19 +1506,26 @@
     .menu-section {
         height: 3rem;
     }
+    .what-we-description{
+        width: 100%;
+        margin: auto;
+    }
 }
 
 /* Medium Devices (e.g., Laptop) */
 @media only screen and (min-width: 992px) {
-    .header-category-button-60 {
-        margin-right: 7rem;
-        margin-left: 3rem;
+    .wedo-cards__sub-heading {
+        font-size: var(--paragraph-font-size);
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        -webkit-transition: opacity 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        transition: opacity 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     }
     .navbar-expand-lg .navbar-nav .nav-link {
-        font-size: 12px !important;
+        font-size: 15px !important;
     }
-
-    .main-menu-spacing {
+    .main-menu-specing {
         margin-right: 2.8rem;
     }
 
