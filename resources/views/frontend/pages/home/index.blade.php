@@ -34,7 +34,7 @@
                                 @endif
                                 @if ($home->banner1_button_link)
                                     <div class="my-4">
-                                        <a class="common_button2"
+                                        <a class="btn-color"
                                             href="{{ $home->banner1_button_link }}">{{ $home->banner1_button_name }}</a>
                                     </div>
                                 @endif
@@ -68,7 +68,7 @@
                                 @endif
                                 @if ($home->banner2_button_link)
                                     <div class="my-4">
-                                        <a class="common_button2"
+                                        <a class="btn-color"
                                             href="{{ $home->banner2_button_link }}">{{ $home->banner2_button_name }}</a>
                                     </div>
                                 @endif
@@ -102,7 +102,7 @@
                                 @endif
                                 @if ($home->banner3_button_link)
                                     <div class="my-4">
-                                        <a class="common_button2"
+                                        <a class="btn-color"
                                             href="{{ $home->banner3_button_link }}">{{ $home->banner3_button_name }}</a>
                                     </div>
                                 @endif

@@ -183,10 +183,10 @@
                 <!--BUTTON START-->
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="m-4">
-                        <a class="common_button2" href="{{ route('contact') }}">Talk to a Specialist</a>
+                        <a class="btn-color" href="{{ route('contact') }}">Talk to a Specialist</a>
                     </div>
                     <div class="m-4">
-                        <a class="common_button2" href="{{ route('shop') }}">Check Our Shop</a>
+                        <a class="btn-color" href="{{ route('shop') }}">Check Our Shop</a>
                     </div>
                 </div>
             </div>
@@ -258,7 +258,7 @@
                                                             onClick='increaseCount(event, this, this.id)'>+</span>
                                                     </div>
                                                 </div>
-                                                {{-- <a href="javascript:void(0);" class="common_button2 p-1 mt-1" id="update">Update</a> --}}
+                                                {{-- <a href="javascript:void(0);" class="btn-color p-1 mt-1" id="update">Update</a> --}}
                                             </form>
                                         </td>
                                         <td style="vertical-align: middle;">$
@@ -368,7 +368,7 @@
                                                                     class="d-flex justify-content-center align-items-center"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#rfq{{ $item->id }}">
-                                                                    <button class="common_button effect01">
+                                                                    <button class="btn-color">
                                                                         Ask For Price
                                                                     </button>
                                                                 </a>
@@ -394,7 +394,7 @@
                                                                             data-mdb-content="Add To Cart Now"
                                                                             data-mdb-trigger="hover">
                                                                             <button type="submit"
-                                                                                class="common_button effect01">
+                                                                                class="btn-color">
                                                                                 Add to Cart
                                                                             </button>
                                                                         </div>
@@ -415,7 +415,7 @@
                                                                     <div data-mdb-toggle="popover" title="Your Price"
                                                                         data-mdb-content="Your Price"
                                                                         data-mdb-trigger="hover">
-                                                                        <button class="common_button effect01"
+                                                                        <button class="btn-color"
                                                                             data-bs-toggle="modal"
                                                                             data-bs-target="#askProductPrice">
                                                                             Your Price
@@ -532,7 +532,7 @@
 
                                                                         </div>
                                                                     </div>
-                                                                    <button class="common_button2 ms-3" type="submit">Add to Basket</button>
+                                                                    <button class="btn-color ms-3" type="submit">Add to Basket</button>
                                                                 </div>
                                                             </div>
                                                         </form>

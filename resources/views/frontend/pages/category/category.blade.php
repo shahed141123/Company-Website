@@ -149,7 +149,7 @@
                     clear: both;
                 }
             }
-        .common_button3 {
+        .btn-color {
             padding: 5px 22px;
             cursor: pointer;
             font-family: "Allumi Std Extended";
@@ -698,7 +698,7 @@
                 <h1 class="single_banner_heading text-center text-white mb-4" style="margin-top: 4.5rem;">{{ $category->title }}</h1>
                 {{-- <p class="single_banner_text">{{ $data->h2 }}</p> --}}
                 <div class="single_buttton_wrapper text-center mb-2">
-                    <a href="{{ route('custom.product', $category->slug) }}" class="common_button2">Shop all
+                    <a href="{{ route('custom.product', $category->slug) }}" class="btn-color">Shop all
                         {{ $category->title }}</a>
 
                 </div>
@@ -827,7 +827,7 @@
                                 </div>
                                 <div class="ag-offer_hidden-item">
                                     <div class="mx-auto">
-                                        <a href="{{route('category.html',$item->slug)}}" class="common_button3">
+                                        <a href="{{route('category.html',$item->slug)}}" class="btn-color">
                                             Details
                                         </a>
                                     </div>
@@ -850,7 +850,7 @@
                                     </div>
                                     <div class="ag-offer_hidden-item">
                                         <div class="mx-auto">
-                                            <a href="{{route('category.html',$item->slug)}}" class="common_button3">
+                                            <a href="{{route('category.html',$item->slug)}}" class="btn-color">
                                                 Details
                                             </a>
                                         </div>
@@ -893,7 +893,7 @@
                                         <a class="text-white" href="{{ route('brand.overview', $item->slug) }}">Details | </a>
                                         <a class="text-white ms-1" href="{{ route('custom.product', $item->slug) }}"><span class="">Shop</span> </a>
                                     </div>
-                                    {{-- <a href="{{ route('custom.product', $item->slug) }}" class="common_button3">
+                                    {{-- <a href="{{ route('custom.product', $item->slug) }}" class="btn-color">
                                         Shop
                                     </a> --}}
                                 </div>
@@ -962,7 +962,7 @@
                                                 class="d-flex justify-content-center align-items-center"
                                                 data-bs-toggle="modal"
                                                 data-bs-target="#rfq{{ $item->id }}">
-                                                <button class="common_button effect01">
+                                                <button class="btn-color">
                                                     Ask For Price
                                                 </button>
                                             </a>
@@ -986,7 +986,7 @@
                                                         data-mdb-content="Add To Cart Now"
                                                         data-mdb-trigger="hover">
                                                         <button type="submit"
-                                                            class="common_button effect01">
+                                                            class="btn-color">
                                                             Add to Cart
                                                         </button>
                                                     </div>
@@ -1006,7 +1006,7 @@
                                                 <div data-mdb-toggle="popover" title="Your Price"
                                                     data-mdb-content="Your Price"
                                                     data-mdb-trigger="hover">
-                                                    <button class="common_button effect01"
+                                                    <button class="btn-color"
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#askProductPrice">
                                                         Your Price

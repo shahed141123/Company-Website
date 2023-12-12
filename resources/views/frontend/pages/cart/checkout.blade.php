@@ -336,7 +336,7 @@
                                 <div class="submit_button text-center col-lg-12"
                                     style="    display: flex;
                                 justify-content: end;">
-                                    <button class="common_button2" type="submit">Proceed</button>
+                                    <button class="btn-color" type="submit">Proceed</button>
                                 </div>
                                 <!-- Modal -->
                                 <div class="modal fade" id="bankModal" tabindex="-1"

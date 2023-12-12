@@ -432,10 +432,6 @@
                                                                                                 type="submit">Send</button>
                                                                                         </div>
                                                                                     </div>
-                                                                                    {{-- <div class="col-lg-1 col-sm-3">
-                                                                                        <button class="common_button2 effect01 p-2"
-                                                                                            type="submit">Send</button>
-                                                                                    </div> --}}
                                                                                 </div>
 
                                                                             </div>
@@ -532,10 +528,6 @@
                                                                     type="submit">Send</button>
                                                             </div>
                                                         </div>
-                                                        {{-- <div class="col-lg-1 col-sm-3">
-                                                        <button class="common_button2 effect01 p-2"
-                                                            type="submit">Send</button>
-                                                    </div> --}}
                                                     </div>
 
                                                 </div>

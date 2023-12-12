@@ -124,10 +124,10 @@
                 <!--BUTTON START-->
                 <div class="d-flex justify-content-center align-items-center">
                 <div class="m-4">
-                    <a href="{{route('all.story')}}" class="common_button2">All Client Storys</a>
+                    <a href="{{route('all.story')}}" class="btn-white">All Client Storys</a>
                   </div>
                   <div class="m-4">
-                    <a href="{{route('all.techglossy')}}" class="common_button2">All Tech Glossys</a>
+                    <a href="{{route('all.techglossy')}}" class="btn-white">All Tech Glossys</a>
                   </div>
               </div>
             </div>
@@ -137,7 +137,7 @@
     <div class="container-fluid blog_bg p-0 m-0">
         <div class="container px-4 py-5">
             <div class="row gx-3 ">
-                <div class="col-3 blog_left mt-3">
+                <div class="col-lg-3 col-12 blog_left mt-3">
                     <div class="p-3 shadow-lg rounded-lg">
                         {{-- Search --}}
                         <div>
@@ -222,7 +222,7 @@
 
                     </div>
                 </div>
-                <div class="col-6 blog_middle rounded-lg" style="margin-top: -7rem !important;">
+                <div class="col-lg-3 col-12 blog_left mt-3" style="margin-top: -7rem !important;">
 
                     {{-- First Blog --}}
                     @if ($client_storys)
@@ -295,7 +295,7 @@
                         @endforeach
                     @endif
                 </div>
-                <div class="col-3 blog_right mt-3">
+                <div class="col-lg-3 col--12 blog_left mt-3">
                     <div class="px-3 py-3 shadow-lg rounded-lg">
 
                         <img class="img-fluid" src="https://source.unsplash.com/random/580x320">

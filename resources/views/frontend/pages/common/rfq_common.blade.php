@@ -22,11 +22,11 @@
                         Thank You for staying with us</h6>
 
                         @if (Auth::guard('partner')->user())
-                        <a class="common_button2 mt-3" href="{{route('partner.dashboard')}}" style="border-bottom: 1px #ffffff dotted">Go to Your Dashboard</a>
+                        <a class="btn-color mt-3" href="{{route('partner.dashboard')}}" style="border-bottom: 1px #ffffff dotted">Go to Your Dashboard</a>
                         @elseif (Auth::user())
-                        <a class="common_button2 mt-3" href="{{route('client.dashboard')}}" style="border-bottom: 1px #ffffff dotted">Go to Your Dashboard</a>
+                        <a class="btn-color mt-3" href="{{route('client.dashboard')}}" style="border-bottom: 1px #ffffff dotted">Go to Your Dashboard</a>
                         @else
-                        <a class="common_button2 mt-3" href="{{route('shop')}}" style="border-bottom: 1px #ffffff dotted">Back to Shop</a>
+                        <a class="btn-color mt-3" href="{{route('shop')}}" style="border-bottom: 1px #ffffff dotted">Back to Shop</a>
                         @endif
                 </div>
             </div>

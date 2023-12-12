@@ -132,8 +132,8 @@
                 </div>
             </div>
             <div class="d-flex justify-content-around py-4">
-                <button href="" class="common_button2">Watch the demo</button>
-                <button href="" class="common_button">Learn more</button>
+                <button href="" class="btn-color">Watch the demo</button>
+                <button href="" class="btn-color">Learn more</button>
                 <a href=""><span style="display: block; text-align: center;"><i
                             class="fa-solid fa-angle-up"></i></span><span>top</span></a>
             </div>
@@ -166,8 +166,8 @@
                 </div>
             </div>
             <div class="d-flex justify-content-around py-4">
-                <button href="" class="common_button2">Watch the demo</button>
-                <button href="" class="common_button">Learn more</button>
+                <button href="" class="btn-color">Watch the demo</button>
+                <button href="" class="btn-color">Learn more</button>
                 <a href=""><span style="display: block; text-align: center;"><i
                             class="fa-solid fa-angle-up"></i></span><span>top</span></a>
             </div>
@@ -190,8 +190,8 @@
                 </div>
             </div>
             <div class="d-flex justify-content-around py-4">
-                <button href="" class="common_button2">Watch the demo</button>
-                <button href="" class="common_button">Learn more</button>
+                <button href="" class="btn-color">Watch the demo</button>
+                <button href="" class="btn-color">Learn more</button>
                 <a href=""><span style="display: block; text-align: center;"><i
                             class="fa-solid fa-angle-up"></i></span><span>top</span></a>
             </div>
@@ -217,8 +217,8 @@
                 </div>
             </div>
             <div class="d-flex justify-content-around py-4">
-                <button href="" class="common_button2">Watch the demo</button>
-                <button href="" class="common_button">Learn more</button>
+                <button href="" class="btn-color">Watch the demo</button>
+                <button href="" class="btn-color">Learn more</button>
                 <a href=""><span style="display: block; text-align: center;"><i
                             class="fa-solid fa-angle-up"></i></span><span>top</span></a>
             </div>
@@ -248,8 +248,8 @@
                 </div>
             </div>
             <div class="d-flex justify-content-around py-4">
-                <button href="" class="common_button2">Watch the demo</button>
-                <button href="" class="common_button">Learn more</button>
+                <button href="" class="btn-color">Watch the demo</button>
+                <button href="" class="btn-color">Learn more</button>
                 <a href=""><span style="display: block; text-align: center;"><i
                             class="fa-solid fa-angle-up"></i></span><span>top</span></a>
             </div>
@@ -275,8 +275,8 @@
                 </div>
             </div>
             <div class="d-flex justify-content-around py-4">
-                <button href="" class="common_button2">Watch the demo</button>
-                <button href="" class="common_button">Learn more</button>
+                <button href="" class="btn-color">Watch the demo</button>
+                <button href="" class="btn-color">Learn more</button>
                 <a href=""><span style="display: block; text-align: center;"><i
                             class="fa-solid fa-angle-up"></i></span><span>top</span></a>
             </div>
@@ -300,8 +300,8 @@
                 </div>
             </div>
             <div class="d-flex justify-content-around py-4">
-                <button href="" class="common_button2">Watch the demo</button>
-                <button href="" class="common_button">Learn more</button>
+                <button href="" class="btn-color">Watch the demo</button>
+                <button href="" class="btn-color">Learn more</button>
                 <a href=""><span style="display: block; text-align: center;"><i
                             class="fa-solid fa-angle-up"></i></span><span>top</span></a>
             </div>
@@ -325,8 +325,8 @@
                 </div>
             </div>
             <div class="d-flex justify-content-around py-4">
-                <button href="" class="common_button2">Watch the demo</button>
-                <button href="" class="common_button">Learn more</button>
+                <button href="" class="btn-color">Watch the demo</button>
+                <button href="" class="btn-color">Learn more</button>
                 <a href=""><span style="display: block; text-align: center;"><i
                             class="fa-solid fa-angle-up"></i></span><span>top</span></a>
             </div>
@@ -341,7 +341,7 @@
                     <h3 style="border: none;">Streamlining the procurement process</h3>
                     <p>Seamlessly accessing and managing best-fit technology resources is crucial to supporting and growing
                         your business. Learn how advanced tools help optimize your supply chain to fulfill that mission.</p>
-                    <button href="" class="common_button my-4">Read the guide</button>
+                    <button href="" class="btn-color my-4">Read the guide</button>
                 </div>
                 <div class="col-lg-6 col-sm-12 account_benefits_section">
                     <h3 style="border: none;">Related content</h3>

@@ -58,7 +58,6 @@
                                                 onClick='increaseCount(event, this, this.id)'>+</span>
                                         </div>
                                     </div>
-                                    {{-- <a href="javascript:void(0);" class="common_button2 p-1 mt-1" id="update">Update</a> --}}
                                 </form>
                             </td>
                             <td style="vertical-align: middle;">$

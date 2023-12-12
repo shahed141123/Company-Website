@@ -278,7 +278,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="d-flex justify-content-end">
-                                                        <button type="submit" class="common_button2 effect01 w-auto p-2"
+                                                        <button type="submit" class="btn-color w-auto p-2"
                                                             id="submitbtn">Submit<i
                                                                 class="ph-paper-plane-tilt ms-2"></i></button>
                                                     </div>
@@ -483,7 +483,7 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer border-0 p-1">
-                                                <button type="submit" class="common_button effect01">Submit</button>
+                                                <button type="submit" class="btn-color effect01">Submit</button>
                                             </div>
                                         </form>
                                     </div>
@@ -552,7 +552,7 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer border-0 p-1">
-                                                <button type="submit" class="common_button effect01">Submit</button>
+                                                <button type="submit" class="btn-color">Submit</button>
                                             </div>
                                         </form>
                                     </div>
@@ -621,7 +621,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer border-0 p-1">
-                                                    <button type="submit" class="common_button effect01">Submit</button>
+                                                    <button type="submit" class="btn-color">Submit</button>
                                                 </div>
                                             </form>
                                         </div>
