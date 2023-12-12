@@ -8,7 +8,6 @@
                 </div>
                 <div class="col-lg-4 top-bar-right-side">
                     <div class="d-flex justify-content-between align-items-center top-menu-area">
-
                         <div class="">
                             {{-- <span class="text-white">My</span><span class="text-white">NGen It</span> --}}
                             <div class="dropdown drop-top">
@@ -214,7 +213,6 @@
                         </div>
                     </div>
                     <!---Category--->
-
                     <form method="post" action="{{ route('product.search') }}"
                         class="d-flex upper-content-menu justify-content-center align-items-center d-lg-none"
                         role="search">
@@ -227,7 +225,6 @@
                                 aria-describedby="addon-wrapping">
                         </div>
                     </form>
-
                     <a href="javascript:void(0)" class="nvabar-toggler tab_btn_icon upper-content-menu d-lg-none"
                         type="button" data-bs-toggle="offcanvas" data-bs-target="#rightOffcanvas"
                         aria-controls="rightOffcanvas">
@@ -245,12 +242,11 @@
                                     aria-describedby="addon-wrapping">
                             </div>
                         </form>
-
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <hr>
                             <li class="nav-item dropdown position-static main-menu-spacing">
                                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                                    <li class="nav-item dropdown position-static cool-link sub-menu-spacing">
+                                    <li class="nav-item dropdown position-static sub-menu-spacing">
                                         <a class="nav-link dropdown-toggle" href="#" role="button"
                                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                             OUR SERVICES
@@ -373,7 +369,7 @@
                                             </div>
                                         </ul>
                                     </li>
-                                    <li class="nav-item dropdown position-static cool-link sub-menu-spacing">
+                                    <li class="nav-item dropdown position-static sub-menu-spacing">
                                         <a class="nav-link dropdown-toggle" href="#" role="button"
                                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                             TECH CONTENTS
@@ -466,7 +462,7 @@
                                             </div>
                                         </ul>
                                     </li>
-                                    <li class="nav-item dropdown position-static cool-link sub-menu-spacing">
+                                    <li class="nav-item dropdown position-static sub-menu-spacing">
                                         <a class="nav-link dropdown-toggle" href="#" role="button"
                                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                             SHOP ONLINE
@@ -821,7 +817,7 @@
 
             {{-- <hr> --}}
             <ul class="navbar-nav justify-content-end flex-grow-1 mt-3">
-                <li class="nav-item dropdown cool-link mb-1">
+                <li class="nav-item dropdown mb-1">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         OUR SERVICES
@@ -914,7 +910,7 @@
                         </div>
                     </ul>
                 </li>
-                <li class="nav-item dropdown cool-link mb-1">
+                <li class="nav-item dropdown mb-1">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         SHOP ONLINE
@@ -1058,7 +1054,7 @@
                         </div>
                     </ul>
                 </li>
-                <li class="nav-item dropdown cool-link mb-1">
+                <li class="nav-item dropdown mb-1">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         CONNECT US
