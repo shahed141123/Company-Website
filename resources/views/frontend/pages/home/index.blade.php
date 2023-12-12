@@ -164,7 +164,7 @@
                 <div class="custom_col-2 col-md-6 col-sm-12">
                     <div class="text-center">
                             <img class="img-fluid" height="85px"
-                src="{{ !empty( $feature1->logo) && file_exists( $feature1->logo) ? asset( $feature1->logo) : asset('frontend/images/service-no-img.png') }}"
+                src="{{ !empty($feature1->logo) && file_exists(public_path('storage/' . $feature1->logo)) ? asset('storage/' . $feature1->logo) : asset('frontend/images/service-no-img.png') }}"
                 alt="NGEN IT">
                         <h5 class="business_services pt-2">{{ Str::limit($feature1->badge, 30) }}</h5>
                     </div>
@@ -185,7 +185,7 @@
                 <div class="custom_col-2 col-md-6 col-sm-12">
                     <div class="text-center">
                         <img class="img-fluid" height="85px"
-                src="{{ !empty( $feature2->logo) && file_exists( $feature2->logo) ? asset( $feature2->logo) : asset('frontend/images/service-no-img.png') }}"
+                src="{{ !empty($feature2->logo) && file_exists(public_path('storage/' . $feature2->logo)) ? asset('storage/' . $feature2->logo) : asset('frontend/images/service-no-img.png') }}"
                 alt="NGEN IT">
                         <h5 class="business_services pt-2">{{ Str::limit($feature2->badge, 30) }}</h5>
                     </div>
@@ -206,7 +206,7 @@
                 <div class="custom_col-2 col-md-6 col-sm-12">
                     <div class="text-center">
                         <img class="img-fluid" height="85px"
-                src="{{ !empty( $feature3->logo) && file_exists( $feature3->logo) ? asset( $feature3->logo) : asset('frontend/images/service-no-img.png') }}"
+                src="{{ !empty($feature3->logo) && file_exists(public_path('storage/' . $feature3->logo)) ? asset('storage/' . $feature3->logo) : asset('frontend/images/service-no-img.png') }}"
                 alt="NGEN IT">
                         <h5 class="business_services pt-2">{{ Str::limit($feature3->badge, 30) }}</h5>
                     </div>
@@ -227,7 +227,7 @@
                 <div class="custom_col-2 col-md-6 col-sm-12">
                     <div class="text-center">
                         <img class="img-fluid" height="85px"
-                src="{{ !empty( $feature4->logo) && file_exists( $feature4->logo) ? asset( $feature4->logo) : asset('frontend/images/service-no-img.png') }}"
+                src="{{ !empty($feature4->logo) && file_exists(public_path('storage/' . $feature4->logo)) ? asset('storage/' . $feature4->logo) : asset('frontend/images/service-no-img.png') }}"
                 alt="NGEN IT">
                         <h5 class="business_services pt-2">{{ Str::limit($feature4->badge, 30) }}</h5>
                     </div>
@@ -248,7 +248,7 @@
                 <div class="custom_col-2 col-md-6 col-sm-12">
                     <div class="text-center">
                             <img class="img-fluid" height="85px"
-                src="{{ !empty( $feature5->logo) && file_exists( $feature5->logo) ? asset( $feature5->logo) : asset('frontend/images/service-no-img.png') }}"
+                src="{{ !empty($feature5->logo) && file_exists(public_path('storage/' . $feature5->logo)) ? asset('storage/' . $feature5->logo) : asset('frontend/images/service-no-img.png') }}"
                 alt="NGEN IT">
                         <h5 class="business_services pt-2">{{ Str::limit($feature5->badge, 30) }}</h5>
                     </div>
@@ -618,7 +618,7 @@
         </div>
     </div>
 </section>
-<!---------End --------> 
+<!---------End -------->
 <!---------Our Success Section-------->
 <section style="background: var(--secondary-bg-color); padding: 20px;}">
     <div class="container my-4 pb-4">

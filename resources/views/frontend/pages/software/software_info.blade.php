@@ -50,7 +50,7 @@
             <div class="container">
                 <div class="row gx-3">
                     <div class="col-lg-8">
-                        <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 465px;">
+                        <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 32rem;">
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="animated-image parbase section">
@@ -64,7 +64,7 @@
                                 <div class="col-lg-6">
                                     <h3 class="software-info-title">
                                         <span
-                                            style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($software_info->row_six_title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($software_info->row_six_title, 1) }}
+                                            style="border-top: 3px solid #ae0a46;">{{ Str::substr($software_info->row_six_title, 0, 2) }}</span>{{ Str::substr($software_info->row_six_title, 2) }}
                                     </h3>
                                     <p class="software-info-paragraph" style="text-align: justify;">
                                         {!! $software_info->row_six_short_description !!}
@@ -79,21 +79,21 @@
                     </div>
                     @if ($tab_one)
                         <div class="col-lg-4">
-                            <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 465px;">
+                            <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 32rem;">
                                 <div class="row align-items-center">
                                     <div class="col-lg-12">
                                         @if (isset($tab_one->image) && file_exists(public_path('storage/' . $tab_one->image)))
                                             <div>
-                                                <img class="pb-4" width="80px"
+                                                <img class="pb-4" width="60px"
                                                     src="{{ asset('storage/' . $tab_one->image) }}" alt="">
                                             </div>
                                         @endif
                                         <h1 class="software-info-title">
                                             <span
-                                                style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tab_one->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tab_one->title, 1) }}
+                                                style="border-top: 3px solid #ae0a46;">{{ Str::substr($tab_one->title, 0, 2) }}</span>{{ Str::substr($tab_one->title, 2) }}
                                         </h1>
                                         <p class="software-info-paragraph" style="text-align: justify;">
-                                            {!! Str::words($tab_one->description, 55, $end = '...') !!}
+                                            {!! Str::words($tab_one->description, 37) !!}
 
                                         </p>
                                         @if (!empty($tab_one->btn_name))
@@ -110,21 +110,21 @@
                     @if ($tabIds)
                         @foreach ($tabIds as $tabId)
                             <div class="col-lg-4">
-                                <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 465px;">
+                                <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 32rem;">
                                     <div class="row align-items-center">
                                         <div class="col-lg-12">
                                             @if (isset($tabId->image) && file_exists(public_path('storage/' . $tabId->image)))
                                                 <div>
-                                                    <img class="pb-4" width="80px"
+                                                    <img class="pb-4" width="60px"
                                                         src="{{ asset('storage/' . $tabId->image) }}" alt="">
                                                 </div>
                                             @endif
                                             <h1 class="software-info-title">
                                                 <span
-                                                    style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tabId->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tabId->title, 1) }}
+                                                    style="border-top: 3px solid #ae0a46;">{{ Str::substr($tabId->title, 0, 2) }}</span>{{ Str::substr($tabId->title, 2) }}
                                             </h1>
                                             <p class="software-info-paragraph" style="text-align: justify;">
-                                                {!! \Illuminate\Support\Str::words($tabId->description, 55, $end = '.') !!}
+                                                {!! Str::words($tabId->description, 37) !!}
                                             </p>
                                             @if (!empty($tabId->btn_name))
                                                 <a href="{{ $tabId->link }}"
@@ -165,9 +165,6 @@
                                                 <div class="p-lg-4 p-4 shadow-sm bg-white">
                                                     <div class="d-lg-flex align-items-center">
                                                         <div class="icons_area pe-2">
-                                                            {{-- <img class="category_icon"
-                                                                src="{{ asset('storage/' . $category->image) }}"
-                                                                alt=""> --}}
                                                             <img class="category_icon"
                                                                 src="{{ !empty($category->image) && file_exists(public_path('storage/' . $category->image)) ? asset('storage/' . $category->image) : asset('frontend/images/no-img-png.png') }}"
                                                                 alt="NGEN IT">
@@ -194,7 +191,7 @@
     </section>
     <!----------End--------->
     <!--======// Our expert //======-->
-    @if (!empty($software_info))
+    @if (!empty($software_info->row_four_video_link ))
         <section>
             <div class="container mt-3 mb-5 video_row">
                 <div class="software_feature_title py-lg-5 py-3">
@@ -210,7 +207,7 @@
                     </div>
                     <div class="col-lg-6 col-sm-6">
                         <div class="">
-                            <h5 class="home_title_heading w-75" style="text-align: start;">
+                            <h5 class="home_title_heading w-100" style="text-align: start;">
                                 {{ $software_info->row_four_sub_title }}
                             </h5>
                             <p class="home_title_text pt-3" style="text-align: justify;">
@@ -225,7 +222,6 @@
             </div>
         </section>
     @endif
-    <!--======// Nasted tab //======-->
     <!--======// Nasted tab //======-->
     <div class="section_wp pt-5">
         <!--Tab Section-->
@@ -475,7 +471,7 @@
                         <h5 class="home_title_heading" style="text-align: left;">
                             <div class="software_feature_title">
                                 <h1 class="text-center pb-3">
-                                    <span>{{ \Illuminate\Support\Str::substr($sentence2, 0, 2) }}</span>{{ \Illuminate\Support\Str::substr($sentence2, 2) }}
+                                    <span>{{ Str::substr($sentence2, 0, 2) }}</span>{{ Str::substr($sentence2, 2) }}
                                 </h1>
                             </div>
                         </h5>

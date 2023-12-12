@@ -521,7 +521,6 @@ class ShopController extends Controller
     public function Shop()
     {
 
-
         $products = Product::query()->where('product_status', 'product');
 
 

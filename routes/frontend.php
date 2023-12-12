@@ -29,7 +29,7 @@ Route::get('/software/common', [HomeController::class, 'softwareCommon'])->name(
 Route::get('/software/info', [HomeController::class, 'softwareInfo'])->name('software.info');
 
 //Hardware All route
-Route::get('/hardware/common', [HomeController::class, 'HardwareCommon'])->name('hardware.common');
+Route::get('/hardware/common', [HomeController::class, 'hardwareCommon'])->name('hardware.common');
 
 //hardware Info
 Route::get('/hardware/info', [HomeController::class, 'hardwareInfo'])->name('hardware.info');
@@ -67,7 +67,7 @@ Route::get('/feature/{id}/details/', [HomeController::class, 'FeatureDetails'])-
 // Shop // Filter
 
 //Shop
-Route::get('/ngenit/shop', [ShopController::class, 'Shop'])->name('shop');
+Route::get('/ngenit/shop', [ShopController::class, 'mainShop'])->name('shop');
 Route::get('/custom/shop', [ShopController::class, 'CustomProduct'])->name('custom.shop');
 
 

@@ -41,6 +41,7 @@ class SoftwareCommonController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
+                'row_four_video_link' => 'required',
                 'banner_image' => 'required|image|mimes:png,jpg,jpeg|max:5000',
                 'row_six_image' => 'required|image|mimes:png,jpg,jpeg|max:5000',
             ],

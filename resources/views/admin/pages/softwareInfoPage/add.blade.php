@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <form method="post" action="{{ route('software-info-page.store') }}">
+            <form method="post" action="{{ route('software-info-page.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="card">
                     <!--Banner Section-->

@@ -37,7 +37,7 @@
                 <a href="{{ route('software.info') }}">
                     <li class="breadcrumb__item active">
                         <span class="breadcrumb__inner">
-                            <span class="breadcrumb__title">Software Info</span>
+                            <span class="breadcrumb__title">Hardware Info</span>
                         </span>
                     </li>
                 </a>
@@ -50,7 +50,7 @@
             <div class="container">
                 <div class="row gx-3">
                     <div class="col-lg-8">
-                        <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
+                        <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 32rem;">
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="animated-image parbase section">
@@ -79,12 +79,12 @@
                     </div>
                     @if ($tab_one)
                         <div class="col-lg-4">
-                            <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
+                            <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 32rem;">
                                 <div class="row align-items-center">
                                     <div class="col-lg-12">
                                         @if (isset($tab_one->image) && file_exists(public_path('storage/' . $tab_one->image)))
                                             <div>
-                                                <img class="pb-4" width="80px"
+                                                <img class="pb-4" width="60px"
                                                     src="{{ asset('storage/' . $tab_one->image) }}" alt="">
                                             </div>
                                         @endif
@@ -93,7 +93,7 @@
                                                 style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tab_one->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tab_one->title, 1) }}
                                         </h1>
                                         <p class="software-info-paragraph" style="text-align: justify;">
-                                            {!! Str::words($tab_one->description, 55, $end = '...') !!}
+                                            {!! Str::words($tab_one->description, 37) !!}
 
                                         </p>
                                         @if (!empty($tab_one->btn_name))
@@ -110,12 +110,12 @@
                     @if ($tabIds)
                         @foreach ($tabIds as $tabId)
                             <div class="col-lg-4">
-                                <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
+                                <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 32rem;">
                                     <div class="row align-items-center">
                                         <div class="col-lg-12">
                                             @if (isset($tabId->image) && file_exists(public_path('storage/' . $tabId->image)))
                                                 <div>
-                                                    <img class="pb-4" width="80px"
+                                                    <img class="pb-4" width="60px"
                                                         src="{{ asset('storage/' . $tabId->image) }}" alt="">
                                                 </div>
                                             @endif
@@ -124,7 +124,7 @@
                                                     style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tabId->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tabId->title, 1) }}
                                             </h1>
                                             <p class="software-info-paragraph" style="text-align: justify;">
-                                                {!! \Illuminate\Support\Str::words($tabId->description, 55, $end = '.') !!}
+                                                {!! \Illuminate\Support\Str::words($tabId->description, 37) !!}
                                             </p>
                                             @if (!empty($tabId->btn_name))
                                                 <a href="{{ $tabId->link }}"
@@ -165,7 +165,7 @@
                                                 <div class="p-lg-4 p-4 shadow-sm bg-white">
                                                     <div class="d-lg-flex align-items-center">
                                                         <div class="icons_area pe-2">
-                                                            <img class="img-fluid"
+                                                            <img class="category_icon"
                                                                 src="{{ !empty($category->image) && file_exists(public_path('storage/' . $category->image)) ? asset('storage/' . $category->image) : asset('frontend/images/no-img-png.png') }}"
                                                                 alt="NGEN IT">
                                                         </div>
@@ -435,7 +435,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
+                    <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 32rem;">
                         <h3>
                             <span style="border-top: 3px solid #ae0a46;">Fe</span>atured Content
                         </h3>

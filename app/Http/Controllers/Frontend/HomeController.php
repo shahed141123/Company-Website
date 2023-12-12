@@ -116,7 +116,7 @@ class HomeController extends Controller
 
     public function softwareInfo()
     {
-        $data['software_info'] = SoftwareInfoPage::latest()->firstOrFail();
+        $data['software_info'] = SoftwareInfoPage::where('type', 'info')->latest()->firstOrFail();
         $data['tab_one'] = Row::where('id', $data['software_info']->row_five_tab_one_id)->first();
         if (!empty($data['software_info'])) {
             $data['tabIds'] = [
@@ -168,6 +168,7 @@ class HomeController extends Controller
             ->inRandomOrder()
             ->limit(16)
             ->get();
+            $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
         $data['brands'] = Brand::with('brandhardwareProducts')
             ->join('products', 'brands.id', '=', 'products.brand_id')
             ->where('products.product_type', '=', 'hardware')
@@ -184,7 +185,7 @@ class HomeController extends Controller
 
     public function softwareCommon()
     {
-        $data['software_info'] = SoftwareInfoPage::where('type', 'info')->latest()->firstOrFail();
+        $data['software_info'] = SoftwareInfoPage::where('type', 'common')->latest()->firstOrFail();
         $data['tab_one'] = Row::where('id', $data['software_info']->row_five_tab_one_id)->first();
         if (!empty($data['software_info'])) {
             $data['tabIds'] = [
@@ -226,10 +227,10 @@ class HomeController extends Controller
 
     //Hardware All Pge
 
-    public function HardwareCommon()
+    public function hardwareCommon()
     {
         // Query 1 - LearnMore
-        $data['hardware_info'] = SoftwareInfoPage::where('type', 'info')->latest()->firstOrFail();
+        $data['hardware_info'] = HardwareInfoPage::where('type', 'common')->latest()->firstOrFail();
         $data['tab_one'] = Row::where('id', $data['hardware_info']->row_five_tab_one_id)->first();
         if (!empty($data['hardware_info'])) {
             $data['tabIds'] = [
@@ -250,7 +251,7 @@ class HomeController extends Controller
             ->limit(16)
             ->get(['id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount']);
         $brandIds = Product::where('product_status', 'product')->where('product_type', 'hardware')->distinct()->pluck('brand_id')->toArray();
-
+        $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
         $data['brands'] = Brand::whereIn('id', $brandIds)->limit(12)->get();
 
         // Query 5 - SolutionDetail
