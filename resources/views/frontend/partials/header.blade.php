@@ -28,12 +28,12 @@
                                         <hr class="text-muted" />
                                         <div class="d-flex flex-column align-items-center">
                                             <a href="{{ route('client.login') }}"
-                                                class="mx-auto py-2 btn common_button2 mb-2 top-info-text w-100"
+                                                class="mx-auto py-2 btn-color mb-2 top-info-text w-100"
                                                 style="font-size: 13px">
                                                 <i class="fa-brands fa-whatsapp"></i> <span>Whats App</span>
                                             </a>
                                             <a href="{{ route('client.login') }}"
-                                                class="mx-auto py-2 btn common_button2 mb-2 top-info-text w-100"
+                                                class="mx-auto py-2 btn-color mb-2 top-info-text w-100"
                                                 style="font-size: 13px">
                                                 <i class="fa-brands fa-skype"></i> <span>Sign In</span>
                                             </a>
@@ -72,10 +72,6 @@
                                     </a>
                                     <div class="dropdown-menu drop-down-menus" aria-labelledby="dropdownMenuButton">
                                         <div class="popover__content-2 text-start">
-                                            {{-- <div class="text-muted">
-                                                First time here?
-                                                <a href="#" class="main_color">Sign Up</a>
-                                            </div> --}}
 
                                             @if (Auth::guard('client')->user())
                                                 <li>
@@ -97,7 +93,7 @@
                                                 <hr class="text-muted" />
                                             @else
                                                 <a href="{{ route('client.login') }}"
-                                                    class="mx-auto py-2 btn common_button2 mb-2 top-info-text w-100"
+                                                    class="mx-auto py-2 btn-color mb-2 top-info-text w-100"
                                                     style="font-size: 13px">
                                                     Sign In
                                                 </a>

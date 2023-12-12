@@ -1,37 +1,24 @@
 @extends('frontend.master')
 @section('content')
     <!--======// Header Title //======-->
-    <section class="common_product_header pb-5" style="background-image:url('{{ asset('frontend/images/Brand.jpg') }}');">
-        <div class="container ">
-            <h1>Shop By Brands</h1>
-            <p class="text-center text-white">Through our deep partnerships with trusted brands, <br> Ngen IT offers a
-                comprehensive catalog of software for business. </p>
-            <div class="row mb-5">
-                <!--BUTTON START-->
-                <div class="d-flex justify-content-center align-items-center">
-                    <div class="">
-                        <div class="">
-                            <a href="{{ route('shop.html') }}" class="common_button2">Go To Shop <i
-                                    class="fa-solid fa-chevron-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section>
+        <div>
+            <img class="page_top_banner" src="{{ asset('frontend/images/Brands-All-Banner_NGenIT.jpg') }}"
+                alt="NGEN IT Software">
         </div>
     </section>
     <!----------End--------->
     <section>
         {{-- Top Brands --}}
-        <div class="container">
+        <div class="container brand-container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h5 class="home_title_heading"><span class="main_color fw-bold">Top</span> Brands</h5>
+                    <h5 class="home_title_heading pt-lg-4 pb-lg-5"><span class="main_color fw-bold">Top</span> Brands</h5>
                 </div>
             </div>
             <div class="row">
                 @foreach ($top_brands as $top_brand)
-                    <div class="col-lg-2 col-sm-12">
+                    <div class="col-lg-2 col-sm-12 mb-lg-4 mb-3">
                         <div class="card rounded-0 brand_img_container">
                             <div class="card-body image_box">
                                 <div class="brand-images">
@@ -70,15 +57,15 @@
             </div>
         </div>
         {{-- Features --}}
-        <div class="container">
+        <div class="container brand-container pt-lg-0 pt-0 ">
             <div class="row">
                 <div class="col-lg-12">
-                    <h5 class="home_title_heading"><span class="main_color fw-bold">Featured</span> Brands</h5>
+                    <h5 class="home_title_heading py-lg-4"><span class="main_color fw-bold">Featured</span> Brands</h5>
                 </div>
             </div>
             <div class="row">
                 @foreach ($featured_brands as $featured_brand)
-                    <div class="col-lg-2 col-sm-12">
+                    <div class="col-lg-2 col-sm-12 mb-lg-4 mb-3">
                         <div class="card rounded-0 brand_img_container">
                             <div class="card-body image_box_features">
                                 <div class="brand-images">
@@ -102,7 +89,7 @@
         </div>
     </section>
     <!--======// Explore all the brands Ngen It has to offer. //====-->
-    <section class="my-5">
+    <section class="my-lg-5  my-0">
         <div class="container">
             <div class="row">
                 <div class="text-center py-3">
@@ -113,7 +100,7 @@
                         <div class="col-lg-10 offset-lg-1">
                             <nav>
                                 <div class="row">
-                                    <div class="nav nav-tabs nav-fill p-0" id="nav-tab" role="tablist">
+                                    <div class="nav nav-tabs nav-fill p-lg-0 p-3" id="nav-tab" role="tablist">
                                         {{-- <a class="nav-item nav-link " id="nav-healthcare" data-toggle="tab"
                                             href="#all" role="tab" aria-controls="nav-home"
                                             aria-selected="true">All</a>
