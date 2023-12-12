@@ -82,7 +82,7 @@
             <div class="container">
                 <div class="row gx-3">
                     <div class="col-lg-8">
-                        <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 32rem;">
+                        <div class="p-5 blocks-content block-image-content" style="background-color:#f7f6f5!important; height: 32rem;">
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="animated-image parbase section">

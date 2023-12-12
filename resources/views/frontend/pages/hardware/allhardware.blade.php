@@ -82,7 +82,7 @@
             <div class="container">
                 <div class="row gx-3">
                     <div class="col-lg-8">
-                        <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 32rem;">
+                        <div class="p-5 blocks-content block-image-content" style="background-color:#f7f6f5!important; height: 32rem;">
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="animated-image parbase section">
@@ -679,7 +679,7 @@
                     </div>
                     <div class="col-lg-6 col-sm-6">
                         <div class="">
-                            <h5 class="home_title_heading w-75" style="text-align: start;">
+                            <h5 class="home_title_heading w-100" style="text-align: start;">
                                 {{ $hardware_info->row_four_sub_title }}
                             </h5>
                             <p class="home_title_text pt-3" style="text-align: justify;">
