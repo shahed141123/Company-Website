@@ -1,11 +1,11 @@
 @extends('frontend.master')
 @section('content')
-    <section class="content_wrapper">
+    <section class="content_wrapper dashboard-container">
         <div class="page-wrapper chiller-theme toggled">
             @include('frontend.pages.client.partials.sidebar')
             <main class="page-content">
                 <div class="content_wrapper">
-                    <div class="container">
+                    <div class="container dashboard-container-2">
                         <div class="section_wrapper pt-4">
                             <div class="card mt-4 shadow-lg p-3 mx-0 rounded-0">
                                 <div class="card-body">
@@ -116,7 +116,7 @@
                                         </div>
                                     </div>
                                     <div class="card-body pt-0">
-                                        <div class="row p-5">
+                                        <div class="row p-5 content-box-area">
                                             <div class="col-lg-6 col-sm-12 boder-left">
                                                 <div class="row mb-1">
                                                     <div class="col-lg-4 col-sm-12">

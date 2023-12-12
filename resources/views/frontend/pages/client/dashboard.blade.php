@@ -5,7 +5,7 @@
             @include('frontend.pages.client.partials.sidebar')
             <main class="page-content">
                 <div class="content_wrapper">
-                    <div class="container">
+                    <div class="container dashboard-container">
                         <div class="section_wrapper pt-4">
                             <div class="row mt-2">
                                 <div class="col-lg-12 col-md-12 col-sm-12 mb-4">

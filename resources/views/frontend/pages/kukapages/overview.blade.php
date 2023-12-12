@@ -36,7 +36,7 @@
                             <h3 class="eyebrow_title">{{ $row_one->title }}</h3>
                             <p class="company-tab-para text-justify-align">{!! $row_one->description !!}</p>
                             @if (!empty($row_one->link))
-                                <a href="{{ $row_one->link }}" class="common_button">{{ $row_one->btn_name }}</a>
+                                <a href="{{ $row_one->link }}" class="btn-color">{{ $row_one->btn_name }}</a>
                             @else
                             @endif
                         </div>
@@ -53,7 +53,7 @@
                             <h3 class="eyebrow_title">{{ $row_three->title }}</h3>
                             <p class="company-tab-para text-justify-align">{!! $row_three->description !!}</p>
                             @if (!empty($row_three->link))
-                                <a href="{{ $row_three->link }}" class="common_button">{{ $row_three->btn_name }}</a>
+                                <a href="{{ $row_three->link }}" class="btn-color">{{ $row_three->btn_name }}</a>
                             @else
                             @endif
                         </div>
@@ -131,7 +131,7 @@
                             <h3 class="eyebrow_title">{{ $row_four->title }}</h3>
                             <p class="company-tab-para text-justify-align">{!! $row_four->description !!}</p>
                             @if (!empty($row_four->link))
-                                <a href="{{ $row_four->link }}" class="common_button2">{{ $row_four->btn_name }}</a>
+                                <a href="{{ $row_four->link }}" class="btn-color2">{{ $row_four->btn_name }}</a>
                             @else
                             @endif
                         </div>
@@ -160,7 +160,7 @@
                             <h3 class="eyebrow_title">{{ $row_five->title }}</h3>
                             <p class="company-tab-para text-justify-align">{!! $row_five->description !!}</p>
                             @if (!empty($row_five->link))
-                                <a href="{{ $row_five->link }}" class="common_button">{{ $row_five->btn_name }}</a>
+                                <a href="{{ $row_five->link }}" class="btn-color">{{ $row_five->btn_name }}</a>
                             @else
                             @endif
                         </div>
