@@ -76,10 +76,15 @@
         transition: all 0.3s;
         padding: 5px;
     }
-
+    .software-info-title{
+        padding-top: 2rem;
+    }
     .blocks-content {
-        padding: 2rem !important;
+        padding: 1rem !important;
         height: 100%;
+    }
+    .block-image-content{
+        height: 42rem !important;
     }
 
     .animated-image {
@@ -1018,8 +1023,11 @@
     }
 
     .card-row-area {
-        margin-top: -1.8rem;
+        margin-top: -2.8rem;
         --bs-gutter-x: 0.5rem;
+    }
+    .main-to-depp-gradient-2{
+        padding: 3rem 0.2rem 3rem 1.5rem !important;
     }
 
     .category_icon {

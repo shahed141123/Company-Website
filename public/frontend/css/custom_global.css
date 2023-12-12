@@ -11,6 +11,7 @@
     --primary-color: #ae0a46;
     --secondary-color: #880736;
     --paragraph-color: #3e332d;
+    --secondary-paragraph-color: #3d3632;
     --heading-color: #1a1715;
     --white: #fff;
     --black: #000;
@@ -1984,7 +1985,7 @@ table.td {
     font-weight: 300;
 }
 
-div.card.card-plain {
+/* div.card.card-plain {
     background: transparent;
     box-shadow: none;
 }
@@ -1996,7 +1997,7 @@ div.card .card-header {
     margin-right: 15px;
     margin-top: -30px;
     border: 0;
-}
+} */
 
 .card-plain .card-header:not(.card-avatar) {
     margin-left: 0;
@@ -4874,15 +4875,16 @@ tr td:hover {
 }
 
 .card-row-area {
-    margin-top: -3rem;
+    /* margin-top: -3rem; */
+    margin-top: -5rem;
 }
 
 .border-bottom-left-r {
-    border-bottom-left-radius: 40px;
+    border-bottom-left-radius: 60px !important;
 }
 
 .border-top-right-r {
-    border-top-right-radius: 40px;
+    border-top-right-radius: 60px !important;
 }
 
 /* Solution All Page Design Remake End*/
@@ -15371,8 +15373,8 @@ switch input:checked+.slider {
     display: inline-block;
     padding: 18px 36px;
     color: var(--white);
-    border: 1px solid var(--subColor);
-    font-size: 14px;
+    border: 1px solid var(--border-color);
+    font-size: var(--paragraph-font-size);
     font-weight: 500;
     background: var(--primary-color);
     transition: all 0.3s linear;
@@ -15380,7 +15382,7 @@ switch input:checked+.slider {
 
 .business_seftion_button a:hover {
     color: var(--primary-color);
-    background-color: var(--subColor);
+    background-color: var(--white);
 }
 
 /*------Learn clint history (Style.css)------*/

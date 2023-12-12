@@ -12,7 +12,7 @@
             background: url('{{ asset('storage/' . $learnmore->background_image) }}');
             content: "";
             position: absolute;
-            height: 230px;
+            height: 18rem;
             background-position: top center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -22,6 +22,25 @@
             top: 25%;
             left: 0px;
             z-index: -1;
+        }
+
+        nav>div a.nav-item.nav-link,
+        nav>div a.nav-item.nav-link.active {
+            background: none;
+            color: var(--secondary-paragraph-color);
+            font-size: var(--content-title-font-size);
+            font-weight: 600;
+            padding: 13px 15px;
+            top: 1px;
+        }
+
+        .nav-tabs .nav-link.active,
+        .nav-tabs .nav-item.show .nav-link {
+            border-bottom: 6px solid #ae0a46 !important;
+        }
+
+        .global_call_section_content {
+            margin-top: 3rem;
         }
     </style>
 @endif
@@ -97,12 +116,14 @@
                                             alt="{{ $item->name }}">
                                     </div>
                                     <div style="height: 4.4rem;">
-                                        <h5 class="p-1" style="text-align:center;">{{ Str::words($item->name, 12) }}</h5>
+                                        <h5 class="p-1" style="text-align:center;">{{ Str::words($item->name, 12) }}
+                                        </h5>
                                         {{-- <hr class="p-1 pt-1 m-0 text-white"> --}}
                                     </div>
                                     <div class="content-details fadeIn-bottom fadeIn-left-brand">
                                         <div class="solution_info_area">
-                                            <h4 class="p-1 text-white" style="text-align:center;">{{ $item->name }}</h4>
+                                            <h4 class="p-1 text-white" style="text-align:center;">{{ $item->name }}
+                                            </h4>
                                             <hr class="p-1 pt-1 m-0 text-white">
                                             <p class="brand-news-trends-title-solution">{!! Str::words($item->header, 27) !!}</p>
                                             {{-- <p class="brand-news-trends-title-solution">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> --}}
@@ -125,8 +146,8 @@
             @endif
             <div class="col-lg-12">
                 <div class="d-flex justify-content-center mt-lg-5 mt-sm-3">
-                    <button class="common_button2 effect02" id="load-more-solution">View More</button>
-                    <button class="common_button2 effect02" id="show-less-solution" style="display: none;">Show
+                    <button class="btn-color" id="load-more-solution">View More</button>
+                    <button class="btn-color" id="show-less-solution" style="display: none;">Show
                         Less</button>
                 </div>
             </div>
@@ -450,7 +471,7 @@
                 <p class="home_title_text text-white" style="text-align: left;">{{ $learnmore->consult_short_des }}
                 </p>
                 <div class="business_seftion_button" style="text-align: left;">
-                    <a href="#Contact">Explore business outcomes</a>
+                    <a class="btn-color" href="#Contact">Explore business outcomes</a>
                 </div>
             </div>
         </div>
@@ -544,7 +565,8 @@
                 @if ($random_industries)
                     @foreach ($random_industries as $item)
                         <div class="pt-2">
-                            <a href="{{ isset($item->slug) ? route('industry.details', ['id' => $item->slug]) : '' }}">
+                            <a
+                                href="{{ isset($item->slug) ? route('industry.details', ['id' => $item->slug]) : '' }}">
                                 <div id="fed-bg">
                                     <div class="p-2">
                                         <h5 class="text-white brand_side_text">{{ $item->title }} ›</h5>
