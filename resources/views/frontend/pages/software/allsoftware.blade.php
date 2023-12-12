@@ -50,7 +50,7 @@
     <!--======// Header custom-Title //======-->
     <section>
         <div>
-            <img class="page_top_banner" src="{{ asset('frontend/images/software_common.jpg') }}"
+            <img class="page_top_banner" src="{{ asset('frontend/images/Software-Common-Banner_NGenIT.jpg') }}"
                 alt="NGEN IT Software">
         </div>
     </section>

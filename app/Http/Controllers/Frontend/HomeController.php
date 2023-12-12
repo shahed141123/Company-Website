@@ -542,10 +542,7 @@ class HomeController extends Controller
         $data['categories'] = Category::latest()
             ->select('categories.id', 'categories.slug', 'categories.title', 'categories.image')
             ->get();
-        $data['brands'] = BrandPage::orderBy('id', 'Desc')
-            ->select('brand_pages.id', 'brand_pages.brand_id')
-            ->limit(18)
-            ->get();
+        $data['brands'] = Brand::top()->latest('id')->paginate(18, ['*'], 'top_brands');
         $data['techglossy'] = Blog::inRandomOrder()->first();
         return view('frontend.pages.product.shop_html', $data);
     }

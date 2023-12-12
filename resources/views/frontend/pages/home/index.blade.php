@@ -271,51 +271,8 @@
     </section>
 @endif
 <!---------End -------->
-<!--======// Magazine Section //======-->
-<section>
-    <div class="container">
-        @if (!empty($techglossy))
-            <div class="row bg-white mt-5 mb-5 magazine_content">
-                <div class="col-lg-12">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6">
-                            <div class="holder-main-text ps-5">
-                                {{-- <h6>{{ $techglossy->badge }}</h6> --}}
-                                <h6 class="title-tag text-capitalize">{{ $techglossy->badge }}</h6>
-                                <h2 class="container-title">
-                                    {{ $techglossy->title }}
-                                </h2>
-                                <p class="pt-3" style="text-align: justify">
-                                    {!! Str::words(strip_tags($techglossy->short_des), 50) !!}
-                                    {{-- {{ $techglossy->header }} --}}
-                                </p>
-                                <a href="{{ route('techglossy.details', $techglossy->id) }}"
-                                    class="pt-3 business_item_button d-flex justify-content-start">
-                                    <span>Read More</span>
-                                    <span class="business_item_button_icon">
-                                        <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 p-0 d-lg-block d-sm-none">
-                            <div class="showcase-industry-bottom" style="position: relative; overflow: hidden;">
-                                <!-- Add a pseudo-element for the overlay -->
-                                <div class="gradient-overlay"></div>
-                                <img class="img-fluid overlays-img"
-                                    src="{{ isset($techglossy->image) && file_exists(public_path('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}"
-                                    alt="Picture" style="border-top-right-radius: 60px;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
-    </div>
-</section>
-<!----------End--------->
 <!--=======// Shop product //======-->
-<section class="pt-5 learn_more">
+<section class="spacer learn_more">
     <div class="container py-4">
         <div class="row align-items-center">
             <!-- content -->
@@ -504,10 +461,53 @@
         </div>
     </section>
 @endif
+<!--======// Magazine Section //======-->
+<section>
+    <div class="container spacer">
+        @if (!empty($techglossy))
+            <div class="row bg-white magazine_content">
+                <div class="col-lg-12">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="holder-main-text ps-5">
+                                {{-- <h6>{{ $techglossy->badge }}</h6> --}}
+                                <h6 class="title-tag text-capitalize">{{ $techglossy->badge }}</h6>
+                                <h2 class="container-title">
+                                    {{ $techglossy->title }}
+                                </h2>
+                                <p class="pt-3" style="text-align: justify">
+                                    {!! Str::words(strip_tags($techglossy->short_des), 50) !!}
+                                    {{-- {{ $techglossy->header }} --}}
+                                </p>
+                                <a href="{{ route('techglossy.details', $techglossy->id) }}"
+                                    class="pt-3 business_item_button d-flex justify-content-start">
+                                    <span>Read More</span>
+                                    <span class="business_item_button_icon">
+                                        <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 p-0 d-lg-block d-sm-none">
+                            <div class="showcase-industry-bottom" style="position: relative; overflow: hidden;">
+                                <!-- Add a pseudo-element for the overlay -->
+                                <div class="gradient-overlay"></div>
+                                <img class="img-fluid overlays-img"
+                                    src="{{ isset($techglossy->image) && file_exists(public_path('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}"
+                                    alt="Picture" style="border-top-right-radius: 60px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+    </div>
+</section>
+<!----------End--------->
 <!--=======// Popular products //======-->
 <section>
-    <div class="container p-0">
-        <div class="Container mt-5 px-0">
+    <div class="container p-0 my-4">
+        <div class="Container spacer">
             <h3 class="Head main_color">Recent Products <span class="Arrows"></span></h3>
             <!-- Carousel Container -->
             <div class="SlickCarousel">
@@ -618,11 +618,11 @@
         </div>
     </div>
 </section>
-<!---------End -------->
+<!---------End --------> 
 <!---------Our Success Section-------->
-<section>
-    <div class="container my-4 mb-5">
-        <h2 class="text-center pb-4">Our Success <span class="main_color">Starts With</span> Our Culture.</h2>
+<section style="background: var(--secondary-bg-color); padding: 20px;}">
+    <div class="container my-4 pb-4">
+        <h2 class="text-center pb-5">Our Success <span class="main_color">Starts With</span> Our Culture.</h2>
         <div class="row success-area">
             @if (!empty($success1->title))
                 <div class="col-lg-4">
