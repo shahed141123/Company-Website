@@ -1,4 +1,5 @@
 /* Extra Small Devices (e.g., Smartphones) */
+
 @media only screen and (max-width: 576px) {
     .brand-container {
         padding-left: 50px;
@@ -42,26 +43,28 @@
         padding: 15px;
     }
     .hover-2-title {
-    position: absolute;
-    top: 65%;
-    left: 1%;
-    text-align: start;
-    width: 100%;
-    z-index: 99;
-    transition: all 0.3s;
-    padding: 5px;
-}
-    .blocks-content{
-        padding: 2rem !important;
+        position: absolute;
+        top: 65%;
+        left: 1%;
+        text-align: start;
+        width: 100%;
+        z-index: 99;
+        transition: all 0.3s;
+        padding: 5px;
     }
+
+    .blocks-content {
+        padding: 2rem !important;
+        height: 100%;
+    }
+
     .animated-image {
-        padding: 10% 10% 10% 20%;
-        margin: -20% -20% 20% -30%;
         border-radius: 0 0 0% 50%;
         overflow: hidden;
         animation: border-radius-right 12s ease-in-out infinite;
         animation-delay: 8s;
     }
+
     .what-we-do-title {
         width: 100%;
     }
@@ -151,20 +154,25 @@
         background-color: #252525;
         padding: 0px 0px !important;
     }
-    .top-line-title{
+
+    .top-line-title {
         margin-top: 2rem;
     }
+
     .story-title {
         font-size: 20px;
         text-align: center;
         padding-top: 30px;
     }
-    .text-justify{
+
+    .text-justify {
         text-align: justify;
     }
-    .btn-white{
+
+    .btn-white {
         font-size: 0.8rem;
     }
+
     .thing_together_wrapper h5 {
         color: #fff;
         font-size: 23px;
@@ -274,7 +282,15 @@
     .navbar-nav .nav-item.active>.nav-link {
         border-bottom: none;
     }
-
+    #sync1 .item{
+        padding: 0px 5px;
+    }
+    #sync2 .item{
+        padding: 0px 5px;
+    }
+    #sync3 .item{
+        padding: 0px 5px;
+    }
     .custom_col-2 {
         flex: 0 0 auto;
         width: 95% !important;
@@ -577,7 +593,9 @@
         text-align: center;
         padding-top: 15px !important;
     }
-
+    .software_feature_title h1 {
+        font-size: var(--section-title-font-size);
+    }
     .software_feature_title h4 {
         font-size: var(--header-font-size);
         padding-left: 0px !important;
@@ -990,8 +1008,13 @@
     }
 
     .text_area {
-        height: 3rem;
-        line-height: 1.2;
+        height: 4rem;
+        font-size: var(--paragraph-font-size);
+        line-height: 1.1;
+    }
+
+    .brand_img_container{
+        width: 100%;
     }
 
     .slider_inage img {
@@ -1035,21 +1058,21 @@
     }
 
     .software_feature_title h1 {
-        font-size: 24px;
+        font-size: var(--section-title-font-size);
         line-height: 1.3;
     }
     .about-column-first h2 {
-        font-size: 24px;
+        font-size: var(--section-title-font-size);
         text-align: center;
     }
     .home_title_heading {
         font-family: "Allumi Std Extended";
-        font-size: 24px;
+        font-size: var(--section-title-font-size);
         width: 100% !important;
         color: var(--heading);
         font-weight: 400;
-        margin-top: 12px;
-        margin-bottom: 12px;
+        margin-top: 1.5rem !important;
+    margin-bottom: 1rem !important;
         line-height: 1.2;
         text-align: center !important;
     }
@@ -1058,6 +1081,7 @@
         line-height: 1.5;
         text-align: center !important;
         font-size: 14px;
+        width: 100% !important;
     }
 
     .home_banner_bt-title {
@@ -1094,12 +1118,15 @@
         font-size: 16px;
         margin-right: 0px;
     }
-    .width-full{
+
+    .width-full {
         width: 100% !important;
     }
-    .tech_solution_item{
+
+    .tech_solution_item {
         text-align: center;
     }
+
     .hover img {
         width: 100%;
         position: absolute;
@@ -1626,7 +1653,8 @@
     .menu-section {
         height: 3rem;
     }
-    .what-we-description{
+
+    .what-we-description {
         width: 100%;
         margin: auto;
     }
@@ -1642,9 +1670,11 @@
         -webkit-transition: opacity 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         transition: opacity 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     }
+
     .navbar-expand-lg .navbar-nav .nav-link {
         font-size: 15px !important;
     }
+
     .main-menu-specing {
         margin-right: 2.8rem;
     }
@@ -2154,6 +2184,7 @@
     .header_top_phone {
         display: none;
     }
+
     .sub-menu-spacing {
         margin: auto;
     }

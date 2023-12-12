@@ -181,7 +181,7 @@ class HomeController extends Controller
 
     public function hardwareInfo()
     {
-        $data['hardware_info'] = HardwareInfoPage::latest()->first();
+        $data['hardware_info'] = HardwareInfoPage::where('type','info')->latest()->first();
         $data['tab_one'] = Row::where('id', $data['hardware_info']->row_five_tab_one_id)->first();
         if (!empty($data['hardware_info'])) {
             $data['tabIds'] = [

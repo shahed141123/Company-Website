@@ -23,7 +23,8 @@
     @if (!empty($software_info->banner_image))
         <section>
             <div>
-                <img class="page_top_banner" src="{{ !empty($software_info->banner_image) && file_exists(public_path('storage/' . $software_info->banner_image)) ? asset('storage/' . $software_info->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
+                <img class="page_top_banner"
+                    src="{{ !empty($software_info->banner_image) && file_exists(public_path('storage/' . $software_info->banner_image)) ? asset('storage/' . $software_info->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
                     alt="NGEN IT Software">
             </div>
         </section>
@@ -67,7 +68,7 @@
         <div class="container">
             <div class="row gx-3">
                 <div class="col-lg-8">
-                    <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
+                    <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 465px;">
                         <div class="row align-items-center">
                             <div class="col-lg-6">
                                 <div class="animated-image parbase section">
@@ -96,7 +97,7 @@
                 </div>
                 @if ($tab_one)
                     <div class="col-lg-4">
-                        <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
+                        <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 465px;">
                             <div class="row align-items-center">
                                 <div class="col-lg-12">
                                     @if (isset($tab_one->image) && file_exists(public_path('storage/' . $tab_one->image)))
@@ -127,7 +128,7 @@
                 @if ($tabIds)
                     @foreach ($tabIds as $tabId)
                         <div class="col-lg-4">
-                            <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
+                            <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 465px;">
                                 <div class="row align-items-center">
                                     <div class="col-lg-12">
                                         @if (isset($tabId->image) && file_exists(public_path('storage/' . $tabId->image)))
@@ -184,9 +185,9 @@
                                                             {{-- <img class="category_icon"
                                                                 src="{{ asset('storage/' . $category->image) }}"
                                                                 alt=""> --}}
-                                                                <img class="img-fluid"
-        src="{{ !empty($category->image) && file_exists(public_path('storage/' . $category->image)) ? asset('storage/' . $category->image) : asset('frontend/images/no-img-png.png') }}"
-        alt="NGEN IT">
+                                                            <img class="category_icon"
+                                                                src="{{ !empty($category->image) && file_exists(public_path('storage/' . $category->image)) ? asset('storage/' . $category->image) : asset('frontend/images/no-img-png.png') }}"
+                                                                alt="NGEN IT">
                                                         </div>
                                                         <div class="text_area">
                                                             {{ $category->title }}
@@ -280,7 +281,7 @@
                                                 <div class="brand-images">
                                                     <a href="{{ route('brandpage.html', $brand->slug) }}">
                                                         <img src="{{ asset('storage/' . $brand->image) }}"
-                                                            class="img-fluid" alt="{{ $brand->title }}"> 
+                                                            class="img-fluid" alt="{{ $brand->title }}">
                                                     </a>
                                                 </div>
                                             </div>
@@ -305,8 +306,7 @@
                                         </div>
                                     </div>
                                 @endforeach
-                                <div class="col-lg-12 col-md-12 col-sm-12 text-end mt-2 px-4"
-                                    style="color: #ae0a46;">
+                                <div class="col-lg-12 col-md-12 col-sm-12 text-end mt-2 px-4" style="color: #ae0a46;">
                                     <a class="text-site" href="{{ route('all.brand') }}">See
                                         More <i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
@@ -381,94 +381,96 @@
             <!-- Client Tab Start -->
             <div class="row my-5 align-items-center">
                 <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-lg-6 mb-lg-1 mb-4">
-                            @if (!empty($tech_glossy1->title))
-                                <div>
-                                    <div class="hover hover-2 text-white rounded">
-                                        <img src="{{ !empty($tech_glossy1->image) && file_exists(public_path('storage/' . $tech_glossy1->image)) ? asset('storage/' . $tech_glossy1->image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                                            alt="">
-                                        <div class="hover-overlay"></div>
-                                        <div class="hover-2-content px-5 py-4">
-                                            <p class="hover-2-title text-uppercase font-weight-bold mb-0">
-                                                <span class="font-weight-light">{{ $tech_glossy1->badge }}</span>
-                                                <br>
-                                                <span class="hover_content_title">
-                                                    {{ $tech_glossy1->title }}
-                                                </span>
-                                            </p>
-
-                                            <p class="hover-2-description text-uppercase mb-0">
-                                                <a href="{{ route('techglossy.details', $tech_glossy1->title) }}"
-                                                    class="text-white">read more</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                            @if (!empty($tech_glossy2->title))
-                                <div class="mt-4">
-                                    <div class="hover hover-2 text-white rounded">
-                                        <img src="{{ isset($tech_glossy2->image) && file_exists(public_path('storage/' . $tech_glossy2->image)) ? asset('storage/' . $tech_glossy2->image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                                            alt="">
-                                        <div class="hover-overlay"></div>
-                                        <div class="hover-2-content px-5 py-4">
-                                            <p class="hover-2-title text-uppercase font-weight-bold mb-0"> <span
-                                                    class="font-weight-light">{{ $tech_glossy2->badge }} </span> <br>
-                                                <span class="hover_content_title">
-                                                    {{ $tech_glossy2->title }}
-                                                </span>
-                                            </p>
-
-                                            <p class="hover-2-description text-uppercase mb-0">
-                                                <a href="{{ route('techglossy.details', $tech_glossy2->title) }}"
-                                                    class="text-white">read more</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                        </div>
-                        @if (!empty($tech_glossy3->title))
+                    <div class="blocks-content">
+                        <div class="row">
                             <div class="col-lg-6 mb-lg-1 mb-4">
-                                <div class="hover-4 hover-second  text-white rounded">
-                                    <img class="img-fluid"
-                                        src="{{ isset($tech_glossy3->image) && file_exists(public_path('storage/' . $tech_glossy3->image)) ? asset('storage/' . $tech_glossy3->image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                                        alt="">
-                                    <div class="hover-overlay-second"></div>
-                                    <div class="hover-4-content px-5 py-4">
-                                        <p class="hover-4-title text-uppercase font-weight-bold mb-0">
-                                            <span class="font-weight-light">{{ $tech_glossy3->badge }} </span> <br>
-                                            <span class="hover_content_title">
-                                                {{ $tech_glossy3->title }}
-                                            </span>
-                                        </p>
-                                        <p class="hover-4-description text-uppercase mb-0">
-                                            <a href="{{ route('techglossy.details', $tech_glossy3->title) }}"
-                                                class="text-white">read more</a>
-                                        </p>
+                                @if (!empty($tech_glossy1->title))
+                                    <div>
+                                        <div class="hover hover-2 text-white rounded">
+                                            <img src="{{ !empty($tech_glossy1->image) && file_exists(public_path('storage/' . $tech_glossy1->image)) ? asset('storage/' . $tech_glossy1->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                                alt="">
+                                            <div class="hover-overlay"></div>
+                                            <div class="hover-2-content px-5 py-4">
+                                                <p class="hover-2-title text-uppercase font-weight-bold mb-0">
+                                                    <span class="font-weight-light">{{ $tech_glossy1->badge }}</span>
+                                                    <br>
+                                                    <span class="hover_content_title">
+                                                        {{ Str::words($tech_glossy1->title, 7) }}
+                                                    </span>
+                                                </p>
+
+                                                <p class="hover-2-description text-uppercase mb-0">
+                                                    <a href="{{ route('techglossy.details', $tech_glossy1->title) }}"
+                                                        class="text-white">read more</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                                @if (!empty($tech_glossy2->title))
+                                    <div class="mt-4">
+                                        <div class="hover hover-2 text-white rounded">
+                                            <img src="{{ isset($tech_glossy2->image) && file_exists(public_path('storage/' . $tech_glossy2->image)) ? asset('storage/' . $tech_glossy2->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                                alt="">
+                                            <div class="hover-overlay"></div>
+                                            <div class="hover-2-content px-5 py-4">
+                                                <p class="hover-2-title text-uppercase font-weight-bold mb-0"> <span
+                                                        class="font-weight-light">{{ $tech_glossy2->badge }} </span> <br>
+                                                    <span class="hover_content_title">
+                                                        {{ Str::words($tech_glossy2->title, 7) }}
+                                                    </span>
+                                                </p>
+
+                                                <p class="hover-2-description text-uppercase mb-0">
+                                                    <a href="{{ route('techglossy.details', $tech_glossy2->title) }}"
+                                                        class="text-white">read more</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+                            @if (!empty($tech_glossy3->title))
+                                <div class="col-lg-6 mb-lg-1 mb-4">
+                                    <div class="hover-4 hover-second text-white rounded">
+                                        <img class="img-fluid"
+                                            src="{{ isset($tech_glossy3->image) && file_exists(public_path('storage/' . $tech_glossy3->image)) ? asset('storage/' . $tech_glossy3->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                            alt="">
+                                        <div class="hover-overlay-second"></div>
+                                        <div class="hover-4-content px-5 py-4">
+                                            <p class="hover-4-title text-uppercase font-weight-bold mb-0">
+                                                <span class="font-weight-light">{{ $tech_glossy3->badge }} </span> <br>
+                                                <span class="hover_content_title">
+                                                    {{ Str::words($tech_glossy3->title, 7) }}
+                                                </span>
+                                            </p>
+                                            <p class="hover-4-description text-uppercase mb-0">
+                                                <a href="{{ route('techglossy.details', $tech_glossy3->title) }}"
+                                                    class="text-white">read more</a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endif
+                            @endif
 
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
+                    <div class="p-5 blocks-content" style="background-color:#f7f6f5!important;">
                         <h3>
                             <span style="border-top: 3px solid #ae0a46;">Fe</span>atured Content
                         </h3>
 
                         @if ($blogs)
                             @foreach ($blogs as $blog)
-                                <div class="py-3">
+                                <div class="pt-2 pb-3">
                                     <a href="{{ route('blog.details', $blog->id) }}">
-                                        <p class="mb-0 pb-2">{{ $blog->badge }}</p>
-                                        <h6>{{ $blog->title }}</h6>
+                                        <h6 class="mb-0 pb-2 block_blog_badge">{{ $blog->badge }}</h6>
+                                        <p class="mb-0">{{ Str::words($blog->title, 8) }}</p>
                                     </a>
                                 </div>
-                                <hr class="m-1">
+                            <hr class="my-1 mx-0">
                             @endforeach
                         @endif
 
@@ -490,7 +492,7 @@
                         <h5 class="home_title_heading" style="text-align: left;">
                             <div class="software_feature_title">
                                 <h1 class="text-center pb-3">
-                                    <span>{{ \Illuminate\Support\Str::substr($sentence2, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($sentence2, 1) }}
+                                    <span>{{ \Illuminate\Support\Str::substr($sentence2, 0, 2) }}</span>{{ \Illuminate\Support\Str::substr($sentence2, 2) }}
                                 </h1>
                             </div>
                         </h5>
