@@ -22,6 +22,7 @@ return new class extends Migration
             $table->enum('featured',['0','1'])->default('0')->nullable();
             $table->string('badge')->nullable();
             $table->string('title')->nullable();
+            $table->string('slug')->unique()->nullable();
             $table->text('header')->nullable();
             $table->string('added_by')->nullable();
             $table->string('created_by')->nullable();

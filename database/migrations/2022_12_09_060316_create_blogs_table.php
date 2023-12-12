@@ -20,8 +20,10 @@ return new class extends Migration
             $table->string('industry_id')->nullable()->comment('multi_id');
             $table->string('solution_id')->nullable()->comment('multi_id');
             $table->enum('featured',['0','1'])->default('0')->nullable();
+            $table->enum('type',['blog','story','tech_content'])->default('blog')->nullable();
             $table->string('badge')->nullable();
             $table->string('title')->nullable();
+            $table->string('slug')->unique()->nullable();
             $table->text('header')->nullable();
             $table->string('created_by')->nullable();
             $table->string('added_by')->nullable();

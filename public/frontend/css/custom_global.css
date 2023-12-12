@@ -3127,15 +3127,15 @@ select:focus-visible {
 .nav-pills-custom .nav-link {
     font-family: var(--primary-font);
     color: #161616;
-    background: #e7e7e7;
+    background: #f7f7f7;
     font-weight: normal;
     position: relative;
 }
 
 .nav-pills-custom .nav-link.active {
     font-family: var(--primary-font);
-    color: #ffffff;
-    background: #ae0a46;
+    color: var(--primary-color);
+    background: #adadad;
     font-weight: normal;
 }
 
@@ -8420,6 +8420,7 @@ a:hover {
 }
 
 /* Custom Main Css End */
+
 /* Sidebar_tab Css Start */
 .dropdown-menu {
     background-color: white;
@@ -16981,6 +16982,15 @@ nav>div a.nav-item.nav-link.active:after {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.discover_tab_sub{
+    height: 3.38rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #d7d6d6 !important;
+}
+
+
 
 /* For Category All */
 .common_button3 {

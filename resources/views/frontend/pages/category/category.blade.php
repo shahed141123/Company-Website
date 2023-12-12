@@ -890,7 +890,7 @@
                                     color: white;
                                     font-size: 13px;
                                     display: flex;">
-                                        <a class="text-white" href="{{ route('brandpage.html', $item->slug) }}">Details | </a>
+                                        <a class="text-white" href="{{ route('brand.overview', $item->slug) }}">Details | </a>
                                         <a class="text-white ms-1" href="{{ route('custom.product', $item->slug) }}"><span class="">Shop</span> </a>
                                     </div>
                                     {{-- <a href="{{ route('custom.product', $item->slug) }}" class="btn-color">

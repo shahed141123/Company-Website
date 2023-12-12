@@ -52,7 +52,7 @@
                                             Image </label>
                                         <div class="input-group">
                                             <input name="banner_image" type="file" class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Banner Image">
+                                                placeholder="Enter Banner Image" required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -62,8 +62,8 @@
                                             Title </label>
                                         <div class="input-group">
                                             <input name="banner_title" maxlength="255" type="text"
-                                                class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Banner Title" required>
+                                                class="form-control form-control-sm" placeholder="Enter Banner Title"
+                                                required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -74,7 +74,7 @@
                                         <div class="input-group">
                                             <input name="banner_short_description" type="text"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Banner Short Description " required>
+                                                placeholder="Enter Banner Short Description " required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -84,8 +84,8 @@
                                             Btn Name</label>
                                         <div class="input-group">
                                             <input name="banner_btn_name" type="text" maxlength="255"
-                                                class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Banner Btn Name" required>
+                                                class="form-control form-control-sm" placeholder="Enter Banner Btn Name"
+                                                required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -95,8 +95,8 @@
                                             Btn Link</label>
                                         <div class="input-group">
                                             <input name="banner_btn_link" type="url" maxlength="100"
-                                                class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Banner Btn Name" required>
+                                                class="form-control form-control-sm" placeholder="Enter Banner Btn Link"
+                                                required>
                                         </div>
                                     </div>
                                 </div>
@@ -109,7 +109,7 @@
                                             Two Title</label>
                                         <div class="input-group">
                                             <input name="row_two_title" maxlength="100" type="text"
-                                                class="form-control form-control-sm" placeholder="Enter Hardware Card Title"
+                                                class="form-control form-control-sm" placeholder="Enter Card Title"
                                                 required>
                                         </div>
                                     </div>
@@ -120,7 +120,7 @@
                                             Two Short Description </label>
                                         <div class="input-group">
                                             <input name="row_two_short_description" type="text"
-                                                class="form-control form-control-sm" placeholder="Enter Hardware Card Title"
+                                                class="form-control form-control-sm" placeholder="Enter Card Title"
                                                 required>
                                         </div>
                                     </div>
@@ -135,11 +135,10 @@
                                             Four Title </label>
                                         <div class="input-group">
                                             <input name="row_four_title" type="text" maxlength="255"
-                                                class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Four Title " required>
+                                                class="form-control form-control-sm" placeholder="Enter Row Four Title "
+                                                required>
                                         </div>
                                     </div>
-                                    {{--  --}}
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
                                         <label
@@ -148,7 +147,7 @@
                                         <div class="input-group">
                                             <input name="row_four_sub_title" type="text" maxlength="255"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Four Sub Title " required>
+                                                placeholder="Enter Row Four Sub Title " required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -159,7 +158,7 @@
                                         <div class="input-group">
                                             <input name="row_four_short_description" type="text"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Four Short Description " required>
+                                                placeholder="Enter Row Four Short Description " required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -170,7 +169,7 @@
                                         <div class="input-group">
                                             <input name="row_four_video_link" type="url" maxlength="100"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Four Video Link" required>
+                                                placeholder="Enter Row Four Video Link" required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -179,9 +178,9 @@
                                             class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
                                             Four Btn Name </label>
                                         <div class="input-group">
-                                            <input name="row_four_btn_name" type="url" maxlength="250"
-                                                class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Four Btn Name" required>
+                                            <input name="row_four_btn_name" type="text" maxlength="250"
+                                                class="form-control form-control-sm" placeholder="Enter Row Four Btn Name"
+                                                required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -191,12 +190,13 @@
                                             Four Btn Link </label>
                                         <div class="input-group">
                                             <input name="row_four_btn_link" type="url" maxlength="250"
-                                                class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Four Btn Link" required>
+                                                class="form-control form-control-sm" placeholder="Enter Row Four Btn Link"
+                                                required>
                                         </div>
                                     </div>
                                     {{--  --}}
                                 </div>
+
                             </div>
                             <div class="col">
                                 <span class="mt-1 fw-bold text-info">Row Five Area</span>
@@ -204,8 +204,9 @@
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
                                         <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row Five Tab One</label>
-                                            <select name="row_five_tab_one_id" class="form-control select"
+                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
+                                            Five Tab One</label>
+                                        <select name="row_five_tab_one_id" class="form-control select"
                                             data-placeholder="Chose Row Five Tab One" data-allow-clear="true">
                                             <option></option>
                                             @foreach ($rows as $row)
@@ -218,7 +219,7 @@
                                         <label
                                             class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
                                             Five Tab Two</label>
-                                            <select name="row_five_tab_two_id" class="form-control select"
+                                        <select name="row_five_tab_two_id" class="form-control select"
                                             data-placeholder="Chose Row Five Tab Two" data-allow-clear="true">
                                             <option></option>
                                             @foreach ($rows as $row)
@@ -231,8 +232,8 @@
                                         <label
                                             class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
                                             Five Tab Three</label>
-                                            <select name="row_five_tab_three_id" class="form-control select"
-                                            data-placeholder="Chose Row Five Tab Three" data-allow-clear="true">
+                                        <select name="row_five_tab_three_id" class="form-control select"
+                                            data-placeholder="Chose row five tab Three " data-allow-clear="true">
                                             <option></option>
                                             @foreach ($rows as $row)
                                                 <option value="{{ $row->id }}">{{ $row->title }} </option>
@@ -244,8 +245,8 @@
                                         <label
                                             class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
                                             Five Tab Four</label>
-                                            <select name="row_five_tab_four_id" class="form-control select"
-                                            data-placeholder="Chose Row Five Tab Four" data-allow-clear="true">
+                                        <select name="row_five_tab_four_id" class="form-control select"
+                                            data-placeholder="Chose row five tab Four " data-allow-clear="true">
                                             <option></option>
                                             @foreach ($rows as $row)
                                                 <option value="{{ $row->id }}">{{ $row->title }} </option>
@@ -259,8 +260,8 @@
                                             Five Title</label>
                                         <div class="input-group">
                                             <input name="row_five_title" type="text" maxlength="250"
-                                                class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Five Title" required>
+                                                class="form-control form-control-sm" placeholder="Enter Row Five Title"
+                                                required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -271,7 +272,7 @@
                                         <div class="input-group">
                                             <input name="row_five_short_description" type="text" maxlength="250"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Five Short Description" required>
+                                                placeholder="Enter Row Five Short Description" required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -286,8 +287,8 @@
                                             Six Title</label>
                                         <div class="input-group">
                                             <input name="row_six_title" type="text" maxlength="250"
-                                                class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Six Title" required>
+                                                class="form-control form-control-sm" placeholder="Enter Row Six Title"
+                                                required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -298,7 +299,7 @@
                                         <div class="input-group">
                                             <input name="row_six_short_description" type="text"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Six Short Description" required>
+                                                placeholder="Enter Row Six Short Description" required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -308,8 +309,8 @@
                                             Six Btn Name</label>
                                         <div class="input-group">
                                             <input name="row_six_btn_name" type="text"
-                                                class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Six Btn Name" required>
+                                                class="form-control form-control-sm" placeholder="Enter Row Six Btn Name"
+                                                required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -319,8 +320,8 @@
                                             Six Btn Link</label>
                                         <div class="input-group">
                                             <input name="row_six_btn_link" type="url"
-                                                class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Six Btn Link" required>
+                                                class="form-control form-control-sm" placeholder="Enter Row Six Btn Link"
+                                                required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -330,8 +331,8 @@
                                             Six Image</label>
                                         <div class="input-group">
                                             <input name="row_six_image" type="file"
-                                                class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Six Image">
+                                                class="form-control form-control-sm" placeholder="Enter Row Six Image"
+                                                required>
                                         </div>
                                     </div>
                                 </div>
@@ -345,8 +346,8 @@
                                             Seven Title</label>
                                         <div class="input-group">
                                             <input name="row_seven_title" type="text" maxlength="250"
-                                                class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Seven Title" required>
+                                                class="form-control form-control-sm" placeholder="Enter Row Seven Title"
+                                                required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -361,8 +362,8 @@
                                             Eight Title </label>
                                         <div class="input-group">
                                             <input name="row_eight_title" type="text" maxlength="250"
-                                                class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Eight Title " required>
+                                                class="form-control form-control-sm" placeholder="Enter Row Eight Title "
+                                                required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -373,7 +374,7 @@
                                         <div class="input-group">
                                             <input name="row_eight_short_description" type="text" maxlength="250"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Hardware Row Eight Short Description" required>
+                                                placeholder="Enter Row Eight Short Description" required>
                                         </div>
                                     </div>
                                     {{--  --}}
@@ -386,8 +387,8 @@
                         <button type="submit" class="submit_btn from-prevent-multiple-submits"
                             style="padding: 4px 9px;">Submit</button>
                     </div>
+                </div>
             </form>
-        </div>
         <!-- /content area -->
         <!-- /inner content -->
 

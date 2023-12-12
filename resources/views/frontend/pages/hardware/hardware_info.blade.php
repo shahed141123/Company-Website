@@ -1,29 +1,11 @@
 @extends('frontend.master')
 @section('content')
-    @if (!empty($software_info->row_six_image))
-        <style>
-            .global_call_section::after {
-                background: url('{{ asset('storage/' . $software_info->row_six_image) }}');
-                content: "";
-                position: absolute;
-                height: 250px;
-                background-position: top center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                width: 100%;
-                background-color: #cbc4c3;
-                top: 13%;
-                left: 0px;
-                z-index: -1;
-            }
-        </style>
-    @endif
-
     <!--======// Header Title //======-->
-    @if (!empty($software_info->banner_image))
+    @if (!empty($hardware_info->banner_image))
         <section>
             <div>
-                <img class="page_top_banner" src="{{ !empty($software_info->banner_image) && file_exists(public_path('storage/' . $software_info->banner_image)) ? asset('storage/' . $software_info->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
+                <img class="page_top_banner"
+                    src="{{ !empty($hardware_info->banner_image) && file_exists(public_path('storage/' . $hardware_info->banner_image)) ? asset('storage/' . $hardware_info->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
                     alt="NGEN IT Software">
             </div>
         </section>
@@ -63,100 +45,102 @@
         </div>
     </section>
     <!--======// Information Section //======-->
-    <section>
-        <div class="container">
-            <div class="row gx-3">
-                <div class="col-lg-8">
-                    <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                <div class="animated-image parbase section">
-                                    <div id="solution_image_1">
-                                        <img src="{{ isset($software_info->row_six_image) && file_exists(public_path('storage/' . $software_info->row_six_image)) ? asset('storage/' . $software_info->row_six_image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                                            alt="{{ $software_info->row_six_title }}" title="Software Information NGENIT"
-                                            class="img-fluid" style="background-color: rgb(212,208,202);">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <h3 class="software-info-title">
-                                    <span
-                                        style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($software_info->row_six_title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($software_info->row_six_title, 1) }}
-                                </h3>
-                                <p class="software-info-paragraph" style="text-align: justify;">
-                                    {!! $software_info->row_six_short_description !!}
-                                </p>
-                                @if (!empty($software_info->row_six_btn_name))
-                                    <a href="{{ $software_info->row_six_btn_link }}"
-                                        class="cool-link main_color">{{ $software_info->row_six_btn_name }}</a>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @if ($tab_one)
-                    <div class="col-lg-4">
+    @if (!empty($hardware_info->row_six_image))
+        <section>
+            <div class="container">
+                <div class="row gx-3">
+                    <div class="col-lg-8">
                         <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
                             <div class="row align-items-center">
-                                <div class="col-lg-12">
-                                    @if (isset($tab_one->image) && file_exists(public_path('storage/' . $tab_one->image)))
-                                        <div>
-                                            <img class="pb-4" width="80px"
-                                                src="{{ asset('storage/' . $tab_one->image) }}" alt="">
+                                <div class="col-lg-6">
+                                    <div class="animated-image parbase section">
+                                        <div id="solution_image_1">
+                                            <img src="{{ isset($hardware_info->row_six_image) && file_exists(public_path('storage/' . $hardware_info->row_six_image)) ? asset('storage/' . $hardware_info->row_six_image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                                alt="{{ $hardware_info->row_six_title }}" title="Software Information NGENIT"
+                                                class="img-fluid" style="background-color: rgb(212,208,202);">
                                         </div>
-                                    @endif
-                                    <h1 class="software-info-title">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h3 class="software-info-title">
                                         <span
-                                            style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tab_one->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tab_one->title, 1) }}
-                                    </h1>
+                                            style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($hardware_info->row_six_title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($hardware_info->row_six_title, 1) }}
+                                    </h3>
                                     <p class="software-info-paragraph" style="text-align: justify;">
-                                        {!! Str::words($tab_one->description, 55, $end = '...') !!}
-
+                                        {!! $hardware_info->row_six_short_description !!}
                                     </p>
-                                    @if (!empty($tab_one->btn_name))
-                                        <a href="{{ $tab_one->link }}"
-                                            class="cool-link main_color">{{ $tab_one->btn_name }}</a>
+                                    @if (!empty($hardware_info->row_six_btn_name))
+                                        <a href="{{ $hardware_info->row_six_btn_link }}"
+                                            class="cool-link main_color">{{ $hardware_info->row_six_btn_name }}</a>
                                     @endif
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endif
-            </div>
-            <div class="row gx-3 mt-3 mb-5">
-                @if ($tabIds)
-                    @foreach ($tabIds as $tabId)
+                    @if ($tab_one)
                         <div class="col-lg-4">
                             <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
                                 <div class="row align-items-center">
                                     <div class="col-lg-12">
-                                        @if (isset($tabId->image) && file_exists(public_path('storage/' . $tabId->image)))
+                                        @if (isset($tab_one->image) && file_exists(public_path('storage/' . $tab_one->image)))
                                             <div>
                                                 <img class="pb-4" width="80px"
-                                                    src="{{ asset('storage/' . $tabId->image) }}" alt="">
+                                                    src="{{ asset('storage/' . $tab_one->image) }}" alt="">
                                             </div>
                                         @endif
                                         <h1 class="software-info-title">
                                             <span
-                                                style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tabId->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tabId->title, 1) }}
+                                                style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tab_one->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tab_one->title, 1) }}
                                         </h1>
                                         <p class="software-info-paragraph" style="text-align: justify;">
-                                            {!! \Illuminate\Support\Str::words($tabId->description, 55, $end = '.') !!}
+                                            {!! Str::words($tab_one->description, 55, $end = '...') !!}
+
                                         </p>
-                                        @if (!empty($tabId->btn_name))
-                                            <a href="{{ $tabId->link }}"
-                                                class="cool-link main_color">{{ $tabId->btn_name }}
-                                            </a>
+                                        @if (!empty($tab_one->btn_name))
+                                            <a href="{{ $tab_one->link }}"
+                                                class="cool-link main_color">{{ $tab_one->btn_name }}</a>
                                         @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                @endif
+                    @endif
+                </div>
+                <div class="row gx-3 mt-3 mb-5">
+                    @if ($tabIds)
+                        @foreach ($tabIds as $tabId)
+                            <div class="col-lg-4">
+                                <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; min-height: 465px;">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-12">
+                                            @if (isset($tabId->image) && file_exists(public_path('storage/' . $tabId->image)))
+                                                <div>
+                                                    <img class="pb-4" width="80px"
+                                                        src="{{ asset('storage/' . $tabId->image) }}" alt="">
+                                                </div>
+                                            @endif
+                                            <h1 class="software-info-title">
+                                                <span
+                                                    style="border-top: 3px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($tabId->title, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($tabId->title, 1) }}
+                                            </h1>
+                                            <p class="software-info-paragraph" style="text-align: justify;">
+                                                {!! \Illuminate\Support\Str::words($tabId->description, 55, $end = '.') !!}
+                                            </p>
+                                            @if (!empty($tabId->btn_name))
+                                                <a href="{{ $tabId->link }}"
+                                                    class="cool-link main_color">{{ $tabId->btn_name }}
+                                                </a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
     <!--======// Feature tab //======-->
     <section>
         <div class="container">
@@ -166,7 +150,7 @@
                         <div
                             class="card-header bg-white shadow-sm main-to-depp-gradient-2 p-5 card-header-area border-top-right-r">
                             <div class="d-flex align-items-center">
-                                <h4 class="pe-2 text-white">Software Related</h4>
+                                <h4 class="pe-2 text-white">Hardware Related</h4>
                                 <h4 class="pe-2 text-white">|</h4>
                                 <h4 class="text-white">Categories</h4>
                             </div>
@@ -181,12 +165,9 @@
                                                 <div class="p-lg-4 p-4 shadow-sm bg-white">
                                                     <div class="d-lg-flex align-items-center">
                                                         <div class="icons_area pe-2">
-                                                            {{-- <img class="category_icon"
-                                                                src="{{ asset('storage/' . $category->image) }}"
-                                                                alt=""> --}}
-                                                                <img class="img-fluid"
-        src="{{ !empty($category->image) && file_exists(public_path('storage/' . $category->image)) ? asset('storage/' . $category->image) : asset('frontend/images/no-img-png.png') }}"
-        alt="NGEN IT">
+                                                            <img class="img-fluid"
+                                                                src="{{ !empty($category->image) && file_exists(public_path('storage/' . $category->image)) ? asset('storage/' . $category->image) : asset('frontend/images/no-img-png.png') }}"
+                                                                alt="NGEN IT">
                                                         </div>
                                                         <div class="text_area">
                                                             {{ $category->title }}
@@ -210,7 +191,7 @@
     </section>
     <!----------End--------->
     <!--======// Our expert //======-->
-    @if (!empty($hardware_info))
+    @if (!empty($hardware_info->row_four_video_link ))
         <section>
             <div class="container mt-3 mb-5 video_row">
                 <div class="software_feature_title py-lg-5 py-3">
@@ -280,7 +261,7 @@
                                                 <div class="brand-images">
                                                     <a href="{{ route('brandpage.html', $brand->slug) }}">
                                                         <img src="{{ asset('storage/' . $brand->image) }}"
-                                                            class="img-fluid" alt="{{ $brand->title }}"> 
+                                                            class="img-fluid" alt="{{ $brand->title }}">
                                                     </a>
                                                 </div>
                                             </div>
@@ -305,8 +286,7 @@
                                         </div>
                                     </div>
                                 @endforeach
-                                <div class="col-lg-12 col-md-12 col-sm-12 text-end mt-2 px-4"
-                                    style="color: #ae0a46;">
+                                <div class="col-lg-12 col-md-12 col-sm-12 text-end mt-2 px-4" style="color: #ae0a46;">
                                     <a class="text-site" href="{{ route('all.brand') }}">See
                                         More <i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
@@ -481,11 +461,11 @@
     @if (count($tech_datas) > 0)
         <div class="section_wp2">
             <div class="container">
-                @if (!empty($software_info->row_seven_title))
+                @if (!empty($hardware_info->row_seven_title))
                     <div class="solution_number_wrapper">
                         <!-- title -->
                         @php
-                            $sentence2 = $software_info->row_seven_title;
+                            $sentence2 = $hardware_info->row_seven_title;
                         @endphp
                         <h5 class="home_title_heading" style="text-align: left;">
                             <div class="software_feature_title">

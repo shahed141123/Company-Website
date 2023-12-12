@@ -90,35 +90,6 @@ class HomeController extends Controller
         $data['story4']     = $data['home']->story4;
         $data['techglossy'] = $data['home']->techglossy;
 
-
-        // $data['products'] = [];
-
-        // for ($i = 0; $i < 10; $i++) {
-        //     $softwareProducts = DB::table('products')
-        //         ->select('id', 'brand_id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'price_status')
-        //         ->where('product_status', 'product')
-        //         ->where('product_type', 'software')
-        //         ->inRandomOrder()
-        //         ->limit(2)
-        //         ->get();
-
-        //     $hardwareProducts = DB::table('products')
-        //         ->select('id', 'brand_id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'price_status')
-        //         ->where('product_status', 'product')
-        //         ->where('product_type', 'hardware')
-        //         ->inRandomOrder()
-        //         ->limit(2)
-        //         ->get();
-
-        //     foreach ($softwareProducts as $softwareProduct) {
-        //         $data['products'][] = $softwareProduct;
-        //     }
-
-        //     foreach ($hardwareProducts as $hardwareProduct) {
-        //         $data['products'][] = $hardwareProduct;
-        //     }
-        // }
-
         $productColumns = ['id', 'brand_id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'price_status'];
 
         $softwareProducts = DB::table('products')
@@ -154,7 +125,6 @@ class HomeController extends Controller
                 'tab_four' => Row::where('id', $data['software_info']->row_five_tab_four_id)->first(),
             ];
         }
-        $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
         $data['categories'] = DB::table('sub_categories')->join('products', 'sub_categories.id', '=', 'products.sub_cat_id')
             ->where('products.product_type', '=', 'software')
             ->select('sub_categories.id', 'sub_categories.slug', 'sub_categories.title', 'sub_categories.image')
@@ -167,13 +137,10 @@ class HomeController extends Controller
         $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
 
         $data['tech_glossies'] = TechGlossy::inRandomOrder()->limit(3)->get();
-
         // dd($data['tech_glossies']);
-
         $data['tech_glossy1'] = $data['tech_glossies']->first();
         $data['tech_glossy2'] = $data['tech_glossies']->get(1);
         $data['tech_glossy3'] = $data['tech_glossies']->get(2);
-
         $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
         //dd($data['categories']);
         return view('frontend.pages.software.software_info', $data);
@@ -181,7 +148,7 @@ class HomeController extends Controller
 
     public function hardwareInfo()
     {
-        $data['hardware_info'] = HardwareInfoPage::where('type','info')->latest()->first();
+        $data['hardware_info'] = HardwareInfoPage::where('type', 'info')->latest()->firstOrFail();
         $data['tab_one'] = Row::where('id', $data['hardware_info']->row_five_tab_one_id)->first();
         if (!empty($data['hardware_info'])) {
             $data['tabIds'] = [
@@ -215,45 +182,46 @@ class HomeController extends Controller
 
 
 
-    public function SoftwareCommon()
+    public function softwareCommon()
     {
-        $learnMore = LearnMore::orderBy('id', 'DESC')
-            ->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
+        $data['software_info'] = SoftwareInfoPage::where('type', 'info')->latest()->firstOrFail();
+        $data['tab_one'] = Row::where('id', $data['software_info']->row_five_tab_one_id)->first();
+        if (!empty($data['software_info'])) {
+            $data['tabIds'] = [
+                'tab_two' => Row::where('id', $data['software_info']->row_five_tab_two_id)->first(),
+                'tab_three' => Row::where('id', $data['software_info']->row_five_tab_three_id)->first(),
+                'tab_four' => Row::where('id', $data['software_info']->row_five_tab_four_id)->first(),
+            ];
+        }
 
-        $products = Product::where('product_type', 'software')
+        $data['categories'] = SubCategory::with('subCatsoftwareProducts')->join('products', 'sub_categories.id', '=', 'products.sub_cat_id')
+            ->where('products.product_type', '=', 'software')
+            ->select('sub_categories.id', 'sub_categories.slug', 'sub_categories.title', 'sub_categories.image')
+            ->distinct()->inRandomOrder()->limit(12)->get();
+
+        $data['products'] = Product::where('product_type', 'software')
             ->where('product_status', 'product')
             ->orderByRaw('RAND()')
             ->limit(16)
             ->get(['id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount']);
+        $brandIds = Product::where('product_status', 'product')->where('product_type', 'software')->distinct()->pluck('brand_id')->toArray();
 
-        $categories = SubCategory::with('subCatsoftwareProducts')
-            ->join('products', 'sub_categories.id', '=', 'products.sub_cat_id')
-            ->where('products.product_type', '=', 'software')
-            ->select('sub_categories.id', 'sub_categories.slug', 'sub_categories.title', 'sub_categories.image')
-            ->distinct()->orderByRaw('RAND()')->limit(12)->get();
-        $brands = Brand::with('brandsoftwareProducts')
-            ->join('products', 'brands.id', '=', 'products.brand_id')
-            ->where('products.product_type', '=', 'software')
-            ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
-            ->distinct()->orderByRaw('RAND()')->limit(12)->get();
+        $data['brands'] = Brand::whereIn('id', $brandIds)->limit(12)->get();
 
-        $solutions = SolutionDetail::orderBy('id', 'DESC')->limit(10)->get(['id', 'name']);
+        $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
 
-        $randomClientStories = ClientStory::inRandomOrder()->limit(2)->get();
-        $story3 = $randomClientStories->first();
-        $story4 = $randomClientStories->last();
+        $data['tech_glossies'] = TechGlossy::inRandomOrder()->limit(3)->get();
+        // dd($data['tech_glossies']);
+        $data['tech_glossy1'] = $data['tech_glossies']->first();
+        $data['tech_glossy2'] = $data['tech_glossies']->get(1);
+        $data['tech_glossy3'] = $data['tech_glossies']->get(2);
+        $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
+        $data['solutions'] = SolutionDetail::orderBy('id', 'DESC')->limit(10)->get(['id', 'name']);
+        $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
+        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'logo', 'title']);
+        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'title']);
 
-        // Use cached results for 'story1' and 'story2' as they are random blog posts
-        $randomBlogPosts = Blog::inRandomOrder()->limit(2)->get();
-        $story1 = $randomBlogPosts->first();
-        $story2 = $randomBlogPosts->last();
-
-        $tech_datas = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
-
-        $industrys = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'logo', 'title']);
-        $random_industries = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'title']);
-
-        return view('frontend.pages.software.allsoftware', compact('learnMore', 'products', 'categories', 'brands', 'solutions', 'story1', 'story2', 'story3', 'story4', 'tech_datas', 'industrys', 'random_industries'));
+        return view('frontend.pages.software.allsoftware', $data);
     }
 
     //Hardware All Pge
@@ -261,44 +229,41 @@ class HomeController extends Controller
     public function HardwareCommon()
     {
         // Query 1 - LearnMore
+        $data['hardware_info'] = SoftwareInfoPage::where('type', 'info')->latest()->firstOrFail();
+        $data['tab_one'] = Row::where('id', $data['hardware_info']->row_five_tab_one_id)->first();
+        if (!empty($data['hardware_info'])) {
+            $data['tabIds'] = [
+                'tab_two' => Row::where('id', $data['hardware_info']->row_five_tab_two_id)->first(),
+                'tab_three' => Row::where('id', $data['hardware_info']->row_five_tab_three_id)->first(),
+                'tab_four' => Row::where('id', $data['hardware_info']->row_five_tab_four_id)->first(),
+            ];
+        }
 
-        $data['learnmore'] = LearnMore::orderBy('id', 'DESC')
-            ->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
+        $data['categories'] = Category::with('subCathardwareProducts')->join('products', 'categories.id', '=', 'products.cat_id')
+            ->where('products.product_type', '=', 'hardware')
+            ->select('categories.id', 'categories.slug', 'categories.title', 'categories.image')
+            ->distinct()->inRandomOrder()->limit(12)->get();
 
-        // Query 2 - Products (Software)
-        $data['products'] = Product::where('product_type', 'software')
+        $data['products'] = Product::where('product_type', 'hardware')
             ->where('product_status', 'product')
             ->orderByRaw('RAND()')
             ->limit(16)
             ->get(['id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount']);
+        $brandIds = Product::where('product_status', 'product')->where('product_type', 'hardware')->distinct()->pluck('brand_id')->toArray();
 
-        $data['categories'] = Category::with('subCathardwareProducts')
-            ->join('products', 'categories.id', '=', 'products.cat_id')
-            ->where('products.product_type', '=', 'hardware')
-            ->select('categories.id', 'categories.slug', 'categories.title', 'categories.image')
-            ->distinct()->orderByRaw('RAND()')->limit(12)->get();
-
-        $data['brands'] = Brand::with('brandhardwareProducts')
-            ->join('products', 'brands.id', '=', 'products.brand_id')
-            ->where('products.product_type', '=', 'hardware')
-            ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
-            ->distinct()->orderByRaw('RAND()')->limit(12)->get();
+        $data['brands'] = Brand::whereIn('id', $brandIds)->limit(12)->get();
 
         // Query 5 - SolutionDetail
         $data['solutions'] = SolutionDetail::orderBy('id', 'DESC')->limit(10)->get(['id', 'name']);
 
-        $randomClientStories = ClientStory::inRandomOrder()->limit(2)->get();
-        $data['story3'] = $randomClientStories->first();
-        $data['story4'] = $randomClientStories->last();
-
-        // Use cached results for 'story1' and 'story2' as they are random blog posts
-        $randomBlogPosts = Blog::inRandomOrder()->limit(2)->get();
-        $data['story1'] = $randomBlogPosts->first();
-        $data['story2'] = $randomBlogPosts->last();
-
+        $data['tech_glossies'] = TechGlossy::inRandomOrder()->limit(3)->get();
+        // dd($data['tech_glossies']);
+        $data['tech_glossy1'] = $data['tech_glossies']->first();
+        $data['tech_glossy2'] = $data['tech_glossies']->get(1);
+        $data['tech_glossy3'] = $data['tech_glossies']->get(2);
         $data['tech_datas'] = TechnologyData::where('category', 'hardware')->orderBy('id', 'ASC')->get();
-        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'slug', 'logo', 'title']);
-        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'slug', 'title']);
+        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'logo', 'title']);
+        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'title']);
 
         return view('frontend.pages.hardware.allhardware', $data);
     }
