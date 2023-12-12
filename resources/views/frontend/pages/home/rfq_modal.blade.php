@@ -76,7 +76,7 @@
                                                             onclick="increaseCount(event, this)">+</span>
                                                     </div>
                                                 </div>
-                                                <button class="common_button2 ms-3" type="submit">Add to
+                                                <button class="btn-color ms-3" type="submit">Add to
                                                     Basket</button>
                                             </div>
                                         </div>
@@ -505,7 +505,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer border-0">
-                                        <button type="submit" class="common_button2 effect02" id="submit_btn">Submit
+                                        <button type="submit" class="btn-color" id="submit_btn">Submit
                                             &nbsp;<i class="fa fa-paper-plane"></i></button>
                                     </div>
                                 </div>

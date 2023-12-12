@@ -114,7 +114,7 @@
                                     increase productivity, grow revenue and gain a competitive edge. We’ll help you adopt
                                     and manage generative AI to enhance employee-led processes and improve automation.
                                 </p>
-                                <a href="#" class="common_button2 effect02 cool-link">Explore our data solutions</a>
+                                <a href="#" class="btn-color cool-link">Explore our data solutions</a>
                             </div>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                                     improve operations. Develop an ecosystem that increases data visibility and flexibility.
 
                                 </p>
-                                <a href="#" class="common_button2 effect02 cool-link">Explore our data solutions</a>
+                                <a href="#" class="btn-color cool-link">Explore our data solutions</a>
                             </div>
                         </div>
                     </div>
@@ -160,7 +160,7 @@
                                     improve operations. Develop an ecosystem that increases data visibility and flexibility.
 
                                 </p>
-                                <a href="#" class="common_button2 effect02 cool-link">Explore our data solutions</a>
+                                <a href="#" class="btn-color cool-link">Explore our data solutions</a>
                             </div>
                         </div>
                     </div>
@@ -182,7 +182,7 @@
                                     improve operations. Develop an ecosystem that increases data visibility and flexibility.
 
                                 </p>
-                                <a href="#" class="common_button2 effect02 cool-link">Explore our data solutions</a>
+                                <a href="#" class="btn-color cool-link">Explore our data solutions</a>
                             </div>
                         </div>
                     </div>
@@ -204,7 +204,7 @@
                                     improve operations. Develop an ecosystem that increases data visibility and flexibility.
 
                                 </p>
-                                <a href="#" class="common_button2 effect02 cool-link">Explore our data solutions</a>
+                                <a href="#" class="btn-color cool-link">Explore our data solutions</a>
                             </div>
                         </div>
                     </div>

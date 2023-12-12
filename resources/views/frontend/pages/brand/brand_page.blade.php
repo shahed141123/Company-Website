@@ -2,7 +2,7 @@
 @section('content')
 
     <style>
-        .common_button2 {
+        .btn-white {
             padding: 15px 20px;
             cursor: pointer;
             font-family: "Allumi Std Extended";
@@ -81,10 +81,10 @@
                 <!--BUTTON START-->
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="m-4">
-                        <a class="common_button2" href="{{route('contact')}}">Talk A Specialist</a>
+                        <a class="btn-white" href="{{route('contact')}}">Talk A Specialist</a>
                     </div>
                     <div class="m-4">
-                        <a class="common_button2"
+                        <a class="btn-white"
                             href="{{ !empty($brand->slug) ? route('custom.product',$brand->slug) : route('all.brand') }}">Shop
                             all {{ $brand->title }}</a>
                     </div>
@@ -106,7 +106,7 @@
                         <p class="text-justify">{!! $row_one->description !!}</p>
 
                         @if (!empty($row_one->link))
-                            <a href="{{ $row_one->link }}" class="common_button">{{ $row_one->btn_name }}</a>
+                            <a href="{{ $row_one->link }}" class="btn-color">{{ $row_one->btn_name }}</a>
                         @else
                         @endif
 
@@ -136,7 +136,7 @@
                         <p class="text-justify">{!! $row_three->description !!}</p>
 
                         @if (!empty($row_three->link))
-                            <a href="{{ $row_three->link }}" class="common_button">{{ $row_three->btn_name }}</a>
+                            <a href="{{ $row_three->link }}" class="btn-color">{{ $row_three->btn_name }}</a>
                         @else
                         @endif
 
@@ -196,9 +196,6 @@
             <div class="call_to_action_text w-75 mx-auto">
                 <h4 class="">{{ $brandpage->row_six_title }}</h4>
                 <p>{{ $brandpage->row_six_header }}</p>
-                {{-- <div class="d-flex justify-content-center">
-                    <a href="route" class="common_button3 text-center">Contact us to buy</a>
-                </div> --}}
             </div>
 
         </div>
@@ -214,7 +211,7 @@
                         <h4 style="font-size:32px">{{ $row_four->title }}</h4>
                         <p>{!! $row_four->description !!}</p>
                         @if (!empty($row_four->link))
-                            <a href="{{ $row_four->link }}" class="common_button2">{{ $row_four->btn_name }}</a>
+                            <a href="{{ $row_four->link }}" class="btn-white">{{ $row_four->btn_name }}</a>
                         @else
                         @endif
 
@@ -242,7 +239,7 @@
                         <h4>{{ $row_five->title }}</h4>
                         <p>{!! $row_five->description !!}</p>
                         @if (!empty($row_five->link))
-                            <a href="{{ $row_five->link }}" class="common_button">{{ $row_five->btn_name }}</a>
+                            <a href="{{ $row_five->link }}" class="btn-color">{{ $row_five->btn_name }}</a>
                         @else
                         @endif
                     </div>
@@ -261,7 +258,7 @@
             </div>
             <div class="Container px-0">
                 <h3 class="Head" style="font-size:30px;">
-                    <a class="common_button2" href="{{ route('custom.product',$brand->slug) }}">Shop
+                    <a class="btn-white" href="{{ route('custom.product',$brand->slug) }}">Shop
                         <i class="fa fa-arrow-right mx-2"></i>
                     </a>
                     <span class="Arrows"></span>
@@ -311,7 +308,7 @@
                                                                 class="d-flex justify-content-center align-items-center"
                                                                 data-bs-toggle="modal"
                                                                 data-bs-target="#rfq{{ $item->id }}">
-                                                                <button class="common_button effect01">
+                                                                <button class="btn-color">
                                                                     Ask For Price
                                                                 </button>
                                                             </a>
@@ -335,7 +332,7 @@
                                                                         data-mdb-content="Add To Cart Now"
                                                                         data-mdb-trigger="hover">
                                                                         <button type="submit"
-                                                                            class="common_button effect01">
+                                                                            class="btn-color">
                                                                             Add to Cart
                                                                         </button>
                                                                     </div>
@@ -354,7 +351,7 @@
                                                                 <div data-mdb-toggle="popover" title="Your Price"
                                                                     data-mdb-content="Your Price"
                                                                     data-mdb-trigger="hover">
-                                                                    <button class="common_button effect01" data-bs-toggle="modal"
+                                                                    <button class="btn-color" data-bs-toggle="modal"
                                                                     data-bs-target="#askProductPrice">
                                                                         Your Price
                                                                     </button>
@@ -468,7 +465,7 @@
 
                                                                     </div>
                                                                 </div>
-                                                                <button class="common_button2 ms-3" type="submit">Add to
+                                                                <button class="btn-white ms-3" type="submit">Add to
                                                                     Basket</button>
                                                             </div>
                                                         </div>

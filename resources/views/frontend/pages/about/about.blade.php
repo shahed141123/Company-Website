@@ -128,10 +128,6 @@
                         </h5>
                         <p class="home_title_text pt-4">
                             {{ $about->video_row_short_description }}</p>
-                        {{-- <div class="business_seftion_button text-center">
-                            <a class="common_button2"
-                                href="{{ $software_info->row_four_btn_link }}">{{ $software_info->row_four_btn_name }}</a>
-                        </div> --}}
                     </div>
                 </div>
             </div>

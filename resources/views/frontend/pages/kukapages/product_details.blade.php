@@ -64,9 +64,9 @@
                                 @if ($sproduct->rfq == 1)
                                     <div class="d-lg-block d-sm-none p-0">
                                         <div class="row justify-content-between align-items-center p-0">
-                                            {{-- <a class="common_button" href="{{route('contact')}}">Call Ngen It for price</a> --}}
+                                            {{-- <a class="btn-color" href="{{route('contact')}}">Call Ngen It for price</a> --}}
                                             <div class="need_help col-lg-6 col-sm-6">
-                                                <button class="common_button" id="modal_view_left" data-toggle="modal"
+                                                <button class="btn-color" id="modal_view_left" data-toggle="modal"
                                                     data-target="#get_quote_modal" style="width: 100%;">Ask For
                                                     Price</button>
                                             </div>
@@ -104,9 +104,9 @@
                                     <div class="d-lg-none d-sm-block p-0">
                                         <div>
                                             <div class="row justify-content-between align-items-center p-0">
-                                                {{-- <a class="common_button" href="{{route('contact')}}">Call Ngen It for price</a> --}}
+                                                {{-- <a class="btn-color" href="{{route('contact')}}">Call Ngen It for price</a> --}}
                                                 <div class="need_help col-6">
-                                                    <button class="common_button brand-product-btn" id="modal_view_left"
+                                                    <button class="btn-color brand-product-btn" id="modal_view_left"
                                                         data-toggle="modal" data-target="#get_quote_modal"
                                                         style="width: 100%;">Ask For Price</button>
                                                 </div>
@@ -147,9 +147,9 @@
                                     </div>
                                 @elseif ($sproduct->price_status && $sproduct->price_status == 'rfq')
                                     <div class="row justify-content-between align-items-center">
-                                        {{-- <a class="common_button" href="{{route('contact')}}">Call Ngen It for price</a> --}}
+                                        {{-- <a class="btn-color" href="{{route('contact')}}">Call Ngen It for price</a> --}}
                                         <div class="need_help col-lg-5 col-sm-12 p-0">
-                                            <button class="common_button" id="modal_view_left" data-toggle="modal"
+                                            <button class="btn-color" id="modal_view_left" data-toggle="modal"
                                                 data-target="#get_quote_modal" style="width: 100%;">Ask For Price</button>
                                         </div>
                                         <div class="need_help col-lg-7 col-sm-12 p-0">
@@ -188,7 +188,7 @@
                                     @endphp
                                     @if ($cart->where('id', $sproduct->id)->count())
                                         <div class="col-lg-4 col-sm-12 d-flex justify-content-center">
-                                            <div class="common_button2">
+                                            <div class="btn-color2">
                                                 <a class="text-white" href="javascript:void(0);"> Already in Cart</a>
                                             </div>
                                         </div>
@@ -217,7 +217,7 @@
 
                                                         </div>
                                                     </div>
-                                                    <button class="common_button2 ms-3" type="submit">Add to
+                                                    <button class="btn-color2 ms-3" type="submit">Add to
                                                         Basket</button>
                                                 </div>
 

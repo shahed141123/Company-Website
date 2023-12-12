@@ -49,15 +49,6 @@
             <h1 class="text-center text-white pt-5">{{$blog->badge}}</h1>
         <div class="container ">
             <div class="row ">
-              <!--BUTTON START-->
-              {{-- <div class="d-flex justify-content-center align-items-center">
-                <div class="m-4">
-                    <a href="{{route()}}" class="common_button2" href="product_filters.html">All Client Storys</a>
-                  </div>
-                  <div class="m-4">
-                    <a href="{{route()}}" class="common_button3" href="#">All Tech Glossys</a>
-                  </div>
-              </div> --}}
           </div>
         </div>
     </section>

@@ -337,7 +337,7 @@
                             <div class="box-content">
                                 <h3 class="text-white">{{ Str::limit($item->name, 25) }}</h3>
                                 <span class="post">{!! Str::limit($item->header, 120) !!}</span>
-                                <a href="{{ route('solution.details', $item->slug) }}" class="common_button2"
+                                <a href="{{ route('solution.details', $item->slug) }}" class="btn-color"
                                     style="border-radius: 5px; padding:10px 15px !important;">Details</a>
                             </div>
                         </div>
@@ -364,7 +364,7 @@
                         <p>{!! $industry->industryPage->rowThree->description !!}</p>
                         @if (!empty($industry->industryPage->rowThree->link))
                             <a href="{{ $industry->industryPage->rowThree->link }}"
-                                class="common_button2">{{ $industry->industryPage->rowThree->btn_name }}</a>
+                                class="btn-color">{{ $industry->industryPage->rowThree->btn_name }}</a>
                         @else
                         @endif
 
@@ -602,7 +602,7 @@
                                                                 class="d-flex justify-content-center align-items-center"
                                                                 data-bs-toggle="modal"
                                                                 data-bs-target="#rfq{{ $item->id }}">
-                                                                <button class="common_button effect01">
+                                                                <button class="btn-color">
                                                                     Ask For Price
                                                                 </button>
                                                             </a>
@@ -619,7 +619,7 @@
                                                                     data-mdb-content="Add To Cart Now"
                                                                     data-mdb-trigger="hover">
                                                                     <button type="button"
-                                                                        class="common_button effect01 add_to_cart"
+                                                                        class="btn-color add_to_cart"
                                                                         data-id="{{ $item->id }}"
                                                                         data-name="{{ $item->name }}"
                                                                         data-quantity="1">
@@ -640,7 +640,7 @@
                                                                 <div data-mdb-toggle="popover" title="Your Price"
                                                                     data-mdb-content="Your Price"
                                                                     data-mdb-trigger="hover">
-                                                                    <button class="common_button effect01"
+                                                                    <button class="btn-color"
                                                                         data-bs-toggle="modal"
                                                                         data-bs-target="#askProductPrice">
                                                                         Your Price

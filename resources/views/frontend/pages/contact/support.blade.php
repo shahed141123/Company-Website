@@ -109,7 +109,7 @@
                         <div class="form-group col-sm-12 px-3 mx-3 message g-recaptcha"
                                             data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
 
-                        <button id="submitbtn" type="submit" class="common_button2 mr-2">Hear from a specialist</button>
+                        <button id="submitbtn" type="submit" class="btn-color mr-2">Hear from a specialist</button>
                     </form>
 
                 </div>

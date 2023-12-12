@@ -15,7 +15,7 @@
                     </h2>
                 </div>
             </div>
-            <div class="row my-4 py-4">
+            <div class="row my-lg-4 py-lg-4">
                 @if (count($techglossys) > 0)
                     @foreach ($techglossys as $techglossy)
                         <div class="col-sm-3 px-0 mx-3 mb-3">

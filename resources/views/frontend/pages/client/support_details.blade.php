@@ -849,7 +849,7 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="d-flex justify-content-end">
-                                            <button type="submit" class="common_button effect01">Submit</button>
+                                            <button type="submit" class="btn-color">Submit</button>
                                         </div>
                                     </div>
                                 </div>

@@ -8,7 +8,7 @@
                 <!--BUTTON START-->
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="m-4">
-                        <a class="common_button2" href="{{ route('shop') }}">Go to Shop</a>
+                        <a class="btn-color" href="{{ route('shop') }}">Go to Shop</a>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                             </div>
                             <div class="ag-offer_hidden-item">
                                 <div class="mx-auto">
-                                    <a href="{{ route('category.html', $item->slug) }}" class="common_button3">
+                                    <a href="{{ route('category.html', $item->slug) }}" class="btn-color">
                                         Details
                                     </a>
                                 </div>
@@ -99,7 +99,7 @@
                             </div>
                             <div class="ag-offer_hidden-item">
                                 <div class="mx-auto">
-                                    <a href="{{ route('category.html', $slug) }}" class="common_button3">
+                                    <a href="{{ route('category.html', $slug) }}" class="btn-color">
                                         Details
                                     </a>
                                 </div>
@@ -126,7 +126,7 @@
                             </div>
                             <div class="ag-offer_hidden-item">
                                 <div class="mx-auto">
-                                    <a href="{{ route('custom.product', $slug) }}" class="common_button3">
+                                    <a href="{{ route('custom.product', $slug) }}" class="btn-color">
                                         Details
                                     </a>
                                 </div>
@@ -187,7 +187,7 @@
                                         //dd($cart->where('image' , $item->thumbnail )->count());
                                     @endphp
                                     @if ($cart->where('id', $item->id)->count())
-                                        <a href="javascript:void(0);" class="common_button2 p-0 py-2 px-1 pb-2"
+                                        <a href="javascript:void(0);" class="btn-color p-0 py-2 px-1 pb-2"
                                             style="height: 2.5rem"> Already in Cart</a>
                                     @else
                                         <form action="{{ route('add.cart') }}" method="post">
