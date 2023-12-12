@@ -4,7 +4,7 @@
     <section>
         <div>
             <img class="page_top_banner" src="{{ asset('frontend/images/Brands-All-Banner_NGenIT.jpg') }}"
-                alt="NGEN IT Software">
+                alt="NGEN IT All Brands">
         </div>
     </section>
     <!----------End--------->

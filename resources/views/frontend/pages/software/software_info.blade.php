@@ -379,7 +379,7 @@
                                                 </p>
 
                                                 <p class="hover-2-description text-uppercase mb-0">
-                                                    <a href="{{ route('techglossy.details', $tech_glossy1->title) }}"
+                                                    <a href="{{ route('techglossy.details', $tech_glossy1->id) }}"
                                                         class="text-white">read more</a>
                                                 </p>
                                             </div>
@@ -401,7 +401,7 @@
                                                 </p>
 
                                                 <p class="hover-2-description text-uppercase mb-0">
-                                                    <a href="{{ route('techglossy.details', $tech_glossy2->title) }}"
+                                                    <a href="{{ route('techglossy.details', $tech_glossy2->id) }}"
                                                         class="text-white">read more</a>
                                                 </p>
                                             </div>
@@ -424,7 +424,7 @@
                                                 </span>
                                             </p>
                                             <p class="hover-4-description text-uppercase mb-0">
-                                                <a href="{{ route('techglossy.details', $tech_glossy3->title) }}"
+                                                <a href="{{ route('techglossy.details', $tech_glossy3->id) }}"
                                                     class="text-white">read more</a>
                                             </p>
                                         </div>

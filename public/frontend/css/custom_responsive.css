@@ -1,6 +1,9 @@
 /* Extra Small Devices (e.g., Smartphones) */
 
 @media only screen and (max-width: 576px) {
+    .image_box_features {
+        height: 275px;
+    }
     .sidebar-wrapper .sidebar-header .user-info {
         float: left;
         padding-top: 20px;
@@ -937,6 +940,12 @@
 
     .brandpage_bg_image {
         height: 195px;
+    }
+
+    #stand-logo {
+        width: 100%;
+        max-height: 45px;
+        padding: 6px 14px;
     }
 
     .row_left_image {

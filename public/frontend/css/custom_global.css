@@ -5714,7 +5714,7 @@ tr td:hover {
 
 /* DEMO 2 ============================== */
 .blocks-content{
-    height: 35rem;
+    height: 38.8rem;
 }
 .hover-2 .hover-overlay {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
@@ -5780,7 +5780,7 @@ tr td:hover {
     overflow: hidden;
     position: relative;
     padding-bottom: 60%;
-    height: 34.2rem;
+    height: 38.8rem;
 }
 
 .hover-overlay-second {
@@ -17437,7 +17437,7 @@ nav>div a.nav-item.nav-link.active:after {
     display: inline-block;
     color: #000;
     text-decoration: none;
-    position: relative; /* Add position relative for absolute positioning of ::after */
+    position: relative !important; /* Add position relative for absolute positioning of ::after */
 }
 
 .cool-link::after {
@@ -17477,7 +17477,7 @@ nav>div a.nav-item.nav-link.active:after {
     background: #ae0a46;
     transition: width 0.3s;
     position: absolute;
-    bottom: 0;
+    bottom: -3px;
     left: 0;
 }
 
