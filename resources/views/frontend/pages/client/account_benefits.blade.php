@@ -1,8 +1,6 @@
 @extends('frontend.master')
 
 @section('content')
-
-
     <!--========Header Title==========-->
     <section class="account_benefits_header"
         style="background-image:url('{{ asset('assets/frontend/image/buy-category-hero.jpg') }}');
@@ -362,6 +360,4 @@
         </div>
     </section>
     <!-------------End--------->
-
-
 @endsection

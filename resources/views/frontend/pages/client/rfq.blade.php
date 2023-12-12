@@ -11,7 +11,7 @@
             @include('frontend.pages.client.partials.sidebar')
             <main class="page-content">
                 <div class="content_wrapper">
-                    <div class="container">
+                    <div class="container dashboard-container">
                         <div class="section_wrapper">
                             <div class="row">
                                 <div class="col-lg-12">

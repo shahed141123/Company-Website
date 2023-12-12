@@ -6,7 +6,7 @@
             @include('frontend.pages.client.partials.sidebar')
             <main class="page-content">
                 <div class="content_wrapper">
-                    <div class="container">
+                    <div class="container dashboard-container">
                         <div class="section_wrapper" style="min-height: 100vh;">
                             <div class="row align-items-center">
                                 <div class="col-lg-12">

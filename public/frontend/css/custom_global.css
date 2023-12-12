@@ -518,17 +518,6 @@ tr {
     box-shadow: var(--custom-shadow);
 }
 
-.cool-link::after {
-    height: 3px;
-    margin-top: -3px;
-}
-
-.cool-link:hover::after {
-    width: 100%;
-    transition: width 0.3s;
-    margin-top: -3px;
-}
-
 .account li {
     font-size: 11px;
 }
@@ -2981,24 +2970,6 @@ select:focus-visible {
     overflow-y: scroll;
 }
 
-.cool-link {
-    display: inline-block;
-    color: #000;
-    text-decoration: none;
-}
-
-.cool-link::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #ae0a46;
-    transition: width 0.3s;
-}
-
-.cool-link:hover::after {
-    width: 100%;
-}
 
 .dropdown-item:focus,
 .dropdown-item:hover {
@@ -4269,7 +4240,7 @@ select:focus-visible {
 
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown>a:after {
     font-weight: 900;
-    content: "\f105";
+    content: "";
     font-style: normal;
     display: inline-block;
     font-style: normal;
@@ -4774,7 +4745,7 @@ tr td:hover {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
         rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     background-color: #fffef9;
-    padding: 0rem 3rem;
+    padding: 3rem 3rem;
 }
 
 /* For Client Project Design End */
@@ -5541,15 +5512,6 @@ tr td:hover {
     padding: 0px 1px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 0px,
         rgba(0, 0, 0, 0.08) 0px 1px 1px 0px;
-}
-.cool-link::after {
-    height: 3px;
-    margin-top: -3px;
-}
-.cool-link:hover::after {
-    width: 100%;
-    transition: width 0.3s;
-    margin-top: -3px;
 }
 .account li {
     font-size: 11px;
@@ -16071,7 +16033,8 @@ thead {
 }
 
 .ProductBlock h3 {
-    font: 15px/36px RalewayR;
+    font-size: 16px;
+    font-family: var(--primary-font)
     color: #393939;
     margin-top: 5px;
     text-align: center;
@@ -17457,4 +17420,69 @@ nav>div a.nav-item.nav-link.active:after {
     font-style: normal;
     color: #222;
     margin: 30px 0px;
+}
+
+/* Client Dashboard */
+.dashboard-container{
+    margin-right: 110px;
+}
+
+.dashboard-container-2 {
+    margin-right: 10px;
+}
+.cool-link {
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    position: relative; /* Add position relative for absolute positioning of ::after */
+}
+
+.cool-link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #ae0a46;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -3px; /* Adjusted bottom to match your initial margin-top setting */
+    left: 0;
+}
+
+.cool-link:hover::after {
+    width: 100%;
+}
+
+/* Remove duplicated rules */
+.cool-link:hover::after {
+    margin-top: -3px;
+}
+
+
+.button-bottom-animation {
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    position: relative; /* Add position relative for absolute positioning of ::after */
+}
+
+.button-bottom-animation::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px; /* Adjusted height to match your initial height setting */
+    background: #ae0a46;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.button-bottom-animation:hover::after {
+    width: 100%;
+}
+
+/* Remove duplicated rules */
+.button-bottom-animation:hover::after {
+    margin-top: 0px; /* Adjusted margin-top to match your initial setting */
 }

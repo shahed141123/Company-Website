@@ -1,6 +1,16 @@
 /* Extra Small Devices (e.g., Smartphones) */
 
 @media only screen and (max-width: 576px) {
+    .sidebar-wrapper .sidebar-header .user-info {
+        float: left;
+        padding-top: 20px;
+    }
+    .dashboard-container {
+        margin-right: 0px;
+    }
+    .content-box-area{
+        padding: 0px !important;
+    }
     .footer_middle_wrapper{
         margin-top: 0px !important;
         margin-bottom: 0px !important;
@@ -1355,7 +1365,7 @@
     }
 
     .section_wrapper {
-        padding: 0px 20px;
+        padding: 1rem 1rem;
         text-align: center;
     }
 

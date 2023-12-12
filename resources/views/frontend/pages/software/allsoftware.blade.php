@@ -104,7 +104,7 @@
                                     </p>
                                     @if (!empty($software_info->row_six_btn_name))
                                         <a href="{{ $software_info->row_six_btn_link }}"
-                                            class="cool-link main_color">{{ $software_info->row_six_btn_name }}</a>
+                                            class="button-bottom-animation main_color">{{ $software_info->row_six_btn_name }}</a>
                                     @endif
                                 </div>
                             </div>
@@ -131,7 +131,7 @@
                                         </p>
                                         @if (!empty($tab_one->btn_name))
                                             <a href="{{ $tab_one->link }}"
-                                                class="cool-link main_color">{{ $tab_one->btn_name }}</a>
+                                                class="button-bottom-animation main_color">{{ $tab_one->btn_name }}</a>
                                         @endif
                                     </div>
                                 </div>
@@ -161,7 +161,7 @@
                                             </p>
                                             @if (!empty($tabId->btn_name))
                                                 <a href="{{ $tabId->link }}"
-                                                    class="cool-link main_color">{{ $tabId->btn_name }}
+                                                    class="button-bottom-animation main_color">{{ $tabId->btn_name }}
                                                 </a>
                                             @endif
                                         </div>

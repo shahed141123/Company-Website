@@ -69,7 +69,7 @@
             @include('frontend.pages.client.partials.sidebar')
             <main class="page-content">
                 <div class="content_wrapper">
-                    <div class="container pt-2">
+                    <div class="container pt-2 dashboard-container">
                         <div class="section_wrapper">
                             <div class="row align-items-center">
                                 <div class="col-lg-12">
