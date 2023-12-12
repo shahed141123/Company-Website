@@ -1159,7 +1159,7 @@
                                     font-size: 13px;
                                     display: flex;">
                                         <a class="text-white"
-                                            href="{{ route('brandpage.html', App\Models\Admin\Brand::where('id', $item->brand_id)->value('slug')) }}">Details
+                                            href="{{ route('brand.overview', App\Models\Admin\Brand::where('id', $item->brand_id)->value('slug')) }}">Details
                                             | </a>
                                         <a class="text-white ms-1"
                                             href="{{ route('custom.product', App\Models\Admin\Brand::where('id', $item->brand_id)->value('slug')) }}"><span
@@ -1179,7 +1179,7 @@
                                 <div class="d-flex justify-content-between">
 
                                     <div>
-                                        <a class="btn btn-light p-1 " href="{{route('brandpage.html',$brand->slug)}}" style="font-size: 12px;">Details</a>
+                                        <a class="btn btn-light p-1 " href="{{route('brand.overview',$brand->slug)}}" style="font-size: 12px;">Details</a>
                                     </div>
                                     <div>
                                         <a class="btn btn-light p-1 main_color" href="{{route('custom.product',$brand->slug)}}" style="font-size: 12px;">Shop</a>

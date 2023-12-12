@@ -41,12 +41,20 @@ class SoftwareCommonController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'banner_image'   => 'sometimes|nullable|image|mimes:png,jpg,jpeg|max:10000',
-                'row_six_image'   => 'sometimes|nullable|image|mimes:png,jpg,jpeg|max:10000',
+                'banner_image' => 'required|image|mimes:png,jpg,jpeg|max:5000',
+                'row_six_image' => 'required|image|mimes:png,jpg,jpeg|max:5000',
             ],
             [
-                'mimes' => 'The :attribute must be a file of type: PNG - JPEG - JPG'
-            ],
+                'banner_image.required' => 'The banner image is required.',
+                'banner_image.image' => 'The banner image must be a valid image.',
+                'banner_image.mimes' => 'The banner image must be a file of type: PNG - JPEG - JPG.',
+                'banner_image.max' => 'The banner image may not be greater than 5000 kilobytes.',
+
+                'row_six_image.required' => 'The row six image is required.',
+                'row_six_image.image' => 'The row six image must be a valid image.',
+                'row_six_image.mimes' => 'The row six image must be a file of type: PNG - JPEG - JPG.',
+                'row_six_image.max' => 'The row six image may not be greater than 5000 kilobytes.',
+            ]
         );
 
         if ($validator->passes()) {
@@ -141,13 +149,20 @@ class SoftwareCommonController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'banner_image'   => 'sometimes|nullable|image|mimes:png,jpg,jpeg|max:10000',
-                'row_six_image'   => 'sometimes|nullable|image|mimes:png,jpg,jpeg|max:10000',
+                'banner_image' => 'nullable|image|mimes:png,jpg,jpeg|max:5000',
+                'row_six_image' => 'nullable|image|mimes:png,jpg,jpeg|max:5000',
             ],
             [
-                'mimes' => 'The :attribute must be a file of type: PNG - JPEG - JPG'
-            ],
+                'banner_image.image' => 'The banner image must be a valid image.',
+                'banner_image.mimes' => 'The banner image must be a file of type: PNG - JPEG - JPG.',
+                'banner_image.max' => 'The banner image may not be greater than 5000 kilobytes.',
+
+                'row_six_image.image' => 'The row six image must be a valid image.',
+                'row_six_image.mimes' => 'The row six image must be a file of type: PNG - JPEG - JPG.',
+                'row_six_image.max' => 'The row six image may not be greater than 5000 kilobytes.',
+            ]
         );
+
         $softwareCommon = SoftwareInfoPage::find($id);
 
         if ($validator->passes()) {

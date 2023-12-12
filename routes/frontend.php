@@ -23,13 +23,10 @@ Route::get('/learn/more', [HomeController::class, 'LearnMore'])->name('learn.mor
 Route::get('/Whatwe/do', [HomeController::class, 'whatWeDo'])->name('whatwedo');
 
 //Software All route
-Route::get('/software/common', [HomeController::class, 'SoftwareCommon'])->name('software.common');
+Route::get('/software/common', [HomeController::class, 'softwareCommon'])->name('software.common');
 
 //Software Info
 Route::get('/software/info', [HomeController::class, 'softwareInfo'])->name('software.info');
-
-
-
 
 //Hardware All route
 Route::get('/hardware/common', [HomeController::class, 'HardwareCommon'])->name('hardware.common');
@@ -39,12 +36,13 @@ Route::get('/hardware/info', [HomeController::class, 'hardwareInfo'])->name('har
 
 //Industry
 Route::get('/industry/all', [HomeController::class, 'AllIndustry'])->name('all.industry');
+//Industry details
 Route::get('/industry/{id}/details', [HomeController::class, 'IndustryDetails'])->name('industry.details');
 
-//Industry
+//Solution
 Route::get('/solution/all', [HomeController::class, 'allSolution'])->name('all.solution');
-
-
+//Solution details
+Route::get('/solution/{id}/details/', [HomeController::class, 'SolutionDetails'])->name('solution.details');
 
 
 //Contact & Support
@@ -57,31 +55,12 @@ Route::post('/newsletter/store', [NewsLetterController::class, 'store'])->name('
 
 
 
-Route::get('/modal/{id}', [HomeController::class, 'modal'])->name('modal');
-
-
 //Feature details
 Route::get('/feature/{id}/details/', [HomeController::class, 'FeatureDetails'])->name('feature.details');
-
-//Solution details
-Route::get('/solution/{id}/details/', [HomeController::class, 'SolutionDetails'])->name('solution.details');
-
-
-
-
-
-
-
-Route::get('/all/software', [HomeController::class, 'AllSoftware']);
-
-
-
 
 //product
 
 // Route::get('/product/filter', [HomeController::class, 'filter'])->name('filter');
-
-Route::get('/product-cat/{slug}','HomeController@productCat')->name('product-cat');
 
 
 
@@ -90,10 +69,6 @@ Route::get('/product-cat/{slug}','HomeController@productCat')->name('product-cat
 //Shop
 Route::get('/ngenit/shop', [ShopController::class, 'Shop'])->name('shop');
 Route::get('/custom/shop', [ShopController::class, 'CustomProduct'])->name('custom.shop');
-Route::post('/products/filter', [ShopController::class, 'filter']);
-Route::post('/products/per', [ShopController::class, 'per']);
-Route::post('/price-range', [ShopController::class, 'getPriceRange'])->name('product.priceRange');
-
 
 
 
@@ -116,7 +91,7 @@ Route::match(['get','post'],'/ngenit/shop/filter', [ShopController::class, 'Shop
 // Route::post('getshopProducts', [ShopController::class, 'getShopProducts'])->name('shop.filter');
 
 //Shop
-Route::get('/ngenit/shop', [ShopController::class, 'mainShop'])->name('shop');
+Route::get('/shop', [ShopController::class, 'mainShop'])->name('shop');
 Route::get('/custom/shop', [ShopController::class, 'CustomProduct'])->name('custom.shop');
 // Route::match(['get','post'],'/ngenit/shop/filter_page', [ShopController::class, 'Shop'])->name('shop.filter_partial');
 
@@ -145,7 +120,6 @@ Route::get('/shop.html', [HomeController::class, 'shop_html'])->name('shop.html'
 
 
 Route::get('/product/{id}/html', [HomeController::class, 'ProductCommon'])->name('product.common');
-Route::get('/conditional/{id}/product', [ShopController::class, 'ConditionalProduct'])->name('product.condition');
 
 
 /// Product Search Route
@@ -154,25 +128,16 @@ Route::post('/search', [HomeController::class, 'ProductSearch'])->name('product.
 Route::post('global-search', [HomeController::class, 'globalSearch'])->name('global.search');
 
 //Industry
-Route::get('/industry/all', [HomeController::class, 'AllIndustry'])->name('all.industry');
-Route::get('/industry/{id}/details', [HomeController::class, 'IndustryDetails'])->name('industry.details');
 
+Route::get('/company/overview', [HomeController::class, 'about'])->name('about');
 
-Route::get('/partner.html', [HomeController::class, 'partner'])->name('partner');
-Route::get('/about-us', [HomeController::class, 'about'])->name('about');
-
-Route::get('account_benefits', [HomeController::class, 'accountBenefits']);
-
-
-
-Route::post('add/support', [SupportController::class, 'addSupport'])->name('add.support');
 
 
 //Terms & Policy
 Route::get('faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('privacy_policy', [HomeController::class, 'PrivacyPolicy'])->name('privacy.policy');
 Route::get('terms_policy', [HomeController::class, 'TermsPolicy'])->name('terms.policy');
-Route::get('terms_policy/{id}/details', [HomeController::class, 'TermsPolicyDetails'])->name('terms.details');
+// Route::get('terms_policy/{id}/details', [HomeController::class, 'TermsPolicyDetails'])->name('terms.details');
 
 //Portfolio
 Route::get('portfolio', [HomeController::class, 'Portfolio'])->name('portfolio');
@@ -184,16 +149,6 @@ Route::put('upload/work-order/{id}', [RFQController::class,'workOrderUpload'])->
 
 //Proof of Payment Upload
 Route::put('upload/payment-proof/{id}', [RFQController::class,'proofPaymentUpload'])->name('payment-proof.upload');
-
-// card route start -----------
- //Route::get('cart', [CartController::class, 'cart'])->name('cart');
-// Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
-// Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
-// Route::get('/remove/{id}', [CartController::class, 'removeFromCart'])->name('remove');
-
-// card route end -----------
-
-/// Add to cart store data
 
 
 

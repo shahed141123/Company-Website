@@ -96,7 +96,7 @@
                                         <div class="input-group">
                                             <input name="banner_btn_link" type="url" maxlength="100"
                                                 class="form-control form-control-sm"
-                                                placeholder="Enter Banner Btn Name" required>
+                                                placeholder="Enter Banner Btn Link" required>
                                         </div>
                                     </div>
                                 </div>
@@ -178,7 +178,7 @@
                                             class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
                                             Four Btn Name </label>
                                         <div class="input-group">
-                                            <input name="row_four_btn_name" type="url" maxlength="250"
+                                            <input name="row_four_btn_name" type="text" maxlength="250"
                                                 class="form-control form-control-sm"
                                                 placeholder="Enter Row Four Btn Name" required>
                                         </div>
