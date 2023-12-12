@@ -6,9 +6,6 @@
             <div class="row my-4">
                 <div class="col-lg-12">
                     <h2 class="company-tab-title">
-                        {{-- <span class="rounded-pill text-black bg-white">
-                            All <strong class="fw-normal" style="color: #A80B6E;">{{ ucfirst($brand->title) }}</strong> Products
-                        </span> --}}
                         <span>All <strong class="fw-normal" style="color: #A80B6E;">{{ ucfirst($brand->title) }}</strong> Brochures</span>
                     </h2>
                 </div>
@@ -16,7 +13,7 @@
             @if (count($documents) > 0)
                 <div class="row py-3">
                     @foreach ($documents as $document)
-                        <div class="col-lg-3 col-6">
+                        <div class="col-lg-3 col-12">
                             <div class="main_catalogue mb-2">
                                 <div class="card shadow-none rounded-0 border-0">
                                     <div class="cad-body">

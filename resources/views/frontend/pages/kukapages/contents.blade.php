@@ -69,7 +69,7 @@
             <div class="row my-4 py-4">
                 @if (count($contents) > 0)
                     @foreach ($blogs as $blog)
-                        <div class="col-sm-3 px-0 mx-3 mb-3">
+                        <div class="col-sm-3 px-0 mx-3 mb-3 content-sections">
                             <div class="container-area-brand">
                                 <div class="content-brand">
                                     <a href="{{ route('blog.details', $blog->id) }}" target="_blank">
