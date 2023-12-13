@@ -67,11 +67,6 @@
         $category_ids = json_decode($blog->category_id);
         $brand_ids = json_decode($blog->brand_id);
         $solution_ids = json_decode($blog->solution_id);
-        // dd($category_ids);
-        // $industries = explode(',', );
-        // $categories = explode(',', json_decode($blog->category_id));
-        // $brands = explode(',', json_decode($blog->brand_id));
-        // $solutions = explode(',', json_decode($blog->solution_id));
         $without_last_tags = array_slice($tags, 0, -1);
         $last_word = end($tags);
         // dd($without_last_tags);
