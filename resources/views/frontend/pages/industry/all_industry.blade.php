@@ -25,71 +25,6 @@
             }
         </style>
     @endif
-    <style>
-        .box {
-            position: relative;
-            width: 100%;
-        }
-
-        .our-services {
-            margin-top: 75px;
-            padding-bottom: 30px;
-            padding: 0 15px;
-            min-height: auto;
-            text-align: center;
-            border-radius: 10px;
-            background-color: #fff;
-            transition: all .4s ease-in-out;
-            box-shadow: 0 0 25px 0 rgba(20, 27, 202, .17)
-        }
-
-        .our-services .icon {
-            margin-bottom: -21px;
-            transform: translateY(-50%);
-            text-align: center
-        }
-
-        .our-services:hover h4,
-        .our-services:hover p {
-            color: #fff
-        }
-
-        .settings {
-            transition: all 0.5s;
-        }
-
-        .settings:hover {
-            transition: all 0.5s;
-            box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
-            cursor: pointer;
-            background-image: linear-gradient(-45deg, #ae0a46 0%, #ae0a46 100%)
-        }
-
-        .icon img {
-            background: white;
-            border-radius: 50%;
-        }
-
-        ul {
-            list-style-type: circle;
-        }
-
-        .common_button2 {
-            padding: 15px 20px;
-            cursor: pointer;
-            font-family: "Allumi Std Extended";
-            font-size: 13px;
-            font-weight: 500;
-            text-align: center;
-            display: inline-block;
-            background-color: var(--crimson);
-            transition: 0.3s;
-            outline: none;
-            border: none;
-            color: white;
-        }
-    </style>
-
     <!--======// Header Title //======-->
     <section class="">
         <div>
@@ -136,7 +71,7 @@
         </div>
     </section>
     <!--=====// We serve //=====-->
-    <div class="container pb-5">
+    <div class="container">
         <!-- section title -->
         <div class="clint_help_section_heading_wrapper">
             <!-- title -->
@@ -259,145 +194,6 @@
                 </div>
         </div>
     </div> --}}
-
-    <!--======// our clint tab //======-->
-    <section class="clint_tab_section">
-        <div class="container">
-
-
-            <div class="clint_tab_content pb-3">
-                <!-- home title -->
-                <div class="home_title mt-5">
-                    <div class="software_feature_title">
-                        <h1 class="text-center my-3">Related Contents</h1>
-                    </div>
-                    <p class="home_title_text mb-5">See how Ngen It has helped organizations of all sizes across every
-                        industry
-                        maximize the <br> value of their IT solutions, leverage emerging technologies and create fresh
-                        experiences.
-                    </p>
-                </div>
-                <!-- Client Tab Start -->
-                <div class="row">
-                    <div class="col-xs-12 ">
-                        <div class="bg-white shadow-sm"
-                            style="border-top-right-radius: 50px;border-bottom-left-radius: 50px;">
-                            <nav>
-                                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist"
-                                    style="border-top-right-radius: 50px;border-bottom-left-radius: 50px;">
-                                    <a class="nav-item nav-link active" id="nav-healthcare" data-toggle="tab"
-                                        href="#nav-home-{{ $story1->id }}" role="tab" aria-controls="nav-home"
-                                        aria-selected="true">{{ $story1->badge }}</a>
-                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile-{{ $story2->id }}"
-                                        role="tab" aria-controls="nav-profile"
-                                        aria-selected="false">{{ $story2->badge }}</a>
-                                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact-{{ $story3->id }}"
-                                        role="tab" aria-controls="nav-contact"
-                                        aria-selected="false">{{ $story3->badge }}</a>
-                                    <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about-{{ $story4->id }}"
-                                        role="tab" aria-controls="nav-about"
-                                        aria-selected="false">{{ $story4->badge }}</a>
-                                </div>
-                            </nav>
-                            <div class="tab-content bg-white shadow-sm" id="nav-tabContent"
-                                style="border-bottom-left-radius: 50px;">
-                                <div class="tab-pane fade show active" id="nav-home-{{ $story1->id }}" role="tabpanel"
-                                    aria-labelledby="nav-healthcare">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
-                                            <h5 class="home_title_heading" style="text-align: left;">{{ $story1->badge }}
-                                            </h5>
-                                            <h4 style="text-align: left;">{{ $story1->title }}</h4>
-                                            <div style="text-align: justify">
-                                                <p class="mb-1">{{ $story1->header }}</p>
-                                                <p>{!! Str::limit(strip_tags($story1->short_des), 200) !!}</p>
-                                            </div>
-                                            <a href="" class="common_button2">Read
-                                                Details</a>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="showcase-industry">
-                                                <img src="{{ asset('storage/' . $story1->image) }}" alt="Picture">
-                                                <div class="overlay">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="nav-profile-{{ $story2->id }}" role="tabpanel"
-                                    aria-labelledby="nav-profile-tab">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
-                                            <h5 class="home_title_heading" style="text-align: left;">{{ $story2->badge }}
-                                            </h5>
-                                            <h4 style="text-align: left;">{{ $story2->title }}</h4>
-                                            <p class="mb-1">{{ $story2->header }}</p>
-                                            <p>{!! Str::limit(strip_tags($story2->short_des), 200) !!}</p>
-                                            <a href="" class="common_button2">Read
-                                                Details</a>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="showcase-industry">
-                                                <img src="{{ asset('storage/' . $story2->image) }}" alt="Picture">
-                                                <div class="overlay">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="nav-contact-{{ $story3->id }}" role="tabpanel"
-                                    aria-labelledby="nav-contact-tab">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
-                                            <h5 class="home_title_heading" style="text-align: left;">{{ $story3->badge }}
-                                            </h5>
-                                            <h4 style="text-align: left;">{{ $story3->title }}</h4>
-                                            <p class="mb-1">{{ $story3->header }}</p>
-                                            <p>{!! Str::limit(strip_tags($story2->short_des), 200) !!}</p>
-                                            <a href="" class="common_button2">Read
-                                                Details</a>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="showcase-industry">
-                                                <img src="{{ asset('storage/' . $story3->image) }}" alt="Picture">
-                                                <div class="overlay">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="nav-about-{{ $story4->id }}" role="tabpanel"
-                                    aria-labelledby="nav-about-tab">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6 col-md-6 col-sm-12 ps-5 industry_tab_container">
-                                            <h5 class="home_title_heading" style="text-align: left;">{{ $story4->badge }}
-                                            </h5>
-                                            <h4 style="text-align: left;">{{ $story4->title }}</h4>
-                                            <p class="mb-1">{{ $story4->header }}</p>
-                                            <p>{!! Str::limit(strip_tags($story2->short_des), 200) !!}</p>
-                                            <a href="" class="common_button2">Read
-                                                Details</a>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="showcase-industry">
-                                                <img src="{{ asset('storage/' . $story4->image) }}" alt="Picture">
-                                                <div class="overlay">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!---------End -------->
-
-
-
     <!--=====// Global call section //=====-->
     <section class="global_call_section section_padding">
         <div class="container">
@@ -413,15 +209,157 @@
                     </h5>
                     <p class="home_title_text text-white" style="text-align: left;">{{ $learnmore->consult_short_des }}
                     </p>
-                    <div class="business_seftion_button" style="text-align: left;">
-                        <a href="#Contact">Explore business outcomes</a>
+                    <div class="btn-white" style="text-align: left;">
+                        <a href="#Contact">Explore Business Outcomes</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!---------End -------->
-
+    <!--======// our clint tab //======-->
+    <section class="clint_tab_section">
+        <div class="container">
+            <div class="clint_tab_content pb-3">
+                <!-- home title -->
+                <div class="home_title mt-5">
+                    <div class="software_feature_title">
+                        <h1 class="text-center my-3">Related Contents</h1>
+                    </div>
+                    <p class="home_title_text mb-5">See how Ngen It has helped organizations of all sizes across every
+                        industry
+                        maximize the <br> value of their IT solutions, leverage emerging technologies and create fresh
+                        experiences.
+                    </p>
+                </div>
+                <!-- Client Tab Start -->
+            </div>
+            <div class="row">
+                <div class="col-xs-12 ">
+                    <div class="solurtion_tabing_area mb-5">
+                        <div class="tabing_menu_area">
+                            <nav>
+                                <div class="nav nav-tabs nav-fill text-capitalize" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+                                        href="#nav-home" role="tab" aria-controls="nav-home"
+                                        aria-selected="true">{{ $story1->badge }}</a>
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+                                        href="#nav-profile" role="tab" aria-controls="nav-profile"
+                                        aria-selected="false">{{ $story2->badge }}</a>
+                                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+                                        href="#nav-contact" role="tab" aria-controls="nav-contact"
+                                        aria-selected="false">{{ $story3->badge }}</a>
+                                    <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab"
+                                        href="#nav-about" role="tab" aria-controls="nav-about"
+                                        aria-selected="false">{{ $story4->badge }}</a>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="tab-content py-0 px-3 px-sm-0" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                aria-labelledby="nav-home-tab">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 tab_content_padding">
+                                        <h6 class="title-tag text-capitalize mb-2">{{ $story1->badge }}</h6>
+                                        <h4 class="home_title_heading text-capitalize text-start pb-2">
+                                            {{ $story1->title }}</h4>
+                                        <div style="text-align: justify">
+                                            <p class="mb-1">{{ $story1->header }}</p>
+                                            <p>{!! Str::words(strip_tags($story1->short_des), 45) !!}</p>
+                                        </div>
+                                        <a href="{{ route('blog.details', $story1->id) }}" class="icon-btns"><span
+                                                class="fw-bold">Read
+                                                Details</span> <i class="fa-solid fa-chevron-right"></i></a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 d-lg-block d-sm-none">
+                                        <div class="showcase-industry">
+                                            <img src="{{ asset('storage/' . $story1->image) }}" alt="Picture">
+                                            <div class="overlay">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                aria-labelledby="nav-profile-tab">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-5">
+                                        <h6 class="title-tag text-capitalize mb-2">{{ $story2->badge }}</h6>
+                                        <h4 class="home_title_heading text-capitalize text-start pb-2">
+                                            {{ $story2->title }}</h4>
+                                        <div style="text-align: justify">
+                                            <p class="mb-1">{{ $story2->header }}</p>
+                                            <p>{!! Str::words(strip_tags($story2->short_des), 45) !!}</p>
+                                        </div>
+                                        <a href="{{ route('blog.details', $story2->id) }}" class="icon-btns"><span
+                                                class="fw-bold">Read
+                                                Details</span> <i class="fa-solid fa-chevron-right"></i></a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 d-lg-block d-sm-none">
+                                        <div class="showcase-industry">
+                                            <img src="{{ asset('storage/' . $story2->image) }}" alt="Picture">
+                                            <div class="overlay">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                aria-labelledby="nav-contact-tab">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-5">
+                                        <h6 class="title-tag text-capitalize mb-2">{{ $story3->badge }}</h6>
+                                        <h4 class="home_title_heading text-capitalize text-start pb-2">
+                                            {{ $story3->title }}</h4>
+                                        <div style="text-align: justify">
+                                            <p class="mb-1">{{ $story3->header }}</p>
+                                            <p>{!! Str::words(strip_tags($story3->short_des), 45) !!}</p>
+                                        </div>
+                                        <a href="{{ route('blog.details', $story3->id) }}" class="icon-btns"><span
+                                                class="fw-bold">Read
+                                                Details</span> <i class="fa-solid fa-chevron-right"></i></a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 d-lg-block d-sm-none">
+                                        <div class="showcase-industry">
+                                            <img src="{{ asset('storage/' . $story3->image) }}" alt="Picture">
+                                            <div class="overlay">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-about" role="tabpanel"
+                                aria-labelledby="nav-about-tab">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 ps-5">
+                                        <h6 class="title-tag text-capitalize mb-2">{{ $story4->badge }}</h6>
+                                        <h4 class="home_title_heading text-capitalize text-start pb-2">
+                                            {{ $story4->title }}</h4>
+                                        <div style="text-align: justify">
+                                            <p class="mb-1">{{ $story4->header }}</p>
+                                            <p>{!! Str::words(strip_tags($story4->short_des), 50) !!}</p>
+                                        </div>
+                                        <a href="{{ route('blog.details', $story4->id) }}" class="icon-btns">
+                                            <span class="fw-bold">Read Details</span>
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 d-lg-block d-sm-none">
+                                        <div class="showcase-industry">
+                                            <img src="{{ asset('storage/' . $story4->image) }}" alt="Picture">
+                                            <div class="overlay">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!---------End -------->
     <!--=====// Tech solution //=====-->
     @if (count($tech_datas) > 0)
         <div class="section_wp2">
@@ -459,53 +397,6 @@
         </div>
     @endif
     <!---------End -------->
-
-    <!--======// Our expert //======-->
-    <section>
-        <div class="container">
-            @if (!empty($techglossy))
-                <div class="row bg-white shadow-sm mt-5 mb-5"
-                    style="
-            border-top-right-radius: 60px;
-            border-bottom-left-radius: 60px;
-          ">
-                    <div class="col-lg-12">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                <div class="holder-main-text ps-5">
-                                    {{-- <h6>{{ $techglossy->badge }}</h6> --}}
-                                    <h6 class="title-tag text-capitalize">{{ $techglossy->badge }}</h6>
-                                    <h2>
-                                        {{ $techglossy->title }}
-                                    </h2>
-                                    <p class="pt-0 mt-0 w-75" style="text-align: justify">
-                                        {!! Str::limit($techglossy->short_des, 220) !!}
-                                        {{-- {{ $techglossy->header }} --}}
-                                    </p>
-                                    <a href="{{ route('techglossy.details', $techglossy->id) }}"
-                                        class="common_button2 text-white">Read More</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 p-0">
-                                <div class="showcase-industry-bottom">
-                                    <img class="img-fluid" src="{{ asset('storage/' . $techglossy->image) }}"
-                                        alt="Picture"
-                                        style="
-                                    border-top-right-radius: 60px;">
-                                    <div class="overlay">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
-        </div>
-    </section>
-
-    <!---------End -------->
-
-
     <!--=====// Pageform section //=====-->
     @include('frontend.partials.footer_contact')
     <!---------End -------->

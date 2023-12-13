@@ -222,7 +222,7 @@
 
                     </div>
                 </div>
-                <div class="col-lg-6 col-12 blog_left mt-3" style="margin-top: -7rem !important;">
+                <div class="col-lg-6 col-12 blog_left main_blogs mt-3" style="margin-top: -7rem !important;">
 
                     {{-- First Blog --}}
                     @if ($client_storys)
