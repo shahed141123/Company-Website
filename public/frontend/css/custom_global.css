@@ -979,7 +979,7 @@ tr {
 }
 
 .learn_more {
-    padding-bottom: 40px;
+    /* padding-bottom: 40px; */
     background: var(--secondary-bg-color);
 }
 
@@ -1270,9 +1270,12 @@ tr {
     position: relative;
     float: left;
     overflow: hidden;
-    min-width: 304px;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    /* min-width: 304px;
     max-width: 480px;
-    max-height: 240px;
+    max-height: 240px; */
     width: 100%;
     background: #3085a3;
     text-align: start;
@@ -5553,7 +5556,7 @@ tr td:hover {
 }
 .header-category-button-60 {
     margin-right: 6rem;
-    margin-top: 3px;
+    margin-top: 0px;
     margin-left: 4rem;
 }
 .main-menu-specing {

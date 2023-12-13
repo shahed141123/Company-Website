@@ -303,7 +303,7 @@ class HomeController extends Controller
     //About
     public function about()
     {
-        $data['about'] = AboutUs::latest('id', 'desc')->first();
+        $data['about'] = AboutUs::latest('id', 'desc')->firstOrFail();
         if ($data['about']) {
 
             $data['row1'] = Row::where('id', $data['about']->row_one_id)->first();
@@ -318,7 +318,7 @@ class HomeController extends Controller
 
     public function whatWeDo()
     {
-        $data['whatwedo'] = WhatWeDoPage::latest('id', 'desc')->first();
+        $data['whatwedo'] = WhatWeDoPage::latest('id', 'desc')->firstOrFail();
         if (!empty($data['whatwedo'])) {
             $data['row_two'] = Row::where('id', $data['whatwedo']->row_two_id)->first();
             $data['row_three'] = Row::where('id', $data['whatwedo']->row_three_id)->first();
@@ -330,7 +330,7 @@ class HomeController extends Controller
     //Feature Details
     public function FeatureDetails($id)
     {
-        $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->first();
+        $data['learnmore'] = LearnMore::orderBy('id', 'DESC')->select('learn_mores.industry_header', 'learn_mores.consult_title', 'learn_mores.consult_short_des', 'learn_mores.background_image')->firstOrFail();
         $data['feature'] = Feature::with(['rowOne', 'rowTwo'])->findOrFail($id);
 
         $data['row_one'] = $data['feature']->rowOne;
@@ -361,7 +361,7 @@ class HomeController extends Controller
     //Feature Details
     public function SolutionDetails($id)
     {
-        $data['solution'] = SolutionDetail::with('rowOne', 'card1', 'card2', 'card3', 'card4', 'card5', 'card6', 'card7', 'card8', 'rowFour')->where('slug', $id)->first();
+        $data['solution'] = SolutionDetail::with('rowOne', 'card1', 'card2', 'card3', 'card4', 'card5', 'card6', 'card7', 'card8', 'rowFour')->where('slug', $id)->firstOrFail();
 
         $data['solutions'] = SolutionDetail::where('id', '!=', $id)->get();
         return view('frontend.pages.solution.solution_details', $data);
@@ -420,7 +420,7 @@ class HomeController extends Controller
     public function StoryDetails($id)
     {
 
-        $data['blog'] = ClientStory::where('id', $id)->first();
+        $data['blog'] = ClientStory::where('id', $id)->firstOrFail();
         $data['storys'] = ClientStory::inRandomOrder()->limit(4)->get();
         return view('frontend.pages.story.story_details', $data);
     }
@@ -444,7 +444,7 @@ class HomeController extends Controller
 
     public function BlogDetails($id)
     {
-        $data['blog'] = Blog::where('id', $id)->first();
+        $data['blog'] = Blog::where('id', $id)->firstOrFail();
         $data['storys'] = Blog::inRandomOrder()->limit(4)->get();
         return view('frontend.pages.blogs.blog_details', $data);
     }
@@ -467,8 +467,8 @@ class HomeController extends Controller
 
     public function TechGlossyDetails($id)
     {
+        $data['techglossy'] = TechGlossy::where('id', $id)->firstOrFail();
         //$data['industry'] = Industry::where('id',$id)->first();
-        $data['techglossy'] = TechGlossy::where('id', $id)->first();
         //$data['industry_page'] = IndustryPage::where('industry_id', $data['industry']->id)->get();
         $data['storys'] = TechGlossy::inRandomOrder()->limit(7)->get();
         return view('frontend.pages.tech.techglossy_details', $data);
@@ -568,7 +568,7 @@ class HomeController extends Controller
     public function CategoryCommon($category)
     {
         if ((Category::where('slug', $category)->count()) > 0) {
-            $data['category'] = Category::where('slug', $category)->first();
+            $data['category'] = Category::where('slug', $category)->firstOrFail();
             $data['sub_cats'] = SubCategory::where('cat_id', $data['category']->id)->get();
             $data['sub_sub_cats'] = SubSubCategory::where('cat_id', $data['category']->id)->get();
             //$data['sub_sub_sub_cats'] = SubSubSubCategory::where('cat_id',$data['category']->id)->get();
@@ -587,7 +587,7 @@ class HomeController extends Controller
             $data['condition'] = 'category';
             $data['cat_title'] = '';
         } elseif ((SubCategory::where('slug', $category)->count()) > 0) {
-            $data['category'] = SubCategory::where('slug', $category)->first();
+            $data['category'] = SubCategory::where('slug', $category)->firstOrFail();
             $data['sub_cats'] = SubSubCategory::where('sub_cat_id', $data['category']->id)->get();
             $data['sub_sub_cats'] = SubSubSubCategory::where('sub_sub_cat_id', $data['category']->id)->get();
             //$data['sub_sub_sub_cats'] = SubSubSubCategory::where('cat_id',$data['category']->id)->get();
@@ -605,7 +605,7 @@ class HomeController extends Controller
             $data['condition'] = 'subcategory';
             $data['cat_title'] = Category::where('id', $data['category']->cat_id)->select('title', 'slug')->first();
         } elseif ((SubSubCategory::where('slug', $category)->count()) > 0) {
-            $data['category'] = SubSubCategory::where('slug', $category)->first();
+            $data['category'] = SubSubCategory::where('slug', $category)->firstOrFail();
             $data['sub_cats'] = '';
             $data['sub_sub_cats'] = '';
             //$data['sub_sub_sub_cats'] = SubSubSubCategory::where('cat_id',$data['category']->id)->get();
@@ -653,7 +653,7 @@ class HomeController extends Controller
 
     public function BrandPage($id)
     {
-        $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title')->first();
+        $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title')->firstOrFail();
         $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first();
         if (!empty($data['brandpage'])) {
             $data['storys'] = ClientStory::inRandomOrder()->limit(4)->get();
@@ -728,7 +728,7 @@ class HomeController extends Controller
 
     public function IndustryDetails($id)
     {
-        $data['industry'] = Industry::where('slug', $id)->with(['industryPage.rowOne', 'industryPage.rowThree', 'industryPage.rowFive', 'industryPage.solutionCardOne', 'industryPage.solutionCardTwo', 'industryPage.solutionCardThree', 'industryPage.solutionCardFour',])->first();
+        $data['industry'] = Industry::where('slug', $id)->with(['industryPage.rowOne', 'industryPage.rowThree', 'industryPage.rowFive', 'industryPage.solutionCardOne', 'industryPage.solutionCardTwo', 'industryPage.solutionCardThree', 'industryPage.solutionCardFour',])->firstOrFail();
 
         if (isset($data['industry']->industryPage)) {
             if (!empty($data['industry']->industryPage)) {

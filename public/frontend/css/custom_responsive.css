@@ -1,6 +1,9 @@
 /* Extra Small Devices (e.g., Smartphones) */
 
 @media only screen and (max-width: 576px) {
+    .Advance-Slider .img-fill img {
+        height: 11rem;
+    }
     .image_box_features {
         height: 275px;
     }
@@ -434,6 +437,33 @@
     .home_banner_bottom_title {
         width: 100% !important;
         position: relative;
+        top: 0;
+        margin-top: -6.5rem;
+    }
+    .home_title_heading {
+        font-family: "Allumi Std Extended";
+        font-size: var(--section-title-font-size);
+        width: 100% !important;
+        color: var(--heading);
+        font-weight: 400;
+        margin-top: 1.5rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.2;
+        text-align: center !important;
+    }
+
+    .home_title_text {
+        line-height: 1.5;
+        text-align: center !important;
+        font-size: 14px;
+        width: 100% !important;
+        margin-bottom: 0px;
+    }
+
+    .home_banner_bt-title {
+        font-size: 17px;
+        line-height: 1.2;
+        text-transform: capitalize;
     }
 
     .feature_description {
@@ -1091,7 +1121,7 @@
     }
 
     .Advance-Slider .item {
-        height: 35vh !important;
+        height: 25vh !important;
         overflow: hidden;
         outline: none;
     }
@@ -1135,30 +1165,7 @@
         color: white;
         text-align: center;
     }
-    .home_title_heading {
-        font-family: "Allumi Std Extended";
-        font-size: var(--section-title-font-size);
-        width: 100% !important;
-        color: var(--heading);
-        font-weight: 400;
-        margin-top: 1.5rem !important;
-        margin-bottom: 1rem !important;
-        line-height: 1.2;
-        text-align: center !important;
-    }
 
-    .home_title_text {
-        line-height: 1.5;
-        text-align: center !important;
-        font-size: 14px;
-        width: 100% !important;
-    }
-
-    .home_banner_bt-title {
-        font-size: 17px;
-        line-height: 1.2;
-        text-transform: capitalize;
-    }
 
     .home_shop_product_wrapper p {
         font-family: "Klinic Slab" !important;

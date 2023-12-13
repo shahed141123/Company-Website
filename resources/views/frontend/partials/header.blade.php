@@ -622,13 +622,13 @@
                                             </div>
                                         </ul>
                                     </li>
-                                    <li class="nav-item dropdown position-static cool-link">
+                                    <li class="nav-item dropdown position-static">
                                         <a class="nav-link dropdown-toggle pe-0" href="#" role="button"
                                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                             CONNECT US
                                         </a>
                                         <ul class="dropdown-menu full-container-dropdown"
-                                            style="border-top: 1px solid #ae0a460f !important;">
+                                            style="border-top: 1px solid #ae0a460f !important; width:83%;">
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     <div class="col-lg-4 pt-3 pb-3" style="background: #f7f6f5">
