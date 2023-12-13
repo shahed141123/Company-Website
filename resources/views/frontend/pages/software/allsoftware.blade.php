@@ -996,7 +996,7 @@
                             @if (!empty($industrys))
                                 @foreach ($industrys as $item)
                                     <div class="col-lg-3 col-sm-6 mb-2">
-                                        <a href="{{ route('industry.details', $item->id) }}" class="we_serve_item">
+                                        <a href="{{ route('industry.details', $item->slug) }}" class="we_serve_item">
                                             <div class="we_serve_item_image">
                                                 <img src="{{ asset('storage/' . $item->logo) }}" alt="">
                                             </div>
@@ -1018,7 +1018,7 @@
                             @if ($random_industries)
                                 @foreach ($random_industries as $item)
                                     <div class="pt-2">
-                                        <a href="{{ route('industry.details', $item->id) }}">
+                                        <a href="{{ route('industry.details', $item->slug) }}">
                                             <div id="fed-bg">
                                                 <div class="p-2">
                                                     <h5 class="text-white brand_side_text">{{ $item->title }} ›

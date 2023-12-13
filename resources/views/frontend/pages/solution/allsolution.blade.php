@@ -465,7 +465,7 @@
         <div class="global_call_section_content">
             <div class="home_title" style="width: 100%; margin: 0px;">
                 <h5 class="home_title_heading" style="text-align: left; color: #fff;">
-                    <span>{{ \Illuminate\Support\Str::substr($sentence, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($sentence, 1) }}
+                    <span>{{ Str::substr($sentence, 0, 1) }}</span>{{ Str::substr($sentence, 1) }}
 
                 </h5>
                 <p class="home_title_text text-white" style="text-align: left;">{{ $learnmore->consult_short_des }}
@@ -492,7 +492,7 @@
                     <h5 class="home_title_heading" style="text-align: left;">
                         <div class="software_feature_title">
                             <h1 class="text-center pb-3">
-                                <span>{{ \Illuminate\Support\Str::substr($sentence2, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($sentence2, 1) }}
+                                <span>{{ Str::substr($sentence2, 0, 1) }}</span>{{ Str::substr($sentence2, 1) }}
                             </h1>
                         </div>
                     </h5>

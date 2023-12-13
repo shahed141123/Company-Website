@@ -219,8 +219,8 @@ class HomeController extends Controller
         $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
         $data['solutions'] = SolutionDetail::orderBy('id', 'DESC')->limit(10)->get(['id', 'name']);
         $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
-        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'logo', 'title']);
-        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'title']);
+        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'logo', 'title', 'slug']);
+        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'title', 'slug']);
 
         return view('frontend.pages.software.allsoftware', $data);
     }
@@ -263,8 +263,8 @@ class HomeController extends Controller
         $data['tech_glossy2'] = $data['tech_glossies']->get(1);
         $data['tech_glossy3'] = $data['tech_glossies']->get(2);
         $data['tech_datas'] = TechnologyData::where('category', 'hardware')->orderBy('id', 'ASC')->get();
-        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'logo', 'title']);
-        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'title']);
+        $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'logo', 'title', 'slug']);
+        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'title', 'slug']);
 
         return view('frontend.pages.hardware.allhardware', $data);
     }

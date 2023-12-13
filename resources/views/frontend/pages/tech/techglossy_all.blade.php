@@ -7,6 +7,7 @@
             font-size: 50px;
             font-weight: 600;
         }
+
         .badges_list li {
             display: inline-block;
             padding-left: 14px;
@@ -115,7 +116,7 @@
     </style>
     <!--======// Header Title //======-->
     <section class="common_product_header pb-5"
-        style="background-image: url('{{asset('frontend/images/techglossy.jpg')}}');">
+        style="background-image: url('{{ asset('frontend/images/techglossy.jpg') }}');">
         <div class="container mb-5">
             <h1 class="text-white">Tech Glossys</h1>
             <p class="text-center text-white">Through our deep partnerships with trusted brands, <br> Insight offers a
@@ -123,13 +124,13 @@
             <div class="row mb-5">
                 <!--BUTTON START-->
                 <div class="d-flex justify-content-center align-items-center">
-                <div class="m-4">
-                    <a href="{{route('all.story')}}" class="common_button2">All Client Storys</a>
-                  </div>
-                  <div class="m-4">
-                    <a href="{{route('all.blog')}}" class="common_button2">All Blogs</a>
-                  </div>
-              </div>
+                    <div class="m-4">
+                        <a href="{{ route('all.story') }}" class="main_color">All Client Storys</a>
+                    </div>
+                    <div class="m-4">
+                        <a href="{{ route('all.blog') }}" class="main_color">All Blogs</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -137,7 +138,7 @@
     <div class="container-fluid blog_bg p-0 m-0">
         <div class="container px-4 py-5">
             <div class="row gx-3 ">
-                <div class="col-3 blog_left mt-3">
+                <div class="col-lg-3 col-12 blog_left mt-3">
                     <div class="p-3 shadow-lg rounded-lg">
                         {{-- Search --}}
                         <div>
@@ -157,7 +158,7 @@
                                 @foreach ($industries as $item)
                                     <li>
                                         <a href="#">
-                                            <i class="ion-android-radio-button-off"></i>{{$item->title}}
+                                            <i class="ion-android-radio-button-off"></i>{{ $item->title }}
                                         </a>
                                     </li>
                                 @endforeach
@@ -170,7 +171,7 @@
                                 @foreach ($categories as $item)
                                     <li>
                                         <a href="#">
-                                            <i class="ion-android-radio-button-off"></i>{{$item->title}}
+                                            <i class="ion-android-radio-button-off"></i>{{ $item->title }}
                                         </a>
                                     </li>
                                 @endforeach
@@ -183,7 +184,7 @@
                                 @foreach ($brands as $item)
                                     <li>
                                         <a href="#">
-                                            <i class="ion-android-radio-button-off"></i>{{$item->title}}
+                                            <i class="ion-android-radio-button-off"></i>{{ $item->title }}
                                         </a>
                                     </li>
                                 @endforeach
@@ -200,12 +201,12 @@
                                             @php
                                                 $tags = explode(',', $tag_item);
                                             @endphp
-                                            @if(!empty($_GET['tags']))
+                                            @if (!empty($_GET['tags']))
                                                 @php
                                                 $filterCat = explode(',',$_GET['tags']);
                                                 @endphp
                                             @endif
-                                                @foreach($tags as $item)
+                                                @foreach ($tags as $item)
 
                                                     <div class="form-check">
                                                         <input name="tag" value="{{$item}}" class="form-check-input custom" name="tags[]" type="checkbox" id="flexCheckDefault" onchange="this.form.submit()">
@@ -222,17 +223,16 @@
 
                     </div>
                 </div>
-                <div class="col-6 blog_middle rounded-lg" style="margin-top: -7rem !important;">
+                <div class="col-lg-6 col-12 blog_middle rounded-lg" style="margin-top: -7rem !important;">
 
                     {{-- First Blog --}}
                     @if ($client_storys)
                         @foreach ($client_storys as $item)
-                            <div class="p-3 border shadow-lg mt-2"
-                                style="background-color: #fff;border-radius: 5px;">
-                                <a class="text-black" href="{{route('techglossy.details',$item->id)}}">
+                            <div class="p-3 border shadow-lg mt-2" style="background-color: #fff;border-radius: 5px;">
+                                <a class="text-black" href="{{ route('techglossy.details', $item->id) }}">
                                     <div class="p-3">
                                         {{-- Blog Image --}}
-                                        <img src="{{asset('storage/'.$item->image)}}" class="img-fluid" alt="">
+                                        <img src="{{ asset('storage/' . $item->image) }}" class="img-fluid" alt="">
                                         <div class="row d-flex justify-content-between">
                                             <div class="col mt-3">
                                                 {{-- Writer --}}
@@ -257,8 +257,8 @@
                                                 {{-- Writer End --}}
                                                 {{-- Blog Descrition --}}
                                                 <div>
-                                                    <h5 class="fw-semibold">{{$item->title}}</h5>
-                                                    <p>{{$item->header}}</p>
+                                                    <h5 class="fw-semibold">{{ $item->title }}</h5>
+                                                    <p>{{ $item->header }}</p>
                                                 </div>
                                                 {{-- Blog Descrition End --}}
                                             </div>
@@ -268,7 +268,7 @@
                                             <div class="d-flex justify-content-center align-items-center">
                                                 <div class="bySocial col-12">
                                                     <ul class="social-icon-links pull-right" style="font-size: 1.5rem;">
-                                                        {!! Share::page(url('/blog/'. $item->id . '/details'))->facebook()->twitter()->whatsapp() !!}
+                                                        {!! Share::page(url('/blog/' . $item->id . '/details'))->facebook()->twitter()->whatsapp() !!}
                                                     </ul>
                                                 </div>
                                             </div>
@@ -279,13 +279,14 @@
                                                 <button class="btn btn-primary rounded-circle ml-1">
                                                     <i class="fa fa-arrow-up"></i>
                                                 </button> --}}
-                                                <p class="ml-2 pt-3"><strong>Created at :  </strong>{{$item->created_at->format('Y-m-d')}}</p>
+                                                <p class="ms-2 pt-3"><strong>Created at :
+                                                    </strong>{{ $item->created_at->format('Y-m-d') }}</p>
                                             </div>
                                             {{-- <div class="d-flex justify-content-center align-items-center">
                                                 <button class="btn btn-primary rounded-circle">
                                                     <i class="fa fa-comment"></i>
                                                 </button>
-                                                <p class="  ml-2 pt-3">15</p>
+                                                <p class="  ms-2 pt-3">15</p>
                                             </div> --}}
                                         </div>
                                         {{-- Blog Button End --}}
@@ -295,20 +296,21 @@
                         @endforeach
                     @endif
                 </div>
-                <div class="col-3 blog_right mt-3">
+                <div class="col-lg-3 col-12 blog_right mt-3">
                     <div class="px-3 py-3 shadow-lg rounded-lg">
 
                         <img class="img-fluid" src="https://source.unsplash.com/random/580x320">
                         <div class="pt-3">
                             <h6>POPULAR POSTS</h6>
-                            {{-- Popular Product 1--}}
+                            {{-- Popular Product 1 --}}
                             @if ($featured_storys)
                                 @foreach ($featured_storys as $item)
                                     <div class="pt-3 pb-3 d-flex justify-content-between popular_post">
-                                        <a href="{{route('techglossy.details',$item->id)}}" class="d-flex justify-content-between">
+                                        <a href="{{ route('techglossy.details', $item->id) }}"
+                                            class="d-flex justify-content-between">
                                             <img class="rounded-circle img-fluid"
-                                                src="{{asset('storage/'.$item->image)}}" alt="" style="">
-                                            <p class="ml-2">{{ Str::limit($item->title, 30) }}</p>
+                                                src="{{ asset('storage/' . $item->image) }}" alt="" style="">
+                                            <p class="ms-2 mb-0">{{ Str::limit($item->title, 30) }}</p>
                                         </a>
                                     </div>
                                 @endforeach
@@ -329,12 +331,9 @@
                     <div class="d-flex justify-content-center">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
-
-                                {{$client_storys->links()}}
-
-
+                                {{ $client_storys->links() }}
                             </ul>
-                          </nav>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -345,6 +344,4 @@
 
 
         <!--=======// Featured client stories //=======-->
-@endsection
-
-
+    @endsection

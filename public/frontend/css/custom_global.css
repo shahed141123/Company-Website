@@ -15116,7 +15116,7 @@ switch input:checked+.slider {
     position: relative;
 }
 
-.we_serve_title p::after {
+/* .we_serve_title p::after {
     content: "";
     position: absolute;
     height: 2px;
@@ -15124,7 +15124,7 @@ switch input:checked+.slider {
     width: 25px;
     top: -5px;
     left: 0px;
-}
+} */
 
 .we_serve_itemWrapper {
     margin-top: 20px;
