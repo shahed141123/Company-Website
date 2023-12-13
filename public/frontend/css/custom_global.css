@@ -8407,55 +8407,6 @@ a:hover {
     font-size: 15px;
 }
 
-nav>.nav.nav-tabs {
-    border: none;
-    color: var(--white);
-    position: relative;
-    top: 0px;
-    margin: auto;
-}
-
-.nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
-    border-bottom: 10px solid #ae0a46;
-    position: relative;
-    top: 0px;
-}
-
-nav>div a.nav-item.nav-link,
-nav>div a.nav-item.nav-link.active {
-    text-align: center;
-    background: #ae0a46;
-    color: var(--white);
-    border-radius: 0;
-    font-size: 17px;
-    border: none;
-    position: relative;
-    padding: 10px 15px;
-    top: 9px;
-    width: 50px;
-}
-
-.nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
-    background-color: var(--primary-color);
-    border: 1px solid #ae0a46;
-    padding: 2px 20px 4px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 400;
-    color: var(--white);
-    margin: 0;
-    text-transform: uppercase;
-}
-
-.nav-tabs .nav-link:focus,
-.nav-tabs .nav-link:hover {
-    border: none;
-    border-radius: 0;
-    transition: background 0.2s linear;
-}
-
 .tab-content {
     background: transparent;
     line-height: 25px;
@@ -17426,7 +17377,9 @@ nav>div a.nav-item.nav-link.active:after {
     color: #222;
     margin: 30px 0px;
 }
-
+.insight-layout{
+background-color: #f7f6f5;
+}
 
 /* Client Dashboard */
 .dashboard-container{
@@ -17491,4 +17444,122 @@ nav>div a.nav-item.nav-link.active:after {
 /* Remove duplicated rules */
 .button-bottom-animation:hover::after {
     margin-top: 0px; /* Adjusted margin-top to match your initial setting */
+}
+
+
+/* Industry Start */
+.box {
+    position: relative;
+    width: 100%;
+}
+
+.our-services {
+    margin-top: 75px;
+    padding-bottom: 30px;
+    padding: 0 15px;
+    min-height: auto;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: all .4s ease-in-out;
+    box-shadow: 0 0 25px 0 rgba(20, 27, 202, .17)
+}
+
+.our-services .icon {
+    margin-bottom: -21px;
+    transform: translateY(-50%);
+    text-align: center
+}
+
+.our-services:hover h4,
+.our-services:hover p {
+    color: #fff
+}
+
+.settings {
+    transition: all 0.5s;
+}
+
+.settings:hover {
+    transition: all 0.5s;
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #ae0a46 0%, #ae0a46 100%)
+}
+
+.icon img {
+    background: white;
+    border-radius: 50%;
+}
+
+ul {
+    list-style-type: circle;
+}
+
+.common_button2 {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-family: "Allumi Std Extended";
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    display: inline-block;
+    background-color: var(--crimson);
+    transition: 0.3s;
+    outline: none;
+    border: none;
+    color: white;
+}
+
+
+nav>.nav.nav-tabs {
+    border: none;
+    color: var(--white);
+    position: relative;
+    top: 0px;
+    margin: auto;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+    border-bottom: 10px solid #ae0a46;
+    position: relative;
+    top: 0px;
+}
+
+nav>div a.nav-item.nav-link,
+nav>div a.nav-item.nav-link.active {
+    text-align: center;
+    background: #ae0a46;
+    color: var(--white);
+    border-radius: 0;
+    font-size: 17px;
+    border: none;
+    position: relative;
+    padding: 10px 15px;
+    top: 9px;
+    width: 50px;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+    background-color: var(--primary-color);
+    border: 1px solid #ae0a46;
+    padding: 2px 20px 4px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--white);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+    border: none;
+    border-radius: 0;
+    transition: background 0.2s linear;
+}
+.main_blogs{
+    margin-top: -7rem !important;
 }

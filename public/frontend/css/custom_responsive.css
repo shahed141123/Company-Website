@@ -1,6 +1,13 @@
 /* Extra Small Devices (e.g., Smartphones) */
 
 @media only screen and (max-width: 576px) {
+    .main_blogs{
+        margin-top: -2rem !important;
+    }
+    .global-action-btn{
+        text-align: center;
+        margin-top: 1rem;
+    }
     .Advance-Slider .img-fill img {
         height: 11rem;
     }

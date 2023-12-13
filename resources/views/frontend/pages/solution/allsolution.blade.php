@@ -28,7 +28,7 @@
         nav>div a.nav-item.nav-link.active {
             background: none;
             color: var(--secondary-paragraph-color);
-            font-size: var(--content-title-font-size);
+            font-size: 20px;
             font-weight: 600;
             padding: 13px 15px;
             top: 1px;
@@ -470,8 +470,8 @@
                 </h5>
                 <p class="home_title_text text-white" style="text-align: left;">{{ $learnmore->consult_short_des }}
                 </p>
-                <div class="business_seftion_button" style="text-align: left;">
-                    <a class="btn-color" href="#Contact">Explore business outcomes</a>
+                <div class="global-action-btn" style="text-align: left;">
+                    <a class="btn-white" href="#Contact">Explore business outcomes</a>
                 </div>
             </div>
         </div>

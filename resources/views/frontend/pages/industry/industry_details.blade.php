@@ -141,7 +141,8 @@
         }
     </style>
     <!--======// Header Title //======-->
-    <section class="common_product_header" style="background-image: url({{ asset('storage/' . $industry->image) }}); height:23rem;">
+    <section class="common_product_header"
+        style="background-image: url({{ asset('storage/' . $industry->image) }}); height:23rem;">
         <div class="container">
             <div>
                 {{-- <h1>{{ $industry->title }}</h1>
@@ -220,9 +221,9 @@
                         <ul>
 
                             <li class="d-flex">
-                                <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
+                                <div class="me-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px"
+                                        height="15px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
                                         xml:space="preserve">
                                         <path fill="#AE1D48"
                                             d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
@@ -232,9 +233,9 @@
                             </li>
 
                             <li class="d-flex">
-                                <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
+                                <div class="me-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px"
+                                        height="15px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
                                         xml:space="preserve">
                                         <path fill="#AE1D48"
                                             d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
@@ -244,9 +245,9 @@
                             </li>
 
                             <li class="d-flex">
-                                <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
+                                <div class="me-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px"
+                                        height="15px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
                                         xml:space="preserve">
                                         <path fill="#AE1D48"
                                             d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
@@ -256,9 +257,9 @@
                             </li>
 
                             <li class="d-flex">
-                                <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
+                                <div class="me-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px"
+                                        height="15px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
                                         xml:space="preserve">
                                         <path fill="#AE1D48"
                                             d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
@@ -287,52 +288,14 @@
             </div>
             <!--Content Wrapper-->
             <div class="row d-flex justify-content-center pt-3">
-                {{-- <div class="col-lg-3 col-md-6">
-                    @if ($industry->industryPage && $industry->industryPage->solutionCardOne)
-                        <a href="{{ route('solution.details', $industry->industryPage->solutionCardOne->slug) }}">
-                            <div class="product_veiw_details_item_image">
-                                <img src="{{ asset('storage/'.$industry->industryPage->solutionCardOne->image) }}"
-                                    alt="" width="150px" height="150px">
-                            </div>
-                            <!-- content -->
-                            <div class="product_veiw_details_item_content">
-                                <p class="text-center" style="font-size: 20px; margin: 4px 0px;">
-                                    {{ $industry->industryPage->solutionCardOne->name ?? 'N/A' }}</p>
-                                <p class="text-center" style="font-size: 15px;">
-                                    {{ $industry->industryPage->solutionCardOne->header ?? 'N/A' }}</p>
-                            </div>
-                        </a>
-                    @else
-                        <p>No Solution Card One Found</p>
-                    @endif
-                </div> --}}
                 @php
                     $solutionCards = [$industry->industryPage->solutionCardOne, $industry->industryPage->solutionCardTwo, $industry->industryPage->solutionCardThree, $industry->industryPage->solutionCardFour];
                 @endphp
-
-                {{-- @foreach ($solutionCards as $card)
-                    @if ($card)
-                        <div class="col-lg-3 col-md-6">
-                            <a href="{{ route('solution.details', ['id' => $card->slug]) }}">
-                                <div class="product_veiw_details_item_image">
-                                    <img src="{{ asset('storage/' . $card->banner_image) }}" alt=""
-                                        width="150px" height="150px">
-                                </div>
-                                <!-- content -->
-                                <div class="product_veiw_details_item_content">
-                                    <p class="text-center" style="font-size: 20px; margin: 4px 0px;">
-                                        {{ $card->name }}</p>
-                                    <p class="text-center" style="font-size: 15px;">
-                                        {{ $card->header }}</p>
-                                </div>
-                            </a>
-                        </div>
-                    @endif
-                @endforeach --}}
                 @foreach ($solutionCards as $item)
                     <div class="col-md-3 col-sm-4 mb-3">
                         <div class="box shadow-lg rounded">
-                            <img class="img-fluid" src="{{ asset('storage/' . $item->banner_image) }}"
+                            <img class="img-fluid"
+                                src="{{ !empty($item->banner_image) && file_exists(public_path('storage/' . $item->banner_image)) ? asset('storage/' . $item->banner_image) : asset('frontend/images/no-row-img(580-326).png') }}"
                                 style=" height: 270px;">
                             <div class="box-content">
                                 <h3 class="text-white">{{ Str::limit($item->name, 25) }}</h3>
@@ -343,10 +306,6 @@
                         </div>
                     </div>
                 @endforeach
-
-
-
-
             </div>
         </div>
     </section>
@@ -358,10 +317,10 @@
     @if (!empty($industry->industryPage->rowThree))
         <section class="py-4 my-5">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-sm-12">
-                        <h4 style="font-size:32px">{{ $industry->industryPage->rowThree->title }}</h4>
-                        <p>{!! $industry->industryPage->rowThree->description !!}</p>
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-sm-12" style="text-align: justify;">
+                        <h4 style="font-size:25px">{{ $industry->industryPage->rowThree->title }}</h4>
+                        <p class="m-0  pt-3" style="text-align: justify">{!! $industry->industryPage->rowThree->description !!}</p>
                         @if (!empty($industry->industryPage->rowThree->link))
                             <a href="{{ $industry->industryPage->rowThree->link }}"
                                 class="btn-color">{{ $industry->industryPage->rowThree->btn_name }}</a>
@@ -370,8 +329,9 @@
 
                     </div>
                     <div class="col-lg-6 col-sm-12">
-                        <img class="img-fluid" src="{{ asset('storage/' . $industry->industryPage->rowThree->image) }}"
-                            alt="" style="height: 300px;width: 580px;border-radius: 15px;">
+                        <img class="img-fluid"
+                            src="{{ !empty($industry->industryPage->rowThree->image) && file_exists(public_path('storage/' . $industry->industryPage->rowThree->image)) ? asset('storage/' . $industry->industryPage->rowThree->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                            style="height: 300px;width: 580px;border-radius: 15px;">
                     </div>
                 </div>
             </div>
@@ -389,7 +349,7 @@
 
                                     <div class=" aria-text">
                                         <div class="medium-10 small-11 text-center" style="margin: 0 auto;">
-                                            <h2 style="font-weight: 400; margin: 0 0 10.0px; padding-top: 0;"><span
+                                            <h2 class="text-center" style="font-weight: 400; margin: 0 0 10.0px; padding-top: 0;"><span
                                                     class="beTopLine">{{ substr($industry->industryPage->row_four_title, 0, 2) }}</span>{{ substr($industry->industryPage->row_four_title, 2) }}
                                             </h2>
                                             <p>{{ $industry->industryPage->row_four_header }}</p>
@@ -466,8 +426,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-sm-12">
-                        <img class="img-fluid" src="{{ asset('storage/' . $industry->industryPage->rowFive->image) }}"
-                            alt="" style="height: 300px;width: 580px;border-radius: 15px;">
+                        <img class="img-fluid" src="{{ !empty($industry->industryPage->rowFive->image) && file_exists(public_path('storage/' . $industry->industryPage->rowFive->image)) ? asset('storage/' . $industry->industryPage->rowFive->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                            alt="" style="height: 300px;width: 580px;border-radius: 15px;">    
                     </div>
                     <div class="col-lg-6 col-sm-12">
                         <h4 style="font-size:32px">{{ $industry->industryPage->rowFive->title }}</h4>
@@ -550,121 +510,121 @@
             </div>
         </section>
     @endif
-    <section>
-        <div class="container">
-            <div class="Container mt-5 px-0">
-                <h3 class="Head" style="font-size:30px;">Products Related to this Industry<span class="Arrows"></span>
-                </h3>
-                <!-- Carousel Container -->
-                <div class="SlickCarousel">
-                    @if ($products)
-                        @foreach ($products as $item)
-                            <!-- Item -->
-                            <div class="ProductBlock mb-3 mt-3">
-                                <div class="Content">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="product-grid">
-                                                <div class="product-image">
-                                                    <a href="{{ route('product.details', $item->slug) }}"
-                                                        class="image d-flex justify-content-center align-items-center">
-                                                        <img class="pic-1" src="{{ asset($item->thumbnail) }}"
-                                                            style="width: 180px;height: 180px;"
-                                                            alt="{{ $item->name }}">
-                                                        <img class="pic-2" src="{{ asset($item->thumbnail) }}"
-                                                            style="height: 180px;" alt="{{ $item->name }}">
-                                                    </a>
+<!--=======// Popular products //======-->
+<section>
+    <div class="container p-0 my-4">
+        <div class="Container spacer">
+            <h3 class="Head main_color">Related To This Industry <span class="Arrows"></span></h3>
+            <!-- Carousel Container -->
+            <div class="SlickCarousel">
+                @if ($products)
+                    @foreach ($products as $item)
+                        <!-- Item -->
+                        <div class="ProductBlock mb-3 mt-3">
+                            <div class="Content">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="custom-product-grid">
+                                            <div class="custom-product-image">
+                                                <a href="{{ route('product.details', $item->slug) }}" class="image">
+                                                    {{-- <img class="pic-1" src="{{ asset($item->thumbnail) }}"> --}}
+                                                    <img class="img-fluid"
+                                                        src="{{ !empty($item->thumbnail) && file_exists(public_path($item->thumbnail)) ? asset($item->thumbnail) : asset('frontend/images/random-no-img.png') }}"
+                                                        alt="NGEN IT">
+                                                </a>
+                                                <ul class="custom-product-links">
+                                                    <li><a href="#"><i class="fa fa-random text-white"></i></a>
+                                                    </li>
+                                                    <li><a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#productDetails{{ $item->id }}"><i
+                                                                class="fa fa-search text-white"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="custom-product-content">
+                                                <a href="{{ route('product.details', $item->slug) }}">
+                                                    <h3 class="custom-title"> {{ Str::words($item->name, 10) }}</h3>
+                                                </a>
 
-                                                    <ul class="product-links">
-                                                        <li><a href="#" data-tip="Quick View"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#productDetails{{ $item->id }}"><i
-                                                                    class="fa fa-eye text-white"></i></a>
-                                                        </li>
-                                                        <li><a href="#" data-tip="View Product"><i
-                                                                    class="fa fa-random text-white"></i></a></li>
-                                                    </ul>
-
-
-                                                </div>
-                                                <div class="product-content">
-                                                    <h3 class="titles mb-2 ask_for_price website-color text-center"
-                                                        style="height: 4.5rem;"><a
-                                                            href="{{ route('product.details', $item->slug) }}">{{ Str::limit($item->name, 85) }}</a>
-                                                    </h3>
-                                                    @if ($item->rfq == 1)
-                                                        <div class="price">
-                                                            <p class="text-muted text-center">
-                                                                <small>USD</small>
-                                                                --.-- $
-                                                            </p>
-                                                            <a href=""
-                                                                class="d-flex justify-content-center align-items-center"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#rfq{{ $item->id }}">
-                                                                <button class="btn-color">
-                                                                    Ask For Price
-                                                                </button>
-                                                            </a>
+                                                @if ($item->rfq == 1)
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            {{-- <small class="price-usd">USD</small>
+                                                            --.-- $ --}}
                                                         </div>
-                                                    @elseif ($item->price_status && $item->price_status == 'price')
-                                                        <div class="price">
-                                                            <p class="text-muted text-center"><small>USD</small>
-                                                                {{ number_format($item->price, 2) }} $
-                                                            </p>
-                                                            <div class="d-flex justify-content-center align-items-center">
-
-                                                                <div data-mdb-toggle="popover" title="Add To Cart Now"
-                                                                    class="cart_button{{ $item->id }}"
-                                                                    data-mdb-content="Add To Cart Now"
-                                                                    data-mdb-trigger="hover">
-                                                                    <button type="button"
-                                                                        class="btn-color add_to_cart"
-                                                                        data-id="{{ $item->id }}"
-                                                                        data-name="{{ $item->name }}"
-                                                                        data-quantity="1">
-                                                                        Add to Cart</button>
-                                                                </div>
-
-                                                            </div>
+                                                        <a href=""
+                                                            class="d-flex justify-content-center align-items-center"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $item->id }}">
+                                                            <button class="btn-color popular_product-button">
+                                                                Ask For Price
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                @elseif ($item->price_status && $item->price_status == 'rfq')
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            {{-- <small class="price-usd">USD</small>
+                                                        --.-- $ --}}
                                                         </div>
-                                                    @else
-                                                        <div class="price">
-                                                            <p class="text-muted text-center"
-                                                                style="text-decoration: line-through;text-decoration-thickness: 2px; text-decoration-color: #ae0a46;">
-                                                                USD {{ number_format($item->price, 2) }} $
-                                                            </p>
-                                                            <div class="d-flex justify-content-center align-items-center">
-
-
-                                                                <div data-mdb-toggle="popover" title="Your Price"
-                                                                    data-mdb-content="Your Price"
-                                                                    data-mdb-trigger="hover">
-                                                                    <button class="btn-color"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#askProductPrice">
-                                                                        Your Price
-                                                                    </button>
-                                                                </div>
-
-                                                            </div>
+                                                        <a href=""
+                                                            class="d-flex justify-content-center align-items-center"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $item->id }}">
+                                                            <button class="btn-color popular_product-button">
+                                                                Ask For Price
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                @elseif ($item->price_status && $item->price_status == 'offer_price')
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            <small class="price-usd">USD</small>
+                                                            $ {{ number_format($item->price, 2) }}
                                                         </div>
-                                                    @endif
-
-                                                </div>
+                                                        <a href=""
+                                                            class="d-flex justify-content-center align-items-center"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $item->id }}">
+                                                            <button class="btn-color" data-bs-toggle="modal"
+                                                                data-bs-target="#askProductPrice">
+                                                                Your Price
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                @else
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            <small class="price-usd">USD</small>
+                                                            $ {{ number_format($item->price, 2) }}
+                                                        </div>
+                                                        <a href="" data-mdb-toggle="popover"
+                                                            title="Add To Cart Now"
+                                                            class="cart_button{{ $item->id }}"
+                                                            data-mdb-content="Add To Cart Now"
+                                                            data-mdb-trigger="hover">
+                                                            <button type="button" class="btn-color add_to_cart"
+                                                                data-id="{{ $item->id }}"
+                                                                data-name="{{ $item->name }}" data-quantity="1">
+                                                                Add to Cart
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
-                    @endif
-                </div>
-                <!-- Carousel Container -->
-                @include('frontend.pages.home.rfq_modal')
+                        </div>
+                    @endforeach
+                @endif
             </div>
+            <!-- Carousel Container -->
+            @include('frontend.pages.home.rfq_modal')
         </div>
-    </section>
+    </div>
+</section>
+<!---------End -------->
     <!--======// Featured content //======-->
     @if (count($storys) > 0)
         <section class="related_posts_wrapper">
