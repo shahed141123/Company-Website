@@ -1,6 +1,56 @@
 /* Extra Small Devices (e.g., Smartphones) */
 
 @media only screen and (max-width: 576px) {
+    .callout {
+        margin: 0 4%;
+        padding: 30px 0px;
+    }
+    .success_section{
+        background: var(--secondary-bg-color);
+        padding: 10px 0px;
+    }
+    .content-box {
+        background: #fff;
+        border: 2px solid #d4d0ca;
+        margin-top: -2px;
+        height: 11.4rem;
+        text-align: center;
+        padding: 30px 10px 30px 10px;
+    }
+    .industry_single_help_list {
+        padding-left: 0px;
+    }
+    .industry_single_help_list ul {
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+        text-align: center;
+        margin-left: 6rem;
+    }
+    .blog_header {
+        background-image: url(../images/buy-category-hero.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* padding: 180px 0px; */
+        height: 200px;
+    }
+    .blog_feature_extra {
+        text-align: justify;
+        padding: 25px;
+    }
+    .content_wrapper {
+        position: relative;
+        padding: 24px;
+    }
+    .related-item {
+        opacity: 1;
+        transition: all linear 0.3s;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
     .main_blogs{
         margin-top: -2rem !important;
     }
@@ -505,7 +555,7 @@
 
     .banner_bottom_box {
         width: 100% !important;
-        padding-top: 2.8rem !important;
+        /* padding-top: 2.8rem !important; */
     }
 
     .home_banner_card {
@@ -1270,10 +1320,6 @@
 
     .Head {
         font-size: 20px !important;
-    }
-
-    .banner_bottom_box {
-        width: 95%;
     }
 
     .footer_top {

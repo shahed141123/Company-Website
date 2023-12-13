@@ -144,11 +144,11 @@
 @endif
 <!---------End -------->
 <!--======// Business section //======-->
-@if (!empty($feature1) && !empty($feature2) && !empty($feature3) && !empty($feature4) && !empty($feature5))
-    <section class="container">
+<section class="">
+    <div class="container">
         <!-- home title -->
         <div class="row">
-            @if ($home)
+            @if (!empty($home->header1))
                 <div class="home_banner_bottom_title mx-auto py-3 px-lg-4">
                     <h6 class="home_title_heading home_banner_bt-title pb-2"> {{ $home->header1 }}
                     </h6>
@@ -157,123 +157,82 @@
             @endif
         </div>
         <!-- business content -->
-
-
-        <div class="row d-flex justify-content-center">
-            @if (!empty($feature1))
-                <div class="custom_col-2 col-md-6 col-sm-12">
-                    <div class="text-center">
-                            <img class="img-fluid" height="85px"
-                src="{{ !empty($feature1->logo) && file_exists(public_path('storage/' . $feature1->logo)) ? asset('storage/' . $feature1->logo) : asset('frontend/images/service-no-img.png') }}"
-                alt="NGEN IT">
-                        <h5 class="business_services pt-2">{{ Str::limit($feature1->badge, 30) }}</h5>
-                    </div>
-                    <div class="feature_description">
-                        <p class="feature_descrip">{{ Str::limit($feature1->header, 80) }}</p>
-                    </div>
-                    <a href="{{ route('feature.details', $feature1->id) }}" class="business_item_button">
-                        <span>Learn More</span>
-                        <span class="business_item_button_icon">
-                            <i class="fa-solid fa-arrow-right-long"></i>
-                        </span>
-                    </a>
+        @if (!empty($features))
+            <div class="d-lg-block d-sm-none">
+                <div class="row d-flex justify-content-center">
+                    @foreach ($features as $feature)
+                        <div class="custom_col-2 col-md-6 col-sm-12">
+                            <div class="text-center">
+                                <img class="img-fluid" height="85px"
+                                    src="{{ !empty($feature->logo) && file_exists(public_path('storage/' . $feature->logo)) ? asset('storage/' . $feature->logo) : asset('frontend/images/service-no-img.png') }}"
+                                    alt="NGEN IT">
+                                <h5 class="business_services pt-2">{{ Str::limit($feature->badge, 30) }}</h5>
+                            </div>
+                            <div class="feature_description">
+                                <p class="feature_descrip">{{ Str::limit($feature->header, 80) }}</p>
+                            </div>
+                            <a href="{{ route('feature.details', $feature->id) }}" class="business_item_button">
+                                <span>Learn More</span>
+                                <span class="business_item_button_icon">
+                                    <i class="fa-solid fa-arrow-right-long"></i>
+                                </span>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
-            @endif
+            </div>
+            <div class="row d-lg-none d-sm-block">
 
-
-            @if (!empty($feature2))
-                <div class="custom_col-2 col-md-6 col-sm-12">
-                    <div class="text-center">
-                        <img class="img-fluid" height="85px"
-                src="{{ !empty($feature2->logo) && file_exists(public_path('storage/' . $feature2->logo)) ? asset('storage/' . $feature2->logo) : asset('frontend/images/service-no-img.png') }}"
-                alt="NGEN IT">
-                        <h5 class="business_services pt-2">{{ Str::limit($feature2->badge, 30) }}</h5>
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="text-start w-75">
+                        <h3 class="main_color">Feature Contents</h3>
                     </div>
-                    <div class="feature_description">
-                        <p class="feature_descrip">{{ Str::limit($feature2->header, 80) }}</p>
+                    <div class="customNavigation w-25">
+                        <a class="Arrows custom-responsive-slider-prev"><i
+                                class="fas fa-2x fa-arrow-alt-circle-left"></i></a>
+                        <a class="Arrows custom-responsive-slider-next"><i
+                                class="fas fa-2x fa-arrow-alt-circle-right"></i></a>
                     </div>
-                    <a href="{{ route('feature.details', $feature2->id) }}" class="business_item_button">
-                        <span>Learn More</span>
-                        <span class="business_item_button_icon">
-                            <i class="fa-solid fa-arrow-right-long"></i>
-                        </span>
-                    </a>
                 </div>
-            @endif
 
-
-            @if (!empty($feature3))
-                <div class="custom_col-2 col-md-6 col-sm-12">
-                    <div class="text-center">
-                        <img class="img-fluid" height="85px"
-                src="{{ !empty($feature3->logo) && file_exists(public_path('storage/' . $feature3->logo)) ? asset('storage/' . $feature3->logo) : asset('frontend/images/service-no-img.png') }}"
-                alt="NGEN IT">
-                        <h5 class="business_services pt-2">{{ Str::limit($feature3->badge, 30) }}</h5>
-                    </div>
-                    <div class="feature_description">
-                        <p class="feature_descrip">{{ Str::limit($feature3->header, 80) }}</p>
-                    </div>
-                    <a href="{{ route('feature.details', $feature3->id) }}" class="business_item_button">
-                        <span>Learn More</span>
-                        <span class="business_item_button_icon">
-                            <i class="fa-solid fa-arrow-right-long"></i>
-                        </span>
-                    </a>
+                <div class="owl-carousel custom-responsive-slider">
+                    @foreach ($features as $key => $feature)
+                        <div class="item">
+                            <div class="text-center">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <img src="{{ !empty($feature->logo) && file_exists(public_path('storage/' . $feature->logo)) ? asset('storage/' . $feature->logo) : asset('frontend/images/service-no-img.png') }}"
+                                        alt="NGEN IT" style="width: 80px;">
+                                </div>
+                                <h5 class="business_services pt-2">
+                                    {{ Str::limit($feature->badge, 30) }}</h5>
+                            </div>
+                            <div class="feature_description">
+                                <p class="feature_descrip">{{ Str::limit($feature->header, 80) }}
+                                </p>
+                            </div>
+                            <a href="{{ route('feature.details', $feature->id) }}" class="business_item_button">
+                                <span>Learn More</span>
+                                <span class="business_item_button_icon">
+                                    <i class="fa-solid fa-arrow-right-long"></i>
+                                </span>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
-            @endif
 
-
-            @if (!empty($feature4))
-                <div class="custom_col-2 col-md-6 col-sm-12">
-                    <div class="text-center">
-                        <img class="img-fluid" height="85px"
-                src="{{ !empty($feature4->logo) && file_exists(public_path('storage/' . $feature4->logo)) ? asset('storage/' . $feature4->logo) : asset('frontend/images/service-no-img.png') }}"
-                alt="NGEN IT">
-                        <h5 class="business_services pt-2">{{ Str::limit($feature4->badge, 30) }}</h5>
-                    </div>
-                    <div class="feature_description">
-                        <p class="feature_descrip">{{ Str::limit($feature4->header, 80) }}</p>
-                    </div>
-                    <a href="{{ route('feature.details', $feature4->id) }}" class="business_item_button">
-                        <span>Learn More</span>
-                        <span class="business_item_button_icon">
-                            <i class="fa-solid fa-arrow-right-long"></i>
-                        </span>
-                    </a>
-                </div>
-            @endif
-
-
-            @if (!empty($feature5))
-                <div class="custom_col-2 col-md-6 col-sm-12">
-                    <div class="text-center">
-                            <img class="img-fluid" height="85px"
-                src="{{ !empty($feature5->logo) && file_exists(public_path('storage/' . $feature5->logo)) ? asset('storage/' . $feature5->logo) : asset('frontend/images/service-no-img.png') }}"
-                alt="NGEN IT">
-                        <h5 class="business_services pt-2">{{ Str::limit($feature5->badge, 30) }}</h5>
-                    </div>
-                    <div class="feature_description">
-                        <p class="feature_descrip">{{ Str::limit($feature5->header, 80) }}</p>
-                    </div>
-                    <a href="{{ route('feature.details', $feature5->id) }}" class="business_item_button">
-                        <span>Learn More</span>
-                        <span class="business_item_button_icon">
-                            <i class="fa-solid fa-arrow-right-long"></i>
-                        </span>
-                    </a>
-                </div>
-            @endif
-        </div>
+            </div>
+        @endif
         <!-- button -->
         <div class="d-flex justify-content-center my-5">
             <a class="btn-color" href="{{ route('learn.more') }}">Learn More</a>
         </div>
-    </section>
-@endif
+    </div>
+</section>
+
 <!---------End -------->
 <!--=======// Shop product //======-->
-<section class="spacer learn_more">
-    <div class="container py-4">
+<section class="spacer learn_more py-lg-3">
+    <div class="container py-5">
         <div class="row align-items-center">
             <!-- content -->
             <div class="col-lg-8 col-sm-12">
@@ -351,7 +310,7 @@
 @if (!empty($story1) | !empty($story2) | !empty($story3) | !empty($story4))
     <section>
         <div class="container my-4 mb-5">
-            <h2 class="text-center">Our <span class="main_color">Client Story</span></h2>
+            <h2 class="text-center"><span class="main_color">Story</span></h2>
             <div class="row">
                 @if (!empty($story1))
                     <div class="col-lg-3">
@@ -620,7 +579,7 @@
 </section>
 <!---------End -------->
 <!---------Our Success Section-------->
-<section style="background: var(--secondary-bg-color); padding: 20px;}">
+<section class="success_section">
     <div class="container my-4 pb-4">
         <h2 class="text-center pb-5">Our Success <span class="main_color">Starts With</span> Our Culture.</h2>
         <div class="row success-area">
@@ -629,7 +588,8 @@
                     <!---------Column  Content -------->
                     <div class="success-area-content success-area-content-first">
                         <div class="pb-2">
-                            <img width="50px" src="{{ asset('frontend/images/icons/solutions.svg') }}" alt="">
+                            <img width="50px" src="{{ asset('frontend/images/icons/solutions.svg') }}"
+                                alt="">
                         </div>
                         <div class="success-divider-one"></div>
                         <h4 class="success-divider-title-one pb-2">{{ $success1->title }}</h4>
@@ -642,7 +602,8 @@
                     <!---------Column  Content -------->
                     <div class="success-area-content">
                         <div class="pb-2">
-                            <img width="50px" src="{{ asset('frontend/images/icons/solutions.svg') }}" alt="">
+                            <img width="50px" src="{{ asset('frontend/images/icons/solutions.svg') }}"
+                                alt="">
                         </div>
                         <div class="success-divider-two"></div>
                         <h4 class="success-divider-title-two pb-2">{{ $success2->title }}</h4>
@@ -655,7 +616,8 @@
                     <!---------Column  Content -------->
                     <div class="success-area-content">
                         <div class="pb-2">
-                            <img width="50px" src="{{ asset('frontend/images/icons/solutions.svg') }}" alt="">
+                            <img width="50px" src="{{ asset('frontend/images/icons/solutions.svg') }}"
+                                alt="">
                         </div>
                         <div class="success-divider-three"></div>
                         <h4 class="success-divider-title-three pb-2">{{ $success3->title }} </h4>

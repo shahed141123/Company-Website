@@ -76,11 +76,14 @@ class HomeController extends Controller
             'techglossy'
         ])->first();
 
-        $data['feature1']   = $data['home']->feature1;
-        $data['feature2']   = $data['home']->feature2;
-        $data['feature3']   = $data['home']->feature3;
-        $data['feature4']   = $data['home']->feature4;
-        $data['feature5']   = $data['home']->feature5;
+
+        $data['features'] = [
+            'feature1' => $data['home']->feature1,
+            'feature2' => $data['home']->feature2,
+            'feature3' => $data['home']->feature3,
+            'feature4' => $data['home']->feature4,
+            'feature5' => $data['home']->feature5,
+        ];
         $data['success1']   = $data['home']->success1;
         $data['success2']   = $data['home']->success2;
         $data['success3']   = $data['home']->success3;

@@ -82,7 +82,7 @@
             <div class="container">
                 <div class="row gx-3">
                     <div class="col-lg-8">
-                        <div class="p-5 blocks-content block-image-content" style="background-color:#f7f6f5!important; height: 32rem;">
+                        <div class="p-5 blocks-content block-image-content" style="background-color:#f7f6f5!important; height: 30rem;">
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="animated-image parbase section">
@@ -112,7 +112,7 @@
                     </div>
                     @if ($tab_one)
                         <div class="col-lg-4">
-                            <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 32rem;">
+                            <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 30rem;">
                                 <div class="row align-items-center">
                                     <div class="col-lg-12">
                                         @if (isset($tab_one->image) && file_exists(public_path('storage/' . $tab_one->image)))
@@ -143,7 +143,7 @@
                     @if ($tabIds)
                         @foreach ($tabIds as $tabId)
                             <div class="col-lg-4">
-                                <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 32rem;">
+                                <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 30rem;">
                                     <div class="row align-items-center">
                                         <div class="col-lg-12">
                                             @if (isset($tabId->image) && file_exists(public_path('storage/' . $tabId->image)))

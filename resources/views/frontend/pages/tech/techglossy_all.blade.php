@@ -125,10 +125,10 @@
                 <!--BUTTON START-->
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="m-4">
-                        <a href="{{ route('all.story') }}" class="main_color">All Client Storys</a>
+                        <a href="{{ route('all.story') }}" class="btn-color">All Client Storys</a>
                     </div>
                     <div class="m-4">
-                        <a href="{{ route('all.blog') }}" class="main_color">All Blogs</a>
+                        <a href="{{ route('all.blog') }}" class="btn-color">All Blogs</a>
                     </div>
                 </div>
             </div>
@@ -136,7 +136,7 @@
     </section>
     <!----------End--------->
     <div class="container-fluid blog_bg p-0 m-0">
-        <div class="container px-4 py-5">
+        <div class="container px-lg-4 py-lg-5">
             <div class="row gx-3 ">
                 <div class="col-lg-3 col-12 blog_left mt-3">
                     <div class="p-3 shadow-lg rounded-lg">
@@ -223,7 +223,7 @@
 
                     </div>
                 </div>
-                <div class="col-lg-6 col-12 blog_middle rounded-lg" style="margin-top: -7rem !important;">
+                <div class="col-lg-6 col-12 blog_middle rounded-lg main_blogs mt-3">
 
                     {{-- First Blog --}}
                     @if ($client_storys)
