@@ -1,8 +1,8 @@
 @extends('frontend.master')
 @section('content')
     <style>
-        .container-area-brand {
-            height: 21rem;
+        .content-brand {
+            height: 20rem;
         }
     </style>
     @include('frontend.pages.kukapages.partial.page_header')
@@ -18,7 +18,7 @@
             <div class="row my-lg-4 py-lg-4">
                 @if (count($techglossys) > 0)
                     @foreach ($techglossys as $techglossy)
-                        <div class="col-sm-3 px-0 mx-3 mb-3">
+                        <div class="col-lg-3 px-0 mx-3 mb-3">
                             <div class="container-area-brand">
                                 <div class="content-brand">
                                     <a href="{{ route('techglossy.details', $techglossy->id) }}" target="_blank">
@@ -31,7 +31,7 @@
                                                 alt="NGEN IT">
                                         </div>
                                         <div>
-                                            <p class="p-1" style="font-size: 12px;text-align:center;">
+                                            <p class="p-1" style="font-size: 16px;text-align:center;">
                                                 {{ Str::limit($techglossy->title, 85) }}</p>
                                         </div>
                                         <div class="content-details fadeIn-bottom fadeIn-left-brand">
@@ -69,7 +69,7 @@
             <div class="row my-4 py-4">
                 @if (count($contents) > 0)
                     @foreach ($blogs as $blog)
-                        <div class="col-sm-3 px-0 mx-3 mb-3 content-sections">
+                        <div class="col-lg-3 px-0 mx-3 mb-3 content-sections">
                             <div class="container-area-brand">
                                 <div class="content-brand">
                                     <a href="{{ route('blog.details', $blog->id) }}" target="_blank">
@@ -82,7 +82,7 @@
                                                 alt="NGEN IT">
                                         </div>
                                         <div>
-                                            <p class="p-1" style="font-size: 12px;text-align:center;">
+                                            <p class="p-1" style="font-size: 16px;text-align:center;">
                                                 {{ Str::limit($blog->title, 85) }}</p>
                                         </div>
                                         <div class="content-details fadeIn-bottom fadeIn-left-brand">
@@ -103,7 +103,7 @@
                         </div>
                     @endforeach
                     @foreach ($clientStories as $clientStory)
-                        <div class="col-sm-3 px-0 mx-3 mb-3">
+                        <div class="col-lg-3 px-0 mx-3 mb-3">
                             <div class="container-area-brand">
                                 <div class="content-brand">
                                     <a href="{{ route('story.details', $clientStory->id) }}" target="_blank">
@@ -114,7 +114,7 @@
                                                 alt="NGEN IT">
                                         </div>
                                         <div>
-                                            <p class="p-1" style="font-size: 12px;text-align:center;">
+                                            <p class="p-1" style="font-size: 16px;text-align:center;">
                                                 {{ Str::limit($clientStory->title, 85) }}</p>
                                         </div>
                                         <div class="content-details fadeIn-bottom fadeIn-left-brand">
@@ -156,7 +156,7 @@
                         <div class="container">
                             <div class="row py-3">
                                 @foreach ($related_search['categories'] as $related_category)
-                                    <div class="col-sm-3 col-6">
+                                    <div class="col-lg-3 col-6">
                                         <a href="{{ route('category.html', $related_category->slug) }}"
                                             class="related_search_links"><i
                                                 class="fa-solid fa-angles-right text-danger"></i>
@@ -164,7 +164,7 @@
                                     </div>
                                 @endforeach
                                 @foreach ($related_search['brands'] as $related_brand)
-                                    <div class="col-sm-3 col-6">
+                                    <div class="col-lg-3 col-6">
                                         <a href="{{ route('brand.overview', $related_brand->slug) }}"
                                             class="related_search_links"><i
                                                 class="fa-solid fa-angles-right text-danger"></i>
@@ -173,7 +173,7 @@
                                 @endforeach
                                 @foreach ($related_search['solutions'] as $related_solution)
                                     @if (!empty($related_solution->slug))
-                                        <div class="col-sm-3 col-6">
+                                        <div class="col-lg-3 col-6">
                                             <a href="{{ route('solution.details', $related_solution->slug) }}"
                                                 class="related_search_links"><i
                                                     class="fa-solid fa-angles-right text-danger"></i>
@@ -184,7 +184,7 @@
                                 @endforeach
                                 @foreach ($related_search['industries'] as $related_industry)
                                     @if (!empty($related_industry->slug))
-                                        <div class="col-sm-3 col-6">
+                                        <div class="col-lg-3 col-6">
                                             <a href="{{ route('industry.details', $related_industry->slug) }}"
                                                 class="related_search_links"><i
                                                     class="fa-solid fa-angles-right text-danger"></i>

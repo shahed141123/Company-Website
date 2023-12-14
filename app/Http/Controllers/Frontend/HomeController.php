@@ -84,13 +84,20 @@ class HomeController extends Controller
             'feature4' => $data['home']->feature4,
             'feature5' => $data['home']->feature5,
         ];
+        $data['storys'] = [
+            'story1' => $data['home']->story1,
+            'story2' => $data['home']->story2,
+            'story3' => $data['home']->story3,
+            'story4' => $data['home']->story4,
+        ];
+        // dd($data['storys']);
         $data['success1']   = $data['home']->success1;
         $data['success2']   = $data['home']->success2;
         $data['success3']   = $data['home']->success3;
-        $data['story1']     = $data['home']->story1;
-        $data['story2']     = $data['home']->story2;
-        $data['story3']     = $data['home']->story3;
-        $data['story4']     = $data['home']->story4;
+        // $data['story1']     = $data['home']->story1;
+        // $data['story2']     = $data['home']->story2;
+        // $data['story3']     = $data['home']->story3;
+        // $data['story4']     = $data['home']->story4;
         $data['techglossy'] = $data['home']->techglossy;
 
         $productColumns = ['id', 'brand_id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'price_status'];

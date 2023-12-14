@@ -3587,6 +3587,7 @@ select:focus-visible {
 
 .brand-page-banner {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+    margin: 27px;
     /* background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -8744,8 +8745,8 @@ input.qtyminus {
 
 .feature_description {
     text-align: center;
-    /* height: 20vh;
-    */
+    height: 5rem;
+
 }
 
 

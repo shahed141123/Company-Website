@@ -166,10 +166,11 @@
                                 <img class="img-fluid" height="85px"
                                     src="{{ !empty($feature->logo) && file_exists(public_path('storage/' . $feature->logo)) ? asset('storage/' . $feature->logo) : asset('frontend/images/service-no-img.png') }}"
                                     alt="NGEN IT">
-                                <h5 class="business_services pt-2">{{ Str::limit($feature->badge, 30) }}</h5>
+                                <h5 class="business_services pt-2">{{ Str::words($feature->badge, 10, $end = '') }}
+                                </h5>
                             </div>
                             <div class="feature_description">
-                                <p class="feature_descrip">{{ Str::limit($feature->header, 80) }}</p>
+                                <p class="feature_descrip">{{ Str::words($feature->header, 12, $end = '') }}</p>
                             </div>
                             <a href="{{ route('feature.details', $feature->id) }}" class="business_item_button">
                                 <span>Learn More</span>
@@ -182,12 +183,11 @@
                 </div>
             </div>
             <div class="row d-lg-none d-sm-block">
-
-                <div class="d-flex justify-content-center align-items-center">
+                <div class="d-flex justify-content-center align-items-center px-3">
                     <div class="text-start w-75">
                         <h3 class="main_color">Feature Contents</h3>
                     </div>
-                    <div class="customNavigation w-25">
+                    <div class="text-end w-25">
                         <a class="Arrows custom-responsive-slider-prev"><i
                                 class="fas fa-2x fa-arrow-alt-circle-left"></i></a>
                         <a class="Arrows custom-responsive-slider-next"><i
@@ -204,10 +204,10 @@
                                         alt="NGEN IT" style="width: 80px;">
                                 </div>
                                 <h5 class="business_services pt-2">
-                                    {{ Str::limit($feature->badge, 30) }}</h5>
+                                    {{ Str::words($feature->badge, 10, $end = '') }}</h5>
                             </div>
                             <div class="feature_description">
-                                <p class="feature_descrip">{{ Str::limit($feature->header, 80) }}
+                                <p class="feature_descrip">{{ Str::words($feature->header, 12, $end = '') }}
                                 </p>
                             </div>
                             <a href="{{ route('feature.details', $feature->id) }}" class="business_item_button">
@@ -219,7 +219,6 @@
                         </div>
                     @endforeach
                 </div>
-
             </div>
         @endif
         <!-- button -->
@@ -307,115 +306,77 @@
 </section>
 <!---------End -------->
 <!--=======// Client Story //======-->
-@if (!empty($story1) | !empty($story2) | !empty($story3) | !empty($story4))
+{{-- @if (!empty($story) | !empty($story2) | !empty($story3) | !empty($story4)) --}}
+@if (count($storys) > 0)
     <section>
-        <div class="container my-4 mb-5">
-            <h2 class="text-center"><span class="main_color">Story</span></h2>
+        <div class="container my-4 mb-5 d-lg-block d-sm-none">
+            <h2 class="text-center"><span class="main_color">Storys</span></h2>
             <div class="row">
-                @if (!empty($story1))
-                    <div class="col-lg-3">
-                        <div class="client_story_box">
-                            <div class="details-titles pt-4 ps-4 pb-3">
-                                <p class="pb-5">{{ $story1->badge }}</p>
-                            </div>
-                            <div class="grid-river">
-                                <figure class="effect-oscar">
-                                    {{-- <img src="{{ asset('storage/' . $cardsection2->image) }}" alt="img09" /> --}}
-                                    <img src="{{ isset($story1->image) && file_exists(public_path('storage/' . $story1->image)) ? asset('storage/' . $story1->image) : asset('frontend/images/banner-demo.png') }} "
-                                        alt="">
-                                    <figcaption>
-                                        <h6> {{ Str::words($story1->title, 6) }}</h6>
-                                        <p>{{ Str::words($story1->header, 10) }}</p>
-                                        <h5 class="download-hover-btn">
-                                            <a class="text-white"
-                                                href="{{ route('story.details', $story1->id) }}">Read Story <i
-                                                    class="fa-solid fa-chevron-right"
-                                                    style="font-size: 12px;"></i></a>
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-                @if (!empty($story2))
-                    <div class="col-lg-3">
-                        <div class="client_story_box">
-                            <div class="details-titles pt-4 ps-4 pb-3">
-                                <p class="pb-5">{{ $story2->badge }}</p>
-                            </div>
-                            <div class="grid-river">
-                                <figure class="effect-oscar">
-                                    {{-- <img src="{{ asset('storage/' . $cardsection2->image) }}" alt="img09" /> --}}
-                                    <img src="{{ isset($story2->image) && file_exists(public_path('storage/' . $story2->image)) ? asset('storage/' . $story2->image) : asset('frontend/images/banner-demo.png') }} "
-                                        alt="">
-                                    <figcaption class="stroy-content">
-                                        <h6> {{ Str::words($story2->title, 6) }}</h6>
-                                        <p>{{ Str::words($story2->header, 10) }}</p>
-                                        <h5 class="download-hover-btn">
-                                            <a class="text-white"
-                                                href="{{ route('story.details', $story2->id) }}">Read Story <i
-                                                    class="fa-solid fa-chevron-right"
-                                                    style="font-size: 12px;"></i></a>
-                                        </h5>
-                                    </figcaption>
-                                </figure>
+                @foreach ($storys as $story)
+                    @if (!empty($story))
+                        <div class="col-lg-3">
+                            <div class="client_story_box">
+                                <div class="details-titles pt-4 ps-4 pb-3">
+                                    <p class="pb-5">{{ $story->badge }}</p>
+                                </div>
+                                <div class="grid-river">
+                                    <figure class="effect-oscar">
+                                        <img src="{{ isset($story->image) && file_exists(public_path('storage/' . $story->image)) ? asset('storage/' . $story->image) : asset('frontend/images/banner-demo.png') }} "
+                                            alt="">
+                                        <figcaption>
+                                            <h6> {{ Str::words($story->title, 6) }}</h6>
+                                            <p>{{ Str::words($story->header, 10) }}</p>
+                                            <h5 class="download-hover-btn">
+                                                <a class="text-white"
+                                                    href="{{ route('story.details', $story->id) }}">Read Story
+                                                    <i class="fa-solid fa-chevron-right" style="font-size: 12px;"></i>
+                                                </a>
+                                            </h5>
+                                        </figcaption>
+                                    </figure>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endif
-                @if (!empty($story3))
-                    <div class="col-lg-3">
-                        <div class="client_story_box">
-                            <div class="details-titles pt-4 ps-4 pb-3">
-                                <p class="pb-5">{{ $story3->badge }}</p>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+        <div class="container my-4 mb-5 d-lg-none d-sm-block">
+            <div class="d-flex justify-content-center align-items-center px-3">
+                <div class="text-start w-75">
+                    <h3 class="main_color">Storys</h3>
+                </div>
+                <div class="text-end w-25">
+                    <a class="Arrows custom-responsive-slider-prev"><i
+                            class="fas fa-2x fa-arrow-alt-circle-left"></i></a>
+                    <a class="Arrows custom-responsive-slider-next"><i
+                            class="fas fa-2x fa-arrow-alt-circle-right"></i></a>
+                </div>
+            </div>
+
+            <div class="owl-carousel custom-responsive-slider">
+                @foreach ($features as $key => $feature)
+                    <div class="item">
+                        <div class="text-center">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <img src="{{ !empty($feature->logo) && file_exists(public_path('storage/' . $feature->logo)) ? asset('storage/' . $feature->logo) : asset('frontend/images/service-no-img.png') }}"
+                                    alt="NGEN IT" style="width: 80px;">
                             </div>
-                            <div class="grid-river">
-                                <figure class="effect-oscar">
-                                    {{-- <img src="{{ asset('storage/' . $cardsection2->image) }}" alt="img09" /> --}}
-                                    <img src="{{ isset($story3->image) && file_exists(public_path('storage/' . $story3->image)) ? asset('storage/' . $story3->image) : asset('frontend/images/banner-demo.png') }} "
-                                        alt="">
-                                    <figcaption class="stroy-content">
-                                        <h6> {{ Str::words($story3->title, 6) }}</h6>
-                                        <p>{{ Str::words($story3->header, 10) }}</p>
-                                        <h5 class="download-hover-btn"></i></a>
-                                            <a class="text-white"
-                                                href="{{ route('story.details', $story3->id) }}">Read Story <i
-                                                    class="fa-solid fa-chevron-right"
-                                                    style="font-size: 12px;"></i></a>
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                            <h5 class="business_services pt-2">
+                                {{ Str::words($feature->badge, 10, $end = '') }}</h5>
                         </div>
-                    </div>
-                @endif
-                @if (!empty($story4))
-                    <div class="col-lg-3">
-                        <div class="client_story_box">
-                            <div class="details-titles pt-4 ps-4 pb-3">
-                                <p class="pb-5">{{ $story4->badge }}</p>
-                            </div>
-                            <div class="grid-river">
-                                <figure class="effect-oscar">
-                                    {{-- <img src="{{ asset('storage/' . $cardsection2->image) }}" alt="img09" /> --}}
-                                    <img src="{{ isset($story4->image) && file_exists(public_path('storage/' . $story4->image)) ? asset('storage/' . $story4->image) : asset('frontend/images/banner-demo.png') }} "
-                                        alt="">
-                                    <figcaption class="stroy-content">
-                                        <h6> {{ Str::words($story4->title, 6) }}</h6>
-                                        <p>{{ Str::words($story4->header, 10) }}</p>
-                                        <h5 class="download-hover-btn">
-                                            <a class="text-white"
-                                                href="{{ route('story.details', $story4->id) }}">Read Story <i
-                                                    class="fa-solid fa-chevron-right"
-                                                    style="font-size: 12px;"></i></a>
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                        <div class="feature_description">
+                            <p class="feature_descrip">{{ Str::words($feature->header, 12, $end = '') }}
+                            </p>
                         </div>
+                        <a href="{{ route('feature.details', $feature->id) }}" class="business_item_button">
+                            <span>Learn More</span>
+                            <span class="business_item_button_icon">
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </span>
+                        </a>
                     </div>
-                @endif
+                @endforeach
             </div>
         </div>
     </section>

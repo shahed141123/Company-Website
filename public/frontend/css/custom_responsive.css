@@ -408,11 +408,6 @@
         width: 100% !important;
     }
 
-    .home_shop_product_wrapper p {
-        text-align: center !important;
-        width: 100% !important;
-    }
-
     .home_shop_button {
         display: flex !important;
         justify-content: center !important;
@@ -495,7 +490,7 @@
         width: 100% !important;
         position: relative;
         top: 0;
-        margin-top: -6.5rem;
+        margin-top: -4rem;
     }
     .home_title_heading {
         font-family: "Allumi Std Extended";
@@ -514,7 +509,7 @@
         text-align: center !important;
         font-size: 14px;
         width: 100% !important;
-        margin-bottom: 0px;
+        margin-bottom: 1.25rem;
     }
 
     .home_banner_bt-title {
@@ -555,6 +550,7 @@
 
     .banner_bottom_box {
         width: 100% !important;
+        top: -2.5rem;
         /* padding-top: 2.8rem !important; */
     }
 
@@ -1225,8 +1221,8 @@
 
 
     .home_shop_product_wrapper p {
-        font-family: "Klinic Slab" !important;
-        font-size: 16px !important;
+        font-family: "Allumi Std Extended" !important;
+        font-size: var(--paragraph-font-size) !important;
         margin-bottom: 20px;
         text-align: center !important;
         width: 100% !important;
