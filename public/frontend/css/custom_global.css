@@ -8359,11 +8359,6 @@ a:hover {
 
 /* Custom Main Css End */
 
-/* Sidebar_tab Css Start */
-.dropdown-menu {
-    background-color: white;
-}
-
 .nav-link {
     font-family: var(--primary-font);
     font-size: 14px;
