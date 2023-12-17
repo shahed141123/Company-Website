@@ -102,6 +102,7 @@ body {
     font-weight: 400;
     font-style: normal;
     vertical-align: baseline;
+    list-style-type: none;
 }
 
 body {
@@ -151,6 +152,9 @@ tr {
     color: black;
     border: 1px solid #d9d8d8;
     vertical-align: middle;
+}
+ul li{
+    list-style-type: none;
 }
 
 .section-titles{
