@@ -866,11 +866,63 @@ class HomeController extends Controller
     }
 
     public function training() {
-        return view('frontend.pages.commonPage.training');
+        $data['software_info'] = SoftwareInfoPage::where('type', 'info')->latest()->firstOrFail();
+        $data['tab_one'] = Row::where('id', $data['software_info']->row_five_tab_one_id)->first();
+        if (!empty($data['software_info'])) {
+            $data['tabIds'] = [
+                'tab_two' => Row::where('id', $data['software_info']->row_five_tab_two_id)->first(),
+                'tab_three' => Row::where('id', $data['software_info']->row_five_tab_three_id)->first(),
+                'tab_four' => Row::where('id', $data['software_info']->row_five_tab_four_id)->first(),
+            ];
+        }
+        $data['categories'] = DB::table('sub_categories')->join('products', 'sub_categories.id', '=', 'products.sub_cat_id')
+            ->where('products.product_type', '=', 'software')
+            ->select('sub_categories.id', 'sub_categories.slug', 'sub_categories.title', 'sub_categories.image')
+            ->distinct()->inRandomOrder()->limit(12)->get();
+
+        $brandIds = Product::where('product_status', 'product')->where('product_type', 'software')->distinct()->pluck('brand_id')->toArray();
+
+        $data['brands'] = Brand::whereIn('id', $brandIds)->limit(12)->get();
+
+        $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
+
+        $data['tech_glossies'] = TechGlossy::inRandomOrder()->limit(3)->get();
+        // dd($data['tech_glossies']);
+        $data['tech_glossy1'] = $data['tech_glossies']->first();
+        $data['tech_glossy2'] = $data['tech_glossies']->get(1);
+        $data['tech_glossy3'] = $data['tech_glossies']->get(2);
+        $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
+        return view('frontend.pages.commonPage.training',$data);
 
     }
 
     public function books() {
-        return view('frontend.pages.commonPage.books');
+        $data['software_info'] = SoftwareInfoPage::where('type', 'info')->latest()->firstOrFail();
+        $data['tab_one'] = Row::where('id', $data['software_info']->row_five_tab_one_id)->first();
+        if (!empty($data['software_info'])) {
+            $data['tabIds'] = [
+                'tab_two' => Row::where('id', $data['software_info']->row_five_tab_two_id)->first(),
+                'tab_three' => Row::where('id', $data['software_info']->row_five_tab_three_id)->first(),
+                'tab_four' => Row::where('id', $data['software_info']->row_five_tab_four_id)->first(),
+            ];
+        }
+        $data['categories'] = DB::table('sub_categories')->join('products', 'sub_categories.id', '=', 'products.sub_cat_id')
+            ->where('products.product_type', '=', 'software')
+            ->select('sub_categories.id', 'sub_categories.slug', 'sub_categories.title', 'sub_categories.image')
+            ->distinct()->inRandomOrder()->limit(12)->get();
+
+        $brandIds = Product::where('product_status', 'product')->where('product_type', 'software')->distinct()->pluck('brand_id')->toArray();
+
+        $data['brands'] = Brand::whereIn('id', $brandIds)->limit(12)->get();
+
+        $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
+
+        $data['tech_glossies'] = TechGlossy::inRandomOrder()->limit(3)->get();
+        // dd($data['tech_glossies']);
+        $data['tech_glossy1'] = $data['tech_glossies']->first();
+        $data['tech_glossy2'] = $data['tech_glossies']->get(1);
+        $data['tech_glossy3'] = $data['tech_glossies']->get(2);
+        $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
+        return view('frontend.pages.commonPage.books',$data);
     }
 }

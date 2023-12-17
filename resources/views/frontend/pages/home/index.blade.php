@@ -549,56 +549,7 @@
 </section>
 <!---------End -------->
 <!---------Our Success Section-------->
-{{-- <section class="success_section">
-    <div class="container my-4 pb-4">
-        <h2 class="text-center pb-5">Our Success <span class="main_color">Starts With</span> Our Culture.</h2>
-        <div class="row success-area">
-            @if (!empty($success1->title))
-                <div class="col-lg-4">
-                    <!---------Column  Content -------->
-                    <div class="success-area-content success-area-content-first">
-                        <div class="pb-2">
-                            <img width="50px" src="{{ asset('frontend/images/icons/solutions.svg') }}"
-                                alt="">
-                        </div>
-                        <div class="success-divider-one"></div>
-                        <h4 class="success-divider-title-one pb-2">{{ $success1->title }}</h4>
-                        <p>{{ $success1->description }}</p>
-                    </div>
-                </div>
-            @endif
-            @if (!empty($success2->title))
-                <div class="col-lg-4">
-                    <!---------Column  Content -------->
-                    <div class="success-area-content">
-                        <div class="pb-2">
-                            <img width="50px" src="{{ asset('frontend/images/icons/solutions.svg') }}"
-                                alt="">
-                        </div>
-                        <div class="success-divider-two"></div>
-                        <h4 class="success-divider-title-two pb-2">{{ $success2->title }}</h4>
-                        <p>{{ $success2->description }}</p>
-                    </div>
-                </div>
-            @endif
-            @if (!empty($success3->title))
-                <div class="col-lg-4">
-                    <!---------Column  Content -------->
-                    <div class="success-area-content">
-                        <div class="pb-2">
-                            <img width="50px" src="{{ asset('frontend/images/icons/solutions.svg') }}"
-                                alt="">
-                        </div>
-                        <div class="success-divider-three"></div>
-                        <h4 class="success-divider-title-three pb-2">{{ $success3->title }} </h4>
-                        <p>{{ $success3->description }}</p>
-                    </div>
-                </div>
-            @endif
-        </div>
-    </div>
 
-</section> --}}
 
 <section class="success_section">
     <div class="container my-4 pb-4 d-lg-block d-sm-none">
@@ -637,8 +588,8 @@
                         <div class="item border-0">
                             <div class="success-area-content success-area-content-mobile">
                                 <div class="pb-2">
-                                    <img width="50px" src="{{ asset('storage/' . $successItem->image) }}"
-                                        alt="">
+                                    <img src="{{ asset('storage/' . $successItem->image) }}"
+                                        alt="" style="width: 50px;">
                                 </div>
                                 <div class="success-divider-{{ $key }}"></div>
                                 <h4 class="success-divider-title-{{ $key }} pb-2">{{ $successItem->title }}

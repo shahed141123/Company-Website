@@ -277,7 +277,7 @@
                                                             </div>
                                                             <div class="col-lg-12 mb-2">
                                                                 <a class="d-flex align-items-center"
-                                                                    href="javascript:void(0)">
+                                                                    href="{{route('training')}}">
                                                                     <div>Training</div>
                                                                     <div>
                                                                         <i class="ph ph-caret-right menu_icons"></i>
@@ -286,7 +286,7 @@
                                                             </div>
                                                             <div class="col-lg-12 mb-2">
                                                                 <a class="d-flex align-items-center"
-                                                                    href="javascript:void(0)">
+                                                                    href="{{route('books')}}">
                                                                     <div>Books</div>
                                                                     <div>
                                                                         <i class="ph ph-caret-right menu_icons"></i>
@@ -491,7 +491,7 @@
                                                             </div>
                                                             <div class="col-lg-12 mb-2">
                                                                 <a class="d-flex align-items-center"
-                                                                    href="javascript:void(0)">
+                                                                    href="{{route('training')}}">
                                                                     <div>Training</div>
                                                                     <div>
                                                                         <i class="ph ph-caret-right menu_icons"></i>
@@ -500,7 +500,7 @@
                                                             </div>
                                                             <div class="col-lg-12 mb-2">
                                                                 <a class="d-flex align-items-center"
-                                                                    href="javascript:void(0)">
+                                                                    href="{{route('books')}}">
                                                                     <div>Books</div>
                                                                     <div>
                                                                         <i class="ph ph-caret-right menu_icons"></i>
@@ -835,7 +835,7 @@
                                             </a>
                                         </div>
                                         <div class="col-6 mb-2">
-                                            <a class="d-flex align-items-center" href="javascript:void(0)">
+                                            <a class="d-flex align-items-center" href="{{route('training')}}">
                                                 <div>Training</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
@@ -851,7 +851,7 @@
                                             </a>
                                         </div>
                                         <div class="col-6 mb-2">
-                                            <a class="d-flex align-items-center" href="javascript:void(0)">
+                                            <a class="d-flex align-items-center" href="{{route('books')}}">
                                                 <div>Books</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
@@ -936,7 +936,7 @@
                                             </a>
                                         </div>
                                         <div class="col-6 mb-2">
-                                            <a class="d-flex align-items-center" href="javascript:void(0)">
+                                            <a class="d-flex align-items-center" href="{{route('training')}}">
                                                 <div>Training</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
@@ -944,7 +944,7 @@
                                             </a>
                                         </div>
                                         <div class="col-6 mb-2">
-                                            <a class="d-flex align-items-center" href="javascript:void(0)">
+                                            <a class="d-flex align-items-center" href="{{route('books')}}">
                                                 <div>Books</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>

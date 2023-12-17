@@ -50,17 +50,17 @@ class SuccessController extends Controller
         );
 
         if ($validator->passes()) {
-            $image = $request->image;
+            $image = $request->file('image');
             $uploadPath = storage_path('app/public/');
 
             if (!empty($image)) {
-                $globalFunImage = Helper::customUpload($image, $uploadPath);
+                $globalFunImage = Helper::Upload($image, $uploadPath);
            } else {
                 $globalFunImage = ['status' => 0];
             }
             Success::create([
                 'title'       => $request->title,
-                'image'       => $globalFunImage['status'] == 1 ? $image->hashName() : null,
+                'image'       => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : null,
                 'btn_name'    => $request->btn_name,
                 'link'        => $request->link,
                 'description' => $request->description,
@@ -119,11 +119,11 @@ class SuccessController extends Controller
         );
 
         if ($validator->passes()) {
+            $image = $request->file('image');
+            $uploadPath = storage_path('app/public/');
             if (!empty($image)) {
-                $image = $request->image;
-                $uploadPath = storage_path('app/public/');
                 // Call external helper function which resizes and saves the image file in the designated folder
-                $globalFunImage = Helper::customUpload($image, $uploadPath,);
+                $globalFunImage = Helper::Upload($image, $uploadPath);
 
                 // Delete old logo files stored on disk
                 $paths = [
@@ -136,12 +136,11 @@ class SuccessController extends Controller
                     }
                 }
             } else {
-                // Set status of logo image to 0 if no image file was uploaded
                 $globalFunImage = ['status' => 0];
             }
             $success->update([
                 'title'       => $request->title,
-                'image'       => $globalFunImage['status'] == 1 ? $image->hashName() : $success->image,
+                'image'       => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : $success->image,
                 'btn_name'    => $request->btn_name,
                 'link'        => $request->link,
                 'description' => $request->description,
