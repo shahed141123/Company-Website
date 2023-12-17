@@ -147,28 +147,27 @@
                                 <i class="fa-solid fa-bars" style="font-size: 18px !important;"></i>
                             </a>
                             <ul class="dropdown-menu w-100 extra_category bg-none" aria-labelledby="dropdownMenuLink2">
-                                <section class="header" style=" height: 100%; margin-top: -2px;">
+                                <section class="header">
                                     <div class="container-fluid">
-                                        <div class="row tab_area_main p-2 category-center">
+                                        <div class="row tab_area_main category-center">
                                             <!-- Assuming $categories is already available in your controller or view -->
 
-                                            <div class="col-md-3 tab_key_btns p-0 ">
+                                            <div class="col-md-2 tab_key_btns p-0 ">
                                                 <div class="nav nav-custom flex-column nav-pills2 nav-pills-custom2"
                                                     id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                                     @foreach ($categories as $key => $category)
-                                                        <a class="nav-link px-3 p-2 shadow {{ $key === 0 ? 'show active' : '' }}"
+                                                        <a class="nav-link catregory-side-key {{ $key === 0 ? 'show active' : '' }}"
                                                             id="v-pills-home-tab{{ $category->id }}" data-toggle="pill"
                                                             href="#v-pills-home{{ $category->id }}" role="tab"
                                                             aria-controls="v-pills-home{{ $category->id }}"
-                                                            aria-selected="true"
-                                                            style="font-weight:500 !important; margin-bottom: 1px;">
+                                                            aria-selected="true">
                                                             <span class="ps-1">-- &nbsp; {{ $category->title }}</span>
                                                         </a>
                                                     @endforeach
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-9 p-0">
+                                            <div class="col-md-10 p-0 bg-white">
                                                 <div class="tab-content" id="v-pills-tabContent">
                                                     @foreach ($categories as $key => $category)
                                                         <div class="tab-pane fade rounded-0 p-1 {{ $key === 0 ? 'show active' : '' }}"
