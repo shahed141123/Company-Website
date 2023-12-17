@@ -1443,6 +1443,7 @@ figure.effect-oscar:hover figcaption {
     font-weight: 700;
     background-color: #ffffff;
     box-shadow: var(--custom-shadow);
+    border: 1px solid var(--border-color);
 }
 
 .details-titles p {
@@ -15135,47 +15136,47 @@ switch input:checked+.slider {
 
 .success-area-content:hover {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
-.success-area-content-first {
+/* .success-area-content-first {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .success-area-content-first:hover {
     box-shadow: none;
-}
+} */
 
-.success-divider-one {
+.success-divider-1 {
     height: 5px;
     background-color: var(--primary-color);
     border-radius: 60px;
     width: 25%;
 }
 
-.success-divider-two {
+.success-divider-2 {
     height: 5px;
     background-color: #9f177a;
     border-radius: 60px;
     width: 25%;
 }
 
-.success-divider-three {
+.success-divider-3 {
     height: 5px;
     background-color: #582873;
     border-radius: 60px;
     width: 25%;
 }
 
-.success-divider-title-one {
+.success-divider-title-1 {
     color: #ae0a46;
 }
 
-.success-divider-title-two {
+.success-divider-title-2 {
     color: #9f177a;
 }
 
-.success-divider-title-three {
+.success-divider-title-3 {
     color: #582873;
 }
 

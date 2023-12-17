@@ -183,7 +183,7 @@
                 </div>
             </div>
             <div class="row d-lg-none d-sm-block">
-                <div class="d-flex justify-content-center align-items-center px-3">
+                <div class="d-flex justify-content-center align-items-center px-3 mb-3 border-bottom">
                     <div class="text-start w-75">
                         <h3 class="main_color">Feature Contents</h3>
                     </div>
@@ -197,26 +197,28 @@
 
                 <div class="owl-carousel custom-responsive-slider">
                     @foreach ($features as $key => $feature)
-                        <div class="item">
-                            <div class="text-center">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <img src="{{ !empty($feature->logo) && file_exists(public_path('storage/' . $feature->logo)) ? asset('storage/' . $feature->logo) : asset('frontend/images/service-no-img.png') }}"
-                                        alt="NGEN IT" style="width: 80px;">
+                        @if (!empty($feature))
+                            <div class="item">
+                                <div class="text-center">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <img src="{{ !empty($feature->logo) && file_exists(public_path('storage/' . $feature->logo)) ? asset('storage/' . $feature->logo) : asset('frontend/images/service-no-img.png') }}"
+                                            alt="NGEN IT" style="width: 80px;">
+                                    </div>
+                                    <h5 class="business_services pt-2">
+                                        {{ Str::words($feature->badge, 10, $end = '') }}</h5>
                                 </div>
-                                <h5 class="business_services pt-2">
-                                    {{ Str::words($feature->badge, 10, $end = '') }}</h5>
+                                <div class="feature_description">
+                                    <p class="feature_descrip">{{ Str::words($feature->header, 12, $end = '') }}
+                                    </p>
+                                </div>
+                                <a href="{{ route('feature.details', $feature->id) }}" class="business_item_button">
+                                    <span>Learn More</span>
+                                    <span class="business_item_button_icon">
+                                        <i class="fa-solid fa-arrow-right-long"></i>
+                                    </span>
+                                </a>
                             </div>
-                            <div class="feature_description">
-                                <p class="feature_descrip">{{ Str::words($feature->header, 12, $end = '') }}
-                                </p>
-                            </div>
-                            <a href="{{ route('feature.details', $feature->id) }}" class="business_item_button">
-                                <span>Learn More</span>
-                                <span class="business_item_button_icon">
-                                    <i class="fa-solid fa-arrow-right-long"></i>
-                                </span>
-                            </a>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
             </div>
@@ -231,7 +233,7 @@
 <!---------End -------->
 <!--=======// Shop product //======-->
 <section class="spacer learn_more py-lg-3">
-    <div class="container py-5">
+    <div class="container py-lg-5 py-4">
         <div class="row align-items-center">
             <!-- content -->
             <div class="col-lg-8 col-sm-12">
@@ -252,7 +254,7 @@
                         you need to succeed. Additionally, you may easily ask your exact requirements or contact us at
                         anytime.
                     </p>
-                    <div class="mt-5 btn-area">
+                    <div class="mt-lg-5 mt-4 btn-area">
                         <a href="{{ route('shop.html') }}" class="btn-color">Explore Shop</a>
                     </div>
                 </div>
@@ -261,21 +263,23 @@
             <div class="col-lg-4 col-sm-12 product_brand">
                 <div>
                     <p class="fw-bold top-line-title"><span style="border-top: 4px solid #ae0a46;">Exp</span>lore
+                        Categories
                     </p>
+
                     <div class="">
-                        <a href="{{ route('all.category') }}">
-                            <div id="fed-bg">
-                                <div class="p-2">
-                                    <h3 class="text-white brand_side_text">Product Categories ›</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class=" pt-2">
                         <a href="{{ route('all.brand') }}">
                             <div id="fed-bg">
                                 <div class="p-2">
                                     <h3 class="text-white brand_side_text">Brands ›</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="pt-2">
+                        <a href="{{ route('all.category') }}">
+                            <div id="fed-bg">
+                                <div class="p-2">
+                                    <h3 class="text-white brand_side_text">Product Categories ›</h3>
                                 </div>
                             </div>
                         </a>
@@ -342,7 +346,7 @@
             </div>
         </div>
         <div class="container my-4 mb-5 d-lg-none d-sm-block">
-            <div class="d-flex justify-content-center align-items-center px-3">
+            <div class="d-flex justify-content-center align-items-center mx-3 border-bottom">
                 <div class="text-start w-75">
                     <h3 class="main_color">Storys</h3>
                 </div>
@@ -355,26 +359,31 @@
             </div>
 
             <div class="owl-carousel custom-responsive-slider">
-                @foreach ($features as $key => $feature)
-                    <div class="item">
-                        <div class="text-center">
-                            <div class="d-flex justify-content-center align-items-center">
-                                <img src="{{ !empty($feature->logo) && file_exists(public_path('storage/' . $feature->logo)) ? asset('storage/' . $feature->logo) : asset('frontend/images/service-no-img.png') }}"
-                                    alt="NGEN IT" style="width: 80px;">
+                @foreach ($storys as $key => $story)
+                    <div class="item border-0">
+                        @if (!empty($story))
+                            <div class="client_story_box">
+                                <div class="details-titles pt-2 ps-4 pb-3">
+                                    <p class="pb-5">{{ $story->badge }}</p>
+                                </div>
+                                <div class="grid-river">
+                                    <figure class="effect-oscar">
+                                        <img src="{{ isset($story->image) && file_exists(public_path('storage/' . $story->image)) ? asset('storage/' . $story->image) : asset('frontend/images/banner-demo.png') }} "
+                                            alt="">
+                                        <figcaption>
+                                            <h6> {{ Str::words($story->title, 6) }}</h6>
+                                            <p>{{ Str::words($story->header, 10) }}</p>
+                                            <h5 class="download-hover-btn">
+                                                <a class="text-white"
+                                                    href="{{ route('story.details', $story->id) }}">Read Story
+                                                    <i class="fa-solid fa-chevron-right" style="font-size: 12px;"></i>
+                                                </a>
+                                            </h5>
+                                        </figcaption>
+                                    </figure>
+                                </div>
                             </div>
-                            <h5 class="business_services pt-2">
-                                {{ Str::words($feature->badge, 10, $end = '') }}</h5>
-                        </div>
-                        <div class="feature_description">
-                            <p class="feature_descrip">{{ Str::words($feature->header, 12, $end = '') }}
-                            </p>
-                        </div>
-                        <a href="{{ route('feature.details', $feature->id) }}" class="business_item_button">
-                            <span>Learn More</span>
-                            <span class="business_item_button_icon">
-                                <i class="fa-solid fa-arrow-right-long"></i>
-                            </span>
-                        </a>
+                        @endif
                     </div>
                 @endforeach
             </div>
@@ -540,7 +549,7 @@
 </section>
 <!---------End -------->
 <!---------Our Success Section-------->
-<section class="success_section">
+{{-- <section class="success_section">
     <div class="container my-4 pb-4">
         <h2 class="text-center pb-5">Our Success <span class="main_color">Starts With</span> Our Culture.</h2>
         <div class="row success-area">
@@ -586,6 +595,61 @@
                     </div>
                 </div>
             @endif
+        </div>
+    </div>
+
+</section> --}}
+
+<section class="success_section">
+    <div class="container my-4 pb-4 d-lg-block d-sm-none">
+        <h2 class="text-center pb-5">Our Success <span class="main_color">Starts With</span> Our Culture.</h2>
+        <div class="row success-area">
+            @foreach ($successItems as $key => $successItem)
+                @if (!empty($successItem->title))
+                    <div class="col-lg-4">
+                        <!---------Column  Content -------->
+                        <div class="success-area-content">
+                            <div class="pb-2">
+                                <img width="50px" src="{{ asset('storage/' . $successItem->image) }}"
+                                    alt="">
+                            </div>
+                            <div class="success-divider-{{ $key }}"></div>
+                            <h4 class="success-divider-title-{{ $key }} pb-2">{{ $successItem->title }}</h4>
+                            <p>{{ $successItem->description }}</p>
+                        </div>
+                    </div>
+                @endif
+            @endforeach
+        </div>
+    </div>
+    <div class="container d-lg-none d-sm-block">
+        <h3 class="text-center">Our Success <span class="main_color">Starts With</span> Our Culture.</h3>
+        <div class="row">
+            <div class="d-flex justify-content-between px-4">
+                <a class="Arrows custom-responsive-slider-prev"><i
+                    class="fas fa-2x fa-arrow-alt-circle-left"></i></a>
+                    <a class="Arrows custom-responsive-slider-next"><i
+                        class="fas fa-2x fa-arrow-alt-circle-right"></i></a>
+            </div>
+            <div class="owl-carousel custom-responsive-slider">
+                @foreach ($successItems as $key => $successItem)
+                    @if (!empty($successItem->title))
+                        <div class="item border-0">
+                            <div class="success-area-content success-area-content-mobile">
+                                <div class="pb-2">
+                                    <img width="50px" src="{{ asset('storage/' . $successItem->image) }}"
+                                        alt="">
+                                </div>
+                                <div class="success-divider-{{ $key }}"></div>
+                                <h4 class="success-divider-title-{{ $key }} pb-2">{{ $successItem->title }}
+                                </h4>
+                                <p>{{ $successItem->description }}</p>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+
         </div>
     </div>
 </section>

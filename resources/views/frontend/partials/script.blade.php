@@ -605,7 +605,7 @@
     });
     // {{-- Sidebar --}}
 </script>
-/* ------------------------------ Custom Slider ----------------------------- */
+{{-- /* ------------------------------ Custom Slider ----------------------------- */ --}}
 <script>
     $(document).ready(function() {
         var owl = $(".custom-responsive-slider");
