@@ -200,7 +200,7 @@
                         @if (!empty($feature))
                             <div class="item">
                                 <div class="text-center">
-                                    <div class="d-flex justify-content-center align-items-center">
+                                    <div class="d-flex justify-content-center align-items-center story-mb">
                                         <img src="{{ !empty($feature->logo) && file_exists(public_path('storage/' . $feature->logo)) ? asset('storage/' . $feature->logo) : asset('frontend/images/service-no-img.png') }}"
                                             alt="NGEN IT" style="width: 80px;">
                                     </div>
@@ -363,7 +363,7 @@
                     <div class="item border-0">
                         @if (!empty($story))
                             <div class="client_story_box">
-                                <div class="details-titles pt-2 ps-4 pb-3">
+                                <div class="details-titles pt-3 ps-4 pb-3">
                                     <p class="pb-5">{{ $story->badge }}</p>
                                 </div>
                                 <div class="grid-river">

@@ -26,6 +26,14 @@
         padding: 10px 0px;
     }
 
+    .details-titles{
+        box-shadow: none;
+    }
+
+    .story-mb{
+        padding-top: 30px;
+    }
+    
     .content-box {
         background: #fff;
         border: 2px solid #d4d0ca;
