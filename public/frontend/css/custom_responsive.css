@@ -1,6 +1,56 @@
 /* Extra Small Devices (e.g., Smartphones) */
 
 @media only screen and (max-width: 576px) {
+    .callout {
+        margin: 0 4%;
+        padding: 30px 0px;
+    }
+    .success_section{
+        background: var(--secondary-bg-color);
+        padding: 10px 0px;
+    }
+    .content-box {
+        background: #fff;
+        border: 2px solid #d4d0ca;
+        margin-top: -2px;
+        height: 11.4rem;
+        text-align: center;
+        padding: 30px 10px 30px 10px;
+    }
+    .industry_single_help_list {
+        padding-left: 0px;
+    }
+    .industry_single_help_list ul {
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+        text-align: center;
+        margin-left: 6rem;
+    }
+    .blog_header {
+        background-image: url(../images/buy-category-hero.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* padding: 180px 0px; */
+        height: 200px;
+    }
+    .blog_feature_extra {
+        text-align: justify;
+        padding: 25px;
+    }
+    .content_wrapper {
+        position: relative;
+        padding: 24px;
+    }
+    .related-item {
+        opacity: 1;
+        transition: all linear 0.3s;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
     .main_blogs{
         margin-top: -2rem !important;
     }
@@ -358,11 +408,6 @@
         width: 100% !important;
     }
 
-    .home_shop_product_wrapper p {
-        text-align: center !important;
-        width: 100% !important;
-    }
-
     .home_shop_button {
         display: flex !important;
         justify-content: center !important;
@@ -445,7 +490,7 @@
         width: 100% !important;
         position: relative;
         top: 0;
-        margin-top: -6.5rem;
+        margin-top: -4rem;
     }
     .home_title_heading {
         font-family: "Allumi Std Extended";
@@ -464,7 +509,7 @@
         text-align: center !important;
         font-size: 14px;
         width: 100% !important;
-        margin-bottom: 0px;
+        margin-bottom: 1.25rem;
     }
 
     .home_banner_bt-title {
@@ -505,7 +550,8 @@
 
     .banner_bottom_box {
         width: 100% !important;
-        padding-top: 2.8rem !important;
+        top: -2.5rem;
+        /* padding-top: 2.8rem !important; */
     }
 
     .home_banner_card {
@@ -1175,8 +1221,8 @@
 
 
     .home_shop_product_wrapper p {
-        font-family: "Klinic Slab" !important;
-        font-size: 16px !important;
+        font-family: "Allumi Std Extended" !important;
+        font-size: var(--paragraph-font-size) !important;
         margin-bottom: 20px;
         text-align: center !important;
         width: 100% !important;
@@ -1270,10 +1316,6 @@
 
     .Head {
         font-size: 20px !important;
-    }
-
-    .banner_bottom_box {
-        width: 95%;
     }
 
     .footer_top {
@@ -2260,6 +2302,9 @@
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1400px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        font-size: 12px !important;
+    }
     .header_top_phone {
         display: none;
     }
@@ -2269,23 +2314,23 @@
     }
 }
 
-@media only screen and (min-width: 1430px) and (max-width: 1588px) {
+@media only screen and (min-width: 1430px) and (max-width: 1890px) {
     .sub-menu-spacing {
-        margin: auto 1rem;
+        margin: auto;
     }
 }
 
-@media only screen and (min-width: 1588px) and (max-width: 1666px) {
+/* @media only screen and (min-width: 1588px) and (max-width: 1666px) {
     .sub-menu-spacing {
-        margin: auto 1rem;
+        margin: auto;
     }
 }
 
-@media only screen and (min-width: 1666px) and (max-width: 1800px) {
+@media only screen and (min-width: 1666px) and (max-width: 1890px) {
     .sub-menu-spacing {
-        margin: auto 1.3rem;
+        margin: auto;
     }
-}
+} */
 
 /* @media only screen and (min-width: 1800px) and (max-width: 1800px) {
     .sub-menu-spacing{

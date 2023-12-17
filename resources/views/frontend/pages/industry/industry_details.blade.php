@@ -132,28 +132,19 @@
             transition-timing-function: ease-out;
         }
 
-        .underline:hover:after,
-        .underline:focus:after,
-        .underline:active:after {
-            left: 0;
-            right: auto;
-            width: 100%;
-        }
+
     </style>
     <!--======// Header Title //======-->
-    <section class="common_product_header"
-        style="background-image: url({{ asset('storage/' . $industry->image) }}); height:23rem;">
-        <div class="container">
+    @if (!empty($industry->image))
+        <section>
             <div>
-                {{-- <h1>{{ $industry->title }}</h1>
-                <h2 class="mb-2">{{ $industry->industryPage->header }}</h2> --}}
+                <img class="page_top_banner"
+                    src="{{ !empty($industry->image) && file_exists(public_path('storage/' . $industry->image)) ? asset('storage/' . $industry->image) : asset('frontend/images/no-banner(1920-330).png') }}"
+                    alt="NGEN IT {{$industry->title}} Industry">
             </div>
-            <div class="d-flex justify-content-center">
-                {{-- <a class="common_button2"
-                    href="{{ $industry->industryPage->btn_one_link }}">{{ $industry->industryPage->btn_one_name }}</a> --}}
-            </div>
-        </div>
-    </section>
+        </section>
+    @endif
+
     <!----------End--------->
     <section class="mt-5">
         <div class="container my-3">
@@ -427,7 +418,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-sm-12">
                         <img class="img-fluid" src="{{ !empty($industry->industryPage->rowFive->image) && file_exists(public_path('storage/' . $industry->industryPage->rowFive->image)) ? asset('storage/' . $industry->industryPage->rowFive->image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                            alt="" style="height: 300px;width: 580px;border-radius: 15px;">    
+                            alt="" style="height: 300px;width: 580px;border-radius: 15px;">
                     </div>
                     <div class="col-lg-6 col-sm-12">
                         <h4 style="font-size:32px">{{ $industry->industryPage->rowFive->title }}</h4>

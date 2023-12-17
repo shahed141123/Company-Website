@@ -82,7 +82,7 @@
             <div class="container">
                 <div class="row gx-3">
                     <div class="col-lg-8">
-                        <div class="p-5 blocks-content block-image-content" style="background-color:#f7f6f5!important; height: 32rem;">
+                        <div class="p-5 blocks-content block-image-content" style="background-color:#f7f6f5!important; height: 30rem;">
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="animated-image parbase section">
@@ -112,7 +112,7 @@
                     </div>
                     @if ($tab_one)
                         <div class="col-lg-4">
-                            <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 32rem;">
+                            <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 30rem;">
                                 <div class="row align-items-center">
                                     <div class="col-lg-12">
                                         @if (isset($tab_one->image) && file_exists(public_path('storage/' . $tab_one->image)))
@@ -143,7 +143,7 @@
                     @if ($tabIds)
                         @foreach ($tabIds as $tabId)
                             <div class="col-lg-4">
-                                <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 32rem;">
+                                <div class="p-5 blocks-content" style="background-color:#f7f6f5!important; height: 30rem;">
                                     <div class="row align-items-center">
                                         <div class="col-lg-12">
                                             @if (isset($tabId->image) && file_exists(public_path('storage/' . $tabId->image)))
@@ -996,7 +996,7 @@
                             @if (!empty($industrys))
                                 @foreach ($industrys as $item)
                                     <div class="col-lg-3 col-sm-6 mb-2">
-                                        <a href="{{ route('industry.details', $item->id) }}" class="we_serve_item">
+                                        <a href="{{ route('industry.details', $item->slug) }}" class="we_serve_item">
                                             <div class="we_serve_item_image">
                                                 <img src="{{ asset('storage/' . $item->logo) }}" alt="">
                                             </div>
@@ -1018,7 +1018,7 @@
                             @if ($random_industries)
                                 @foreach ($random_industries as $item)
                                     <div class="pt-2">
-                                        <a href="{{ route('industry.details', $item->id) }}">
+                                        <a href="{{ route('industry.details', $item->slug) }}">
                                             <div id="fed-bg">
                                                 <div class="p-2">
                                                     <h5 class="text-white brand_side_text">{{ $item->title }} ›

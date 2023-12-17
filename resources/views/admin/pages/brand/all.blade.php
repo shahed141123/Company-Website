@@ -55,7 +55,7 @@
                                 <tr>
                                     <td class="text-center">{{ ++$key }}</td>
                                     <td>
-                                        <img class="rounded-circle" src="{{ asset('storage/requestImg/' . $brand->image) }}"
+                                        <img class="rounded-circle" src="{{ asset('storage/' . $brand->image) }}"
                                             height="25px" width="25px" alt="">
                                     </td>
                                     <td>{{ $brand->title }}</td>

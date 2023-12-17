@@ -30,12 +30,6 @@ return new class extends Migration
             $table->string('company_name')->nullable();
             $table->string('designation')->nullable();
             $table->text('address')->nullable();
-            $table->string('partner_name')->nullable();
-            $table->string('partner_email')->nullable();
-            $table->string('partner_phone')->nullable();
-            $table->string('partner_company_name')->nullable();
-            $table->string('partner_designation')->nullable();
-            $table->text('partner_address')->nullable();
             $table->date('create_date')->nullable();
             $table->date('close_date')->nullable();
             $table->date('sale_date')->nullable();
@@ -69,7 +63,7 @@ return new class extends Migration
             $table->double('quoted_price')->nullable();
             $table->text('price_text')->nullable();
             $table->string('rfq_department')->nullable();
-            
+
             $table->foreign('sales_man_id_L1')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('sales_man_id_T1')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('sales_man_id_T2')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

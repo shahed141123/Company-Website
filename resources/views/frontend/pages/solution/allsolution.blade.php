@@ -24,26 +24,28 @@
             z-index: -1;
         }
 
-        nav>div a.nav-item.nav-link,
-        nav>div a.nav-item.nav-link.active {
-            background: none;
-            color: var(--secondary-paragraph-color);
-            font-size: 20px;
-            font-weight: 600;
-            padding: 13px 15px;
-            top: 1px;
-        }
-
-        .nav-tabs .nav-link.active,
-        .nav-tabs .nav-item.show .nav-link {
-            border-bottom: 6px solid #ae0a46 !important;
-        }
-
         .global_call_section_content {
             margin-top: 3rem;
         }
     </style>
 @endif
+<style>
+    nav>div a.nav-item.nav-link,
+    nav>div a.nav-item.nav-link.active {
+        background: none;
+        color: var(--secondary-paragraph-color);
+        font-size: var(--badge-font-size);
+        font-weight: 600;
+        padding: 13px 15px;
+        top: 1px;
+    }
+
+    .nav-tabs .nav-link.active,
+    .nav-tabs .nav-item.show .nav-link {
+        border-bottom: 6px solid #ae0a46 !important;
+
+    }
+</style>
 <!--======// Header Title //======-->
 <section class="">
     <div>
@@ -300,7 +302,7 @@
         </div>
     </section> --}}
 <!--======// our clint tab //======-->
-<section class="clint_tab_section my-5 my-sm-3">
+<section class="clint_tab_section py-lg-5 py-3">
     <div class="container">
         <div class="clint_tab_content pb-3">
             <!-- home title -->
@@ -323,16 +325,16 @@
                                 <div class="nav nav-tabs nav-fill text-capitalize" id="nav-tab" role="tablist">
                                     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
                                         href="#nav-home" role="tab" aria-controls="nav-home"
-                                        aria-selected="true">{{ $story1->badge }}</a>
+                                        aria-selected="true">{{ Str::words($story1->badge, 2, $end = '') }}</a>
                                     <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
                                         href="#nav-profile" role="tab" aria-controls="nav-profile"
-                                        aria-selected="false">{{ $story2->badge }}</a>
+                                        aria-selected="false">{{ Str::words($story2->badge, 2, $end = '') }}</a>
                                     <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
                                         href="#nav-contact" role="tab" aria-controls="nav-contact"
-                                        aria-selected="false">{{ $story3->badge }}</a>
+                                        aria-selected="false">{{ Str::words($story3->badge, 2, $end = '') }}</a>
                                     <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab"
                                         href="#nav-about" role="tab" aria-controls="nav-about"
-                                        aria-selected="false">{{ $story4->badge }}</a>
+                                        aria-selected="false">{{ Str::words($story4->badge, 2, $end = '') }}</a>
                                 </div>
                             </nav>
                         </div>
@@ -396,7 +398,7 @@
                                             <p class="mb-1">{{ $story3->header }}</p>
                                             <p>{!! Str::words(strip_tags($story3->short_des), 45) !!}</p>
                                         </div>
-                                        <a href="{{ route('blog.details', $story3->id) }}" class="icon-btns"><span
+                                        <a href="{{ route('story.details', $story3->id) }}" class="icon-btns"><span
                                                 class="fw-bold">Read
                                                 Details</span> <i class="fa-solid fa-chevron-right"></i></a>
                                     </div>
@@ -420,7 +422,7 @@
                                             <p class="mb-1">{{ $story4->header }}</p>
                                             <p>{!! Str::words(strip_tags($story4->short_des), 50) !!}</p>
                                         </div>
-                                        <a href="{{ route('blog.details', $story4->id) }}" class="icon-btns">
+                                        <a href="{{ route('story.details', $story4->id) }}" class="icon-btns">
                                             <span class="fw-bold">Read Details</span>
                                             <i class="fa-solid fa-chevron-right"></i>
                                         </a>
@@ -465,7 +467,7 @@
         <div class="global_call_section_content">
             <div class="home_title" style="width: 100%; margin: 0px;">
                 <h5 class="home_title_heading" style="text-align: left; color: #fff;">
-                    <span>{{ \Illuminate\Support\Str::substr($sentence, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($sentence, 1) }}
+                    <span>{{ Str::substr($sentence, 0, 1) }}</span>{{ Str::substr($sentence, 1) }}
 
                 </h5>
                 <p class="home_title_text text-white" style="text-align: left;">{{ $learnmore->consult_short_des }}
@@ -492,7 +494,7 @@
                     <h5 class="home_title_heading" style="text-align: left;">
                         <div class="software_feature_title">
                             <h1 class="text-center pb-3">
-                                <span>{{ \Illuminate\Support\Str::substr($sentence2, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($sentence2, 1) }}
+                                <span>{{ Str::substr($sentence2, 0, 1) }}</span>{{ Str::substr($sentence2, 1) }}
                             </h1>
                         </div>
                     </h5>

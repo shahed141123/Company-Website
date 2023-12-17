@@ -46,8 +46,9 @@
                     <thead>
                         <tr>
                             <th width="10%">Id</th>
-                            <th width="30%">Success Title</th>
-                            <th width="45%">Success Description</th>
+                            <th width="15%">Image</th>
+                            <th width="25%">Success Title</th>
+                            <th width="35%">Success Description</th>
                             <th width="15%" class="text-center">Actions</th>
                         </tr>
                     </thead>
@@ -56,67 +57,21 @@
                             @foreach ($successes as $key => $succes)
                                 <tr>
                                     <td>{{ ++$key }}</td>
+                                    <td>
+                                        <img class="rounded-circle" src="{{ asset('storage/' . $succes->image) }}"
+                                            height="25px" width="25px" alt="">
+                                    </td>
                                     <td>{{ $succes->title }}</td>
-                                    <td>{{ Str::limit($succes->description, 200) }}</td>
+                                    <td>{{ Str::words($succes->description, 20) }}</td>
                                     <td>
                                         <a href="" class="text-primary" data-bs-toggle="modal"
-                                            data-bs-target="#editSuccess">
+                                            data-bs-target="#editSuccess-{{$succes->id}}">
                                             <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
                                         </a>
                                         <a href="{{ route('success.destroy', [$succes->id]) }}" class="text-danger delete">
                                             <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
                                         </a>
-                                         {{-- Edit Success Modal --}}
-                                         <div id="editSuccess" class="modal fade" tabindex="-1">
-                                            <div class="modal-dialog modal-dialog-centered modal-sm">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h6 class="modal-title text-white">Edit Success Form</h6>
-                                                        <a type="button" data-bs-dismiss="modal">
-                                                            <i class="ph ph-x text-white"
-                                                                style="font-weight: 800;font-size: 10px;"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="modal-body p-0 px-2">
-                                                        <form method="post"
-                                                            action="{{ route('success.update', $succes->id) }}">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <div class="container">
-                                                                <div class="row mt-2 mb-1">
-                                                                    <div class="col-sm-4 text-start">
-                                                                        <span>Title <span class="text-danger">*</span>
-                                                                        </span>
-                                                                    </div>
-                                                                    <div class="col-sm-8">
-                                                                        <input type="text" value="{{ $succes->title }}"
-                                                                            name="title"
-                                                                            class="form-control form-control-sm"
-                                                                            maxlength="20" required />
-                                                                    </div>
-                                                                </div>
-                                                                {{--  --}}
-                                                                <div class="row mt-2 mb-1">
-                                                                    <div class="col-sm-4 ">
-                                                                        <span>Description <span class="text-danger">*</span>
-                                                                        </span>
-                                                                    </div>
-                                                                    <div class="col-sm-8">
-                                                                        <textarea name="description" class="form-control" cols="40" rows="3" required>{{ $succes->description }}</textarea>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer border-0 pt-3 pb-0 pe-0">
-                                                                <button type="submit"
-                                                                    class="submit_btn from-prevent-multiple-submits"
-                                                                    style="padding: 5px;">Submit</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{-- Edit Success Modal End --}}
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -127,7 +82,7 @@
         </div>
         {{-- Add Success Modal --}}
         <div id="addSuccess" class="modal fade" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h6 class="modal-title text-white">Add Success Form</h6>
@@ -139,30 +94,72 @@
                         <form id="myform" method="post" action="{{ route('success.store') }}"
                             enctype="multipart/form-data">
                             @csrf
-                            <div class="container">
+                            <div class="container py-4 px-3">
                                 {{--  --}}
-                                <div class="row mt-2 mb-1">
-                                    <div class="col-sm-4">
-                                        <span>Title <span class="text-danger">*</span> </span>
+                                <div class="row">
+                                    <div class="col-lg-7">
+                                        <div class="row mb-3">
+                                            <div class="col-12">
+                                                <h6 class="mb-0">Title <span class="text-danger">*</span> </h6>
+                                            </div>
+                                            <div class="form-group col-12 text-secondary">
+                                                <input type="text" name="title" class="form-control maxlength"
+                                                    maxlength="252" />
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-8">
-                                        <input type="text" name="title" class="form-control form-control-sm"
-                                            maxlength="20" required />
+                                    <div class="col-lg-5">
+                                        <div class="row mb-1">
+                                            <div class="col-lg-12">
+                                                <span>Success Image</span>
+                                            </div>
+                                            <div class="col-10">
+                                                <input type="file" name="image" class="form-control form-control-sm"
+                                                    id="image" accept="image/*" />
+                                            </div>
+                                            <div class="col-2">
+                                                <img id="showImage" class="rounded-circle"
+                                                    src="https://cdn.pixabay.com/photo/2017/02/07/02/16/cloud-2044823_960_720.png"
+                                                    alt="Brand" height="40px" width="40px">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                {{--  --}}
-                                <div class="row mt-2 mb-1">
-                                    <div class="col-sm-4">
-                                        <span>Description <span class="text-danger">*</span> </span>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="row mb-3">
+                                            <div class="col-12">
+                                                <h6 class="mb-0">Button Name </h6>
+                                            </div>
+                                            <div class="form-group col-12 text-secondary">
+                                                <input type="text" name="btn_name" class="form-control" />
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-8">
-                                        <textarea name="description" class="form-control form-control-sm" cols="40" rows="3" required></textarea>
+                                    <div class="col-lg-6">
+                                        <div class="row mb-1">
+                                            <div class="col-lg-12">
+                                                <h6 class="mb-0">Button Link</h6>
+                                            </div>
+                                            <div class="col-12">
+                                                <input type="text" name="link" class="form-control maxlength"
+                                                    maxlength="255" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                {{--  --}}
+
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <h6 class="mb-0">Description <span class="text-danger">*</span></h6>
+                                    </div>
+                                    <div class="form-group col-12 text-secondary">
+                                        <textarea name="description" class="form-control" cols="40" rows="5"></textarea>
+                                    </div>
+                                </div>
                             </div>
                             <div class="modal-footer border-0 pt-3 pb-0 pe-0">
-                                <button type="submit" class="submit_btn from-prevent-multiple-submits"
+                                <button type="submit" class="submit_btn from-prevent-multiple-submits rounded-0"
                                     style="padding: 5px;">Submit</button>
                             </div>
                         </form>
@@ -171,6 +168,104 @@
             </div>
         </div>
         {{-- Add Success Modal End --}}
+
+        {{-- Edit Success Modal --}}
+        @if ($successes)
+            @foreach ($successes as $key => $success)
+                <div id="editSuccess-{{$success->id}}" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title text-white">Edit Success Form</h6>
+                                <a type="button" data-bs-dismiss="modal">
+                                    <i class="ph ph-x text-white" style="font-weight: 800;font-size: 10px;"></i>
+                                </a>
+                            </div>
+                            <div class="modal-body p-0 px-2">
+                                <form method="post" action="{{ route('success.update', $success->id) }}"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="container py-4 px-3">
+                                        <div class="row">
+                                            <div class="col-lg-7">
+                                                <div class="row mb-3">
+                                                    <div class="col-12">
+                                                        <h6 class="mb-0">Title <span class="text-danger">*</span> </h6>
+                                                    </div>
+                                                    <div class="form-group col-12 text-secondary">
+                                                        <input type="text" name="title"
+                                                            class="form-control form-control-sm maxlength" maxlength="252"
+                                                            value="{{ $success->title }}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="row mb-1">
+                                                    <div class="col-lg-12">
+                                                        <h6 class="mb-0">Success Image</h6>
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <input type="file" name="image" class="form-control"
+                                                            id="image" accept="image/*" />
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <img id="showImage" class="rounded-circle"
+                                                            src="{{ asset('storage/' . $success->image) }}" alt="Brand"
+                                                            height="40px" width="40px">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="row mb-3">
+                                                    <div class="col-12">
+                                                        <h6 class="mb-0">Button Name </h6>
+                                                    </div>
+                                                    <div class="form-group col-12 text-secondary">
+                                                        <input type="text" name="btn_name"
+                                                            class="form-control form-control-sm"
+                                                            value="{{ $success->btn_name }}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="row mb-1">
+                                                    <div class="col-lg-12">
+                                                        <h6 class="mb-0">Button Link</h6>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <input type="text" name="link"
+                                                            class="form-control form-control-sm maxlength" maxlength="255"
+                                                            value="{{ $success->link }}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-12">
+                                                <h6 class="mb-0">Description</h6>
+                                            </div>
+                                            <div class="form-group col-12 text-secondary">
+                                                <textarea name="description" class="form-control" cols="30" rows="5">{{ $success->description }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer border-0 pt-3 pb-0 pe-0">
+                                        <button type="submit" class="submit_btn from-prevent-multiple-submits rounded-0"
+                                            style="padding: 5px;">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        @endif
+        {{-- Edit Success Modal End --}}
+
+
     </div>
 @endsection
 @once

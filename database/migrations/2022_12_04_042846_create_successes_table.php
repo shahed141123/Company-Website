@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('successes', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('link')->nullable();
+            $table->string('image')->nullable();
             $table->string('btn_name')->nullable();
+            $table->string('link')->nullable();
             $table->longText('description')->nullable();
             $table->text('short_description')->nullable();
             $table->timestamps();

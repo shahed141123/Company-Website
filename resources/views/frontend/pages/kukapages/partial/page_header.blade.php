@@ -1,5 +1,5 @@
 <section>
-    <div class="brand-page-banner">
+    <div class="brand-page-banner page_top_banner">
         <img src="{{ !empty($brandpage->banner_image) && file_exists(public_path('storage/' . $brandpage->banner_image)) ? asset('storage/' . $brandpage->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
             alt="">
     </div>
@@ -92,7 +92,7 @@
                     </li>
 
                     <li class="px-3 disable-brands border-0">
-                        <span>Exibitation</span>
+                        <span>Solution</span>
                     </li>
                 </ul>
             </div>

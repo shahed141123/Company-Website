@@ -157,6 +157,10 @@ ul li{
     list-style-type: none;
 }
 
+ul{
+    list-style: none;
+}
+
 .section-titles{
     font-family: var(--section-title-font-size);
     font-family: var(--primary-font);
@@ -172,7 +176,9 @@ ul li{
 .top-line-title {
     font-size: var(--badge-font-size);
 }
-
+.bg-none{
+    background: none !important;
+}
 /* ----------------------------- Global Css End ----------------------------- */
 
 /* ------------------------------- Main Button ------------------------------ */
@@ -236,7 +242,7 @@ ul li{
     display: inline-block;
     padding: 15px 30px;
     color: var(--primary-color);
-    border: 1px solid var(--border-color);
+    border: 1px solid #e1e1e1;
     font-weight: 500;
     background: var(--white);
     transition: all 0.3s linear;
@@ -429,7 +435,7 @@ ul li{
     margin: auto 1.1rem;
 }
 .top-menu-area {
-    padding-top: 3px;
+    padding-top: 1px;
 }
 
 .border-1-f {
@@ -1185,7 +1191,10 @@ ul li{
 .swiper-button-prev {
     left: 10px;
 }
-
+.success_section{
+    background: var(--secondary-bg-color);
+    padding: 20px;
+}
 /* Software Hardware Tab 16-07-23 */
 .common_product_header h1 {
     font-size: 50px;
@@ -1627,53 +1636,6 @@ figure.effect-oscar:hover figcaption {
     padding: 0 15px;
 }
 
-.Container:after,
-.Container .Head:after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-.Container .Head {
-    font-size: var(--header-font-size);
-    font-family: var(--primary-font);
-    color: #222;
-    height: 52px;
-    over-flow: hidden;
-    border-bottom: 1px solid #ae0a46;
-}
-
-.Container .Head .Arrows {
-    float: right;
-}
-
-.Container .Head .Slick-Next,
-.Container .Head .Slick-Prev {
-    display: inline-block;
-    width: 38px;
-    height: 38px;
-    margin-top: 6px;
-    background: #2b2b2b;
-    color: var(--white);
-    margin-left: 5px;
-    cursor: pointer;
-    font: 18px/36px FontAwesome;
-    text-align: center;
-    transition: all 0.5s;
-}
-
-.Container .Head .Slick-Next:hover,
-.Container .Head .Slick-Prev:hover {
-    background: #33687a;
-}
-
-.Container .Head .Slick-Next:before {
-    content: "\f105";
-}
-
-.Container .Head .Slick-Prev:before {
-    content: "\f104";
-}
 
 .SlickCarousel {
     margin: 0 -7.5px;
@@ -3253,6 +3215,7 @@ select:focus-visible {
     position: relative;
     right: 10px;
     padding: 10px;
+    list-style-type: none;
 }
 
 .company-tab-title {
@@ -3628,6 +3591,7 @@ select:focus-visible {
 
 .brand-page-banner {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+    margin: 27px;
     /* background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -5516,7 +5480,7 @@ tr td:hover {
     margin: 0;
     margin-top: 3px;
     margin-right: 3.8rem;
-    margin-left: 17rem;
+    margin-left: 14.5rem;
     border: 1px solid #dddddd;
     padding: 0px 1px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 0px,
@@ -8089,7 +8053,7 @@ button:focus {
 /* accordion */
 .accordion {
     display: flex;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .accordion .item {
@@ -8395,8 +8359,6 @@ a:hover {
 /* Sidebar_tab Css Start */
 .dropdown-menu {
     background-color: white;
-    /* border-top: 2px solid #ae0a46;
-   */
 }
 
 .nav-link {
@@ -8787,8 +8749,8 @@ input.qtyminus {
 
 .feature_description {
     text-align: center;
-    /* height: 20vh;
-    */
+    height: 5rem;
+
 }
 
 
@@ -13333,7 +13295,7 @@ switch input:checked+.slider {
 }
 
 .callout p {
-    font-size: 18px;
+    font-size: var(--paragraph-font-size);
     text-align: center;
     margin-bottom: 0px;
 }
@@ -15071,7 +15033,7 @@ switch input:checked+.slider {
     position: relative;
 }
 
-.we_serve_title p::after {
+/* .we_serve_title p::after {
     content: "";
     position: absolute;
     height: 2px;
@@ -15079,7 +15041,7 @@ switch input:checked+.slider {
     width: 25px;
     top: -5px;
     left: 0px;
-}
+} */
 
 .we_serve_itemWrapper {
     margin-top: 20px;
@@ -15941,10 +15903,11 @@ thead {
 
 .Container .Head {
     font-size: var(--section-title-font-size);
-    color: #222;
+    color: var(--primary-color);
     height: 52px;
-    over-flow: hidden;
+    overflow: hidden; /* Fix typo: change over-flow to overflow */
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    font-family: var(--primary-font); /* Add font-family */
 }
 
 .Container .Head .Arrows {
@@ -15968,7 +15931,7 @@ thead {
 
 .Container .Head .Slick-Next:hover,
 .Container .Head .Slick-Prev:hover {
-    background: var(--primary-color);
+    background: var(--primary-color); /* Use primary color variable */
 }
 
 .Container .Head .Slick-Next:before {
@@ -15994,7 +15957,7 @@ thead {
 
 .ProductBlock h3 {
     font-size: 16px;
-    font-family: var(--primary-font)
+    font-family: var(--primary-font);
     color: #393939;
     margin-top: 5px;
     text-align: center;

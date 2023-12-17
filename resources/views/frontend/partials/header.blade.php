@@ -146,8 +146,8 @@
                                 style="padding-left: none !important;">
                                 <i class="fa-solid fa-bars" style="font-size: 18px !important;"></i>
                             </a>
-                            <ul class="dropdown-menu w-100 extra_category" aria-labelledby="dropdownMenuLink2">
-                                <section class="header" style=" height: 100vh; margin-top: -2px;">
+                            <ul class="dropdown-menu w-100 extra_category bg-none" aria-labelledby="dropdownMenuLink2">
+                                <section class="header" style=" height: 100%; margin-top: -2px;">
                                     <div class="container-fluid">
                                         <div class="row tab_area_main p-2 category-center">
                                             <!-- Assuming $categories is already available in your controller or view -->
@@ -181,10 +181,7 @@
                                                                     <div class="col-lg-3 col-sm-6">
                                                                         <div class="fw-bold nav_title mb-2"
                                                                             style="font-size: 15px;">
-                                                                            <span style="border-top: 2px solid #ae0a46;">
-                                                                                {{ \Illuminate\Support\Str::substr($sub_category->title, 0, 3) }}
-                                                                            </span>
-                                                                            {{ \Illuminate\Support\Str::substr($sub_category->title, 3) }}
+                                                                            <span style="border-top: 2px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($sub_category->title, 0, 3) }}</span>{{ \Illuminate\Support\Str::substr($sub_category->title, 3) }}
                                                                         </div>
 
                                                                         @foreach ($sub_category->subsubCategorys as $item)
@@ -192,8 +189,8 @@
                                                                                 style="line-height: 1.2rem !important;">
                                                                                 <a class="p-0"
                                                                                     href="{{ route('category.html', $item->slug) }}">
-                                                                                    <div>{{ $item->title }}&nbsp;<i
-                                                                                            class="ph ph-caret-right menu_icons"></i>
+                                                                                    <div>
+                                                                                        {{ $item->title }}&nbsp;<i class="ph ph-caret-right menu_icons"></i>
                                                                                     </div>
                                                                                 </a>
                                                                             </li>
