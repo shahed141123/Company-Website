@@ -34,6 +34,13 @@ Route::get('/hardware/common', [HomeController::class, 'hardwareCommon'])->name(
 //hardware Info
 Route::get('/hardware/info', [HomeController::class, 'hardwareInfo'])->name('hardware.info');
 
+
+//Training
+Route::get('/ngenit/training', [HomeController::class, 'training'])->name('training');
+
+//Books
+Route::get('/ngenit/books', [HomeController::class, 'books'])->name('books');
+
 //Industry
 Route::get('/industry/all', [HomeController::class, 'AllIndustry'])->name('all.industry');
 //Industry details

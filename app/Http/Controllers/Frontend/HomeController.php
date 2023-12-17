@@ -369,7 +369,6 @@ class HomeController extends Controller
     public function SolutionDetails($id)
     {
         $data['solution'] = SolutionDetail::with('rowOne', 'card1', 'card2', 'card3', 'card4', 'card5', 'card6', 'card7', 'card8', 'rowFour')->where('slug', $id)->firstOrFail();
-
         $data['solutions'] = SolutionDetail::where('id', '!=', $id)->get();
         return view('frontend.pages.solution.solution_details', $data);
     }
@@ -433,8 +432,6 @@ class HomeController extends Controller
     }
 
 
-
-
     //Blogs All Controller
 
     public function AllBlog()
@@ -455,8 +452,6 @@ class HomeController extends Controller
         $data['storys'] = Blog::inRandomOrder()->limit(4)->get();
         return view('frontend.pages.blogs.blog_details', $data);
     }
-
-
 
     //Tech Glossy All Controller
 
@@ -480,7 +475,6 @@ class HomeController extends Controller
         $data['storys'] = TechGlossy::inRandomOrder()->limit(7)->get();
         return view('frontend.pages.tech.techglossy_details', $data);
     }
-
 
     //Shop All Controller
 
@@ -559,14 +553,7 @@ class HomeController extends Controller
     }
 
 
-
-
     //Product Details
-
-
-
-
-
 
 
     //Category All PAge
@@ -658,37 +645,37 @@ class HomeController extends Controller
 
     ///Brand All Page
 
-    public function BrandPage($id)
-    {
-        $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title')->firstOrFail();
-        $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first();
-        if (!empty($data['brandpage'])) {
-            $data['storys'] = ClientStory::inRandomOrder()->limit(4)->get();
+    // public function BrandPage($id)
+    // {
+    //     $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title')->firstOrFail();
+    //     $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first();
+    //     if (!empty($data['brandpage'])) {
+    //         $data['storys'] = ClientStory::inRandomOrder()->limit(4)->get();
 
-            $data['products'] = Product::where('brand_id', $data['brand']->id)
-                ->where('product_status', '=', 'product')
-                ->distinct()
-                ->select('products.id', 'products.rfq', 'products.slug', 'products.name', 'products.thumbnail', 'products.price', 'products.discount')
-                ->limit(12)
-                ->get();
+    //         $data['products'] = Product::where('brand_id', $data['brand']->id)
+    //             ->where('product_status', '=', 'product')
+    //             ->distinct()
+    //             ->select('products.id', 'products.rfq', 'products.slug', 'products.name', 'products.thumbnail', 'products.price', 'products.discount')
+    //             ->limit(12)
+    //             ->get();
 
 
-            if ($data['brandpage']) {
-                $data['row_one'] = Row::where('id', $data['brandpage']->row_four_id)->first();
-                $data['row_three'] = Row::where('id', $data['brandpage']->row_five_id)->first();
-                $data['row_four'] = Row::where('id', $data['brandpage']->row_seven_id)->first();
-                $data['row_five'] = Row::where('id', $data['brandpage']->row_eight_id)->first();
-                $data['card1'] = SolutionCard::where('id', $data['brandpage']->solution_card_one_id)->first();
-                $data['card2'] = SolutionCard::where('id', $data['brandpage']->solution_card_two_id)->first();
-                $data['card3'] = SolutionCard::where('id', $data['brandpage']->solution_card_three_id)->first();
-            }
+    //         if ($data['brandpage']) {
+    //             $data['row_one'] = Row::where('id', $data['brandpage']->row_four_id)->first();
+    //             $data['row_three'] = Row::where('id', $data['brandpage']->row_five_id)->first();
+    //             $data['row_four'] = Row::where('id', $data['brandpage']->row_seven_id)->first();
+    //             $data['row_five'] = Row::where('id', $data['brandpage']->row_eight_id)->first();
+    //             $data['card1'] = SolutionCard::where('id', $data['brandpage']->solution_card_one_id)->first();
+    //             $data['card2'] = SolutionCard::where('id', $data['brandpage']->solution_card_two_id)->first();
+    //             $data['card3'] = SolutionCard::where('id', $data['brandpage']->solution_card_three_id)->first();
+    //         }
 
-            return view('frontend.pages.brand.brand_page', $data);
-        } else {
-            Toastr::error('No Details information found for this Brand.');
-            return redirect()->back();
-        }
-    }
+    //         return view('frontend.pages.brand.brand_page', $data);
+    //     } else {
+    //         Toastr::error('No Details information found for this Brand.');
+    //         return redirect()->back();
+    //     }
+    // }
 
     public function AllBrand()
     {
@@ -769,14 +756,6 @@ class HomeController extends Controller
 
 
 
-
-
-
-
-
-
-
-
     //Search All Controller
 
     public function search(Request $request)
@@ -833,7 +812,6 @@ class HomeController extends Controller
     } // end method
 
 
-
     //Terms & Policy
     public function TermsPolicy()
     {
@@ -879,27 +857,20 @@ class HomeController extends Controller
 
 
 
-    //Common Products
 
-    public function ProductCommon($id)
-    {
-
-
-        $data['products'] = Product::where('product_type', $id)->where('product_status', 'product')->get();
-        // $data['brands'] = DB::table('brands')
-        //                 ->join('products', 'brands.id', '=', 'products.brand_id')
-        //                 ->join('categories','products.cat_id', '=','categories.id' )
-        //                 ->where('categories.id', '=', $category)
-        //                 ->select('brands.id','brands.title','brands.image')
-        //                 ->get();
-
-        return view('frontend.pages.product.product_common', $data);
-    }
 
     public function rfqCreate(Request $request)
     {
-
         $data['sales_mans'] = User::where('role', 'sales')->select('users.id', 'users.name')->get();
         return view('frontend.pages.rfq.rfq', $data);
+    }
+
+    public function training() {
+        return view('frontend.pages.commonPage.training');
+
+    }
+
+    public function books() {
+        return view('frontend.pages.commonPage.books');
     }
 }
