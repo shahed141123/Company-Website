@@ -6,118 +6,118 @@
     <meta property="og:image" content="{{ asset('storage/' . $home->branner1) }}">
     <!--<meta property="og:url" content="URL to your blog post">-->
 @endsection
-<!--======// Banner Section //======-->
-@if (!empty($home->branner1) && !empty($home->branner2) && !empty($home->branner3))
-    <section>
-        <div class="Advance-Slider">
-            <!-- Item -->
-            @if (!empty($home->branner1))
-                <div class="item">
-                    <div class="img-fill">
-                        <img class="dots-img"
-                            src="{{ isset($home->branner1) && file_exists(public_path('storage/' . $home->branner1)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
-                            alt="">
-                        <div class="contain-wrapper">
-                            <div class="dots-contain">
-                                <img class="dots-img"
-                                    src="{{ isset($home->branner1) && file_exists(public_path('storage/' . $home->branner1)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="info w-50 mb-3">
-                                @if ($home->banner1_title)
-                                    <div>
-                                        <h3><strong>{{ $home->banner1_title }}</strong></h3>
-                                        <h5 class="text-white my-4 w-75 mx-auto">
-                                            {{ $home->banner1_short_description }}
-                                        </h5>
-                                    </div>
-                                @endif
-                                @if ($home->banner1_button_link)
-                                    <div class="my-4">
-                                        <a class="btn-color"
-                                            href="{{ $home->banner1_button_link }}">{{ $home->banner1_button_name }}</a>
-                                    </div>
-                                @endif
+<section class="">
+    <!--======// Banner Section //======-->
+    @if (!empty($home->branner1) && !empty($home->branner2) && !empty($home->branner3))
+        <section>
+            <div class="Advance-Slider">
+                <!-- Item -->
+                @if (!empty($home->branner1))
+                    <div class="item">
+                        <div class="img-fill">
+                            <img class="dots-img"
+                                src="{{ isset($home->branner1) && file_exists(public_path('storage/' . $home->branner1)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
+                                alt="">
+                            <div class="contain-wrapper">
+                                <div class="dots-contain">
+                                    <img class="dots-img"
+                                        src="{{ isset($home->branner1) && file_exists(public_path('storage/' . $home->branner1)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
+                                        alt="">
+                                </div>
+                                <div class="info w-50 mb-3">
+                                    @if ($home->banner1_title)
+                                        <div>
+                                            <h3><strong>{{ $home->banner1_title }}</strong></h3>
+                                            <h5 class="text-white my-4 w-75 mx-auto">
+                                                {{ $home->banner1_short_description }}
+                                            </h5>
+                                        </div>
+                                    @endif
+                                    @if ($home->banner1_button_link)
+                                        <div class="my-4">
+                                            <a class="btn-color"
+                                                href="{{ $home->banner1_button_link }}">{{ $home->banner1_button_name }}</a>
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endif
-            <!-- // Item -->
+                @endif
+                <!-- // Item -->
 
-            <!-- Item -->
-            @if (!empty($home->branner2))
-                <div class="item">
-                    <div class="img-fill">
-                        <img src="{{ isset($home->branner2) && file_exists(public_path('storage/' . $home->branner2)) ? asset('storage/' . $home->branner2) : asset('frontend/images/banner-demo.png') }} "
-                            alt="">
-                        <div class="contain-wrapper">
-                            <div class="dots-contain">
-                                <img class="dots-img"
-                                    src="{{ isset($home->branner2) && file_exists(public_path('storage/' . $home->branner2)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="info w-50 mb-3">
-                                @if ($home->banner2_title)
-                                    <div>
-                                        <h3><strong>{{ $home->banner2_title }}</strong></h3>
-                                        <h5 class="text-white my-4 w-75 mx-auto">
-                                            {{ $home->banner2_short_description }}
-                                        </h5>
-                                    </div>
-                                @endif
-                                @if ($home->banner2_button_link)
-                                    <div class="my-4">
-                                        <a class="btn-color"
-                                            href="{{ $home->banner2_button_link }}">{{ $home->banner2_button_name }}</a>
-                                    </div>
-                                @endif
+                <!-- Item -->
+                @if (!empty($home->branner2))
+                    <div class="item">
+                        <div class="img-fill">
+                            <img src="{{ isset($home->branner2) && file_exists(public_path('storage/' . $home->branner2)) ? asset('storage/' . $home->branner2) : asset('frontend/images/banner-demo.png') }} "
+                                alt="">
+                            <div class="contain-wrapper">
+                                <div class="dots-contain">
+                                    <img class="dots-img"
+                                        src="{{ isset($home->branner2) && file_exists(public_path('storage/' . $home->branner2)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
+                                        alt="">
+                                </div>
+                                <div class="info w-50 mb-3">
+                                    @if ($home->banner2_title)
+                                        <div>
+                                            <h3><strong>{{ $home->banner2_title }}</strong></h3>
+                                            <h5 class="text-white my-4 w-75 mx-auto">
+                                                {{ $home->banner2_short_description }}
+                                            </h5>
+                                        </div>
+                                    @endif
+                                    @if ($home->banner2_button_link)
+                                        <div class="my-4">
+                                            <a class="btn-color"
+                                                href="{{ $home->banner2_button_link }}">{{ $home->banner2_button_name }}</a>
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endif
-            <!-- // Item -->
+                @endif
+                <!-- // Item -->
 
-            <!-- Item -->
-            @if (!empty($home->branner3))
-                <div class="item">
-                    <div class="img-fill">
-                        <img src="{{ isset($home->branner3) && file_exists(public_path('storage/' . $home->branner3)) ? asset('storage/' . $home->branner3) : asset('frontend/images/banner-demo.png') }} "
-                            alt="">
-                        <div class="contain-wrapper">
-                            <div class="dots-contain">
-                                <img class="dots-img"
-                                    src="{{ isset($home->branner3) && file_exists(public_path('storage/' . $home->branner3)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="info w-lg-50 mb-3">
-                                @if ($home->banner3_title)
-                                    <div>
-                                        <h3><strong>{{ $home->banner3_title }}</strong></h3>
-                                        <h5 class="text-white my-4 w-lg-75 mx-auto">
-                                            {{ $home->banner3_short_description }}
-                                        </h5>
-                                    </div>
-                                @endif
-                                @if ($home->banner3_button_link)
-                                    <div class="my-4">
-                                        <a class="btn-color"
-                                            href="{{ $home->banner3_button_link }}">{{ $home->banner3_button_name }}</a>
-                                    </div>
-                                @endif
+                <!-- Item -->
+                @if (!empty($home->branner3))
+                    <div class="item">
+                        <div class="img-fill">
+                            <img src="{{ isset($home->branner3) && file_exists(public_path('storage/' . $home->branner3)) ? asset('storage/' . $home->branner3) : asset('frontend/images/banner-demo.png') }} "
+                                alt="">
+                            <div class="contain-wrapper">
+                                <div class="dots-contain">
+                                    <img class="dots-img"
+                                        src="{{ isset($home->branner3) && file_exists(public_path('storage/' . $home->branner3)) ? asset('storage/' . $home->branner1) : asset('frontend/images/banner-demo.png') }}"
+                                        alt="">
+                                </div>
+                                <div class="info w-lg-50 mb-3">
+                                    @if ($home->banner3_title)
+                                        <div>
+                                            <h3><strong>{{ $home->banner3_title }}</strong></h3>
+                                            <h5 class="text-white my-4 w-lg-75 mx-auto">
+                                                {{ $home->banner3_short_description }}
+                                            </h5>
+                                        </div>
+                                    @endif
+                                    @if ($home->banner3_button_link)
+                                        <div class="my-4">
+                                            <a class="btn-color"
+                                                href="{{ $home->banner3_button_link }}">{{ $home->banner3_button_name }}</a>
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endif
-            <!-- // Item -->
-        </div>
-    </section>
-@endif
-{{-- Banner Bottom Card --}}
-@if (!empty($home->btn1_title) && !empty($home->btn2_title))
-    <section>
+                @endif
+                <!-- // Item -->
+            </div>
+        </section>
+    @endif
+    {{-- Banner Bottom Card --}}
+    @if (!empty($home->btn1_title) && !empty($home->btn2_title))
         <div class="container px-lg-4 px-2">
             <div class="row gx-5 mx-auto banner_bottom_box">
                 <div class="col px-2">
@@ -140,9 +140,9 @@
                 </div>
             </div>
         </div>
-    </section>
-@endif
-<!---------End -------->
+    @endif
+    <!---------End -------->
+</section>
 <!--======// Business section //======-->
 <section class="">
     <div class="container">
@@ -358,7 +358,7 @@
                 @foreach ($features as $key => $feature)
                     <div class="item">
                         <div class="text-center">
-                            <div class="d-flex justify-content-center align-items-center">
+                            <div class="d-flex justify-content-center align-items-center story-mb">
                                 <img src="{{ !empty($feature->logo) && file_exists(public_path('storage/' . $feature->logo)) ? asset('storage/' . $feature->logo) : asset('frontend/images/service-no-img.png') }}"
                                     alt="NGEN IT" style="width: 80px;">
                             </div>

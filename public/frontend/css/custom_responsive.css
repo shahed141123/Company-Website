@@ -1,6 +1,9 @@
 /* Extra Small Devices (e.g., Smartphones) */
 
 @media only screen and (max-width: 576px) {
+    .privacy-policy{
+        padding: 10px;
+    }
     .callout {
         margin: 0 4%;
         padding: 30px 0px;
@@ -1174,7 +1177,6 @@
     }
 
     .Advance-Slider .item {
-        height: 25vh !important;
         overflow: hidden;
         outline: none;
     }

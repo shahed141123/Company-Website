@@ -633,9 +633,8 @@ ul{
 }
 
 .category-center {
-    background: #ffff;
-    margin-right: 5rem;
-    margin-left: 5rem;
+    margin-right: 3.1rem;
+    margin-left: 13.7rem;
 }
 
 .shop-menu-left {
@@ -2875,14 +2874,17 @@ select:focus-visible {
     position: relative;
     right: 4rem;
 }
-
+.story-mb{
+    padding-top: 30px;
+}
 .search {
     position: absolute;
     left: 0px;
     background-color: #f7f6f5;
     outline: none;
     border: none;
-    padding: 8px;
+    padding: 7px;
+    padding-top: 2px;
     width: 0;
     height: 100%;
     z-index: 10;
@@ -3060,11 +3062,6 @@ select:focus-visible {
     padding: 22px;
     color: ae0a46;
 }
-
-.nav-custom {
-    padding-right: 13px;
-}
-
 .nav-pills-custom .nav-link {
     font-family: var(--primary-font);
     color: #161616;
@@ -3083,9 +3080,14 @@ select:focus-visible {
 .nav-pills-custom2 .nav-link {
     font-family: var(--primary-font);
     color: #161616;
-    background: #e7e7e7;
+    background: #f4f3f2;
     font-weight: normal;
     position: relative;
+}
+.catregory-side-key {
+    padding: 10.3px;
+    border-top: 1px solid #eee !important;
+    border-right: 1px solid #eee !important;
 }
 
 .nav-pills-custom2 .nav-link.active {
@@ -3125,10 +3127,14 @@ select:focus-visible {
     line-height: 25px;
     padding: 0px;
 }
+.tab_key_btns{
+    background-color: #f7f6f5;
+}
 
 .tab_key_btns3 {
     display: flex;
     justify-content: end;
+    background-color: var(--secondary-bg-color);
 }
 
 .tab_area_main {
@@ -5549,11 +5555,6 @@ tr td:hover {
 .custom-video-icon {
     width: 30px;
     height: 30px;
-}
-.category-center {
-    background: #ffff;
-    margin-right: 5rem;
-    margin-left: 5rem;
 }
 .shop-menu-left {
     padding-left: 5rem;
@@ -8373,11 +8374,7 @@ a:hover {
     font-size: 15px;
 }
 
-.tab-content {
-    background: transparent;
-    line-height: 25px;
-    padding: 20px 25px;
-}
+
 
 /* nav>div a.nav-item.nav-link:hover, nav>div a.nav-item.nav-link:focus {
     border: none;
@@ -14785,6 +14782,11 @@ switch input:checked+.slider {
 }
 
 /*----Tab Content-----*/
+.tab-content {
+    background: white;
+    line-height: 25px;
+    padding: 20px 25px;
+}
 .tab-content .active,
 .collapsible:focus {
     border: none;
@@ -14794,20 +14796,12 @@ switch input:checked+.slider {
 .collapsible:focus {
     border: none;
 }
-
-/* .clint_tab_section {
-    margin: 60px 5%;
-    padding: 30px 0px;
-}
-*/
 .clint_tab_btn_content ul {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
 }
-
-.clint_tab_btn_content ul li {}
 
 .clint_tab_btn_content ul li a {
     background-color: var(--primary-color);
