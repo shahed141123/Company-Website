@@ -3,12 +3,9 @@
     <!--======// Header Title //======-->
     <section>
         <div>
-            {{-- <img class="page_top_banner"
-                src="{{ !empty($software_info->banner_image) && file_exists(public_path('storage/' . $software_info->banner_image)) ? asset('storage/' . $software_info->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
-                alt="NGEN IT Software"> --}}
             <img class="page_top_banner"
-                src="https://i.ibb.co/Pw9KTFP/privacy-policy.png"
-                alt="NGEN IT Software">
+                src="{{ asset('frontend/images/privacy.jpg') }}"
+                alt="NGEN IT Privacy Policy">
         </div>
     </section>
     <!----------End--------->

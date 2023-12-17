@@ -1711,6 +1711,9 @@ figure.effect-oscar:hover figcaption {
 /* Faq Page Tabs Start*/
 .nav-pills-custom_faq .nav-link {
     position: relative;
+    border-bottom: 1px solid #eee;
+    padding: 12px;
+    border-radius: 0px;
 }
 
 .nav-pills-custom_faq .nav-link.active {
@@ -8356,11 +8359,6 @@ a:hover {
 
 /* Custom Main Css End */
 
-/* Sidebar_tab Css Start */
-.dropdown-menu {
-    background-color: white;
-}
-
 .nav-link {
     font-family: var(--primary-font);
     font-size: 14px;
@@ -13564,6 +13562,12 @@ switch input:checked+.slider {
     margin: 10px 0;
     cursor: default;
     margin: 40px 0px;
+}
+.nav-link .faq{
+    border-bottom: 1px solid #eee;
+}
+.faq-area{
+    height: 50vh;
 }
 
 .faq-answers a {

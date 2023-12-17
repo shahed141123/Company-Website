@@ -663,7 +663,7 @@
                                                         ></a>
                                                       </li>
                                                     </div>
-                                                    <div class="col-lg-8 pt-3 pb-3">
+                                                    <div class="col-lg-8 pt-3 pb-1">
                                                       <div class="row">
                                                         <div class="col-lg-4">
                                                           <p class="fw-bold">
@@ -764,8 +764,14 @@
                                                           </div>
                                                         </div>
                                                       </div>
+                                                      <hr class="m-0 mt-4">
+                                                      <div class="row" >
+                                                        <div class="col-lg-12">
+                                                            <p class="m-0 p-2">Contact <span>|</span> Email <span>|</span> Address</p>
+                                                        </div>
+                                                      </div>
                                                     </div>
-                                                  </div>
+                                                </div>
                                             </div>
                                         </ul>
                                     </li>
