@@ -20,6 +20,7 @@ use App\Models\Admin\MultiSolution;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\SolutionDetail;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class PageController extends Controller
 {
@@ -159,15 +160,25 @@ class PageController extends Controller
         $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->firstOrFail(['id', 'banner_image', 'brand_logo', 'header']);
 
         $brandId = $data['brand']->id;
-        $data['brand_documents'] = DocumentPdf::where('brand_id', $brandId)->get();
-        $data['product_documents'] = DocumentPdf::join('products', 'document_pdfs.product_id', '=', 'products.id')
+        $brandDocuments = DocumentPdf::where('brand_id', $brandId)->get();
+
+        $productDocuments = DocumentPdf::join('products', 'document_pdfs.product_id', '=', 'products.id')
             ->where('products.brand_id', '=', $brandId)
             ->select('document_pdfs.id', 'document_pdfs.title', 'document_pdfs.document')
             ->distinct()
-            ->paginate(18);
-        $mergedData = $data['brand_documents']->concat($data['product_documents']);
-        // Convert the merged data to an array
-        $data['documents'] = $mergedData->toArray();
+            ->get();
+
+        $mergedData = $brandDocuments->concat($productDocuments);
+
+        $perPage = 16;
+        $page = request()->get('page', 1);
+        $offset = ($page - 1) * $perPage;
+        $data['documents'] = $mergedData->slice($offset, $perPage)->all();
+
+        $total = $mergedData->count();
+        $data['documents'] = new LengthAwarePaginator($data['documents'], $total, $perPage, $page);
+
+        $data['documents']->withPath(url()->current());
 
         $data['related_search'] = [
             'categories' =>  Category::inRandomOrder()->limit(2)->get(),

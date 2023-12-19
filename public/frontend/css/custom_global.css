@@ -3869,8 +3869,8 @@ select:focus-visible {
 }
 
 .catalogue-titles {
-    height: 3rem;
-    font-size: 17px;
+    height: 4rem;
+    font-size: var(--paragraph-font-size);
 }
 
 .main .content .image-container {

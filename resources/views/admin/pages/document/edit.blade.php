@@ -41,7 +41,7 @@
 
                 </div>
             </div>
-            <form action="{{ route('document.update',$pdf->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('document.update', $pdf->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="card">
@@ -49,79 +49,89 @@
                     <div class="container py-2">
                         <div class="px-2 py-2 m-2 bg-light rounded">
                             <div class="row mb-1">
-                                <div class="col-lg-4">
-                                    <label for="category">Document Category</label>
-                                    <input type="text" name="category" id="category" disabled value="{{$pdf->category}}">
-                                </div>
+                                
 
-                                @if ($pdf->category== 'brand')
-                                    <div class="col-lg-6 brand_col">
+                                <div class="row mb-1">
+                                    <div class="col-lg-4">
+                                        <label for="category">Document Category</label>
+                                        <select id="category" name="category"
+                                            class="form-control form-control-sm select category_select"
+                                            data-minimum-results-for-search="Infinity"
+                                            data-placeholder="Choose Document category" required>
+                                            <option></option>
+                                            <option value="brand" @selected($pdf->category == 'brand')>Brand</option>
+                                            <option value="product" @selected($pdf->category == 'product')>Product</option>
+                                            <option value="industry" @selected($pdf->category == 'industry')>Industry</option>
+                                            <option value="solution" @selected($pdf->category == 'solution')>Solution</option>
+                                            <option value="company" @selected($pdf->category == 'company')>Company</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-lg-6 brand_col d-none">
                                         <label for="brand">Select Brand</label>
                                         <select id="brand" name="brand_id" class="form-control form-control-sm select"
-                                            data-placeholder="Choose Brand" >
+                                            data-placeholder="Choose Brand">
                                             <option></option>
                                             @foreach ($brands as $brand)
-                                                <option value="{{ $brand->id }}" @selected($pdf->brand_id == $brand->id)>{{ $brand->title }}</option>
+                                                <option value="{{ $brand->id }}" @selected($pdf->brand_id == $brand->id)>
+                                                    {{ $brand->title }}</option>
                                             @endforeach
 
                                         </select>
                                     </div>
-                                @endif
-                                @if (($pdf->category) == 'product')
-                                    <div class="col-lg-6 product_col">
+                                    <div class="col-lg-6 product_col d-none">
                                         <label for="product">Select Product</label>
                                         <select id="product" name="product_id" class="form-control form-control-sm select"
-                                            data-placeholder="Choose Product" >
+                                            data-placeholder="Choose Product">
                                             <option></option>
                                             @foreach ($products as $product)
-                                                <option value="{{ $product->id }}" @selected($pdf->product_id == $product->id)>{{ $product->name }}</option>
+                                                <option value="{{ $product->id }}" @selected($pdf->product_id == $product->id)>
+                                                    {{ $product->name }}</option>
                                             @endforeach
 
                                         </select>
                                     </div>
-                                @endif
-                                @if (($pdf->category) == 'industry')
-                                    <div class="col-lg-6 industry_col">
+                                    <div class="col-lg-6 industry_col d-none">
                                         <label for="source">Select Industry</label>
-                                        <select id="source" name="industry_id" class="form-control form-control-sm select"
-                                            data-placeholder="Choose Industry" >
+                                        <select id="source" name="industry_id"
+                                            class="form-control form-control-sm select" data-placeholder="Choose Industry">
                                             <option></option>
                                             @foreach ($industries as $industrie)
-                                                <option value="{{ $industrie->id }}" @selected($pdf->industry_id == $industrie->id)>{{ $industrie->title }}</option>
+                                                <option value="{{ $industrie->id }}" @selected($pdf->industry_id == $industrie->id)>
+                                                    {{ $industrie->title }}</option>
                                             @endforeach
 
                                         </select>
                                     </div>
-                                @endif
-                                @if (($pdf->category) == 'solution')
-                                    <div class="col-lg-6 solution_col">
+                                    <div class="col-lg-6 solution_col d-none">
                                         <label for="industry">Select Solution</label>
-                                        <select id="industry" name="solution_id" class="form-control form-control-sm select"
-                                            data-placeholder="Choose Solution" >
+                                        <select id="industry" name="solution_id"
+                                            class="form-control form-control-sm select" data-placeholder="Choose Solution">
                                             <option></option>
                                             @foreach ($solutions as $solution)
-                                                <option value="{{ $solution->id }}" @selected($pdf->solution_id == $solution->id)>{{ $solution->name }}</option>
+                                                <option value="{{ $solution->id }}" @selected($pdf->solution_id == $solution->id)>
+                                                    {{ $solution->name }}</option>
                                             @endforeach
 
                                         </select>
                                     </div>
-                                @endif
-                                @if (($pdf->category) == 'company')
-                                    <div class="col-lg-8 company_col">
+                                    <div class="col-lg-8 company_col d-none">
                                         <div class="row d-flex align-items-center">
                                             <div class="col-lg-6">
                                                 <label for="btn_name">Button Name </label>
-                                                <input name="button_name" type="text" class="form-control form-control-sm" id="btn_name"
-                                                    value="{{$pdf->button_name}}" placeholder="Enter Button Name">
+                                                <input name="button_name" type="text"
+                                                    class="form-control form-control-sm" id="btn_name"
+                                                    value="{{ $pdf->button_name }}" placeholder="Enter Button Name">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="btn_link">Button Link</label>
-                                                <input name="button_link" type="url" class="form-control form-control-sm" id="btn_link"
-                                                    value="{{$pdf->button_link}}" placeholder="Enter Button Link">
+                                                <input name="button_link" type="url"
+                                                    class="form-control form-control-sm" id="btn_link"
+                                                    value="{{ $pdf->button_link }}" placeholder="Enter Button Link">
                                             </div>
                                         </div>
                                     </div>
-                                @endif
+                                </div>
                             </div>
 
                             <div class="row d-flex align-items-center">
@@ -129,14 +139,14 @@
                                     <div class="mb-2">
                                         <label class="form-label">Title <span class="text-danger">*</span></label>
                                         <input name="title" type="text" class="form-control form-control-sm"
-                                            value="{{$pdf->title}}" placeholder="Enter Title">
+                                            value="{{ $pdf->title }}" placeholder="Enter Title">
                                     </div>
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="mb-2">
                                         <label class="form-label">Page Link</label>
                                         <input name="page_link" type="url" class="form-control form-control-sm"
-                                            value="{{$pdf->page_link}}" placeholder="Enter Page Link">
+                                            value="{{ $pdf->page_link }}" placeholder="Enter Page Link">
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +156,8 @@
                                     <div class="mb-2">
                                         <label class="form-label">Document <span class="text-danger">*</span></label>
                                         <div class="input-group">
-                                            <input type="file" class="form-control form-control-sm" name="document" value="{{$pdf->document}}" >
+                                            <input type="file" class="form-control form-control-sm" name="document"
+                                                value="{{ $pdf->document }}">
                                         </div>
                                     </div>
                                 </div>
@@ -155,7 +166,7 @@
                                     <div class="mb-2">
                                         <label class="form-label">Description</label>
                                         <textarea class="form-control form-control-sm" rows="1" id="description" name="description"
-                                            placeholder="Enter your Description">{{$pdf->description}}</textarea>
+                                            placeholder="Enter your Description">{{ $pdf->description }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -216,52 +227,110 @@
     @push('scripts')
         <script type="text/javascript">
             $(document).ready(function() {
-                $('.category_select').on('change', function() {
-
-                    var value = $(this).find(":selected").val();
-                    if (value == 'brand') {
-                        // alert(value);
-                        $(".brand_col").removeClass("d-none");
-                        $(".product_col").addClass("d-none");
-                        $(".industry_col").addClass("d-none");
-                        $(".solution_col").addClass("d-none");
-                        $(".company_col").addClass("d-none");
-                    } else if (value == 'product') {
-                        $(".brand_col").addClass("d-none");
-                        $(".product_col").removeClass("d-none");
-                        $(".industry_col").addClass("d-none");
-                        $(".solution_col").addClass("d-none");
-                        $(".company_col").addClass("d-none");
-
-                    } else if (value == 'industry') {
-                        $(".brand_col").addClass("d-none");
-                        $(".product_col").addClass("d-none");
-                        $(".industry_col").removeClass("d-none");
-                        $(".solution_col").addClass("d-none");
-                        $(".company_col").addClass("d-none");
-
-                    } else if (value == 'solution') {
-                        $(".brand_col").addClass("d-none");
-                        $(".product_col").addClass("d-none");
-                        $(".industry_col").addClass("d-none");
-                        $(".solution_col").removeClass("d-none");
-                        $(".company_col").addClass("d-none");
-                    } else if (value == 'company') {
-                        $(".brand_col").addClass("d-none");
-                        $(".product_col").addClass("d-none");
-                        $(".industry_col").addClass("d-none");
-                        $(".company_col").removeClass("d-none");
-                        $(".industry_col").addClass("d-none");
-                    } else {
-                        $(".brand_col").addClass("d-none");
-                        $(".product_col").addClass("d-none");
-                        $(".industry_col").addClass("d-none");
-                        $(".solution_col").addClass("d-none");
-                        $(".company_col").addClass("d-none");
+                function toggleColumns(value) {
+                    $(".brand_col, .product_col, .industry_col, .solution_col, .company_col").addClass("d-none");
+                    if (value) {
+                        $("." + value + "_col").removeClass("d-none");
                     }
+                }
 
+                // Initial setup
+                toggleColumns($(".category_select").find(":selected").val());
+
+                $('.category_select').on('change', function() {
+                    toggleColumns($(this).find(":selected").val());
                 });
             });
+
+            // $(document).ready(function() {
+            //     var value = $(this).find(":selected").val();
+            //     if (value == 'brand') {
+            //         // alert(value);
+            //         $(".brand_col").removeClass("d-none");
+            //         $(".product_col").addClass("d-none");
+            //         $(".industry_col").addClass("d-none");
+            //         $(".solution_col").addClass("d-none");
+            //         $(".company_col").addClass("d-none");
+            //     } else if (value == 'product') {
+            //         $(".brand_col").addClass("d-none");
+            //         $(".product_col").removeClass("d-none");
+            //         $(".industry_col").addClass("d-none");
+            //         $(".solution_col").addClass("d-none");
+            //         $(".company_col").addClass("d-none");
+
+            //     } else if (value == 'industry') {
+            //         $(".brand_col").addClass("d-none");
+            //         $(".product_col").addClass("d-none");
+            //         $(".industry_col").removeClass("d-none");
+            //         $(".solution_col").addClass("d-none");
+            //         $(".company_col").addClass("d-none");
+
+            //     } else if (value == 'solution') {
+            //         $(".brand_col").addClass("d-none");
+            //         $(".product_col").addClass("d-none");
+            //         $(".industry_col").addClass("d-none");
+            //         $(".solution_col").removeClass("d-none");
+            //         $(".company_col").addClass("d-none");
+            //     } else if (value == 'company') {
+            //         $(".brand_col").addClass("d-none");
+            //         $(".product_col").addClass("d-none");
+            //         $(".industry_col").addClass("d-none");
+            //         $(".company_col").removeClass("d-none");
+            //         $(".industry_col").addClass("d-none");
+            //     } else {
+            //         $(".brand_col").addClass("d-none");
+            //         $(".product_col").addClass("d-none");
+            //         $(".industry_col").addClass("d-none");
+            //         $(".solution_col").addClass("d-none");
+            //         $(".company_col").addClass("d-none");
+            //     }
+
+            //     $('.category_select').on('change', function() {
+
+            //         var value = $(this).find(":selected").val();
+            //         if (value == 'brand') {
+            //             // alert(value);
+            //             $(".brand_col").removeClass("d-none");
+            //             $(".product_col").addClass("d-none");
+            //             $(".industry_col").addClass("d-none");
+            //             $(".solution_col").addClass("d-none");
+            //             $(".company_col").addClass("d-none");
+            //         } else if (value == 'product') {
+            //             $(".brand_col").addClass("d-none");
+            //             $(".product_col").removeClass("d-none");
+            //             $(".industry_col").addClass("d-none");
+            //             $(".solution_col").addClass("d-none");
+            //             $(".company_col").addClass("d-none");
+
+            //         } else if (value == 'industry') {
+            //             $(".brand_col").addClass("d-none");
+            //             $(".product_col").addClass("d-none");
+            //             $(".industry_col").removeClass("d-none");
+            //             $(".solution_col").addClass("d-none");
+            //             $(".company_col").addClass("d-none");
+
+            //         } else if (value == 'solution') {
+            //             $(".brand_col").addClass("d-none");
+            //             $(".product_col").addClass("d-none");
+            //             $(".industry_col").addClass("d-none");
+            //             $(".solution_col").removeClass("d-none");
+            //             $(".company_col").addClass("d-none");
+            //         } else if (value == 'company') {
+            //             $(".brand_col").addClass("d-none");
+            //             $(".product_col").addClass("d-none");
+            //             $(".industry_col").addClass("d-none");
+            //             $(".company_col").removeClass("d-none");
+            //             $(".industry_col").addClass("d-none");
+            //         } else {
+            //             $(".brand_col").addClass("d-none");
+            //             $(".product_col").addClass("d-none");
+            //             $(".industry_col").addClass("d-none");
+            //             $(".solution_col").addClass("d-none");
+            //             $(".company_col").addClass("d-none");
+            //         }
+
+            //     });
+            // });
         </script>
         <script>
             $(document).ready(function() {

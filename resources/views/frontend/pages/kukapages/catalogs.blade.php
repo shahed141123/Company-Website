@@ -13,16 +13,15 @@
             @if (count($documents) > 0)
                 <div class="row py-3">
                     @foreach ($documents as $document)
-                        <div class="col-lg-3 col-12">
-                            <div class="main_catalogue mb-2">
+                        <div class="col-lg-3 col-12 mb-4">
+                            <div class="main_catalogue mb-3">
                                 <div class="card shadow-none rounded-0 border-0">
                                     <div class="cad-body">
-                                        <a href="">
-                                            <div >
+                                        <a href="javascript:void(0)">
+                                            <div>
                                                 <embed class="pdf_image"
                                                         src="{{ asset('storage/files/' . $document['document']) }}"
                                                         width="100%" height="310px" />
-                                                {{-- <img class="img-fluid" src="" alt=""> --}}
                                             </div>
                                             <div class="text-center catalogue-description p-2">
                                                 <p class="p-0 m-0 catalogue-titles">{{ $document['title'] }}</p>
@@ -34,6 +33,11 @@
                             </div>
                         </div>
                     @endforeach
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3 col-8 offset-2">
+                        {{$documents->links()}}
+                    </div>
                 </div>
             @else
             <div class="row py-3">

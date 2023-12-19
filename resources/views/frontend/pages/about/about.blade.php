@@ -111,7 +111,7 @@
             <div class="row d-flex justify-content-start align-items-center">
                 <div class="col-lg-6 col-sm-6">
                     <iframe width="645" height="363" id="id-about-player"
-                        src="{{$about->video_link}}?autoplay=1&controls=0&mute=1&loop=1&playlist=29BQhSVPFpo"
+                        src="{{$about->video_link}}?autoplay=1&controls=0&mute=1&loop=1"
                         frameborder="0" style="pointer-events: none">
                     </iframe>
                 </div>
@@ -201,7 +201,6 @@
     </script>
     <script>
         var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
         var player;

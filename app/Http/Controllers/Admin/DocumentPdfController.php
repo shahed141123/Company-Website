@@ -169,6 +169,8 @@ class DocumentPdfController extends Controller
             'button_link'      => $request->button_link,
         ];
 
+        $globalFunPageImages = []; // Initialize the variable before the loop
+
         foreach (['document', 'page_image'] as $type) {
             $file = $request->file($type);
 
@@ -192,14 +194,15 @@ class DocumentPdfController extends Controller
 
                 foreach ($uploadedImages as $uploadedImage) {
                     $globalFunPageImage = Helper::Upload($uploadedImage, $filePath);
+                    $globalFunPageImages[] = $globalFunPageImage['status'] == 1 ? $uploadedImage->hashName() : null;
                 }
-                $globalFunPageImages[] = $globalFunPageImage['status'] == 1 ? $uploadedImage->hashName() : null;
 
                 $updates[$type] = json_encode($globalFunPageImages);
             } else {
                 $updates[$type] = $documentPdf->$type;
             }
         }
+
 
         $documentPdf->update($updates);
         Toastr::success('Data has been Updated successfully!');
