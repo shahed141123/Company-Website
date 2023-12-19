@@ -16,42 +16,42 @@
 </section>
 
 
-    <!----------End--------->
-    @if (!empty($row1))
-        <section>
-            <div class="container">
-                @if (!empty($row1->banner_short_description))
-                    <div class="row py-3">
-                        <h3 class="text-center w-50 mx-auto">
-                            {{ $row1->banner_short_description}}
-                        </h3>
+<!----------End--------->
+@if (!empty($row1))
+<section>
+    <div class="container">
+        @if (!empty($row1->banner_short_description))
+        <div class="row py-3">
+            <h3 class="text-center w-50 mx-auto">
+                {{ $row1->banner_short_description}}
+            </h3>
+        </div>
+        @endif
+        <div class="row d-flex align-items-center mt-4">
+            <span class="text-start pt-3 ps-0 mb-3 d-flex align-items-center ms-2"
+                style="border-bottom: 2px solid #ae0a46; font-size: 20px;">
+                <div style="background: #ae0a46; color: white; padding: 10px; display: flex; align-items: center;">
+                    <span>{{ $row1->badge }}</span>
+                </div>
+            </span>
+            {{-- <div class="col-lg-6 mt-3">
+                <img class="img-fluid " src="{{ asset('storage/' . $row1->image) }}" alt="">
+            </div> --}}
+            <div class="col-lg-12">
+                <div class="about-column-first">
+                    <h2 class="about-title">{{ $row1->title }}</h2>
+                    <p> {!! $row1->description !!} </p>
+                    @if (!empty($row1->btn_name))
+                    <div class="btn_left">
+                        <a class="theme-btn one" href="{{ $row1->link }}">{{ $row1->btn_name }}</a>
                     </div>
-                @endif
-                <div class="row d-flex align-items-center mt-4">
-                    <span class="text-start pt-3 ps-0 mb-3 d-flex align-items-center ms-2"
-                        style="border-bottom: 2px solid #ae0a46; font-size: 20px;">
-                        <div style="background: #ae0a46; color: white; padding: 10px; display: flex; align-items: center;">
-                            <span>{{ $row1->badge }}</span>
-                        </div>
-                    </span>
-                    {{-- <div class="col-lg-6 mt-3">
-                        <img class="img-fluid " src="{{ asset('storage/' . $row1->image) }}" alt="">
-                    </div> --}}
-                    <div class="col-lg-12">
-                        <div class="about-column-first">
-                            <h2 class="about-title">{{ $row1->title }}</h2>
-                            <p> {!! $row1->description !!} </p>
-                            @if (!empty($row1->btn_name))
-                                <div class="btn_left">
-                                    <a class="theme-btn one" href="{{ $row1->link }}">{{ $row1->btn_name }}</a>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
+                    @endif
                 </div>
             </div>
-        </section>
-    @endif
+        </div>
+    </div>
+</section>
+@endif
 
 @if (!empty($row2))
 <section>
@@ -115,10 +115,11 @@
     </div>
     <div class="row d-flex justify-content-start align-items-center">
         <div class="col-lg-6 col-sm-6">
-            <iframe width="645" height="363" id="id-about-player"
-                src="https://www.youtube.com/embed/29BQhSVPFpo?autoplay=1&controls=0&mute=1&loop=1&playlist=29BQhSVPFpo"
-                frameborder="0" style="pointer-events: none">
-            </iframe>
+            <iframe class="ytplayer-player" id="id-about-player" allowfullscreen="1" allow="autoplay"
+                title="YouTube video player"
+                src="https://www.youtube.com/embed/l5Gb_LYRjEI?iv_load_policy=3&modestbranding=0&autoplay=1&controls=0&rel=0&showinfo=0&wmode=opaque&branding=0&autohide=0&loop=1&rel=0&enablejsapi=1&origin=https%3A%2F%2Fhub.youth.gov.ae&widgetid=1&mute=1"
+                width="650" height="363" frameborder="0"></iframe>
+
         </div>
         <div class="col-lg-6 col-sm-6">
             <div class="home_title p-lg-4 p-0">
@@ -202,38 +203,5 @@
             });
         });
     });
-</script>
-<script>
-    var tag = document.createElement('script');
-	tag.src = "https://www.youtube.com/iframe_api";
-	var firstScriptTag = document.getElementsByTagName('script')[0];
-	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-	var player;
-
-	function onYouTubeIframeAPIReady() {
-		player = new YT.Player('id-about-player', {
-				width: '645',
-				height: '363',
-				videoId: 'about-player',
-				playerVars: {
-					autoplay: 1,
-					controls: 0,
-					modestbranding: 1,
-					loop: 1,
-					autohide: 0,
-					mute: 1,
-					playsinline: 1,
-					playlist: 'about-player',
-				},
-			events: {
-				'onReady': onPlayerReady,
-				// 'onStateChange': onPlayerStateChange
-			},
-		});
-	}
-	function onPlayerReady(event) {
-		event.target.setVolume(50);
-		event.target.playVideo();
-	}
 </script>
 @endpush

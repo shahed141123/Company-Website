@@ -13,7 +13,7 @@
         transition: none;
     }
 
-    .privacy-policy{
+    .privacy-policy {
         padding: 10px;
     }
     .callout {
@@ -26,14 +26,14 @@
         padding: 10px 0px;
     }
 
-    .details-titles{
+    .details-titles {
         box-shadow: none;
     }
 
-    .story-mb{
+    .story-mb {
         padding-top: 30px;
     }
-    
+
     .content-box {
         background: #fff;
         border: 2px solid #d4d0ca;
@@ -437,7 +437,7 @@
         transform: translate(0px, 3px) !important;
     }
 
-    .navbar-nav .nav-item.active>.nav-link {
+    .navbar-nav .nav-item.active > .nav-link {
         border-bottom: none;
     }
 
@@ -706,8 +706,8 @@
         border-top-right-radius: 0px;
     }
 
-    nav>div a.nav-item.nav-link,
-    nav>div a.nav-item.nav-link.active {
+    nav > div a.nav-item.nav-link,
+    nav > div a.nav-item.nav-link.active {
         padding: 5px;
         font-size: 14px !important;
     }
@@ -726,7 +726,7 @@
         font-weight: 600;
     }
 
-    nav>.nav.nav-tabs {
+    nav > .nav.nav-tabs {
         border: none;
         color: #fff;
         border-radius: 0;
@@ -1288,7 +1288,6 @@
         text-align: center;
     }
 
-
     .home_shop_product_wrapper p {
         font-family: "Allumi Std Extended" !important;
         font-size: var(--paragraph-font-size) !important;
@@ -1470,7 +1469,7 @@
         line-height: 1.2;
     }
 
-    .dropend:hover>.dropdown-menu {
+    .dropend:hover > .dropdown-menu {
         position: absolute;
         top: 0;
         left: 100%;
@@ -1690,7 +1689,6 @@
 
 /* Small Devices (e.g., Tablets) */
 @media only screen and (min-width: 577px) and (max-width: 768px) {
-
     /* Styles for screens between 577 and 768 pixels wide */
     .flipbookkk-title {
         font-size: 2.5vw !important;
@@ -1887,7 +1885,6 @@
 }
 
 @media only screen and (min-width: 769px) and (max-width: 992px) {
-
     /* Styles for screens between 769 and 992 pixels wide */
     .our-team {
         margin-bottom: 30px;
@@ -2386,6 +2383,16 @@
     .sub-menu-spacing {
         margin: auto;
     }
+    .pdf_btn {
+        font-size: 12px;
+        width: 11rem;
+        padding: 12px 7px;
+    }
+    #id-about-player {
+        pointer-events: none;
+        width: 545px;
+        height: 307px;
+    }
 }
 
 @media only screen and (min-width: 1430px) and (max-width: 1890px) {
@@ -2414,7 +2421,6 @@
 
 /* Extra Large Devices (e.g., Larger Desktops) */
 @media only screen and (min-width: 1201px) {
-
     /* Styles for screens 1201 pixels and wider */
     .menu-section {
         height: 3rem;
