@@ -20,13 +20,7 @@
     @if (!empty($row1))
         <section>
             <div class="container">
-                @if (!empty($row1->banner_short_description))
-                    <div class="row py-3">
-                        <h3 class="text-center w-50 mx-auto">
-                            {{ $row1->banner_short_description}}
-                        </h3>
-                    </div>
-                @endif
+
                 <div class="row d-flex align-items-center mt-4">
                     <span class="text-start pt-3 ps-0 mb-3 d-flex align-items-center ms-2"
                         style="border-bottom: 2px solid #ae0a46; font-size: 20px;">
@@ -82,36 +76,38 @@
 @endif
 
 <!--======// CEO Details Section //======-->
-<section>
-    <div class="call_to_action d-lg-block d-sm-none" style="background-image: url(images/hardware/calltoaction.jpg);">
-        <div class="container">
-            <!-- about seo -->
-            <div class="about_seo_wrapper">
-                <!-- image -->
-                <div class="about_seo_imgage">
-                    <img src="https://www.millicom.com/media/5004/odilon-almeida-fg.png" alt="">
-                </div>
-                <!-- content -->
-                <div class="about_seo_content">
-                    <div class="about_seo_text">
-                        <h4 class="text-black">Our goal at NGen IT is to make meaningful connections that positively
-                            impact the lives of
-                            the people we serve, including our clients, partners and teammates.</h4>
-                        <span class="text-black">Your Name</span> <br>
-                        <span class="text-black fw-bold">CEO NGenit</span>
-                        <div class="pt-5">
-                            <a href="" class="product_button">Meet our leadership</a>
+
+@if (!empty($about->ceo_title))
+    <section>
+        <div class="call_to_action d-lg-block d-sm-none">
+            <div class="container">
+                <!-- about seo -->
+                <div class="about_seo_wrapper">
+                    <!-- image -->
+                    <div class="about_seo_imgage">
+                        <img src="https://www.millicom.com/media/5004/odilon-almeida-fg.png" alt="">
+                    </div>
+                    <!-- content -->
+                    <div class="about_seo_content">
+                        <div class="about_seo_text">
+                            <h4 class="text-black">{{$about->ceo_title}}</h4>
+                            <p class="text-black">{{$about->ceo_short_description}}</p>
+                            @if (!empty($about->ceo_button_link))
+                                <div class="pt-5">
+                                    <a href="{{$about->ceo_button_link}}" class="product_button">{{$about->ceo_button_name}}</a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+@endif
 @if (!empty($about->video_link))
 <section class="container">
     <div class="software_feature_title pb-5">
-        <h1 class="text-center ">{{ $about->row_four_title }}</h1>
+        <h1 class="text-center ">{{ $about->video_section_title }}</h1>
     </div>
     <div class="row d-flex justify-content-start align-items-center">
         <div class="col-lg-6 col-sm-6">
