@@ -65,7 +65,7 @@
                         @if (count($aboutUses)>0)
                             @foreach ($aboutUses as $key => $item)
                                 <td>{{ $item->id }}</td>
-                                <td>{{ isset($words[$key]) ? 'Tamplate' . ' ' . Str::ucfirst($words[$key]) : 'Number out of range' }}
+                                <td>{{ isset($words[$key]) ? 'Template' . ' ' . Str::ucfirst($words[$key]) : 'Number out of range' }}
                                 </td>
                                 <td class="text-center">
 

@@ -13839,14 +13839,12 @@ switch input:checked+.slider {
 }
 
 .about_seo_imgage {
-    padding: 25px 25px 0;
+    padding: 25px 25px;
 }
 
 .about_seo_imgage img {
     height: 430px;
     width: 360px;
-    /* border-radius: 50%;
-    */
     display: block;
     object-fit: cover;
     /* border: 2px solid rgb(247, 246, 245);

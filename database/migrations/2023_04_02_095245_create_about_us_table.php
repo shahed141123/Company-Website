@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('banner_image')->nullable();
             $table->string('ceo_image')->nullable();
             $table->string('ceo_title')->nullable();
-            $table->string('ceo_button_name')->nullable();
-            $table->text('ceo_button_link')->nullable();
             $table->text('ceo_short_description')->nullable();
+            $table->text('ceo_button_link')->nullable();
+            $table->string('ceo_button_name')->nullable();
             $table->string('video_section_title')->nullable();
             $table->string('video_row_title')->nullable();
             $table->text('video_row_short_description')->nullable();
