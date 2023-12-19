@@ -110,9 +110,15 @@
             </div>
             <div class="row d-flex justify-content-start align-items-center">
                 <div class="col-lg-6 col-sm-6">
-                    <iframe width="645" height="363" id="id-about-player"
+                    {{-- <iframe width="645" height="363" id="id-about-player"
                         src="{{$about->video_link}}?autoplay=1&controls=0&mute=1&loop=1&playlist=29BQhSVPFpo"
                         frameborder="0" style="pointer-events: none">
+                    </iframe> --}}
+                    <iframe class="ytplayer-player" id="id-about-player" allowfullscreen="1" allow="autoplay"
+                        title="YouTube video player"
+                        src="{{$about->video_link}}?iv_load_policy=3&modestbranding=0&autoplay=1&controls=0&rel=0&showinfo=0&wmode=opaque&branding=0&autohide=0&loop=1&rel=0&enablejsapi=1&mute=1"
+                        {{-- src="{{$about->video_link}}?iv_load_policy=3&modestbranding=0&autoplay=1&controls=0&rel=0&showinfo=0&wmode=opaque&branding=0&autohide=0&loop=1&rel=0&enablejsapi=1&origin=https%3A%2F%2Fhub.youth.gov.ae&widgetid=1&mute=1" --}}
+                        width="650" height="365" frameborder="0" style="left: 0">
                     </iframe>
                 </div>
                 <div class="col-lg-6 col-sm-6">
@@ -198,39 +204,5 @@
                 });
             });
         });
-    </script>
-    <script>
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        var player;
-
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('id-about-player', {
-                width: '645',
-                height: '363',
-                videoId: 'about-player',
-                playerVars: {
-                    autoplay: 1,
-                    controls: 0,
-                    modestbranding: 1,
-                    loop: 1,
-                    autohide: 0,
-                    mute: 1,
-                    playsinline: 1,
-                    playlist: 'about-player',
-                },
-                events: {
-                    'onReady': onPlayerReady,
-                    // 'onStateChange': onPlayerStateChange
-                },
-            });
-        }
-
-        function onPlayerReady(event) {
-            event.target.setVolume(50);
-            event.target.playVideo();
-        }
     </script>
 @endpush
