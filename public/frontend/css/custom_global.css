@@ -2533,14 +2533,6 @@ footer p a:hover {
     display: none;
 }
 
-.pdf_btn {
-    height: 48px;
-    font-size: 14px;
-    width: 10.5rem;
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
 .our-team {
     text-align: center;
     overflow: hidden;
@@ -2772,8 +2764,8 @@ select:focus-visible {
 }
 
 .pdf_btn {
-    font-size: 16px;
-    width: 11rem;
+    font-size: 14px;
+    width: 12.5rem;
     padding: 12px 7px;
 }
 
@@ -4361,45 +4353,45 @@ select:focus-visible {
 }
 
 /*------scroll bar---------------------*/
-::-webkit-scrollbar {
-    width: 5px;
-    height: 7px;
+body::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
 }
 
-::-webkit-scrollbar-button {
+body::-webkit-scrollbar-button {
     width: 0px;
     height: 0px;
 }
 
-::-webkit-scrollbar-thumb {
-    background: #525965;
+body::-webkit-scrollbar-thumb {
+    background: #ae0a46;
     border: 0px none #ffffff;
     border-radius: 0px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #525965;
+body::-webkit-scrollbar-thumb:hover {
+    background: #ae0a46;
 }
 
-::-webkit-scrollbar-thumb:active {
-    background: #525965;
+body::-webkit-scrollbar-thumb:active {
+    background: #ae0a46;
 }
 
-::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
     background: transparent;
     border: 0px none #ffffff;
     border-radius: 50px;
 }
 
-::-webkit-scrollbar-track:hover {
+body::-webkit-scrollbar-track:hover {
     background: transparent;
 }
 
-::-webkit-scrollbar-track:active {
+body::-webkit-scrollbar-track:active {
     background: transparent;
 }
 
-::-webkit-scrollbar-corner {
+body::-webkit-scrollbar-corner {
     background: transparent;
 }
 
@@ -5094,11 +5086,11 @@ tr td:hover {
     font-size: 14px;
     cursor: pointer;
     position: fixed;
-    bottom: 34%;
-    right: -15px;
+    bottom: 50%;
+    right: -18px;
     background-color: var(--primary-color);
     color: white;
-    padding: 2px 14px;
+    padding: 10px 15px 15px;
     border: none;
     z-index: 1;
     transition: 0.5s;
@@ -15209,6 +15201,14 @@ switch input:checked+.slider {
 }
 
 /*----- Bussinees Section------*/
+.home_title_heading-about {
+    font-family: var(--primary-font);
+    font-size: var(--content-title-font-size);
+    color: var(--heading-);
+    font-weight: 500;
+    margin: 10px 0px;
+    text-align: start;
+}
 .home_title_heading {
     font-family: var(--primary-font);
     font-size: var(--content-title-font-size);
@@ -15236,6 +15236,11 @@ switch input:checked+.slider {
     margin-bottom: 2.5rem;
 }
 
+.home_title_text-about {
+    color: var(--heading-color);
+    text-align: start;
+    font-size: var(--paragraph-font-size);
+}
 .home_title_text {
     color: var(--heading-color);
     text-align: center;
