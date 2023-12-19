@@ -18,10 +18,13 @@ return new class extends Migration
             $table->unsignedBigInteger('row_one_id')->nullable();
             $table->unsignedBigInteger('row_two_id')->nullable();
             $table->unsignedBigInteger('row_three_id')->nullable();
-            $table->string('banner_title')->nullable();
             $table->string('banner_image')->nullable();
-            $table->text('banner_short_description')->nullable();
-            $table->string('row_four_title')->nullable();
+            $table->string('ceo_image')->nullable();
+            $table->string('ceo_title')->nullable();
+            $table->string('ceo_button_name')->nullable();
+            $table->text('ceo_button_link')->nullable();
+            $table->text('ceo_short_description')->nullable();
+            $table->string('video_section_title')->nullable();
             $table->string('video_row_title')->nullable();
             $table->text('video_row_short_description')->nullable();
             $table->string('video_link')->nullable();

@@ -211,7 +211,7 @@
                                                     </div>
                                                     <div class="col-2">
                                                         <img id="showImage" class="rounded-circle"
-                                                            src="{{ asset('storage/' . $success->image) }}" alt="Brand"
+                                                            src="{{ asset('storage/' . $success->image) }}" alt="Success"
                                                             height="40px" width="40px">
                                                     </div>
                                                 </div>

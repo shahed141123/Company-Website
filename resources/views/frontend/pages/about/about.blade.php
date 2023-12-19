@@ -16,42 +16,42 @@
 </section>
 
 
-<!----------End--------->
-@if (!empty($row1))
-<section>
-    <div class="container">
-        @if (!empty($row1->banner_short_description))
-        <div class="row py-3">
-            <h3 class="text-center w-50 mx-auto">
-                {{ $row1->banner_short_description}}
-            </h3>
-        </div>
-        @endif
-        <div class="row d-flex align-items-center mt-4">
-            <span class="text-start pt-3 ps-0 mb-3 d-flex align-items-center ms-2"
-                style="border-bottom: 2px solid #ae0a46; font-size: 20px;">
-                <div style="background: #ae0a46; color: white; padding: 10px; display: flex; align-items: center;">
-                    <span>{{ $row1->badge }}</span>
-                </div>
-            </span>
-            {{-- <div class="col-lg-6 mt-3">
-                <img class="img-fluid " src="{{ asset('storage/' . $row1->image) }}" alt="">
-            </div> --}}
-            <div class="col-lg-12">
-                <div class="about-column-first">
-                    <h2 class="about-title">{{ $row1->title }}</h2>
-                    <p> {!! $row1->description !!} </p>
-                    @if (!empty($row1->btn_name))
-                    <div class="btn_left">
-                        <a class="theme-btn one" href="{{ $row1->link }}">{{ $row1->btn_name }}</a>
+    <!----------End--------->
+    @if (!empty($row1))
+        <section>
+            <div class="container">
+                @if (!empty($row1->banner_short_description))
+                    <div class="row py-3">
+                        <h3 class="text-center w-50 mx-auto">
+                            {{ $row1->banner_short_description}}
+                        </h3>
                     </div>
-                    @endif
+                @endif
+                <div class="row d-flex align-items-center mt-4">
+                    <span class="text-start pt-3 ps-0 mb-3 d-flex align-items-center ms-2"
+                        style="border-bottom: 2px solid #ae0a46; font-size: 20px;">
+                        <div style="background: #ae0a46; color: white; padding: 10px; display: flex; align-items: center;">
+                            <span>{{ $row1->badge }}</span>
+                        </div>
+                    </span>
+                    {{-- <div class="col-lg-6 mt-3">
+                        <img class="img-fluid " src="{{ asset('storage/' . $row1->image) }}" alt="">
+                    </div> --}}
+                    <div class="col-lg-12">
+                        <div class="about-column-first">
+                            <h2 class="about-title">{{ $row1->title }}</h2>
+                            <p> {!! $row1->description !!} </p>
+                            @if (!empty($row1->btn_name))
+                                <div class="btn_left">
+                                    <a class="theme-btn one" href="{{ $row1->link }}">{{ $row1->btn_name }}</a>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-@endif
+        </section>
+    @endif
 
 @if (!empty($row2))
 <section>
@@ -216,12 +216,12 @@
 				height: '363',
 				videoId: 'about-player',
 				playerVars: {
-					autoplay: 1, 
-					controls: 0, 
-					modestbranding: 1, 
+					autoplay: 1,
+					controls: 0,
+					modestbranding: 1,
 					loop: 1,
-					autohide: 0, 
-					mute: 1, 
+					autohide: 0,
+					mute: 1,
 					playsinline: 1,
 					playlist: 'about-player',
 				},

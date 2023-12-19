@@ -648,6 +648,25 @@ class SourcingController extends Controller
             'updated_at'                => Carbon::now(),
 
         ]);
+
+
+        $images = $request->file('multi_img');
+        if (!empty($images)) {
+            foreach ($images as $img) {
+                $make_name = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
+                $multi_path = public_path('upload/Products/multi-image/' . $make_name);
+                move_uploaded_file($img, $multi_path); 
+
+                $uploadPath = 'upload/Products/multi-image/' . $make_name;
+
+                MultiImage::insert([
+                    'product_id' => $product_id,
+                    'photo' => $uploadPath,
+                    'created_at' => Carbon::now(),
+                ]);
+            }
+        }
+
         if (!empty($request->industry_id)) {
             $industry_destroys = MultiIndustry::where('product_id', $product_id)->get();
 

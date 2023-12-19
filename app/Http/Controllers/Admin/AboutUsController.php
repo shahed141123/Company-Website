@@ -31,8 +31,8 @@ class AboutUsController extends Controller
      */
     public function create()
     {
-        $data['rows'] = Row::select('rows.id', 'rows.title')->latest('id','desc')->whereNotNull('image')->get();
-        return view('admin.pages.aboutUs.add',$data);
+        $data['rows'] = Row::select('rows.id', 'rows.title')->latest('id', 'desc')->whereNotNull('image')->get();
+        return view('admin.pages.aboutUs.add', $data);
     }
 
     /**
@@ -50,35 +50,43 @@ class AboutUsController extends Controller
                 'row_one_id'                  => 'required',
                 'row_two_id'                  => 'required',
                 'row_three_id'                => 'required',
-                'banner_title'                => 'nullable',
-                'banner_image'                => 'sometimes',
-                'banner_short_description'    => 'nullable',
-                'row_four_title'              => 'nullable',
-                'video_row_title'             => 'nullable',
-                'video_row_short_description' => 'nullable',
-                'video_link'                  => 'nullable|url',
             ],
             [
-                'mimes' => 'The :attribute must be a file of type: png - jpeg - jpg'
+                'mimes'    => 'The :attribute must be a file of type: png - jpeg - jpg',
+                'required' => 'The :attribute must be a file of type: png - jpeg - jpg'
             ],
         );
 
         if ($validator->passes()) {
-            $banner_image = $request->banner_image;
+
+            $banner_image = $request->file('banner_image');
             $uploadPath = storage_path('app/public/');
-            if (isset($banner_image)) {
-                $globalFunbanner_image = Helper::singleUpload($banner_image, $uploadPath);
+
+            if (!empty($banner_image)) {
+                $globalFunbanner_image = Helper::Upload($banner_image, $uploadPath);
             } else {
                 $globalFunbanner_image = ['status' => 0];
+            }
+
+            $ceo_image = $request->file('ceo_image');
+            $uploadPath = storage_path('app/public/');
+
+            if (!empty($ceo_image)) {
+                $globalFunceo_image = Helper::Upload($ceo_image, $uploadPath);
+            } else {
+                $globalFunceo_image = ['status' => 0];
             }
             AboutUs::create([
                 'row_one_id'                  => $request->row_one_id,
                 'row_two_id'                  => $request->row_two_id,
                 'row_three_id'                => $request->row_three_id,
-                'banner_title'                => $request->banner_title,
                 'banner_image'                => $globalFunbanner_image['status'] == 1 ? $globalFunbanner_image['file_name'] : '',
-                'banner_short_description'    => $request->banner_short_description,
-                'row_four_title'              => $request->row_four_title,
+                'ceo_image'                   => $globalFunceo_image['status'] == 1 ? $globalFunceo_image['file_name'] : '',
+                'ceo_title'                   => $request->ceo_title,
+                'ceo_button_name'             => $request->ceo_button_name,
+                'ceo_button_link'             => $request->ceo_button_link,
+                'ceo_short_description'       => $request->ceo_short_description,
+                'video_section_title'         => $request->video_section_title,
                 'video_row_title'             => $request->video_row_title,
                 'video_row_short_description' => $request->video_row_short_description,
                 'video_link'                  => $request->video_link,
@@ -101,7 +109,7 @@ class AboutUsController extends Controller
      */
     public function edit($id)
     {
-        $data['rows'] = Row::select('rows.id', 'rows.title')->latest('id','desc')->whereNotNull('image')->get();
+        $data['rows'] = Row::select('rows.id', 'rows.title')->latest('id', 'desc')->whereNotNull('image')->get();
         $data['aboutUs'] = AboutUs::find($id);
         return view('admin.pages.aboutUs.edit', $data);
     }
@@ -119,53 +127,65 @@ class AboutUsController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'row_one_id'                  => 'required',
-                'row_two_id'                  => 'required',
-                'row_three_id'                => 'required',
-                'banner_title'                => 'nullable',
-                'banner_image'                => 'sometimes',
-                'banner_short_description'    => 'nullable',
-                'row_four_title'              => 'nullable',
-                'video_row_title'             => 'nullable',
-                'video_row_short_description' => 'nullable',
-                'video_link'                  => 'nullable|url',
+                'row_one_id'    => 'required',
+                'row_two_id'    => 'required',
+                'row_three_id'  => 'required',
             ],
             [
-                'mimes' => 'The :attribute must be a file of type: png - jpeg - jpg'
+                'mimes'    => 'The :attribute must be a file of type: png - jpeg - jpg',
+                'required' => 'The :attribute field is required',
             ],
         );
 
         if ($validator->passes()) {
-            $mainFile = $request->banner_image;
+            $banner_image = $request->file('banner_image');
+            $ceo_image = $request->file('ceo_image');
             $uploadPath = storage_path('app/public/');
 
-            if (isset($mainFile)) {
-                $globalFunBannerImage = Helper::singleUpload($mainFile, $uploadPath);
-            } else {
-                $globalFunBannerImage['status'] = 0;
-            }
-
-            if (!empty($aboutUs)) {
-                if ($globalFunBannerImage['status'] == 1) {
-                    if (File::exists(public_path('storage/') . $aboutUs->banner_image)) {
-                        File::delete(public_path('storage/') . $aboutUs->banner_image);
-                    }
-                    if (File::exists(public_path('storage/requestImg/') . $aboutUs->banner_image)) {
-                        File::delete(public_path('storage/requestImg/') . $aboutUs->banner_image);
-                    }
-                    if (File::exists(public_path('storage/thumb/') . $aboutUs->banner_image)) {
-                        File::delete(public_path('storage/thumb/') . $aboutUs->banner_image);
+            if (!empty($banner_image)) {
+                $globalFunbanner_image = Helper::Upload($banner_image, $uploadPath);
+                $paths = [
+                    storage_path("app/public/{$aboutUs->banner_image}"),
+                    storage_path("app/public/requestImg/{$aboutUs->banner_image}")
+                ];
+                foreach ($paths as $path) {
+                    if (File::exists($path)) {
+                        File::delete($path);
                     }
                 }
+            } else {
+                $globalFunbanner_image = ['status' => 0];
+            }
+
+            if (!empty($ceo_image)) {
+                $globalFunceo_image = Helper::Upload($ceo_image, $uploadPath);
+                $paths = [
+                    storage_path("app/public/{$aboutUs->ceo_image}"),
+                    storage_path("app/public/requestImg/{$aboutUs->ceo_image}")
+                ];
+                foreach ($paths as $path) {
+                    if (File::exists($path)) {
+                        File::delete($path);
+                    }
+                }
+            } else {
+                $globalFunceo_image = ['status' => 0];
+            }
+
+
+            if (!empty($aboutUs)) {
 
                 $aboutUs->update([
                     'row_one_id'                  => $request->row_one_id,
                     'row_two_id'                  => $request->row_two_id,
                     'row_three_id'                => $request->row_three_id,
-                    'banner_title'                => $request->banner_title,
-                    'banner_image'                => $globalFunBannerImage['status'] == 1 ? $globalFunBannerImage['file_name'] : $aboutUs->banner_image,
-                    'banner_short_description'    => $request->banner_short_description,
-                    'row_four_title'              => $request->row_four_title,
+                    'banner_image'                => $globalFunbanner_image['status'] == 1 ? $globalFunbanner_image['file_name'] : $aboutUs->banner_image,
+                    'ceo_image'                   => $globalFunceo_image['status'] == 1 ? $globalFunceo_image['file_name'] : $aboutUs->ceo_image,
+                    'ceo_title'                   => $request->ceo_title,
+                    'ceo_button_name'             => $request->ceo_button_name,
+                    'ceo_button_link'             => $request->ceo_button_link,
+                    'ceo_short_description'       => $request->ceo_short_description,
+                    'video_section_title'         => $request->video_section_title,
                     'video_row_title'             => $request->video_row_title,
                     'video_row_short_description' => $request->video_row_short_description,
                     'video_link'                  => $request->video_link,
@@ -198,8 +218,11 @@ class AboutUsController extends Controller
         if (File::exists(public_path('storage/requestImg/') . $aboutUs->banner_image)) {
             File::delete(public_path('storage/requestImg/') . $aboutUs->banner_image);
         }
-        if (File::exists(public_path('storage/thumb/') . $aboutUs->banner_image)) {
-            File::delete(public_path('storage/thumb/') . $aboutUs->banner_image);
+        if (File::exists(public_path('storage/') . $aboutUs->ceo_image)) {
+            File::delete(public_path('storage/') . $aboutUs->ceo_image);
+        }
+        if (File::exists(public_path('storage/requestImg/') . $aboutUs->ceo_image)) {
+            File::delete(public_path('storage/requestImg/') . $aboutUs->ceo_image);
         }
         $aboutUs->delete();
     }

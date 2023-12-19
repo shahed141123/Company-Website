@@ -54,30 +54,16 @@
                     </div>
                 </div>
             </div>
-            <form action="{{ route('about-us.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('about-us.update',$aboutUs->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="card">
                     <!--Banner Section-->
                     <div class="container py-2">
                         <div class="row mx-1 mt-1 rounded bg-light">
                             <span class="mt-1 fw-bold text-info">Banner Section</span>
                             <div class="row mt-0 pb-2">
-                                <div class="col-lg-4 col-sm-12">
-                                    <label class="col-lg-12 p-0 px-2 text-start text-black">Banner
-                                        Title</label>
-                                    <div class="input-group">
-                                        <input name="banner_title" value="{{$aboutUs->banner_title}}" type="text" maxlength="255"
-                                            class="form-control form-control-sm" placeholder="Enter Solution Name"
-                                            style="padding: 2px 10px 0px 10px;">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-12">
-                                    <label class="col-lg-12 p-0 text-start text-black">Banner Short Description</label>
-                                    <div class="input-group">
-                                        <textarea class="form-control" name="banner_short_description" rows="1"
-                                            placeholder="Enter Solution Card Section Header">{!!$aboutUs->banner_short_description!!}</textarea>
-                                    </div>
-                                </div>
+                                <
                                 <div class="col-lg-4 col-sm-12">
                                     <label class="col-lg-12 p-0 px-2 text-start text-black">Banner
                                         Image</label>
