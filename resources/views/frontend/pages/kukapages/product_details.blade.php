@@ -10,13 +10,19 @@
                 <div class="row g-3">
                     <div class="col-lg-6 col-sm-12 single_product_images">
                         <!-- gallery pic -->
-                        <div class="mx-auto d-block">
-                            <img id="expand" class="geeks img-fluid mx-auto d-block w-100"
-                                src="{{ asset($sproduct->thumbnail) }}">
-                        </div>
                         @php
                             $imgs = App\Models\Admin\MultiImage::where('product_id', $sproduct->id)->get();
                         @endphp
+                        <div class="mx-auto d-block">
+                            @if (count($imgs) > 0)
+                                <img id="expand" class="geeks img-fluid mx-auto d-block w-100"
+                                    src="{{ asset($imgs->first()->photo) }}">
+                            @else
+                                <img id="expand" class="geeks img-fluid mx-auto d-block w-100"
+                                    src="{{ asset($sproduct->thumbnail) }}">
+                            @endif
+                        </div>
+
 
                         <div class="img_gallery_wrapper row pt-1">
                             @foreach ($imgs as $data)
@@ -410,59 +416,6 @@
                 </div>
             @endif
             <div class="row mb-5">
-                <h2 class="company-tab-title mb-5 ps-0">
-                    <span style="font-size: 20px;">BUYERS WHO LIKED THIS PRODUCT ALSO LIKED</span>
-                </h2>
-                <div class="col">
-                    <div class="slick-slider brand-containers">
-
-                        @if (count($products) > 0)
-                            @foreach ($products as $product)
-                                <div class="custom-col-5 col-sm-6 col-md-4 px-4">
-                                    <div class="card rounded-0 border-0 m-2">
-                                        <div class="card-body"
-                                            style="height:22rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                                            {{-- <div class="new-video">
-                                                <div class="icon-small video"></div>
-                                            </div> --}}
-                                            <div class="image-section">
-                                                <img src="{{ file_exists($product->thumbnail) ? asset($product->thumbnail) : asset('upload/no_image.jpg') }}"
-                                                    alt="" width="100%" height="210px;">
-                                            </div>
-
-                                            <div class="content-section text-center py-3 px-2">
-                                                <a href="{{ route('product.details', $product->slug) }}">
-                                                    <p class="pb-0 mb-0 text-muted brandpage_product_title">
-                                                        {{ Str::limit($product->name, 85) }}</p>
-                                                </a>
-                                                <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
-                                                    {{ $product->getBrandName() }}</span>
-                                                <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
-                                                    {{ $product->getCategoryName() }}</span>
-                                                <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
-                                                    {{ $product->sku_code }}</span>
-                                                <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
-                                                    {{ $product->product_code }}</span>
-                                                @if ($product->price_status == 'price' && !empty($product->price))
-                                                    <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
-                                                        {{ $product->price }}</span>
-                                                @endif
-                                                {{-- <span style="font-size: 10px"><i class="fa-solid fa-tag"></i> KR 4 AGILUS</span> --}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @endif
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="container mb-5">
-            <div class="row">
                 <div class="col-lg-12">
                     {{-- <h4 class="text-muted">Other {{ $sproduct->getBrandName() }} Products</h4> --}}
                     <h2 class="company-tab-title mb-5 ps-0">
@@ -509,6 +462,60 @@
                                 </div>
                             @endforeach
                         @endif
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section>
+        <div class="container mb-5">
+            <div class="row">
+                <h2 class="company-tab-title mb-5 ps-0">
+                    <span style="font-size: 20px;">BUYERS WHO LIKED THIS PRODUCT ALSO LIKED</span>
+                </h2>
+                <div class="col">
+                    <div class="slick-slider brand-containers">
+
+                        @if (count($products) > 0)
+                            @foreach ($products as $product)
+                                <div class="custom-col-5 col-sm-6 col-md-4 px-4">
+                                    <div class="card rounded-0 border-0 m-2">
+                                        <div class="card-body"
+                                            style="height:22rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+                                            {{-- <div class="new-video">
+                                                <div class="icon-small video"></div>
+                                            </div> --}}
+                                            <div class="image-section">
+                                                <img src="{{ file_exists($product->thumbnail) ? asset($product->thumbnail) : asset('upload/no_image.jpg') }}"
+                                                    alt="" width="100%" height="210px;">
+                                            </div>
+
+                                            <div class="content-section text-center py-3 px-2">
+                                                <a href="{{ route('product.details', $product->slug) }}">
+                                                    <p class="pb-0 mb-0 text-muted brandpage_product_title">
+                                                        {{ Str::limit($product->name, 85) }}</p>
+                                                </a>
+                                                <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                    {{ $product->getBrandName() }}</span>
+                                                <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                    {{ $product->getCategoryName() }}</span>
+                                                <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                    {{ $product->sku_code }}</span>
+                                                <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                    {{ $product->product_code }}</span>
+                                                @if ($product->price_status == 'price' && !empty($product->price))
+                                                    <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
+                                                        {{ $product->price }}</span>
+                                                @endif
+                                                {{-- <span style="font-size: 10px"><i class="fa-solid fa-tag"></i> KR 4 AGILUS</span> --}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+
                     </div>
                 </div>
             </div>

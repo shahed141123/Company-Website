@@ -93,8 +93,8 @@
 /* Global Css Start */
 html,
 body {
-    overflow-x: hidden;
     width: 100%;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     font: inherit;
     font-size: 16px;
@@ -3599,7 +3599,7 @@ select:focus-visible {
 
 .brand-page-banner {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
-    margin: 27px;
+    margin-bottom: 27px;
     /* background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -3617,7 +3617,7 @@ select:focus-visible {
 .brand-page-header-container {
     width: auto;
     box-shadow: var(--custom-shadow);
-    padding: 10px 10px 10px 20px;
+    padding: 20px;
     background-color: var(--white);
 }
 

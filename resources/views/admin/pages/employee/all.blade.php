@@ -216,7 +216,6 @@
                                                 id="select6" multiple="multiple" data-include-select-all-option="true"
                                                 data-placeholder="Chose Sector" data-enable-filtering="true"
                                                 data-enable-case-insensitive-filtering="true" required>
-
                                                 <option value="admin">Admin</option>
                                                 <option value="business">Business</option>
                                                 <option value="accounts">Accounts</option>

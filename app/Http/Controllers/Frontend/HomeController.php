@@ -175,7 +175,7 @@ class HomeController extends Controller
             ->inRandomOrder()
             ->limit(16)
             ->get();
-            $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
+        $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
         $data['brands'] = Brand::with('brandhardwareProducts')
             ->join('products', 'brands.id', '=', 'products.brand_id')
             ->where('products.product_type', '=', 'hardware')
@@ -781,8 +781,30 @@ class HomeController extends Controller
         //$categories = Category::orderBy('title','ASC')->get();
         if (Product::where('name', $item)->where('product_status', 'product')->where('product_status', 'product')->first()) {
             $data['sproduct'] = Product::where('name', $item)->where('product_status', 'product')->where('product_status', 'product')->first();
-            $data['products'] = Product::where('cat_id', $data['sproduct']->cat_id)->where('product_status', 'product')->where('product_status', 'product')->get();
-            return view('frontend.pages.product.product_details', $data);
+            if (!empty($data['sproduct']->cat_id)) {
+                $data['products'] = Product::where('cat_id', $data['sproduct']->cat_id)
+                    ->where('product_status', 'product')
+                    ->select('id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'sku_code', 'mf_code', 'product_code', 'cat_id', 'brand_id')
+                    ->limit(12)
+                    ->distinct()
+                    ->get();
+            } else {
+                $data['products'] = Product::inRandomOrder()->where('product_status', 'product')->limit(12)->get();
+            }
+
+            $data['brand'] = Brand::where('id', $data['sproduct']->brand_id)->select('id', 'slug', 'title', 'image')->first();
+            $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'brand_logo', 'header']);
+            $data['related_search'] = [
+                'categories' =>  Category::where('id', '!=', $data['sproduct']->cat_id)->inRandomOrder()->limit(2)->get(),
+                'brands' =>  Brand::where('id', '!=', $data['sproduct']->brand_id)->inRandomOrder()->limit(20)->get(),
+                'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id', 'slug', 'name'),
+                'industries' =>  Industry::inRandomOrder()->limit(4)->get('id', 'slug', 'title'),
+            ];
+            $data['brand_products'] = Product::where('brand_id', $data['sproduct']->brand_id)->where('id', '!=', $data['sproduct']->id)->inRandomOrder()->where('product_status', 'product')->limit(20)->get();
+
+            $data['documents'] = DocumentPdf::where('product_id', $data['sproduct']->id)->get();
+
+            return view('frontend.pages.kukapages.product_details', $data);
         } else {
             $data['categories'] = Category::orderBy('title', 'ASC')->get();
             $data['brands'] = Brand::orderBy('title', 'ASC')->get();
@@ -865,7 +887,8 @@ class HomeController extends Controller
         return view('frontend.pages.rfq.rfq', $data);
     }
 
-    public function training() {
+    public function training()
+    {
         $data['software_info'] = SoftwareInfoPage::where('type', 'info')->latest()->firstOrFail();
         $data['tab_one'] = Row::where('id', $data['software_info']->row_five_tab_one_id)->first();
         if (!empty($data['software_info'])) {
@@ -892,11 +915,11 @@ class HomeController extends Controller
         $data['tech_glossy2'] = $data['tech_glossies']->get(1);
         $data['tech_glossy3'] = $data['tech_glossies']->get(2);
         $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
-        return view('frontend.pages.commonPage.training',$data);
-
+        return view('frontend.pages.commonPage.training', $data);
     }
 
-    public function books() {
+    public function books()
+    {
         $data['software_info'] = SoftwareInfoPage::where('type', 'info')->latest()->firstOrFail();
         $data['tab_one'] = Row::where('id', $data['software_info']->row_five_tab_one_id)->first();
         if (!empty($data['software_info'])) {
@@ -923,6 +946,6 @@ class HomeController extends Controller
         $data['tech_glossy2'] = $data['tech_glossies']->get(1);
         $data['tech_glossy3'] = $data['tech_glossies']->get(2);
         $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
-        return view('frontend.pages.commonPage.books',$data);
+        return view('frontend.pages.commonPage.books', $data);
     }
 }

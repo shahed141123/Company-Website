@@ -792,97 +792,124 @@
                                     <div class="col-lg-6">
                                         <h5 class="mb-0 text-uppercase text-center">Update Multi Image
                                         </h5>
-                                        <div class="table-responsive">
-                                            <table class="table mb-0 table-striped table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">#Sl</th>
-                                                        <th scope="col">Image</th>
-                                                        <th scope="col" class="text-center">Action </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($multiImgs as $key => $img)
+                                        <div class="row mb-4">
+                                            <div class="col-lg-12">
+                                                <div class="d-flex flex-row align-items-center" style="cursor:pointer"
+                                                    onclick="$('#multiImg').click()">
+                                                    <div>
+                                                        <h5 class="mb-0">Multiple Images</h5>
+                                                    </div>
+                                                    <div class="text-success ms-2" style="margin-top: -3px;">
+                                                        <i class="ph ph-plus-circle"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex flex-row">
+                                                    <input class="form-control form-control-sm" name="multi_img[]"
+                                                        type="file" id="multiImg" multiple=""
+                                                        style="display:none">
+                                                    <div class="col" id="preview_img"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="table-responsive">
+                                                <table class="table mb-0 table-striped table-bordered">
+                                                    <thead>
                                                         <tr>
-                                                            <th scope="row">{{ $key + 1 }}
-                                                            </th>
-                                                            <td> <img src="{{ asset($img->photo) }}"
-                                                                    style="width:70; height: 40px;">
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <a href="javascript:void(0);"
-                                                                    class="btn text-primary px-1" data-bs-toggle="modal"
-                                                                    data-bs-target="#update_multi_img_{{ $img->id }}">
-                                                                    <i class="icon-pencil"></i></a>
-                                                                <a href="{{ route('product.multiimg.delete', [$img->id]) }}"
-                                                                    class="btn text-danger delete px-1">
-                                                                    <i class="delete icon-trash"></i>
-                                                                </a>
-                                                            </td>
+                                                            <th scope="col">#Sl</th>
+                                                            <th scope="col">Image</th>
+                                                            <th scope="col" class="text-center">Action </th>
                                                         </tr>
-                                                        <div id="update_multi_img_{{ $img->id }}" class="modal fade"
-                                                            tabindex="-1" style="display: none;" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-scrollable">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title text-center">
-                                                                            Multi Image
-                                                                            Update</h5>
-                                                                        <button type="button" class="btn-close"
-                                                                            data-bs-dismiss="modal"></button>
-                                                                    </div>
-                                                                    @php
-                                                                        $img = App\Models\Admin\MultiImage::where('id', $img->id)->first();
-                                                                    @endphp
-                                                                    <form method="post"
-                                                                        action="{{ route('update.product.multiimage') }}"
-                                                                        enctype="multipart/form-data">
-                                                                        @csrf
-                                                                        <input type="hidden" name="img_id"
-                                                                            value="{{ $img->id }}">
-                                                                        <input type="hidden" name="old_img"
-                                                                            value="{{ $img->photo }}">
-                                                                        <div class="modal-body">
-                                                                            <div class="row mb-3">
-                                                                                <div class="col-sm-3">
-                                                                                    <h6 class="mb-0">
-                                                                                        Image </h6>
-                                                                                </div>
-                                                                                <div class="col-sm-9 text-secondary">
-                                                                                    <input type="file" name="photo"
-                                                                                        class="form-control"
-                                                                                        id="image2" accept="image/*"
-                                                                                        value="{{ asset($img->photo) }}" />
-                                                                                    <div class="form-text">
-                                                                                        Accepts only
-                                                                                        png, jpg, jpeg
-                                                                                        images</div>
-                                                                                    <img class="mt-2" id="showImage2"
-                                                                                        height="100px" width="100px"
-                                                                                        src="{{ asset($img->photo) }}">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="row">
-                                                                                <div class="col-sm-6">
-                                                                                </div>
-                                                                                <div class="col-sm-3 text-secondary">
-                                                                                    <button type="submit"
-                                                                                        class="btn btn-primary">Update</button>
-                                                                                </div>
-                                                                            </div>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($multiImgs as $key => $img)
+                                                            <tr>
+                                                                <th scope="row">{{ $key + 1 }}
+                                                                </th>
+                                                                <td> <img src="{{ asset($img->photo) }}"
+                                                                        style="width:70; height: 40px;">
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <a href="javascript:void(0);"
+                                                                        class="btn text-primary px-1"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#update_multi_img_{{ $img->id }}">
+                                                                        <i class="icon-pencil"></i></a>
+                                                                    <a href="{{ route('product.multiimg.delete', [$img->id]) }}"
+                                                                        class="btn text-danger delete px-1">
+                                                                        <i class="delete icon-trash"></i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            <div id="update_multi_img_{{ $img->id }}"
+                                                                class="modal fade" tabindex="-1" style="display: none;"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-scrollable">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title text-center">
+                                                                                Multi Image
+                                                                                Update</h5>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"></button>
                                                                         </div>
-                                                                    </form>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-link"
-                                                                            data-bs-dismiss="modal">Close</button>
+                                                                        @php
+                                                                            $img = App\Models\Admin\MultiImage::where('id', $img->id)->first();
+                                                                        @endphp
+                                                                        <form method="post"
+                                                                            action="{{ route('update.product.multiimage') }}"
+                                                                            enctype="multipart/form-data">
+                                                                            @csrf
+                                                                            <input type="hidden" name="img_id"
+                                                                                value="{{ $img->id }}">
+                                                                            <input type="hidden" name="old_img"
+                                                                                value="{{ $img->photo }}">
+                                                                            <div class="modal-body">
+                                                                                <div class="row mb-3">
+                                                                                    <div class="col-sm-3">
+                                                                                        <h6 class="mb-0">
+                                                                                            Image </h6>
+                                                                                    </div>
+                                                                                    <div class="col-sm-9 text-secondary">
+                                                                                        <input type="file"
+                                                                                            name="photo"
+                                                                                            class="form-control"
+                                                                                            id="image2"
+                                                                                            accept="image/*"
+                                                                                            value="{{ asset($img->photo) }}" />
+                                                                                        <div class="form-text">
+                                                                                            Accepts only
+                                                                                            png, jpg, jpeg
+                                                                                            images</div>
+                                                                                        <img class="mt-2"
+                                                                                            id="showImage2" height="100px"
+                                                                                            width="100px"
+                                                                                            src="{{ asset($img->photo) }}">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-6">
+                                                                                    </div>
+                                                                                    <div class="col-sm-3 text-secondary">
+                                                                                        <button type="submit"
+                                                                                            class="btn btn-primary">Update</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-link"
+                                                                                data-bs-dismiss="modal">Close</button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
+
                                     </div>
                                     <div class="row gx-2">
                                         <div class="col-md-5">
@@ -1087,6 +1114,37 @@
                 // Hide Tab 3's content
                 const tab3Content = document.getElementById('tab3');
                 tab3Content.classList.remove('active', 'show');
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('#multiImg').on('change', function() { //on file input change
+                    if (window.File && window.FileReader && window.FileList && window
+                        .Blob) //check File API supported browser
+                    {
+                        var data = $(this)[0].files; //this file data
+
+                        $.each(data, function(index, file) { //loop though each file
+                            if (/(\.|\/)(gif|jpe?g|png|webp)$/i.test(file
+                                    .type)) { //check supported file type
+                                var fRead = new FileReader(); //new filereader
+                                fRead.onload = (function(file) { //trigger function on successful read
+                                    return function(e) {
+                                        var img = $('<img/>').addClass('thumb').attr('src',
+                                                e.target.result).width(70)
+                                            .height(50); //create image element
+                                        $('#preview_img').append(
+                                            img); //append image to output element
+                                    };
+                                })(file);
+                                fRead.readAsDataURL(file); //URL representing the file's data.
+                            }
+                        });
+
+                    } else {
+                        alert("Your browser doesn't support File API!"); //if File API is absent
+                    }
+                });
             });
         </script>
     @endpush

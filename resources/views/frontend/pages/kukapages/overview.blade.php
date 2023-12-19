@@ -131,7 +131,7 @@
                             <h3 class="eyebrow_title">{{ $row_four->title }}</h3>
                             <p class="company-tab-para text-justify-align">{!! $row_four->description !!}</p>
                             @if (!empty($row_four->link))
-                                <a href="{{ $row_four->link }}" class="btn-color2">{{ $row_four->btn_name }}</a>
+                                <a href="{{ $row_four->link }}" class="btn-color">{{ $row_four->btn_name }}</a>
                             @else
                             @endif
                         </div>

@@ -5,25 +5,26 @@
             padding-top: none;
         }
     </style>
-
     <!--======// Header Title //======-->
-    <section class="common_product_header"
-        style="background-image: url('{{ asset('frontend/images/custom_shop.jpg') }}'); padding: 100px 0px !important;">
-        <div class="container ">
-            <h1><strong>About Us</strong></h1>
-            <p class="text-center text-white" style="font-size: 15px;">{{ $about->title }} </p>
-        </div>
-    </section>
+    @if (!empty($about->banner_image))
+        <section>
+            <div>
+                <img class="page_top_banner"
+                    src="{{ !empty($about->banner_image) && file_exists(public_path('storage/' . $about->banner_image)) ? asset('storage/' . $about->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}"
+                    alt="NGEN IT">
+            </div>
+        </section>
+    @endif
 
 
     <!----------End--------->
     @if (!empty($row1))
         <section>
             <div class="container">
-                @if (!empty($row1->banner_short_description)) 
+                @if (!empty($about->banner_short_description))
                     <div class="row py-3">
                         <h3 class="text-center w-50 mx-auto">
-                            {{ $row1->banner_short_description}}
+                            {{ $about->banner_short_description}}
                         </h3>
                     </div>
                 @endif
