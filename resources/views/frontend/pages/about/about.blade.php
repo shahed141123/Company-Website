@@ -115,8 +115,8 @@
     </div>
     <div class="row d-flex justify-content-start align-items-center">
         <div class="col-lg-6 col-sm-6">
-            <iframe width="645" height="363"
-                src="{{ $about->video_link }}?autoplay=1&controls=0&mute=1&loop=1&playlist=29BQhSVPFpo"
+            <iframe width="645" height="363" id="id-about-player"
+                src="https://www.youtube.com/embed/29BQhSVPFpo?autoplay=1&controls=0&mute=1&loop=1&playlist=29BQhSVPFpo"
                 frameborder="0" style="pointer-events: none">
             </iframe>
         </div>
@@ -211,10 +211,10 @@
 	var player;
 
 	function onYouTubeIframeAPIReady() {
-		player = new YT.Player('id-JjWqkhvXVKA', {
-				height: '360',
-				width: '600',
-				videoId: 'JjWqkhvXVKA',
+		player = new YT.Player('id-about-player', {
+				width: '645',
+				height: '363',
+				videoId: 'about-player',
 				playerVars: {
 					autoplay: 1, 
 					controls: 0, 
@@ -223,7 +223,7 @@
 					autohide: 0, 
 					mute: 1, 
 					playsinline: 1,
-					playlist: 'JjWqkhvXVKA',
+					playlist: 'about-player',
 				},
 			events: {
 				'onReady': onPlayerReady,
