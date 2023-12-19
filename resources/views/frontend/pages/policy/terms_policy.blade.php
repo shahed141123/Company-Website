@@ -34,10 +34,6 @@
                                 role="tab" aria-controls="v-pills-home" aria-selected="true">
                                 <span class="font-weight-bold small text-uppercase">{{$service_term->name}}</span></a>
                         @endforeach
-
-
-
-
                     </div>
                 </div>
 
