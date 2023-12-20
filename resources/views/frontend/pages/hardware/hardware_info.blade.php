@@ -442,7 +442,7 @@
                             <span style="border-top: 3px solid #ae0a46;">Fe</span>atured Content
                         </h3>
 
-                        @if ($blogs)
+                        @if (count($blogs) > 0)
                             @foreach ($blogs as $blog)
                                 <div class="pt-2 pb-3">
                                     <a href="{{ route('blog.details', $blog->id) }}">

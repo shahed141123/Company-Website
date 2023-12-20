@@ -27,7 +27,7 @@
                                             {{-- <img class="content-image" src="{{ asset('storage/' . $techglossy->image) }}"
                                                 alt=""> --}}
                                                 <img class="img-fluid site-main-logo-contents"
-                                                src="{{ !empty($clientStory->image) && file_exists(public_path('storage/' . $clientStory->image)) ? asset('storage/' . $clientStory->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                                src="{{ !empty($techglossy->image) && file_exists(public_path('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/no-row-img(580-326).png') }}"
                                                 alt="NGEN IT">
                                         </div>
                                         <div>

@@ -35,7 +35,7 @@
                     @endforeach
                 </div>
                 <div class="row">
-                    <div class="col-lg-6 offset-lg-3 col-8 offset-2">
+                    <div class="col-lg-6 offset-lg-3 col-8 offset-2 d-flex justify-content-center">
                         {{$documents->links()}}
                     </div>
                 </div>

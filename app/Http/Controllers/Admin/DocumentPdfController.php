@@ -154,6 +154,7 @@ class DocumentPdfController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $documentPdf = DocumentPdf::findOrFail($id);
         $filePath = storage_path('app/public/');
         $updates = [
@@ -169,14 +170,16 @@ class DocumentPdfController extends Controller
             'button_link'      => $request->button_link,
         ];
 
-        $globalFunPageImages = []; // Initialize the variable before the loop
+        $globalFunPageImages = [];
 
         foreach (['document', 'page_image'] as $type) {
             $file = $request->file($type);
 
             if (!empty($file)) {
-                Helper::Upload($file, $filePath);
+                // Handle the uploaded file
+                $hashName = Helper::Upload($file, $filePath)['file_name'];
 
+                // Delete existing files
                 $paths = [
                     storage_path("app/public/{$documentPdf->$type}"),
                     storage_path("app/public/requestImg/{$documentPdf->$type}")
@@ -188,7 +191,7 @@ class DocumentPdfController extends Controller
                     }
                 }
 
-                $updates[$type] = $file->hashName();
+                $updates[$type] = $hashName;
             } elseif ($type === 'page_image') {
                 $uploadedImages = $request->input('page_image', []);
 
@@ -199,14 +202,15 @@ class DocumentPdfController extends Controller
 
                 $updates[$type] = json_encode($globalFunPageImages);
             } else {
+                // If no file is uploaded, keep the existing value
                 $updates[$type] = $documentPdf->$type;
             }
         }
 
-
+        // Update the model with the new data
         $documentPdf->update($updates);
-        Toastr::success('Data has been Updated successfully!');
 
+        Toastr::success('Data has been Updated successfully!');
         return redirect()->back();
     }
 

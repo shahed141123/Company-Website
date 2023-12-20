@@ -36,10 +36,10 @@ Route::get('/hardware/info', [HomeController::class, 'hardwareInfo'])->name('har
 
 
 //Training
-Route::get('/ngenit/training', [HomeController::class, 'training'])->name('training');
+Route::get('/training', [HomeController::class, 'training'])->name('training');
 
 //Books
-Route::get('/ngenit/books', [HomeController::class, 'books'])->name('books');
+Route::get('/books', [HomeController::class, 'books'])->name('books');
 
 //Industry
 Route::get('/industry/all', [HomeController::class, 'AllIndustry'])->name('all.industry');
@@ -74,7 +74,7 @@ Route::get('/feature/{id}/details/', [HomeController::class, 'FeatureDetails'])-
 // Shop // Filter
 
 //Shop
-Route::get('/ngenit/shop', [ShopController::class, 'mainShop'])->name('shop');
+Route::get('/shop', [ShopController::class, 'mainShop'])->name('shop');
 Route::get('/custom/shop', [ShopController::class, 'CustomProduct'])->name('custom.shop');
 
 
@@ -99,7 +99,7 @@ Route::match(['get','post'],'/ngenit/shop/filter', [ShopController::class, 'Shop
 
 //Shop
 Route::get('/shop', [ShopController::class, 'mainShop'])->name('shop');
-Route::get('/custom/shop', [ShopController::class, 'CustomProduct'])->name('custom.shop');
+Route::get('/custom/shop', [ShopController::class, 'customProduct'])->name('custom.shop');
 // Route::match(['get','post'],'/ngenit/shop/filter_page', [ShopController::class, 'Shop'])->name('shop.filter_partial');
 
 Route::match(['get','post'],'/ngenit/shop/filter_page', [ShopController::class, 'getShopProducts'])->name('shop.filter_partial');

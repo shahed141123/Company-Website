@@ -175,7 +175,8 @@ class HomeController extends Controller
             ->inRandomOrder()
             ->limit(16)
             ->get();
-        $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
+
+
         $data['brands'] = Brand::with('brandhardwareProducts')
             ->join('products', 'brands.id', '=', 'products.brand_id')
             ->where('products.product_type', '=', 'hardware')
@@ -183,7 +184,11 @@ class HomeController extends Controller
             ->distinct()->inRandomOrder()->limit(12)->get();
         $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'slug', 'logo', 'title']);
         $data['tech_datas'] = TechnologyData::where('category', 'hardware')->orderBy('id', 'ASC')->get();
-        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'slug', 'title']);
+        $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
+        $data['tech_glossies'] = TechGlossy::inRandomOrder()->limit(3)->get();
+        $data['tech_glossy1'] = $data['tech_glossies']->first();
+        $data['tech_glossy2'] = $data['tech_glossies']->get(1);
+        $data['tech_glossy3'] = $data['tech_glossies']->get(2);$data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'slug', 'title']);
         return view('frontend.pages.hardware.hardware_info', $data);
     }
 

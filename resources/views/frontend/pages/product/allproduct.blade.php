@@ -2,32 +2,38 @@
 @section('content')
 
     @include('frontend.pages.product.partials.style')
-    <section class="banner_single_page mb-4"
-        style="background-image:url('{{ asset('frontend/images/custom_shop.jpg') }}');
+
+    @if (!empty($bannerImage))
+        <section>
+            <div>
+                <img class="page_top_banner"
+                    src="{{ !empty($bannerImage) && file_exists(public_path('storage/' . $bannerImage)) ? asset('storage/' . $bannerImage) : asset('frontend/images/no-banner(1920-330).png') }}"
+                    alt="NGEN IT Shop">
+            </div>
+        </section>
+    @else
+        <section class="banner_single_page mb-4"
+            style="background-image:url('{{ asset('frontend/images/custom_shop.jpg') }}');
         background-color: black;
         background-repeat: no-repeat;
         background-size: cover;
         height:300px;">
 
-        <div class="container">
-            <div class="single_banner_content">
-                <!-- image -->
-                <div class="single_banner_image text-center">
-
-                    @if (!empty($brand_logo))
-                        <img src="{{ asset('storage/' . $brand_logo->brand_logo) }}" alt="" height="80px"
-                            width="200px" style="margin-top:4rem;">
-                    @else
+            <div class="container">
+                <div class="single_banner_content">
+                    <!-- image -->
+                    <div class="single_banner_image text-center">
                         <img src="{{ asset('storage/' . $cat->image) }}" alt="" height="130px" width="150px"
                             style="margin-top:4rem;">
-                    @endif
-                </div>
-                <!-- heading -->
-                <h1 class="single_banner_heading text-center text-white">{{ $cat->title }}</h1>
+                    </div>
+                    <!-- heading -->
+                    <h1 class="single_banner_heading text-center text-white">{{ $cat->title }}</h1>
 
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
+
 
     <!-------- End--------->
 
@@ -37,71 +43,12 @@
             @csrf
             <div class="wrapper my-4">
                 <div class="d-md-flex align-items-md-center">
-                    {{-- <div>
-                        <h5>
-                            <b>
-                                @if ($products)
-                                    {{ $products->count() }}
-                                @else
-                                    No
-                                @endif
-                            </b> results matched your search
-                        </h5>
-                    </div> --}}
+
                     <div class="ml-auto d-flex align-items-center views">
-                        {{-- <span class="btn text-success">
-                            <span class="fas fa-th px-md-2 px-1"></span><span>Grid view</span> </span> <span class="btn">
-                            <span class="fas fa-list-ul"></span>
-                            <span class="px-md-2 px-1">List view</span> </span> --}}
-                        {{-- <div class="form-inline d-flex align-items-center my-2 checkbox bg-light border mx-lg-2 rounded-0">
-                            <select name='sortBy' onchange="this.form.submit();" id="country" class="bg-light">
-                                <option value="">Sort By</option>
-                                <option value="titleASC" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'titleASC') selected @endif>Ascending By Name
-                                </option>
-                                <option value="priceASC" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'priceASC') selected @endif> Ascending By
-                                    Price</option>
-                                <option value="titleDESC" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'titleDESC') selected @endif>Descending By
-                                    Name</option>
-                                <option value="priceDESC" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'priceDESC') selected @endif>Descending By
-                                    Price</option>
-                            </select>
-                        </div>
-                        <div class="form-inline d-flex align-items-center my-2 checkbox bg-light border mx-lg-2 rounded-0">
-                            <select name="show" onchange="this.form.submit();" id="page" class="bg-light">
-                                <option value="">Per Page</option>
-                                <option value="5" @if (!empty($_GET['show']) && $_GET['show'] == '5') selected @endif>5</option>
-                                <option value="10" @if (!empty($_GET['show']) && $_GET['show'] == '10') selected @endif>10</option>
-                                <option value="20" @if (!empty($_GET['show']) && $_GET['show'] == '20') selected @endif>20</option>
-                                <option value="40" @if (!empty($_GET['show']) && $_GET['show'] == '40') selected @endif>40</option>
-                            </select>
-                        </div> --}}
+
                     </div>
                 </div>
-                {{-- <div class="d-lg-flex align-items-lg-center pt-2">
-                    <div class="form-inline d-flex align-items-center my-2 mr-lg-2 radio bg-light border"> <label
-                            class="options">Most Popular <input type="radio" name="radio"> <span
-                                class="checkmark"></span>
-                        </label> <label class="options">Cheapest <input type="radio" name="radio" checked> <span
-                                class="checkmark"></span> </label> </div>
-                    <div class="form-inline d-flex align-items-center my-2 checkbox bg-light border mx-lg-2"> <label
-                            class="tick">Farm <input type="checkbox" checked="checked"> <span class="check"></span>
-                        </label>
-                        <span class="text-success px-2 count"> 328</span>
-                    </div>
-                    <div class="form-inline d-flex align-items-center my-2 checkbox bg-light border mx-lg-2"> <label
-                            class="tick">Bio <input type="checkbox"> <span class="check"></span> </label> <span
-                            class="text-success px-2 count"> 72</span> </div>
-                    <div class="form-inline d-flex align-items-center my-2 checkbox bg-light border mx-lg-2"> <label
-                            class="tick">Czech republic <input type="checkbox"> <span class="check"></span> </label>
-                        <span class="border px-1 mx-2 mr-3 font-weight-bold count"> 12</span> <select name="country"
-                            id="country" class="bg-light">
-                            <option value="" hidden>Country</option>
-                            <option value="India">India</option>
-                            <option value="USA">USA</option>
-                            <option value="Uk">UK</option>
-                        </select>
-                    </div>
-                </div> --}}
+
                 <div class="d-sm-flex align-items-sm-center pt-2 clear">
                     <div class="text-muted filter-label">Applied Filters:</div>
                     @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'titleASC')
@@ -857,7 +804,8 @@
                                                                 <p class="text-muted text-center"><small>USD</small>
                                                                     {{ number_format($item->price, 2) }} $
                                                                 </p>
-                                                                <div class="d-flex justify-content-center align-items-center">
+                                                                <div
+                                                                    class="d-flex justify-content-center align-items-center">
                                                                     {{-- <form class="" action="{{ route('add.cart') }}" method="post">
                                                                         @csrf
                                                                         <input type="hidden" name="product_id" id="product_id"
@@ -899,7 +847,8 @@
                                                                     style="text-decoration: line-through;text-decoration-thickness: 2px; text-decoration-color: #ae0a46;">
                                                                     USD {{ number_format($item->price, 2) }} $
                                                                 </p>
-                                                                <div class="d-flex justify-content-center align-items-center">
+                                                                <div
+                                                                    class="d-flex justify-content-center align-items-center">
 
 
                                                                     <div data-mdb-toggle="popover" title="Your Price"
@@ -946,7 +895,8 @@
                                                 <div class="col-lg-4 col-sm-12 single_product_images">
                                                     <!-- gallery pic -->
                                                     <div class="mx-auto d-block">
-                                                        <img id="expand" class="geeks img-fluid rounded mx-auto d-block"
+                                                        <img id="expand"
+                                                            class="geeks img-fluid rounded mx-auto d-block"
                                                             src="{{ asset($item->thumbnail) }}">
                                                     </div>
 
@@ -1008,7 +958,8 @@
                                                                     <div class="pro-qty">
                                                                         <input type="hidden" name="product_id"
                                                                             id="product_id" value="62">
-                                                                        <input type="hidden" name="name" id="name"
+                                                                        <input type="hidden" name="name"
+                                                                            id="name"
                                                                             value="Jira Software Cloud Premium - subscription license (annual) - 100 users">
                                                                         <div class="counter">
                                                                             <span class="down"
@@ -1020,7 +971,8 @@
 
                                                                         </div>
                                                                     </div>
-                                                                    <button class="common_button2 ms-3" type="submit">Add to
+                                                                    <button class="common_button2 ms-3" type="submit">Add
+                                                                        to
                                                                         Basket</button>
                                                                 </div>
                                                             </div>
