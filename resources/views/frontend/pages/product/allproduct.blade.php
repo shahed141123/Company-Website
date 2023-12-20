@@ -294,9 +294,9 @@
                                 <div class="input-group">
                                     <input type="text" name="keyword" class="form-control  rounded-0"
                                         placeholder="Search BY KEYWORD..." onchange="this.form.submit()"
-                                        style="padding: 27px">
+                                        style="padding: 8px">
                                     <div class="input-group-append">
-                                        <button class="btn btn-secondary rounded-0 p-3 py-0" type="button">
+                                        <button class="btn btn-secondary rounded-0 p-2" type="submit">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </div>
@@ -585,8 +585,9 @@
                                                                 <div class="col-lg-9 col-sm-12">
                                                                     <a
                                                                         href="{{ route('product.details', ['id' => $product->slug]) }}">
-                                                                        <h4 class="my-3" style="color: #ae0a46;">
-                                                                            {{ $product->name }}</h4>
+                                                                        <h5 class="my-3" style="color: #ae0a46;">
+                                                                            {{ Str::words($product->name, 12, $end = '') }}
+                                                                        </h5>
                                                                     </a>
                                                                 </div>
                                                                 <div class="col-lg-3 col-sm-12">
@@ -599,26 +600,22 @@
                                                                         </h6>
                                                                     @else
                                                                         <h6 class="text-end text-success"
-                                                                            style="font-size:20px; text-transform:capitalize;">
+                                                                            style="font-size:16px; text-transform:capitalize;">
                                                                             {{ ucfirst($product->stock) }}</h6>
                                                                     @endif
                                                                 </div>
                                                             </div>
                                                             <div class="row">
-                                                                <div class="col-lg-6 mt-1 col-sm-12">
+                                                                <div class="col-lg-7 mt-1 col-sm-12">
                                                                     <div>
-                                                                        <span style="font-size: 14px;">
+                                                                        <span style="font-size: 12px;">
                                                                             SKU #: {{ $product->sku_code }} |
-                                                                            MF #: {{ $product->mf_code }} |
-                                                                            <br> NG #: {{ $product->product_code }}
+                                                                            MF #: {{ $product->mf_code }}
                                                                         </span>
-                                                                        <br>
-                                                                        {{-- <p>
-                                                                            {!! Str::limit($product->short_desc, 180) !!}
-                                                                        </p> --}}
+
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-6 text-center mt-1 col-sm-12">
+                                                                <div class="col-lg-5 text-center mt-1 col-sm-12">
                                                                     <div class="text-end">
                                                                         @if ($product->rfq != 1)
                                                                             @if (!empty($product->discount))
@@ -630,7 +627,7 @@
                                                                                 <div
                                                                                     class="d-flex justify-content-end align-items-center">
                                                                                     <small class="text-info me-2"
-                                                                                        style="font-size: 18px;">USD</small>
+                                                                                        style="font-size: 16px;">USD</small>
                                                                                     <h4 class="mr-1 font-number text-end">$
                                                                                         {{ $product->price }}</h4>
                                                                                 </div>
@@ -689,7 +686,7 @@
                                                                                         <div
                                                                                             class="d-flex justify-content-end">
                                                                                             <button type="submit"
-                                                                                                class="common_button effect01"
+                                                                                                class="btn-color"
                                                                                                 style="padding:10px 8px;">Add
                                                                                                 to Basket</button>
                                                                                         </div>
@@ -700,8 +697,15 @@
                                                                         @endif
                                                                     @else
                                                                         <div class="text-end">
-                                                                            <a href="{{ route('product.details', $product->slug) }}"
-                                                                                class="common_button effect01">Details</a>
+                                                                            <a href=""
+                                                                                class="d-flex justify-content-center align-items-center"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#rfq{{ $product->id }}">
+                                                                                <button
+                                                                                    class="btn-color popular_product-button">
+                                                                                    Ask For Price
+                                                                                </button>
+                                                                            </a>
                                                                         </div>
                                                                     @endif
                                                                 </div>
