@@ -12,12 +12,7 @@
     </div>
 </section>
 @else
-<section class="banner_single_page mb-4" style="background-image:url('{{ asset('frontend/images/custom_shop.jpg') }}');
-        background-color: black;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height:300px;">
-
+<section class="banner_single_page mb-4" style="background-image:url('{{ asset('frontend/images/custom_shop.jpg') }}');background-color: black;background-repeat: no-repeat;background-size: cover;height:300px;">
     <div class="container">
         <div class="single_banner_content">
             <!-- image -->
@@ -27,7 +22,6 @@
             </div>
             <!-- heading -->
             <h1 class="single_banner_heading text-center text-white">{{ $cat->title }}</h1>
-
         </div>
     </div>
 </section>
@@ -72,7 +66,7 @@
                             </option>
                         </select>
                     </div>
-                    
+
                     <div>
                         <select class="form-select border-0 bg-transparent" aria-label="Descending Sorting">
                             <option value="">Descending</option>

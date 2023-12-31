@@ -180,6 +180,7 @@ class ShopController extends Controller
 
 
         if (!empty($_GET['customCategory'])) {
+
             $slug = $_GET['customCategory'];
             if (Category::getProductByCat($slug)) {
                 $cat = Category::where('slug', $slug)->first();
@@ -495,7 +496,7 @@ class ShopController extends Controller
         $newProduct = Product::orderBy('id', 'DESC')->where('product_status', 'product')->limit(3)->get();
 
 
-        
+
         $brand_logo = !empty($brand_logo) ? $brand_logo : '';
         $bannerImage = !empty($bannerImage) ? $bannerImage : '';
 
