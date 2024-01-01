@@ -5083,14 +5083,16 @@ tr td:hover {
 /* Floadting Button Start */
 /* this is new */
 .feedback_upper_modal {
-    font-size: 14px;
+    font-size: 21px;
+    letter-spacing: 3px;
+    line-height: 1;
     cursor: pointer;
     position: fixed;
     bottom: 50%;
-    right: -18px;
+    right: -25px;
     background-color: var(--primary-color);
     color: white;
-    padding: 10px 15px 15px;
+    padding: 9px 20px;
     border: none;
     z-index: 1;
     transition: 0.5s;

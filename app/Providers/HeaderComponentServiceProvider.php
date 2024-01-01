@@ -95,7 +95,7 @@ class HeaderComponentServiceProvider extends ServiceProvider
 
             // Load latest categories
             $categories = Category::with('subCategorys.subsubCategorys.subsubsubCategorys')
-                ->latest('id')
+                ->orderBy('id','asc')
                 ->limit(10)
                 ->get(['id', 'slug', 'title']);
 
