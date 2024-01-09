@@ -87,131 +87,61 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="container px-0">
+                    <div class="container">
                         <form action="{{ route('rfq.add') }}" enctype="multipart/form-data" method="POST">
                             @csrf
-                            <div class="py-2 px-2 rounded">
-                                <div class="row">
-                                    <div class="col-sm-12 d-flex justify-content-between align-items-center">
-                                        <span style="font-size: 12px;">Product Name <span
-                                                class="text-danger">*</span></span>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control form-control-sm" name="product_name"
-                                            value="{{ old('product_name') }}" required>
+                            <div class="row mb-4">
+                                <div class="col-lg-12">
+                                    <label class="mb-2" for="product_name">Product Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control form-control-sm" name="product_name"
+                                        id="product_name" value="{{ old('product_name') }}" required>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-lg-4 mb-4 pe-0">
+                                    {{-- <label for="name">Name <span class="text-danger">*</span> </label> --}}
+                                    <input type="text" class="form-control form-control-sm rounded-0" required
+                                        id="name" name="name" placeholder="Your Name *" />
+                                </div>
+                                <div class="col-lg-4 mb-4 pe-0">
+
+                                    <input type="number" class="form-control form-control-sm rounded-0" id="phone"
+                                        name="phone" placeholder="Your Phone Number *" required />
+                                </div>
+                                <div class="col-lg-4 mb-4">
+                                    {{-- <label for="contact">Company Name </label> --}}
+                                    <input type="text" class="form-control form-control-sm rounded-0" id="contact"
+                                        name="company_name" placeholder="Your Company Name *" required />
+                                </div>
+                                <div class="col-lg-5 mb-4 pe-0">
+                                    {{-- <label for="email">Email <span class="text-danger">*</span> </label> --}}
+                                    <input type="email" required class="form-control form-control-sm rounded-0"
+                                        id="email" name="email" placeholder="Your Email *" required />
+                                    <span class="text-danger text-start p-0 m-0 email_validation"
+                                        style="display: none">Please input valid email</span>
+                                </div>
+                                <div class="col-lg-7 mb-4">
+                                    {{-- <label for="contact">Custom Image </label> --}}
+                                    <input type="file" name="image" class="form-control form-control-sm rounded-0"
+                                        id="image" accept="image/*" placeholder="Your Custom Image" />
+                                </div>
+                                <div class="col-lg-12 mb-4">
+                                    {{-- <label for="message">Type Message</label> --}}
+                                    <textarea class="form-control form-control-sm rounded-0" id="message" name="message" rows="3"
+                                        placeholder="Your Message"></textarea>
+                                </div>
+                                <div class="col-lg-12 mb-4">
+                                    <div class="form-check border-0" style="position: relative; left: 20px;">
+                                        <input class="form-check-input" type="checkbox" value="1"
+                                            id="flexCheckDefault" name="call" placeholder="Call Me"
+                                            style="left: 1rem;" />
+                                        <label class="form-check-label" for="flexCheckDefault"> Call Me
+                                        </label>
                                     </div>
                                 </div>
 
                             </div>
-                            <div class="py-2 px-2 bg-light rounded">
-                                <div class="row mb-3">
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col-sm-12 d-flex justify-content-between align-items-center">
-                                                <span style="font-size: 12px;">Name <span
-                                                        class="text-danger">*</span></span>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <input type="text" name="name" value="{{ old('name') }}"
-                                                    class="form-control form-control-sm w-100" maxlength="100"
-                                                    placeholder="Enter Your Name" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col-sm-12 d-flex justify-content-between align-items-center">
-                                                <span style="font-size: 12px;">Email <span
-                                                        class="text-danger">*</span></span>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <input type="email" name="email" value="{{ old('email') }}"
-                                                    class="form-control form-control-sm w-100" maxlength="100"
-                                                    placeholder="Enter Your Email" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col-sm-12 d-flex justify-content-between align-items-center">
-                                                <span style="font-size: 12px;">Mobile <span
-                                                        class="text-danger">*</span></span>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <input type="number" name="phone" value="{{ old('phone') }}"
-                                                    class="form-control form-control-sm w-100" maxlength="100"
-                                                    placeholder="Enter Mobile Number" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col-sm-12 d-flex justify-content-between align-items-center">
-                                                <span style="font-size: 12px;">Company Name</span>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <input type="text" name="comapny" value="{{ old('comapny') }}"
-                                                    class="form-control form-control-sm w-100" maxlength="100"
-                                                    placeholder="Enter Company Name">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col-sm-12 d-flex justify-content-between align-items-center">
-                                                <span style="font-size: 12px;">Quantity </span>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <input type="number" name="qty" value="{{ old('qty') }}"
-                                                    class="form-control form-control-sm w-100" maxlength="100"
-                                                    placeholder="Enter Your Quantity">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col-sm-12 d-flex justify-content-between align-items-center">
-                                                <span style="font-size: 12px;">Custom Image</span>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <input type="file" name="custom_image"
-                                                    class="form-control form-control-sm w-100" maxlength="100"
-                                                    placeholder="Enter Product Image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <span style="font-size: 12px;">Type Message</span>
-                                                <textarea class="form-control form-control-sm w-100" id="message" name="message" rows="2"
-                                                    placeholder="Enter Your Name">{{ old('message') }}</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault" name="call"
-                                                style="position: absolute;
-                                                            left: 25px;">
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Call Me
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="row justify-content-lg-between mb-3">
+                            <div class="row justify-content-lg-between mb-3 align-items-center">
                                 <div class="col-lg-6 text-start mb-2">
                                     <div class="form-group row px-3 mx-3 message g-recaptcha"
                                         data-sitekey="{{ config('app.recaptcha_site_key') }}">
@@ -254,10 +184,11 @@
             <span class="fab-info-icon-dots fab-info-icon-dots-3"></span>
         </label>
         <div class="fab-info-icon-wheel">
-            <a href="{{route('faq')}}" class="fab-info-icon-action fab-info-icon-action-2" data-title="FAQ">
+            <a href="{{ route('faq') }}" class="fab-info-icon-action fab-info-icon-action-2" data-title="FAQ">
                 <i class="fas fa-book"></i>
             </a>
-            <a href="javascript:void(0);" class="fab-info-icon-action fab-info-icon-action-1" data-title="RFQ" data-bs-toggle="modal" data-bs-target="#rfqModal">
+            <a href="javascript:void(0);" class="fab-info-icon-action fab-info-icon-action-1" data-title="RFQ"
+                data-bs-toggle="modal" data-bs-target="#rfqModal">
                 {{-- <i class="fas fa-question"></i> --}}
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.84 110.29"
@@ -315,10 +246,12 @@
                 </svg>
             </a>
 
-            <a href="{{route('contact')}}" class="fab-info-icon-action fab-info-icon-action-4" data-title="Contact">
+            <a href="{{ route('contact') }}" class="fab-info-icon-action fab-info-icon-action-4"
+                data-title="Contact">
                 <i class="fas fa-info"></i>
             </a>
-            <a href="{{route('terms.policy')}}" class="fab-info-icon-action fab-info-icon-action-3" data-title="Terms & Condition">
+            <a href="{{ route('terms.policy') }}" class="fab-info-icon-action fab-info-icon-action-3"
+                data-title="Terms & Condition">
                 <i class="fas fa-address-book"></i>
             </a>
 

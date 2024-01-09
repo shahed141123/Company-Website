@@ -20,54 +20,52 @@
             </div>
         </div>
         <!-- /page header -->
-        <div class="content pt-0 w-75 mx-auto">
-            <div class="d-flex align-items-center py-2">
+        <div class="content container-fluid">
+
+            <div class="d-flex align-items-center py-2 w-50 justify-content-between"
+                style="position: relative; z-index: 999; margin-bottom: -3.2rem;">
                 {{-- Add Details Start --}}
-                <div class="text-success nav-link cat-tab3"
-                    style="position: relative;
-                    z-index: 999;
-                    margin-bottom: -40px;">
-                    <a href="{{ route('contact.create') }}">
+                <div class="text-success nav-link cat-tab3">
+                    <a href="{{ route('contact.create') }}" class="border px-2 py-1">
                         <div class="d-flex align-items-center">
                             <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
                                 data-bs-placement="top" title="Add Solution Details">
                                 <i class="ph-plus icons_design"></i> </span>
-                            <span class="ms-1" style="color: #247297;">Add</span>
+                            <span class="ms-2 m-0" style="color: #247297;">Add</span>
                         </div>
                     </a>
-                    <div class="text-center" style="margin-left: 300px">
-                        <h5 class="ms-1" style="color: #247297;">All Contacts</h5>
-                    </div>
                 </div>
-                {{-- Add Details End --}}
+                <div class="text-center" style="margin-left: 300px">
+                    <h5 class="m-0" style="color: #247297;">All Contacts</h5>
+                </div>
+
             </div>
-            <div>
+            <div class="table-responsive">
                 <table class="table contactDT table-bordered table-hover text-center">
                     <thead>
-                        <tr>
-                            <th width="10%">Id</th>
-                            <th width="15%">Name</th>
+                        <tr class="text-center">
+                            <th width="8%">Id</th>
+                            <th width="12%">Name</th>
                             <th width="15%">Email</th>
-                            <th width="15%">Country</th>
-                            <th width="35%">message</th>
-                            <th width="10%" class="text-center">Actions</th>
+                            <th width="43%">message</th>
+                            <th width="12%">Date</th>
+                            <th width="10%">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @if ($contacts)
-                        @foreach ($contacts as $key => $contact)
-                            <tr>
-                                <td>{{ ++$key }}</td>
-                                <td>{{ $contact->fname }}&nbsp;{{ $contact->lname }}</td>
-                                <td>{{ $contact->email }}</td>
-                                <td>{{ $contact->country }}</td>
-                                <td>{{ $contact->message }}</td>
+                            @foreach ($contacts as $key => $contact)
+                                <tr>
+                                    <td>{{ ++$key }}</td>
+                                    <td>{{ $contact->name }}</td>
+                                    <td>{{ $contact->email }}</td>
+                                    <td>{{ $contact->message }}</td>
+                                    <td>{{ $contact->created_at }}</td>
                                     <td>
                                         <a href="{{ route('contact.edit', [$contact->id]) }}" class="text-primary">
                                             <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
                                         </a>
-                                        <a href="{{ route('contact.destroy', [$contact->id]) }}"
-                                            class="text-danger delete">
+                                        <a href="{{ route('contact.destroy', [$contact->id]) }}" class="text-danger delete">
                                             <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
                                         </a>
                                     </td>

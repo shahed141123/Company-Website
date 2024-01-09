@@ -316,8 +316,7 @@
                                         <div class="form-group  col-sm-12 px-3 mx-3">
                                             <input class="form-check-input" type="checkbox" value="1"
                                                 id="flexCheckDefault" name="call"
-                                                style="position: absolute;
-                                                                    left: 25px;">
+                                                style="position: absolute; left: 3rem;">
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Call Me
                                             </label>
@@ -410,7 +409,7 @@
                                         <div class="form-group  col-sm-12 px-3 mx-3">
                                             <input class="form-check-input" type="checkbox" value="1"
                                                 id="flexCheckDefault" name="call"
-                                                style="position: absolute; left: 25px;">
+                                                style="position: absolute; left: 3rem;">
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Call Me
                                             </label>
@@ -432,123 +431,85 @@
                                 {{-- <input type="hidden" name="client_type" value="random"> --}}
                                 <div class="modal-body get_quote_view_modal_body rounded-0">
                                     <div class="container">
-                                        <div class="row mb-3">
+                                        <div class="row mb-4">
                                             <div class="col-lg-10">
                                                 <h6 class="text-start main_color fw-bold">Product Name :</h6>
                                                 <span class="text-black">{{ $item->name }}</span>
                                             </div>
                                             <div class="col-lg-2 p-0">
-                                                <label for="" class="text-start main_color fw-bold">Quantity</label>
-                                                <input
-                                                   type="number"
-                                                   class="form-control form-control-sm rounded-0"
-                                                   name="qantity"
-                                                   id=""
-                                                   placeholder="Enter Your Quantity"
-                                                   />
+                                                <label for="quantity"
+                                                    class="text-start main_color fw-bold mb-2">Quantity</label>
+                                                <input type="number" class="form-control form-control-sm rounded-0"
+                                                    name="qty" value="1" id="quantity"
+                                                    placeholder="Quantity" />
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 mb-2 pe-0">
-                                               {{-- <label for="name">Name <span class="text-danger">*</span> </label> --}}
-                                               <input
-                                                  type="text"
-                                                  class="form-control form-control-sm rounded-0"
-                                                  required=""
-                                                  id="name"
-                                                  name="name"
-                                                  placeholder="Your Name *"
-                                                  />
+                                        <div class="row mb-4">
+                                            <div class="col-lg-4 mb-4 pe-0">
+                                                {{-- <label for="name">Name <span class="text-danger">*</span> </label> --}}
+                                                <input type="text" class="form-control form-control-sm rounded-0"
+                                                    required id="name" name="name"
+                                                    placeholder="Your Name *" />
                                             </div>
-                                            <div class="col-lg-4 mb-2 pe-0">
-                                               <label for="contact"
-                                                  {{-- >Mobile Number <span class="text-danger">*</span> --}}
-                                               </label>
-                                               <input
-                                                  type="number"
-                                                  required=""
-                                                  class="form-control form-control-sm rounded-0"
-                                                  id="phone"
-                                                  name="phone"
-                                                  placeholder="Your Phone Number *"
-                                                  required
-                                                  />
+                                            <div class="col-lg-4 mb-4 pe-0">
+
+                                                <input type="number" class="form-control form-control-sm rounded-0"
+                                                    id="phone" name="phone" placeholder="Your Phone Number *"
+                                                    required />
                                             </div>
-                                            <div class="col-lg-4 mb-2">
-                                               {{-- <label for="contact">Company Name </label> --}}
-                                               <input
-                                                  type="text"
-                                                  class="form-control form-control-sm rounded-0"
-                                                  id="contact"
-                                                  name="company_name"
-                                                  placeholder="Your Company Name *"
-                                                  required
-                                                  />
+                                            <div class="col-lg-4 mb-4">
+                                                {{-- <label for="contact">Company Name </label> --}}
+                                                <input type="text" class="form-control form-control-sm rounded-0"
+                                                    id="contact" name="company_name"
+                                                    placeholder="Your Company Name *" required />
                                             </div>
-                                            <div class="col-lg-5 mb-2 pe-0">
-                                               {{-- <label for="email">Email <span class="text-danger">*</span> </label> --}}
-                                               <input
-                                                  type="email"
-                                                  required=""
-                                                  class="form-control form-control-sm rounded-0"
-                                                  id="email"
-                                                  name="email"
-                                                  placeholder="Your Email *"
-                                                  required
-                                                  />
-                                               <span
-                                                  class="text-danger text-start p-0 m-0 email_validation"
-                                                  style="display: none"
-                                                  >Please input valid email</span
-                                                  >
+                                            <div class="col-lg-5 mb-4 pe-0">
+                                                {{-- <label for="email">Email <span class="text-danger">*</span> </label> --}}
+                                                <input type="email" required
+                                                    class="form-control form-control-sm rounded-0" id="email"
+                                                    name="email" placeholder="Your Email *" required />
+                                                <span class="text-danger text-start p-0 m-0 email_validation"
+                                                    style="display: none">Please input valid email</span>
                                             </div>
-                                            <div class="col-lg-7 mb-2">
-                                               {{-- <label for="contact">Custom Image </label> --}}
-                                               <input
-                                                  type="file"
-                                                  name="image"
-                                                  class="form-control form-control-sm rounded-0"
-                                                  id="image"
-                                                  accept="image/*"
-                                                  placeholder="Your Custom Image"
-                                                  />
+                                            <div class="col-lg-7 mb-4">
+                                                {{-- <label for="contact">Custom Image </label> --}}
+                                                <input type="file" name="image"
+                                                    class="form-control form-control-sm rounded-0" id="image"
+                                                    accept="image/*" placeholder="Your Custom Image" />
                                             </div>
-                                            <div class="col-lg-12 mb-2">
-                                               {{-- <label for="message">Type Message</label> --}}
-                                               <textarea
-                                                  class="form-control form-control-sm rounded-0"
-                                                  id="message"
-                                                  name="message"
-                                                  rows="1"
-                                                  placeholder="Your Message"
-                                                  ></textarea>
+                                            <div class="col-lg-12 mb-4">
+                                                {{-- <label for="message">Type Message</label> --}}
+                                                <textarea class="form-control form-control-sm rounded-0" id="message" name="message" rows="3"
+                                                    placeholder="Your Message"></textarea>
                                             </div>
-                                            <div class="col-lg-12 mb-2">
-                                                <div class="form-check border-0" style="position: relative;
-                                                right: 20px;">
-                                                   <input
-                                                      class="form-check-input"
-                                                      type="checkbox"
-                                                      value=""
-                                                      id="flexCheckDefault"
-                                                      name="call"
-                                                      placeholder="Call Me"
-                                                      />
-                                                   <label class="form-check-label" for="flexCheckDefault"> Call Me </label>
+                                            <div class="col-lg-12 mb-4">
+                                                <div class="form-check border-0"
+                                                    style="position: relative; left: 20px;">
+                                                    <input class="form-check-input" type="checkbox" value="1"
+                                                        id="flexCheckDefault" name="call" placeholder="Call Me"
+                                                        style="left: 3rem;" />
+                                                    <label class="form-check-label" for="flexCheckDefault"> Call Me
+                                                    </label>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6 mb-2">
-                                              <div class="form-group px-3 mx-1 message g-recaptcha w-100" style="position: relative;
-                                              right: 20px;"
-                                                 data-sitekey="{{ config('app.recaptcha_site_key') }}">
+
+                                        </div>
+                                        <div class="row align-items-center mb-5">
+                                            <div class="col-lg-6 mb-4">
+                                                <div class="form-group px-3 mx-1 message g-recaptcha w-100"
+                                                    style="position: relative;right: 20px;"
+                                                    data-sitekey="{{ config('app.recaptcha_site_key') }}">
                                                 </div>
                                             </div>
-                                         </div>
+                                            <div class="col-lg-6 mb-4 text-end">
+                                                <button type="submit" class="btn-color" id="submit_btn">Submit
+                                                    &nbsp;<i class="fa fa-paper-plane"></i></button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="modal-footer border-0">
-                                        <button type="submit" class="btn-color" id="submit_btn">Submit
-                                            &nbsp;<i class="fa fa-paper-plane"></i></button>
-                                    </div>
+                                    {{-- <div class="modal-footer border-0">
+
+                                    </div> --}}
                                 </div>
                             </form>
                         @endif

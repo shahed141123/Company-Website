@@ -4,7 +4,6 @@
 
 
     <section>
-
         <div class="container my-5">
             <div class="single-product-container">
                 <div class="row g-3">
@@ -73,7 +72,7 @@
                                             {{-- <a class="btn-color" href="{{route('contact')}}">Call Ngen It for price</a> --}}
                                             <div class="need_help col-lg-6 col-sm-6">
                                                 <button class="btn-color" id="modal_view_left" data-toggle="modal"
-                                                    data-target="#get_quote_modal" style="width: 100%;">Ask For
+                                                    data-target="#rfq{{ $sproduct->id }}" style="width: 100%;">Ask For
                                                     Price</button>
                                             </div>
                                             <div class="need_help col-lg-6 col-sm-6">
@@ -101,7 +100,8 @@
                                             </div>
                                             <div class="text-end">
                                                 <p class="list_price mb-0">Custom Pricing</p>
-                                                <a href="" data-bs-toggle="modal" data-bs-target="#askProductPrice">
+                                                <a href="" data-bs-toggle="modal"
+                                                    data-bs-target="#rfq{{ $sproduct->id }}">
                                                     <span class="fw-bold" style="color: #ae0a46;">Get A Quote</span>
                                                 </a>
                                             </div>
@@ -113,7 +113,7 @@
                                                 {{-- <a class="btn-color" href="{{route('contact')}}">Call Ngen It for price</a> --}}
                                                 <div class="need_help col-6">
                                                     <button class="btn-color brand-product-btn" id="modal_view_left"
-                                                        data-toggle="modal" data-target="#get_quote_modal"
+                                                        data-toggle="modal" data-target="#rfq{{ $sproduct->id }}"
                                                         style="width: 100%;">Ask For Price</button>
                                                 </div>
                                                 <div class="need_help col-6 p-0">
@@ -144,7 +144,7 @@
                                                 <div class="text-end">
                                                     <p class="list_price mb-0">Custom Pricing</p>
                                                     <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#askProductPrice">
+                                                        data-bs-target="#rfq{{ $sproduct->id }}">
                                                         <span class="fw-bold" style="color: #ae0a46;">Get A Quote</span>
                                                     </a>
                                                 </div>
@@ -156,7 +156,8 @@
                                         {{-- <a class="btn-color" href="{{route('contact')}}">Call Ngen It for price</a> --}}
                                         <div class="need_help col-lg-5 col-sm-12 p-0">
                                             <button class="btn-color" id="modal_view_left" data-toggle="modal"
-                                                data-target="#get_quote_modal" style="width: 100%;">Ask For Price</button>
+                                                data-target="#rfq{{ $sproduct->id }}" style="width: 100%;">Ask For
+                                                Price</button>
                                         </div>
                                         <div class="need_help col-lg-7 col-sm-12 p-0">
                                             <h6 class="m-2">Need Help Ordering?</h6>
@@ -183,7 +184,8 @@
                                         </div>
                                         <div>
                                             <p class="list_price mb-0 me-3">Custom Pricing</p>
-                                            <a href="" data-bs-toggle="modal" data-bs-target="#askProductPrice">
+                                            <a href="" data-bs-toggle="modal"
+                                                data-bs-target="#rfq{{ $sproduct->id }}">
                                                 <span class="fw-bold" style="color: #ae0a46;">Get A Quote</span>
                                             </a>
                                         </div>
@@ -292,7 +294,8 @@
                                         </div>
                                         <div>
                                             <p class="list_price mb-0">Custom Pricing</p>
-                                            <a href="" data-bs-toggle="modal" data-bs-target="#askProductPrice">
+                                            <a href="" data-bs-toggle="modal"
+                                                data-bs-target="#rfq{{ $sproduct->id }}">
                                                 <span class="fw-bold" style="color: #ae0a46;">Get A Quote</span>
                                             </a>
                                         </div>
@@ -940,248 +943,296 @@
     </div>
 </section>
 <!-- left modal -->
-<div class="modal modal_outer fade" id="get_quote_modal" tabindex="-1" role="dialog"
-    aria-labelledby="myModalLabel2">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
 
+<!-- modal -->
 
-        <div class="modal-content">
-
-            <div class="modal-header py-2" style="background: #ae0a46;color: white;">
-                <h5 class="modal-title text-white">Get a Quote</h5>
-                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+<div class="modal fade" id="rfq{{ $sproduct->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content rounded-0">
+            <div class="modal-header py-2 px-4 rounded-0" style="background: #ae0a46;">
+                <h5 class="modal-title p-1 text-white" id="staticBackdropLabel">Get Quote
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            @if (Auth::guard('client')->user())
-                <form action="{{ route('rfq.add') }}" method="post" id="get_quote_frm"
-                    enctype="multipart/form-data">
-                    @csrf
-                    <div class="card mx-4">
-                        <div class="card-body px-4 py-2">
-                            <div class="row border" style="font-size: 0.8rem;">
-                                <div class="col-lg-3 pl-2">{{ Auth::guard('client')->user()->name }}</div>
-                                <div class="col-lg-4" style="margin: 5px 0px">
-                                    {{ Auth::guard('client')->user()->email }}</div>
-                                <div class="col-lg-4" style="margin: 5px 0px">
-                                    {{ Auth::guard('client')->user()->phone }}
-                                    <div class="form-group" id="Rfquser" style="display:none">
-                                        <input type="text" required="" class="form-control form-control-sm"
-                                            id="phone" name="phone"
-                                            value="{{ Auth::guard('client')->user()->phone }}"
-                                            placeholder="Phone Number" style="font-size: 0.8rem;">
+            <div class="modal-body rounded-0 p-0">
+                <div class="container px-0">
+                    @if (Auth::guard('client')->user())
+                        <form action="{{ route('rfq.add') }}" method="post" id="get_quote_frm"
+                            class="get_quote_frm" enctype="multipart/form-data">
+                            @csrf
+                            <div class="card mx-4">
+                                <div class="card-body px-4 py-2">
+                                    <div class="row border" style="font-size: 0.8rem;">
+                                        <div class="col-lg-3 mb-3 pl-2">{{ Auth::guard('client')->user()->name }}
+                                        </div>
+                                        <div class="col-lg-4 mb-3" style="margin: 5px 0px">
+                                            {{ Auth::guard('client')->user()->email }}</div>
+                                        <div class="col-lg-4 mb-3" style="margin: 5px 0px">
+                                            {{ Auth::guard('client')->user()->phone }}
+                                            <div class="form-group" id="Rfquser" style="display:none">
+                                                <input type="text" required
+                                                    class="form-control form-control-sm rounded-0" id="phone"
+                                                    name="phone" value="{{ Auth::guard('client')->user()->phone }}"
+                                                    placeholder="Phone Number" style="font-size: 0.8rem;">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1" style="margin: 5px 0px"><a href="javascript:void(0);"
+                                                id="editRfquser"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-1" style="margin: 5px 0px"><a href="javascript:void(0);"
-                                        id="editRfquser"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
                             </div>
-                        </div>
+                            <input type="hidden" name="product_id" value="{{ $sproduct->id }}">
+                            <input type="hidden" name="client_id" value="{{ Auth::guard('client')->user()->id }}">
+                            <input type="hidden" name="client_type" value="client">
+                            <input type="hidden" name="name" value="{{ Auth::guard('client')->user()->name }}">
+                            <input type="hidden" name="email" value="{{ Auth::guard('client')->user()->email }}">
+                            <span class="text-danger text-start p-0 m-0 email_validation"
+                                style="display: none;">Please input
+                                valid email</span>
+                            <div class="modal-body get_quote_view_modal_body">
+                                <div class="form-row">
+                                    <div class="form-group col-sm-4 m-0">
+                                        <input type="text" class="form-control form-control-sm rounded-0 mt-4"
+                                            id="contact" name="company_name"
+                                            value="{{ Auth::guard('client')->user()->company_name }}"
+                                            placeholder="Company Name" style="font-size: 0.7rem;">
+                                    </div>
+                                    <div class="form-group col-sm-4 m-0">
+                                        <input type="number" class="form-control form-control-sm rounded-0 mt-4"
+                                            id="contact" name="qty" placeholder="Quantity"
+                                            style="font-size: 0.7rem;">
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label class="m-0" for="image" style="font-size: 0.7rem;">Upload
+                                            Image</label>
+                                        <input type="file" name="image"
+                                            class="form-control form-control-sm rounded-0" id="image"
+                                            accept="image/*" style="font-size: 0.7rem;" />
+                                        <div class="form-text" style="font-size:11px;">Only png, jpg, jpeg images
+                                        </div>
+                                    </div>
+                                    <h6 class="text-start pt-1 main_color">Product Name :</h6>
+                                    <div class="form-group col-sm-12">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                {{ $sproduct->name }}
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <div class="form-group">
+                                                    <label for="contact">Quantity :</label>
+                                                    <input type="number"
+                                                        class="form-control form-control-sm rounded-0" id="contact"
+                                                        name="qty">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                    </div>
-                    <input type="hidden" name="product_id" value="{{ $sproduct->id }}">
-                    <input type="hidden" name="client_id" value="{{ Auth::guard('client')->user()->id }}">
-                    <input type="hidden" name="client_type" value="client">
-                    <input type="hidden" name="name" value="{{ Auth::guard('client')->user()->name }}">
-                    <input type="hidden" name="email" value="{{ Auth::guard('client')->user()->email }}">
-                    {{-- <input type="hidden" name="phone" value="{{Auth::guard('client')->user()->phone}}"> --}}
-                    <div class="modal-body get_quote_view_modal_body">
-
-
-                        <div class="form-row">
-
-                            <div class="form-group col-sm-4 m-0">
-
-                                <input type="text" class="form-control form-control-sm mt-4" id="contact"
-                                    name="company_name" value="{{ Auth::guard('client')->user()->company_name }}"
-                                    placeholder="Company Name" style="font-size: 0.7rem;">
-                            </div>
-                            <div class="form-group col-sm-4 m-0">
-
-                                <input type="number" class="form-control form-control-sm mt-4" id="contact"
-                                    name="qty" placeholder="Quantity" style="font-size: 0.7rem;">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label class="m-0" for="image" style="font-size: 0.7rem;">Upload Image</label>
-                                <input type="file" name="image" class="form-control form-control-sm"
-                                    id="image" accept="image/*" style="font-size: 0.7rem;" />
-                                <div class="form-text" style="font-size:11px;">Only png, jpg, jpeg images</div>
-
-                            </div>
-
-                            <div class="form-group col-sm-12 border text-white" style="background: #f9f6f0">
-                                <h6 class="text-center pt-1">Product Name : {{ $sproduct->name }}</h6>
-                            </div>
-
-                            <div class="form-group col-sm-12">
-
-                                <textarea class="form-control form-control-sm" id="message" name="message" rows="1"
-                                    placeholder="Additional Information..."></textarea>
-                            </div>
-
-                            <div class="form-group  col-sm-12 px-3 mx-3">
-                                <input class="mr-2" type="checkbox" name="call" id="call" value="1">
-                                <label for="call">Also Please Call Me</label>
-
-                            </div>
-                            <div class="form-group col-sm-12 px-3 mx-3 message g-recaptcha"
-                                data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit &nbsp;<i
-                                    class="fa fa-paper-plane"></i></button>
-                        </div>
-                    </div>
-
-                </form>
-            @elseif (Auth::guard('partner')->user())
-                <form action="{{ route('rfq.add') }}" method="post" id="get_quote_frm"
-                    enctype="multipart/form-data">
-                    @csrf
-                    <div class="card mx-4">
-                        <div class="card-body p-4">
-                            <div class="row border">
-                                <div class="col-lg-3 pl-2">Name: {{ Auth::guard('partner')->user()->name }}</div>
-                                <div class="col-lg-4" style="margin: 5px 0px">
-                                    {{ Auth::guard('partner')->user()->primary_email_address }}</div>
-                                <div class="col-lg-4" style="margin: 5px 0px">
-                                    {{ Auth::guard('partner')->user()->company_number }}</div>
-                                <div class="col-lg-1" style="margin: 5px 0px"><a href="javascript:void(0);"
-                                        id="editRfqpartner"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <input type="hidden" name="product_id" value="{{ $sproduct->id }}">
-                    <input type="hidden" name="client_type" value="partner">
-                    <input type="hidden" name="partner_id" value="{{ Auth::guard('partner')->user()->id }}">
-                    <input type="hidden" name="name" value="{{ Auth::guard('partner')->user()->name }}">
-                    <input type="hidden" name="email"
-                        value="{{ Auth::guard('partner')->user()->primary_email_address }}">
-                    {{-- <input type="hidden" name="phone" value="{{Auth::guard('client')->user()->phone_number}}"> --}}
-                    <div class="modal-body get_quote_view_modal_body">
-
-                        <div class="form-group col-sm-12 border text-white" style="background: #f9f6f0">
-                            <h6 class="text-center pt-1 bg-white">Product Name : {{ $sproduct->name }}</h6>
-                        </div>
-                        <div class="row" id="Rfqpartner" style="display:none">
-                            <div class="form-group col-sm-6">
-                                <input type="text" required="" class="form-control form-control-sm"
-                                    id="phone" name="phone"
-                                    value="{{ Auth::guard('partner')->user()->company_number }}"
-                                    placeholder="Company Phone Number">
-                            </div>
-                            <div class="form-group  col-sm-6">
-                                <label for="contact">Company Name </label>
-                                <input type="text" class="form-control form-control-sm" id="contact"
-                                    name="company_name" required
-                                    value="{{ Auth::guard('partner')->user()->company_name }}">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group  col-sm-6">
-
-                                <input type="number" class="form-control form-control-sm" id="contact"
-                                    name="qty" placeholder="Quantity">
-                            </div>
-                            <div class="form-group  col-sm-6">
-                                <label for="contact">Upload Image </label>
-                                <input type="file" name="image" class="form-control form-control-sm"
-                                    id="image" accept="image/*" />
-                                <div class="form-text" style="font-size:11px;">Accepts only png, jpg, jpeg images
+                                    <div class="form-group col-sm-12">
+                                        <textarea class="form-control form-control-sm rounded-0" id="message" name="message" rows="1"
+                                            placeholder="Additional Information..."></textarea>
+                                    </div>
+                                    <div class="form-group  col-sm-12 px-3 mx-3">
+                                        <input class="form-check-input" type="checkbox" value="1"
+                                            id="flexCheckDefault" name="call"
+                                            style="position: absolute;
+                                                                left: 3rem;">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Call Me
+                                        </label>
+                                    </div>
+                                    <div class="form-group col-sm-12 px-3 mx-3 message g-recaptcha"
+                                        data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
+                                </div>
+                                <div class="modal-footer border-0">
+                                    <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit
+                                        &nbsp;<i class="fa fa-paper-plane"></i></button>
                                 </div>
                             </div>
-
-                            <div class="form-group  col-sm-12">
-                                <textarea class="form-control form-control-sm" id="message" name="message" rows="1"
-                                    placeholder="Additional Text.."></textarea>
-                            </div>
-
-                            <div class="form-group  col-sm-12 px-3 mx-3">
-                                <input class="mr-2" type="checkbox" name="call" id="call" value="1">
-                                <label for="call">Also Please Call Me</label>
-                            </div>
-                            <div class="form-group col-sm-12 px-3 mx-3 message g-recaptcha"
-                                data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
-                        </div>
-                        <div class="modal-footer">
-
-                            <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit &nbsp;<i
-                                    class="fa fa-paper-plane"></i></button>
-                        </div>
-                    </div>
-
-                </form>
-            @else
-                <form action="{{ route('rfq.add') }}" method="post" id="get_quote_frm"
-                    enctype="multipart/form-data">
-                    @csrf
-                    <input type="hidden" name="product_id" value="{{ $sproduct->id }}">
-                    {{-- <input type="hidden" name="client_type" value="random"> --}}
-                    <div class="modal-body get_quote_view_modal_body">
-                        <div class="form-row">
-                            <div class="form-group col-sm-12 border text-white" style="background: #f9f6f0">
-                                <h6 class="text-center pt-1">Product Name : {{ $sproduct->name }}</h6>
-                            </div>
-
-                            <div class="form-group col-sm-6">
-                                <label for="name">Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control form-control-sm" required=""
-                                    id="name" name="name">
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label for="email">Email <span class="text-danger">*</span></label>
-                                <input type="email" required="" class="form-control form-control-sm"
-                                    id="email" name="email">
-                            </div>
-                            <div class="form-group  col-sm-6">
-                                <label for="contact">Mobile Number <span class="text-danger">*</span></label>
-                                <input type="text" required="" class="form-control form-control-sm"
-                                    id="phone" name="phone">
-                            </div>
-
-                            <div class="form-group  col-sm-6">
-                                <label for="contact">Company Name </label>
-                                <input type="text" class="form-control form-control-sm" id="contact"
-                                    name="company_name">
-                            </div>
-                            <div class="form-group  col-sm-6">
-                                <label for="contact">Quantity </label>
-                                <input type="number" class="form-control form-control-sm" id="contact"
-                                    name="qty">
-                            </div>
-                            <div class="form-group  col-sm-6">
-                                <label for="contact">Custom Image </label>
-                                <input type="file" name="image" class="form-control form-control-sm"
-                                    id="image" accept="image/*" />
-                                <div class="form-text" style="font-size:11px;">Accepts only png, jpg, jpeg images
+                        </form>
+                    @elseif (Auth::guard('partner')->user())
+                        <form action="{{ route('rfq.add') }}" method="post" id="get_quote_frm"
+                            class="get_quote_frm" enctype="multipart/form-data">
+                            @csrf
+                            <div class="card mx-4">
+                                <div class="card-body p-4">
+                                    <div class="row border">
+                                        <div class="col-lg-3 pl-2">Name:
+                                            {{ Auth::guard('partner')->user()->name }}</div>
+                                        <div class="col-lg-4" style="margin: 5px 0px">
+                                            {{ Auth::guard('partner')->user()->primary_email_address }}</div>
+                                        <div class="col-lg-4" style="margin: 5px 0px">
+                                            {{ Auth::guard('partner')->user()->company_number }}</div>
+                                        <div class="col-lg-1" style="margin: 5px 0px"><a href="javascript:void(0);"
+                                                id="editRfqpartner"><i class="fa fa-pencil"
+                                                    aria-hidden="true"></i></a></div>
+                                    </div>
                                 </div>
                             </div>
+                            <input type="hidden" name="product_id" value="{{ $sproduct->id }}">
+                            <input type="hidden" name="client_type" value="partner">
+                            <input type="hidden" name="partner_id"
+                                value="{{ Auth::guard('partner')->user()->id }}">
+                            <input type="hidden" name="name" value="{{ Auth::guard('partner')->user()->name }}">
+                            <input type="hidden" name="email"
+                                value="{{ Auth::guard('partner')->user()->primary_email_address }}">
+                            {{-- <input type="hidden" name="phone" value="{{Auth::guard('client')->user()->phone_number}}"> --}}
+                            <div class="modal-body get_quote_view_modal_body">
+                                <div class="form-group col-sm-12 text-white" style="border-bottom: 1px solid #eee;">
+                                    <h6 class="text-start pt-1 bg-white">Product Name :
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            {{ $sproduct->name }}
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group col-sm-6">
+                                                <input type="number" class="form-control form-control-sm rounded-0"
+                                                    id="contact" name="qty" placeholder="Quantity">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                            <div class="form-group  col-sm-12">
-                                <label for="message">Type Message</label>
-                                <textarea class="form-control form-control-sm" id="message" name="message" rows="4"></textarea>
+                                <div class="row" id="Rfqpartner" style="display:none">
+                                    <div class="form-group col-sm-6">
+                                        <input type="text" required class="form-control form-control-sm rounded-0"
+                                            id="phone" name="phone"
+                                            value="{{ Auth::guard('partner')->user()->company_number }}"
+                                            placeholder="Company Phone Number">
+                                    </div>
+                                    <div class="form-group  col-sm-6">
+                                        <label for="contact">Company Name </label>
+                                        <input type="text" class="form-control form-control-sm rounded-0"
+                                            id="contact" name="company_name" required
+                                            value="{{ Auth::guard('partner')->user()->company_name }}">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group  col-sm-6">
+                                        <label for="contact">Upload Image </label>
+                                        <input type="file" name="image"
+                                            class="form-control form-control-sm rounded-0" id="image"
+                                            accept="image/*" />
+                                        <div class="form-text" style="font-size:11px;">Accepts only png, jpg, jpeg
+                                            images
+                                        </div>
+                                    </div>
+                                    <div class="form-group  col-sm-12">
+                                        <textarea class="form-control form-control-sm rounded-0" id="message" name="message" rows="1"
+                                            placeholder="Additional Text.."></textarea>
+                                    </div>
+                                    <div class="form-group  col-sm-12 px-3 mx-3">
+                                        <input class="form-check-input" type="checkbox" value="1"
+                                            id="flexCheckDefault" name="call"
+                                            style="position: absolute; left: 3rem;">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Call Me
+                                        </label>
+                                    </div>
+                                    <div class="form-group col-sm-12 px-3 mx-3 message g-recaptcha"
+                                        data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
+                                </div>
+                                <div class="modal-footer borer-0">
+                                    <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit
+                                        &nbsp;<i class="fa fa-paper-plane"></i></button>
+                                </div>
                             </div>
+                        </form>
+                    @else
+                        <form action="{{ route('rfq.add') }}" method="post" id="get_quote_frm"
+                            class="get_quote_frm" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $sproduct->id }}">
+                            <div class="modal-body get_quote_view_modal_body rounded-0">
+                                <div class="container">
+                                    <div class="row mb-4">
+                                        <div class="col-lg-10">
+                                            <h6 class="text-start main_color fw-bold">Product Name :</h6>
+                                            <span class="text-black">{{ $sproduct->name }}</span>
+                                        </div>
+                                        <div class="col-lg-2 p-0">
+                                            <label for="quantity"
+                                                class="text-start main_color fw-bold mb-2">Quantity</label>
+                                            <input type="number" class="form-control form-control-sm rounded-0"
+                                                name="qty" value="1" id="quantity"
+                                                placeholder="Quantity" />
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-lg-4 mb-4 pe-0">
+                                            {{-- <label for="name">Name <span class="text-danger">*</span> </label> --}}
+                                            <input type="text" class="form-control form-control-sm rounded-0"
+                                                required id="name" name="name" placeholder="Your Name *" />
+                                        </div>
+                                        <div class="col-lg-4 mb-4 pe-0">
 
-                            <div class="form-group  col-sm-12 px-3 mx-3">
-                                <input class="mr-2" type="checkbox" name="call" id="call" value="1">
-                                <label for="call">Also Please Call Me</label>
+                                            <input type="number" class="form-control form-control-sm rounded-0"
+                                                id="phone" name="phone" placeholder="Your Phone Number *"
+                                                required />
+                                        </div>
+                                        <div class="col-lg-4 mb-4">
+                                            {{-- <label for="contact">Company Name </label> --}}
+                                            <input type="text" class="form-control form-control-sm rounded-0"
+                                                id="contact" name="company_name" placeholder="Your Company Name *"
+                                                required />
+                                        </div>
+                                        <div class="col-lg-5 mb-4 pe-0">
+                                            {{-- <label for="email">Email <span class="text-danger">*</span> </label> --}}
+                                            <input type="email" required
+                                                class="form-control form-control-sm rounded-0" id="email"
+                                                name="email" placeholder="Your Email *" required />
+                                            <span class="text-danger text-start p-0 m-0 email_validation"
+                                                style="display: none">Please input valid email</span>
+                                        </div>
+                                        <div class="col-lg-7 mb-4">
+                                            {{-- <label for="contact">Custom Image </label> --}}
+                                            <input type="file" name="image"
+                                                class="form-control form-control-sm rounded-0" id="image"
+                                                accept="image/*" placeholder="Your Custom Image" />
+                                        </div>
+                                        <div class="col-lg-12 mb-4">
+                                            {{-- <label for="message">Type Message</label> --}}
+                                            <textarea class="form-control form-control-sm rounded-0" id="message" name="message" rows="3"
+                                                placeholder="Your Message"></textarea>
+                                        </div>
+                                        <div class="col-lg-12 mb-4">
+                                            <div class="form-check border-0"
+                                                style="position: relative; left: 20px;">
+                                                <input class="form-check-input" type="checkbox" value="1"
+                                                    id="flexCheckDefault" name="call" placeholder="Call Me" style="left: 20px;"/>
+                                                <label class="form-check-label" for="flexCheckDefault"> Call Me
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row align-items-center mb-5">
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="form-group px-3 mx-1 message g-recaptcha w-100"
+                                                style="position: relative;right: 20px;"
+                                                data-sitekey="{{ config('app.recaptcha_site_key') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 mb-4 text-end">
+                                            <button type="submit" class="btn-color" id="submit_btn">Submit
+                                                &nbsp;<i class="fa fa-paper-plane"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- <div class="modal-footer border-0">
+
+                                </div> --}}
                             </div>
-                            <div class="form-group col-sm-12 px-3 mx-3 message g-recaptcha"
-                                data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
-                        </div>
-                        <div class="modal-footer">
-
-                            <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit
-                                &nbsp;<i class="fa fa-paper-plane"></i></button>
-                        </div>
-                    </div>
-
-                </form>
-            @endif
-
-        </div><!-- //modal-content -->
-
-    </div><!-- modal-dialog -->
+                        </form>
+                    @endif
+                </div>
+            </div>
+            <!-- HTML !-->
+        </div>
+    </div>
 </div>
-<!-- modal -->
 <!-- //left modal -->
 @endsection
