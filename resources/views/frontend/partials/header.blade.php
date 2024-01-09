@@ -816,10 +816,27 @@
     </div>
     <div class="offcanvas-body">
         <div>
+<<<<<<< HEAD
 
             {{-- <hr> --}}
             <ul class="navbar-nav justify-content-end flex-grow-1 mt-3">
                 <li class="nav-item dropdown mb-1">
+=======
+            <form method="post" action="{{ route('product.search') }}"
+                class="d-flex ms-auto upper-content-menu justify-content-center align-items-center" role="search">
+                @csrf
+                <div class="input-group flex-nowrap search-input-container">
+                    <span class="input-group-text search-box-areas" id="addon-wrapping"><i
+                            class="fa-solid fa-magnifying-glass"></i></span>
+                    <input type="text" class="form-control search-input-field" id="search_text" name="search"
+                        type="search" placeholder="Search for products, solutions & more..."
+                        aria-describedby="addon-wrapping">
+                </div>
+            </form>
+            <hr>
+            <ul class="navbar-nav justify-content-end flex-grow-1 mt-3">
+                <li class="nav-item dropdown cool-link">
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         OUR SERVICES
@@ -828,7 +845,11 @@
                         <div class="container-fluid">
                             <div class="row p-3 pt-2 tech-top bg-white">
                                 <div class="col-lg-12 col-sm-12 mb-4">
+<<<<<<< HEAD
                                     <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Com</span>mon
+=======
+                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Com</span>mon
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                         Services
                                     </p>
                                     <div class="row">
@@ -841,7 +862,11 @@
                                             </a>
                                         </div>
                                         <div class="col-6 mb-2">
+<<<<<<< HEAD
                                             <a class="d-flex align-items-center" href="{{route('training')}}">
+=======
+                                            <a class="d-flex align-items-center" href="javascript:void(0)">
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                                 <div>Training</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
@@ -857,7 +882,11 @@
                                             </a>
                                         </div>
                                         <div class="col-6 mb-2">
+<<<<<<< HEAD
                                             <a class="d-flex align-items-center" href="{{route('books')}}">
+=======
+                                            <a class="d-flex align-items-center" href="javascript:void(0)">
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                                 <div>Books</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
@@ -868,7 +897,11 @@
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
                                     <p class="fw-bold">
+<<<<<<< HEAD
                                         <span style="border-top: 2px solid #ae0a46;">Ind</span>ustry We Serve
+=======
+                                        <span style="border-top: 4px solid #ae0a46;">Ind</span>ustry We Serve
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                     </p>
                                     <div class="row">
                                         @if (count($industrys) > 0)
@@ -889,7 +922,11 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
+<<<<<<< HEAD
                                     <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Sol</span>utions
+=======
+                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sol</span>utions
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                         We Provide
                                     </p>
                                     <div class="row">
@@ -912,7 +949,11 @@
                         </div>
                     </ul>
                 </li>
+<<<<<<< HEAD
                 <li class="nav-item dropdown mb-1">
+=======
+                <li class="nav-item dropdown cool-link">
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         SHOP ONLINE
@@ -921,7 +962,11 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-lg-12 col-sm-12 mb-4">
+<<<<<<< HEAD
                                     <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Sho</span>p By</p>
+=======
+                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sho</span>p By</p>
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                     <div class="row">
                                         <div class="col-6 mb-2">
                                             <a class="d-flex align-items-center"
@@ -942,7 +987,11 @@
                                             </a>
                                         </div>
                                         <div class="col-6 mb-2">
+<<<<<<< HEAD
                                             <a class="d-flex align-items-center" href="{{route('training')}}">
+=======
+                                            <a class="d-flex align-items-center" href="javascript:void(0)">
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                                 <div>Training</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
@@ -950,7 +999,11 @@
                                             </a>
                                         </div>
                                         <div class="col-6 mb-2">
+<<<<<<< HEAD
                                             <a class="d-flex align-items-center" href="{{route('books')}}">
+=======
+                                            <a class="d-flex align-items-center" href="javascript:void(0)">
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                                 <div>Books</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
@@ -976,7 +1029,11 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
+<<<<<<< HEAD
                                     <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Sho</span>p By
+=======
+                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sho</span>p By
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                         Category</p>
                                     <div class="row">
                                         @if (!empty($categorys))
@@ -995,7 +1052,11 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
+<<<<<<< HEAD
                                     <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Sho</span>p By
+=======
+                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sho</span>p By
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                         Brand</p>
                                     <div class="row">
                                         @if ($brands)
@@ -1018,7 +1079,11 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
+<<<<<<< HEAD
                                     <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Exp</span>lore Our
+=======
+                                    <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Exp</span>lore Our
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                         Deals</p>
                                     <div class="row">
                                         <div class="col-lg-12 mb-2">
@@ -1041,14 +1106,23 @@
                                 </div>
                             </div>
                             <div class="row mt-3 mx-0 gx-0" style="background: #f7f6f5;">
+<<<<<<< HEAD
                                 <div class="col-6 text-start">
+=======
+                                <div class="col-6 text-center">
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                     <a href="{{ route('all.category') }}"
                                         style="border-top: 1.5px solid #ae0a46;margin-left: -2.3rem;">
                                         View All Category
                                     </a>
                                 </div>
+<<<<<<< HEAD
                                 <div class="col-6 text-start">
                                     <a href="{{ route('all.brand') }}" style="border-top: 1.5px solid #ae0a46;">
+=======
+                                <div class="col-6 text-center">
+                                    <a href="{{ route('all.brand') }}" style="border-top: 3px solid #ae0a46;">
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                         View All Brands
                                     </a>
                                 </div>
@@ -1056,20 +1130,33 @@
                         </div>
                     </ul>
                 </li>
+<<<<<<< HEAD
                 <li class="nav-item dropdown mb-1">
+=======
+                <li class="nav-item dropdown cool-link">
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         CONNECT US
                     </a>
+<<<<<<< HEAD
                     <ul class="dropdown-menu mobile-container-dropdown pt-0">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-12 text-center pt-3" style="background: #f7f6f5;">
                                     <p class="fw-bold text-center mb-0">
+=======
+                    <ul class="dropdown-menu mobile-container-dropdown">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-4 p-left-rem pt-3 pb-3" style="background: #f7f6f5;">
+                                    <p class="fw-bold text-center">
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                         <span style="border-top: 4px solid #ae0a46;">Soc</span>ial
                                     </p>
                                     <li class="d-flex justify-content-center py-3">
                                         <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
+<<<<<<< HEAD
                                             class="social_icons"><i class=fa-2xl fa-brands fa-square-facebook"
                                                 aria-hidden="true"></i></a>
                                         <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
@@ -1084,6 +1171,22 @@
                                         <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
                                             class="ms-2 social_icons">
                                             <i class="fa-2xl  fa-brands fa-square-instagram"></i></a>
+=======
+                                            class="social_icons"><i class="h1 fa-brands fa-square-facebook"
+                                                aria-hidden="true"></i></a>
+                                        <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
+                                            class="ms-2 social_icons">
+                                            <i class="h1 fa-brands fa-linkedin"></i></a>
+                                        <a href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}"
+                                            class="ms-2 social_icons">
+                                            <i class="h1 fa-brands fa-square-twitter"></i></a>
+                                        <a href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}"
+                                            class="ms-2 social_icons">
+                                            <i class="h1 fa-brands fa-square-youtube"></i></a>
+                                        <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
+                                            class="ms-2 social_icons">
+                                            <i class="h1 fa-brands fa-square-instagram"></i></a>
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                     </li>
                                 </div>
                                 <div class="col-12 pt-3 pb-3">
@@ -1150,7 +1253,11 @@
                                         </div>
                                         <div class="col-8 mb-4">
                                             <p class="fw-bold">
+<<<<<<< HEAD
                                                 <span style="border-top: 2px solid #ae0a46;">Par</span>tner
+=======
+                                                <span style="border-top: 4px solid #ae0a46;">Par</span>tner
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                                 With Us
                                             </p>
                                             <div class="row">
@@ -1200,6 +1307,19 @@
                 </li>
             </ul>
 
+<<<<<<< HEAD
+=======
+            
+            {{-- <div class="search-container">
+                <form method="post" action="{{ route('product.search') }}">
+                    @csrf
+                    <input class="search" id="search_text" name="search" type="search" placeholder="Search"
+                        style="width: 296px;">
+                    <label class="search_buttons searchbutton" for="search_text"><span
+                            class="mglass">&#9906;</span></label>
+                </form>
+            </div> --}}
+>>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
         </div>
     </div>
 </div>
