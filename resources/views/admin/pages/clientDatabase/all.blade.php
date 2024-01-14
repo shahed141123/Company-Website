@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-sm-6">
                             <a href="{{ route('client-database.create') }}" type="button"
-                                class="btn btn-sm btn-success btn-labeled btn-labeled-start float-end">
+                                class="btn btn-sm btn-success btn-labeled btn-labeled-start text-center">
                                 <span class="btn-labeled-icon bg-black bg-opacity-20">
                                     <i class="icon-plus2"></i>
                                 </span>
@@ -33,9 +33,7 @@
                         <div class="col-lg-9 col-sm-6 mt-1">
                             <h5 class="text-center mb-0">Client Database</h5>
                         </div>
-
                     </div>
-
                 </div>
                 <div class="col-12 p-0">
                     <div class="table-responive">

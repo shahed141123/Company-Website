@@ -5,15 +5,19 @@ namespace App\Http\Controllers\Admin;
 use Helper;
 use Carbon\Carbon;
 use App\Models\User;
+use App\Mail\LeaveRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Admin\EmployeeCategory;
 use App\Models\Admin\LeaveApplication;
+use App\Notifications\LeaveRequestNotification;
 use Illuminate\Support\Facades\Validator;
 use Brian2694\Toastr\Toastr as ToastrToastr;
+use Illuminate\Support\Facades\Notification;
 
 class LeaveApplicationController extends Controller
 {
@@ -140,6 +144,33 @@ class LeaveApplicationController extends Controller
                 'medical_balance_due'     => $request->medical_balance_due,
                 'application_status'      => 'pending',
             ] + $filePaths);
+
+
+            $user = User::find(Auth::user()->id);
+            $admins = User::whereJsonContains('department', ['admin', 'accounts'])->where('role', 'admin')->get();
+            $admin_emails = User::whereJsonContains('department', ['admin', 'accounts'])->where('role', 'admin')->pluck('email')->toArray();
+
+            Notification::send($admins, new LeaveRequestNotification($user->name));
+
+            $data = [
+                'name'             => $user->name,
+                'email'            => $user->email,
+                'designation'      => $user->designation,
+                'job_status'       => $request->job_status,
+                'leave_start_date' => $request->leave_start_date,
+                'leave_end_date'   => $request->leave_end_date,
+                'leave_contact_no' => $request->leave_contact_no,
+                'substitute'       => $request->substitute_during_leave,
+                'leave_address'    => $request->leave_address,
+                'type_of_leave'    => $request->type_of_leave,
+                'total_days'       => $request->total_days,
+                'link'             => route('leaveApplications'),
+            ];
+
+            // Mail::to($request->input('email'))->send(new LeaveRequest($data));
+            if (!empty($admin_emails)) {
+                Mail::to($admin_emails)->send(new LeaveRequest($data,$user->name));
+            }
 
             Toastr::success('Your Leave Application has submitted for approval.');
             return redirect()->back();

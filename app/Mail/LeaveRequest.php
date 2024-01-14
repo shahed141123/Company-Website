@@ -12,22 +12,24 @@ use Illuminate\Queue\SerializesModels;
 class LeaveRequest extends Mailable
 {
     use Queueable, SerializesModels;
+    public $name;
     public $data;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(array $data)
+    public function __construct(array $data, $name)
     {
         $this->data = $data;
+        $this->name = $name;
     }
 
     public function build()
     {
-        return $this->from('support@ngenit.com', 'NGEN-HR')
+        return $this->from('hr2@ngenit.com', 'NGEN-HR')
                     ->view('mail.leave_request', ['mail_body' => $this->data])
-                    ->subject('Leave Application');
+                    ->subject('Leave Application for ' . $this->name . '.');
     }
 
     /**
@@ -38,7 +40,7 @@ class LeaveRequest extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Leave Request',
+            subject: 'Leave Application for ' . $this->name . '.',
         );
     }
 

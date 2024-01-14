@@ -21,7 +21,17 @@
         </div>
         <!-- /page header -->
         <div class="content container-fluid">
+            <div class="row">
+                <div class="col-12 mb-2" style="background-color: #247297; color: white;">
+                    <div class="row">
+                        
+                        <div class="col-lg-9 col-sm-6 mt-1">
+                            <h5 class="text-center mb-0">Client Database</h5>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
             <div class="d-flex align-items-center py-2 w-50 justify-content-between"
                 style="position: relative; z-index: 999; margin-bottom: -3.2rem;">
                 {{-- Add Details Start --}}
@@ -44,12 +54,12 @@
                 <table class="table contactDT table-bordered table-hover text-center">
                     <thead>
                         <tr class="text-center">
-                            <th width="8%">Id</th>
-                            <th width="12%">Name</th>
-                            <th width="15%">Email</th>
-                            <th width="43%">message</th>
-                            <th width="12%">Date</th>
-                            <th width="10%">Actions</th>
+                            <th width="5%">Id</th>
+                            <th width="8%">Name</th>
+                            <th width="12%">Email</th>
+                            <th width="57%">message</th>
+                            <th width="10%">Date</th>
+                            <th width="8%">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -81,14 +91,16 @@
 @once
     @push('scripts')
         <script type="text/javascript">
-            $('.contactDT').DataTable({
-                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-                "iDisplayLength": 10,
-                "lengthMenu": [10, 25, 30, 50],
-                columnDefs: [{
-                    orderable: false,
-                    targets: [5],
-                }, ],
+            $(document).ready(function() {
+                $('.contactDT').DataTable({
+                    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                    "iDisplayLength": 10,
+                    "lengthMenu": [10, 25, 30, 50],
+                    columnDefs: [{
+                        orderable: false,
+                        targets: [0, 1, 2, 3, 5],
+                    }, ],
+                });
             });
         </script>
     @endpush

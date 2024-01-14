@@ -3,7 +3,7 @@
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
 <script src="{{ asset('backend/assets/js/jquery-3.6.0.min.js') }}"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet">
-    <!-- FullCalendar JS -->
+<!-- FullCalendar JS -->
 <script src="{{ asset('backend/assets/js/vendor/ui/fullcalendar/main.min.js') }}"></script>
 <script src="{{ asset('backend/assets/demo/demo_configurator.js') }}"></script>
 <script src="{{ asset('backend/assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
@@ -66,6 +66,10 @@
 
 
 @stack('scripts')
+
+<script>
+
+</script>
 
 <script>
     $(document).ready(function() {
@@ -445,4 +449,3 @@ function addToCart(event) {
 </script>
 
 {{-- @yield('scripts') --}}
-

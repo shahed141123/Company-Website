@@ -51,14 +51,11 @@
                                     data-bs-dismiss="alert"></button>
                             </div>
                         @endif
-                        @php
-                            $setting = App\Models\Admin\Setting::first();
-                        @endphp
                         <div class="card mb-0">
                             <div class="card-body">
                                 <div class="text-center mb-3">
                                     <div class="d-inline-flex align-items-center justify-content-center mb-4 mt-2">
-                                        <img src="{{ isset($setting->logo) ? url('upload/logoimage/' . $setting->logo) : url('upload/no_image.jpg') }}"
+                                        <img src="{{ !empty($setting->logo) && file_exists(public_path('storage/' . $setting->logo)) ? asset('storage/' . $setting->logo) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}"
                                             class="h-48px" alt="">
                                     </div>
                                     <h5 class="mb-0">Login to your account</h5>

@@ -1,363 +1,159 @@
-<!-- Main navbar -->
-<style>
-    .containers {
-        max-width: 100%;
-    }
-
-
-    .searchbar {
-        position: relative;
-        min-width: 35px;
-        width: 0%;
-        height: 30px;
-        float: right;
-        -webkit-transition: width 0.3s;
-        -moz-transition: width 0.3s;
-        -ms-transition: width 0.3s;
-        -o-transition: width 0.3s;
-        transition: width 0.3s;
-    }
-
-    .searchbar-input {
-        top: 1px !important;
-        right: 108px;
-        border: 0;
-        outline: 0;
-        background: rgba(255, 255, 255, 0.324);
-        width: 100%;
-        height: 30px;
-        border-radius: 25px;
-        padding: 15px ;
-        margin-top: 8px;
-        font-size: 20px;
-        color: #fff;
-        font-size: 13px;
-    }
-
-    .searchbar-input::-webkit-input-placeholder {
-        color: #fff;
-    }
-
-    .searchbar-input:-moz-placeholder {
-        color: #fff;
-    }
-
-    .searchbar-input::-moz-placeholder {
-        color: #fff;
-    }
-
-    .searchbar-input:-ms-input-placeholder {
-        color: #fff;
-    }
-
-    .searchbar-icon,
-    .searchbar-submit {
-        width: 35px;
-        height: 35px;
-        display: block;
-        border-radius: 50%;
-        position: absolute;
-        top: 5px;
-        font-size: 14px;
-        right: 0;
-        padding: 0;
-        margin: 0;
-        border: 0;
-        outline: 0;
-        line-height: 40px;
-        text-align: center;
-        cursor: pointer;
-        color: #fff;
-        background: none;
-    }
-
-    .searchbar-open {
-        width: 100%;
-    }
-
-    /* .brand_logo {
-        width: 50px;
-        height: 40px !important;
-    } */
-</style>
-<div class="navbar navbar-expand-lg navbar-static border-bottom border-bottom-white border-opacity-10"
-    style="background-image:url('{{ asset('backend/images/final.jpg') }}');background-repeat:no-repeat;  padding:0px; background-size: cover;">
+<div class="navbar navbar-dark navbar-expand-lg navbar-static border-bottom border-bottom-white border-opacity-10 pt-1 pb-0"
+    style="background: #111620;">
     <div class="container-fluid">
-        {{-- <div class="d-flex d-lg-none me-2">
+        <div class="d-flex d-lg-none me-5">
             <button type="button" class="navbar-toggler sidebar-mobile-main-toggle rounded-pill">
                 <i class="ph-list"></i>
             </button>
-        </div> --}}
-        @php
-            $setting = App\Models\Site::latest()->first();
-        @endphp
+            {{-- <button type="button" class="navbar-toggler sidebar-mobile-component-toggle rounded-pill">
+                <i class="ph-arrow-down"></i>
+            </button> --}}
+        </div>
 
-        <div class="navbar-brand flex-1 flex-lg-0 px-2 py-1">
+        <div class="navbar-brand flex-lg-0">
             <a href="{{ route('admin.dashboard') }}" class="d-inline-flex align-items-center">
-
-                <img src="{{ !empty($setting->logo) ? asset('storage/' . $setting->logo) : url('upload/no_image.jpg') }}"
-                    class="img-fluid brand_logo" style="width:120px; height:50px;" alt="">
+                <img src="{{ !empty($setting->logo) && file_exists(public_path('storage/' . $setting->logo)) ? asset('storage/' . $setting->logo) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}"
+                    alt="NGen IT" style="height: 51px;">
             </a>
         </div>
 
-        {{-- <ul class="nav flex-row">
-            <li class="nav-item d-lg-none">
+        <ul class="nav flex-row">
+            <li class="nav-item d-lg-none me-2">
                 <a href="#navbar_search" class="navbar-nav-link navbar-nav-link-icon rounded-pill"
                     data-bs-toggle="collapse">
-                    <i class="ph-magnifying-glass"></i>
+                    <i class="ph-clock"></i>
                 </a>
             </li>
 
-
-        </ul> --}}
-
-
-
-        {{-- <div class="navbar-collapse justify-content-center flex-lg-1 order-2 order-lg-1 collapse" id="navbar_search">
-            <div class="navbar-search flex-fill position-relative mt-2 mt-lg-0 mx-lg-3">
-                <div class="form-control-feedback form-control-feedback-start flex-grow-1" data-color-theme="dark">
-                    <input type="text" class="form-control bg-transparent rounded-pill" placeholder="Search"
-                        data-bs-toggle="dropdown" style="width: 17rem; height: 2rem;">
-                    <div class="form-control-feedback-icon">
-                        <i class="ph-magnifying-glass"></i>
-                    </div>
-                    <div class="dropdown-menu w-100" data-color-theme="light">
-                        <button type="button" class="dropdown-item">
-                            <div class="text-center w-32px me-3">
-                                <i class="ph-magnifying-glass"></i>
-                            </div>
-                            <span>Search <span class="fw-bold">"in"</span> everywhere</span>
-                        </button>
-
-                        <div class="dropdown-divider"></div>
-
-                        <div class="dropdown-menu-scrollable-lg">
-                            <div class="dropdown-header">
-                                Contacts
-                                <a href="#" class="float-end">
-                                    See all
-                                    <i class="ph-arrow-circle-right ms-1"></i>
-                                </a>
-                            </div>
-
-                            <div class="dropdown-item cursor-pointer">
-                                <div class="me-3">
-                                    <img src="{{ asset('/') }}backend/assets/images/demo/users/face3.jpg"
-                                        class="w-32px h-32px rounded-pill" alt="">
-                                </div>
-
-                                <div class="d-flex flex-column flex-grow-1">
-                                    <div class="fw-semibold">Christ<mark>in</mark>e Johnson</div>
-                                    <span class="fs-sm text-muted">c.johnson@awesomecorp.com</span>
-                                </div>
-
-                                <div class="d-inline-flex">
-                                    <a href="#" class="text-body ms-2">
-                                        <i class="ph-user-circle"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="dropdown-item cursor-pointer">
-                                <div class="me-3">
-                                    <img src="{{ asset('/') }}backend/assets/images/demo/users/face24.jpg"
-                                        class="w-32px h-32px rounded-pill" alt="">
-                                </div>
-
-                                <div class="d-flex flex-column flex-grow-1">
-                                    <div class="fw-semibold">Cl<mark>in</mark>ton Sparks</div>
-                                    <span class="fs-sm text-muted">c.sparks@awesomecorp.com</span>
-                                </div>
-
-                                <div class="d-inline-flex">
-                                    <a href="#" class="text-body ms-2">
-                                        <i class="ph-user-circle"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="dropdown-divider"></div>
-
-                            <div class="dropdown-header">
-                                Clients
-                                <a href="#" class="float-end">
-                                    See all
-                                    <i class="ph-arrow-circle-right ms-1"></i>
-                                </a>
-                            </div>
-
-                            <div class="dropdown-item cursor-pointer">
-                                <div class="me-3">
-                                    <img src="{{ asset('/') }}backend/assets/images/brands/adobe.svg"
-                                        class="w-32px h-32px rounded-pill" alt="">
-                                </div>
-
-                                <div class="d-flex flex-column flex-grow-1">
-                                    <div class="fw-semibold">Adobe <mark>In</mark>c.</div>
-                                    <span class="fs-sm text-muted">Enterprise license</span>
-                                </div>
-
-                                <div class="d-inline-flex">
-                                    <a href="#" class="text-body ms-2">
-                                        <i class="ph-briefcase"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="dropdown-item cursor-pointer">
-                                <div class="me-3">
-                                    <img src="{{ asset('/') }}backend/assets/images/brands/holiday-inn.svg"
-                                        class="w-32px h-32px rounded-pill" alt="">
-                                </div>
-
-                                <div class="d-flex flex-column flex-grow-1">
-                                    <div class="fw-semibold">Holiday-<mark>In</mark>n</div>
-                                    <span class="fs-sm text-muted">On-premise license</span>
-                                </div>
-
-                                <div class="d-inline-flex">
-                                    <a href="#" class="text-body ms-2">
-                                        <i class="ph-briefcase"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="dropdown-item cursor-pointer">
-                                <div class="me-3">
-                                    <img src="{{ asset('/') }}backend/assets/images/brands/ing.svg"
-                                        class="w-32px h-32px rounded-pill" alt="">
-                                </div>
-
-                                <div class="d-flex flex-column flex-grow-1">
-                                    <div class="fw-semibold"><mark>IN</mark>G Group</div>
-                                    <span class="fs-sm text-muted">Perpetual license</span>
-                                </div>
-
-                                <div class="d-inline-flex">
-                                    <a href="#" class="text-body ms-2">
-                                        <i class="ph-briefcase"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="#" class="navbar-nav-link align-items-center justify-content-center w-40px h-32px rounded-pill position-absolute end-0 top-50 translate-middle-y p-0 me-1" data-bs-toggle="dropdown" data-bs-auto-close="outside"  style="margin-right: 25rem">
-                    <i class="ph-faders-horizontal" style="margin-right: 25rem"></i>
+            <li class="nav-item nav-item-dropdown-lg dropdown">
+                <a href="#" class="navbar-nav-link navbar-nav-link-icon rounded-pill" data-bs-toggle="dropdown">
+                    <i class="ph-squares-four"></i>
                 </a>
 
-                <div class="dropdown-menu w-100 p-3">
-                    <div class="d-flex align-items-center mb-3">
-                        <h6 class="mb-0">Search options</h6>
-                        <a href="#" class="text-body rounded-pill ms-auto">
-                            <i class="ph-clock-counter-clockwise"></i>
+                <div class="dropdown-menu dropdown-menu-scrollable-sm wmin-lg-900 p-0">
+                    <div class="d-flex align-items-center border-bottom p-3">
+                        <h6 class="mb-0">Browse apps</h6>
+                        <a href="#" class="ms-auto">
+                            View all
+                            <i class="ph-arrow-circle-right ms-1"></i>
                         </a>
                     </div>
 
-                    <div class="mb-3">
-                        <label class="d-block form-label">Category</label>
-                        <label class="form-check form-check-inline">
-                            <input type="checkbox" class="form-check-input" checked>
-                            <span class="form-check-label">Invoices</span>
-                        </label>
-                        <label class="form-check form-check-inline">
-                            <input type="checkbox" class="form-check-input">
-                            <span class="form-check-label">Files</span>
-                        </label>
-                        <label class="form-check form-check-inline">
-                            <input type="checkbox" class="form-check-input">
-                            <span class="form-check-label">Users</span>
-                        </label>
-                    </div>
+                    <div class="row row-cols-1 row-cols-sm-2 g-0">
+                        <div class="col">
+                            <button type="button"
+                                class="dropdown-item text-wrap h-100 align-items-start border-end-sm border-bottom p-3">
+                                <div>
+                                    <img src="../../../assets/images/demo/logos/1.svg" class="h-40px mb-2"
+                                        alt="">
+                                    <div class="fw-semibold my-1">Customer data platform</div>
+                                    <div class="text-muted">Unify customer data from multiple sources</div>
+                                </div>
+                            </button>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Addition</label>
-                        <div class="input-group">
-                            <select class="form-select w-auto flex-grow-0">
-                                <option value="1" selected>has</option>
-                                <option value="2">has not</option>
-                            </select>
-                            <input type="text" class="form-control" placeholder="Enter the word(s)">
+                        <div class="col">
+                            <button type="button"
+                                class="dropdown-item text-wrap h-100 align-items-start border-bottom p-3">
+                                <div>
+                                    <img src="../../../assets/images/demo/logos/2.svg" class="h-40px mb-2"
+                                        alt="">
+                                    <div class="fw-semibold my-1">Data catalog</div>
+                                    <div class="text-muted">Discover, inventory, and organize data assets</div>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="col">
+                            <button type="button"
+                                class="dropdown-item text-wrap h-100 align-items-start border-end-sm border-bottom border-bottom-sm-0 rounded-bottom-start p-3">
+                                <div>
+                                    <img src="../../../assets/images/demo/logos/3.svg" class="h-40px mb-2"
+                                        alt="">
+                                    <div class="fw-semibold my-1">Data governance</div>
+                                    <div class="text-muted">The collaboration hub and data marketplace</div>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="col">
+                            <button type="button"
+                                class="dropdown-item text-wrap h-100 align-items-start rounded-bottom-end p-3">
+                                <div>
+                                    <img src="../../../assets/images/demo/logos/4.svg" class="h-40px mb-2"
+                                        alt="">
+                                    <div class="fw-semibold my-1">Data privacy</div>
+                                    <div class="text-muted">Automated provisioning of non-production datasets</div>
+                                </div>
+                            </button>
                         </div>
                     </div>
+                </div>
+            </li>
+        </ul>
 
-                    <div class="mb-3">
-                        <label class="form-label">Status</label>
-                        <div class="input-group">
-                            <select class="form-select w-auto flex-grow-0">
-                                <option value="1" selected>is</option>
-                                <option value="2">is not</option>
-                            </select>
-                            <select class="form-select">
-                                <option value="1" selected>Active</option>
-                                <option value="2">Inactive</option>
-                                <option value="3">New</option>
-                                <option value="4">Expired</option>
-                                <option value="5">Pending</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="d-flex">
-                        <button type="button" class="btn btn-light">Reset</button>
-
-                        <div class="ms-auto">
-                            <button type="button" class="btn btn-light">Cancel</button>
-                            <button type="button" class="btn btn-primary ms-2">Apply</button>
-                        </div>
-                    </div>
+        <div class="navbar-collapse justify-content-center flex-lg-1 order-2 order-lg-1 collapse show"
+            id="navbar_search">
+            <div class="navbar-search flex-fill position-relative mt-2 mt-lg-0 mx-lg-3">
+                <div id="clock">
+                    <!-- Time units wrapper -->
+                    <span class="wrap-time">
+                        <!-- Time unit - Day -->
+                        <span class="time-unit">
+                            <span class="large day">0</span>
+                            <span class="small">DAY</span>
+                        </span>
+                        <!-- Time unit - Hours -->
+                        <span class="time-unit">
+                            <span class="large hours">00</span>
+                            <span class="small">HOURS</span>
+                        </span>
+                        <span class="separator">:</span>
+                        <!-- Time unit - Minutes -->
+                        <span class="time-unit">
+                            <span class="large minutes">00</span>
+                            <span class="small">MINUTES</span>
+                        </span>
+                        <span class="separator">:</span>
+                        <!-- Time unit - Seconds -->
+                        <span class="time-unit">
+                            <span class="large seconds">00</span>
+                            <span class="small">SECONDS</span>
+                        </span>
+                        <!-- Time unit - Period -->
+                        <span class="time-unit">
+                            <span class="large period">AM</span>
+                            <span class="small">PERIOD</span>
+                        </span>
+                    </span>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
-        <ul class="nav flex-row justify-content-end align-items-center order-1 order-lg-2">
-            {{-- <li class="nav-item ms-lg-2">
-                <div class="containers">
-                    <form class="searchbar">
-                        <input type="search" placeholder="Search here" name="search" class="searchbar-input"
-                            onkeyup="buttonUp();" required>
-                        <input type="submit" class="searchbar-submit" value="">
-                        <span class="searchbar-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
-                    </form>
-                </div>
-            </li> --}}
-            <li class="nav-item ms-lg-2 mb-0">
-                <a type="button" class="navbar-nav-link navbar-nav-link-icon rounded-pill" data-bs-toggle="offcanvas"
-                    data-bs-target="#demo_config">
-                    <i class="ph-gear"></i>
-                </a>
-            </li>
-            @php
-            if (Auth::user()->role == '') {
-                # code...
-            } else {
-                # code...
-            }
+        @php
+            $ncount = Auth::user()
+                ->unreadNotifications()
+                ->count();
+        @endphp
 
-                $ncount = Auth::user()
-                    ->unreadNotifications()
-                    ->count();
-            @endphp
-
-            <li class="nav-item mx-2 mb-0">
+        <ul class="nav flex-row justify-content-end order-1 order-lg-2">
+            <li class="nav-item ms-lg-2 me-2 mb-0">
                 <a href="#" class="navbar-nav-link navbar-nav-link-icon rounded-pill" data-bs-toggle="offcanvas"
                     data-bs-target="#notifications">
                     <i class="ph-bell"></i>
                     <span
-                        class="badge bg-yellow text-black position-absolute top-0 end-0 translate-middle-top zindex-1 rounded-pill mt-2 ms-1 me-1">{{ $ncount }}</span>
+                        class="badge bg-yellow text-black position-absolute top-0 end-0 translate-middle-top zindex-1 rounded-pill mt-1 me-1">{{ $ncount }}</span>
                 </a>
             </li>
 
-            <li class="nav-item nav-item-dropdown-lg dropdown ms-lg-2">
+            <li class="nav-item nav-item-dropdown-lg dropdown ms-2 mb-0">
                 <a href="#" class="navbar-nav-link align-items-center rounded-pill p-1" data-bs-toggle="dropdown">
                     <div class="status-indicator-container">
-                        <img src="{{ !empty(Auth::user()->photo) ? url('upload/Profile/admin/' . Auth::user()->photo) : url('upload/no_image.jpg') }}"
-                            class="rounded-pill" alt="" style="height:1.6rem;width:1.6rem;">
-                            {{-- w-32px h-32px  --}}
+                        <img src="{{ !empty(Auth::user()->photo) && file_exists(public_path('upload/Profile/admin/' . Auth::user()->photo)) ? asset('upload/Profile/admin/' . Auth::user()->photo) : asset('backend/assets/images/admin_profile.png') }}"
+                            class="w-32px h-32px rounded-pill" alt="">
                         <span class="status-indicator bg-success"></span>
                     </div>
-                    <span class="d-none d-lg-inline-block mx-lg-2 text-white">{{ Auth::user()->name }}</span>
+                    <span class="d-none d-lg-inline-block mx-lg-2">{{ Auth::user()->name }}</span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-end">
@@ -396,4 +192,3 @@
         </ul>
     </div>
 </div>
-<!-- /main navbar -->

@@ -141,7 +141,7 @@ class EmployeeController extends Controller
                 Toastr::error('Email Failed to send', ['timeOut' => 30000]);
                 return redirect()->back();
             }
-               
+
             }
         } else {
             $messages = $validator->messages();
@@ -209,7 +209,7 @@ class EmployeeController extends Controller
             'role'        => $request->role,
             'department'  => json_encode($request->department),
             'photo'       => $data['photo'],
-            'password'    => Hash::make($request->password),
+            'password'    => (!empty($request->password) ? Hash::make($request->password) : $employee->password),
         ]);
 
         $employee->roles()->detach();

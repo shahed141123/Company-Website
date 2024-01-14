@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('content')
-    <style>
+    {{-- <style>
         /* CSS for the transition effect */
         .accordion-transition {
             max-height: 0;
@@ -52,7 +52,7 @@
                 padding: 0px 0px;
             }
         }
-    </style>
+    </style> --}}
     <div class="content-wrapper">
         <!-- Page header -->
         <div class="page-header shadow d-flex justify-content-between align-items-center">
@@ -74,14 +74,12 @@
                         <span>History</span>
                     </div>
                 </a>
-
-
             </div>
         </div>
         <!-- /page header -->
 
         <div class="content">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="card rounded-0">
@@ -90,7 +88,7 @@
                             </div>
                             <div class="card-body p-1 m-0">
                                 <div class="table-responsive table-bordered">
-                                    <table class="table table-hover">
+                                    <table class="table table-hover leaveDT">
                                         <thead class="border">
                                             <tr>
                                                 <th width="5%" class="text-center">Sl:</th>
@@ -390,7 +388,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <form method="POST" action="{{route('leave-application.update',$leaveApplication->id)}}">
+                            <form method="POST" action="{{ route('leave-application.update', $leaveApplication->id) }}">
                                 @csrf
                                 @method('PUT')
                                 <div class="p-0">
@@ -523,7 +521,7 @@
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-success">Submit</button>
                     </div>
-                </form>
+                    </form>
                 </div>
             </div>
         </div>
@@ -531,6 +529,19 @@
     {{-- Modal End --}}
 @endsection
 @push('scripts')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.leaveDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 25, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [0, 3, 5],
+                }, ],
+            });
+        });
+    </script>
     <script>
         // Function to toggle the accordion without closing the modal
         function toggleAccordion() {

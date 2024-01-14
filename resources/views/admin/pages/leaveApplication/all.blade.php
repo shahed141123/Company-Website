@@ -2,13 +2,13 @@
 @section('content')
     <style>
         .info-cards {
-            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
             background-color: #ae0a46;
             color: white !important;
         }
 
         .info-cards h6 {
-            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
             background-color: #ae0a46;
             color: white !important;
         }
@@ -17,35 +17,9 @@
             border-top: 1px solid #ae0a46;
         }
 
-        .leave-date {
-            font-size: 10px;
-            border-radius: 50%;
-            width: 25px;
-            text-align: center;
-            padding-top: 3px;
-            height: 25px;
-            border: 1px solid #ae0a46;
-        }
 
-        .leave-date:hover {
-            background-color: #ae0a46;
-            color: white !important;
-            border: 1px solid #ae0a46;
-            transition: 0.5s all;
-        }
 
-        thead {
-            background-color: transparent !important;
-            color: #000 !important;
-        }
 
-        .form-control-sm {
-            height: 32.5px;
-        }
-
-        .has-fixed-height {
-            height: 235px;
-        }
     </style>
     <div class="content-wrapper">
         <section class="shadow-sm">
@@ -91,7 +65,7 @@
                         <div class="card info-cards p-1 rounded-0 main_color mb-0">
                             <h6 class="text-center mb-0 p-0 text-muted">Employe Status</h6>
                         </div>
-                        <div class="info-details card px-3 py-3 rounded-0">
+                        <div class=" card px-3 py-3 rounded-0">
                             <p class="p-0 m-0 text-muted d-flex justify-content-between">
                                 <span>Job Status</span>
                                 <span class="text-danger">{{ $user->getCategoryName() ?? 'Not set' }} </span>
@@ -118,7 +92,7 @@
                                 <div class="card info-cards p-1 rounded-0 main_color mb-0">
                                     <h6 class="text-center mb-0 p-0 text-muted">Leave Description</h6>
                                 </div>
-                                <div class="info-details card px-3 py-3 rounded-0">
+                                <div class=" card px-3 py-3 rounded-0">
                                     <p class="p-0 m-0 text-muted d-flex justify-content-between">
                                         <span>Yearly Leave :</span>
                                     </p>
@@ -137,7 +111,7 @@
                                 <div class="card info-cards p-1 rounded-0 main_color mb-0">
                                     <h6 class="text-center mb-0 p-0 text-muted">Casual Leave</h6>
                                 </div>
-                                <div class="info-details card px-3 py-3 rounded-0 text-center">
+                                <div class=" card px-3 py-3 rounded-0 text-center">
                                     <p class="p-0 m-0 text-muted border mb-1">
                                         <span class="text-danger">{{ $employeeCategory->yearly_casual_leave ?? '0' }}</span>
                                     </p>
@@ -153,7 +127,7 @@
                                 <div class="card info-cards p-1 rounded-0 main_color mb-0">
                                     <h6 class="text-center mb-0 p-0 text-muted">Earned Leave</h6>
                                 </div>
-                                <div class="info-details card px-3 py-3 rounded-0 text-center">
+                                <div class=" card px-3 py-3 rounded-0 text-center">
                                     <p class="p-0 m-0 text-muted border mb-1">
                                         <span class="text-danger">{{ $employeeCategory->yearly_earned_leave ?? '0' }}</span>
                                     </p>
@@ -169,7 +143,7 @@
                                 <div class="card info-cards p-1 rounded-0 main_color mb-0">
                                     <h6 class="text-center mb-0 p-0 text-muted">Medical Leave</h6>
                                 </div>
-                                <div class="info-details card px-3 py-3 rounded-0 text-center">
+                                <div class=" card px-3 py-3 rounded-0 text-center">
                                     <p class="p-0 m-0 text-muted border mb-1">
                                         <span
                                             class="text-danger">{{ $employeeCategory->yearly_medical_leave ?? '0' }}</span>

@@ -24,23 +24,24 @@
 <link href="{{ asset('backend/assets/fonts/inter/inter.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('backend/assets/icons/phosphor/styles.min.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('backend/assets/css/ltr/all.min.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('backend/assets/css/ltr/custom_main.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('backend/assets/icons/icomoon/styles.min.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('backend/assets/icons/fontawesome/styles.min.css') }}" rel="stylesheet" type="text/css">
-{{-- <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css"> --}}
 
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
 
 <link href="{{ asset('backend/assets/icons/material/styles.min.css') }}" rel="stylesheet">
 <!-- /global stylesheets -->
-<link href="{{ asset('backend/assets/css/oliullah.css') }}" rel="stylesheet">
 <link href="{{ asset('backend/assets/css/toastr.min.css') }}" rel="stylesheet">
 
 {{-- <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> --}}
 <link href="{{ asset('backend/assets/input-tags/css/tagsinput.css') }}" rel="stylesheet">
 
-<link href="{{ asset('backend/assets/css/ltr/custom_global.css') }}" rel="stylesheet" type="text/css">
+{{-- Custom CSS --}}
+<link href="{{ asset('backend/assets/css/ltr/custom_main.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('backend/assets/css/oliullah.css') }}" rel="stylesheet">
+{{-- Custom CSS --}}
+
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css">
 @stack('styles')
 <style type="text/css">

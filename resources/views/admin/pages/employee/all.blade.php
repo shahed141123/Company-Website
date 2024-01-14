@@ -1,25 +1,12 @@
 @extends('admin.master')
 @section('content')
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css">
-    <style>
-        .accordion {
-            --accordion-border-width: 0px !important;
-        }
 
-        .section-border {
-            border-bottom: 0.5px solid #24739763;
-        }
-
-        .nav-tabs .nav-link.active {
-            color: #ff0000 !important;
-        }
-    </style>
     <div class="content-wrapper">
         <!-- Page header -->
-        <section class="shadow-sm">
+        <div class="page-header page-header-light">
             <div class="d-flex justify-content-between align-items-center">
                 {{-- Page Destination/ BreadCrumb --}}
-                <div class="page-header-content d-lg-flex ">
+                <div class="page-header-content d-lg-flex sticky">
                     <div class="d-flex px-2">
                         <div class="breadcrumb py-2">
                             <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house"></i></a>
@@ -39,109 +26,100 @@
                 <div>
                     <a href="{{ route('employee-category.index') }}" class="btn navigation_btn">
                         <div class="d-flex align-items-center ">
-                            <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
+                            <i class="fa-solid fa-nfc-magnifying-glass me-1"></i>
                             <span>Employee Category</span>
                         </div>
                     </a>
                     <a href="{{ route('employee-department.index') }}" class="btn navigation_btn">
                         <div class="d-flex align-items-center ">
-                            <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
+                            <i class="fa-solid fa-nfc-magnifying-glass me-1"></i>
                             <span>Department</span>
                         </div>
                     </a>
-                    {{-- <a href="{{ route('purchase.index') }}" class="btn navigation_btn">
-                        <div class="d-flex align-items-center ">
-                            <i class="fa-solid fa-money-check-dollar-pen me-1" style="font-size: 10px;"></i>
-                            <span>Purchase</span>
-                        </div>
-                    </a>
-                    <a href="{{ route('delivery.index') }}" class="btn navigation_btn">
-                        <div class="d-flex align-items-center ">
-                            <i class="fa-solid fa-truck-bolt me-1" style="font-size: 10px;"></i>
-                            <span>delivery</span>
-                        </div>
-                    </a> --}}
                 </div>
                 <!-- Basic tabs -->
-
-
-        </section>
+            </div>
+        </div>
         <!-- /page header -->
 
         <!-- Sales Chain Page -->
-        <div class="content pt-0">
-            <div class="d-flex align-items-center py-2">
-                {{-- Add Details Start --}}
-                <div class="text-success nav-link cat-tab3"
-                    style="position: relative;
-                    z-index: 999;
-                    margin-bottom: -38px;">
-                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#addEmployee" type="button"
-                        class="mx-3 btn btn-sm btn-info custom_btn btn-labeled btn-labeled-start float-start">
-                        <span class="btn-labeled-icon bg-black bg-opacity-20">
-                            <i class="icon-plus2"></i>
-                        </span>
-                        Add
-                    </a>
-
-                    <div class="text-center" style="margin-left:14rem;">
-                        <h5 class="ms-1 mb-0" style="color: #247297;">Employee Details</h5>
+        <div class="content p-1">
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-lg-4 col-4">
+                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#addEmployee"
+                                type="button"
+                                class="mx-3 btn btn-sm btn-info custom_btn btn-labeled btn-labeled-start float-start">
+                                <span class="btn-labeled-icon bg-black bg-opacity-20">
+                                    <i class="icon-plus2"></i>
+                                </span>
+                                Add
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-8">
+                            <div class="text-center">
+                                <h5 class="ms-1 mb-0" style="color: #247297;">Employee Details</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                {{-- Add Details End --}}
-            </div>
-            <div>
-                <table class="table employeeDT table-bordered table-hover text-center">
-                    <thead>
-                        <tr>
-                            <th width="6%">SL</th>
-                            <th width="9%">Image</th>
-                            <th width="20%">Name</th>
-                            <th width="20%">Email</th>
-                            <th width="13%">Designation</th>
-                            <th width="11%">Role</th>
-                            <th width="12%">Department</th>
-                            <th width="10%" class="text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if ($employees)
-                            @foreach ($employees as $key => $employee)
+                <div class="card-body pt-2">
+                    <div class="table-responsive">
+                        <table class="table employeeDT table-bordered table-hover text-center">
+                            <thead>
                                 <tr>
-                                    <td>{{ ++$key }}</td>
-                                    <td><img src="{{ !file_exists($employee->photo) ? url('upload/no_image.jpg') : url('upload/admin/' . $employee->photo) }}"
-                                            alt="" width="40px" height="40px" style="border-radius: 50%"></td>
-                                    <td>{{ $employee->name }}</td>
-                                    <td>{{ $employee->email }}</td>
-                                    <td>{{ $employee->designation }}</td>
-                                    <td>{{ ucfirst($employee->role) }}</td>
-                                    <td>
-                                        @if (is_array(json_decode($employee->department)))
-                                            @foreach (json_decode($employee->department) as $department)
-                                                <span class="badge bg-success">{{ ucfirst($department) }}</span>
-                                            @endforeach
-
-                                        @else
-                                        <span class="badge bg-success">{{ ucfirst($employee->department) }}</span>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="javascript:void(0);" class="text-primary"
-                                            data-bs-target="#editEmployee{{ $employee->id }}" data-bs-toggle="modal"
-                                            type="button">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </a>
-                                        <a href="{{ route('employee.destroy', [$employee->id]) }}"
-                                            class="text-danger delete mx-2">
-                                            <i class="delete fa-solid fa-trash"></i>
-                                        </a>
-
-                                    </td>
+                                    <th width="6%">SL</th>
+                                    <th width="9%">Image</th>
+                                    <th width="20%">Name</th>
+                                    <th width="20%">Email</th>
+                                    <th width="13%">Designation</th>
+                                    <th width="11%">Role</th>
+                                    <th width="12%">Department</th>
+                                    <th width="10%" class="text-center">Actions</th>
                                 </tr>
-                            @endforeach
-                        @endif
-                    </tbody>
-                </table>
+                            </thead>
+                            <tbody>
+                                @if ($employees)
+                                    @foreach ($employees as $key => $employee)
+                                        <tr>
+                                            <td>{{ ++$key }}</td>
+                                            <td><img src="{{ !file_exists($employee->photo) ? url('upload/no_image.jpg') : url('upload/admin/' . $employee->photo) }}"
+                                                    alt="" width="40px" height="40px" style="border-radius: 50%">
+                                            </td>
+                                            <td>{{ $employee->name }}</td>
+                                            <td>{{ $employee->email }}</td>
+                                            <td>{{ $employee->designation }}</td>
+                                            <td>{{ ucfirst($employee->role) }}</td>
+                                            <td>
+                                                @if (is_array(json_decode($employee->department)))
+                                                    @foreach (json_decode($employee->department) as $department)
+                                                        <span class="badge bg-success">{{ ucfirst($department) }}</span>
+                                                    @endforeach
+                                                @else
+                                                    <span
+                                                        class="badge bg-success">{{ ucfirst($employee->department) }}</span>
+                                                @endif
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="javascript:void(0);" class="text-primary"
+                                                    data-bs-target="#editEmployee{{ $employee->id }}"
+                                                    data-bs-toggle="modal" type="button">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                <a href="{{ route('employee.destroy', [$employee->id]) }}"
+                                                    class="text-danger delete mx-2">
+                                                    <i class="delete fa-solid fa-trash"></i>
+                                                </a>
+
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Sales Chain Page -->
@@ -154,10 +132,10 @@
                     <div class="modal-header  text-white" style="background-color: #247297">
                         <h5 class="modal-title">Add Employee</h5>
                         <a type="button" data-bs-dismiss="modal"> <i class="ph ph-x text-white"
-                                style="font-weight: 800;font-size: 10px;"></i>
+                                style="font-weight: 800;"></i>
                         </a>
                     </div>
-                    <div class="modal-body p-0 px-2">
+                    <div class="modal-body pt-0">
                         <form id="myform" method="post" action="{{ route('employee.store') }}"
                             enctype="multipart/form-data">
                             @csrf
@@ -258,17 +236,17 @@
                                     <div class="col-lg-4">
                                         <div class="mb-1">
                                             <label class="form-label" for="basicpill-firstname-input">Password</label>
-                                            <input type="password" class="form-control form-control-sm" id="password"
-                                                name="password">
+                                            <input type="password" class="form-control form-control-sm password"
+                                                id="password" name="password">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-1">
                                             <label class="form-label" for="basicpill-firstname-input">Confirm
                                                 Password</label>
-                                            <input type="password" class="form-control form-control-sm"
+                                            <input type="password" class="form-control form-control-sm confirm_password"
                                                 id="confirm_password" name="confirm_password">
-                                            <div id="message"></div>
+                                            <div class="message"></div>
                                         </div>
                                     </div>
 
@@ -294,10 +272,10 @@
                         <div class="modal-header  text-white" style="background-color: #247297">
                             <h5 class="modal-title">Add Employee</h5>
                             <a type="button" data-bs-dismiss="modal"> <i class="ph ph-x text-white"
-                                    style="font-weight: 800;font-size: 10px;"></i>
+                                    style="font-weight: 800;"></i>
                             </a>
                         </div>
-                        <div class="modal-body p-0 px-2">
+                        <div class="modal-body pt-0">
                             <form id="myform" method="post" action="{{ route('employee.update', $employee->id) }}"
                                 enctype="multipart/form-data">
                                 @csrf
@@ -368,7 +346,8 @@
                                                     <option value="admin" @selected(is_array($employeeIds) && in_array('admin', $employeeIds))>Admin</option>
                                                     <option value="business" @selected(is_array($employeeIds) && in_array('business', $employeeIds))>Business</option>
                                                     <option value="accounts" @selected(is_array($employeeIds) && in_array('accounts', $employeeIds))>Accounts</option>
-                                                    <option value="site" @selected(is_array($employeeIds) && in_array('site', $employeeIds))>Site & Contents</option>
+                                                    <option value="site" @selected(is_array($employeeIds) && in_array('site', $employeeIds))>Site & Contents
+                                                    </option>
                                                     <option value="logistics" @selected(is_array($employeeIds) && in_array('logistics', $employeeIds))>Logistics
                                                     </option>
                                                     <option value="support" @selected(is_array($employeeIds) && in_array('support', $employeeIds))>Support
@@ -388,7 +367,8 @@
                                                     <option value="admin" @selected($employee->role == 'admin')>Admin</option>
                                                     <option value="manager" @selected($employee->role == 'manager')>Manager</option>
                                                     <option value="others" @selected($employee->role == 'others')>Others</option>
-                                                    <option value="developer" @selected($employee->role == 'developer')>Support Developer</option>
+                                                    <option value="developer" @selected($employee->role == 'developer')>Support
+                                                        Developer</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -409,17 +389,18 @@
                                         <div class="col-lg-4">
                                             <div class="mb-1">
                                                 <label class="form-label" for="basicpill-firstname-input">Password</label>
-                                                <input type="password" class="form-control form-control-sm"
-                                                    id="password" name="password">
+                                                <input type="password" class="form-control form-control-sm password"
+                                                    value="" id="password" name="password">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="mb-1">
                                                 <label class="form-label" for="basicpill-firstname-input">Confirm
                                                     Password</label>
-                                                <input type="password" class="form-control form-control-sm"
+                                                <input type="password"
+                                                    class="form-control form-control-sm confirm_password"
                                                     id="confirm_password" name="confirm_password">
-                                                <div id="message"></div>
+                                                <div class="message"></div>
                                             </div>
                                         </div>
 
@@ -451,35 +432,35 @@
 
 @once
     @push('scripts')
-        <script type="text/javascript">
-            $('.employeeDT').DataTable({
-                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-                "iDisplayLength": 10,
-                "lengthMenu": [10, 25, 30, 50],
-                columnDefs: [{
-                    orderable: false,
-                    targets: [0, 1, 2, 3, 4, 6,7],
-                }, ],
-            });
-
-            Initialize
-            const validator = $('.form-validate-permission-store, .form-validate-permission-update').validate({
-                ignore: 'input[type=hidden], .select2-search__field', // ignore hidden fields
-                rules: {
-                    percentage: {
-                        number: true
-                    },
-                },
-            });
-        </script>
+        <script type="text/javascript"></script>
 
         <script>
             $(document).ready(function() {
-                $('#confirm_password').on('keyup', function() {
-                    if ($('#password').val() == $('#confirm_password').val()) {
-                        $('#message').html('Passwords match').css('color', 'green');
+                $('.employeeDT').DataTable({
+                    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                    "iDisplayLength": 10,
+                    "lengthMenu": [10, 25, 30, 50],
+                    columnDefs: [{
+                        orderable: false,
+                        targets: [0, 1, 2, 3, 4, 6, 7],
+                    }, ],
+                });
+
+                Initialize
+                const validator = $('.form-validate-permission-store, .form-validate-permission-update').validate({
+                    ignore: 'input[type=hidden], .select2-search__field', // ignore hidden fields
+                    rules: {
+                        percentage: {
+                            number: true
+                        },
+                    },
+                });
+
+                $('.confirm_password').on('keyup', function() {
+                    if ($('.password').val() == $('.confirm_password').val()) {
+                        $('.message').html('Passwords match').css('color', 'green');
                     } else {
-                        $('#message').html('Passwords do not match').css('color', 'red');
+                        $('.message').html('Passwords do not match').css('color', 'red');
                     }
                 });
             });
