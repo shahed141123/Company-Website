@@ -1,0 +1,744 @@
+@media screen and(max-width: 1400) {
+    .menu-section {
+        height: 3rem !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .search-input-container {
+        width: 21rem;
+        position: relative;
+        right: auto;
+    }
+    .mobile-container-dropdown {
+        position: static !important;
+        height: 380px;
+        transform: none;
+        border-radius: 0;
+        margin: 0;
+        margin-bottom: 10px !important;
+        overflow-y: scroll;
+        transform: translate(0px, 3px) !important;
+    }
+    .page-wrapper {
+        margin-top: 5.9rem !important;
+    }
+
+    .top-menu-area {
+        padding-top: 2px;
+        padding-bottom: 8px;
+        padding-left: 13px;
+    }
+
+    .menu-section {
+        height: 4rem !important;
+    }
+
+    .home_banner_card {
+        padding-top: 1.8rem;
+        padding-bottom: 1.8rem;
+        height: auto !important;
+        margin-bottom: 1rem;
+    }
+
+    .custom_col-2 {
+        flex: 0 0 auto;
+        width: 95% !important;
+        margin-bottom: 3rem;
+    }
+
+    .feature_description {
+        padding-top: 0.3rem;
+    }
+
+    .home_shop_product_wrapper h5 {
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .home_shop_product_wrapper p {
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .home_shop_button {
+        display: flex !important;
+        justify-content: center !important;
+        margin-bottom: 20px !important;
+    }
+
+    .product_brand {
+        display: flex;
+        justify-content: center !important;
+        margin-top: 2rem;
+    }
+
+    .account_benefits_section_wp {
+        padding: 0px;
+        color: #3e332d;
+    }
+
+    .client_stories_item {
+        text-align: center !important;
+    }
+
+    .client_stories_item h3 {
+        text-align: center !important;
+        padding: 10px !important;
+    }
+
+    .account_benefits_section {
+        text-align: center !important;
+    }
+
+    .navbar-toggler {
+        font-size: 13px !important;
+        padding-top: 7px !important;
+        padding-left: 10px !important;
+        height: 43px !important;
+    }
+
+    .for_sm_menu {
+        padding: 0.5rem !important;
+    }
+
+    .common_button2 {
+        padding: 8px 43px !important;
+        width: 12rem !important;
+        cursor: pointer;
+        margin: auto !important;
+        margin-top: 2rem !important;
+        display: flex;
+        text-align: center;
+        margin-bottom: 1rem !important;
+    }
+
+    .common_button3 i {
+        margin-top: 1rem;
+    }
+
+    .shop_extra_btn {
+        position: relative;
+        right: 145px;
+        top: -6px;
+        padding: 0px;
+    }
+
+    .Advance-Slider .item {
+        padding: 0;
+        margin: 0px !important;
+    }
+
+    .home_banner_bottom_title {
+        width: 1000% !important;
+    }
+
+    .feature_description {
+        text-align: center;
+        height: auto !important;
+    }
+
+    .business_seftion_button {
+        text-align: center !important;
+        margin: -35px 0px 0px;
+    }
+
+    .learn_more {
+        padding-top: 15px !important;
+    }
+
+    .learn_clint_history_btn {
+        text-align: center;
+        margin-top: 0px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .title_top_heading {
+        padding-bottom: 1rem !important;
+        padding-top: 2rem !important;
+    }
+
+    .account_benefits_section h4 {
+        margin-top: 10px !important;
+        margin-bottom: 21px !important;
+    }
+
+    .banner_bottom_box {
+        width: 100% !important;
+        padding-top: 4rem !important;
+    }
+
+    .home_banner_card h2 {
+        font-size: 20px !important;
+    }
+
+    .home_card_button a {
+        padding: 10px 10px !important;
+        margin-top: 1rem !important;
+    }
+
+    .mobile-sm-none {
+        display: none !important;
+    }
+
+    .mobile-lg-show {
+        display: block !important;
+    }
+
+    .item {
+        margin: 0px !important;
+        border: 1px solid #efefef;
+        padding: 0px !important;
+    }
+
+    .feature_descrip {
+        height: auto !important;
+    }
+
+    .partner-form-container form {
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: 25px 25px !important;
+        height: 335px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .view-password {
+        position: relative;
+        left: 7rem !important;
+    }
+
+    .client_login {
+        width: 85% !important;
+    }
+
+    .breadcrumb {
+        height: 30px;
+        text-align: start !important;
+        padding: 0px;
+        margin: 0px;
+        width: 500px !important;
+    }
+
+    .sidebar_industry div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .common_product_header h1 {
+        font-size: 35px !important;
+    }
+
+    .container p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .effect01 {
+        transition: all 0.8s ease-in-out;
+        font-size: 10px !important;
+    }
+
+    #nav-tab .nav-link:first-child {
+        border-bottom-left-radius: 0px;
+    }
+
+    #nav-tab .nav-link:last-child {
+        border-top-right-radius: 0px;
+    }
+
+    nav>div a.nav-item.nav-link,
+    nav>div a.nav-item.nav-link.active {
+        padding: 15px 20px 15px !important;
+        font-size: 22px !important;
+    }
+
+    .home_title_heading {
+        text-align: center !important;
+    }
+
+    .tabs_title {
+        text-align: center !important;
+    }
+
+    .solution_main_title {
+        font-size: 22px !important;
+    }
+
+    nav>.nav.nav-tabs {
+        border: none;
+        color: #fff;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .solution_para {
+        width: 100%;
+        margin: auto;
+    }
+
+    .section_title_solution {
+        text-align: center !important;
+    }
+
+    .solution_sidebar {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: auto;
+        align-items: center;
+    }
+
+    .thing_together_wrapper {
+        text-align: center;
+    }
+
+    .title-tag {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .masthead h1 {
+        color: #fff;
+        font-weight: 700;
+        font-size: 35px !important;
+        line-height: 1.1;
+        z-index: 1;
+        text-align: center;
+    }
+
+    .common_button3 {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        margin: auto;
+    }
+
+    .what-we-do_side_text h1 {
+        text-align: center;
+    }
+
+    .service_card {
+        width: 50%;
+        margin: auto;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .what-we-do_side_text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    #sync2 .item {
+        height: 70px;
+    }
+
+    .tech_solution_title {
+        font-size: 3em !important;
+    }
+
+    .Head .Arrows {
+        margin-top: -4rem;
+    }
+
+    .iconbox {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .holder-main-text {
+        padding-left: 0px !important;
+    }
+
+    .side_box_image {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .showcase-industry-bottom {
+        width: 290px;
+        height: 180px;
+        position: relative;
+        color: white;
+        text-align: center;
+        margin-top: 1px;
+        margin: 3px;
+        left: 60px;
+    }
+
+    .fab-info-icon {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        width: 3.6rem;
+        height: 3.6rem;
+        background: #ae0a46;
+        border-radius: 50%;
+        background: #ae0a46;
+        box-shadow: none;
+        transition: all 0.3s ease;
+        z-index: 1000001;
+        border-bottom-left-radius: 5px;
+        border: 1px solid #ae0a46;
+    }
+
+    .fab-info-icon:before {
+        background-color: transparent;
+    }
+
+
+    .fab-info-icon-wheel {
+        position: fixed;
+        bottom: 1.7rem;
+        left: 2rem;
+        width: 10.9rem;
+    }
+
+
+    .fab-info-icon-wheel .fab-info-icon-action-1 {
+        right: auto;
+        top: 0;
+        left: -0.4rem;
+    }
+
+    .fab-info-icon-wheel .fab-info-icon-action-2 {
+        right: 4.2rem;
+        top: 0.5rem;
+        left: auto;
+    }
+
+    .fab-info-icon-wheel .fab-info-icon-action-3 {
+        right: 0.5rem;
+        bottom: 4rem;
+        left: auto;
+    }
+
+    .fab-info-icon-wheel .fab-info-icon-action-4 {
+        right: 0;
+        left: auto;
+        bottom: 0;
+    }
+
+    /* Fab icon end */
+
+    .category-center {
+        margin-right: 0rem !important;
+        margin-left: 0rem !important;
+    }
+
+    .category-mobile {
+        display: none !important;
+    }
+
+    .main-navbar {
+        padding: 0rem 0.8rem !important;
+        position: relative;
+        z-index: 999;
+    }
+
+    .offcanvas {
+        z-index: 10000 !important;
+    }
+
+    .offcanvas-icons {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 1px;
+        height: 35px;
+        line-height: 30px;
+        border: 1px solid #e5e2e0;
+        width: 35px;
+        text-align: center;
+        color: #ae0a46 !important;
+        text-decoration: none;
+        cursor: pointer;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border-radius: 30px;
+        top: 2px;
+    }
+
+    .top-bar-right-side {
+        position: relative;
+        background-color: #ae0a46;
+        padding-right: 0.9rem;
+    }
+
+    .site-main-logo {
+        height: 50px;
+        width: 100px;
+    }
+
+    .tab_btn_icon {
+        margin-top: 6px;
+    }
+
+    .popover__content {
+        position: absolute;
+        left: -40px;
+        right: -40px;
+        top: -5px;
+        transform: translate(0, 10px);
+        background-color: #fff;
+        padding: 0rem 1.5rem;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        width: auto;
+        z-index: 99999 !important;
+    }
+
+    .brand-bread-crumb {
+        font-size: 16px;
+        display: flex;
+    }
+
+    .extra-d-flex {
+        display: flex;
+        justify-content: center;
+    }
+
+    .company-tab-title {
+        text-align: center;
+    }
+
+    .company-tab-title span {
+        left: 0;
+    }
+
+    .eyebrow_title {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 21px;
+    }
+
+    .para_text {
+        margin-bottom: 2rem;
+    }
+
+    .para_text a {
+        display: flex;
+        justify-content: center;
+    }
+
+    .para_text h2 {
+        margin-top: 0.8rem;
+    }
+
+    .text-justify-align {
+        text-align: justify !important;
+    }
+
+    .no-margin {
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+
+    .drop-items-brand {
+        position: absolute;
+        inset: 0px auto auto 0px;
+        margin: 0px -45px !important;
+        transform: translate3d(150px, 69px, 0px);
+        width: 48% !important;
+    }
+}
+
+/* For Mobile View */
+@media only screen and (max-width: 390px) {
+    .home_card_button {
+        margin-top: 0.6rem;
+    }
+
+    .header-category-ml-60 {
+        margin-left: 5px;
+    }
+
+    .d-sm-none {
+        display: none !important;
+    }
+
+    .for_sm_menu {
+        padding: 10px !important;
+    }
+
+    .Advance-Slider .item {
+        height: 35vh !important;
+        overflow: hidden;
+        outline: none;
+    }
+
+    .home_card_button a {
+        display: inline-block;
+        padding: 7px 6px;
+        color: var(--mainColor);
+        border: 1px solid var(--subColor);
+        font-size: 11px;
+        font-weight: 500;
+        background: var(--primaryColor);
+        transition: all 0.3s linear;
+    }
+
+    .home_banner_card {
+        margin-top: 1rem;
+    }
+
+    .home_banner_card_title {
+        font-size: 16px !important;
+    }
+
+    .home_title_heading {
+        font-family: "Klinic Slab";
+        font-size: 20px !important;
+        color: var(--heading);
+        font-weight: 400;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        line-height: 40px;
+    }
+
+    .home_shop_product_wrapper p {
+        font-family: "Klinic Slab" !important;
+        font-size: 16px !important;
+        margin-bottom: 20px;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .home_shop_product_wrapper h5 {
+        font-size: 26px;
+        font-family: "Klinic Slab";
+        font-weight: 400;
+        opacity: 0.8;
+        margin-bottom: 13px;
+        text-align: center !important;
+    }
+
+    .home_shop_button {
+        display: flex !important;
+        justify-content: center !important;
+        margin-top: 0px !important;
+        margin-bottom: 2rem;
+    }
+
+    .product_brand {
+        display: flex;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    .client_stories_item {
+        text-align: center;
+    }
+
+    .client_stories_item h3 {
+        font-size: 16px;
+        font-weight: 400;
+        text-align: center;
+        font-family: "Allumi Std Extended";
+        padding: 0px 7px;
+    }
+
+    .account_benefits_section h3 {
+        text-align: center;
+        padding-bottom: 4px;
+        margin-bottom: 1rem;
+    }
+
+    .account_benefits_section {
+        padding-right: 20px;
+        text-align: center !important;
+    }
+
+    .business_item_button {
+        margin-bottom: 2rem;
+    }
+
+    .title_top_heading {
+        font-size: 26px !important;
+        line-height: 34px;
+        margin-bottom: 10px;
+    }
+
+    .business_services {
+        height: 3rem !important;
+        padding-top: 10px;
+    }
+
+    .Head {
+        font-size: 26px !important;
+    }
+
+    .banner_bottom_box {
+        width: 95%;
+    }
+
+    .footer_top {
+        padding: 9px 0px 1px;
+    }
+
+    .footer_top p {
+        font-size: 17px !important;
+        line-height: 17px;
+    }
+
+    .footer_item_wrapper {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .footer_text {
+        font-family: "Allumi Std Extended";
+        color: var(--text-white);
+        padding-right: 0% !important;
+        text-align: justify !important;
+        font-size: 14px !important;
+        width: 100%;
+        justify-content: center;
+        display: contents;
+    }
+
+    .footer_subscribe {
+        width: 90% !important;
+        justify-content: center;
+        display: flex;
+        margin-left: 1rem;
+    }
+
+    .footer_subscribe .input-group-btns {
+        width: 44% !important;
+    }
+
+    .home_title_text {
+        text-align: center !important;
+    }
+
+    .footer_link_text {
+        font-family: "Allumi Std Extended";
+        color: var(--text-white);
+        padding-right: 5%;
+        text-align: center;
+        font-size: 14px;
+        padding-top: 10px !important;
+    }
+
+    .social_areas {
+        border: none !important;
+    }
+
+    .social-icons a {
+        margin: 12px 10px !important;
+    }
+
+    .home_banner_bottom_title {
+        width: 100% !important;
+    }
+}
