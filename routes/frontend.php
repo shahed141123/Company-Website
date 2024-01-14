@@ -40,6 +40,7 @@ Route::get('/training', [HomeController::class, 'training'])->name('training');
 
 //Books
 Route::get('/books', [HomeController::class, 'books'])->name('books');
+Route::get('/books', [HomeController::class, 'books'])->name('books');
 
 //Industry
 Route::get('/industry/all', [HomeController::class, 'AllIndustry'])->name('all.industry');
@@ -206,7 +207,7 @@ Route::post('cart_store', [App\Http\Controllers\Frontend\CartController::class,'
 
 
 //RFQ
-// Route::get('rfq', [HomeController::class, 'rfqCreate'])->name('rfq.create');
+Route::get('rfq', [HomeController::class, 'rfqCreate'])->name('rfq');
 Route::post('rfq/store', [RFQController::class, 'store'])->name('rfq.add');
 Route::get('rfq_common', [HomeController::class, 'RFQCommon'])->name('rfq.common');
 

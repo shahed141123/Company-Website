@@ -4912,7 +4912,7 @@ tr td:hover {
     cursor: pointer;
     position: fixed;
     bottom: 50%;
-    right: -25px;
+    right: -36px;
     background-color: var(--primary-color);
     color: white;
     padding: 9px 20px;

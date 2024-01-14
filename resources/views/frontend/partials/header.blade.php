@@ -56,7 +56,7 @@
                         </div>
                         <div class="d-flex align-items-center ">
                             <div class="d-lg-block d-sm-none">
-                                <a href="#" class="top-info-text text-white pe-3"><i
+                                <a href="{{ route('rfq') }}" class="top-info-text text-white pe-3"><i
                                         class="fa-regular fa-circle-question me-1"></i> REQUEST FOR QUOTE</a>
                             </div>
                             <div>
@@ -1309,7 +1309,7 @@
 
 <<<<<<< HEAD
 =======
-            
+
             {{-- <div class="search-container">
                 <form method="post" action="{{ route('product.search') }}">
                     @csrf
