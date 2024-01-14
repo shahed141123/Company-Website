@@ -53,7 +53,8 @@
                     <div class="col-lg-6 col-xl-4">
                         <div class="card">
                             <div class="card-header py-2">
-                                <h5 class="text-center mb-0">Hello, <span class="main_color fw-bold">{{Auth::user()->name}}</span></h5>
+                                <h5 class="text-center mb-0">Hello, <span
+                                        class="main_color fw-bold">{{ Auth::user()->name }}</span></h5>
                             </div>
                             <div class="card-body px-1 py-1">
                                 <div class="mb-3">
@@ -62,8 +63,18 @@
                                             <button type="button"
                                                 class="btn btn-light w-100 flex-column rounded-0 rounded-top-start py-2">
                                                 <div class="d-flex align-items-center justify-content-between">
-                                                    <div></div>
-                                                    <div></div>
+                                                    <div>
+                                                        <i class="fa-solid fa-clock fs-1 text-primary"></i>
+                                                    </div>
+                                                    <div>
+                                                        <span class="text-gray-700 fw-bolder d-block fs-4 lh-1 ls-n1 mb-1">
+                                                            <div id="live-clock">
+                                                                <span id="live-clock-hours">0</span> hours
+                                                                <span id="live-clock-minutes">0</span> minutes
+                                                                <span id="live-clock-seconds">0</span> seconds
+                                                            </div>
+                                                        </span>
+                                                    </div>
                                                 </div>
                                                 Today in Office
                                             </button>
@@ -106,13 +117,13 @@
 
 @once
     @push('scripts')
-    <script>
-        $(document).ready(function() {
-            $("#accordion").click(function() {
-                $('.expandable').toggle("slide");
+        <script>
+            $(document).ready(function() {
+                $("#accordion").click(function() {
+                    $('.expandable').toggle("slide");
+                });
             });
-        });
-    </script>
+        </script>
         <script>
             // Assuming $attendanceToday['check_in'] is a string in the format "HH:mm:ss"
             let checkInTimeString = "{{ isset($attendanceToday['check_in']) ? $attendanceToday['check_in'] : '' }}";

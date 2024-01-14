@@ -69,13 +69,13 @@
                         <table class="table employeeDT table-bordered table-hover text-center">
                             <thead>
                                 <tr>
-                                    <th width="6%">SL</th>
-                                    <th width="9%">Image</th>
-                                    <th width="20%">Name</th>
-                                    <th width="20%">Email</th>
-                                    <th width="13%">Designation</th>
-                                    <th width="11%">Role</th>
-                                    <th width="12%">Department</th>
+                                    <th width="5%">SL</th>
+                                    <th width="7%">Image</th>
+                                    <th width="18%">Name</th>
+                                    <th width="18%">Email</th>
+                                    <th width="10%">Designation</th>
+                                    <th width="9%">Role</th>
+                                    <th width="23%">Department</th>
                                     <th width="10%" class="text-center">Actions</th>
                                 </tr>
                             </thead>
@@ -127,7 +127,7 @@
         <!--ADD Modal---->
 
         <div id="addEmployee" class="modal fade" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header  text-white" style="background-color: #247297">
                         <h5 class="modal-title">Add Employee</h5>
@@ -139,38 +139,26 @@
                         <form id="myform" method="post" action="{{ route('employee.store') }}"
                             enctype="multipart/form-data">
                             @csrf
-                            <div class="container my-3 mx-2">
+                            <div class="container pt-2">
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="mb-1">
+                                    <div class="col-lg-4">
+                                        <div class="mb-3">
                                             <label class="form-label" for="basicpill-firstname-input">Full Name</label>
                                             <input type="text" maxlength="80" class="form-control form-control-sm"
-                                                placeholder="Enter Employees Name" name="name"
+                                                placeholder="Enter Employee Name" name="name"
                                                 value="{{ old('name') }}" />
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-1">
+                                    <div class="col-lg-3">
+                                        <div class="mb-3">
                                             <label class="form-label" for="basicpill-email-input">Designation</label>
                                             <input maxlength="50" type="text" class="form-control form-control-sm"
-                                                placeholder="Enter Employees Designation" name="designation"
+                                                placeholder="Enter Employee Designation" name="designation"
                                                 value="{{ old('designation') }}" />
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicpill-phoneno-input">Phone</label>
-                                            <input maxlength="15" type="text"
-                                                class="form-control form-control-sm allow_decimal"
-                                                placeholder="Enter Phone Number" name="phone"
-                                                value="{{ old('phone') }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-1">
+                                    <div class="col-lg-5">
+                                        <div class="mb-3">
                                             <label class="form-label" for="basicpill-email-input">Email</label>
                                             <input type="email" class="form-control form-control-sm"
                                                 placeholder="Enter Email ID" name="email"
@@ -181,19 +169,57 @@
 
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <div class="mb-1">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="basicpill-phoneno-input">Phone</label>
+                                            <input maxlength="15" type="text"
+                                                class="form-control form-control-sm allow_decimal"
+                                                placeholder="Enter Phone Number" name="phone"
+                                                value="{{ old('phone') }}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="basicpill-email-input">Job Category</label>
+                                            <select name="employee_category_id" class="form-control form-select-sm select"
+                                                data-container-css-class="select-sm" data-allow-clear="true"
+                                                data-minimum-results-for-search="Infinity"
+                                                data-placeholder="Choose Employee Category">
+                                                <option></option>
+                                                @foreach ($employeeCategories as $employeeCategory)
+                                                    <option value="{{ $employeeCategory->id }}">
+                                                        {{ $employeeCategory->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="basicpill-phoneno-input">Employee Code
+                                                (Biometric ID)</label>
+                                            <input type="text" class="form-control form-control-sm allow_decimal"
+                                                placeholder="Employee Code (Biometric ID)" name="employee_id"
+                                                maxlength="15" value="{{ old('employee_id') }}" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="mb-3">
                                             <label class="form-label" for="basicpill-firstname-input">City</label>
                                             <input type="text" maxlength="50" class="form-control form-control-sm"
                                                 placeholder="Enter City" name="city" value="{{ old('city') }}" />
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
-                                        <div class="mb-1">
+                                        <div class="mb-3">
                                             <label class="form-label" for="basicpill-firstname-input">Department</label>
                                             <select name="department[]" class="form-control-sm multiselect btn btn-sm"
                                                 id="select6" multiple="multiple" data-include-select-all-option="true"
-                                                data-placeholder="Chose Sector" data-enable-filtering="true"
-                                                data-enable-case-insensitive-filtering="true" required>
+                                                data-placeholder="Choose Sector" data-enable-filtering="true"
+                                                data-allow-clear="true" data-enable-case-insensitive-filtering="true"
+                                                required>
                                                 <option value="admin">Admin</option>
                                                 <option value="business">Business</option>
                                                 <option value="accounts">Accounts</option>
@@ -205,12 +231,12 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
-                                        <div class="mb-1">
+                                        <div class="mb-3">
                                             <label class="form-label" for="basicpill-firstname-input">Role</label>
                                             <select name="role" class="form-control form-select-sm select"
-                                                data-container-css-class="select-sm"
-                                                data-minimum-results-for-search="Infinity" data-placeholder="Chose Sector"
-                                                required>
+                                                data-container-css-class="select-sm" data-allow-clear="true"
+                                                data-minimum-results-for-search="Infinity"
+                                                data-placeholder="Choose Sector" required>
                                                 <option></option>
                                                 <option value="admin">Admin</option>
                                                 <option value="manager">Manager</option>
@@ -219,34 +245,59 @@
                                             </select>
                                         </div>
                                     </div>
-
-
                                 </div>
+
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <div class="mb-1">
+                                        <div class="mb-3">
+                                            <label class="form-label required"
+                                                for="basicpill-firstname-input">Supervisor</label>
+                                            <select name="supervisor_id" class="form-control form-select-sm select"
+                                                data-container-css-class="select-sm" data-allow-clear="true"
+                                                data-minimum-results-for-search="Infinity"
+                                                data-placeholder="Choose Supervisor" required>
+                                                <option></option>
+                                                @foreach ($employees as $supervisor)
+                                                    <option value="{{ $supervisor->id }}">
+                                                        {{ $supervisor->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <div class="invalid-feedback"> Please Enter Supervisor.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="mb-3">
                                             <label class="form-label" for="basicpill-firstname-input">Profile
                                                 Picture</label>
-                                            <div class="row"></div>
-                                            <input id="image" type="file" class="form-control form-control-sm"
+                                            <input id="image1" type="file" class="form-control form-control-sm"
                                                 id="basicpill-firstname-input" name="photo" />
                                             {{-- <img id="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Admin" style="width:40px; height: 40px;"/> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicpill-firstname-input">Password</label>
-                                            <input type="password" class="form-control form-control-sm password"
-                                                id="password" name="password">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="basicpill-firstname-input">Sign</label>
+                                            <div class="row"></div>
+                                            <input id="image" type="file" class="form-control form-control-sm"
+                                                id="basicpill-firstname-input" name="sign" />
+                                            {{-- <img id="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Admin" style="width:40px; height: 40px;"/> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
-                                        <div class="mb-1">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="basicpill-firstname-input">Password</label>
+                                            <input type="password" class="form-control form-control-sm" id="password"
+                                                name="password">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="mb-3">
                                             <label class="form-label" for="basicpill-firstname-input">Confirm
                                                 Password</label>
-                                            <input type="password" class="form-control form-control-sm confirm_password"
+                                            <input type="password" class="form-control form-control-sm"
                                                 id="confirm_password" name="confirm_password">
-                                            <div class="message"></div>
+                                            <div id="message"></div>
                                         </div>
                                     </div>
 
@@ -254,7 +305,7 @@
 
                             </div>
 
-                            <div class="modal-footer border-0 pt-3 pb-0 pe-0">
+                            <div class="modal-footer border-0 pt-1 pb-2 pe-0">
                                 <button type="button" class="submit_close_btn " data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="submit_btn from-prevent-multiple-submits"
                                     style="padding: 10px;">Submit</button>
@@ -280,9 +331,9 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
-                                <div class="container my-3 mx-2">
+                                <div class="container pt-2">
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <div class="mb-1">
                                                 <label class="form-label" for="basicpill-firstname-input">Full
                                                     Name</label>
@@ -291,7 +342,7 @@
                                                     value="{{ $employee->name }}" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-3">
                                             <div class="mb-1">
                                                 <label class="form-label" for="basicpill-email-input">Designation</label>
                                                 <input maxlength="50" type="text" class="form-control form-control-sm"
@@ -299,10 +350,18 @@
                                                     value="{{ $employee->designation }}" />
                                             </div>
                                         </div>
+                                        <div class="col-lg-5">
+                                            <div class="mb-1">
+                                                <label class="form-label" for="basicpill-email-input">Email</label>
+                                                <input type="email" class="form-control form-control-sm"
+                                                    placeholder="Enter Email ID" name="email"
+                                                    value="{{ $employee->email }}" />
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <div class="mb-1">
                                                 <label class="form-label" for="basicpill-phoneno-input">Phone</label>
                                                 <input maxlength="15" type="text"
@@ -311,12 +370,30 @@
                                                     value="{{ $employee->phone }}" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <div class="mb-4">
+                                                <label class="form-label" for="basicpill-email-input">Job Category</label>
+                                                <select name="employee_category_id"
+                                                    class="form-select form-select-sm form-select-solid"
+                                                    data-control="select2" data-placeholder="Select an option"
+                                                    data-allow-clear="true">
+                                                    @foreach ($employeeCategories as $employeeCategory)
+                                                        <option value="{{ $employeeCategory->id }}"
+                                                            @selected($employee->employee_category_id == $employeeCategory->id)>
+                                                            {{ $employeeCategory->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
                                             <div class="mb-1">
-                                                <label class="form-label" for="basicpill-email-input">Email</label>
-                                                <input type="email" class="form-control form-control-sm"
-                                                    placeholder="Enter Email ID" name="email"
-                                                    value="{{ $employee->email }}" />
+                                                <label class="form-label" for="basicpill-phoneno-input">Employee Code
+                                                    (Biometric ID)
+                                                </label>
+                                                <input type="text" class="form-control form-control-sm allow_decimal"
+                                                    placeholder="Employee Code (Biometric ID)" name="employee_id"
+                                                    maxlength="15" value="{{ $employee->employee_id }}" />
                                             </div>
                                         </div>
                                     </div>
@@ -337,7 +414,7 @@
 
                                                 <select name="department[]" class="form-control-sm multiselect btn btn-sm"
                                                     id="select6" multiple="multiple"
-                                                    data-include-select-all-option="true" data-placeholder="Chose Sector"
+                                                    data-include-select-all-option="true" data-placeholder="Choose Sector"
                                                     data-enable-filtering="true"
                                                     data-enable-case-insensitive-filtering="true" required>
                                                     @php
@@ -362,7 +439,7 @@
                                                 <select name="role" class="form-control form-select-sm select"
                                                     data-container-css-class="select-sm"
                                                     data-minimum-results-for-search="Infinity"
-                                                    data-placeholder="Chose Sector" required>
+                                                    data-placeholder="Choose Sector" required>
                                                     <option></option>
                                                     <option value="admin" @selected($employee->role == 'admin')>Admin</option>
                                                     <option value="manager" @selected($employee->role == 'manager')>Manager</option>
@@ -372,38 +449,76 @@
                                                 </select>
                                             </div>
                                         </div>
-
-
                                     </div>
+
                                     <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="mb-4">
+                                                <label class="form-label required"
+                                                    for="basicpill-firstname-input">Supervisor</label>
+                                                <select name="supervisor_id"
+                                                    class="form-select form-select-sm form-select-solid"
+                                                    data-control="select2" data-placeholder="Select a Supervisor"
+                                                    data-allow-clear="true" required>
+                                                    <option></option>
+                                                    @foreach ($employees as $supervisor)
+                                                        <option value="{{ $supervisor->id }}"
+                                                            @selected($employee->supervisor_id == $supervisor->id)>
+                                                            {{ $supervisor->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                <div class="invalid-feedback"> Please Enter Supervisor.</div>
+                                            </div>
+                                        </div>
                                         <div class="col-lg-4">
                                             <div class="mb-1">
                                                 <label class="form-label" for="basicpill-firstname-input">Profile
                                                     Picture</label>
-                                                <div class="row"></div>
-                                                <input id="image" type="file" class="form-control form-control-sm"
-                                                    id="basicpill-firstname-input" name="photo" />
-                                                {{-- <img id="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Admin" style="width:40px; height: 40px;"/> --}}
+                                                <div class="row">
+                                                    <div class="col-10">
+                                                        <input id="image" type="file"
+                                                            class="form-control form-control-sm"
+                                                            id="basicpill-firstname-input" name="photo" />
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <img id="showImage" src="{{ !file_exists($employee->photo) ? url('upload/no_image.jpg') : url('storage/' . $employee->photo) }}" alt="Admin" style="width:40px; height: 40px;"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="mb-4">
+                                                <label class="form-label" for="basicpill-firstname-input">Sign</label>
+                                                <div class="row">
+                                                    <div class="col-10">
+                                                        <input id="image" type="file"
+                                                            class="form-control form-control-sm"
+                                                            id="basicpill-firstname-input" name="sign"/>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <img id="showImage" src="{{ !file_exists($employee->sign) ? url('upload/no_image.jpg') : url('storage/' . $employee->photo) }}" alt="Sign" style="width:40px; height: 40px;"/>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="mb-1">
                                                 <label class="form-label" for="basicpill-firstname-input">Password</label>
-                                                <input type="password" class="form-control form-control-sm password"
-                                                    value="" id="password" name="password">
+                                                <input type="password" class="form-control form-control-sm"
+                                                    id="password" name="password">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="mb-1">
                                                 <label class="form-label" for="basicpill-firstname-input">Confirm
                                                     Password</label>
-                                                <input type="password"
-                                                    class="form-control form-control-sm confirm_password"
+                                                <input type="password" class="form-control form-control-sm"
                                                     id="confirm_password" name="confirm_password">
-                                                <div class="message"></div>
+                                                <div id="message"></div>
                                             </div>
                                         </div>
-
                                     </div>
 
                                 </div>

@@ -31,6 +31,17 @@ use Rats\Zkteco\Lib\ZKTeco;
 class AdminController extends Controller
 {
 
+    public function device_ip()
+    {
+        if (session()->exists('dip')) {
+            $deviceip = session('dip');
+        } else {
+            session()->put('dip', '203.17.65.230');
+            $deviceip = '203.17.65.230';
+        }
+        return $deviceip;
+    }
+
     public function markNotification(Request $request)
     {
         auth()->user()
@@ -59,21 +70,32 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function device_ip()
+
+
+
+    public function AdminDashboard()
     {
-        if (session()->exists('dip')) {
-            $deviceip = session('dip');
-        } else {
-            session()->put('dip', '203.17.65.230');
-            $deviceip = '203.17.65.230';
+        $resulNotify = [];
+        $presentDate = date('Y-m-d');
+        $notification_days = Product::whereNotNull('notification_days')->whereNotNull('create_date')->get(['id', 'notification_days', 'create_date']);
+        foreach ($notification_days as $createDateNotificationDay) {
+            $value = date('Y-m-d', strtotime($createDateNotificationDay->create_date . ' + ' . $createDateNotificationDay->notification_days . ' days'));
+            if ($value <= $presentDate) {
+                $notification = 1;
+            } else {
+                $notification = 0;
+            }
+            $resulNotify[] = $notification;
         }
-        return $deviceip;
-    }
+        $filteredNotify = array_filter($resulNotify, function ($value) {
+            return $value == 1;
+        });
 
+        $data['notification_count'] = count($filteredNotify);
 
-    public function index()
-    {
-        $id = Auth::guard('admin')->user()->employee_id;
+        $data['notifications'] = auth()->user()->unreadNotifications;
+
+        $id = Auth::user()->employee_id;
         // Connect to the ZKtecho device
         $deviceip = $this->device_ip();
         $zk = new ZKTeco($deviceip, 4370);
@@ -180,8 +202,6 @@ class AdminController extends Controller
                 ];
             }
 
-            // Now $attendanceThisMonth contains the attendance data for this month
-
             // For Last Month
 
             // Get the first day and last day of the previous month
@@ -230,42 +250,18 @@ class AdminController extends Controller
             return Carbon::parse($attendance['check_in']) > Carbon::parse('09:05:00');
         });
 
-        return view('admin.pages.dashboard.index', [
-            'attendanceToday'      => isset($attendanceToday) ? $attendanceToday : null,
-            'attendanceThisMonths' => isset($attendanceThisMonth) ? $attendanceThisMonth : null,
-            'lateCounts'           => isset($lateCounts) ? $lateCounts : null,
-            'attendanceLastMonths' => isset($attendanceLastMonth) ? $attendanceLastMonth : null,
-            'deviceip'             => isset($deviceip) ? $deviceip : null,
-        ]);
-    }
+        $data['attendanceToday']      = isset($attendanceToday) ? $attendanceToday : null;
+        $data['attendanceThisMonths'] = isset($attendanceThisMonth) ? $attendanceThisMonth : null;
+        $data['lateCounts']           = isset($lateCounts) ? $lateCounts : null;
+        $data['attendanceLastMonths'] = isset($attendanceLastMonth) ? $attendanceLastMonth : null;
+        $data['deviceip']             = isset($deviceip) ? $deviceip : null;
 
-    public function AdminDashboard()
-    {
-        $resulNotify = [];
-        $presentDate = date('Y-m-d');
-        $notification_days = Product::whereNotNull('notification_days')->whereNotNull('create_date')->get(['id', 'notification_days', 'create_date']);
-        foreach ($notification_days as $createDateNotificationDay) {
-            $value = date('Y-m-d', strtotime($createDateNotificationDay->create_date . ' + ' . $createDateNotificationDay->notification_days . ' days'));
-            if ($value <= $presentDate) {
-                $notification = 1;
-            } else {
-                $notification = 0;
-            }
-            $resulNotify[] = $notification;
-        }
-        $filteredNotify = array_filter($resulNotify, function ($value) {
-            return $value == 1;
-        });
-
-        $data['notification_count'] = count($filteredNotify);
-
-        $data['notifications'] = auth()->user()->unreadNotifications;
         if (auth()->check() && in_array('support', json_decode(auth()->user()->department, true))) {
             $data['projects'] = Project::with('client')->orderBy('id', 'DESC')->get();
-            $data['supports'] = ClientSupport::with('client', 'project')->where('status' , '!=' , 'closed')->orderBy('id', 'DESC')->get();
+            $data['supports'] = ClientSupport::with('client', 'project')->where('status', '!=', 'closed')->orderBy('id', 'DESC')->get();
             $data['cases'] = SupportCase::latest('id')->get();
             $data['latest_case'] = SupportCase::where('status', '!=', 'closed')->latest('id')->first();
-            // dd($data['latest_case']);
+
             return view('admin.pages.project.dashboard', $data);
         } else {
             return view('admin.pages.dashboard.index', $data);
