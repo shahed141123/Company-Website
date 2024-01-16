@@ -9,11 +9,11 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class LeaveRequest extends Mailable
+class LeaveApprovalMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $name;
-    public $data; 
+    public $data;
     /**
      * Create a new message instance.
      *
@@ -28,7 +28,7 @@ class LeaveRequest extends Mailable
     public function build()
     {
         return $this->from('hr2@ngenit.com', 'NGEN-HR')
-                    ->view('mail.leave_request', ['mail_body' => $this->data])
+                    ->view('mail.leave_approval', ['mail_body' => $this->data])
                     ->subject('Leave Application for ' . $this->name . '.');
     }
 
@@ -51,9 +51,9 @@ class LeaveRequest extends Mailable
      */
     public function content()
     {
-        // return new Content(
-        //     view: 'view.name',
-        // );
+        return new Content(
+            // view: 'view.name',
+        );
     }
 
     /**

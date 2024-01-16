@@ -8,12 +8,14 @@ use App\Models\User;
 use App\Mail\LeaveRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\LeaveApprovalMail;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Admin\EmployeeCategory;
 use App\Models\Admin\LeaveApplication;
+use App\Notifications\LeaveApprovalNotification;
 use App\Notifications\LeaveRequestNotification;
 use Illuminate\Support\Facades\Validator;
 use Brian2694\Toastr\Toastr as ToastrToastr;
@@ -98,13 +100,13 @@ class LeaveApplicationController extends Controller
             'max'      => 'The :attribute field must not exceed :max kilobytes in size.',
         ];
 
-        // Validate the request data
+        $substitute = User::find($request->substitute_id);
+
         $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->passes()) {
-            // Handle image uploads and create the LeaveApplication model
             $imageFiles = [
-                'substitute_signature', 'applicant_signature', 'checked_by', 'recommended_by', 'reviewed_by', 'approved_by',
+                 'applicant_signature'
             ];
             $filePath = storage_path('app/public/');
             $filePaths = [];
@@ -115,9 +117,9 @@ class LeaveApplicationController extends Controller
                 $filePaths[$file] = $globalFunFile['status'] == 1 ? $uploadedFile->hashName() : null;
             }
 
-            LeaveApplication::create([
+            $leave_id = LeaveApplication::create([
                 'employee_id'             => Auth::user()->id,
-                'name'                    => $request->name,
+                'name'                    => Auth::user()->name,
                 'type_of_leave'           => $request->type_of_leave,
                 'designation'             => $request->designation,
                 'company'                 => $request->company,
@@ -127,7 +129,7 @@ class LeaveApplicationController extends Controller
                 'job_status'              => $request->job_status,
                 'reporting_on'            => date('Y-m-d H:i:s', strtotime($request->reporting_on)),  //date
                 'leave_explanation'       => $request->leave_explanation,
-                'substitute_during_leave' => $request->substitute_during_leave,
+                'substitute_during_leave' => $substitute->name,
                 'leave_address'           => $request->leave_address,
                 'is_between_holidays'     => $request->is_between_holidays == "yes" ?? "no",
                 'leave_contact_no'        => $request->leave_contact_no,
@@ -142,34 +144,33 @@ class LeaveApplicationController extends Controller
                 'medical_leave_due_as_on' => $request->medical_leave_due_as_on,
                 'medical_leave_availed'   => $request->medical_leave_availed,
                 'medical_balance_due'     => $request->medical_balance_due,
-                'application_status'      => 'pending',
+                'application_status'      => 'substitute_approval_pending',
             ] + $filePaths);
 
 
-            $user = User::find(Auth::user()->id);
-            $admins = User::whereJsonContains('department', ['admin', 'accounts'])->where('role', 'admin')->get();
-            $admin_emails = User::whereJsonContains('department', ['admin', 'accounts'])->where('role', 'admin')->pluck('email')->toArray();
 
-            Notification::send($admins, new LeaveRequestNotification($user->name));
+
 
             $data = [
-                'name'             => $user->name,
-                'email'            => $user->email,
-                'designation'      => $user->designation,
+                'name'             => Auth::user()->name,
+                'designation'      => $request->designation,
                 'job_status'       => $request->job_status,
                 'leave_start_date' => $request->leave_start_date,
                 'leave_end_date'   => $request->leave_end_date,
                 'leave_contact_no' => $request->leave_contact_no,
-                'substitute'       => $request->substitute_during_leave,
+                'substitute'       => $substitute->name,
                 'leave_address'    => $request->leave_address,
                 'type_of_leave'    => $request->type_of_leave,
                 'total_days'       => $request->total_days,
-                'link'             => route('leaveApplications'),
+                'status'           => 'substitute_approval_pending',
+                // 'link'             => route('leave-application.edit',$leave_id),
+                'leave_id'         => $leave_id,
             ];
+            Notification::send($substitute, new LeaveApprovalNotification(Auth::user()->name, $data['leave_id']));
 
             // Mail::to($request->input('email'))->send(new LeaveRequest($data));
-            if (!empty($admin_emails)) {
-                Mail::to($admin_emails)->send(new LeaveRequest($data,$user->name));
+            if (!empty($substitute->email)) {
+                Mail::to($substitute->email)->send(new LeaveApprovalMail($data, Auth::user()->name));
             }
 
             Toastr::success('Your Leave Application has submitted for approval.');
@@ -212,14 +213,14 @@ class LeaveApplicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function edit($id)
-    // {
-    //     $data = [
-    //         'leaveApplication' => LeaveApplication::find($id),
-    //         'user'             => User::latest('id', 'DESC')->get(),
-    //     ];
-    //     return view('admin.pages.leaveApplication.edit', $data);
-    // }
+    public function edit($id)
+    {
+        $data = [
+            'leaveApplication' => LeaveApplication::find($id),
+            'user'             => User::latest('id', 'DESC')->get(),
+        ];
+        return view('admin.pages.leaveApplication.edit', $data);
+    }
 
     /**
      * Update the specified resource in storage.

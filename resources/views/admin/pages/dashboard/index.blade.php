@@ -26,7 +26,7 @@
                         <a href="{{ route('leave-application.show', Auth::user()->id) }}" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
-                                <span>Leave Application</span>
+                                <span>Leave Dashboard</span>
                             </div>
                         </a>
                         <a href="{{ route('noticeboard') }}" class="btn navigation_btn">
@@ -35,12 +35,12 @@
                                 <span>Notice Board</span>
                             </div>
                         </a>
-                        <a href="{{ route('purchase.index') }}" class="btn navigation_btn">
+                        {{-- <a href="{{ route('purchase.index') }}" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-money-check-dollar-pen me-1" style="font-size: 10px;"></i>
                                 <span>Attendance</span>
                             </div>
-                        </a>
+                        </a> --}}
                     </div>
                     <!-- Basic tabs -->
                 </div>
@@ -61,13 +61,13 @@
                                     <div class="row row-tile g-0">
                                         <div class="col">
                                             <button type="button"
-                                                class="btn btn-light w-100 flex-column rounded-0 rounded-top-start py-2">
+                                                class="btn btn-light w-100 flex-column rounded-0 rounded-top-start py-2 h-125px">
                                                 <div class="d-flex align-items-center justify-content-between">
                                                     <div>
                                                         <i class="fa-solid fa-clock fs-1 text-primary"></i>
                                                     </div>
                                                     <div>
-                                                        <span class="text-gray-700 fw-bolder d-block fs-4 lh-1 ls-n1 mb-1">
+                                                        <span class="text-gray-700 fw-bolder d-block fs-5 lh-1 ls-n1 mb-1">
                                                             <div id="live-clock">
                                                                 <span id="live-clock-hours">0</span> hours
                                                                 <span id="live-clock-minutes">0</span> minutes
@@ -80,21 +80,31 @@
                                             </button>
 
                                             <button type="button"
-                                                class="btn btn-light w-100 flex-column rounded-0 rounded-bottom-start py-2">
-                                                <i class="ph-twitter-logo text-info ph-2x mb-1"></i>
-                                                Twitter
+                                                class="btn btn-light w-100 flex-column rounded-0 rounded-bottom-start py-2 h-125px">
+                                                <div class="m-0 mb-3">
+                                                    <span
+                                                        class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ !empty($attendanceToday['check_in']) ? $attendanceToday['check_in'] : 'Absent' }}</span>
+
+                                                    <span class="text-gray-500 fw-semibold fs-6">Today's Entry </span>
+                                                </div>
+                                                <div class="m-0">
+                                                    <span
+                                                        class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{ !empty($attendanceToday['check_out']) ? $attendanceToday['check_out'] : 'Absent' }}</span>
+
+                                                    <span class="text-gray-500 fw-semibold fs-6">Today's Check-Out</span>
+                                                </div>
                                             </button>
                                         </div>
 
                                         <div class="col">
                                             <button type="button"
-                                                class="btn btn-light w-100 flex-column rounded-0 rounded-top-end py-2">
+                                                class="btn btn-light w-100 flex-column rounded-0 rounded-top-end py-2 h-125px">
                                                 <i class="ph-dribbble-logo text-pink ph-2x mb-1"></i>
                                                 Dribbble
                                             </button>
 
                                             <button type="button"
-                                                class="btn btn-light w-100 flex-column rounded-0 rounded-bottom-end py-2">
+                                                class="btn btn-light w-100 flex-column rounded-0 rounded-bottom-end py-2 h-125px">
                                                 <i class="ph-spotify-logo text-success ph-2x mb-1"></i>
                                                 Spotify
                                             </button>
@@ -106,7 +116,7 @@
                     </div>
                 </div>
             </div>
-
+            @include('admin.partials.leave_modal')
 
             <!-- /content area -->
         </div>
