@@ -38,10 +38,10 @@
                     <div class="d-flex flex-column flex-root">
                         <div class="d-flex flex-column flex-lg-row flex-column-fluid">
                             <div class="d-flex flex-column flex-lg-row-auto w-xl-500px positon-xl-relative common-gradient d-lg-block d-sm-none"
-                                style="background-image: url('https://partners.acronis.com/img/v9b7q19hozvj/thumb-login_banner_04_01.png'); background-size:cover; background-position:center; width:100%;">
+                                style="background-image: url('{{asset('backend/images/admin_login.jpg')}}'); background-size:cover; background-position:center; width:100%;">
 
                                 <div class="mt-lg-5">
-                                    <h1 class="my-4 text-center" style="color: #fdfdfd;">NGen IT Back Office</h1>
+                                    {{-- <h1 class="my-4 text-center" style="color: #fdfdfd;">NGen IT Back Office</h1> --}}
                                 </div>
 
 

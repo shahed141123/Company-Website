@@ -34,12 +34,12 @@
             </div>
             <div class="content mt-2">
                 <div class="card">
-                    <div class="card-header"></div>
+                    <div class="card-header">Leave Application of {{$leave->name}}</div>
                     <div class="card-body"></div>
                 </div>
             </div>
 
-            
+
         </div>
     </div>
 @endsection

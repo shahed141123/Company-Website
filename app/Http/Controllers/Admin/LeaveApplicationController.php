@@ -18,7 +18,6 @@ use App\Models\Admin\LeaveApplication;
 use App\Notifications\LeaveApprovalNotification;
 use App\Notifications\LeaveRequestNotification;
 use Illuminate\Support\Facades\Validator;
-use Brian2694\Toastr\Toastr as ToastrToastr;
 use Illuminate\Support\Facades\Notification;
 
 class LeaveApplicationController extends Controller
@@ -216,7 +215,7 @@ class LeaveApplicationController extends Controller
     public function edit($id)
     {
         $data = [
-            'leaveApplication' => LeaveApplication::find($id),
+            'leave' => LeaveApplication::find($id),
             'user'             => User::latest('id', 'DESC')->get(),
         ];
         return view('admin.pages.leaveApplication.edit', $data);

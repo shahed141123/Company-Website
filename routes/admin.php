@@ -464,7 +464,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'crm'                        => CRMController::class,
             'delivery'                   => DeliveryController::class,
             'offer-price'                => OfferPriceController::class,
-            'rfq-manage'                => RFQManageController::class,
+            'rfq-manage'                 => RFQManageController::class,
 
             // phase 2 part 2
             'what-we-do-page'           => WhatWeDoPageController::class, // done

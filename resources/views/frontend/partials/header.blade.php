@@ -6,16 +6,18 @@
                 <div class="col-lg-8 top-bar-curve-area d-lg-block d-sm-none">
                     {{-- Empty Are --}}
                 </div>
-                <div class="col-lg-4 top-bar-right-side">
+                <div class="col-lg-4 top-bar-right-side" style="z-index: 999;">
                     <div class="d-flex justify-content-between align-items-center top-menu-area">
                         <div class="">
                             {{-- <span class="text-white">My</span><span class="text-white">NGen It</span> --}}
                             <div class="dropdown drop-top">
-                                <a href="javascript:void(0)" class="dropdown-toggle top-info-text top-info-text text-white"
-                                    type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown"
+                                <a href="javascript:void(0)"
+                                    class="dropdown-toggle top-info-text top-info-text text-white" type="button"
+                                    id="dropdownMenuClickableInside" data-bs-toggle="dropdown"
                                     data-bs-auto-close="outside" aria-expanded="false">
                                     <i class="fa-solid fa-phone-volume me-1" style="transform: rotate(7deg);"></i>
-                                    SUPPORT <span class="number-font header_top_phone">| {{ $setting->phone_one }}</span>
+                                    SUPPORT <span class="number-font header_top_phone">|
+                                        {{ $setting->phone_one }}</span>
                                 </a>
                                 <div class="dropdown-menu drop-down-menus2" aria-labelledby="dropdownMenuButton">
                                     <div class="popover__content text-start">
@@ -75,7 +77,8 @@
                                             @if (Auth::guard('client')->user())
                                                 <li>
                                                     <i class="fa fa-user m-2"></i>
-                                                    <a href="{{ route('client.dashboard') }}" class="">My Profile</a>
+                                                    <a href="{{ route('client.dashboard') }}" class="">My
+                                                        Profile</a>
                                                 </li>
                                                 <li>
                                                     <i class="fa fa-envelope m-2"></i>
@@ -141,12 +144,13 @@
                     <!---Category--->
                     <div class="category-mobile">
                         <div class="dropdown position-static header-category-button-60">
-                            <a class="tab_btn_icon upper-content-menu" href="#" role="button" id="dropdownMenuLink2"
-                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"
-                                style="padding-left: none !important;">
+                            <a class="tab_btn_icon upper-content-menu" href="#" role="button"
+                                id="dropdownMenuLink2" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                aria-expanded="false" style="padding-left: none !important;">
                                 <i class="fa-solid fa-bars" style="font-size: 18px !important;"></i>
                             </a>
-                            <ul class="dropdown-menu w-100 extra_category bg-none" aria-labelledby="dropdownMenuLink2">
+                            <ul class="dropdown-menu w-100 extra_category bg-none"
+                                aria-labelledby="dropdownMenuLink2">
                                 <section class="header">
                                     <div class="container-fluid">
                                         <div class="row tab_area_main category-center">
@@ -157,11 +161,13 @@
                                                     id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                                     @foreach ($categories as $key => $category)
                                                         <a class="nav-link catregory-side-key {{ $key === 0 ? 'show active' : '' }}"
-                                                            id="v-pills-home-tab{{ $category->id }}" data-toggle="pill"
+                                                            id="v-pills-home-tab{{ $category->id }}"
+                                                            data-toggle="pill"
                                                             href="#v-pills-home{{ $category->id }}" role="tab"
                                                             aria-controls="v-pills-home{{ $category->id }}"
                                                             aria-selected="true">
-                                                            <span class="ps-1">-- &nbsp; {{ $category->title }}</span>
+                                                            <span class="ps-1">-- &nbsp;
+                                                                {{ $category->title }}</span>
                                                         </a>
                                                     @endforeach
                                                 </div>
@@ -180,7 +186,8 @@
                                                                     <div class="col-lg-3 col-sm-6">
                                                                         <div class="fw-bold nav_title mb-2"
                                                                             style="font-size: 15px;">
-                                                                            <span style="border-top: 2px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($sub_category->title, 0, 3) }}</span>{{ \Illuminate\Support\Str::substr($sub_category->title, 3) }}
+                                                                            <span
+                                                                                style="border-top: 4px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($sub_category->title, 0, 3) }}</span>{{ \Illuminate\Support\Str::substr($sub_category->title, 3) }}
                                                                         </div>
 
                                                                         @foreach ($sub_category->subsubCategorys as $item)
@@ -189,7 +196,8 @@
                                                                                 <a class="p-0"
                                                                                     href="{{ route('category.html', $item->slug) }}">
                                                                                     <div>
-                                                                                        {{ $item->title }}&nbsp;<i class="ph ph-caret-right menu_icons"></i>
+                                                                                        {{ $item->title }}&nbsp;<i
+                                                                                            class="ph ph-caret-right menu_icons"></i>
                                                                                     </div>
                                                                                 </a>
                                                                             </li>
@@ -216,8 +224,8 @@
                         <div class="input-group flex-nowrap search-input-container">
                             <span class="input-group-text search-box-areas" id="addon-wrapping"><i
                                     class="fa-solid fa-magnifying-glass"></i></span>
-                            <input class="form-control search-input-field search" id="mobile_search_text" name="search"
-                                type="search" placeholder="Search From Here..."
+                            <input class="form-control search-input-field search" id="mobile_search_text"
+                                name="search" type="search" placeholder="Search From Here..."
                                 aria-describedby="addon-wrapping">
                         </div>
                     </form>
@@ -244,7 +252,8 @@
                                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                                     <li class="nav-item dropdown position-static sub-menu-spacing">
                                         <a class="nav-link dropdown-toggle" href="#" role="button"
-                                            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                            data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                            aria-expanded="false">
                                             OUR SERVICES
                                         </a>
                                         <ul class="dropdown-menu full-container-dropdown"
@@ -277,7 +286,7 @@
                                                             </div>
                                                             <div class="col-lg-12 mb-2">
                                                                 <a class="d-flex align-items-center"
-                                                                    href="{{route('training')}}">
+                                                                    href="{{ route('training') }}">
                                                                     <div>Training</div>
                                                                     <div>
                                                                         <i class="ph ph-caret-right menu_icons"></i>
@@ -286,7 +295,7 @@
                                                             </div>
                                                             <div class="col-lg-12 mb-2">
                                                                 <a class="d-flex align-items-center"
-                                                                    href="{{route('books')}}">
+                                                                    href="{{ route('books') }}">
                                                                     <div>Books</div>
                                                                     <div>
                                                                         <i class="ph ph-caret-right menu_icons"></i>
@@ -297,7 +306,8 @@
                                                     </div>
                                                     <div class="col-lg-5">
                                                         <p class="fw-bold"><span
-                                                                style="border-top: 4px solid #ae0a46;">Ind</span>ustry We
+                                                                style="border-top: 4px solid #ae0a46;">Ind</span>ustry
+                                                            We
                                                             Serve
                                                         </p>
                                                         <div class="row">
@@ -321,7 +331,8 @@
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <p class="fw-bold"><span
-                                                                style="border-top: 4px solid #ae0a46;">Sol</span>utions We
+                                                                style="border-top: 4px solid #ae0a46;">Sol</span>utions
+                                                            We
                                                             Provide
                                                         </p>
                                                         <div class="row">
@@ -367,7 +378,8 @@
                                     </li>
                                     <li class="nav-item dropdown position-static sub-menu-spacing">
                                         <a class="nav-link dropdown-toggle" href="#" role="button"
-                                            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                            data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                            aria-expanded="false">
                                             TECH CONTENTS
                                         </a>
                                         <ul class="dropdown-menu full-container-dropdown"
@@ -375,7 +387,8 @@
                                             <div class="container-fluid px-0">
                                                 <div class="row pt-4 pb-4 tech-top gx-1">
                                                     <p class="fw-bold mb-2"><span
-                                                            style="border-top: 4px solid #ae0a46;">Tre</span>ndy Content
+                                                            style="border-top: 4px solid #ae0a46;">Tre</span>ndy
+                                                        Content
                                                     </p>
                                                     <div class="row">
                                                         @if ($features)
@@ -407,7 +420,8 @@
                                                             <div class="col-lg-6 col-sm-12">
                                                                 <div class="d-flex align-items-center">
                                                                     <img src="{{ isset($blog->image) && file_exists(public_path('storage/' . $blog->image)) ? asset('storage/' . $blog->image) : asset('frontend/images/banner-demo.png') }}"
-                                                                        alt="" style="width:130px;height:70px;">
+                                                                        alt=""
+                                                                        style="width:130px;height:70px;">
                                                                     <div class="ms-3">
                                                                         <a
                                                                             href="{{ route('feature.details', $blog->id) }}">
@@ -425,7 +439,8 @@
                                                             <div class="col-lg-6 col-sm-12">
                                                                 <div class="d-flex align-items-center">
                                                                     <img src="{{ isset($techglossy->image) && file_exists(public_path('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}"
-                                                                        alt="" style="width:130px;height:65px;">
+                                                                        alt=""
+                                                                        style="width:130px;height:65px;">
                                                                     <div class="ms-3">
                                                                         <a
                                                                             href="{{ route('feature.details', $techglossy->id) }}">
@@ -460,7 +475,8 @@
                                     </li>
                                     <li class="nav-item dropdown position-static sub-menu-spacing">
                                         <a class="nav-link dropdown-toggle" href="#" role="button"
-                                            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                            data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                            aria-expanded="false">
                                             SHOP ONLINE
                                         </a>
                                         <ul class="dropdown-menu full-container-dropdown"
@@ -469,7 +485,8 @@
                                                 <div class="row">
                                                     <div class="col-lg-3 bg-white pt-5 pb-3 shop-menu-left">
                                                         <p class="fw-bold"><span
-                                                                style="border-top: 4px solid #ae0a46;">Sho</span>p By</p>
+                                                                style="border-top: 4px solid #ae0a46;">Sho</span>p By
+                                                        </p>
                                                         <div class="row">
                                                             <div class="col-lg-12 mb-2">
                                                                 <a class="d-flex align-items-center"
@@ -491,7 +508,7 @@
                                                             </div>
                                                             <div class="col-lg-12 mb-2">
                                                                 <a class="d-flex align-items-center"
-                                                                    href="{{route('training')}}">
+                                                                    href="{{ route('training') }}">
                                                                     <div>Training</div>
                                                                     <div>
                                                                         <i class="ph ph-caret-right menu_icons"></i>
@@ -500,7 +517,7 @@
                                                             </div>
                                                             <div class="col-lg-12 mb-2">
                                                                 <a class="d-flex align-items-center"
-                                                                    href="{{route('books')}}">
+                                                                    href="{{ route('books') }}">
                                                                     <div>Books</div>
                                                                     <div>
                                                                         <i class="ph ph-caret-right menu_icons"></i>
@@ -541,7 +558,8 @@
                                                     </div>
                                                     <div class="col-lg-4 bg-white pt-5 pb-3">
                                                         <p class="fw-bold"><span
-                                                                style="border-top: 4px solid #ae0a46;">Sho</span>p By Brand
+                                                                style="border-top: 4px solid #ae0a46;">Sho</span>p By
+                                                            Brand
                                                         </p>
                                                         <div class="row">
                                                             @if ($brands)
@@ -566,7 +584,8 @@
                                                     </div>
                                                     <div class="col-lg-2 pt-5 pb-3" style="background: #f7f6f5;">
                                                         <p class="fw-bold"><span
-                                                                style="border-top: 4px solid #ae0a46;">Exp</span>lore Our
+                                                                style="border-top: 4px solid #ae0a46;">Exp</span>lore
+                                                            Our
                                                             Deals</p>
                                                         <div class="row">
                                                             <div class="col-lg-12 mb-2">
@@ -620,7 +639,8 @@
                                     </li>
                                     <li class="nav-item dropdown position-static">
                                         <a class="nav-link dropdown-toggle pe-0" href="#" role="button"
-                                            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                            data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                            aria-expanded="false">
                                             CONNECT US
                                         </a>
                                         <ul class="dropdown-menu full-container-dropdown"
@@ -628,148 +648,152 @@
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     <div class="col-lg-4 pt-3 pb-3" style="background: #f7f6f5">
-                                                      <p class="fw-bold text-center">
-                                                        <span style="border-top: 4px solid #ae0a46">Soc</span>ial
-                                                      </p>
-                                                      <li class="d-flex justify-content-center py-3">
-                                                        <a
-                                                          href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
-                                                          class="social_icons"
-                                                          ><i class="h1 fa-brands fa-square-facebook" aria-hidden="true"></i
-                                                        ></a>
-                                                        <a
-                                                          href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
-                                                          class="ms-2 social_icons"
-                                                        >
-                                                          <i class="h1 fa-brands fa-linkedin"></i
-                                                        ></a>
-                                                        <a
-                                                          href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}"
-                                                          class="ms-2 social_icons"
-                                                        >
-                                                          <i class="h1 fa-brands fa-square-twitter"></i
-                                                        ></a>
-                                                        <a
-                                                          href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}"
-                                                          class="ms-2 social_icons"
-                                                        >
-                                                          <i class="h1 fa-brands fa-square-youtube"></i
-                                                        ></a>
-                                                        <a
-                                                          href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
-                                                          class="ms-2 social_icons"
-                                                        >
-                                                          <i class="h1 fa-brands fa-square-instagram"></i
-                                                        ></a>
-                                                      </li>
+                                                        <p class="fw-bold text-center">
+                                                            <span style="border-top: 4px solid #ae0a46">Soc</span>ial
+                                                        </p>
+                                                        <li class="d-flex justify-content-center py-3">
+                                                            <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
+                                                                class="social_icons"><i
+                                                                    class="h1 fa-brands fa-square-facebook"
+                                                                    aria-hidden="true"></i></a>
+                                                            <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
+                                                                class="ms-2 social_icons">
+                                                                <i class="h1 fa-brands fa-linkedin"></i></a>
+                                                            <a href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}"
+                                                                class="ms-2 social_icons">
+                                                                <i class="h1 fa-brands fa-square-twitter"></i></a>
+                                                            <a href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}"
+                                                                class="ms-2 social_icons">
+                                                                <i class="h1 fa-brands fa-square-youtube"></i></a>
+                                                            <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
+                                                                class="ms-2 social_icons">
+                                                                <i class="h1 fa-brands fa-square-instagram"></i></a>
+                                                        </li>
                                                     </div>
                                                     <div class="col-lg-8 pt-3 pb-1">
-                                                      <div class="row">
-                                                        <div class="col-lg-4">
-                                                          <p class="fw-bold">
-                                                            <span style="border-top: 4px solid #ae0a46">Our</span>
-                                                            Company
-                                                          </p>
-                                                          <div class="row">
-                                                            <div class="col-lg-12 mb-2">
-                                                              <a class="d-flex align-items-center" href="{{ route('about') }}">
-                                                                <div>About Us</div>
-                                                                <div>
-                                                                  <i class="ph ph-caret-right menu_icons"></i>
+                                                        <div class="row">
+                                                            <div class="col-lg-4">
+                                                                <p class="fw-bold">
+                                                                    <span
+                                                                        style="border-top: 4px solid #ae0a46">Our</span>
+                                                                    Company
+                                                                </p>
+                                                                <div class="row">
+                                                                    <div class="col-lg-12 mb-2">
+                                                                        <a class="d-flex align-items-center"
+                                                                            href="{{ route('about') }}">
+                                                                            <div>About Us</div>
+                                                                            <div>
+                                                                                <i
+                                                                                    class="ph ph-caret-right menu_icons"></i>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-lg-12 mb-2">
+                                                                        <a class="d-flex align-items-center"
+                                                                            href="{{ route('portfolio') }}">
+                                                                            <div>Portfolio</div>
+                                                                            <div>
+                                                                                <i
+                                                                                    class="ph ph-caret-right menu_icons"></i>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-lg-12 mb-2">
+                                                                        <a class="d-flex align-items-center"
+                                                                            href="{{ route('contact') }}">
+                                                                            <div>Contact Us</div>
+                                                                            <div>
+                                                                                <i
+                                                                                    class="ph ph-caret-right menu_icons"></i>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
-                                                              </a>
                                                             </div>
-                                                            <div class="col-lg-12 mb-2">
-                                                              <a
-                                                                class="d-flex align-items-center"
-                                                                href="{{ route('portfolio') }}"
-                                                              >
-                                                                <div>Portfolio</div>
-                                                                <div>
-                                                                  <i class="ph ph-caret-right menu_icons"></i>
+                                                            <div class="col-lg-4">
+                                                                <p class="fw-bold">
+                                                                    <span
+                                                                        style="border-top: 4px solid #ae0a46">Car</span>eer
+                                                                    With Us
+                                                                </p>
+                                                                <div class="row">
+                                                                    <div class="col-lg-12 mb-2">
+                                                                        <a class="d-flex align-items-center"
+                                                                            href="{{ route('job.openings') }}">
+                                                                            <div>Find Jobs</div>
+                                                                            <div>
+                                                                                <i
+                                                                                    class="ph ph-caret-right menu_icons"></i>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-lg-12 mb-2">
+                                                                        <a class="d-flex align-items-center"
+                                                                            href="{{ route('job-applicant.login') }}">
+                                                                            <div>Job Applicant Login</div>
+                                                                            <div>
+                                                                                <i class="ph ph-caret-right menu_icons"></i>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-lg-12 mb-2">
+                                                                        <a class="d-flex align-items-center"
+                                                                            href="{{ route('job.registration') }}">
+                                                                            <div>Make Your CV</div>
+                                                                            <div>
+                                                                                <i class="ph ph-caret-right menu_icons"></i>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
-                                                              </a>
                                                             </div>
-                                                            <div class="col-lg-12 mb-2">
-                                                              <a class="d-flex align-items-center" href="{{ route('contact') }}">
-                                                                <div>Contact Us</div>
-                                                                <div>
-                                                                  <i class="ph ph-caret-right menu_icons"></i>
+                                                            <div class="col-lg-4">
+                                                                <p class="fw-bold">
+                                                                    <span
+                                                                        style="border-top: 4px solid #ae0a46">Par</span>tner
+                                                                    With Us
+                                                                </p>
+                                                                <div class="row">
+                                                                    <div class="col-lg-12 mb-2">
+                                                                        <a class="d-flex align-items-center"
+                                                                            href="{{ route('partner.login') }}">
+                                                                            <div>Partner Registration</div>
+                                                                            <div>
+                                                                                <i class="ph ph-caret-right menu_icons"></i>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-lg-12 mb-2">
+                                                                        <a class="d-flex align-items-center"
+                                                                            href="javascript:void(0);">
+                                                                            <div>Investor</div>
+                                                                            <div>
+                                                                                <i
+                                                                                    class="ph ph-caret-right menu_icons"></i>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-lg-12 mb-2">
+                                                                        <a class="d-flex align-items-center"
+                                                                            href="javascript:void(0);">
+                                                                            <div>News Room</div>
+                                                                            <div>
+                                                                                <i
+                                                                                    class="ph ph-caret-right menu_icons"></i>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
-                                                              </a>
                                                             </div>
-                                                          </div>
                                                         </div>
-                                                        <div class="col-lg-4">
-                                                          <p class="fw-bold">
-                                                            <span style="border-top: 4px solid #ae0a46">Car</span>eer With Us
-                                                          </p>
-                                                          <div class="row">
-                                                            <div class="col-lg-12 mb-2">
-                                                              <a
-                                                                class="d-flex align-items-center"
-                                                                href="{{ route('job.openings') }}"
-                                                              >
-                                                                <div>Find Jobs</div>
-                                                                <div>
-                                                                  <i class="ph ph-caret-right menu_icons"></i>
-                                                                </div>
-                                                              </a>
+                                                        <hr class="m-0 mt-4">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <p class="m-0 p-2">Contact <span>|</span> Email
+                                                                    <span>|</span> Address</p>
                                                             </div>
-                                                            <div class="col-lg-12 mb-2">
-                                                              <a
-                                                                class="d-flex align-items-center"
-                                                                href="{{ route('job.registration') }}"
-                                                              >
-                                                                <div>Job Registration</div>
-                                                                <div>
-                                                                  <i class="ph ph-caret-right menu_icons"></i>
-                                                                </div>
-                                                              </a>
-                                                            </div>
-                                                          </div>
                                                         </div>
-                                                        <div class="col-lg-4">
-                                                          <p class="fw-bold">
-                                                            <span style="border-top: 4px solid #ae0a46">Par</span>tner With Us
-                                                          </p>
-                                                          <div class="row">
-                                                            <div class="col-lg-12 mb-2">
-                                                              <a
-                                                                class="d-flex align-items-center"
-                                                                href="{{ route('partner.login') }}"
-                                                              >
-                                                                <div>Partner Registration</div>
-                                                                <div>
-                                                                  <i class="ph ph-caret-right menu_icons"></i>
-                                                                </div>
-                                                              </a>
-                                                            </div>
-                                                            <div class="col-lg-12 mb-2">
-                                                              <a class="d-flex align-items-center" href="javascript:void(0);">
-                                                                <div>Investor</div>
-                                                                <div>
-                                                                  <i class="ph ph-caret-right menu_icons"></i>
-                                                                </div>
-                                                              </a>
-                                                            </div>
-                                                            <div class="col-lg-12 mb-2">
-                                                              <a class="d-flex align-items-center" href="javascript:void(0);">
-                                                                <div>News Room</div>
-                                                                <div>
-                                                                  <i class="ph ph-caret-right menu_icons"></i>
-                                                                </div>
-                                                              </a>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <hr class="m-0 mt-4">
-                                                      <div class="row" >
-                                                        <div class="col-lg-12">
-                                                            <p class="m-0 p-2">Contact <span>|</span> Email <span>|</span> Address</p>
-                                                        </div>
-                                                      </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -816,12 +840,6 @@
     </div>
     <div class="offcanvas-body">
         <div>
-<<<<<<< HEAD
-
-            {{-- <hr> --}}
-            <ul class="navbar-nav justify-content-end flex-grow-1 mt-3">
-                <li class="nav-item dropdown mb-1">
-=======
             <form method="post" action="{{ route('product.search') }}"
                 class="d-flex ms-auto upper-content-menu justify-content-center align-items-center" role="search">
                 @csrf
@@ -836,7 +854,6 @@
             <hr>
             <ul class="navbar-nav justify-content-end flex-grow-1 mt-3">
                 <li class="nav-item dropdown cool-link">
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         OUR SERVICES
@@ -845,11 +862,7 @@
                         <div class="container-fluid">
                             <div class="row p-3 pt-2 tech-top bg-white">
                                 <div class="col-lg-12 col-sm-12 mb-4">
-<<<<<<< HEAD
-                                    <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Com</span>mon
-=======
                                     <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Com</span>mon
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                         Services
                                     </p>
                                     <div class="row">
@@ -862,11 +875,7 @@
                                             </a>
                                         </div>
                                         <div class="col-6 mb-2">
-<<<<<<< HEAD
-                                            <a class="d-flex align-items-center" href="{{route('training')}}">
-=======
-                                            <a class="d-flex align-items-center" href="javascript:void(0)">
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
+                                            <a class="d-flex align-items-center" href="{{ route('training') }}">
                                                 <div>Training</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
@@ -882,11 +891,7 @@
                                             </a>
                                         </div>
                                         <div class="col-6 mb-2">
-<<<<<<< HEAD
-                                            <a class="d-flex align-items-center" href="{{route('books')}}">
-=======
-                                            <a class="d-flex align-items-center" href="javascript:void(0)">
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
+                                            <a class="d-flex align-items-center" href="{{ route('books') }}">
                                                 <div>Books</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
@@ -897,11 +902,7 @@
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
                                     <p class="fw-bold">
-<<<<<<< HEAD
-                                        <span style="border-top: 2px solid #ae0a46;">Ind</span>ustry We Serve
-=======
                                         <span style="border-top: 4px solid #ae0a46;">Ind</span>ustry We Serve
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                     </p>
                                     <div class="row">
                                         @if (count($industrys) > 0)
@@ -922,11 +923,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
-<<<<<<< HEAD
-                                    <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Sol</span>utions
-=======
                                     <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sol</span>utions
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                         We Provide
                                     </p>
                                     <div class="row">
@@ -949,11 +946,7 @@
                         </div>
                     </ul>
                 </li>
-<<<<<<< HEAD
-                <li class="nav-item dropdown mb-1">
-=======
                 <li class="nav-item dropdown cool-link">
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         SHOP ONLINE
@@ -962,11 +955,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-lg-12 col-sm-12 mb-4">
-<<<<<<< HEAD
-                                    <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Sho</span>p By</p>
-=======
                                     <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sho</span>p By</p>
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                     <div class="row">
                                         <div class="col-6 mb-2">
                                             <a class="d-flex align-items-center"
@@ -987,11 +976,7 @@
                                             </a>
                                         </div>
                                         <div class="col-6 mb-2">
-<<<<<<< HEAD
-                                            <a class="d-flex align-items-center" href="{{route('training')}}">
-=======
                                             <a class="d-flex align-items-center" href="javascript:void(0)">
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                                 <div>Training</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
@@ -999,11 +984,7 @@
                                             </a>
                                         </div>
                                         <div class="col-6 mb-2">
-<<<<<<< HEAD
-                                            <a class="d-flex align-items-center" href="{{route('books')}}">
-=======
                                             <a class="d-flex align-items-center" href="javascript:void(0)">
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                                 <div>Books</div>
                                                 <div>
                                                     <i class="ph ph-caret-right menu_icons"></i>
@@ -1029,11 +1010,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
-<<<<<<< HEAD
-                                    <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Sho</span>p By
-=======
                                     <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sho</span>p By
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                         Category</p>
                                     <div class="row">
                                         @if (!empty($categorys))
@@ -1052,11 +1029,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
-<<<<<<< HEAD
-                                    <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Sho</span>p By
-=======
                                     <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Sho</span>p By
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                         Brand</p>
                                     <div class="row">
                                         @if ($brands)
@@ -1079,11 +1052,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
-<<<<<<< HEAD
-                                    <p class="fw-bold"><span style="border-top: 2px solid #ae0a46;">Exp</span>lore Our
-=======
                                     <p class="fw-bold"><span style="border-top: 4px solid #ae0a46;">Exp</span>lore Our
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                         Deals</p>
                                     <div class="row">
                                         <div class="col-lg-12 mb-2">
@@ -1106,23 +1075,14 @@
                                 </div>
                             </div>
                             <div class="row mt-3 mx-0 gx-0" style="background: #f7f6f5;">
-<<<<<<< HEAD
-                                <div class="col-6 text-start">
-=======
                                 <div class="col-6 text-center">
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                     <a href="{{ route('all.category') }}"
                                         style="border-top: 1.5px solid #ae0a46;margin-left: -2.3rem;">
                                         View All Category
                                     </a>
                                 </div>
-<<<<<<< HEAD
-                                <div class="col-6 text-start">
-                                    <a href="{{ route('all.brand') }}" style="border-top: 1.5px solid #ae0a46;">
-=======
                                 <div class="col-6 text-center">
                                     <a href="{{ route('all.brand') }}" style="border-top: 3px solid #ae0a46;">
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                         View All Brands
                                     </a>
                                 </div>
@@ -1130,48 +1090,20 @@
                         </div>
                     </ul>
                 </li>
-<<<<<<< HEAD
-                <li class="nav-item dropdown mb-1">
-=======
                 <li class="nav-item dropdown cool-link">
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
                         CONNECT US
                     </a>
-<<<<<<< HEAD
-                    <ul class="dropdown-menu mobile-container-dropdown pt-0">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-12 text-center pt-3" style="background: #f7f6f5;">
-                                    <p class="fw-bold text-center mb-0">
-=======
                     <ul class="dropdown-menu mobile-container-dropdown">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-lg-4 p-left-rem pt-3 pb-3" style="background: #f7f6f5;">
                                     <p class="fw-bold text-center">
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                         <span style="border-top: 4px solid #ae0a46;">Soc</span>ial
                                     </p>
                                     <li class="d-flex justify-content-center py-3">
                                         <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
-<<<<<<< HEAD
-                                            class="social_icons"><i class=fa-2xl fa-brands fa-square-facebook"
-                                                aria-hidden="true"></i></a>
-                                        <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
-                                            class="ms-2 social_icons">
-                                            <i class="fa-2xl  fa-brands fa-linkedin"></i></a>
-                                        <a href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}"
-                                            class="ms-2 social_icons">
-                                            <i class="fa-2xl  fa-brands fa-square-twitter"></i></a>
-                                        <a href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}"
-                                            class="ms-2 social_icons">
-                                            <i class="fa-2xl  fa-brands fa-square-youtube"></i></a>
-                                        <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
-                                            class="ms-2 social_icons">
-                                            <i class="fa-2xl  fa-brands fa-square-instagram"></i></a>
-=======
                                             class="social_icons"><i class="h1 fa-brands fa-square-facebook"
                                                 aria-hidden="true"></i></a>
                                         <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
@@ -1186,14 +1118,13 @@
                                         <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
                                             class="ms-2 social_icons">
                                             <i class="h1 fa-brands fa-square-instagram"></i></a>
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                     </li>
                                 </div>
                                 <div class="col-12 pt-3 pb-3">
                                     <div class="row">
                                         <div class="col-6 mb-4">
                                             <p class="fw-bold">
-                                                <span style="border-top: 2px solid #ae0a46;">Our</span> Company
+                                                <span style="border-top: 4px solid #ae0a46;">Our</span> Company
                                             </p>
                                             <div class="row">
                                                 <div class="col-lg-12 mb-2">
@@ -1227,7 +1158,7 @@
                                         </div>
                                         <div class="col-6 mb-4">
                                             <p class="fw-bold">
-                                                <span style="border-top: 2px solid #ae0a46;">Car</span>eer With
+                                                <span style="border-top: 4px solid #ae0a46;">Car</span>eer With
                                                 Us
                                             </p>
                                             <div class="row">
@@ -1242,8 +1173,17 @@
                                                 </div>
                                                 <div class="col-lg-12 mb-2">
                                                     <a class="d-flex align-items-center"
+                                                        href="{{ route('job-applicant.login') }}">
+                                                        <div>Job Applicant Login</div>
+                                                        <div>
+                                                            <i class="ph ph-caret-right menu_icons"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-12 mb-2">
+                                                    <a class="d-flex align-items-center"
                                                         href="{{ route('job.registration') }}">
-                                                        <div>Job Registration</div>
+                                                        <div>Make Your CV</div>
                                                         <div>
                                                             <i class="ph ph-caret-right menu_icons"></i>
                                                         </div>
@@ -1253,11 +1193,7 @@
                                         </div>
                                         <div class="col-8 mb-4">
                                             <p class="fw-bold">
-<<<<<<< HEAD
-                                                <span style="border-top: 2px solid #ae0a46;">Par</span>tner
-=======
                                                 <span style="border-top: 4px solid #ae0a46;">Par</span>tner
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
                                                 With Us
                                             </p>
                                             <div class="row">
@@ -1307,8 +1243,6 @@
                 </li>
             </ul>
 
-<<<<<<< HEAD
-=======
 
             {{-- <div class="search-container">
                 <form method="post" action="{{ route('product.search') }}">
@@ -1319,7 +1253,6 @@
                             class="mglass">&#9906;</span></label>
                 </form>
             </div> --}}
->>>>>>> a843b51c0fe45546d8f506311f18369284d2cd62
         </div>
     </div>
 </div>

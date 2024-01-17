@@ -25,7 +25,7 @@
 
         @foreach ($jobs as $item)
             <div class="col-lg-4 col-sm-12">
-                <div class="job_post_card my-3">
+                <div class="job_post_card my-3 h-lg-450px">
                     <div class="job_post_card_details w-100 ps-4">
                         <h5 class="">{{ $item->name }}</h5>
                         <ul>
@@ -36,8 +36,8 @@
                         </ul>
                         <div class="d-flex justify-content-between align-items-center mt-2">
                             <div>
-                                <a class="common_button" href="{{ route('job.details', $item->slug) }}">Details <i
-                                        class="fa-solid fa-chevron-right" style="font-size: 12px;"></i></a>
+                                <a class="common_button main_color fw-bold" href="{{ route('job.details', $item->slug) }}">Details <i
+                                        class="fa-solid fa-chevron-right" style="font-size: 14px;"></i></a>
                             </div>
 
                             <div class="">

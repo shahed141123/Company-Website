@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Image;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Admin\Industry;
-use App\Http\Controllers\Controller;
 use App\Models\Client\Client;
+use App\Models\Admin\Industry;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use App\Notifications\ClientRegister;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Notification;
-use Image;
-use Illuminate\Support\Facades\File;
 
 class ClientDatabaseController extends Controller
 {
@@ -198,15 +199,17 @@ class ClientDatabaseController extends Controller
 
     public function clientStatus(Request $request)
     {
+        $result = '';
 
-        //dd($request->id);
         if ($request->mode == 'true') {
             DB::table('clients')->where('id', $request->id)->update(['status' => 'inactive']);
+            $result = 'inactive';
         } else {
-
-
             DB::table('clients')->where('id', $request->id)->update(['status' => 'active']);
+            $result = 'active';
         }
-        return response()->json(['msg' => 'Successfully Updated Status', 'status' => true]);
+
+        return response()->json(['msg' => 'Successfully Updated Status', 'status' => true, 'client_status' => $result]);
     }
+
 }

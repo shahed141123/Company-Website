@@ -42,6 +42,18 @@ class ClientController extends Controller
         }
     } // End Mehtod
 
+    public function jobApplicantLogin()
+    {
+        if (Auth::guard('client')->check()) {
+            $data['orders'] = Order::where('client_id', Auth::guard('client')->user()->id)->get();
+            $data['deals'] = Rfq::where('client_id', Auth::guard('client')->user()->id)->get();
+            $data['rfqs'] = Rfq::where('client_id', Auth::guard('client')->user()->id)->where('rfq_type', 'rfq')->get();
+            return redirect()->route('client.dashboard', $data);
+        } else {
+            return view('client.auth.applicant_login');
+        }
+    } // End Mehtod
+
     public function clientLoginStore(Request $request)
     {
         $validator = Validator::make(
@@ -98,6 +110,7 @@ class ClientController extends Controller
                 'username'                 => $request->username,
                 'email'                    => $request->email,
                 'client_id'                => $request->client_id,
+                'client_type'              => $request->client_type,
                 'phone'                    => $request->phone,
                 'status'                   => $request->filled('status') ? $request->status : 'inactive',
                 'password'                 => Hash::make($request->password),
