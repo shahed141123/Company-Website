@@ -1,6 +1,10 @@
 @extends('frontend.master')
 @section('content')
-
+    <style>
+        label {
+            margin-left: 5px;
+        }
+    </style>
     <section id="sign-in-container-area">
         <div class="row py-5">
             <div class="col-lg-4 offset-lg-4">
@@ -9,10 +13,10 @@
                         @csrf
                         <h2 class="main_color pt-3 pb-4">Job Applicant Login</h2>
 
-                        <input class="mt-3" name="email" type="email" placeholder="Email" required/>
+                        <input class="mt-3" name="email" type="email" placeholder="Email" required />
                         <span class="text-danger text-start p-0 m-0 email_validation" style="display: none;">Please input
                             valid email</span>
-                        <input class="mt-3" name="password" type="password" placeholder="Password" required/>
+                        <input class="mt-3" name="password" type="password" placeholder="Password" required />
                         <i class="fas fa-eye transform-v-center view-password"></i>
                         <h6 class="mt-4">Don't Have An Account ? <a href="javascript:void(0);"
                                 class="mb-3 mt-2 main_color" id="signUp">Register Now</a></h6>
@@ -24,37 +28,82 @@
             </div>
         </div>
     </section>
-    <section>
-        <div class="container" id="sign-up-container-area" style="display: none">
+    <section id="sign-up-container-area" style="display: none">
+        <div>
+            <img src="{{ asset('frontend/images/job_registration.jpg') }}" alt="" class="img-fluid">
+        </div>
+        <div class="container">
             <div class="row py-5">
                 <div class="col-lg-12">
                     <div class="partner-container" id="partner-login-container">
+
                         <div class="partner-form-container sign-up-container">
 
                             <form action="{{ route('clientRegister.store') }}" method="POST" id="partnersignUpForm">
                                 @csrf
                                 <h2 class="pb-1 pt-0 mt-4 mb-2 main_color">Job Applicant Register</h2>
-                                <h6>Already Have An Account ?<a href="javascript:void(0);" class="mb-3 main_color"
-                                        id="signIn">&nbsp;Sign In Now</a></h6>
-                                <input class="input_login registered_name" type="text" name="name"
-                                    placeholder="Full name" required value="{{ old('name') }}" maxlength="35" minlength="3">
-                                <input class="input_login" type="text" name="name"
-                                    placeholder="Full name" required value="{{ old('name') }}" maxlength="35" minlength="3">
-                                <input class="input_login" type="number" name="phone" placeholder="Mobile Number" required
-                                    value="{{ old('phone') }}">
-                                <input type="hidden" name="client_type" value="job_seeker">
+                                <h6>Already Have An Account ?
+                                    <a href="javascript:void(0);" class="mb-3 main_color" id="signIn">&nbsp;Sign In
+                                        Now</a>
+                                </h6>
+                                <div class="row text-start">
+                                    <div class="col-lg-7 mb-3">
+                                        <input type="hidden" name="client_type" value="job_seeker">
+                                        <label for="">Full Name <span class="text-danger">*</span></label>
+                                        <input class="input_login registered_name" type="text" name="name"
+                                            placeholder="Full name" required value="{{ old('name') }}" maxlength="35"
+                                            minlength="3">
+                                    </div>
+                                    <div class="col-lg-5 mb-3">
+                                        <label for="">Contact Number <span class="text-danger">*</span></label>
+                                        <input class="input_login" type="number" name="phone" placeholder="Mobile Number"
+                                            required value="{{ old('phone') }}">
+                                    </div>
 
-                                <span class="text-danger text-start p-0 m-0 email_validation" style="display: none;">Please
-                                    input valid email</span>
-                                <input class="input_login password_strength" type="password" name="password"
-                                    placeholder="Password" required value="{{ old('password') }}">
-                                <i class="fas fa-eye transform-v-center view-password"></i>
-                                <div id="input_loginStrength" style="display: none;">
-                                    Password Strength: <span id="input_loginStrengthIndicator"></span>
+                                    <div class="col-lg-7 mb-3">
+                                        <label for="">Email <span class="text-danger">*</span></label>
+                                        <input class="input_login" type="email" name="name" placeholder="Email"
+                                            required value="{{ old('email') }}" maxlength="35" minlength="3">
+                                        <span class="text-danger text-start p-0 m-0 email_validation"
+                                            style="display: none;">
+                                            Please input valid email
+                                        </span>
+                                    </div>
+
+                                    <div class="col-lg-5 mb-3">
+                                        <label for="">City</label>
+                                        <input class="input_login" type="text" name="city" placeholder="City"
+                                            value="{{ old('city') }}" maxlength="35" minlength="3">
+                                    </div>
+
+                                    <div class="col-lg-5 mb-3">
+                                        <label for="">CV <span class="text-danger">*</span></label>
+                                        <input class="input_login form-control" type="file" name="resume"
+                                            placeholder="Upload Your CV" value="{{ old('resume') }}" minlength="3">
+                                    </div>
+
+                                    <div class="col-lg-7 mb-3">
+                                        <label for="address">Address</label>
+                                        <textarea class="input_login" name="address" id="address" rows="1"></textarea>
+                                    </div>
+
+                                    <div class="col-lg-6 mb-3">
+                                        <label for="">Password <span class="text-danger">*</span></label>
+                                        <input class="input_login password_strength" type="password" name="password"
+                                            placeholder="Password" required value="{{ old('password') }}">
+                                        <i class="fas fa-eye transform-v-center view-password view-password-signup"></i>
+                                        <span id="input_loginStrength" style="display: none;">
+                                            Password Strength: <span id="input_loginStrengthIndicator"></span>
+                                        </span>
+                                    </div>
+
+                                    <div class="col-lg-6 mb-3">
+                                        <label for="">Confirm Password <span class="text-danger">*</span></label>
+                                        <input class="input_login confirm_password" type="password"
+                                            name="password_confirmation" placeholder="Confirm Password" required>
+                                        <span class="confirm_message"></span>
+                                    </div>
                                 </div>
-                                <input class="input_login confirm_password" type="password" name="password_confirmation"
-                                    placeholder="Confirm Password" required>
-                                <span class="confirm_message"></span>
                                 <div class="checkbox-wrapper-21 mt-2">
                                     <label class="control control--checkbox">
                                         Please Read Our <a href="javascript:void(0);" class="main_color">Policy</a> And
@@ -65,13 +114,24 @@
                                 </div>
                                 <button type="submit" class="partner-login-button mt-3">Sign Up</button>
                             </form>
+
                         </div>
                         <div class="overlay-container">
                             <div class="overlay">
-
                                 <div class="overlay-panel overlay-right">
-                                    <h2 class="text-white">Hello, <span class="welcome_name"></span></h2>
-                                    <p>Enter your personal details and start your journey with us</p>
+                                    <h2 class="text-white">Hello <span class="welcome_name"></span></h2>
+                                    <div class="row text-start">
+                                        <p class="mb-3"><i class="fa-solid fa-star"></i> Enter your personal details and start your
+                                            journey with us.</p>
+                                        <p class="mb-3"><i class="fa-solid fa-star"></i> You will also be able to update your personal
+                                            details after registration from your
+                                            dashboard.</p>
+                                        <p class="mb-3">
+                                            <i class="fa-solid fa-star"></i> You can find our available jobs from
+                                            <a class="text-primary fs-5 fw-bold text-decorattion-underline"
+                                                href="{{ route('job.openings') }}">here..</a>
+                                        </p>
+                                    </div>
                                     <!-- Your Sign Up form content here -->
                                 </div>
                             </div>
@@ -81,7 +141,6 @@
             </div>
         </div>
     </section>
-    @include('frontend.partials.footer')
 @endsection
 @section('scripts')
     <script>
@@ -115,45 +174,6 @@
                     $('.email_validation').show();
                 }
             });
-
-
-
-
-            // $('.password_strength').keyup(function() {
-            // $('.password_strength').on('keyup change', function() {
-
-            //     var password = $(this).val();
-            //     var strengthIndicator = $('#input_loginStrengthIndicator');
-
-
-            //     if (password.length > 0) {
-            //         $('#input_loginStrength').show();
-            //     } else {
-            //         $('#input_loginStrength').hide();
-            //     }
-
-            //     // Define password strength criteria (customize as needed)
-            //     var weak = /[a-zA-Z]/.test(password) && password.length < 6;
-            //     var medium = /[a-zA-Z]/.test(password) && /[0-9]/.test(password) && password.length >= 6;
-            //     var strong = /[a-zA-Z]/.test(password) && /[0-9]/.test(password) && /[$@#&!]/.test(
-            //         password) && password.length >= 8;
-
-            //     if (strong) {
-            //         strengthIndicator.text('Strong');
-            //         strengthIndicator.removeClass().addClass('text-success');
-            //         $('#input_loginStrength').show();
-            //     } else if (medium) {
-            //         strengthIndicator.text('Medium');
-            //         strengthIndicator.removeClass().addClass('text-warning');
-            //         $('#input_loginStrength').show();
-            //     } else if (weak) {
-            //         strengthIndicator.text('Weak');
-            //         strengthIndicator.removeClass().addClass('text-danger');
-            //         $('#input_loginStrength').show();
-            //     } else {
-            //         $('#input_loginStrength').hide();
-            //     }
-            // });
 
             $('.password_strength').on('keyup change', function() {
                 var password = $(this).val();

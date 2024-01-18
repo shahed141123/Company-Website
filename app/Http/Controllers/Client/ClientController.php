@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use Image;
+use Helper;
 use App\Models\User;
 use App\Models\Admin\Rfq;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Admin\JobRegistration;
 use App\Models\Client\CaseAttachment;
 use App\Notifications\ClientRegister;
 use Illuminate\Auth\Events\Registered;
@@ -75,21 +77,20 @@ class ClientController extends Controller
                 //
             } else {
                 Toastr::error('Login details are not valid');
-                return redirect("client/login");
+                return redirect()->back();
             }
         } else {
             $messages = $validator->messages();
             foreach ($messages->all() as $message) {
                 Toastr::error($message, 'Failed', ['timeOut' => 30000]);
             }
-            return redirect("client/login");
+            return redirect()->back();
         }
     }
 
 
     public function clientRegisterStore(Request $request)
     {
-        $user = User::where('role', 'admin')->get();
 
         $validator = Validator::make($request->all(), [
             'name'     => 'required',
@@ -109,6 +110,8 @@ class ClientController extends Controller
                 'name'                     => $request->name,
                 'username'                 => $request->username,
                 'email'                    => $request->email,
+                'city'                     => $request->city,
+                'address'                  => $request->address,
                 'client_id'                => $request->client_id,
                 'client_type'              => $request->client_type,
                 'phone'                    => $request->phone,
@@ -116,6 +119,26 @@ class ClientController extends Controller
                 'password'                 => Hash::make($request->password),
             ]);
 
+            if (!empty($request->file('resume'))) {
+                $mainFileCV = $request->file(('resume'));
+                $filePath = storage_path('app/public/CV');
+                if (!empty($mainFileCV)) {
+                    $mainFileCV_upload = Helper::customUpload($mainFileCV, $filePath);
+                } else {
+                    $mainFileCV_upload = ['status' => 0];
+                }
+                JobRegistration::create([
+                    'client_id'               => $client->id,
+                    'name'                    => $request->name,
+                    'email'                   => $request->email,
+                    'address'                 => $request->address,
+                    'phone_number'            => $request->phone,
+                    'district'                => $request->city,
+                    'resume'                  => $mainFileCV_upload['status'] == 1 ? $mainFileCV_upload['file_name'] : NULL,
+                ]);
+            }
+
+            $user = User::where('role', 'admin')->get();
             event(new Registered($client));
             Auth::guard('client')->login($client);
             Notification::send($user, new ClientRegister($request->name));

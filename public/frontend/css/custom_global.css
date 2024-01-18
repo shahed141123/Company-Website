@@ -153,18 +153,20 @@ tr {
     border: 1px solid #d9d8d8;
     vertical-align: middle;
 }
-ul li{
+
+ul li {
     list-style-type: none;
 }
 
-ul{
+ul {
     list-style: none;
 }
 
-.section-titles{
+.section-titles {
     font-family: var(--section-title-font-size);
     font-family: var(--primary-font);
 }
+
 .custom_shadow {
     box-shadow: var(--custom-shadow);
 }
@@ -176,9 +178,11 @@ ul{
 .top-line-title {
     font-size: var(--badge-font-size);
 }
-.bg-none{
+
+.bg-none {
     background: none !important;
 }
+
 /* ----------------------------- Global Css End ----------------------------- */
 
 /* ------------------------------- Main Button ------------------------------ */
@@ -340,12 +344,15 @@ ul{
     color: var(--white) !important;
     transition: all 0.8s ease-in-out;
 }
+
 .about-column-first {
     text-align: justify;
 }
-.about-column-first h2{
+
+.about-column-first h2 {
     font-size: 25px;
 }
+
 /*btn_text*/
 .btn-white span {
     transition: all 0.2s ease-out;
@@ -431,9 +438,11 @@ ul{
     height: 3.1rem;
     top: -2px;
 }
-.sub-menu-spacing{
+
+.sub-menu-spacing {
     margin: auto 1.1rem;
 }
+
 .top-menu-area {
     padding-top: 1px;
 }
@@ -559,6 +568,7 @@ ul{
     font-weight: 400;
     color: #c8c8c9;
 }
+
 .tab_btn_icon {
     display: flex;
     align-items: center;
@@ -662,6 +672,7 @@ ul{
     height: 60px;
     width: 100px;
 }
+
 .sticky {
     position: fixed;
     top: 0;
@@ -688,7 +699,7 @@ ul{
     right: 0px;
 }
 
-.step-img img{
+.step-img img {
     height: 73px;
 }
 
@@ -1190,10 +1201,12 @@ ul{
 .swiper-button-prev {
     left: 10px;
 }
-.success_section{
+
+.success_section {
     background: var(--secondary-bg-color);
     padding: 20px;
 }
+
 /* Software Hardware Tab 16-07-23 */
 .common_product_header h1 {
     font-size: 50px;
@@ -2305,15 +2318,17 @@ footer p a:hover {
 #sync1.owl-theme {
     position: relative;
 }
+
 .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot {
     background: 0 0;
     color: inherit;
     border: none;
-    padding: 0!important;
+    padding: 0 !important;
     font: inherit;
     color: #ae0a46;
     background-color: white;
 }
+
 .owl-prev {
     position: absolute;
     top: -49px;
@@ -2879,6 +2894,7 @@ select:focus-visible {
     padding: 22px;
     color: ae0a46;
 }
+
 .nav-pills-custom .nav-link {
     font-family: var(--primary-font);
     color: #161616;
@@ -2901,6 +2917,7 @@ select:focus-visible {
     font-weight: normal;
     position: relative;
 }
+
 .catregory-side-key {
     padding: 10.3px;
     border-top: 1px solid #eee !important;
@@ -2944,7 +2961,8 @@ select:focus-visible {
     line-height: 25px;
     padding: 0px;
 }
-.tab_key_btns{
+
+.tab_key_btns {
     background-color: #f7f6f5;
 }
 
@@ -2982,12 +3000,14 @@ select:focus-visible {
 /* Header Partial Page Design 08-16-23 Start*/
 /* Contact Us Page Design 08-16-23 Start*/
 /* 30-07-2023 */
-.location-list-link{
+.location-list-link {
     font-size: var(--header-font-size);
 }
-.location-list{
+
+.location-list {
     padding: 4px;
 }
+
 .solution_contact_wrapper_contactpage {
     background-color: #ffffff;
     padding: 40px 0px;
@@ -4656,9 +4676,11 @@ tr td:hover {
 /* Solution All Page Design Remake End*/
 /* Client Login */
 .view-password {
-    position: relative;
-    left: 8rem;
+    /* position: relative; */
+    /* left: 8rem; */
     bottom: 2.3rem;
+    position: relative;
+    left: 15.5rem;
 }
 
 #partnerLoginForm {
@@ -4671,7 +4693,7 @@ tr td:hover {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     position: relative;
     overflow: hidden;
-    width: 70%;
+    width: 90%;
     margin: auto;
     min-height: 480px;
 }
@@ -4707,14 +4729,23 @@ tr td:hover {
     width: 100%;
 }
 
+.partner-form-container textarea {
+    background: #eee;
+    border: none;
+    padding: 10px 20px;
+    margin: 8px 0;
+    width: 100%;
+    outline: none;
+}
+
 .partner-login-button {
     border-radius: 0px;
     border: 1px solid #fff;
     background: #ae0a46;
     color: var(--white);
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bold;
-    padding: 12px 45px;
+    padding: 10px 35px;
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
@@ -4746,9 +4777,9 @@ tr td:hover {
 
 .sign-up-container {
     left: 0;
-    width: 50%;
+    width: 60%;
     z-index: 1;
-    height: 40rem;
+    height: 42rem;
 }
 
 .sign-up-container form {
@@ -4758,8 +4789,8 @@ tr td:hover {
 .overlay-container {
     position: absolute;
     top: 0;
-    left: 50%;
-    width: 50%;
+    left: 60%;
+    width: 40%;
     height: 100%;
     overflow: hidden;
     transition: transform 0.6s ease-in-out;
@@ -4784,9 +4815,9 @@ tr td:hover {
     top: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: normal;
     align-items: center;
-    padding: 0 40px;
+    padding: 4.5rem 2.5rem;
     height: 100%;
     width: 50%;
     text-align: center;
@@ -5190,6 +5221,7 @@ tr td:hover {
 .main_header_area {
     height: 75px;
 }
+
 .fixed-section {
     position: fixed;
     top: 0;
@@ -5197,10 +5229,12 @@ tr td:hover {
     background-color: #f1f1f1;
     z-index: 999;
 }
+
 .site-main-logo {
     height: 60px;
     width: 100px;
 }
+
 /* Software Info Page Design */
 .animated-image {
     padding: 30% 20% 20% 30%;
@@ -5280,6 +5314,7 @@ tr td:hover {
     position: relative;
     padding-bottom: 60%;
 }
+
 .hover_content_title {
     font-size: var(--paragraph-font-size);
 }
@@ -5309,9 +5344,10 @@ tr td:hover {
 }
 
 /* DEMO 2 ============================== */
-.blocks-content{
+.blocks-content {
     height: 38.8rem;
 }
+
 .hover-2 .hover-overlay {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
 }
@@ -5445,9 +5481,11 @@ tr td:hover {
     position: absolute;
     top: 72%;
 }
-.block_blog_badge{
+
+.block_blog_badge {
     font-weight: 600;
 }
+
 /* Software Info Page Design End */
 /* Custom Main Css Start */
 /* 25-05-2023 */
@@ -8228,9 +8266,9 @@ a:hover {
     color: white;
 }
 
-.title {
+/* .title {
     background-color: var(--primary-color);
-}
+} */
 
 .area_title {
     text-decoration: none;
@@ -9605,6 +9643,7 @@ form .btn input[type="submit"] {
     color: var(--paragraph-color);
     font-size: var(--badge-font-size);
 }
+
 .job_post_card_details ul {
     padding-top: 5px;
     padding-bottom: 13px;
@@ -12175,6 +12214,7 @@ switch input:checked+.slider {
 .business_item_text {
     text-align: start;
 }
+
 .solution_business_titele {
     color: #5f5753;
     font-size: 36px;
@@ -13185,10 +13225,12 @@ switch input:checked+.slider {
     cursor: default;
     margin: 40px 0px;
 }
-.nav-link .faq{
+
+.nav-link .faq {
     border-bottom: 1px solid #eee;
 }
-.faq-area{
+
+.faq-area {
     height: 50vh;
 }
 
@@ -13488,9 +13530,11 @@ switch input:checked+.slider {
 .about_seo_text {
     margin: 0 0 30px;
 }
-.about_seo_text h2{
+
+.about_seo_text h2 {
     font-size: var(--section-title-font-size);
 }
+
 .about_seo_text h4 {
     font-size: 25px;
     color: white;
@@ -14044,10 +14088,11 @@ switch input:checked+.slider {
     color: #222;
 }
 
-.service_common_content p{
+.service_common_content p {
     line-height: 1.3;
     text-align: justify;
 }
+
 .service_common_content h6 {
     font-size: 18px;
     opacity: 0.9;
@@ -14410,6 +14455,7 @@ switch input:checked+.slider {
     line-height: 25px;
     padding: 20px 25px;
 }
+
 .tab-content .active,
 .collapsible:focus {
     border: none;
@@ -14419,6 +14465,7 @@ switch input:checked+.slider {
 .collapsible:focus {
     border: none;
 }
+
 .clint_tab_btn_content ul {
     display: flex;
     align-items: center;
@@ -14837,6 +14884,7 @@ switch input:checked+.slider {
     margin: 10px 0px;
     text-align: start;
 }
+
 .home_title_heading {
     font-family: var(--primary-font);
     font-size: var(--content-title-font-size);
@@ -14859,7 +14907,8 @@ switch input:checked+.slider {
     top: -5px;
     left: 0px;
 }
-.spacer{
+
+.spacer {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
 }
@@ -14869,14 +14918,17 @@ switch input:checked+.slider {
     text-align: start;
     font-size: var(--paragraph-font-size);
 }
+
 .home_title_text {
     color: var(--heading-color);
     text-align: center;
     font-size: var(--paragraph-font-size);
 }
-.home_title_text p{
+
+.home_title_text p {
     text-align: start;
 }
+
 .business_seftion_button {
     margin: 10px 0px;
 }
@@ -15535,9 +15587,11 @@ thead {
     font-size: var(--section-title-font-size);
     color: var(--primary-color);
     height: 52px;
-    overflow: hidden; /* Fix typo: change over-flow to overflow */
+    overflow: hidden;
+    /* Fix typo: change over-flow to overflow */
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-    font-family: var(--primary-font); /* Add font-family */
+    font-family: var(--primary-font);
+    /* Add font-family */
 }
 
 .Container .Head .Arrows {
@@ -15561,7 +15615,8 @@ thead {
 
 .Container .Head .Slick-Next:hover,
 .Container .Head .Slick-Prev:hover {
-    background: var(--primary-color); /* Use primary color variable */
+    background: var(--primary-color);
+    /* Use primary color variable */
 }
 
 .Container .Head .Slick-Next:before {
@@ -15674,10 +15729,11 @@ thead {
     font-size: var(--section-title-font-size);
 }
 
-.story-title{
+.story-title {
     font-size: var(--content-title-font-size);
 }
-.what-we-description{
+
+.what-we-description {
     width: 75%;
     margin: auto;
     padding-bottom: 3rem;
@@ -16331,6 +16387,7 @@ thead {
     border-top-right-radius: 60px;
     border-bottom-left-radius: 60px;
 }
+
 .nav-tabs .nav-item .nav-link {
     color: var(--white);
     border: 0;
@@ -16355,9 +16412,11 @@ thead {
     color: var(--primary-color);
     background: var(--white);
 }
-.tech-title{
+
+.tech-title {
     font-size: var(--section-title-font-size);
-    }
+}
+
 .nav-tabs .nav-item .nav-link.active {
     border: 1px solid #ae0a46;
     padding: 5px 20px 5px;
@@ -16499,7 +16558,7 @@ nav>div a.nav-item.nav-link.active:after {
     background-repeat: no-repeat;
 }
 
-.discover_tab_sub{
+.discover_tab_sub {
     height: 3.38rem;
     display: flex;
     align-items: center;
@@ -16594,7 +16653,7 @@ nav>div a.nav-item.nav-link.active:after {
 
 
 /*  Brand Page*/
-.serviceBox{
+.serviceBox {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16612,11 +16671,13 @@ nav>div a.nav-item.nav-link.active:after {
     margin-left: -15px;
     margin-top: 1.3rem;
 }
+
 .app-contact {
     margin-top: auto;
     font-size: 8px;
     color: #888;
 }
+
 .service_common_content h3 {
     font-size: 36px;
     opacity: 0.9;
@@ -16625,23 +16686,26 @@ nav>div a.nav-item.nav-link.active:after {
     color: #222;
     margin: 30px 0px;
 }
-.insight-layout{
-background-color: #f7f6f5;
+
+.insight-layout {
+    background-color: #f7f6f5;
 }
 
 /* Client Dashboard */
-.dashboard-container{
+.dashboard-container {
     margin-right: 110px;
 }
 
 .dashboard-container-2 {
     margin-right: 10px;
 }
+
 .cool-link {
     display: inline-block;
     color: #000;
     text-decoration: none;
-    position: relative !important; /* Add position relative for absolute positioning of ::after */
+    position: relative !important;
+    /* Add position relative for absolute positioning of ::after */
 }
 
 .cool-link::after {
@@ -16652,7 +16716,8 @@ background-color: #f7f6f5;
     background: #ae0a46;
     transition: width 0.3s;
     position: absolute;
-    bottom: -3px; /* Adjusted bottom to match your initial margin-top setting */
+    bottom: -3px;
+    /* Adjusted bottom to match your initial margin-top setting */
     left: 0;
 }
 
@@ -16670,14 +16735,16 @@ background-color: #f7f6f5;
     display: inline-block;
     color: #000;
     text-decoration: none;
-    position: relative; /* Add position relative for absolute positioning of ::after */
+    position: relative;
+    /* Add position relative for absolute positioning of ::after */
 }
 
 .button-bottom-animation::after {
     content: "";
     display: block;
     width: 0;
-    height: 3px; /* Adjusted height to match your initial height setting */
+    height: 3px;
+    /* Adjusted height to match your initial height setting */
     background: #ae0a46;
     transition: width 0.3s;
     position: absolute;
@@ -16691,7 +16758,8 @@ background-color: #f7f6f5;
 
 /* Remove duplicated rules */
 .button-bottom-animation:hover::after {
-    margin-top: 0px; /* Adjusted margin-top to match your initial setting */
+    margin-top: 0px;
+    /* Adjusted margin-top to match your initial setting */
 }
 
 
@@ -16808,6 +16876,7 @@ nav>div a.nav-item.nav-link.active {
     border-radius: 0;
     transition: background 0.2s linear;
 }
-.main_blogs{
+
+.main_blogs {
     margin-top: -7rem !important;
 }

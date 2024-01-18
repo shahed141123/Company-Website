@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Image;
+// use Image;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Client\Client;
@@ -13,6 +13,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use App\Notifications\ClientRegister;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Notification;
 

@@ -715,9 +715,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 mt-4 mb-4">
                         <div class="d-flex justify-content-center">
-                            <button class="job_submit_btn rounded-0" type="submit">Submit</button>
+                            <button class="btn-color rounded-0" type="submit">Submit</button>
                         </div>
                     </div>
                 </div>
