@@ -42,27 +42,34 @@
                                         {{-- <div class="new-video">
                                         <div class="icon-small video"></div>
                                     </div> --}}
+                                    <a href="{{ route('product.details', $product->slug) }}">
                                         <div class="image-section">
                                             <img src="{{ file_exists($product->thumbnail) ? asset($product->thumbnail) : asset('upload/no_image.jpg') }}"
                                                 alt="" width="100%" height="180px;">
                                         </div>
+                                    </a>
 
                                         <div class="content-section text-center py-3">
-                                            <a href="{{ route('product.details', $product->slug) }}">
-                                                <p class="pb-0 mb-0 text-muted brandpage_product_title">
+                                            <a href="{{ route('product.details', $product->slug) }}"  class="mb-2">
+                                                <p class="pb-0 mb-0 text-muted brandpage_product_title mb-2" style="height: 30px">
                                                     {{ Str::words($product->name, 25) }}</p>
                                             </a>
-                                            <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
-                                                {{ $product->getCategoryName() }}</span>
-                                            <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
-                                                {{ $product->sku_code }}</span>
-                                            {{-- <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
-                                            {{ $product->product_code }}</span> --}}
-                                            @if ($product->price_status == 'price' && !empty($product->price))
-                                                <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
-                                                    {{ $product->price }}</span>
-                                            @endif
+                                            <div style="height: 40px">
+                                                <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                    {{ $product->getCategoryName() }}</span>
+                                                <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                    {{ $product->sku_code }}</span>
+                                                {{-- <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                {{ $product->product_code }}</span> --}}
+                                                @if ($product->price_status == 'price' && !empty($product->price))
+                                                    <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
+                                                        {{ $product->price }}</span>
+                                                @endif
+                                            </div>
                                             {{-- <span style="font-size: 10px"><i class="fa-solid fa-tag"></i> KR 4 AGILUS</span> --}}
+                                            <div class="d-flex justify-content-center">
+                                                <button class="btn-color special_btn">Ask For Price</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -93,27 +100,34 @@
                                         {{-- <div class="new-video">
                                         <div class="icon-small video"></div>
                                     </div> --}}
+                                    <a href="{{ route('product.details', $product->slug) }}">
                                         <div class="image-section">
                                             <img src="{{ file_exists($product->thumbnail) ? asset($product->thumbnail) : asset('upload/no_image.jpg') }}"
                                                 alt="" width="100%" height="180px;">
                                         </div>
+                                    </a>
 
                                         <div class="content-section text-center py-3">
-                                            <a href="{{ route('product.details', $product->slug) }}">
-                                                <p class="pb-0 mb-0 text-muted brandpage_product_title">
+                                            <a href="{{ route('product.details', $product->slug) }}"  class="mb-2">
+                                                <p class="pb-0 mb-0 text-muted brandpage_product_title mb-2" style="height: 30px">
                                                     {{ Str::words($product->name, 25) }}</p>
                                             </a>
-                                            <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
-                                                {{ $product->getCategoryName() }}</span>
-                                            <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
-                                                {{ $product->sku_code }}</span>
-                                            {{-- <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
-                                            {{ $product->product_code }}</span> --}}
-                                            @if ($product->price_status == 'price' && !empty($product->price))
-                                                <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
-                                                    {{ $product->price }}</span>
-                                            @endif
+                                            <div style="height: 40px">
+                                                <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                    {{ $product->getCategoryName() }}</span>
+                                                <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                    {{ $product->sku_code }}</span>
+                                                {{-- <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
+                                                {{ $product->product_code }}</span> --}}
+                                                @if ($product->price_status == 'price' && !empty($product->price))
+                                                    <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
+                                                        {{ $product->price }}</span>
+                                                @endif
+                                            </div>
                                             {{-- <span style="font-size: 10px"><i class="fa-solid fa-tag"></i> KR 4 AGILUS</span> --}}
+                                            <div class="d-flex justify-content-center">
+                                                <button class="btn-color special_btn">Ask For Price</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

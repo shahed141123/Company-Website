@@ -383,7 +383,11 @@ ul{
     -webkit-transform: rotate(40deg);
     transform: rotate(40deg);
 }
-
+.special_btn {
+    padding: 8px;
+    font-size: 12px;
+    margin-top: 15px;
+}
 /* -------------------------------------------------------------------------- */
 /*                                 Main Header                                */
 /* -------------------------------------------------------------------------- */
@@ -689,7 +693,7 @@ ul{
 }
 
 .step-img img{
-    height: 73px;
+    height: 87px;
 }
 
 #stand-logo {
@@ -2579,12 +2583,7 @@ select:focus-visible {
     font-size: 10px;
 }
 
-.form-select:focus {
-    border-color: none;
-    outline: 0;
-    box-shadow: none;
-    border: 0px;
-}
+
 
 .pdf_btn {
     font-size: 14px;
@@ -3122,12 +3121,12 @@ select:focus-visible {
 
 .brandpage_product_title {
     font-size: 12px;
-    color: #535659;
+    color: #4f555a !important;
 }
 
 .brandpage_product_span {
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 300;
     color: #6f6d6d;
 }
 
@@ -5320,7 +5319,7 @@ tr td:hover {
     border-bottom: 3px solid #ae0a46;
 }
 .step-img {
-    height: 72px;
+    height: 96px;
 }
 .top-bar-bg {
     background: #ae0a46;

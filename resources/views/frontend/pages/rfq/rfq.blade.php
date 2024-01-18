@@ -1,8 +1,26 @@
 @extends('frontend.master')
 @section('content')
     <style>
-        select {
-            display: none !important;
+        #query-rfq {
+            display: none;
+            /* Initially hide both sections */
+        }
+
+        .rfq_box {
+            background-color: #fff;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        }
+
+        .form-select {
+            border-color: #eee;
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem transparent;
+        }
+
+        .form-select:focus {
+            border-color: #eee;
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem transparent;
         }
 
         .dropdown-select {
@@ -33,16 +51,20 @@
             white-space: nowrap;
             width: auto;
 
+
         }
+
 
         .dropdown-select:focus {
             background-color: #fff;
             border: 1px solid #eee;
         }
 
+
         .dropdown-select:hover {
             background-color: #fff;
         }
+
 
         .dropdown-select:active,
         .dropdown-select.open {
@@ -50,6 +72,7 @@
             border-color: #bbb;
             box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) inset;
         }
+
 
         .dropdown-select:after {
             height: 0;
@@ -69,10 +92,12 @@
             top: 50%;
         }
 
+
         .dropdown-select.open:after {
             -webkit-transform: rotate(-180deg);
             transform: rotate(-180deg);
         }
+
 
         .dropdown-select.open .list {
             -webkit-transform: scale(1);
@@ -81,18 +106,22 @@
             pointer-events: auto;
         }
 
+
         .dropdown-select.open .option {
             cursor: pointer;
         }
+
 
         .dropdown-select.wide {
             width: 100%;
         }
 
+
         .dropdown-select.wide .list {
             left: 0 !important;
             right: 0 !important;
         }
+
 
         .dropdown-select .list {
             box-sizing: border-box;
@@ -116,9 +145,11 @@
             border: 1px solid #ddd;
         }
 
+
         .dropdown-select .list:hover .option:not(:hover) {
             background-color: transparent !important;
         }
+
 
         .dropdown-select .dd-search {
             overflow: hidden;
@@ -128,6 +159,7 @@
             margin: 0.5rem;
         }
 
+
         .dropdown-select .dd-searchbox {
             width: 100%;
             border: 1px solid #ae0a46;
@@ -135,13 +167,16 @@
             outline: none;
         }
 
+
         .dropdown-select .dd-searchbox:focus {
             border-color: #ae0a46;
         }
 
+
         .dropdown-select .list ul {
             padding: 0;
         }
+
 
         .dropdown-select .option {
             cursor: default;
@@ -155,19 +190,23 @@
             list-style: none;
         }
 
+
         .dropdown-select .option:hover,
         .dropdown-select .option:focus {
             background-color: #f6f6f6 !important;
         }
+
 
         .dropdown-select .option.selected {
             font-weight: 600;
             color: #ae0a46;
         }
 
+
         .dropdown-select .option.selected:focus {
             background: #f6f6f6;
         }
+
 
         .dropdown-select a {
             color: #aaa;
@@ -175,19 +214,23 @@
             transition: all 0.2s ease-in-out;
         }
 
+
         .dropdown-select a:hover {
             color: #666;
         }
 
+
         #multi_step_form {
             box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
         }
+
 
         #multi_step_form .container #multistep_nav {
             display: flex;
             justify-content: space-between;
             border-bottom: 1px solid #eee;
         }
+
 
         #multi_step_form .container #multistep_nav .progress_holder {
             padding: 20px;
@@ -196,15 +239,26 @@
             background-color: #eee;
         }
 
+        #multi_step_form .container #multistep_nav .progress_holder_custom {
+            padding: 20px;
+            width: 24.5%;
+            text-align: center;
+            background-color: #eee;
+        }
+
+
         #multi_step_form .container #multistep_nav .activated_step {
             background-color: #ae0a46;
             color: white;
         }
 
+
         #multi_step_form .container fieldset.step {
             position: relative;
             padding: 10px;
+            padding-bottom: 30px;
         }
+
 
         #multi_step_form .container fieldset.step .nextStep {
             position: absolute;
@@ -212,7 +266,22 @@
             bottom: 5px;
             padding: 10px;
             width: 100px;
+            color: white !important;
+            background-color: #0000FF !important;
+            border: 1px solid #0000FF !important;
         }
+
+        #multi_step_form .container fieldset.step .nextStep:hover {
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+            padding: 10px;
+            width: 100px;
+            background-color: transparent !important;
+            color: #ae0a46 !important;
+            border: 1px solid #ae0a46 !important;
+        }
+
 
         #multi_step_form .container fieldset.step .prevStep {
             position: absolute;
@@ -222,17 +291,177 @@
             width: 100px;
         }
 
+
         #multi_step_form .container fieldset.step:not(:first-of-type) {
             display: none;
         }
+
 
         .showing-row {
             display: none;
         }
 
+
         #yourFormId {
             display: block;
             /* Initially show the form */
+        }
+
+        @supports (-webkit-appearance: none) or (-moz-appearance: none) {
+            .checkbox-wrapper-13 input[type=checkbox] {
+                --active: #275EFE;
+                --active-inner: #fff;
+                --focus: 2px rgba(39, 94, 254, .3);
+                --border: #BBC1E1;
+                --border-hover: #275EFE;
+                --background: #fff;
+                --disabled: #F6F8FF;
+                --disabled-inner: #E1E6F9;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                height: 21px;
+                outline: none;
+                display: inline-block;
+                vertical-align: top;
+                position: relative;
+                margin: 0;
+                cursor: pointer;
+                border: 1px solid var(--bc, var(--border));
+                background: var(--b, var(--background));
+                transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+            }
+
+            .checkbox-wrapper-13 input[type=checkbox]:after {
+                content: "";
+                display: block;
+                left: 0;
+                top: 0;
+                position: absolute;
+                transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+            }
+
+            .checkbox-wrapper-13 input[type=checkbox]:checked {
+                --b: var(--active);
+                --bc: var(--active);
+                --d-o: .3s;
+                --d-t: .6s;
+                --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+            }
+
+            .checkbox-wrapper-13 input[type=checkbox]:disabled {
+                --b: var(--disabled);
+                cursor: not-allowed;
+                opacity: 0.9;
+            }
+
+            .checkbox-wrapper-13 input[type=checkbox]:disabled:checked {
+                --b: var(--disabled-inner);
+                --bc: var(--border);
+            }
+
+            .checkbox-wrapper-13 input[type=checkbox]:disabled+label {
+                cursor: not-allowed;
+            }
+
+            .checkbox-wrapper-13 input[type=checkbox]:hover:not(:checked):not(:disabled) {
+                --bc: var(--border-hover);
+            }
+
+            .checkbox-wrapper-13 input[type=checkbox]:focus {
+                box-shadow: 0 0 0 var(--focus);
+            }
+
+            .checkbox-wrapper-13 input[type=checkbox]:not(.switch) {
+                width: 21px;
+            }
+
+            .checkbox-wrapper-13 input[type=checkbox]:not(.switch):after {
+                opacity: var(--o, 0);
+            }
+
+            .checkbox-wrapper-13 input[type=checkbox]:not(.switch):checked {
+                --o: 1;
+            }
+
+            .checkbox-wrapper-13 input[type=checkbox]+label {
+                display: inline-block;
+                vertical-align: middle;
+                cursor: pointer;
+                margin-left: 4px;
+            }
+
+            .checkbox-wrapper-13 input[type=checkbox]:not(.switch) {
+                border-radius: 7px;
+            }
+
+            .checkbox-wrapper-13 input[type=checkbox]:not(.switch):after {
+                width: 5px;
+                height: 9px;
+                border: 2px solid var(--active-inner);
+                border-top: 0;
+                border-left: 0;
+                left: 7px;
+                top: 4px;
+                transform: rotate(var(--r, 20deg));
+            }
+
+            .checkbox-wrapper-13 input[type=checkbox]:not(.switch):checked {
+                --r: 43deg;
+            }
+        }
+
+        .checkbox-wrapper-13 * {
+            box-sizing: inherit;
+        }
+
+        .checkbox-wrapper-13 *:before,
+        .checkbox-wrapper-13 *:after {
+            box-sizing: inherit;
+        }
+
+        [type="checkbox"]:checked,
+        [type="checkbox"]:not(:checked) {
+            position: absolute;
+            left: 0px;
+            top: 6px;
+        }
+
+        /* For Multi Select */
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+            background-color: #ae0a46;
+            color: white;
+            border: 1px solid #ae0a46;
+            border-radius: 0px;
+            cursor: default;
+            float: left;
+            margin-right: 5px;
+            margin-top: 4px;
+            padding: 0 5px 4px;
+        }
+
+        .select2-container--default .select2-selection--multiple {
+            background-color: white;
+            border: 1px solid #eee;
+            border-radius: 0px;
+            cursor: text;
+            padding: 0px 0px 6px;
+        }
+
+        .select2-dropdown {
+            background-color: white;
+            border: 0px;
+            border-radius: 0px;
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            left: -100000px;
+            width: 100%;
+            z-index: 1051;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        }
+
+        .form-control {
+            border: 1px solid #eee;
         }
     </style>
     <!--======// Header Title //======-->
@@ -242,94 +471,81 @@
                 alt="NGEN IT All Brands">
         </div>
     </section>
-
     <section>
         <div class="container">
-            <div class="row align-items-center py-4">
-                <div class="col-lg-12 pb-4">
-                    <h2 class="text-center">Make Your RFQ Here !</h2>
-                    <p class="p-0 m-0 text-center">Choose Your RFQ BY:</p>
-                </div>
-                <div class="col-lg-4 col-offset-4 m-auto ">
-                    <form action="">
-                        <select id="rfqSelect" name="search">
-                            <option>Search...</option>
-                            <option value="1">One <i class="fa-solid fa-file-circle-plus"></i></option>
-                            <option value="2">Two <i class="fa-solid fa-file-circle-plus"></i></option>
-                            <option value="3">Three <i class="fa-solid fa-file-circle-plus"></i></option>
-                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                        </select>
-                    </form>
-                </div>
-            </div>
-            <div class="container my-5">
+            <div class="row">
                 <div class="col-lg-8 col-offset-2 m-auto">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="card border-0 p-4" style="background-color: #eee; height: 220px;">
-                                <div class="card-header border-0 bg-transparent d-flex justify-content-center">
-                                    <img width="100px" src="https://i.ibb.co/Tc9HNjK/Asset-4-5x-8.png" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-center text-black" style="font-size: 14px;font-weight: 300;">DESCRIBE
-                                        YOUR PURCHASE PROJECT</p>
-                                </div>
+                    <div class="row gx-3 my-5">
+                        <div class="col-lg-6">
+                            <div class="p-3 rfq_box text-start"
+                                style="background-image: url('https://i.pinimg.com/originals/96/03/b3/9603b3ad189fa4d29a3a7b2a33c5cd45.jpg')">
+                                <a href="javascript:void()" class="custom_rfq"
+                                    onclick="toggleSection('custom-rfq', 'query-rfq')">
+                                    <div class="d-flex justify-content-between">
+                                        <img width="120px" height="70px" src="https://i.ibb.co/zm36Ccz/Asset-6-5x-8.png"
+                                            alt="">
+                                        <div class="ps-4">
+                                            <h6 class="main_color"> RFQ WITH PRODUCT SELECTION</h6>
+                                            <p style="text-align: justify;">RFQ with product selection streamlines
+                                                procurement by offering a user-friendly interface, facilitating efficient
+                                                requests for quotes tailored to specific product requirements.</p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="card border-0 p-4" style="background-color: #eee; height: 220px;">
-                                <div class="card-header border-0 bg-transparent d-flex justify-content-center">
-                                    <img width="100px" src="https://i.ibb.co/RDmjj32/Asset-5-5x-8.png" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-center text-black" style="font-size: 14px;font-weight: 300;">WE SELECT
-                                        THE BEST SUPPLIERS</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="card border-0 p-4" style="background-color: #eee; height: 220px;">
-                                <div class="card-header border-0 bg-transparent d-flex justify-content-center">
-                                    <img width="100px" src="https://i.ibb.co/zm36Ccz/Asset-6-5x-8.png" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-center text-black" style="font-size: 14px;font-weight: 300;">COMPARE
-                                        QUOTATIONS & PURCHASE</p>
-                                </div>
+                        <div class="col-lg-6">
+                            <div class="p-3 rfq_box text-start"
+                                style="background-image: url('https://i.pinimg.com/originals/96/03/b3/9603b3ad189fa4d29a3a7b2a33c5cd45.jpg')">
+                                <a href="javascript:void()" class="query_rfq"
+                                    onclick="toggleSection('query-rfq', 'custom-rfq')">
+                                    <div class="d-flex justify-content-between">
+                                        <img width="120px" height="70px" src="https://i.ibb.co/Tc9HNjK/Asset-4-5x-8.png"
+                                            alt="">
+                                        <div class="ps-4">
+                                            <h6 class="main_color">CUSTOM REQUEST FOR QUOTE</h6>
+                                            <p style="text-align: justify;">Custom Request for Quote empowers users to
+                                                tailor procurement needs, providing a personalized approach to sourcing
+                                                quotes for unique and specialized requirements.</p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row showing-row">
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="custom-rfq">
+                <div class="col-lg-12">
+                    <div class="d-flex justify-content-center">
+                        <div>
+                            <img width="50px" height="30px"
+                                src="https://i.ibb.co/WPZGh6G/free-png-ru-195-340x340.png" alt="">
+                        </div>
+                        <h4 class="text-center mb-5">RFQ WITH PRODUCT SELECTION</h4>
+                    </div>
+                </div>
                 <div class="col-lg-12">
                     <form action="" id="yourFormIdss" action="" method="post" novalidate>
                         <div id="multi_step_form">
                             <div class="container p-0 mb-5">
                                 <div id="multistep_nav">
-                                    <div class="progress_holder">
-                                        Your Needs
+                                    <div class="progress_holder progress_holder_custom">
+                                        Product QUERY
                                     </div>
-                                    <div class="progress_holder">
-                                        Product Details
+                                    <div class="progress_holder progress_holder_custom">
+                                        QUERY DETAILS
                                     </div>
-                                    <div class="progress_holder">
-                                        Company Details
+                                    <div class="progress_holder progress_holder_custom">
+                                        Company DETAILS
                                     </div>
-                                    {{-- <div class="progress_holder">
+                                    <div class="progress_holder progress_holder_custom ">
                                         Finish
-                                    </div> --}}
+                                    </div>
                                 </div>
                                 <fieldset class="step" id="step1">
                                     <div class="container">
@@ -341,177 +557,149 @@
                                                             style="font-size: 35px;"></i>
                                                     </div>
                                                     <div class="">
-                                                        <h5>Chose should you enter complete project details here?</h5>
-                                                        <p>Describing project details will enable suppliers to prepare a
-                                                            proposal perfectly suited to your needs. Your project details
+                                                        <h5>Chose should you enter product query details here?</h5>
+                                                        <p>Describing query details will enable suppliers to prepare a
+                                                            proposal perfectly suited to your needs. Your query details
                                                             remain
                                                             confidential. Only the suppliers we select will have access to
                                                             the
                                                             information.</p>
-                                                        <div>
-                                                            <div class="d-flex">
-                                                                <div>
-                                                                    <p>Describe your project in detail here. Include for
-                                                                        example: the context, your progress, the desired
-                                                                        level
-                                                                        of quality, etc.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="repeater-default">
+                                                    <div data-repeater-list="car" class="drag">
+                                                        <div data-repeater-item="" class="row gx-2 align-items-center me-4">
+                                                            <div class="col-lg-10">
+                                                                <div class="searchInput">
+                                                                    <label class="control-label pb-1">Product Name</label>
+                                                                    <input type="text"
+                                                                        class="form-control form-control-sm"
+                                                                        placeholder="Product"
+                                                                        onkeyup="showSuggestions(event)">
+                                                                    <div class="resultBox">
+                                                                        <ul class="suggestionList" style="display: none;">
+                                                                            <li>Channel</li>
+                                                                            <li>CodingLab</li>
+                                                                            <!-- Add other list items here -->
+                                                                        </ul>
+                                                                    </div>
                                                                 </div>
-                                                                <div id="the-count" class="text-danger">
-                                                                    <span>*</span>
-                                                                    <span id="current">0</span>
-                                                                    <span id="maximum">/ 300</span>
+                                                            </div>
+                                                            <div
+                                                                class="col-lg-2 d-flex justify-content-between align-items-center">
+                                                                <div style="width: 95%">
+                                                                    <label class="control-label pb-1">Quantity</label>
+                                                                    <input type="number" name="qty" value=""
+                                                                        class="form-control form-control-sm">
                                                                 </div>
+
+                                                                <div class="mt-4" style="width: 5%">
+                                                                    <span data-repeater-delete=""
+                                                                        style="
+                                                                            font-size: 18px;
+                                                                            padding: 7.5px;
+                                                                            color: red;
+                                                                            cursor: pointer;">
+                                                                        <i class="fa-solid fa-trash"></i>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-offset-1 col-sm-11">
+                                                            <div class="mt-4">
+                                                                <span class="p-2" data-repeater-create=""
+                                                                    style="background-color: #2882d1;color:#fff; width: 50px; cursor: pointer;">
+                                                                    <i class="fa-solid fa-plus"></i> <span
+                                                                        class="glyphicon glyphicon-plus"></span> Add
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="nextStep btn-color">Next</button>
+                                </fieldset>
+                                <fieldset class="step" id="step2">
+                                    <div class="prevStep btn-color">Prev</div>
+                                    <div class="container pb-4">
+                                        <div class="row mb-4">
                                             <div class="col-lg-12">
-                                                <div class="row pb-4">
-                                                    <div class="col-lg-12 mb-2">
-                                                        <textarea class="form-control" rows="3" name="the-textarea" id="the-textarea" maxlength="300"
-                                                            placeholder="Start Typin..." autofocus></textarea>
+                                                <div class="d-flex p-4 px-0">
+                                                    <div class="me-2">
+                                                        <i class="fa-solid fa-circle-question main_color"
+                                                            style="font-size: 35px;"></i>
                                                     </div>
-                                                    <div class="col-lg-3">
+                                                    <div>
+                                                        <p>Why is it important to enter your company information?</p>
+                                                        <p>Entering precise company information ensures you will receive
+                                                            the quotation.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlInput1"
-                                                                class="form-label">Quantity <span
+                                                                class="form-label">Budget Ammount <span
                                                                     class="text-danger">*</span></label>
-                                                            <input type="number" name="qty" class="form-control"
-                                                                id="exampleFormControlInput1" placeholder="E.g: 5"
+                                                            <input type="number" name="email"
+                                                                class="form-control form-control-sm"
+                                                                id="exampleFormControlInput1" placeholder="Your Budget"
                                                                 required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-3">
+                                                    <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlInput1"
-                                                                class="form-label">Budget<span
+                                                                class="form-label">Closing Date<span
                                                                     class="text-danger">*</span></label>
-                                                            <input type="number" name="budget" class="form-control"
-                                                                id="exampleFormControlInput1" placeholder="E.g: 5,000"
+                                                            <input type="date" name="company_name"
+                                                                class="form-control form-control-sm"
+                                                                id="exampleFormControlInput1" placeholder="Closing Date"
                                                                 required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-3">
+                                                    <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlInput1"
-                                                                class="form-label">Delivery city <span
+                                                                class="form-label">Select Stage<span
                                                                     class="text-danger">*</span></label>
-                                                            <input type="text" name="delivery_city"
-                                                                class="form-control" id="exampleFormControlInput1"
-                                                                placeholder="E.g: London" required>
+                                                            <select class="form-select form-select-sm"
+                                                                aria-label="Default select example">
+                                                                <option selected>Open this select menu</option>
+                                                                <option value="1">Budget Stage</option>
+                                                                <option value="2">Tore Stage</option>
+                                                                <option value="3">RFQ Stage</option>
+                                                            </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-3">
+                                                    <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlInput1"
-                                                                class="form-label">Decision period <span
+                                                                class="form-label">Status<span
                                                                     class="text-danger">*</span></label>
-                                                            <input type="number" name="decision_period"
-                                                                class="form-control" id="exampleFormControlInput1"
-                                                                placeholder="E.g: 2" required>
+                                                            <select class="form-select form-select-sm"
+                                                                aria-label="Default select example">
+                                                                <option selected>Select A Status</option>
+                                                                <option value="1">Quicke</option>
+                                                                <option value="2">Slow Step</option>
+                                                                <option value="3">Normal</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
-                                                        <label for="exampleFormControlInput1"
-                                                                class="form-label">Select Product Category<span
-                                                                    class="text-danger">*</span></label>
-                                                        <select id="rfqSelectsss" name="search">
-                                                            <option>Search...</option>
-                                                            <option value="1">One <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                            <option value="2">Two <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                            <option value="3">Three <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                            <option value="4">Four <i class="fa-solid fa-file-circle-plus"></i></option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="nextStep btn-color">Next</button>
-                                </fieldset>
-                                <fieldset class="step" id="step2">
-                                    <div class="prevStep btn-color">Prev</div>
-                                    <div class="container pb-4">
-                                        <div class="row mb-4">
-                                            <div class="col-lg-12">
-                                                <div class="d-flex p-4 px-0">
-                                                    <div class="me-2">
-                                                        <i class="fa-solid fa-circle-question main_color"
-                                                            style="font-size: 35px;"></i>
-                                                    </div>
-                                                    <div>
-                                                        <p>Why is it important to enter your contact information?</p>
-                                                        <p>Entering precise contact information ensures you will receive
-                                                            the
-                                                            quotation.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1" class="form-label">Your
-                                                                Email <span class="text-danger">*</span></label>
-                                                            <input type="email" name="email" class="form-control"
-                                                                id="exampleFormControlInput1"
-                                                                placeholder="E.g: youremail@mail.com" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1" class="form-label">Your
-                                                                Company Name<span class="text-danger">*</span></label>
-                                                            <input type="text" name="company_name"
-                                                                class="form-control" id="exampleFormControlInput1"
-                                                                placeholder="E.g: company name" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1" class="form-label">Your
-                                                                First Name<span class="text-danger">*</span></label>
-                                                            <input type="text" name="first_name" class="form-control"
-                                                                id="exampleFormControlInput1" placeholder="E.g: Your Name"
-                                                                required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1" class="form-label">Your
-                                                                Last Name<span class="text-danger">*</span></label>
-                                                            <input type="text" name="last_name" class="form-control"
-                                                                id="exampleFormControlInput1"
-                                                                placeholder="E.g: Your Last Name" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1"
-                                                                class="form-label">City<span
-                                                                    class="text-danger">*</span></label>
-                                                            <input type="text" name="city" class="form-control"
-                                                                id="exampleFormControlInput1" placeholder="E.g: City"
-                                                                required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1" class="form-label">Cell
-                                                                Phone<span class="text-danger">*</span></label>
-                                                            <input type="text" name="phone" class="form-control"
-                                                                id="exampleFormControlInput1"
-                                                                placeholder="E.g: Cell Phone" required>
+                                                        <div class="form-check text-start ps-0">
+                                                            <div class="checkbox-wrapper-13">
+                                                                <input id="c1-13" type="checkbox">
+                                                                <label for="c1-13">Would you like to have a brochure
+                                                                    created? Please let me know if you need assistance with
+                                                                    designing a brochure.</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -522,6 +710,69 @@
                                 </fieldset>
                                 <fieldset class="step" id="step3">
                                     <div class="prevStep btn-color">Prev</div>
+                                    <div class="container p-0 pb-4">
+                                        <div class="row m-1 pb-4">
+                                            <div class="col-lg-12">
+                                                <div class="d-flex p-4 px-0">
+                                                    <div class="me-2">
+                                                        <i class="fa-solid fa-circle-question main_color"
+                                                            style="font-size: 35px;"></i>
+                                                    </div>
+                                                    <div>
+                                                        <p>Why is it important to enter your QUERY information?</p>
+                                                        <p>Entering precise QUERY information ensures you will receive
+                                                            the quotation.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group pt-2">
+                                                    <label for="" class="pb-1">Name</label>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        placeholder="Your Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group pt-2">
+                                                    <label for="" class="pb-1">Email</label>
+                                                    <input type="numnber" class="form-control form-control-sm"
+                                                        placeholder="Your Email">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group pt-2">
+                                                    <label for="" class="pb-1">Phone Number</label>
+                                                    <input type="numnber" class="form-control form-control-sm"
+                                                        placeholder="Your Phone Number">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group pt-2">
+                                                    <label for="" class="pb-1">City</label>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        placeholder="Enter City">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group pt-2">
+                                                    <label for="" class="pb-1">Zip Code</label>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        placeholder="Enter Zip Code">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group pt-2">
+                                                    <label for="" class="pb-1">Company Name</label>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        placeholder="Enter Company Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="nextStep btn-color">Next</button>
+                                </fieldset>
+                                <fieldset class="step" id="step4">
+                                    <div class="prevStep btn-color">Prev</div>
                                     <div class="container p-0">
                                         <div class="row">
                                             <div class="col-lg-12 d-flex justify-content-center">
@@ -530,10 +781,12 @@
                                                     alt="">
                                             </div>
                                             <div class="col-lg-12">
+                                                <p>Last Step To Submit.</p>
                                                 <p class="text-center">All fields have been successfully filled up. <br>
                                                     Now, submit the RFQ</p>
                                             </div>
                                             <div class="col-lg-12 d-flex justify-content-end pe-0">
+
 
                                             </div>
                                         </div>
@@ -542,48 +795,41 @@
                                 </fieldset>
                                 {{-- <fieldset class="step" id="step4">
 
+
                                 </fieldset> --}}
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="row">
+            <div class="row" id="query-rfq">
                 <div class="col-lg-12">
-                    <div class="d-flex align-items-center">
-                        <h6 style="width: 15%;">Custom Product RFQ</h6>
-                        <div style="border-top: 1px solid #eee; padding: -2px; width: 75%"></div>
-                        <a href="javascript:void()" class="default-show"
-                            style="border: 1px solid #ae0a46;
-                        text-align: center;
-                        color: #ffff;
-                        padding: 0px 18px;
-                        background: #ae0a46;">Default
-                            RFQ</a>
+                    <div class="d-flex justify-content-center">
+                        <h4 class="text-center mb-5">CUSTOM REQUEST FOR QUOTE</h4>
+                        <div>
+                            <img width="50px" height="30px"
+                                src="https://i.ibb.co/HhKxFBw/131275-up-arrow-free-transparent-image-hq.png"
+                                alt="">
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <form action="" id="yourFormId" action="" method="post" novalidate>
+                    <form action="" id="yourFormIdss" action="" method="post" novalidate>
                         <div id="multi_step_form">
                             <div class="container p-0 mb-5">
                                 <div id="multistep_nav">
-                                    <div class="progress_holder">
-                                        Your Needs
+                                    <div class="progress_holder progress_holder_custom">
+                                        CUSTOM PRODUCT QUERY
                                     </div>
-                                    <div class="progress_holder">
-                                        Product Details
+                                    <div class="progress_holder progress_holder_custom">
+                                        QUERY DETAILS
                                     </div>
-                                    <div class="progress_holder">
-                                        Company Details
+                                    <div class="progress_holder progress_holder_custom">
+                                        COMPANY DETAILS
                                     </div>
-                                    {{-- <div class="progress_holder">
+                                    <div class="progress_holder progress_holder_custom">
                                         Finish
-                                    </div> --}}
+                                    </div>
                                 </div>
                                 <fieldset class="step" id="step1">
                                     <div class="container">
@@ -595,76 +841,52 @@
                                                             style="font-size: 35px;"></i>
                                                     </div>
                                                     <div class="">
-                                                        <h5>Why should you enter complete project details here?</h5>
-                                                        <p>Describing project details will enable suppliers to prepare a
-                                                            proposal perfectly suited to your needs. Your project details
-                                                            remain
-                                                            confidential. Only the suppliers we select will have access to
-                                                            the
-                                                            information.</p>
-                                                        <div>
-                                                            <div class="d-flex">
-                                                                <div>
-                                                                    <p>Describe your project in detail here. Include for
-                                                                        example: the context, your progress, the desired
-                                                                        level
-                                                                        of quality, etc.</p>
-                                                                </div>
-                                                                <div id="the-count" class="text-danger">
-                                                                    <span>*</span>
-                                                                    <span id="current">0</span>
-                                                                    <span id="maximum">/ 300</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <h5>Chose should you enter complete query details here?</h5>
+                                                        <p>Describing query details will enable suppliers to prepare a
+                                                            proposal perfectly suited to your needs. Your query details
+                                                            remain confidential. Only the suppliers we select will have
+                                                            access to
+                                                            the information.</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
-                                                <div class="row pb-4">
-                                                    <div class="col-lg-12 mb-2">
-                                                        <textarea class="form-control" rows="3" name="the-textarea" id="the-textarea" maxlength="300"
-                                                            placeholder="Start Typin..." autofocus></textarea>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <label class="control-label pb-1">Category</label> <br>
+                                                        <select class="multiSelect" multiple="multiple"
+                                                            style="width: 100%;">
+                                                            <option value="option1">Option 1</option>
+                                                            <option value="option2">Option 2</option>
+                                                            <option value="option3">Option 3</option>
+                                                            <!-- Add more options as needed -->
+                                                        </select>
                                                     </div>
-                                                    <div class="col-lg-3">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1"
-                                                                class="form-label">Quantity <span
-                                                                    class="text-danger">*</span></label>
-                                                            <input type="number" name="qty" class="form-control"
-                                                                id="exampleFormControlInput1" placeholder="E.g: 5"
-                                                                required>
-                                                        </div>
+                                                    <div class="col-lg-4">
+                                                        <label class="control-label pb-1">Brand</label> <br>
+                                                        <select class="multiSelect" multiple="multiple"
+                                                            style="width: 100%;">
+                                                            <option value="option1">Option 1</option>
+                                                            <option value="option2">Option 2</option>
+                                                            <option value="option3">Option 3</option>
+                                                            <!-- Add more options as needed -->
+                                                        </select>
                                                     </div>
-                                                    <div class="col-lg-3">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1"
-                                                                class="form-label">Budget<span
-                                                                    class="text-danger">*</span></label>
-                                                            <input type="number" name="budget" class="form-control"
-                                                                id="exampleFormControlInput1" placeholder="E.g: 5,000"
-                                                                required>
-                                                        </div>
+                                                    <div class="col-lg-4">
+                                                        <label class="control-label pb-1">Industry</label> <br>
+                                                        <select class="multiSelect" multiple="multiple"
+                                                            style="width: 100%;">
+                                                            <option value="option1">Option 1</option>
+                                                            <option value="option2">Option 2</option>
+                                                            <option value="option3">Option 3</option>
+                                                            <!-- Add more options as needed -->
+                                                        </select>
                                                     </div>
-                                                    <div class="col-lg-3">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1"
-                                                                class="form-label">Delivery city <span
-                                                                    class="text-danger">*</span></label>
-                                                            <input type="text" name="delivery_city"
-                                                                class="form-control" id="exampleFormControlInput1"
-                                                                placeholder="E.g: London" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1"
-                                                                class="form-label">Decision period <span
-                                                                    class="text-danger">*</span></label>
-                                                            <input type="number" name="decision_period"
-                                                                class="form-control" id="exampleFormControlInput1"
-                                                                placeholder="E.g: 2" required>
-                                                        </div>
+                                                    <div class="col-lg-12 pt-4">
+                                                        <label class="control-label pb-1">Don't Find Suitable Option ?
+                                                            Enter
+                                                            Your Custom Query</label>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -677,72 +899,83 @@
                                     <div class="container pb-4">
                                         <div class="row mb-4">
                                             <div class="col-lg-12">
-                                                <div class="d-flex p-4 px-0">
-                                                    <div class="me-2">
-                                                        <i class="fa-solid fa-circle-question main_color"
-                                                            style="font-size: 35px;"></i>
-                                                    </div>
-                                                    <div>
-                                                        <p>Why is it important to enter your contact information?</p>
-                                                        <p>Entering precise contact information ensures you will receive
-                                                            the
-                                                            quotation.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1" class="form-label">Your
-                                                                Email <span class="text-danger">*</span></label>
-                                                            <input type="email" name="email" class="form-control"
-                                                                id="exampleFormControlInput1"
-                                                                placeholder="E.g: youremail@mail.com" required>
+                                                <div class="row mb-4">
+                                                    <div class="col-lg-12">
+                                                        <div class="d-flex p-4 px-0">
+                                                            <div class="me-2">
+                                                                <i class="fa-solid fa-circle-question main_color"
+                                                                    style="font-size: 35px;"></i>
+                                                            </div>
+                                                            <div>
+                                                                <p>Why is it important to enter your QUERY information?</p>
+                                                                <p>Entering precise QUERY information ensures you will
+                                                                    receive
+                                                                    the quotation.</p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1" class="form-label">Your
-                                                                Company Name<span class="text-danger">*</span></label>
-                                                            <input type="text" name="company_name"
-                                                                class="form-control" id="exampleFormControlInput1"
-                                                                placeholder="E.g: company name" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1" class="form-label">Your
-                                                                First Name<span class="text-danger">*</span></label>
-                                                            <input type="text" name="first_name" class="form-control"
-                                                                id="exampleFormControlInput1" placeholder="E.g: Your Name"
-                                                                required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1" class="form-label">Your
-                                                                Last Name<span class="text-danger">*</span></label>
-                                                            <input type="text" name="last_name" class="form-control"
-                                                                id="exampleFormControlInput1"
-                                                                placeholder="E.g: Your Last Name" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1"
-                                                                class="form-label">City<span
-                                                                    class="text-danger">*</span></label>
-                                                            <input type="text" name="city" class="form-control"
-                                                                id="exampleFormControlInput1" placeholder="E.g: City"
-                                                                required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1" class="form-label">Cell
-                                                                Phone<span class="text-danger">*</span></label>
-                                                            <input type="text" name="phone" class="form-control"
-                                                                id="exampleFormControlInput1"
-                                                                placeholder="E.g: Cell Phone" required>
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="mb-3">
+                                                                    <label for="exampleFormControlInput1"
+                                                                        class="form-label">Budget Ammount <span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="number" name="email"
+                                                                        class="form-control form-control-sm"
+                                                                        id="exampleFormControlInput1"
+                                                                        placeholder="Your Budget" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="mb-3">
+                                                                    <label for="exampleFormControlInput1"
+                                                                        class="form-label">Closing Date<span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="date" name="company_name"
+                                                                        class="form-control form-control-sm"
+                                                                        id="exampleFormControlInput1"
+                                                                        placeholder="Closing Date" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="mb-3">
+                                                                    <label for="exampleFormControlInput1"
+                                                                        class="form-label">Select Stage<span
+                                                                            class="text-danger">*</span></label>
+                                                                    <select class="form-select form-select-sm"
+                                                                        aria-label="Default select example">
+                                                                        <option selected>Open this select menu</option>
+                                                                        <option value="1">Budget Stage</option>
+                                                                        <option value="2">Tore Stage</option>
+                                                                        <option value="3">RFQ Stage</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="mb-3">
+                                                                    <label for="exampleFormControlInput1"
+                                                                        class="form-label">Status<span
+                                                                            class="text-danger">*</span></label>
+                                                                    <select class="form-select form-select-sm"
+                                                                        aria-label="Default select example">
+                                                                        <option selected>Select A Status</option>
+                                                                        <option value="1">Quicke</option>
+                                                                        <option value="2">Slow Step</option>
+                                                                        <option value="3">Normal</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12">
+                                                                <div class="form-check text-start ps-0">
+                                                                    <div class="checkbox-wrapper-13">
+                                                                        <input id="c1-13" type="checkbox">
+                                                                        <label for="c1-13">Would you like to have a
+                                                                            brochure
+                                                                            created? Please let me know if you need
+                                                                            assistance with
+                                                                            designing a brochure.</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -761,10 +994,12 @@
                                                     alt="">
                                             </div>
                                             <div class="col-lg-12">
+                                                <p>Last Step To Submit.</p>
                                                 <p class="text-center">All fields have been successfully filled up. <br>
                                                     Now, submit the RFQ</p>
                                             </div>
                                             <div class="col-lg-12 d-flex justify-content-end pe-0">
+
 
                                             </div>
                                         </div>
@@ -772,6 +1007,7 @@
                                     <button type="submit" class="nextStep btn-color">Submit</button>
                                 </fieldset>
                                 {{-- <fieldset class="step" id="step4">
+
 
                                 </fieldset> --}}
                             </div>
@@ -781,161 +1017,416 @@
             </div>
         </div>
     </section>
-
 @endsection
 
 @section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.repeater/1.2.1/jquery.repeater.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script>
-        // Wait for the document to be ready
+        // Initialize Select2
         $(document).ready(function() {
-            // When the select option changes
-            $('#rfqSelect').change(function() {
-                // If the selected value is not the default
-                if ($(this).val() !== "Search...") {
-                    // Show the showing-row
-                    $('.showing-row').show();
-                    // Hide the form when showing-row is visible
-                    $('#yourFormId').hide();
-                } else {
-                    // Hide the showing-row if the default is selected
-                    $('.showing-row').hide();
-                    // Show the form when showing-row is hidden
-                    $('#yourFormId').show();
-                }
-            });
-
-            // Click event for the "Default RFQ" link
-            $('.default-show').click(function() {
-                // Toggle the visibility of showing-row
-                $('.showing-row').toggle();
-
-                // Toggle the visibility of the form based on showing-row visibility
-                $('#yourFormId').toggle(!$('.showing-row').is(':visible'));
+            $('.multiSelect').select2({
+                placeholder: 'Select Options',
+                allowClear: true
             });
         });
     </script>
-
     <script>
-        function create_custom_dropdowns() {
-            $('select').each(function(i, select) {
-                if (!$(this).next().hasClass('dropdown-select')) {
-                    $(this).after('<div class="dropdown-select wide ' + ($(this).attr('class') || '') +
-                        '" tabindex="0"><span class="current"></span><div class="list"><ul></ul></div></div>');
-                    var dropdown = $(this).next();
-                    var options = $(select).find('option');
-                    var selected = $(this).find('option:selected');
-                    dropdown.find('.current').html(selected.data('display-text') || selected.text());
-                    options.each(function(j, o) {
-                        var display = $(o).data('display-text') || '';
-                        var optionText = $(o).text();
-                        var iconHtml = '<i class="fas fa-file-circle-plus text-end"></i>';
-                        dropdown.find('ul').append('<li class="option ' + ($(o).is(':selected') ?
-                                'selected' : '') + '" data-value="' + $(o).val() +
-                            '" data-display-text="' + display + '">' + optionText + iconHtml + '</li>');
-                    });
+        document.addEventListener('keyup', function(event) {
+            if (event.target.matches('.searchInput input')) {
+                showSuggestions(event.target);
+            }
+        });
+
+        function showSuggestions(inputElement) {
+            let suggestionsList = inputElement.parentElement.querySelector(".suggestionList");
+            let suggestions = suggestionsList.getElementsByTagName("li");
+
+            // Iterate through suggestions and show/hide based on user input
+            for (let i = 0; i < suggestions.length; i++) {
+                let suggestion = suggestions[i].innerText.toLowerCase();
+                if (suggestion.startsWith(inputElement.value.toLowerCase())) {
+                    suggestions[i].style.display = "block";
+                } else {
+                    suggestions[i].style.display = "none";
+                }
+            }
+
+            // Show/hide the suggestion list based on user input
+            if (inputElement.value.trim() !== "") {
+                suggestionsList.style.display = "block";
+            } else {
+                suggestionsList.style.display = "none";
+            }
+
+            // Add click event listener to dynamically generated suggestions
+            suggestionsList.addEventListener('click', function(event) {
+                if (event.target.tagName === 'LI') {
+                    inputElement.value = event.target.innerText;
+                    suggestionsList.style.display = "none";
                 }
             });
-
-            $('.dropdown-select ul').before(
-                '<div class="dd-search"><input id="txtSearchValue" autocomplete="off" onkeyup="filter()" class="dd-searchbox" type="text"></div>'
-            );
         }
 
-        // Event listeners
-
-        // Open/close
-        $(document).on('click', '.dropdown-select', function(event) {
-            if ($(event.target).hasClass('dd-searchbox')) {
-                return;
-            }
-            $('.dropdown-select').not($(this)).removeClass('open');
-            $(this).toggleClass('open');
-            if ($(this).hasClass('open')) {
-                $(this).find('.option').attr('tabindex', 0);
-                $(this).find('.selected').focus();
-            } else {
-                $(this).find('.option').removeAttr('tabindex');
-                $(this).focus();
+        document.addEventListener('click', function(event) {
+            if (!event.target.matches('.suggestionList li') && !event.target.matches('.searchInput input')) {
+                hideAllSuggestions();
             }
         });
 
-        // Close when clicking outside
-        $(document).on('click', function(event) {
-            if ($(event.target).closest('.dropdown-select').length === 0) {
-                $('.dropdown-select').removeClass('open');
-                $('.dropdown-select .option').removeAttr('tabindex');
-            }
-            event.stopPropagation();
-        });
-
-        function filter() {
-            var valThis = $('#txtSearchValue').val();
-            $('.dropdown-select ul > li').each(function() {
-                var text = $(this).text();
-                (text.toLowerCase().indexOf(valThis.toLowerCase()) > -1) ? $(this).show(): $(this).hide();
+        function hideAllSuggestions() {
+            let allSuggestionLists = document.querySelectorAll('.suggestionList');
+            allSuggestionLists.forEach(function(suggestionsList) {
+                suggestionsList.style.display = "none";
             });
-        };
-        // Search
-
-        // Option click
-        $(document).on('click', '.dropdown-select .option', function(event) {
-            $(this).closest('.list').find('.selected').removeClass('selected');
-            $(this).addClass('selected');
-            var text = $(this).data('display-text') || $(this).text();
-            $(this).closest('.dropdown-select').find('.current').text(text);
-            $(this).closest('.dropdown-select').prev('select').val($(this).data('value')).trigger('change');
-        });
-
-        // Keyboard events
-        $(document).on('keydown', '.dropdown-select', function(event) {
-            var focused_option = $($(this).find('.list .option:focus')[0] || $(this).find('.list .option.selected')[
-                0]);
-            // Space or Enter
-            //if (event.keyCode == 32 || event.keyCode == 13) {
-            if (event.keyCode == 13) {
-                if ($(this).hasClass('open')) {
-                    focused_option.trigger('click');
-                } else {
-                    $(this).trigger('click');
-                }
-                return false;
-                // Down
-            } else if (event.keyCode == 40) {
-                if (!$(this).hasClass('open')) {
-                    $(this).trigger('click');
-                } else {
-                    focused_option.next().focus();
-                }
-                return false;
-                // Up
-            } else if (event.keyCode == 38) {
-                if (!$(this).hasClass('open')) {
-                    $(this).trigger('click');
-                } else {
-                    var focused_option = $($(this).find('.list .option:focus')[0] || $(this).find(
-                        '.list .option.selected')[0]);
-                    focused_option.prev().focus();
-                }
-                return false;
-                // Esc
-            } else if (event.keyCode == 27) {
-                if ($(this).hasClass('open')) {
-                    $(this).trigger('click');
-                }
-                return false;
+        }
+    </script>
+    <script>
+        document.addEventListener('keyup', function(event) {
+            if (event.target.matches('.searchInput input')) {
+                showSuggestions(event.target);
             }
         });
 
-        $(document).ready(function() {
-            create_custom_dropdowns();
-        });
-    </script>
+        function showSuggestions(inputElement) {
+            let parentRepeaterItem = inputElement.closest('[data-repeater-item]');
+            let suggestionsList = parentRepeaterItem.querySelector(".suggestionList");
+            let suggestions = suggestionsList.getElementsByTagName("li");
 
+            // Iterate through suggestions and show/hide based on user input
+            for (let i = 0; i < suggestions.length; i++) {
+                let suggestion = suggestions[i].innerText.toLowerCase();
+                if (suggestion.startsWith(inputElement.value.toLowerCase())) {
+                    suggestions[i].style.display = "block";
+                } else {
+                    suggestions[i].style.display = "none";
+                }
+            }
+
+            // Show/hide the suggestion list based on user input
+            if (inputElement.value.trim() !== "") {
+                suggestionsList.style.display = "block";
+            } else {
+                suggestionsList.style.display = "none";
+            }
+
+            // Add click event listener to dynamically generated suggestions
+            suggestionsList.addEventListener('click', function(event) {
+                if (event.target.tagName === 'LI') {
+                    inputElement.value = event.target.innerText;
+                    suggestionsList.style.display = "none";
+                }
+            });
+        }
+
+        document.addEventListener('click', function(event) {
+            if (!event.target.matches('.suggestionList li') && !event.target.matches('.searchInput input')) {
+                hideAllSuggestions();
+            }
+        });
+
+        function hideAllSuggestions() {
+            let allSuggestionLists = document.querySelectorAll('.suggestionList');
+            allSuggestionLists.forEach(function(suggestionsList) {
+                suggestionsList.style.display = "none";
+            });
+        }
+    </script>
+    {{-- Select With Search --}}
+    <script>
+        // SETUP
+        // /////////////////////////////////
+        // assign names to things we'll need to use more than once
+        const csSelector = document.querySelector('#myCustomSelect') // the input, svg and ul as a group
+        const csInput = csSelector.querySelector('input')
+        const csList = csSelector.querySelector('ul')
+        const csOptions = csList.querySelectorAll('li')
+        const csIcons = csSelector.querySelectorAll('svg')
+        const csStatus = document.querySelector('#custom-select-status')
+        const aOptions = Array.from(csOptions)
+
+        // when JS is loaded, set up our starting point
+        // if JS fails to load, the custom select remains a plain text input
+        // create and set start point for the state tracker
+        let csState = "initial"
+        // inform assistive tech (screen readers) of the names & roles of the elements in our group
+        csSelector.setAttribute('role', 'combobox')
+        csSelector.setAttribute('aria-haspopup', 'listbox')
+        csSelector.setAttribute('aria-owns', 'custom-select-list') // container owns the list...
+        csInput.setAttribute('aria-autocomplete', 'both')
+        csInput.setAttribute('aria-controls', 'custom-select-list') // ...but the input controls it
+        csList.setAttribute('role', 'listbox')
+        csOptions.forEach(function(option) {
+            option.setAttribute('role', 'option')
+            option.setAttribute('tabindex', "-1") // make li elements keyboard focusable by script only
+        })
+        // set up a message to keep screen reader users informed of what the custom input is for/doing
+        csStatus.textContent = csOptions.length + " options available. Arrow down to browse or start typing to filter.";
+        setState('initial');
+
+        // EVENTS
+        // /////////////////////////////////
+        csSelector.addEventListener('click', function(e) {
+            const currentFocus = findFocus()
+            switch (csState) {
+                case 'initial': // if state = initial, toggleOpen and set state to opened
+                    toggleList('Open')
+                    setState('opened')
+                    break
+                case 'opened':
+                    // if state = opened and focus on input, toggleShut and set state to initial
+                    if (currentFocus === csInput) {
+                        toggleList('Shut')
+                        setState('initial')
+                    } else if (currentFocus.tagName === 'LI') {
+                        // if state = opened and focus on list, makeChoice, toggleShut and set state to closed
+                        makeChoice(currentFocus)
+                        toggleList('Shut')
+                        setState('closed')
+                    }
+                    break
+                case 'filtered':
+                    // if state = filtered and focus on list, makeChoice and set state to closed
+                    if (currentFocus.tagName === 'LI') {
+                        makeChoice(currentFocus)
+                        toggleList('Shut')
+                        setState('closed')
+                    } // if state = filtered and focus on input, do nothing (wait for next user input)
+
+                    break
+                case 'closed': // if state = closed, toggleOpen and set state to filtered? or opened?
+                    toggleList('Open')
+                    setState('filtered')
+                    break
+            }
+        })
+
+        csSelector.addEventListener('keyup', function(e) {
+            doKeyAction(e.key)
+        })
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('#myCustomSelect')) {
+                // click outside of the custom group
+                toggleList('Shut')
+                setState('initial')
+            }
+        })
+
+        // FUNCTIONS
+        // /////////////////////////////////
+
+        function toggleList(whichWay) {
+            if (whichWay === 'Open') {
+                csList.classList.remove('hidden-all')
+                csSelector.setAttribute('aria-expanded', 'true')
+            } else { // === 'Shut'
+                csList.classList.add('hidden-all')
+                csSelector.setAttribute('aria-expanded', 'false')
+            }
+        }
+
+        function findFocus() {
+            const focusPoint = document.activeElement
+            return focusPoint
+        }
+
+        function moveFocus(fromHere, toThere) {
+            // grab the currently showing options, which might have been filtered
+            const aCurrentOptions = aOptions.filter(function(option) {
+                if (option.style.display === '') {
+                    return true
+                }
+            })
+            // don't move if all options have been filtered out
+            if (aCurrentOptions.length === 0) {
+                return
+            }
+            if (toThere === 'input') {
+                csInput.focus()
+            }
+            // possible start points
+            switch (fromHere) {
+                case csInput:
+                    if (toThere === 'forward') {
+                        aCurrentOptions[0].focus()
+                    } else if (toThere === 'back') {
+                        aCurrentOptions[aCurrentOptions.length - 1].focus()
+                    }
+                    break
+                case csOptions[0]:
+                    if (toThere === 'forward') {
+                        aCurrentOptions[1].focus()
+                    } else if (toThere === 'back') {
+                        csInput.focus()
+                    }
+                    break
+                case csOptions[csOptions.length - 1]:
+                    if (toThere === 'forward') {
+                        aCurrentOptions[0].focus()
+                    } else if (toThere === 'back') {
+                        aCurrentOptions[aCurrentOptions.length - 2].focus()
+                    }
+                    break
+                default: // middle list or filtered items
+                    const currentItem = findFocus()
+                    const whichOne = aCurrentOptions.indexOf(currentItem)
+                    if (toThere === 'forward') {
+                        const nextOne = aCurrentOptions[whichOne + 1]
+                        nextOne.focus()
+                    } else if (toThere === 'back' && whichOne > 0) {
+                        const previousOne = aCurrentOptions[whichOne - 1]
+                        previousOne.focus()
+                    } else { // if whichOne = 0
+                        csInput.focus()
+                    }
+                    break
+            }
+        }
+
+        function doFilter() {
+            const terms = csInput.value
+            const aFilteredOptions = aOptions.filter(function(option) {
+                if (option.innerText.toUpperCase().startsWith(terms.toUpperCase())) {
+                    return true
+                }
+            })
+            csOptions.forEach(option => option.style.display = "none")
+            aFilteredOptions.forEach(function(option) {
+                option.style.display = ""
+            })
+            setState('filtered')
+            updateStatus(aFilteredOptions.length)
+        }
+
+        function updateStatus(howMany) {
+            csStatus.textContent = howMany + " options available."
+        }
+
+        function makeChoice(whichOption) {
+            const optionTitle = whichOption.querySelector('strong')
+            csInput.value = optionTitle.textContent
+            moveFocus(document.activeElement, 'input')
+            // update aria-selected, if using
+        }
+
+        function setState(newState) {
+            switch (newState) {
+                case 'initial':
+                    csState = 'initial'
+                    break
+                case 'opened':
+                    csState = 'opened'
+                    break
+                case 'filtered':
+                    csState = 'filtered'
+                    break
+                case 'closed':
+                    csState = 'closed'
+            }
+            // console.log({csState})
+        }
+
+        function doKeyAction(whichKey) {
+            const currentFocus = findFocus()
+            switch (whichKey) {
+                case 'Enter':
+                    if (csState === 'initial') {
+                        // if state = initial, toggleOpen and set state to opened
+                        toggleList('Open')
+                        setState('opened')
+                    } else if (csState === 'opened' && currentFocus.tagName === 'LI') {
+                        // if state = opened and focus on list, makeChoice and set state to closed
+                        makeChoice(currentFocus)
+                        toggleList('Shut')
+                        setState('closed')
+                    } else if (csState === 'opened' && currentFocus === csInput) {
+                        // if state = opened and focus on input, close it
+                        toggleList('Shut')
+                        setState('closed')
+                    } else if (csState === 'filtered' && currentFocus.tagName === 'LI') {
+                        // if state = filtered and focus on list, makeChoice and set state to closed
+                        makeChoice(currentFocus)
+                        toggleList('Shut')
+                        setState('closed')
+                    } else if (csState === 'filtered' && currentFocus === csInput) {
+                        // if state = filtered and focus on input, set state to opened
+                        toggleList('Open')
+                        setState('opened')
+                    } else { // i.e. csState is closed, or csState is opened/filtered but other focus point?
+                        // if state = closed, set state to filtered? i.e. open but keep existing input?
+                        toggleList('Open')
+                        setState('filtered')
+                    }
+                    break
+
+                case 'Escape':
+                    // if state = initial, do nothing
+                    // if state = opened or filtered, set state to initial
+                    // if state = closed, do nothing
+                    if (csState === 'opened' || csState === 'filtered') {
+                        toggleList('Shut')
+                        setState('initial')
+                    }
+                    break
+
+                case 'ArrowDown':
+                    if (csState === 'initial' || csState === 'closed') {
+                        // if state = initial or closed, set state to opened and moveFocus to first
+                        toggleList('Open')
+                        moveFocus(csInput, 'forward')
+                        setState('opened')
+                    } else {
+                        // if state = opened and focus on input, moveFocus to first
+                        // if state = opened and focus on list, moveFocus to next/first
+                        // if state = filtered and focus on input, moveFocus to first
+                        // if state = filtered and focus on list, moveFocus to next/first
+                        toggleList('Open')
+                        moveFocus(currentFocus, 'forward')
+                    }
+                    break
+                case 'ArrowUp':
+                    if (csState === 'initial' || csState === 'closed') {
+                        // if state = initial, set state to opened and moveFocus to last
+                        // if state = closed, set state to opened and moveFocus to last
+                        toggleList('Open')
+                        moveFocus(csInput, 'back')
+                        setState('opened')
+                    } else {
+                        // if state = opened and focus on input, moveFocus to last
+                        // if state = opened and focus on list, moveFocus to prev/last
+                        // if state = filtered and focus on input, moveFocus to last
+                        // if state = filtered and focus on list, moveFocus to prev/last
+                        moveFocus(currentFocus, 'back')
+                    }
+                    break
+                default:
+                    if (csState === 'initial') {
+                        // if state = initial, toggle open, doFilter and set state to filtered
+                        toggleList('Open')
+                        doFilter()
+                        setState('filtered')
+                    } else if (csState === 'opened') {
+                        // if state = opened, doFilter and set state to filtered
+                        doFilter()
+                        setState('filtered')
+                    } else if (csState === 'closed') {
+                        // if state = closed, doFilter and set state to filtered
+                        doFilter()
+                        setState('filtered')
+                    } else { // already filtered
+                        doFilter()
+                    }
+                    break
+            }
+        }
+    </script>
     <script>
         // For Step Form
         // start //
         $('.progress_holder:nth-child(1)').addClass('activated_step');
+
 
         // Manage next and previous buttons //
         $(".nextStep").click(function() {
@@ -960,9 +1451,9 @@
                 if ($('fieldset.current').attr('id') == 'step3') {
                     $('.progress_holder:nth-child(3)').addClass('activated_step');
                 }
-                // if ($('fieldset.current').attr('id') == 'step4') {
-                //     $('.progress_holder:nth-child(4)').addClass('activated_step');
-                // }
+                if ($('fieldset.current').attr('id') == 'step4') {
+                    $('.progress_holder:nth-child(4)').addClass('activated_step');
+                }
                 if ($('fieldset.current').attr('id') == 'step5') {
                     $('.progress_holder:nth-child(5)').addClass('activated_step');
                 }
@@ -977,6 +1468,7 @@
             //hide the current fieldset with style
             current_fs.fadeOut(0, 'linear');
 
+
             if ($(previous_fs).attr('id') == 'step1') {
                 $('.progress_holder:nth-child(2)').removeClass('activated_step');
             }
@@ -986,49 +1478,38 @@
             if ($(previous_fs).attr('id') == 'step3') {
                 $('.progress_holder:nth-child(4)').removeClass('activated_step');
             }
-            //if ($(previous_fs).attr('id') == 'step4') {
-            //  $('.progress_holder:nth-child(5)').removeClass('activated_step');
-            // }
+            if ($(previous_fs).attr('id') == 'step4') {
+                $('.progress_holder:nth-child(5)').removeClass('activated_step');
+            }
         });
     </script>
-    {{-- For Text Counting Max Length 300 --}}
     <script>
-        $('textarea').keyup(function() {
-
-            var characterCount = $(this).val().length,
-                current = $('#current'),
-                maximum = $('#maximum'),
-                theCount = $('#the-count');
-
-            current.text(characterCount);
-
-
-            /*This isn't entirely necessary, just playin around*/
-            if (characterCount < 70) {
-                current.css('color', '#666');
-            }
-            if (characterCount > 70 && characterCount < 90) {
-                current.css('color', '#6d5555');
-            }
-            if (characterCount > 90 && characterCount < 100) {
-                current.css('color', '#793535');
-            }
-            if (characterCount > 100 && characterCount < 120) {
-                current.css('color', '#841c1c');
-            }
-            if (characterCount > 120 && characterCount < 139) {
-                current.css('color', '#8f0001');
-            }
-
-            if (characterCount >= 140) {
-                maximum.css('color', '#8f0001');
-                current.css('color', '#8f0001');
-                theCount.css('font-weight', 'bold');
-            } else {
-                maximum.css('color', '#666');
-                theCount.css('font-weight', 'normal');
-            }
+        var repeater = $('.repeater-default').repeater({
+            initval: 1,
         });
-    </script>
 
+
+        jQuery(".drag").sortable({
+            axis: "y",
+            cursor: 'pointer',
+            opacity: 0.5,
+            placeholder: "row-dragging",
+            delay: 150,
+            update: function(event, ui) {
+                console.log('repeaterVal');
+                console.log(repeater.repeaterVal());
+                console.log('serializeArray');
+                console.log($('form').serializeArray());
+            }
+        }).disableSelection();
+    </script>
+    <script>
+        function toggleSection(showId, hideId) {
+            // Show the section with the specified ID
+            document.getElementById(showId).style.display = 'block';
+
+            // Hide the section with the other ID
+            document.getElementById(hideId).style.display = 'none';
+        }
+    </script>
 @endsection
