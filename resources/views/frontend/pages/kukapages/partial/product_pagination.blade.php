@@ -2,7 +2,7 @@
     @foreach ($products as $product)
         <div class="custom-col-5 col-sm-6 col-md-4 brand_prduct">
             <div class="card rounded-0 border-0" style="box-shadow: var(--custom-shadow)">
-                <div class="card-body" style="height:21rem;">
+                <div class="card-body" style="height:23rem;">
                     {{-- <div class="new-video">
                         <div class="icon-small video"></div>
                     </div> --}}
@@ -14,10 +14,11 @@
                     </a>
 
                     <div class="content-section text-center py-3">
-                        <a href="{{ route('product.details', $product->slug) }}"  class="mb-2">
-                            <p class="pb-0 mb-0 text-muted brandpage_product_title mb-2" style="height: 30px">{{ Str::words($product->name, 25) }}</p>
+                        <a href="{{ route('product.details', $product->slug) }}" class="mb-2">
+                            <p class="pb-0 mb-0 text-muted brandpage_product_title mb-2">
+                                {{ Str::words($product->name, 35) }}</p>
                         </a>
-                        <div style="height: 40px">
+                        <div >
                             <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
                                 {{ $product->getCategoryName() }}</span>
                             <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
@@ -30,9 +31,27 @@
                             @endif
                         </div>
                         {{-- <span style="font-size: 10px"><i class="fa-solid fa-tag"></i> KR 4 AGILUS</span> --}}
-                        <div class="d-flex justify-content-center">
-                            <button class="btn-color special_btn">Ask For Price</button>
-                        </div>
+                        @if ($product->rfq == 1)
+                            <div class="d-flex justify-content-center">
+                                <button class="btn-color special_btn" data-bs-toggle="modal"
+                                    data-bs-target="#rfq{{ $product->id }}">Ask For Price</button>
+                            </div>
+                        @elseif ($product->price_status && $product->price_status == 'rfq')
+                            <div class="d-flex justify-content-center">
+                                <button class="btn-color special_btn" data-bs-toggle="modal"
+                                    data-bs-target="#rfq{{ $product->id }}">Ask For Price</button>
+                            </div>
+                        @elseif ($product->price_status && $product->price_status == 'offer_price')
+                            <div class="d-flex justify-content-center">
+                                <button class="btn-color special_btn" data-bs-toggle="modal"
+                                    data-bs-target="#rfq{{ $product->id }}">Your Price</button>
+                            </div>
+                        @else
+                            <div class="d-flex justify-content-center" class="cart_button{{ $product->id }}">
+                                <button class="btn-color special_btn add_to_cart" data-id="{{ $product->id }}"
+                                    data-name="{{ $product->name }}" data-quantity="1">Add to Cart</button>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

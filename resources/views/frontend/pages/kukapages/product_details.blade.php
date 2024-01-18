@@ -432,23 +432,24 @@
                                 <div class="custom-col-5 col-sm-6 col-md-4 px-4">
                                     <div class="card rounded-0 border-0 m-2">
                                         <div class="card-body"
-                                            style="height:22rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+                                            style="height:23rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                                             {{-- <div class="new-video">
                                                 <div class="icon-small video"></div>
                                             </div> --}}
-                                            <a href="{{ route('product.details', $product->slug) }}">
+                                            <a href="{{ route('product.details', $brand_product->slug) }}">
                                                 <div class="image-section">
-                                                    <img src="{{ file_exists($product->thumbnail) ? asset($product->thumbnail) : asset('upload/no_image.jpg') }}"
+                                                    <img src="{{ file_exists($brand_product->thumbnail) ? asset($brand_product->thumbnail) : asset('upload/no_image.jpg') }}"
                                                         alt="" width="100%" height="180px;">
                                                 </div>
                                             </a>
 
                                             <div class="content-section text-center py-3 px-2">
-                                                <a href="{{ route('product.details', $brand_product->slug) }}"  class="mb-2">
-                                                    <p class="pb-0 mb-0 text-muted brandpage_product_title mb-2" style="height: 30px">
-                                                        {{ Str::limit($brand_product->name, 85) }}</p>
+                                                <a href="{{ route('product.details', $brand_product->slug) }}"
+                                                    class="mb-2">
+                                                    <p class="pb-0 mb-0 text-muted brandpage_product_title mb-2">
+                                                        {{ Str::words($brand_product->name, 35) }}</p>
                                                 </a>
-                                                <div style="height: 40px">
+                                                <div>
                                                     <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
                                                         {{ $brand_product->getBrandName() }}</span>
                                                     <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
@@ -458,14 +459,38 @@
                                                     <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
                                                         {{ $brand_product->product_code }}</span>
                                                     @if ($brand_product->price_status == 'price' && !empty($brand_product->price))
-                                                        <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
+                                                        <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i>
+                                                            USD
                                                             {{ $brand_product->price }}</span>
                                                     @endif
                                                 </div>
                                                 {{-- <span style="font-size: 10px"><i class="fa-solid fa-tag"></i> KR 4 AGILUS</span> --}}
-                                                <div class="d-flex justify-content-center">
-                                                    <button class="btn-color special_btn">Ask For Price</button>
-                                                </div>
+                                                @if ($brand_product->rfq == 1)
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn-color special_btn" data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $brand_product->id }}">Ask For
+                                                            Price</button>
+                                                    </div>
+                                                @elseif ($brand_product->price_status && $brand_product->price_status == 'rfq')
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn-color special_btn" data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $brand_product->id }}">Ask For
+                                                            Price</button>
+                                                    </div>
+                                                @elseif ($brand_product->price_status && $brand_product->price_status == 'offer_price')
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn-color special_btn" data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $brand_product->id }}">Your Price</button>
+                                                    </div>
+                                                @else
+                                                    <div class="d-flex justify-content-center"
+                                                        class="cart_button{{ $brand_product->id }}">
+                                                        <button class="btn-color special_btn add_to_cart"
+                                                            data-id="{{ $brand_product->id }}"
+                                                            data-name="{{ $brand_product->name }}" data-quantity="1">Add to
+                                                            Cart</button>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -492,7 +517,7 @@
                                 <div class="custom-col-5 col-sm-6 col-md-4 px-4">
                                     <div class="card rounded-0 border-0 m-2">
                                         <div class="card-body"
-                                            style="height:22rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+                                            style="height:23rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                                             {{-- <div class="new-video">
                                                 <div class="icon-small video"></div>
                                             </div> --}}
@@ -505,10 +530,10 @@
 
                                             <div class="content-section text-center py-3 px-2">
                                                 <a href="{{ route('product.details', $product->slug) }}" class="mb-2">
-                                                    <p class="pb-0 mb-0 text-muted brandpage_product_title mb-2" style="height: 30px">
-                                                        {{ Str::limit($product->name, 85) }}</p>
+                                                    <p class="pb-0 mb-0 text-muted brandpage_product_title mb-2">
+                                                        {{ Str::words($product->name, 15) }}</p>
                                                 </a>
-                                                <div style="height: 40px">
+                                                <div>
                                                     <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
                                                         {{ $product->getBrandName() }}</span>
                                                     <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
@@ -518,14 +543,38 @@
                                                     <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
                                                         {{ $product->product_code }}</span>
                                                     @if ($product->price_status == 'price' && !empty($product->price))
-                                                        <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i> USD
+                                                        <span style="font-size: 14px"><i class="fa-solid fa-tag ms-2"></i>
+                                                            USD
                                                             {{ $product->price }}</span>
                                                     @endif
                                                 </div>
                                                 {{-- <span style="font-size: 10px"><i class="fa-solid fa-tag"></i> KR 4 AGILUS</span> --}}
-                                                <div class="d-flex justify-content-center">
-                                                    <button class="btn-color special_btn">Ask For Price</button>
-                                                </div>
+                                                @if ($product->rfq == 1)
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn-color special_btn" data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $product->id }}">Ask For
+                                                            Price</button>
+                                                    </div>
+                                                @elseif ($product->price_status && $product->price_status == 'rfq')
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn-color special_btn" data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $product->id }}">Ask For
+                                                            Price</button>
+                                                    </div>
+                                                @elseif ($product->price_status && $product->price_status == 'offer_price')
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn-color special_btn" data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $product->id }}">Your Price</button>
+                                                    </div>
+                                                @else
+                                                    <div class="d-flex justify-content-center"
+                                                        class="cart_button{{ $product->id }}">
+                                                        <button class="btn-color special_btn add_to_cart"
+                                                            data-id="{{ $product->id }}"
+                                                            data-name="{{ $product->name }}" data-quantity="1">Add to
+                                                            Cart</button>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -957,7 +1006,7 @@
     </div>
 </section>
 <!-- left modal -->
-
+@include('frontend.pages.home.rfq_modal')
 <!-- modal -->
 
 <div class="modal fade" id="rfq{{ $sproduct->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -1213,10 +1262,10 @@
                                                 placeholder="Your Message"></textarea>
                                         </div>
                                         <div class="col-lg-12 mb-4">
-                                            <div class="form-check border-0"
-                                                style="position: relative; left: 20px;">
+                                            <div class="form-check border-0" style="position: relative; left: 20px;">
                                                 <input class="form-check-input" type="checkbox" value="1"
-                                                    id="flexCheckDefault" name="call" placeholder="Call Me" style="left: 20px;"/>
+                                                    id="flexCheckDefault" name="call" placeholder="Call Me"
+                                                    style="left: 20px;" />
                                                 <label class="form-check-label" for="flexCheckDefault"> Call Me
                                                 </label>
                                             </div>

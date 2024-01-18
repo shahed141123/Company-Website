@@ -580,8 +580,9 @@
                                                                         onkeyup="showSuggestions(event)">
                                                                     <div class="resultBox">
                                                                         <ul class="suggestionList" style="display: none;">
-                                                                            <li>Channel</li>
-                                                                            <li>CodingLab</li>
+                                                                            @foreach ($products as $product)
+                                                                                <li>{{$product->name}}</li>
+                                                                            @endforeach
                                                                             <!-- Add other list items here -->
                                                                         </ul>
                                                                     </div>
@@ -856,9 +857,9 @@
                                                         <label class="control-label pb-1">Category</label> <br>
                                                         <select class="multiSelect" multiple="multiple"
                                                             style="width: 100%;">
-                                                            <option value="option1">Option 1</option>
-                                                            <option value="option2">Option 2</option>
-                                                            <option value="option3">Option 3</option>
+                                                            @foreach ($categorys as $category)
+                                                                <option value="{{$category->id}}">{{$category->title}}</option>
+                                                            @endforeach
                                                             <!-- Add more options as needed -->
                                                         </select>
                                                     </div>
@@ -866,9 +867,9 @@
                                                         <label class="control-label pb-1">Brand</label> <br>
                                                         <select class="multiSelect" multiple="multiple"
                                                             style="width: 100%;">
-                                                            <option value="option1">Option 1</option>
-                                                            <option value="option2">Option 2</option>
-                                                            <option value="option3">Option 3</option>
+                                                            @foreach ($brands as $brand)
+                                                                <option value="{{$brand->id}}">{{$brand->title}}</option>
+                                                            @endforeach
                                                             <!-- Add more options as needed -->
                                                         </select>
                                                     </div>
@@ -876,9 +877,9 @@
                                                         <label class="control-label pb-1">Industry</label> <br>
                                                         <select class="multiSelect" multiple="multiple"
                                                             style="width: 100%;">
-                                                            <option value="option1">Option 1</option>
-                                                            <option value="option2">Option 2</option>
-                                                            <option value="option3">Option 3</option>
+                                                            @foreach ($industrys as $industry)
+                                                                <option value="{{$industry->id}}">{{$industry->title}}</option>
+                                                            @endforeach
                                                             <!-- Add more options as needed -->
                                                         </select>
                                                     </div>

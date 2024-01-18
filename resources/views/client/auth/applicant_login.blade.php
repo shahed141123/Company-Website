@@ -17,7 +17,7 @@
                         <span class="text-danger text-start p-0 m-0 email_validation" style="display: none;">Please input
                             valid email</span>
                         <input class="mt-3" name="password" type="password" placeholder="Password" required />
-                        <i class="fas fa-eye transform-v-center view-password"></i>
+                        <i class="fas fa-eye transform-v-center view-password viewlogin-password"></i>
                         <h6 class="mt-4">Don't Have An Account ? <a href="javascript:void(0);"
                                 class="mb-3 mt-2 main_color" id="signUp">Register Now</a></h6>
 

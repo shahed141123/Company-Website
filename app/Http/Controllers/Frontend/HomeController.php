@@ -889,6 +889,10 @@ class HomeController extends Controller
     public function rfqCreate(Request $request)
     {
         $data['sales_mans'] = User::where('role', 'sales')->select('users.id', 'users.name')->get();
+        $data['products'] = Product::where('product_status', 'product')->select('products.id', 'products.name')->get();
+        $data['brands'] = Brand::get(['id','title']);
+        $data['categorys'] = Category::get(['id','title']);
+        $data['industrys'] = Industry::get(['id','title']);
         return view('frontend.pages.rfq.rfq', $data);
     }
 

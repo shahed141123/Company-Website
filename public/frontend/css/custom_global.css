@@ -698,13 +698,14 @@ ul {
 
 .step-img {
     position: relative;
-    top: -11px;
+    top: -15px;
     left: -1.25rem;
     right: 0px;
 }
 
 .step-img img {
-    height: 73px;
+    /* height: 73px; */
+    height: 90px;
 }
 
 #stand-logo {
@@ -3141,7 +3142,9 @@ select:focus-visible {
 
 .brandpage_product_title {
     font-size: 12px;
-    color: #4f555a !important;
+    line-height: 1.6;
+    color: #0e0e0e !important;
+    height: 3.5rem;
 }
 
 .brandpage_product_span {
@@ -4681,7 +4684,9 @@ tr td:hover {
     position: relative;
     left: 15.5rem;
 }
-
+.viewlogin-password{
+    left: 9.5rem;
+}
 #partnerLoginForm {
     height: 26rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
