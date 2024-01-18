@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Image;
+use Helper;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Admin\Country;
@@ -63,34 +64,33 @@ class EmployeeController extends Controller
         $filePathManagingDirectorSign = storage_path('app/public/employee/managingDirectorSign/');
 
         if (!empty($mainFilePhoto)) {
-            $globalFunPhoto  = customUpload($mainFilePhoto, $filePathPhoto);
+            $globalFunPhoto  = Helper::customUpload($mainFilePhoto, $filePathPhoto);
         } else {
             $globalFunPhoto = ['status' => 0];
         }
         if (!empty($mainFileSign)) {
-            $globalFunSign  = customUpload($mainFileSign, $filePathSign);
+            $globalFunSign  = Helper::customUpload($mainFileSign, $filePathSign);
         } else {
             $globalFunSign = ['status' => 0];
         }
         if (!empty($mainFileCeoSign)) {
-            $globalFunCeoSign  = customUpload($mainFileCeoSign, $filePathCeoSign);
+            $globalFunCeoSign  = Helper::customUpload($mainFileCeoSign, $filePathCeoSign);
         } else {
             $globalFunCeoSign = ['status' => 0];
         }
         if (!empty($mainFileOperationDirectorSign)) {
-            $globalFunOperationDirectorSign  = customUpload($mainFileOperationDirectorSign, $filePathOperationDirectorSign);
+            $globalFunOperationDirectorSign  = Helper::customUpload($mainFileOperationDirectorSign, $filePathOperationDirectorSign);
         } else {
             $globalFunOperationDirectorSign = ['status' => 0];
         }
         if (!empty($mainFileManagingDirectorSign)) {
-            $globalFunManagingDirectorSign  = customUpload($mainFileManagingDirectorSign, $filePathManagingDirectorSign);
+            $globalFunManagingDirectorSign  = Helper::customUpload($mainFileManagingDirectorSign, $filePathManagingDirectorSign);
         } else {
             $globalFunManagingDirectorSign = ['status' => 0];
         }
 
-        Admin::create([
-            'country_id'                                    => $request->country_id,
-            'employee_department_id'                        => $request->employee_department_id,
+        User::create([
+            'department_id'                        => $request->department_id,
             'supervisor_id'                                 => $request->supervisor_id,
             'name'                                          => $request->name,
             'username'                                      => $request->username,
@@ -102,11 +102,11 @@ class EmployeeController extends Controller
             'city'                                          => $request->city,
             'postal'                                        => $request->postal,
             'last_seen'                                     => $request->last_seen,
-            'role'                                          => json_encode($request->role),
+            'role'                                          => $request->role,
             'department'                                    => json_encode($request->department),
             'status'                                        => 'active',
             'password'                                      => Hash::make($request->password),
-            'employee_category_id'                          => $request->employee_category_id,
+            'category_id'                          => $request->category_id,
             'employee_id'                                   => $request->employee_id,
             'mobile'                                        => $request->mobile,
             'total_years_of_job_experience'                 => $request->total_years_of_job_experience,
@@ -200,6 +200,7 @@ class EmployeeController extends Controller
             'acknowledgement'                               => $request->acknowledgement,
 
         ]);
+        Toastr::success('Data has been saved successfully!');
         return redirect()->back()->with('success', 'Data has been saved successfully!');
     }
 
@@ -235,7 +236,7 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request->all());
-        $admins = Admin::findOrFail($id);
+        $admins = User::findOrFail($id);
 
         $mainFilePhoto                 = $request->file('photo');
         $mainFileSign                  = $request->file('sign');
@@ -250,7 +251,7 @@ class EmployeeController extends Controller
         $filePathManagingDirectorSign = storage_path('app/public/employee/managingDirectorSign/');
 
         if (!empty($mainFilePhoto)) {
-            $globalFunPhoto  = customUpload($mainFilePhoto, $filePathPhoto);
+            $globalFunPhoto  = Helper::customUpload($mainFilePhoto, $filePathPhoto);
             $paths = [
                 storage_path("app/public/employee/photo/{$admins->photo}"),
             ];
@@ -263,7 +264,7 @@ class EmployeeController extends Controller
             $globalFunPhoto = ['status' => 0];
         }
         if (!empty($mainFileSign)) {
-            $globalFunSign  = customUpload($mainFileSign, $filePathSign);
+            $globalFunSign  = Helper::customUpload($mainFileSign, $filePathSign);
             $paths = [
                 storage_path("app/public/employee/sign/{$admins->sign}"),
             ];
@@ -276,7 +277,7 @@ class EmployeeController extends Controller
             $globalFunSign = ['status' => 0];
         }
         if (!empty($mainFileCeoSign)) {
-            $globalFunCeoSign  = customUpload($mainFileCeoSign, $filePathCeoSign);
+            $globalFunCeoSign  = Helper::customUpload($mainFileCeoSign, $filePathCeoSign);
             $paths = [
                 storage_path("app/public/employee/ceoSign/{$admins->ceo_sign}"),
             ];
@@ -289,7 +290,7 @@ class EmployeeController extends Controller
             $globalFunCeoSign = ['status' => 0];
         }
         if (!empty($mainFileOperationDirectorSign)) {
-            $globalFunOperationDirectorSign  = customUpload($mainFileOperationDirectorSign, $filePathOperationDirectorSign);
+            $globalFunOperationDirectorSign  = Helper::customUpload($mainFileOperationDirectorSign, $filePathOperationDirectorSign);
             $paths = [
                 storage_path("app/public/employee/operationDirectorSign/{$admins->operation_director_sign}"),
             ];
@@ -302,7 +303,7 @@ class EmployeeController extends Controller
             $globalFunOperationDirectorSign = ['status' => 0];
         }
         if (!empty($mainFileManagingDirectorSign)) {
-            $globalFunManagingDirectorSign  = customUpload($mainFileManagingDirectorSign, $filePathManagingDirectorSign);
+            $globalFunManagingDirectorSign  = Helper::customUpload($mainFileManagingDirectorSign, $filePathManagingDirectorSign);
             $paths = [
                 storage_path("app/public/employee/managingDirectorSign/{$admins->managing_director_sign}"),
             ];
@@ -316,8 +317,7 @@ class EmployeeController extends Controller
         }
 
         $admins->update([
-            'country_id'                                    => $request->country_id,
-            'employee_department_id'                        => $request->employee_department_id,
+            'department_id'                                 => $request->department_id,
             'supervisor_id'                                 => $request->supervisor_id,
             'name'                                          => $request->name,
             'username'                                      => $request->username,
@@ -329,11 +329,11 @@ class EmployeeController extends Controller
             'city'                                          => $request->city,
             'postal'                                        => $request->postal,
             'last_seen'                                     => $request->last_seen,
-            'role'                                          => json_encode($request->role),
+            'role'                                          => $request->role,
             'department'                                    => json_encode($request->department),
             'status'                                        => 'active',
             'password'                                      => (!empty($request->password) ? Hash::make($request->password) : $admins->password),
-            'employee_category_id'                          => $request->employee_category_id,
+            'category_id'                                   => $request->category_id,
             'employee_id'                                   => $request->employee_id,
             'mobile'                                        => $request->mobile,
             'total_years_of_job_experience'                 => $request->total_years_of_job_experience,
@@ -427,7 +427,7 @@ class EmployeeController extends Controller
             'acknowledgement'                               => $request->acknowledgement,
 
         ]);
-        Session::flash('success', 'Data has been updated successfully!');
+        Toastr::success('Data has been updated successfully!');
         return redirect()->back()->with('success', 'Data has been updated successfully!');
     }
 

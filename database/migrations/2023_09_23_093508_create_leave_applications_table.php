@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('leave_applications', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employee_id')->nullable();
+            $table->unsignedBigInteger('supervisor_id')->nullable();
+            $table->unsignedBigInteger('substitute_id')->nullable();
             $table->string('name')->nullable();
             $table->string('type_of_leave')->nullable();
             $table->string('designation')->nullable();
@@ -31,8 +33,7 @@ return new class extends Migration
             $table->string('is_between_holidays')->nullable();
             $table->string('leave_contact_no')->nullable();
             $table->string('included_open_saturday')->nullable();
-            $table->string('substitute_signature')->comment('file')->nullable();
-            $table->string('applicant_signature')->comment('file.It will automatically come from employee form.No need to add another image to database,just add the image name.')->nullable();
+            $table->string('applicant_signature')->comment('file')->nullable();
 
             // Official Use Columns
             $table->string('leave_position')->nullable();
@@ -45,12 +46,23 @@ return new class extends Migration
             $table->integer('medical_leave_due_as_on')->default('0')->nullable();  //New
             $table->integer('medical_leave_availed')->default('0')->nullable();  //New
             $table->integer('medical_balance_due')->default('0')->nullable();  //New
-            $table->string('checked_by')->nullable()->comment('file')->nullable();
-            $table->string('recommended_by')->nullable()->comment('file')->nullable();
-            $table->string('reviewed_by')->nullable()->comment('file')->nullable();
-            $table->string('approved_by')->nullable()->comment('file')->nullable();
-            $table->enum('application_status', ['approved','rejected','pending'])->nullable();
-            $table->text('note')->nullable();
+
+            $table->string('substitute_signature')->nullable()->comment('file')->nullable();
+            $table->string('supervisor_signature')->nullable()->comment('file')->nullable();
+            $table->string('hr_signature')->nullable()->comment('file')->nullable();
+            $table->string('ceo_signature')->nullable()->comment('file')->nullable();
+
+            $table->string('substitute_note')->nullable()->comment('file')->nullable();
+            $table->string('supervisor_note')->nullable()->comment('file')->nullable();
+            $table->string('hr_note')->nullable()->comment('file')->nullable();
+            $table->string('ceo_note')->nullable()->comment('file')->nullable();
+
+            $table->enum('substitute_action', ['approved', 'rejected'])->nullable()->default('approved');
+            $table->enum('supervisor_action', ['approved', 'rejected'])->nullable()->default('approved');
+            $table->enum('hr_action', ['approved', 'rejected'])->nullable()->default('approved');
+            $table->enum('ceo_action', ['approved', 'rejected'])->nullable()->default('approved');
+
+            $table->string('application_status')->nullable();
             $table->timestamps();
 
             // Foreign Key

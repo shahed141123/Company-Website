@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use App\Models\Admin\Brand;
 use App\Models\Admin\Product;
 use Illuminate\Pagination\Paginator;
@@ -28,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::share('all_employees', User::get());
         View::share('productCount', Product::where('product_status', 'product')->count());
         View::share('brandCount', Brand::count());
         Blade::directive('limit_words', function ($expression) {

@@ -1854,6 +1854,9 @@
 
 /* Medium Devices (e.g., Laptop) */
 @media only screen and (min-width: 992px) {
+    .job_post_card{
+        height: 215px;
+    }
     .wedo-cards__sub-heading {
         font-size: var(--paragraph-font-size);
         opacity: 0;

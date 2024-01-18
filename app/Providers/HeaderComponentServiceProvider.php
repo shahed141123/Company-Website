@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use View;
+
 use App\Models\Site;
 use App\Models\Admin\Blog;
 use App\Models\Admin\Brand;
@@ -13,6 +13,7 @@ use App\Models\Admin\BrandPage;
 use App\Models\Admin\TechGlossy;
 use App\Models\Admin\ClientStory;
 use App\Models\Admin\IndustryPage;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use App\Models\Admin\SolutionDetail;
 use Illuminate\Support\ServiceProvider;

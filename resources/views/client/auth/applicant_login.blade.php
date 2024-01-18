@@ -7,7 +7,7 @@
                 <div class="partner-form-container sign-in-container mx-auto client_login">
                     <form action="{{ route('client.loginstore') }}" method="POST" id="partnerLoginForm">
                         @csrf
-                        <h2 class="main_color mb-1">Client Login</h2>
+                        <h2 class="main_color pt-3 pb-4">Job Applicant Login</h2>
 
                         <input class="mt-3" name="email" type="email" placeholder="Email" required/>
                         <span class="text-danger text-start p-0 m-0 email_validation" style="display: none;">Please input
@@ -33,14 +33,17 @@
 
                             <form action="{{ route('clientRegister.store') }}" method="POST" id="partnersignUpForm">
                                 @csrf
-                                <h2 class="pb-1 pt-0 mt-4 mb-2 main_color">Client Register</h2>
+                                <h2 class="pb-1 pt-0 mt-4 mb-2 main_color">Job Applicant Register</h2>
                                 <h6>Already Have An Account ?<a href="javascript:void(0);" class="mb-3 main_color"
                                         id="signIn">&nbsp;Sign In Now</a></h6>
                                 <input class="input_login registered_name" type="text" name="name"
                                     placeholder="Full name" required value="{{ old('name') }}" maxlength="35" minlength="3">
-                                <input class="input_login" type="email" name="email" placeholder="Email" required
-                                    value="{{ old('email') }}">
-                                <input type="hidden" name="client_type" value="client">
+                                <input class="input_login" type="text" name="name"
+                                    placeholder="Full name" required value="{{ old('name') }}" maxlength="35" minlength="3">
+                                <input class="input_login" type="number" name="phone" placeholder="Mobile Number" required
+                                    value="{{ old('phone') }}">
+                                <input type="hidden" name="client_type" value="job_seeker">
+
                                 <span class="text-danger text-start p-0 m-0 email_validation" style="display: none;">Please
                                     input valid email</span>
                                 <input class="input_login password_strength" type="password" name="password"

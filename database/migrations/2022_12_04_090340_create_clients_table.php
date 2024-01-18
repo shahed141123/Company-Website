@@ -38,7 +38,7 @@ return new class extends Migration
             $table->text('support_tier_description')->nullable();
             $table->string('last_seen', 200)->nullable();
             $table->string('company_name', 200)->nullable();
-            $table->enum('client_type', ['online', 'corporate'])->nullable();
+            $table->enum('client_type', ['online', 'corporate', 'job_seeker'])->nullable();
             $table->string('sector', 200)->nullable();
             $table->foreignId('sub_sector')->nullable()->constrained('industries')->cascadeOnDelete();
             $table->string('area', 200)->nullable();

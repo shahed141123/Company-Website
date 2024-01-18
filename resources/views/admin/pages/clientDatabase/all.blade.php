@@ -7,7 +7,7 @@
             <div class="page-header-content d-lg-flex border-top">
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
-                        <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
+                        <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house"></i></a>
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item">Home</a>
                         <a href="{{ route('crm.index') }}" class="breadcrumb-item">CRM</a>
                         <span class="breadcrumb-item active">Client Database</span>
@@ -21,7 +21,7 @@
             <div class="row mx-3">
                 <div class="col-12 mb-2" style="background-color: #247297; color: white;">
                     <div class="row">
-                        <div class="col-lg-3 col-sm-6">
+                        <div class="col-lg-5 col-6">
                             <a href="{{ route('client-database.create') }}" type="button"
                                 class="btn btn-sm btn-success btn-labeled btn-labeled-start text-center">
                                 <span class="btn-labeled-icon bg-black bg-opacity-20">
@@ -30,8 +30,8 @@
                                 Add New
                             </a>
                         </div>
-                        <div class="col-lg-9 col-sm-6 mt-1">
-                            <h5 class="text-center mb-0">Client Database</h5>
+                        <div class="col-lg-5 col-6 mt-1">
+                            <h5 class="mb-0">Client Database</h5>
                         </div>
                     </div>
                 </div>
@@ -63,11 +63,14 @@
                                             <td>{{ $clientDatabase->country }}</td>
                                             <td>{{ $clientDatabase->email }}</td>
                                             <td>
-                                                @if ($clientDatabase->status == 'active')
-                                                    <span class="badge bg-success">Approved</span>
-                                                @else
-                                                    <span class="badge bg-danger">Pending</span>
-                                                @endif
+                                                <div class="clientStatus-{{ $clientDatabase->id }}"
+                                                    id="{{ $clientDatabase->id }}">
+                                                    @if ($clientDatabase->status == 'active')
+                                                        <span class="badge bg-success">Approved</span>
+                                                    @else
+                                                        <span class="badge bg-danger">Pending</span>
+                                                    @endif
+                                                </div>
 
                                             </td>
                                             <td>
@@ -123,6 +126,8 @@
                 $('input[name=toggle]').change(function() {
                     var mode = $(this).prop('checked');
                     var id = $(this).val();
+                    var statusContainer = $('.clientStatus-' + id);
+
                     $.ajax({
                         url: "{{ route('client.status') }}",
                         type: "POST",
@@ -133,11 +138,20 @@
                         },
                         success: function(response) {
                             if (response.status) {
+                                // Update the status container text
+                                statusContainer.html(response.client_status === 'active' ?
+                                    '<span class="badge bg-success">Approved</span>' :
+                                    '<span class="badge bg-danger">Pending</span>');
+
+                                // Update the checkbox status
+                                $('input[name=toggle][value="' + id + '"]').prop('checked', response
+                                    .client_status === 'inactive');
+
+                                toastr.success(response.msg);
                                 console.log(response.msg);
                             } else {
                                 console.log('Please Try Again!');
                             }
-                            window.location.reload();
                         }
                     })
                 })

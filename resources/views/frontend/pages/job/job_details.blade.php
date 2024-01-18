@@ -9,10 +9,10 @@
     </style>
     <!--========// Single blog content //=======-->
     <section class="container">
-        <div class="row">
+        <div class="row pt-4">
             <div class="col-lg-10 col-sm-12 offset-1 job_details">
                 <!--==// Job Details //==-->
-                <div class="job_details_content_wrapper">
+                <div class="job_details_content_wrapper p-5">
                     <!--==// Title //==-->
                     {{-- <div class="d-flex justify-content-lg-end justify-content-sm-center">
                     </div> --}}
@@ -61,7 +61,7 @@
                             @else
                                 <div class="d-flex justify-content-center mt-4">
                                     <p>You are not logged in. To Apply for this Job, First <a
-                                            href="{{ route('client.login') }}"><strong class="main_color">Log
+                                            href="{{ route('job-applicant.login') }}"><strong class="main_color">Log
                                                 In</strong></a></p>
                                 </div>
                             @endif

@@ -20,6 +20,17 @@
                                         of personalized service and customer satisfaction.
                                     </p>
                                 </div>
+                                @if (Auth::guard('client')->user()->client_type == 'job_seeker')
+                                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                                        <h2>Job Management</h2>
+                                        <ul>
+                                            <li class="list_dashboard">Check <a href="{{route('job.openings')}}" class="main_color">Available Jobs.</a> </li>
+                                            <li class="list_dashboard">Check your applied <a href="#" class="main_color"> Job's Status</a></li>
+                                            {{-- <li class="list_dashboard">Create and assign user <a href="javascript:void(0);">roles and permissions.</a></li> --}}
+                                            <a href="{{ route('job.registration') }}" class="btn-color mt-4">Make your CV</a>
+                                        </ul>
+                                    </div>
+                                @endif
                                 @if (count($projects) > 0)
                                     <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
                                         <h2>Project Management</h2>
@@ -28,7 +39,7 @@
                                             <li class="list_dashboard">Create and maintain <a href="{{route('client.case')}}" class="main_color"> support cases.</a></li>
                                             <li class="list_dashboard">Download related agreements, apps or updated files.</li>
                                             {{-- <li class="list_dashboard">Create and assign user <a href="javascript:void(0);">roles and permissions.</a></li> --}}
-                                            <a href="{{ route('client.project') }}" class="common_button_dashboard mt-4">Go To
+                                            <a href="{{ route('client.project') }}" class="btn-color mt-4">Go To
                                                 Project</a>
                                         </ul>
                                     </div>
@@ -46,7 +57,7 @@
                                             help your business growth. </li>
                                         <li class="list_dashboard">Set <a href="javascript:void(0);" class="main_color">payment & shipping</a> methods with
                                             your company’s updated information that help your business growth. </li>
-                                        <a href="{{ route('client.orders') }}" class="common_button_dashboard mt-4">Go To
+                                        <a href="{{ route('client.orders') }}" class="btn-color mt-4">Go To
                                             Order</a>
                                     </ul>
                                 </div>
@@ -62,7 +73,7 @@
                                             for later.
                                         <li class="list_dashboard">Check <a href="{{ route('software.common') }}" class="main_color"> Wish list, Product or Solution
                                                 showcase</a></li>
-                                        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#rfqModal" class="common_button_dashboard mt-4">Create
+                                        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#rfqModal" class="btn-color mt-4">Create
                                             RFQ</a>
                                     </ul>
                                 </div>
@@ -74,7 +85,7 @@
                                         </li>
                                         <li class="list_dashboard">Create and assign user <a href="{{ route('client.profile') }};" class="main_color">roles and
                                                 permissions.</a></li>
-                                        <a href="{{ route('client.profile') }}" class="common_button_dashboard mt-4">Go To
+                                        <a href="{{ route('client.profile') }}" class="btn-color mt-4">Go To
                                             Profile</a>
                                     </ul>
                                 </div>
@@ -88,10 +99,21 @@
                                         </li>
                                         <li class="list_dashboard">Create and assign user <a href="javascript:void(0);" class="main_color">roles and
                                                 permissions.</a></li>
-                                        <a href="javascript:void(0);" class="common_button_dashboard mt-4">Coming
+                                        <a href="javascript:void(0);" class="btn-color mt-4">Coming
                                             Soon</a>
                                     </ul>
                                 </div>
+                                @if (Auth::guard('client')->user()->client_type != 'job_seeker')
+                                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                                        <h2>Job Management</h2>
+                                        <ul>
+                                            <li class="list_dashboard">Check <a href="{{route('job.openings')}}" class="main_color">Available Jobs.</a> </li>
+                                            <li class="list_dashboard">Check your applied <a href="#" class="main_color"> Job's Status</a></li>
+                                            {{-- <li class="list_dashboard">Create and assign user <a href="javascript:void(0);">roles and permissions.</a></li> --}}
+                                            <a href="{{ route('job.registration') }}" class="btn-color mt-4">Make your CV</a>
+                                        </ul>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>

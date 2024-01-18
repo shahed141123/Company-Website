@@ -129,7 +129,7 @@
         <div id="addEmployee" class="modal fade" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                    <div class="modal-header  text-white" style="background-color: #247297">
+                    <div class="modal-header text-white px-4" style="background-color: #247297">
                         <h5 class="modal-title">Add Employee</h5>
                         <a type="button" data-bs-dismiss="modal"> <i class="ph ph-x text-white"
                                 style="font-weight: 800;"></i>
@@ -318,10 +318,10 @@
 
         @foreach ($employees as $employee)
             <div id="editEmployee{{ $employee->id }}" class="modal fade" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
-                        <div class="modal-header  text-white" style="background-color: #247297">
-                            <h5 class="modal-title">Add Employee</h5>
+                        <div class="modal-header text-white px-4" style="background-color: #247297">
+                            <h5 class="modal-title">Edit Employee</h5>
                             <a type="button" data-bs-dismiss="modal"> <i class="ph ph-x text-white"
                                     style="font-weight: 800;"></i>
                             </a>
@@ -374,7 +374,7 @@
                                             <div class="mb-4">
                                                 <label class="form-label" for="basicpill-email-input">Job Category</label>
                                                 <select name="employee_category_id"
-                                                    class="form-select form-select-sm form-select-solid"
+                                                    class="form-control form-control-sm select"
                                                     data-control="select2" data-placeholder="Select an option"
                                                     data-allow-clear="true">
                                                     @foreach ($employeeCategories as $employeeCategory)
@@ -457,7 +457,7 @@
                                                 <label class="form-label required"
                                                     for="basicpill-firstname-input">Supervisor</label>
                                                 <select name="supervisor_id"
-                                                    class="form-select form-select-sm form-select-solid"
+                                                    class="form-control form-control-sm select"
                                                     data-control="select2" data-placeholder="Select a Supervisor"
                                                     data-allow-clear="true" required>
                                                     <option></option>
