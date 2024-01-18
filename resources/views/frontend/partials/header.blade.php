@@ -59,7 +59,7 @@
                         <div class="d-flex align-items-center ">
                             <div class="d-lg-block d-sm-none">
                                 <a href="{{ route('rfq') }}" class="top-info-text text-white pe-3"><i
-                                        class="fa-regular fa-circle-question me-1"></i> REQUEST FOR QUOTE</a>
+                                        class="fa-regular fa-circle-question me-1"></i> RFQ</a>
                             </div>
                             <div>
                                 {{-- <span class="text-white">My</span><span class="text-white">NGen It</span> --}}
@@ -132,7 +132,7 @@
         {{-- Menu And Logo Area --}}
         <div>
             <nav class="navbar navbar-expand-lg p-2 main-navbar bg-white menu-section">
-                <div class="container-fluid d-flex align-items-center">
+                <div class="container-fluid d-flex align-items-center mt-2">
                     <div class="step-img d-lg-block d-sm-none">
                         <img src="https://i.ibb.co/3WKt3Mw/NGen-IT-left-color.png" alt="">
                     </div>
