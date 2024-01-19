@@ -1,14 +1,5 @@
 @extends('admin.master')
 @section('content')
-    <style>
-        .accordion {
-            --accordion-border-width: 0px !important;
-        }
-
-        .section-border {
-            border-bottom: 0.5px solid #24739763;
-        }
-    </style>
     <div class="content-wrapper">
         <div class="content p-0">
 
@@ -83,35 +74,97 @@
                     </div>
                     <!-- Row End -->
                     <div class="row">
-                        <div class="col-sm-6 col-xl-3">
-                            <div class="card card-body p-4 pt-3">
-                                <div class="d-flex align-items-center">
-                                    <i class="ph-users-three ph-2x text-success me-3"></i>
+                        <div class="col-lg-6 col-xl-4">
+                            <div class="card">
+                                <div class="card-header py-2">
+                                    <h5 class="text-center mb-0">Hello, <span
+                                            class="main_color fw-bold">{{ Auth::user()->name }}</span></h5>
+                                </div>
+                                <div class="card-body px-1 py-1">
+                                    <div class="mb-3">
+                                        <div class="row row-tile g-0">
+                                            <div class="col">
+                                                <button type="button"
+                                                    class="btn btn-light w-100 flex-column rounded-0 rounded-top-start py-2 h-125px">
+                                                    <a href="{{ route('employee.index') }}">
+                                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                                            <div>
+                                                                <i class="fa-solid fa-users fs-1 text-primary me-3"></i>
+                                                            </div>
+                                                            <div>
+                                                                <span
+                                                                    class="text-gray-700 fw-bolder d-block fs-3 lh-1 ls-n1 mb-1">
+                                                                    {{ App\Models\User::count() }}
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <span class="text-black fs-6">
+                                                            Total Employees
+                                                        </span>
+                                                    </a>
+                                                </button>
+                                            </div>
 
-                                    <a href="{{ route('employee.index') }}">
-                                        <div class="flex-fill text-end">
-                                            <h1 class="mb-0 main_color">{{ App\Models\User::count() }}</h1>
-                                            <span class="fw-bold">Total Employees</span>
+                                            <div class="col">
+                                                <button type="button"
+                                                    class="btn btn-light w-100 flex-column rounded-0 rounded-bottom-start py-2 h-125px">
+                                                    <div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+                                                        <a href="{{ route('employee.index') }}">
+                                                            <div
+                                                                class="d-flex align-items-center justify-content-between mb-2">
+                                                                <div>
+                                                                    <i class="fa-solid fa-users fs-1 text-primary me-3"></i>
+                                                                </div>
+                                                                <div>
+                                                                    <span
+                                                                        class="text-gray-700 fw-bolder d-block fs-3 lh-1 ls-n1 mb-1">
+                                                                        {{ count($attendanceData) }}
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <span class="text-black fs-6">
+                                                                Today's Present Employees
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </button>
+                                            </div>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-xl-3">
-                            <div class="card card-body p-4 pt-3">
-                                <div class="d-flex align-items-center">
-                                    <i class="ph-users-three ph-2x text-success me-3"></i>
-
-                                    <a href="{{ route('employee.index') }}">
-                                        <div class="flex-fill text-end">
-                                            <h1 class="mb-0 main_color">{{ count($attendanceData) }}</h1>
-                                            <span class="fw-bold">Total Present Today</span>
+                        <div class="col-lg-6 col-xl-4">
+                            <div class="card">
+                                <div class="card-header py-2">
+                                    <h5 class="text-center mb-0">Leave Notifications</h5>
+                                </div>
+                                <div class="card-body py-1 h-175px overflow-y-scroll">
+                                    @if ($leave_applications->count() > 0)
+                                        @foreach ($leave_applications as $leave_application)
+                                            <div class="mb-2">
+                                                <a href="{{ route('leave-application.edit', $leave_application->id) }}">
+                                                    <div class="d-flex align-items-center">
+                                                        <div><i class="fa-solid fa-star me-2"></i></div>
+                                                        <div>
+                                                            <h5 class="mb-0 fs-7">{{ $leave_application->name }} <span
+                                                                    class="text-black"> has applied for a leave.</span></h5>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <div class="row">
+                                            <h5 class="text-center mb-0 fs-6">No Leave Application</h5>
                                         </div>
-                                    </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
 
                     <div class="row">
                         <div class="col-lg-6 col-sm-12">

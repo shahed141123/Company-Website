@@ -29,7 +29,7 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
-
+    'timeout' => env('APP_TIMEOUT', 3600),
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode

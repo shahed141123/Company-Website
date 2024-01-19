@@ -1,58 +1,6 @@
 @extends('admin.master')
 @section('content')
-    {{-- <style>
-        /* CSS for the transition effect */
-        .accordion-transition {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-in-out;
-        }
 
-        /* CSS to override Bootstrap's default styles */
-        .accordion-transition.show {
-            max-height: 1000px;
-            /* Adjust this value as needed */
-        }
-
-        .form-control-sm {
-            width: 100%;
-            height: 33px;
-            padding: 1px;
-        }
-
-        .button-37 {
-            background-color: #fff;
-            border: 1px solid #fff;
-            border-radius: 50%;
-            box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
-            box-sizing: border-box;
-            color: #174a62;
-            cursor: pointer;
-            font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 16px;
-            font-weight: 400;
-            outline: none;
-            text-align: center;
-            outline: 0;
-            text-align: center;
-            transform: translateY(0);
-            transition: transform 150ms, box-shadow 150ms;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-        }
-
-        .button-37:hover {
-            box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
-            transform: translateY(-2px);
-        }
-
-        @media (min-width: 768px) {
-            .button-37 {
-                padding: 0px 0px;
-            }
-        }
-    </style> --}}
     <div class="content-wrapper">
         <!-- Page header -->
         <div class="page-header shadow d-flex justify-content-between align-items-center">
@@ -114,9 +62,7 @@
                                                             </span>
                                                         </td>
                                                         <td class="text-center">
-                                                            <a href="javascript:void(0);" class="text-primary"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#makeleaveEdit-{{ $leaveApplication->id }}">
+                                                            <a href="{{ route('leave-application.edit',$leaveApplication->id) }}" class="text-primary">
                                                                 <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-white"
                                                                     style="color: #247297 !important;"></i>
                                                             </a>

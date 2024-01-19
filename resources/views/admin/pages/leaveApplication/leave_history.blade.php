@@ -115,8 +115,7 @@
                                                             </span>
                                                         </td>
                                                         <td class="text-center">
-                                                            <a href="javascript:void(0);" class="text-primary"
-                                                                data-bs-toggle="modal" data-bs-target="#makeleaveEdit">
+                                                            <a href="{{ route('leave-application.edit',$leaveApplication->id) }}" class="text-primary">
                                                                 <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-white"
                                                                     style="color: #247297 !important;"></i>
                                                             </a>

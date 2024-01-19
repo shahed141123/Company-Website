@@ -7,12 +7,12 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class LeaveApprovalNotification extends Notification
+class LeaveRejectionNotification extends Notification
 {
     use Queueable;
     public $name;
     public $leave_id;
-    /** 
+    /**
      * Create a new notification instance.
      *
      * @return void
@@ -57,10 +57,10 @@ class LeaveApprovalNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'name' => $this->name,
+            'name' => 'Your' ,
             'link' => route('leave-application.edit',$this->leave_id),
             'message1' => 'has applied for a Leave Application.',
-            'message2' => 'a Leave Application '.$this->leave_id.' Check and Approve',
+        'message2' => 'Leave Application '.$this->leave_id.' has Rejected by'.$this->name,
         ];
     }
 }

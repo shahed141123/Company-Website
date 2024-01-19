@@ -226,6 +226,7 @@
                                                 <option value="site">Site & Contents</option>
                                                 <option value="logistics">Logistics</option>
                                                 <option value="support">Support</option>
+                                                <option value="hr">HR</option>
                                             </select>
 
                                         </div>
@@ -423,6 +424,7 @@
                                                     <option value="admin" @selected(is_array($employeeIds) && in_array('admin', $employeeIds))>Admin</option>
                                                     <option value="business" @selected(is_array($employeeIds) && in_array('business', $employeeIds))>Business</option>
                                                     <option value="accounts" @selected(is_array($employeeIds) && in_array('accounts', $employeeIds))>Accounts</option>
+                                                    <option value="hr" @selected(is_array($employeeIds) && in_array('hr', $employeeIds))>HR</option>
                                                     <option value="site" @selected(is_array($employeeIds) && in_array('site', $employeeIds))>Site & Contents
                                                     </option>
                                                     <option value="logistics" @selected(is_array($employeeIds) && in_array('logistics', $employeeIds))>Logistics

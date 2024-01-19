@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content rounded-0">
             <div class="modal-header rounded-0 text-white px-4" style="background-color: #ae0a46 !important;">
-                <h5 class="modal-title text-uppercase" id="checkapprovedLabel">Leave Application</h5>
+                <h5 class="modal-title" id="checkapprovedLabel">Leave Application</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body rounded-0">
@@ -133,19 +133,19 @@
                                                     placeholder="Leave End Date" required></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-2">
                                             <div class="mb-3">
                                                 <label class="form-label">Is Between Holiday</label>
                                                 <div class="d-flex align-items-center">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio"
+                                                        <input class="form-check-input" type="radio" value="yes"
                                                             name="is_between_holidays" id="flexRadioDefault1">
                                                         <label class="form-check-label" for="flexRadioDefault1">
                                                             Yes
                                                         </label>
                                                     </div>
                                                     <div class="form-check ms-3">
-                                                        <input class="form-check-input" type="radio"
+                                                        <input class="form-check-input" type="radio" value="no"
                                                             name="is_between_holidays" id="flexRadioDefault2" checked>
                                                         <label class="form-check-label" for="flexRadioDefault2">
                                                             No
@@ -162,7 +162,7 @@
                                                     placeholder="Enter Enter Leave Contact Number">
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Include Open Saturday (If none enter: 0)</label>
                                                 <input type="number" name="included_open_saturday"

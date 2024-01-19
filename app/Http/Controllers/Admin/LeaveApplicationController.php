@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Admin\EmployeeCategory;
+use App\Models\Admin\EmployeeLeave;
 use App\Models\Admin\LeaveApplication;
 use App\Notifications\LeaveApprovalNotification;
 use App\Notifications\LeaveRequestNotification;
@@ -144,6 +145,7 @@ class LeaveApplicationController extends Controller
                 'medical_leave_availed'   => $request->medical_leave_availed,
                 'medical_balance_due'     => $request->medical_balance_due,
                 'application_status'      => 'substitute_approval_pending',
+                'created_at'              => Carbon::now(),
             ] + $filePaths);
 
 
@@ -195,10 +197,15 @@ class LeaveApplicationController extends Controller
     public function show($id)
     {
         if (Auth::user()->id == $id) {
+            $data = [];
+            $data['user'] = User::where('id', $id)->first();
             $data = [
-                'user' => User::where('id', $id)->first(),
+                'user' => $data['user'],
+                'employeeCategory' => EmployeeCategory::whereId($data['user']->category_id)->first(),
+                'leaveApplications' => LeaveApplication::where('employee_id', Auth::user()->id)->get(),
+                'employee_leave_due' => EmployeeLeave::where('employee_id', Auth::user()->id)->first(),
             ];
-            $data['employeeCategory'] = EmployeeCategory::whereId($data['user']->category_id)->first();
+
             return view('admin.pages.leaveApplication.all', $data);
         } else {
             Toastr::warning('You are not authorized to see this page');
@@ -215,9 +222,10 @@ class LeaveApplicationController extends Controller
     public function edit($id)
     {
         $data = [
-            'leave' => LeaveApplication::find($id),
-            'user'             => User::latest('id', 'DESC')->get(),
+            'leave'     => LeaveApplication::find($id),
         ];
+        $data['employee'] = User::where('id', $data['leave']->employee_id)->first();
+        $data['employee_leave_due'] = EmployeeLeave::where('employee_id', $data['leave']->employee_id)->first();
         return view('admin.pages.leaveApplication.edit', $data);
     }
 

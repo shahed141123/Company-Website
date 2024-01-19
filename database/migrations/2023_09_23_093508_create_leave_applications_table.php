@@ -57,10 +57,10 @@ return new class extends Migration
             $table->string('hr_note')->nullable()->comment('file')->nullable();
             $table->string('ceo_note')->nullable()->comment('file')->nullable();
 
-            $table->enum('substitute_action', ['approved', 'rejected'])->nullable()->default('approved');
-            $table->enum('supervisor_action', ['approved', 'rejected'])->nullable()->default('approved');
-            $table->enum('hr_action', ['approved', 'rejected'])->nullable()->default('approved');
-            $table->enum('ceo_action', ['approved', 'rejected'])->nullable()->default('approved');
+            $table->enum('substitute_action', ['approved', 'rejected'])->nullable();
+            $table->enum('supervisor_action', ['approved', 'rejected'])->nullable();
+            $table->enum('hr_action', ['approved', 'rejected'])->nullable();
+            $table->enum('ceo_action', ['approved', 'rejected'])->nullable();
 
             $table->string('application_status')->nullable();
             $table->timestamps();

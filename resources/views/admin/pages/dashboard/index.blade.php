@@ -117,18 +117,27 @@
                                         <div class="col">
                                             <button type="button"
                                                 class="btn btn-light w-100 flex-column rounded-0 rounded-top-end py-2 h-125px">
-                                                <div class="m-0 mb-3">
-                                                    <span
-                                                        class="text-gray-700 fw-bolder d-block fs-1 lh-1 ls-n1 mb-1">{{ !empty($attendanceToday['check_in']) ? $attendanceToday['check_in'] : 'Absent' }}</span>
+                                                @if (!empty($attendanceToday['check_in']))
+                                                    <div class="m-0 mb-1">
+                                                        <span
+                                                            class="text-gray-700 fw-bolder d-block fs-1 lh-1 ls-n1 mb-1">{{ !empty($attendanceToday['check_in']) ? $attendanceToday['check_in'] : 'Absent' }}</span>
 
-                                                    <span class="text-gray-500 fw-semibold fs-5">Today's Entry </span>
-                                                </div>
-                                                <div class="m-0">
-                                                    <span
-                                                        class="text-gray-700 fw-bolder d-block fs-4 lh-1 ls-n1 mb-1">{{ !empty($attendanceToday['check_out']) ? $attendanceToday['check_out'] : 'Absent' }}</span>
+                                                        <span class="text-gray-500 fw-semibold fs-5">Today's Entry </span>
+                                                    </div>
+                                                    <div class="m-0">
+                                                        <span
+                                                            class="text-gray-700 fw-bolder d-block fs-4 lh-1 ls-n1 mb-1">{{ !empty($attendanceToday['check_out']) ? $attendanceToday['check_out'] : 'Absent' }}</span>
 
-                                                    <span class="text-gray-500 fw-semibold fs-6">Today's Check-Out</span>
+                                                        <span class="text-gray-500 fw-semibold fs-6">Today's
+                                                            Check-Out</span>
+                                                    </div>
+                                                @else
+                                                <div class="m-0 mb-1">
+                                                    <span
+                                                        class="text-danger fw-bolder d-block fs-1 lh-1 ls-n1 mb-1">Absent Today</span>
+
                                                 </div>
+                                                @endif
                                             </button>
 
                                             <button type="button"
@@ -149,7 +158,7 @@
                                                             <span class="">Last Month</span> <span class="ms-3"><i
                                                                     class="fas fa-arrow-right"></i></span>
                                                         </a>
-                                                        @include('admin.partials.attendance_modals')
+
                                                     </div>
                                                     <div class="m-0">
                                                         <span
@@ -168,7 +177,7 @@
                 </div>
             </div>
             @include('admin.partials.leave_modal')
-
+            @include('admin.partials.attendance_modals')
             <!-- /content area -->
         </div>
         <!-- /inner content -->

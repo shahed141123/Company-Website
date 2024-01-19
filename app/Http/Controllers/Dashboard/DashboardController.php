@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Dashboard;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Admin\Event;
+use Rats\Zkteco\Lib\ZKTeco;
 use Illuminate\Http\Request;
 use App\Models\Admin\EventCategory;
 use App\Http\Controllers\Controller;
-use Rats\Zkteco\Lib\ZKTeco;
 use Brian2694\Toastr\Facades\Toastr;
+use App\Models\Admin\LeaveApplication;
 
 class DashboardController extends Controller
 {
@@ -86,14 +87,16 @@ class DashboardController extends Controller
         $data['events'] = Event::whereBetween('start_date', [$currentMonth, $endOfMonth])->get();
         $data['event_categorys'] = EventCategory::latest()->get();
         $data['users'] = User::latest('id', 'DESC')->get();
+        $data['leave_applications'] = LeaveApplication::get(['name','id']);
         // return view('admin.pages.HrandAdmin.all', $data);
         return view('admin.pages.HrandAdmin.all', [
-            'attendanceData' => $attendanceData,
-            'users' => $users,
-            'deviceip' => $deviceip,
-            'events' => $data['events'],
-            'users' => $data['users'],
-            'event_categorys' => $data['event_categorys'],
+            'attendanceData'     => $attendanceData,
+            'users'              => $users,
+            'deviceip'           => $deviceip,
+            'events'             => $data['events'],
+            'users'              => $data['users'],
+            'event_categorys'    => $data['event_categorys'],
+            'leave_applications' => $data['leave_applications'],
         ]);
     }
 

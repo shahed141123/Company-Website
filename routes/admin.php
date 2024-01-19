@@ -553,6 +553,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('{id}/leaveHistorys',  [LeaveApplicationController::class, 'individualLeaves'])->name('individual.leaveHistory');
     Route::get('leaveDashboard',  [LeaveController::class, 'leaveDashboard'])->name('leaveDashboard');
 
+    Route::put('/substitute-approval/{id}',  [LeaveController::class, 'substituteApproval'])->name('substitute.approval');
+    Route::put('/supervisor-approval/{id}',  [LeaveController::class, 'supervisorApproval'])->name('supervisor.approval');
+    Route::put('/hr-approval/{id}',  [LeaveController::class, 'hrApproval'])->name('hr.approval');
+    Route::put('/ceo-approval/{id}',  [LeaveController::class, 'ceoApproval'])->name('ceo.approval');
+
     Route::get('supply-chain',  [AdminController::class, 'supplyChain'])->name('supplychain');
     Route::get('noticeboard',  [NoticeController::class, 'noticeboard'])->name('noticeboard');
     Route::get('attendance',  [ZktecoController::class, 'index'])->name('attendance');

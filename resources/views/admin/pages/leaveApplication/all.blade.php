@@ -55,100 +55,213 @@
             </div>
             <div class="content mt-2">
                 <div class="row">
-                    <div class="col-lg-3">
-                        <div class="card info-cards p-1 rounded-0 main_color mb-0">
-                            <h6 class="text-center mb-0 p-0 text-muted">Employe Status</h6>
-                        </div>
-                        <div class=" card px-3 py-3 rounded-0">
-                            <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                <span>Job Status</span>
-                                <span class="text-danger">{{ $user->getCategoryName() ?? 'Not set' }} </span>
-                            </p>
-                            <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                <span>Next Evulation Date</span>
-                                <span class="text-danger">{{ Auth::user()->evaluation_date ?? '0' }} Days</span>
-                            </p>
-                            <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                <span>Designation</span>
-                                <span class="text-danger" title="September 12">
-                                    {{ Auth::user()->designation ?? 'Not set' }}</span>
-                            </p>
-                            <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                <span>Joinning</span>
-                                <span class="text-danger" title="September 12">
-                                    {{ Auth::user()->sign_date ?? '00-00-0000' }}</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="row gx-0">
+                    <div class="col-lg-8 offset-lg-2 col-12">
+                        <div class="row">
                             <div class="col-lg-4">
-                                <div class="card info-cards p-1 rounded-0 main_color mb-0">
-                                    <h6 class="text-center mb-0 p-0 text-muted">Leave Description</h6>
+                                <div class="card info-cards p-1 rounded-0 main_color mb-0 py-2">
+                                    <h6 class="text-center mb-0 p-0 text-muted">Employee Status</h6>
                                 </div>
                                 <div class=" card px-3 py-3 rounded-0">
                                     <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                        <span>Yearly Leave :</span>
+                                        <span>Job Status</span>
+                                        <span class="text-danger">{{ $user->getCategoryName() ?? 'Not set' }} </span>
                                     </p>
                                     <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                        <span>Leave Availed :</span>
+                                        <span>Next Evulation Date</span>
+                                        <span class="text-danger">{{ Auth::user()->evaluation_date ?? '0' }} Days</span>
                                     </p>
                                     <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                        <span>Leave Due :</span>
+                                        <span>Designation</span>
+                                        <span class="text-danger" title="September 12">
+                                            {{ Auth::user()->designation ?? 'Not set' }}</span>
                                     </p>
                                     <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                        <span>Total :</span>
+                                        <span>Joinning</span>
+                                        <span class="text-danger" title="September 12">
+                                            {{ Auth::user()->sign_date ?? '00-00-0000' }}</span>
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-lg-2">
-                                <div class="card info-cards p-1 rounded-0 main_color mb-0">
-                                    <h6 class="text-center mb-0 p-0 text-muted">Casual Leave</h6>
-                                </div>
-                                <div class=" card px-3 py-3 rounded-0 text-center">
-                                    <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger">{{ $employeeCategory->yearly_casual_leave ?? '0' }}</span>
-                                    </p>
-                                    <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger">0</span>
-                                    </p>
-                                    <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger" title="September 12">0</span>
-                                    </p>
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="row gx-0">
+                                        {{-- <div class="col-lg-4">
+                                            <div class="card info-cards p-1 rounded-0 main_color mb-0">
+                                                <h6 class="text-center mb-0 p-0 text-muted">Leave Description</h6>
+                                            </div>
+                                            <div class=" card px-3 py-3 rounded-0">
+                                                <p class="p-0 m-0 text-muted d-flex justify-content-between">
+                                                    <span>Yearly Leave :</span>
+                                                </p>
+                                                <p class="p-0 m-0 text-muted d-flex justify-content-between">
+                                                    <span>Leave Availed :</span>
+                                                </p>
+                                                <p class="p-0 m-0 text-muted d-flex justify-content-between">
+                                                    <span>Leave Due :</span>
+                                                </p>
+                                                <p class="p-0 m-0 text-muted d-flex justify-content-between">
+                                                    <span>Total :</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="card info-cards p-1 rounded-0 main_color mb-0">
+                                                <h6 class="text-center mb-0 p-0 text-muted">Casual Leave</h6>
+                                            </div>
+                                            <div class=" card px-3 py-3 rounded-0 text-center">
+                                                <p class="p-0 m-0 text-muted border mb-1">
+                                                    <span
+                                                        class="text-danger">{{ $employeeCategory->yearly_casual_leave ?? '0' }}</span>
+                                                </p>
+                                                <p class="p-0 m-0 text-muted border mb-1">
+                                                    <span class="text-danger">0</span>
+                                                </p>
+                                                <p class="p-0 m-0 text-muted border mb-1">
+                                                    <span class="text-danger" title="September 12">0</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="card info-cards p-1 rounded-0 main_color mb-0">
+                                                <h6 class="text-center mb-0 p-0 text-muted">Earned Leave</h6>
+                                            </div>
+                                            <div class=" card px-3 py-3 rounded-0 text-center">
+                                                <p class="p-0 m-0 text-muted border mb-1">
+                                                    <span
+                                                        class="text-danger">{{ $employeeCategory->yearly_earned_leave ?? '0' }}</span>
+                                                </p>
+                                                <p class="p-0 m-0 text-muted border mb-1">
+                                                    <span class="text-danger">0</span>
+                                                </p>
+                                                <p class="p-0 m-0 text-muted border mb-1">
+                                                    <span class="text-danger" title="September 12">0</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="card info-cards p-1 rounded-0 main_color mb-0">
+                                                <h6 class="text-center mb-0 p-0 text-muted">Medical Leave</h6>
+                                            </div>
+                                            <div class=" card px-3 py-3 rounded-0 text-center">
+                                                <p class="p-0 m-0 text-muted border mb-1">
+                                                    <span
+                                                        class="text-danger">{{ $employeeCategory->yearly_medical_leave ?? '0' }}</span>
+                                                </p>
+                                                <p class="p-0 m-0 text-muted border mb-1">
+                                                    <span class="text-danger">0</span>
+                                                </p>
+                                                <p class="p-0 m-0 text-muted border mb-1">
+                                                    <span class="text-danger" title="September 12">0</span>
+                                                </p>
+                                            </div>
+                                        </div> --}}
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead
+                                                    style="background-color: #ae0a46 !important; color: white !important;">
+                                                    <tr>
+                                                        <th width="30%">Leave Position</th>
+                                                        <th width="25%">Leave Due As On</th>
+                                                        <th width="25%">Leave Availed</th>
+                                                        <th width="20%">Balance Due</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-center">
+                                                    <tr>
+                                                        <td>
+                                                            Earned Leave
+                                                        </td>
+                                                        <td>
+                                                            {{ optional($employee_leave_due)->earned_leave_due_as_on ?? '' }}
+                                                        </td>
+                                                        <td>{{ optional($employee_leave_due)->earned_leave_availed ?? '' }}
+                                                        </td>
+                                                        <td>{{ optional($employee_leave_due)->earned_balance_due ?? '' }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Casual Leave
+                                                        </td>
+                                                        <td>{{ optional($employee_leave_due)->casual_leave_due_as_on ?? '' }}
+                                                        </td>
+                                                        <td>{{ optional($employee_leave_due)->casual_leave_availed ?? '' }}
+                                                        </td>
+                                                        <td>{{ optional($employee_leave_due)->casual_balance_due ?? '' }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Medical Leave
+                                                        </td>
+                                                        <td>{{ optional($employee_leave_due)->medical_leave_due_as_on ?? '' }}
+                                                        </td>
+                                                        <td>{{ optional($employee_leave_due)->medical_leave_availed ?? '' }}
+                                                        </td>
+                                                        <td>{{ optional($employee_leave_due)->medical_balance_due ?? '' }}
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-lg-2">
-                                <div class="card info-cards p-1 rounded-0 main_color mb-0">
-                                    <h6 class="text-center mb-0 p-0 text-muted">Earned Leave</h6>
-                                </div>
-                                <div class=" card px-3 py-3 rounded-0 text-center">
-                                    <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger">{{ $employeeCategory->yearly_earned_leave ?? '0' }}</span>
-                                    </p>
-                                    <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger">0</span>
-                                    </p>
-                                    <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger" title="September 12">0</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card info-cards p-1 rounded-0 main_color mb-0">
-                                    <h6 class="text-center mb-0 p-0 text-muted">Medical Leave</h6>
-                                </div>
-                                <div class=" card px-3 py-3 rounded-0 text-center">
-                                    <p class="p-0 m-0 text-muted border mb-1">
-                                        <span
-                                            class="text-danger">{{ $employeeCategory->yearly_medical_leave ?? '0' }}</span>
-                                    </p>
-                                    <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger">0</span>
-                                    </p>
-                                    <p class="p-0 m-0 text-muted border mb-1">
-                                        <span class="text-danger" title="September 12">0</span>
-                                    </p>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <div class="table-responsive">
+                            <div class="table-responsive table-bordered">
+                                <table class="table table-hover">
+                                    <thead class="border text-center">
+                                        <tr>
+                                            <th width="5%" class="text-center">Sl:</th>
+                                            <th width="15%">Type Of Leave</th>
+                                            <th width="25%">Leave Period</th>
+                                            <th width="15%">Reporting On</th>
+                                            <th width="20%">Leave Applied at</th>
+                                            <th width="20%">Status</th>
+                                            {{-- <th width="15%" class="text-center">Action</th> --}}
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-center">
+                                        @if ($leaveApplications)
+                                            @foreach ($leaveApplications as $leaveApplication)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $leaveApplication->type_of_leave }}</td>
+                                                    <td>From {{ $leaveApplication->leave_start_date }} To
+                                                        {{ $leaveApplication->leave_end_date }}</td>
+                                                    <td>{{ $leaveApplication->reporting_on }}</td>
+                                                    <td>{{ $leaveApplication->reporting_on }}</td>
+                                                    <td>
+                                                        <span
+                                                            class="badge bg-{{ optional($leaveApplication)->application_status == 'approved' ? 'success' : (optional($leaveApplication)->application_status == 'rejected' ? 'danger' : 'warning') }}">
+                                                            {{ optional($leaveApplication)->application_status == 'approved' ? 'Approved' : (optional($leaveApplication)->application_status == 'rejected' ? 'Rejected' : 'Pending') }}
+                                                        </span>
+                                                    </td>
+                                                    {{-- <td class="text-center">
+                                                        <a href="javascript:void(0);" class="text-primary"
+                                                            data-bs-toggle="modal" data-bs-target="#makeleaveEdit">
+                                                            <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-white"
+                                                                style="color: #247297 !important;"></i>
+                                                        </a>
+                                                        <a href="javascript:void(0);" href=""
+                                                            class="text-danger delete">
+                                                            <i class="fa-solid fa-trash p-1 rounded-circle text-white"
+                                                                style="color: #247297 !important;"></i>
+                                                        </a>
+                                                    </td> --}}
+                                                </tr>
+                                            @endforeach
+                                            @else
+                                            <tr><h5 class="text-center mb-0">No Leave Application Available</h5></tr>
+                                        @endif
+                                    </tbody>
+
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -181,8 +294,7 @@
                                 <div class="row gx-0 mb-3">
                                     <div class="col-lg-12">
                                         <table class="table table-bordered">
-                                            <thead
-                                                style="background-color: #ae0a468f !important; color: white !important;">
+                                            <thead style="background-color: #ae0a468f !important; color: white !important;">
                                                 <tr>
                                                     <th scope="col">Leave Position</th>
                                                     <th scope="col">Leave Due As On</th>

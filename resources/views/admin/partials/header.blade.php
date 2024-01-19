@@ -32,7 +32,7 @@
 
                 <div class="dropdown-menu dropdown-menu-scrollable-sm wmin-lg-900 p-0">
                     <div class="d-flex align-items-center border-bottom p-3">
-                        <h6 class="mb-0">Browse apps</h6>
+                        <h6 class="mb-0">Important Links</h6>
                         <a href="#" class="ms-auto">
                             View all
                             <i class="ph-arrow-circle-right ms-1"></i>
@@ -41,22 +41,22 @@
 
                     <div class="row row-cols-1 row-cols-sm-2 g-0">
                         <div class="col">
-                            <button type="button"
+                            <a href="{{ route('leave-application.show', Auth::user()->id) }}"
                                 class="dropdown-item text-wrap h-100 align-items-start border-end-sm border-bottom p-3">
                                 <div>
-                                    <img src="../../../assets/images/demo/logos/1.svg" class="h-40px mb-2"
+                                    <img src="{{ asset('backend/assets/images/demo/logos/1.svg') }}" class="h-40px mb-2"
                                         alt="">
-                                    <div class="fw-semibold my-1">Customer data platform</div>
-                                    <div class="text-muted">Unify customer data from multiple sources</div>
+                                    <div class="fw-semibold my-1">Leave Dashboard</div>
+                                    <div class="text-muted">You can check your leave history and make leave application from here.</div>
                                 </div>
-                            </button>
+                            </a>
                         </div>
 
                         <div class="col">
                             <button type="button"
                                 class="dropdown-item text-wrap h-100 align-items-start border-bottom p-3">
                                 <div>
-                                    <img src="../../../assets/images/demo/logos/2.svg" class="h-40px mb-2"
+                                    <img src="{{ asset('backend/assets/images/demo/logos/2.svg') }}" class="h-40px mb-2"
                                         alt="">
                                     <div class="fw-semibold my-1">Data catalog</div>
                                     <div class="text-muted">Discover, inventory, and organize data assets</div>

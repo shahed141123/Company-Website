@@ -177,7 +177,7 @@
                             </li>
                             <li class="nav-item"><a href="{{ route('job.index') }}" class="nav-link">Job Post</a>
                             </li>
-                            <li class="nav-item"><a href="{{ route('job.registration') }}" class="nav-link">Job
+                            <li class="nav-item"><a href="{{ route('job.regiserUser') }}" class="nav-link">Job
                                     Applier's List</a></li>
                         </ul>
 

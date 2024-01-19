@@ -4,8 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-use DB;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\DB;
 use App\Models\Admin\EmployeeCategory;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -98,5 +98,9 @@ class User extends Authenticatable
     public function getCategoryName()
     {
         return EmployeeCategory::where('id', $this->category_id)->value('name');
+    }
+    public function getSupervisorName()
+    {
+        return User::where('id', $this->supervisor_id)->value('name');
     }
 }
