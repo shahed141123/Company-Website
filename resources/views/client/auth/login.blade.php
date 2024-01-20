@@ -1,7 +1,7 @@
 @extends('frontend.master')
 @section('content')
     <section id="sign-in-container-area">
-        <div class="row py-5">
+        <div class="row py-5 mt-3">
             <div class="col-lg-4 offset-lg-4">
                 <div class="partner-form-container sign-in-container mx-auto client_login">
                     <form action="{{ route('client.loginstore') }}" method="POST" id="partnerLoginForm">
@@ -13,6 +13,9 @@
                             valid email</span>
                         <input class="mt-3" name="password" type="password" placeholder="Password" required />
                         <i class="fas fa-eye transform-v-center view-password viewlogin-password"></i>
+                        <p class="p-0 m-0 test-start">
+                            <a href="javascript:void()"><span class="text-primary"> Forgot Passowrd!</span></a>
+                        </p>
                         <h6 class="mt-4">Don't Have An Account ? <a href="javascript:void(0);"
                                 class="mb-3 mt-2 main_color" id="signUp">Register Now</a></h6>
 

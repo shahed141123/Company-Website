@@ -1897,6 +1897,8 @@ table.td {
 
 .form-control {
     border-radius: 0px;
+    border: 1px solid #eee;
+    background-color: #eee;
 }
 
 .form-select {
@@ -2709,6 +2711,20 @@ select:focus-visible {
     right: 4rem;
 }
 
+.form-control:focus {
+    color: #212529;
+    background-color: #f7f6f5;
+    outline: 0;
+    border: 0;
+    padding: 7px;
+    padding-top: 2px;
+    box-shadow: none !important;
+    z-index: 10;
+    transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+}
 .search {
     position: absolute;
     left: 0px;
@@ -2724,10 +2740,6 @@ select:focus-visible {
     -moz-transition-duration: 0.4s;
     -webkit-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
-}
-
-.search:focus {
-    padding: 8px;
 }
 
 .expandright {
@@ -4680,12 +4692,12 @@ tr td:hover {
 .view-password {
     /* position: relative; */
     /* left: 8rem; */
-    bottom: 2.3rem;
+    bottom: 2.1rem;
     position: relative;
     left: 15.5rem;
 }
 .viewlogin-password{
-    left: 9.5rem;
+    left: 11rem;
 }
 #partnerLoginForm {
     height: 26rem;
@@ -5235,8 +5247,8 @@ tr td:hover {
 }
 
 .site-main-logo {
-    height: 60px;
-    width: 100px;
+    height: 70px;
+    width: 105px;
 }
 
 /* Software Info Page Design */
@@ -8250,13 +8262,6 @@ a:hover {
     padding: 10px 10px 10px;
 }
 
-.form-control:focus {
-    color: #212529;
-    background-color: var(--white);
-    border-color: #ae0a46;
-    outline: 0;
-    box-shadow: none;
-}
 
 .product-header {
     background-color: var(--primary-color);
@@ -15842,7 +15847,7 @@ thead {
 }
 
 .ag-offer_item {
-    width: 33.33%;
+    width: 100%;
     overflow: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -16883,4 +16888,49 @@ nav>div a.nav-item.nav-link.active {
 
 .main_blogs {
     margin-top: -7rem !important;
+}
+
+.social_icons{
+    background: #ae0a46;
+    padding: 6px 10px;
+    font-size: 20px;
+    border-radius: 50%;
+    color: white !important;
+    height: 40px;
+    width: 40px;
+    transition: 0.5s all ease-in;
+}
+.social_icons:hover{
+    background: #eee;
+    padding: 6px 10px;
+    font-size: 20px;
+    border-radius: 50%;
+    color: #ae0a46 !important;
+    height: 40px;
+    width: 40px;
+    transition: 0.5s all ease-in;
+}
+.rc-anchor-center-container {
+    display: table;
+    height: 30px;
+}
+.rc-anchor-logo-portrait{
+    margin: 0px;
+}
+.rc-anchor-normal .rc-anchor-pt {
+    margin: 0px;
+    padding-right: 2px;
+    position: absolute;
+    text-align: start;
+    display: none;
+}
+.rc-anchor-normal {
+    height: 50px;
+    width: auto;
+    padding: 10px;
+}
+.form-control[type=file]:not(:disabled):not([readonly]) {
+    cursor: pointer;
+    font-size: 14px;
+    color: gray;
 }

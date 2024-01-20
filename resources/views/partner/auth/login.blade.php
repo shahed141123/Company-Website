@@ -13,6 +13,9 @@
                             valid email</span>
                         <input class="mt-3" name="password" type="password" placeholder="Password" required/>
                         <i class="fas fa-eye transform-v-center view-password viewlogin-password"></i>
+                        <p class="p-0 m-0 test-start">
+                            <a href="javascript:void()"><span class="text-primary"> Forgot Passowrd!</span></a>
+                        </p>
                         <h6 class="mt-4">Don't Have An Account ? <a href="javascript:void(0);"
                                 class="mb-3 mt-2 main_color" id="signUp">Register Now</a></h6>
                         {{-- <a href="javascript:void(0);" class="mb-1 mt-3">Forgot your password?</a> --}}

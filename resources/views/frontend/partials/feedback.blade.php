@@ -79,7 +79,7 @@
     <!-- Modal -->
     <div class="modal fade" id="rfqModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header py-2" style="background: #ae0a46;">
                     <h5 class="modal-title text-white" id="staticBackdropLabel">Get Quote
@@ -90,64 +90,68 @@
                     <div class="container">
                         <form action="{{ route('rfq.add') }}" enctype="multipart/form-data" method="POST">
                             @csrf
-                            <div class="row mb-4">
+                            <div class="row mb-2">
                                 <div class="col-lg-12">
                                     <label class="mb-2" for="product_name">Product Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-sm" name="product_name"
                                         id="product_name" value="{{ old('product_name') }}" required>
                                 </div>
                             </div>
-                            <div class="row mb-4">
-                                <div class="col-lg-4 mb-4 pe-0">
+                            <div class="row mb-3">
+                                <div class="col-lg-4 mb-2 pe-0">
                                     {{-- <label for="name">Name <span class="text-danger">*</span> </label> --}}
                                     <input type="text" class="form-control form-control-sm rounded-0" required
                                         id="name" name="name" placeholder="Your Name *" />
                                 </div>
-                                <div class="col-lg-4 mb-4 pe-0">
+                                <div class="col-lg-4 mb-2 pe-0">
 
                                     <input type="number" class="form-control form-control-sm rounded-0" id="phone"
                                         name="phone" placeholder="Your Phone Number *" required />
                                 </div>
-                                <div class="col-lg-4 mb-4">
+                                <div class="col-lg-4 mb-2">
                                     {{-- <label for="contact">Company Name </label> --}}
                                     <input type="text" class="form-control form-control-sm rounded-0" id="contact"
                                         name="company_name" placeholder="Your Company Name *" required />
                                 </div>
-                                <div class="col-lg-5 mb-4 pe-0">
+                                <div class="col-lg-5 mb-2 pe-0">
                                     {{-- <label for="email">Email <span class="text-danger">*</span> </label> --}}
                                     <input type="email" required class="form-control form-control-sm rounded-0"
                                         id="email" name="email" placeholder="Your Email *" required />
                                     <span class="text-danger text-start p-0 m-0 email_validation"
                                         style="display: none">Please input valid email</span>
                                 </div>
-                                <div class="col-lg-7 mb-4">
+                                <div class="col-lg-7 mb-2">
                                     {{-- <label for="contact">Custom Image </label> --}}
                                     <input type="file" name="image" class="form-control form-control-sm rounded-0"
                                         id="image" accept="image/*" placeholder="Your Custom Image" />
                                 </div>
-                                <div class="col-lg-12 mb-4">
+                                <div class="col-lg-12 mb-2">
                                     {{-- <label for="message">Type Message</label> --}}
                                     <textarea class="form-control form-control-sm rounded-0" id="message" name="message" rows="3"
                                         placeholder="Your Message"></textarea>
                                 </div>
-                                <div class="col-lg-12 mb-4">
-                                    <div class="form-check border-0" style="position: relative; left: 20px;">
+                            </div>
+
+                            <div class="row align-items-center">
+                                <div class="col-lg-3 mb-2">
+                                    <div class="form-check border-0">
                                         <input class="form-check-input" type="checkbox" value="1"
                                             id="flexCheckDefault" name="call" placeholder="Call Me"
-                                            style="left: 1rem;" />
+                                            style="left: 3rem;" />
                                         <label class="form-check-label" for="flexCheckDefault"> Call Me
                                         </label>
                                     </div>
                                 </div>
-
-                            </div>
-                            <div class="row justify-content-lg-between mb-3 align-items-center">
-                                <div class="col-lg-6 text-start mb-2">
-                                    <div class="form-group row px-3 mx-3 message g-recaptcha"
+                                <div class="col-lg-9 mb-2">
+                                    <div class="form-group px-3 mx-1 message g-recaptcha w-100"
                                         data-sitekey="{{ config('app.recaptcha_site_key') }}">
                                     </div>
                                 </div>
-                                <div class="col-lg-6 text-end">
+                            </div>
+
+
+                            <div class="row justify-content-lg-between mb-2 align-items-center">
+                                <div class="col-lg-12 text-end">
                                     <button type="submit" class="btn rounded-0 px-2 py-3 w-lg-25 w-50"
                                         style="background: #ae0a46; color: white;" role="button">Submit</button>
                                 </div>

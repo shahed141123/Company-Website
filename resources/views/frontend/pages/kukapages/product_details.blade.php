@@ -1099,9 +1099,7 @@
                                     </div>
                                     <div class="form-group  col-sm-12 px-3 mx-3">
                                         <input class="form-check-input" type="checkbox" value="1"
-                                            id="flexCheckDefault" name="call"
-                                            style="position: absolute;
-                                                                left: 3rem;">
+                                            id="flexCheckDefault" name="call">
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Call Me
                                         </label>
@@ -1189,8 +1187,7 @@
                                     </div>
                                     <div class="form-group  col-sm-12 px-3 mx-3">
                                         <input class="form-check-input" type="checkbox" value="1"
-                                            id="flexCheckDefault" name="call"
-                                            style="position: absolute; left: 3rem;">
+                                            id="flexCheckDefault" name="call">
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Call Me
                                         </label>
@@ -1262,10 +1259,9 @@
                                                 placeholder="Your Message"></textarea>
                                         </div>
                                         <div class="col-lg-12 mb-4">
-                                            <div class="form-check border-0" style="position: relative; left: 20px;">
+                                            <div class="form-check border-0">
                                                 <input class="form-check-input" type="checkbox" value="1"
-                                                    id="flexCheckDefault" name="call" placeholder="Call Me"
-                                                    style="left: 20px;" />
+                                                    id="flexCheckDefault" name="call" placeholder="Call Me" />
                                                 <label class="form-check-label" for="flexCheckDefault"> Call Me
                                                 </label>
                                             </div>

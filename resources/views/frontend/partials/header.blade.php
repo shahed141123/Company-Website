@@ -652,22 +652,31 @@
                                                             <span style="border-top: 4px solid #ae0a46">Soc</span>ial
                                                         </p>
                                                         <li class="d-flex justify-content-center py-3">
-                                                            <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
-                                                                class="social_icons"><i
-                                                                    class="h1 fa-brands fa-square-facebook"
-                                                                    aria-hidden="true"></i></a>
-                                                            <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
-                                                                class="ms-2 social_icons">
-                                                                <i class="h1 fa-brands fa-linkedin"></i></a>
-                                                            <a href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}"
-                                                                class="ms-2 social_icons">
-                                                                <i class="h1 fa-brands fa-square-twitter"></i></a>
-                                                            <a href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}"
-                                                                class="ms-2 social_icons">
-                                                                <i class="h1 fa-brands fa-square-youtube"></i></a>
-                                                            <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
-                                                                class="ms-2 social_icons">
-                                                                <i class="h1 fa-brands fa-square-instagram"></i></a>
+                                                            <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}">
+                                                            <div class="social_icons me-2 text-center text-white">
+                                                                    <i class="fa-brands fa-facebook-f"></i>
+                                                                </div>
+                                                            </a>
+                                                            <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}">
+                                                            <div class="social_icons me-2 text-center text-white">
+                                                                    <i class="fa-brands fa-linkedin-in"></i>
+                                                                </div>
+                                                            </a>
+                                                            <a href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}">
+                                                            <div class="social_icons me-2 text-center text-white">
+                                                                    <i class="fa-brands fa-twitter"></i>
+                                                                </div>
+                                                            </a>
+                                                            <a href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}">
+                                                            <div class="social_icons me-2 text-center text-white">
+                                                                    <i class="fa-brands fa-youtube"></i>
+                                                                </div>
+                                                            </a>
+                                                            <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}">
+                                                            <div class="social_icons me-2 text-center text-white">
+                                                                    <i class="fa-brands fa-instagram"></i>
+                                                                </div>
+                                                            </a>
                                                         </li>
                                                     </div>
                                                     <div class="col-lg-8 pt-3 pb-1">
@@ -790,8 +799,20 @@
                                                         <hr class="m-0 mt-4">
                                                         <div class="row">
                                                             <div class="col-lg-12">
-                                                                <p class="m-0 p-2">Contact <span>|</span> Email
-                                                                    <span>|</span> Address</p>
+                                                                <div class="d-flex justify-content-between align-items-center p-3">
+                                                                    <p class="m-0 p-0">
+                                                                        <span><i class="fa-brands fa-whatsapp main_color"></i></span>
+                                                                        <span class="ps-2">+8801714243446</span>
+                                                                    </p>
+                                                                    <p class="m-0 p-0">
+                                                                        <span><i class="fa-regular fa-envelope main_color"></i></span>
+                                                                        <span class="ps-2">sales@ngenitltd.com</span>
+                                                                    </p>
+                                                                    <p class="m-0 p-0">
+                                                                        <span><i class="fa-regular fa-map main_color"></i></span>
+                                                                        <span class="ps-2">Mohammadpur, Dhaka-1207, Bangladesh</span>
+                                                                    </p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1103,21 +1124,30 @@
                                         <span style="border-top: 4px solid #ae0a46;">Soc</span>ial
                                     </p>
                                     <li class="d-flex justify-content-center py-3">
-                                        <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
-                                            class="social_icons"><i class="h1 fa-brands fa-square-facebook"
-                                                aria-hidden="true"></i></a>
-                                        <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
-                                            class="ms-2 social_icons">
-                                            <i class="h1 fa-brands fa-linkedin"></i></a>
-                                        <a href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}"
-                                            class="ms-2 social_icons">
-                                            <i class="h1 fa-brands fa-square-twitter"></i></a>
-                                        <a href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}"
-                                            class="ms-2 social_icons">
-                                            <i class="h1 fa-brands fa-square-youtube"></i></a>
-                                        <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
-                                            class="ms-2 social_icons">
-                                            <i class="h1 fa-brands fa-square-instagram"></i></a>
+                                        <div>
+                                            <a href="{{ !empty($setting->facebook_url) ? $setting->facebook_url : '' }}"
+                                                class="social_icons">
+                                                <span><i class="fa-brands fa-facebook-f"></i></span>
+                                            </a>
+                                            <a href="{{ !empty($setting->twitter_url) ? $setting->twitter_url : '' }}"
+                                                class="social_icons">
+                                                <span><i class="fa-brands fa-linkedin-in"></i></span>
+                                            </a>
+                                            <a href="{{ !empty($setting->linkedin_url) ? $setting->linkedin_url : '' }}"
+                                                class="social_icons">
+                                                <span><i class="fa-brands fa-twitter"></i></span>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="{{ !empty($setting->youtube_url) ? $setting->youtube_url : '' }}"
+                                                class="social_icons">
+                                                <span><i class="fa-brands fa-youtube"></i></span>
+                                            </a>
+                                            <a href="{{ !empty($setting->instagram_url) ? $setting->instagram_url : '' }}"
+                                                class="social_icons">
+                                                <span><i class="fa-brands fa-instagram"></i></span>
+                                            </a>
+                                        </div>
                                     </li>
                                 </div>
                                 <div class="col-12 pt-3 pb-3">
