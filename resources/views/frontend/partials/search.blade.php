@@ -51,7 +51,7 @@
                 @endif
             </div>
             <div class="col-lg-6">
-                <div class="row">
+                <div class="row mb-4">
                     @if (is_countable($brands) && count($brands) > 0)
                         <div class="col-lg-6 col-5">
                             <h5 class="fw-bold border-bottom">Brands</h5>
@@ -85,7 +85,7 @@
 
                 </div>
 
-                <div class="row mt-2">
+                <div class="row mt-2 mb-4">
                     @if (is_countable($industries) && count($industries) > 0)
                         <div class="col-lg-6 col-5">
                             <h5 class="fw-bold border-bottom">Industries</h5>
@@ -109,41 +109,54 @@
                 </div>
 
                 @if (is_countable($blogs) && count($blogs) > 0)
-                    <div class="row mt-2">
+                    <div class="row mt-2 mb-4">
                         <h5 class="fw-bold border-bottom">Blogs</h5>
                         @foreach ($blogs as $blog)
-                            <h6><a class="search_titles"
-                                    href="{{ route('blog.details', $blog->id) }}">{{ $blog->title }}</a></h6>
+                            <h6>
+                                <a class="search_titles"href="{{ route('blog.details', $blog->id) }}">
+                                    {{-- {{ $blog->title }} --}}
+                                    {{-- {{ Illuminate\Support\Str::limit($blog->title, $limit = 11, $end = '...') }} --}}
+                                    {{ implode(' ', array_slice(str_word_count($blog->title, 1), 0, 9)) }}...
+                                </a>
+                            </h6>
                         @endforeach
                     </div>
                 @endif
                 @if (is_countable($storys) && count($storys) > 0)
-                    <div class="row mt-2">
+                    <div class="row mt-2 mb-4">
                         <h5 class="fw-bold border-bottom">Client storys</h5>
                         @foreach ($storys as $story)
                             <h6><a class="search_titles"
-                                    href="{{ route('story.details', $story->id) }}">{{ $story->title }}</a></h6>
+                                    href="{{ route('story.details', $story->id) }}">
+                                    {{-- {{ $story->title }} --}}
+                                    {{ implode(' ', array_slice(str_word_count($story->title, 1), 0, 9)) }}...
+                                </a>
+                            </h6>
                         @endforeach
                     </div>
                 @endif
                 @if (is_countable($tech_glossys) && count($tech_glossys) > 0)
-                    <div class="row mt-2">
+                    <div class="row mt-2 mb-4">
                         <h5 class="fw-bold border-bottom">Tech Glossary</h5>
                         @foreach ($tech_glossys as $tech_glossy)
                             <h6><a class="search_titles"
-                                    href="{{ route('techglossy.details', $tech_glossy) }}">{{ $tech_glossy->title }}</a>
+                                    href="{{ route('techglossy.details', $tech_glossy) }}">
+                                    {{-- {{ $tech_glossy->title }} --}}
+                                    {{ implode(' ', array_slice(str_word_count($tech_glossy->title, 1), 0, 9)) }}...
+                                </a>
                             </h6>
                         @endforeach
                     </div>
                 @endif
             </div>
             <div class="col-lg-6 d-lg-block d-sm-none">
+                <h5 class="fw-bold border-bottom">Products</h5>
                 @if (count($products) > 0)
                     <!-- First Product Start -->
                     @foreach ($products as $product)
-                        <div class="row m-0 p-2 rounded-0  bg-white rounded-0 d-flex align-items-center"
+                        <div class="row m-0 p-0 rounded-0  bg-white rounded-0 d-flex align-items-center"
                             style="border-bottom: 2px solid #dee2e6;">
-                            <div class="col-md-3 mt-1 ">
+                            <div class="col-md-3 p-0 py-1">
                                 <img class="img-fluid img-responsive rounded-0 product-image"
                                     src="{{ asset($product->thumbnail) }}" alt="{{ $product->name }}">
                             </div>
@@ -154,7 +167,11 @@
                                             href="{{ route('product.details', ['id' => $product->slug]) }}">
                                             <h6 class="my-3" style="color: #ae0a46;">
                                                 {{ $product->name }}</h6>
-                                        </a>
+                                            </a>
+                                            <div class="d-flex align-items-center">
+                                                <a class="search-btns m-0 me-2" href="{{ route('product.details', ['id' => $product->slug]) }}">Ask For Price</a>
+                                                <a class="search-btns m-0" href="{{ route('product.details', ['id' => $product->slug]) }}">Add To RFQ</a>
+                                            </div>
                                     </div>
                                     <div class="col-lg-3 col-sm-12">
                                         <div>
@@ -168,9 +185,12 @@
                                                 </h6>
                                             @else
                                                 <p class="text-end text-success"
-                                                    style="font-size:13px; text-transform:capitalize;">
+                                                    style="font-size:13px; text-transform:capitalize;"><i class="fa-solid fa-box-open"></i>
                                                     {{ ucfirst($product->stock) }}</p>
                                             @endif
+                                        </div>
+                                        <div>
+                                            <a class="search-details" href="{{ route('product.details', ['id' => $product->slug]) }}"><i class="fa-solid fa-circle-info pe-1 pt-1"></i>Details</a>
                                         </div>
                                         <div>
                                             @if ($product->rfq != 1)

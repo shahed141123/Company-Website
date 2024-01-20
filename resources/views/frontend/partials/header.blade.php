@@ -166,7 +166,7 @@
                                                             href="#v-pills-home{{ $category->id }}" role="tab"
                                                             aria-controls="v-pills-home{{ $category->id }}"
                                                             aria-selected="true">
-                                                            <span class="ps-1">-- &nbsp;
+                                                            <span class="ps-1">-&nbsp;
                                                                 {{ $category->title }}</span>
                                                         </a>
                                                     @endforeach
