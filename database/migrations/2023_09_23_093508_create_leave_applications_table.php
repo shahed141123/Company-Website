@@ -63,6 +63,7 @@ return new class extends Migration
             $table->enum('ceo_action', ['approved', 'rejected'])->nullable();
 
             $table->string('application_status')->nullable();
+            $table->enum('status', ['approved','rejected','pending'])->nullable();
             $table->timestamps();
 
             // Foreign Key

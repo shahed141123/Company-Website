@@ -15817,8 +15817,8 @@ thead {
 
 /* Extra Section */
 .ag-format-container {
-    width: 1142px;
-    margin: 0 auto;
+    width: 100%;
+    margin: auto;
 }
 
 .ag-offer-block {
@@ -15925,7 +15925,6 @@ thead {
 
 .ag-offer_img {
     height: 64px;
-    width: 64px;
     margin: 0 15px 0 0;
 }
 

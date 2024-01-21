@@ -145,6 +145,7 @@ class LeaveApplicationController extends Controller
                 'medical_leave_availed'   => $request->medical_leave_availed,
                 'medical_balance_due'     => $request->medical_balance_due,
                 'application_status'      => 'substitute_approval_pending',
+                'status'                  => 'pending',
                 'created_at'              => Carbon::now(),
             ] + $filePaths);
 

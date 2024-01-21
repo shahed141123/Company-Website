@@ -56,6 +56,7 @@ class LeaveController extends Controller
                 'substitute_action'      => $request->substitute_action,
                 'substitute_signature'   => $globalFunsubstituteSignature['status'] == 1 ? $substituteSignature->hashName() : null,
                 'application_status'     => ($request->substitute_action == "approved") ? 'supervisor_approval_pending' : 'rejected_by_substitute',
+                'status'                 => ($request->substitute_action == "approved") ? 'pending' : 'rejected',
             ]);
 
             $data = [
@@ -133,6 +134,7 @@ class LeaveController extends Controller
                 'supervisor_action'      => $request->supervisor_action,
                 'supervisor_signature'   => $globalFunsupervisorSignature['status'] == 1 ? $supervisorSignature->hashName() : null,
                 'application_status'     => ($request->supervisor_action == "approved") ? 'hr_approval_pending' : 'rejected_by_supervisor',
+                'status'                 => ($request->supervisor_action == "approved") ? 'pending' : 'rejected',
             ]);
 
             $data = [
@@ -235,6 +237,7 @@ class LeaveController extends Controller
                 'hr_action'               => $request->hr_action,
                 'hr_signature'            => $globalFunhrSignature['status'] == 1 ? $hrSignature->hashName() : null,
                 'application_status'      => ($request->hr_action == "approved") ? 'ceo_approval_pending' : 'rejected_by_hr',
+                'status'                  => ($request->hr_action == "approved") ? 'pending' : 'rejected',
             ]);
 
 
@@ -312,7 +315,8 @@ class LeaveController extends Controller
                 'ceo_note'              => $request->ceo_note,
                 'ceo_action'            => $request->ceo_action,
                 'ceo_signature'         => $globalFunceoSignature['status'] == 1 ? $ceoSignature->hashName() : null,
-                'application_status'     => ($request->ceo_action == "approved") ? 'leave_approved' : 'rejected_by_ceo',
+                'application_status'    => ($request->ceo_action == "approved") ? 'leave_approved' : 'rejected_by_ceo',
+                'status'                => ($request->ceo_action == "approved") ? 'approved' : 'rejected',
             ]);
 
             $data = [

@@ -95,7 +95,7 @@
     <!-- Modal -->
     <div class="modal fade" id="askProductPrice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-sm">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header py-2" style="background: #ae0a46;">
                     <h5 class="modal-title text-white" id="staticBackdropLabel">Your Price Form
@@ -223,7 +223,7 @@
     <!-- Modal -->
     <div class="modal fade" id="rfq{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content rounded-0">
                 <div class="modal-header py-0 rounded-0" style="background: #ae0a46;">
                     <h5 class="modal-title p-1 text-white" id="staticBackdropLabel">Get Quote

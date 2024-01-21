@@ -69,7 +69,7 @@
             <div class="content pt-2">
                 <div class="container-fluid ">
                     <div class="col-lg-12">
-                        <h4 class="mb-3 text-center page_titles w-25">Welcome to HRM [Admin]
+                        <h4 class="mb-3 text-center page_titles w-lg-25">Welcome to HRM [Admin]
                         </h4>
                     </div>
                     <!-- Row End -->
@@ -142,17 +142,19 @@
                                 <div class="card-body py-1 h-175px overflow-y-scroll">
                                     @if ($leave_applications->count() > 0)
                                         @foreach ($leave_applications as $leave_application)
-                                            <div class="mb-2">
-                                                <a href="{{ route('leave-application.edit', $leave_application->id) }}">
-                                                    <div class="d-flex align-items-center">
-                                                        <div><i class="fa-solid fa-star me-2"></i></div>
-                                                        <div>
-                                                            <h5 class="mb-0 fs-7">{{ $leave_application->name }} <span
-                                                                    class="text-black"> has applied for a leave.</span></h5>
+                                            @if ($leave_application->status === 'pending')
+                                                <div class="mb-2">
+                                                    <a href="{{ route('leave-application.edit', $leave_application->id) }}">
+                                                        <div class="d-flex align-items-center">
+                                                            <div><i class="fa-solid fa-star me-2"></i></div>
+                                                            <div>
+                                                                <h5 class="mb-0 fs-7">{{ $leave_application->name }} <span
+                                                                        class="text-black"> has applied for a leave.</span></h5>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                                    </a>
+                                                </div>
+                                            @endif
                                         @endforeach
                                     @else
                                         <div class="row">

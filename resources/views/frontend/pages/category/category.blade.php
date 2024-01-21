@@ -130,10 +130,10 @@
                 <div class="common_product_item_title">
                     <h3>Display Sub Categories for {{ $category->title }}</h3>
                 </div>
-                <div class="ag-format-container row">
+                <div class="ag-format-container row gx-1">
                     @foreach ($sub_cats as $key => $item)
                         <div class="ag-offer_list col-lg-3">
-                            <div class="ag-offer_item p-2 py-3"
+                            <div class="ag-offer_item"
                                 style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
                                 <div class="ag-offer_visible-item">
                                     <div class="ag-offer_img-box px-2">
@@ -158,7 +158,7 @@
                     @if (!empty($sub_sub_cats) && count($sub_sub_cats) > 0)
                         @foreach ($sub_sub_cats as $key => $item)
                             <div class="ag-offer_list col-lg-3">
-                                <div class="ag-offer_item p-2 py-3"
+                                <div class="ag-offer_item"
                                     style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
                                     <div class="ag-offer_visible-item">
                                         <div class="ag-offer_img-box px-2">
@@ -194,7 +194,7 @@
                 <div class="common_product_item_title">
                     <h3>Related Brands for {{ $category->title }}</h3>
                 </div>
-                <div class="ag-format-container row">
+                <div class="ag-format-container row gx-1">
                     @foreach ($brands as $key => $item)
                         <div class="ag-offer_list col-lg-2 col-md-2 col-sm-4">
                             <div class="ag-offer_item"
@@ -363,15 +363,6 @@
         </section><br>
     @endif
     <!---Products Section-->
-
-
-
-
-
-
-
-
-
-
+    @include('frontend.pages.home.rfq_modal')
 
 @endsection
