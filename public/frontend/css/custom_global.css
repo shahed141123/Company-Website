@@ -7,6 +7,7 @@
     font-display: swap;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap');
 :root {
     --primary-color: #ae0a46;
     --secondary-color: #880736;
@@ -698,14 +699,14 @@ ul {
 
 .step-img {
     position: relative;
-    top: -15px;
+    top: -10px;
     left: -1.25rem;
     right: 0px;
 }
 
 .step-img img {
     /* height: 73px; */
-    height: 90px;
+    height: 75px;
 }
 
 #stand-logo {
@@ -2931,7 +2932,7 @@ select:focus-visible {
 }
 
 .catregory-side-key {
-    padding: 10.3px;
+    padding: 16px 10px;
     border-top: 1px solid #eee !important;
     border-right: 1px solid #eee !important;
 }

@@ -2456,9 +2456,8 @@
 } */
 
 /* Extra Large Devices (e.g., Larger Desktops) */
-@media only screen and (min-width: 1201px) {
-    /* Styles for screens 1201 pixels and wider */
+/* @media only screen and (min-width: 1201px) {
     .menu-section {
         height: 4rem;
     }
-}
+} */
