@@ -92,6 +92,10 @@
                                                     <i class="fa fa-list m-2"></i>
                                                     <a href="javascript:void(0)" class="">My Requests</a>
                                                 </li>
+                                                <li>
+                                                    <i class="fa-solid fa-right-from-bracket m-2"></i>
+                                                    <a href="{{ route('client.logout') }}" class="">Log Out</a>
+                                                </li>
                                                 <hr class="text-muted" />
                                             @else
                                                 <a href="{{ route('client.login') }}"
