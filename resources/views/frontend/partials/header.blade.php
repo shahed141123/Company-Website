@@ -132,7 +132,7 @@
         {{-- Menu And Logo Area --}}
         <div>
             <nav class="navbar navbar-expand-lg p-2 main-navbar bg-white menu-section">
-                <div class="container-fluid d-flex align-items-center mt-2">
+                <div class="container-fluid d-flex align-items-center" style="height: 1.5rem">
                     <div class="step-img d-lg-block d-sm-none">
                         <img src="https://i.ibb.co/3WKt3Mw/NGen-IT-left-color.png" alt="">
                     </div>
@@ -181,18 +181,18 @@
                                                             aria-labelledby="v-pills-home-tab{{ $category->id }}"
                                                             style="height: 22rem;">
 
-                                                            <div class="row p-3">
+                                                            <div class="row p-4">
                                                                 @foreach ($category->subCategorys as $sub_category)
                                                                     <div class="col-lg-3 col-sm-6">
                                                                         <div class="fw-bold nav_title mb-2"
-                                                                            style="font-size: 15px;">
+                                                                            style="font-size: 17px;">
                                                                             <span
                                                                                 style="border-top: 4px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($sub_category->title, 0, 3) }}</span>{{ \Illuminate\Support\Str::substr($sub_category->title, 3) }}
                                                                         </div>
 
                                                                         @foreach ($sub_category->subsubCategorys as $item)
-                                                                            <li class="my-2"
-                                                                                style="line-height: 1.2rem !important;">
+                                                                            <li class="py-2"
+                                                                                style="line-height: 1 !important;">
                                                                                 <a class="p-0"
                                                                                     href="{{ route('category.html', $item->slug) }}">
                                                                                     <div>
@@ -644,10 +644,11 @@
                                             CONNECT US
                                         </a>
                                         <ul class="dropdown-menu full-container-dropdown"
-                                            style="border-top: 1px solid #ae0a460f !important; width:83%;">
+                                            style="border-top: 1px solid #ae0a460f !important; width:83%; height: 18.5rem;">
                                             <div class="container-fluid">
                                                 <div class="row">
-                                                    <div class="col-lg-4 pt-3 pb-3" style="background: #f7f6f5">
+                                                    <div class="col-lg-4 pt-5" style="background: #f7f6f5; height: 18.4rem;
+                                                    ">
                                                         <p class="fw-bold text-center">
                                                             <span style="border-top: 4px solid #ae0a46">Soc</span>ial
                                                         </p>
@@ -679,7 +680,7 @@
                                                             </a>
                                                         </li>
                                                     </div>
-                                                    <div class="col-lg-8 pt-3 pb-1">
+                                                    <div class="col-lg-8 pt-5">
                                                         <div class="row">
                                                             <div class="col-lg-4">
                                                                 <p class="fw-bold">
@@ -796,22 +797,31 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <hr class="m-0 mt-4">
-                                                        <div class="row">
+                                                        <div class="row" style="border-top: 1px solid #eee;
+                                                        margin-top: 4rem;padding-top: 10px;">
                                                             <div class="col-lg-12">
-                                                                <div class="d-flex justify-content-between align-items-center p-3">
-                                                                    <p class="m-0 p-0">
-                                                                        <span><i class="fa-brands fa-whatsapp main_color"></i></span>
-                                                                        <span class="ps-2">+8801714243446</span>
-                                                                    </p>
-                                                                    <p class="m-0 p-0">
-                                                                        <span><i class="fa-regular fa-envelope main_color"></i></span>
-                                                                        <span class="ps-2">sales@ngenitltd.com</span>
-                                                                    </p>
-                                                                    <p class="m-0 p-0">
-                                                                        <span><i class="fa-regular fa-map main_color"></i></span>
-                                                                        <span class="ps-2">Mohammadpur, Dhaka-1207, Bangladesh</span>
-                                                                    </p>
+                                                                <div class="d-flex justify-content-between align-items-center">
+                                                                    <h5 class="m-0" style="font-family: 'Libre Franklin', sans-serif;">Contact Us |</h5>
+                                                                    <div>
+                                                                        <p class="m-0 p-0">
+                                                                            <span><i class="fa-brands fa-square-whatsapp main_color"></i></span>
+                                                                            <span class="ps-2">+880 156875668</span>
+                                                                        </p>
+                                                                        <p class="m-0 p-0">
+                                                                            <span><i class="fa-brands fa-skype main_color"></i></span>
+                                                                            <span class="ps-2">+880 156875668</span>
+                                                                        </p>
+                                                                    </div>
+                                                                    <div>
+                                                                        <p class="m-0 p-0">
+                                                                            <span><i class="fa-solid fa-envelope-open-text main_color"></i></span>
+                                                                            <span class="ps-2">sales@ngenitltd.com</span>
+                                                                        </p>
+                                                                        <p class="m-0 p-0">
+                                                                            <span><i class="fa-solid fa-envelope-open-text main_color"></i></span>
+                                                                            <span class="ps-2">partners@ngenitltd.com</span>
+                                                                        </p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -1,155 +1,20 @@
 @extends('frontend.master')
 @section('content')
-    <style>
-        .gradient_bg {
-            background-image: linear-gradient(to right top, #cb3a6f, #dd2467, #9f0940, #98083d, #91083a, #c7024a, #9f023c, #970a3d, #98083d, #9f0940, #a70a43, #ae0a46);
-        }
-    </style>
-    <style>
-        .arrow-box-fuchsia {
-            position: relative;
-            background: #3e332d;
-            text-align: center;
-            min-height: 40px;
-            padding: 5px;
-            margin-top: 5px;
-        }
-
-        .arrow-box-fuchsia:after {
-
-            left: 50%;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            position: absolute;
-            border-top: solid 15px #3e332d;
-            border-left: solid 30px transparent;
-            border-right: solid 30px transparent;
-            top: 100%;
-            margin-left: -30px;
-        }
-
-        .arrow-box-pink {
-            position: relative;
-            background: #d40e8c;
-            text-align: center;
-            min-height: 40px;
-            padding: 5px;
-            margin-top: 30px;
-        }
-
-        .arrow-box-pink:after {
-
-            left: 50%;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            position: absolute;
-            border-top: solid 15px #d40e8c;
-            border-left: solid 30px transparent;
-            border-right: solid 30px transparent;
-            top: 100%;
-            margin-left: -30px;
-        }
-
-        .arrow-box-light-purple {
-            position: relative;
-            background: #b01c87;
-            text-align: center;
-            min-height: 40px;
-            padding: 5px;
-            margin-top: 30px;
-        }
-
-        .arrow-box-light-purple:after {
-
-            left: 50%;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            position: absolute;
-            border-top: solid 15px #b01c87;
-            border-left: solid 30px transparent;
-            border-right: solid 30px transparent;
-            top: 100%;
-            margin-left: -30px;
-        }
-
-        .arrow-box-purple {
-            position: relative;
-            background: #582873;
-            text-align: center;
-            min-height: 40px;
-            padding: 5px;
-            margin-top: 5px;
-        }
-
-        .arrow-box-purple:after {
-
-            left: 50%;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            position: absolute;
-            pointer-events: none;
-            border-top: solid 15px #582873;
-            border-left: solid 30px transparent;
-            border-right: solid 30px transparent;
-            top: 100%;
-            margin-left: -30px;
-        }
-
-        .content-box {
-            background: #fff;
-            border: 2px solid #d4d0ca;
-            margin-top: -2px;
-            min-height: 180px;
-            text-align: center;
-            padding: 40px 10px 0px 10px;
-        }
-
-        .underline {
-            display: inline;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .underline:after {
-            content: "";
-            position: absolute;
-            z-index: 1;
-            right: 0;
-            width: 0;
-            bottom: -5px;
-            background: #ae0a46;
-            height: 3px;
-            transition-property: width;
-            transition-duration: 0.4s;
-            transition-timing-function: ease-out;
-        }
-
-
-    </style>
     <!--======// Header Title //======-->
     @if (!empty($industry->image))
         <section>
             <div>
                 <img class="page_top_banner"
                     src="{{ !empty($industry->image) && file_exists(public_path('storage/' . $industry->image)) ? asset('storage/' . $industry->image) : asset('frontend/images/no-banner(1920-330).png') }}"
-                    alt="NGEN IT {{$industry->title}} Industry">
+                    alt="NGEN IT {{ $industry->title }} Industry">
             </div>
         </section>
     @endif
 
     <!----------End--------->
-    <section class="mt-5">
+    <section class="mt-5 d-lg-block d-sm-none">
         <div class="container my-3">
             <ul class="breadcrumb text-left">
-
                 <a href="{{ route('homepage') }}">
                     <li class="breadcrumb__item breadcrumb__item-firstChild">
                         <span class="breadcrumb__inner">
@@ -157,7 +22,6 @@
                         </span>
                     </li>
                 </a>
-
                 <li class="breadcrumb_divider">
                     <span>></span>
                 </li>
@@ -195,233 +59,39 @@
             </ul>
         </div>
     </section>
-    <!--======// Modern finance //======-->
-    @if (!empty($industry->industryPage->rowOne))
-        <section class="container section_padding">
-            <div class="row">
-                <div class="col-lg-7 col-sm-12">
-                    <div class="section_text_wrapper">
-                        <h4>{{ $industry->industryPage->rowOne->title }}</h4>
-                        <p style="text-align: justify;">{!! $industry->industryPage->rowOne->short_des !!}</p>
-
-                    </div>
-                </div>
-                <div class="col-lg-5 col-sm-12">
-                    <div class="industry_single_help_list">
-                        <h5>{{ $industry->industryPage->rowOne->list_title }}</h5>
-                        <ul>
-
-                            <li class="d-flex">
-                                <div class="me-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px"
-                                        height="15px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
-                                        xml:space="preserve">
-                                        <path fill="#AE1D48"
-                                            d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
-                                    </svg></div>
-                                <div><a href="javascript:void(0);">{{ $industry->industryPage->rowOne->list_one }}</a>
-                                </div>
-                            </li>
-
-                            <li class="d-flex">
-                                <div class="me-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px"
-                                        height="15px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
-                                        xml:space="preserve">
-                                        <path fill="#AE1D48"
-                                            d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
-                                    </svg></div>
-                                <div><a href="javascript:void(0);">{{ $industry->industryPage->rowOne->list_two }}</a>
-                                </div>
-                            </li>
-
-                            <li class="d-flex">
-                                <div class="me-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px"
-                                        height="15px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
-                                        xml:space="preserve">
-                                        <path fill="#AE1D48"
-                                            d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
-                                    </svg></div>
-                                <div><a href="javascript:void(0);">{{ $industry->industryPage->rowOne->list_three }}</a>
-                                </div>
-                            </li>
-
-                            <li class="d-flex">
-                                <div class="me-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px"
-                                        height="15px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
-                                        xml:space="preserve">
-                                        <path fill="#AE1D48"
-                                            d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
-                                    </svg></div>
-                                <div><a href="javascript:void(0);">{{ $industry->industryPage->rowOne->list_four }}</a>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    @endif
-    <!----------End--------->
-    <!--======// Solution feature //======-->
-    <section class="section_wp">
+    @if (!empty($industry->industryPage->rowThree))
+    <section class="py-lg-4 py-2 my-lg-5 my-2">
         <div class="container">
-            <!--title-->
-            <div class="section_text_wrapper">
-                <h3 class="section_title">
-                    Featured Solutions Related to This Industries
-                </h3>
-
-            </div>
-            <!--Content Wrapper-->
-            <div class="row d-flex justify-content-center pt-3">
-                @php
-                    $solutionCards = [$industry->industryPage->solutionCardOne, $industry->industryPage->solutionCardTwo, $industry->industryPage->solutionCardThree, $industry->industryPage->solutionCardFour];
-                @endphp
-                @foreach ($solutionCards as $item)
-                    <div class="col-md-3 col-sm-4 mb-3">
-                        <div class="box shadow-lg rounded">
-                            <img class="img-fluid"
-                                src="{{ !empty($item->banner_image) && file_exists(public_path('storage/' . $item->banner_image)) ? asset('storage/' . $item->banner_image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                                style=" height: 270px;">
-                            <div class="box-content">
-                                <h3 class="text-white">{{ Str::limit($item->name, 25) }}</h3>
-                                <span class="post">{!! Str::limit($item->header, 120) !!}</span>
-                                <a href="{{ route('solution.details', $item->slug) }}" class="btn-color"
-                                    style="border-radius: 5px; padding:10px 15px !important;">Details</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
+            <div class="row flex-column-reverse flex-lg-row align-items-center">
+                <div class="col-lg-6 col-sm-12" style="text-align: justify;">
+                    <h4 class="container-text pt-lg-0 pt-3">{{ $industry->industryPage->rowThree->title }}</h4>
+                    <p class="m-0 pt-3" style="text-align: justify">{!! $industry->industryPage->rowThree->description !!}</p>
+                    @if (!empty($industry->industryPage->rowThree->link))
+                        <a href="{{ $industry->industryPage->rowThree->link }}" class="btn-color">{{ $industry->industryPage->rowThree->btn_name }}</a>
+                    @endif
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <img class="img-fluid"
+                        src="{{ !empty($industry->industryPage->rowThree->image) && file_exists(public_path('storage/' . $industry->industryPage->rowThree->image)) ? asset('storage/' . $industry->industryPage->rowThree->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                        style="height: 300px;width: 580px;border-bottom-left-radius: 60px;border-top-right-radius: 60px;">
+                </div>
             </div>
         </div>
     </section>
-    <!----------End--------->
-    <!--======// Gradian Background //======-->
-
-    <!----------End--------->
-    <!--=======// Building resilient IT //=====-->
-    @if (!empty($industry->industryPage->rowThree))
-        <section class="py-4 my-5">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-sm-12" style="text-align: justify;">
-                        <h4 style="font-size:25px">{{ $industry->industryPage->rowThree->title }}</h4>
-                        <p class="m-0  pt-3" style="text-align: justify">{!! $industry->industryPage->rowThree->description !!}</p>
-                        @if (!empty($industry->industryPage->rowThree->link))
-                            <a href="{{ $industry->industryPage->rowThree->link }}"
-                                class="btn-color">{{ $industry->industryPage->rowThree->btn_name }}</a>
-                        @else
-                        @endif
-
-                    </div>
-                    <div class="col-lg-6 col-sm-12">
-                        <img class="img-fluid"
-                            src="{{ !empty($industry->industryPage->rowThree->image) && file_exists(public_path('storage/' . $industry->industryPage->rowThree->image)) ? asset('storage/' . $industry->industryPage->rowThree->image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                            style="height: 300px;width: 580px;border-radius: 15px;">
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-
-    @if (!empty($industry->industryPage))
-        <div class="insight-layout section">
-            <div class="callout" style="">
-                <div class="callout-inner">
-                    <div class="row">
-                        <div class="columns small-10 small-centered medium-12">
-                            <div class="-column-1 parsys">
-                                <div class="text content-base global-base section">
-
-                                    <div class=" aria-text">
-                                        <div class="medium-10 small-11 text-center" style="margin: 0 auto;">
-                                            <h2 class="text-center" style="font-weight: 400; margin: 0 0 10.0px; padding-top: 0;"><span
-                                                    class="beTopLine">{{ substr($industry->industryPage->row_four_title, 0, 2) }}</span>{{ substr($industry->industryPage->row_four_title, 2) }}
-                                            </h2>
-                                            <p>{{ $industry->industryPage->row_four_header }}</p>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div class="insight-layout section">
-                                    <div style="">
-                                        <div class="columns small-10 small-centered">
-                                            <div class="-column-1 parsys">
-                                                <div class="insight-layout section">
-                                                    <div class="row" style="">
-                                                        <div
-                                                            class="columns col-lg-6 small-11 small-centered medium-uncentered">
-                                                            <div class="-column-1 parsys">
-                                                                <div class="anything content-base global-base section">
-                                                                    <div class="arrow-box-fuchsia">
-                                                                        <h3 style="color: #fff;">
-                                                                            {{ $industry->industryPage->row_four_col_one_title }}
-                                                                        </h3>
-                                                                    </div>
-                                                                    <div class="clearfix content-box">
-                                                                        <p>{{ $industry->industryPage->row_four_col_one_header }}
-                                                                        </p>
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                        <div
-                                                            class="columns col-lg-6 small-11 small-centered medium-uncentered">
-                                                            <div class="-column-2 parsys">
-                                                                <div class="anything content-base global-base section">
-                                                                    <div class="arrow-box-fuchsia">
-                                                                        <h3 style="color: #fff;">
-                                                                            {{ $industry->industryPage->row_four_col_two_title }}
-                                                                        </h3>
-                                                                    </div>
-                                                                    <div class="clearfix content-box">
-                                                                        <p>{{ $industry->industryPage->row_four_col_two_header }}
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="anything content-base global-base section">
-
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
     @endif
 
     @if (!empty($industry->industryPage->rowFive))
-        <section class="py-4 my-5">
+        <section class="py-lg-4 py-2 my-lg-5 my-2">
             <div class="container">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-lg-6 col-sm-12">
-                        <img class="img-fluid" src="{{ !empty($industry->industryPage->rowFive->image) && file_exists(public_path('storage/' . $industry->industryPage->rowFive->image)) ? asset('storage/' . $industry->industryPage->rowFive->image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                            alt="" style="height: 300px;width: 580px;border-radius: 15px;">
+                        <img class="img-fluid"
+                            src="{{ !empty($industry->industryPage->rowFive->image) && file_exists(public_path('storage/' . $industry->industryPage->rowFive->image)) ? asset('storage/' . $industry->industryPage->rowFive->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                            alt=""
+                            style="height: 300px;width: 580px;border-bottom-left-radius: 60px;border-top-right-radius: 60px;">
                     </div>
                     <div class="col-lg-6 col-sm-12">
-                        <h4 style="font-size:32px">{{ $industry->industryPage->rowFive->title }}</h4>
+                        <h4 class="container-text pt-lg-0 pt-3">{{ $industry->industryPage->rowFive->title }}</h4>
                         <p>{!! $industry->industryPage->rowFive->description !!}</p>
                         @if (!empty($industry->industryPage->rowFive->link))
                             <a href="{{ $industry->industryPage->rowFive->link }}"
@@ -435,6 +105,197 @@
             </div>
         </section>
     @endif
+    <!--======// Modern finance //======-->
+    @if (!empty($industry->industryPage->rowOne))
+        <section class="container-fluid mordern-finanace">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-sm-12">
+                        <div class="section_text_wrapper" style="text-align: justify">
+                            <h4 style="font-size: var(--section-title-font-size);">
+                                {{ $industry->industryPage->rowOne->title }}</h4>
+                            <p style="text-align: justify;">{!! $industry->industryPage->rowOne->short_des !!}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-sm-12">
+                        <div class="industry_single_help_list">
+                            <h4 style="font-size: var(--section-title-font-size);">
+                                {{ $industry->industryPage->rowOne->list_title }}</h4>
+                            <ul>
+
+                                <li class="d-flex">
+                                    <div class="me-2"><svg version="1.1" id="Layer_1"
+                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            x="0px" y="0px" width="15px" height="15px" viewBox="0 0 20 20"
+                                            enable-background="new 0 0 20 20" xml:space="preserve">
+                                            <path fill="#AE1D48"
+                                                d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
+                                        </svg></div>
+                                    <div><a href="javascript:void(0);">{{ $industry->industryPage->rowOne->list_one }}</a>
+                                    </div>
+                                </li>
+
+                                <li class="d-flex">
+                                    <div class="me-2"><svg version="1.1" id="Layer_1"
+                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            x="0px" y="0px" width="15px" height="15px" viewBox="0 0 20 20"
+                                            enable-background="new 0 0 20 20" xml:space="preserve">
+                                            <path fill="#AE1D48"
+                                                d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
+                                        </svg></div>
+                                    <div><a href="javascript:void(0);">{{ $industry->industryPage->rowOne->list_two }}</a>
+                                    </div>
+                                </li>
+
+                                <li class="d-flex">
+                                    <div class="me-2"><svg version="1.1" id="Layer_1"
+                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            x="0px" y="0px" width="15px" height="15px" viewBox="0 0 20 20"
+                                            enable-background="new 0 0 20 20" xml:space="preserve">
+                                            <path fill="#AE1D48"
+                                                d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
+                                        </svg></div>
+                                    <div><a
+                                            href="javascript:void(0);">{{ $industry->industryPage->rowOne->list_three }}</a>
+                                    </div>
+                                </li>
+
+                                <li class="d-flex">
+                                    <div class="me-2"><svg version="1.1" id="Layer_1"
+                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            x="0px" y="0px" width="15px" height="15px" viewBox="0 0 20 20"
+                                            enable-background="new 0 0 20 20" xml:space="preserve">
+                                            <path fill="#AE1D48"
+                                                d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
+                                        </svg></div>
+                                    <div><a
+                                            href="javascript:void(0);">{{ $industry->industryPage->rowOne->list_four }}</a>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+    <!----------End--------->
+    <!--======// Solution feature //======-->
+    <section class="container my-5 mb-5 d-lg-block d-sm-none">
+        <h2 class="text-center"><span class="main_color">Related Featured Solutions</span></h2>
+        <p class="text-center">Cutting-edge solutions showcased for a glimpse into innovative
+            advancements in diverse fields.</p>
+        <div class="row">
+            @php
+                $solutionCards = [$industry->industryPage->solutionCardOne, $industry->industryPage->solutionCardTwo, $industry->industryPage->solutionCardThree, $industry->industryPage->solutionCardFour];
+            @endphp
+            @foreach ($solutionCards as $item)
+                <div class="col-lg-3">
+                    <div class="client_story_box">
+                        <div class="details-titles pt-4 ps-4 pb-3">
+                            <p class="pb-5">{{ Str::words($item->name, 6) }}</p>
+                        </div>
+                        <div class="grid-river">
+                            <figure class="effect-oscar">
+                                <img src="{{ !empty($item->banner_image) && file_exists(public_path('storage/' . $item->banner_image)) ? asset('storage/' . $item->banner_image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                    alt="">
+                                <figcaption>
+                                    {{-- <h6> {{ Str::words($item->name, 10) }}</h6> --}}
+                                    <p style="height: 7em">{{ Str::words($item->header, 30) }}</p>
+                                    <h5 class="download-hover-btn">
+                                        <a class="text-white" href="{{ route('solution.details', $item->slug) }}">Read
+                                            Story
+                                            <i class="fa-solid fa-chevron-right" style="font-size: 12px;"></i>
+                                        </a>
+                                    </h5>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+    <section class="container my-4 mb-5 d-lg-none d-sm-block">
+        <div class="owl-carousel custom-responsive-slider">
+            @foreach ($storys as $key => $story)
+                <div class="item border-0">
+                    @if (!empty($story))
+                        <div class="client_story_box">
+                            <div class="details-titles pt-3 ps-4 pb-3">
+                                <p class="pb-5">{{ $story->badge }}</p>
+                            </div>
+                            <div class="grid-river">
+                                <figure class="effect-oscar">
+                                    <img src="{{ !empty($item->banner_image) && file_exists(public_path('storage/' . $item->banner_image)) ? asset('storage/' . $item->banner_image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                        alt="">
+                                    <figcaption>
+                                        <h6> {{ Str::limit($item->name, 25) }}/h6>
+                                            <p>{!! Str::limit($item->header, 120) !!}</p>
+                                            <h5 class="download-hover-btn">
+                                                <a class="text-white"
+                                                    href="{{ route('solution.details', $item->slug) }}">Details
+                                                    <i class="fa-solid fa-chevron-right" style="font-size: 12px;"></i>
+                                                </a>
+                                            </h5>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            @endforeach
+        </div>
+    </section>
+    <!----------End--------->
+
+    <!--=======// Building resilient IT //=====-->
+
+
+    @if (!empty($industry->industryPage))
+        <section>
+            <div class="container-fluid my-5">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12 mt-3">
+                            <h3><span
+                                    class="beTopLine">{{ substr($industry->industryPage->row_four_title, 0, 2) }}</span>{{ substr($industry->industryPage->row_four_title, 2) }}
+                            </h3>
+                            <p>{{ $industry->industryPage->row_four_header }}</p>
+                        </div>
+                        <div class="col-lg-5 mt-3">
+                            <div style="background-color: #ae0a46; padding: 50px;">
+                                <h3 style="color: #fff;">
+                                    {{ $industry->industryPage->row_four_col_one_title }}
+                                </h3>
+                                <p style="text-align: justify;color: white;padding-top: 20px;">
+                                    {{ $industry->industryPage->row_four_col_one_header }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 mt-3">
+                            <div >
+                                <img class="img-fluid cusrve-arrow" src="https://i.ibb.co/DVh5ZTs/red-arrow-1338626-1280.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-5 mt-3">
+                            <div style="background-color: #ae0a46; padding: 50px;">
+                                <h3 style="color: #fff;">
+                                    {{ $industry->industryPage->row_four_col_two_title }}
+                                </h3>
+                                <p style="text-align: justify;color: white;padding-top: 20px;">
+                                    {{ $industry->industryPage->row_four_col_two_header }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+
     <!-------------End--------->
     <!--======// Solution feature //======-->
 
@@ -501,121 +362,121 @@
             </div>
         </section>
     @endif
-<!--=======// Popular products //======-->
-<section>
-    <div class="container p-0 my-4">
-        <div class="Container spacer">
-            <h3 class="Head main_color">Related To This Industry <span class="Arrows"></span></h3>
-            <!-- Carousel Container -->
-            <div class="SlickCarousel">
-                @if ($products)
-                    @foreach ($products as $item)
-                        <!-- Item -->
-                        <div class="ProductBlock mb-3 mt-3">
-                            <div class="Content">
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12">
-                                        <div class="custom-product-grid">
-                                            <div class="custom-product-image">
-                                                <a href="{{ route('product.details', $item->slug) }}" class="image">
-                                                    {{-- <img class="pic-1" src="{{ asset($item->thumbnail) }}"> --}}
-                                                    <img class="img-fluid"
-                                                        src="{{ !empty($item->thumbnail) && file_exists(public_path($item->thumbnail)) ? asset($item->thumbnail) : asset('frontend/images/random-no-img.png') }}"
-                                                        alt="NGEN IT">
-                                                </a>
-                                                <ul class="custom-product-links">
-                                                    <li><a href="#"><i class="fa fa-random text-white"></i></a>
-                                                    </li>
-                                                    <li><a href="#" data-bs-toggle="modal"
-                                                            data-bs-target="#productDetails{{ $item->id }}"><i
-                                                                class="fa fa-search text-white"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="custom-product-content">
-                                                <a href="{{ route('product.details', $item->slug) }}">
-                                                    <h3 class="custom-title"> {{ Str::words($item->name, 10) }}</h3>
-                                                </a>
+    <!--=======// Popular products //======-->
+    <section>
+        <div class="container p-0 my-4">
+            <div class="Container spacer">
+                <h3 class="Head main_color">Related To This Industry <span class="Arrows"></span></h3>
+                <!-- Carousel Container -->
+                <div class="SlickCarousel">
+                    @if ($products)
+                        @foreach ($products as $item)
+                            <!-- Item -->
+                            <div class="ProductBlock mb-3 mt-3">
+                                <div class="Content">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="custom-product-grid">
+                                                <div class="custom-product-image">
+                                                    <a href="{{ route('product.details', $item->slug) }}" class="image">
+                                                        {{-- <img class="pic-1" src="{{ asset($item->thumbnail) }}"> --}}
+                                                        <img class="img-fluid"
+                                                            src="{{ !empty($item->thumbnail) && file_exists(public_path($item->thumbnail)) ? asset($item->thumbnail) : asset('frontend/images/random-no-img.png') }}"
+                                                            alt="NGEN IT">
+                                                    </a>
+                                                    <ul class="custom-product-links">
+                                                        <li><a href="#"><i class="fa fa-random text-white"></i></a>
+                                                        </li>
+                                                        <li><a href="#" data-bs-toggle="modal"
+                                                                data-bs-target="#productDetails{{ $item->id }}"><i
+                                                                    class="fa fa-search text-white"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="custom-product-content">
+                                                    <a href="{{ route('product.details', $item->slug) }}">
+                                                        <h3 class="custom-title"> {{ Str::words($item->name, 10) }}</h3>
+                                                    </a>
 
-                                                @if ($item->rfq == 1)
-                                                    <div>
-                                                        <div class="price py-3">
-                                                            {{-- <small class="price-usd">USD</small>
+                                                    @if ($item->rfq == 1)
+                                                        <div>
+                                                            <div class="price py-3">
+                                                                {{-- <small class="price-usd">USD</small>
                                                             --.-- $ --}}
+                                                            </div>
+                                                            <a href=""
+                                                                class="d-flex justify-content-center align-items-center"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#rfq{{ $item->id }}">
+                                                                <button class="btn-color popular_product-button">
+                                                                    Ask For Price
+                                                                </button>
+                                                            </a>
                                                         </div>
-                                                        <a href=""
-                                                            class="d-flex justify-content-center align-items-center"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $item->id }}">
-                                                            <button class="btn-color popular_product-button">
-                                                                Ask For Price
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                @elseif ($item->price_status && $item->price_status == 'rfq')
-                                                    <div>
-                                                        <div class="price py-3">
-                                                            {{-- <small class="price-usd">USD</small>
+                                                    @elseif ($item->price_status && $item->price_status == 'rfq')
+                                                        <div>
+                                                            <div class="price py-3">
+                                                                {{-- <small class="price-usd">USD</small>
                                                         --.-- $ --}}
+                                                            </div>
+                                                            <a href=""
+                                                                class="d-flex justify-content-center align-items-center"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#rfq{{ $item->id }}">
+                                                                <button class="btn-color popular_product-button">
+                                                                    Ask For Price
+                                                                </button>
+                                                            </a>
                                                         </div>
-                                                        <a href=""
-                                                            class="d-flex justify-content-center align-items-center"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $item->id }}">
-                                                            <button class="btn-color popular_product-button">
-                                                                Ask For Price
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                @elseif ($item->price_status && $item->price_status == 'offer_price')
-                                                    <div>
-                                                        <div class="price py-3">
-                                                            <small class="price-usd">USD</small>
-                                                            $ {{ number_format($item->price, 2) }}
+                                                    @elseif ($item->price_status && $item->price_status == 'offer_price')
+                                                        <div>
+                                                            <div class="price py-3">
+                                                                <small class="price-usd">USD</small>
+                                                                $ {{ number_format($item->price, 2) }}
+                                                            </div>
+                                                            <a href=""
+                                                                class="d-flex justify-content-center align-items-center"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#rfq{{ $item->id }}">
+                                                                <button class="btn-color" data-bs-toggle="modal"
+                                                                    data-bs-target="#askProductPrice">
+                                                                    Your Price
+                                                                </button>
+                                                            </a>
                                                         </div>
-                                                        <a href=""
-                                                            class="d-flex justify-content-center align-items-center"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $item->id }}">
-                                                            <button class="btn-color" data-bs-toggle="modal"
-                                                                data-bs-target="#askProductPrice">
-                                                                Your Price
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                @else
-                                                    <div>
-                                                        <div class="price py-3">
-                                                            <small class="price-usd">USD</small>
-                                                            $ {{ number_format($item->price, 2) }}
+                                                    @else
+                                                        <div>
+                                                            <div class="price py-3">
+                                                                <small class="price-usd">USD</small>
+                                                                $ {{ number_format($item->price, 2) }}
+                                                            </div>
+                                                            <a href="" data-mdb-toggle="popover"
+                                                                title="Add To Cart Now"
+                                                                class="cart_button{{ $item->id }}"
+                                                                data-mdb-content="Add To Cart Now"
+                                                                data-mdb-trigger="hover">
+                                                                <button type="button" class="btn-color add_to_cart"
+                                                                    data-id="{{ $item->id }}"
+                                                                    data-name="{{ $item->name }}" data-quantity="1">
+                                                                    Add to Cart
+                                                                </button>
+                                                            </a>
                                                         </div>
-                                                        <a href="" data-mdb-toggle="popover"
-                                                            title="Add To Cart Now"
-                                                            class="cart_button{{ $item->id }}"
-                                                            data-mdb-content="Add To Cart Now"
-                                                            data-mdb-trigger="hover">
-                                                            <button type="button" class="btn-color add_to_cart"
-                                                                data-id="{{ $item->id }}"
-                                                                data-name="{{ $item->name }}" data-quantity="1">
-                                                                Add to Cart
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                @endif
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                @endif
+                        @endforeach
+                    @endif
+                </div>
+                <!-- Carousel Container -->
+                @include('frontend.pages.home.rfq_modal')
             </div>
-            <!-- Carousel Container -->
-            @include('frontend.pages.home.rfq_modal')
         </div>
-    </div>
-</section>
-<!---------End -------->
+    </section>
+    <!---------End -------->
     <!--======// Featured content //======-->
     @if (count($storys) > 0)
         <section class="related_posts_wrapper">

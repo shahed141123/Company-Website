@@ -1,15 +1,19 @@
 /* Extra Small Devices (e.g., Smartphones) */
 
 @media only screen and (max-width: 576px) {
+    .mordern-finanace {
+        background-color: #eee;
+        padding: 10px;
+    }
     #partnerLoginForm {
         height: 24rem;
     }
-    .sign-up-container{
+    .sign-up-container {
         width: 100%;
         height: 65rem;
     }
 
-    .sign-in-container{
+    .sign-in-container {
         width: 100%;
         height: 35rem;
     }
@@ -18,7 +22,7 @@
         margin: auto;
         min-height: 350px;
     }
-    .overlay-container{
+    .overlay-container {
         display: none;
     }
     .success-area-content-mobile {
@@ -71,8 +75,17 @@
         margin: 0;
         padding: 0;
         margin-top: 20px;
-        text-align: center;
-        margin-left: 6rem;
+        text-align: start;
+        margin-left: 1rem;
+    }
+    .cusrve-arrow {
+        transform: rotate(90deg);
+        width: 110px;
+        height: 70px;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        margin: auto;
     }
 
     .blog_header {
@@ -1874,7 +1887,7 @@
 
 /* Medium Devices (e.g., Laptop) */
 @media only screen and (min-width: 992px) {
-    .job_post_card{
+    .job_post_card {
         height: 215px;
     }
     .wedo-cards__sub-heading {
@@ -2443,9 +2456,8 @@
 } */
 
 /* Extra Large Devices (e.g., Larger Desktops) */
-@media only screen and (min-width: 1201px) {
-    /* Styles for screens 1201 pixels and wider */
+/* @media only screen and (min-width: 1201px) {
     .menu-section {
         height: 4rem;
     }
-}
+} */
