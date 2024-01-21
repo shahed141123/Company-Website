@@ -60,24 +60,25 @@
         </div>
     </section>
     @if (!empty($industry->industryPage->rowThree))
-    <section class="py-lg-4 py-2 my-lg-5 my-2">
-        <div class="container">
-            <div class="row flex-column-reverse flex-lg-row align-items-center">
-                <div class="col-lg-6 col-sm-12" style="text-align: justify;">
-                    <h4 class="container-text pt-lg-0 pt-3">{{ $industry->industryPage->rowThree->title }}</h4>
-                    <p class="m-0 pt-3" style="text-align: justify">{!! $industry->industryPage->rowThree->description !!}</p>
-                    @if (!empty($industry->industryPage->rowThree->link))
-                        <a href="{{ $industry->industryPage->rowThree->link }}" class="btn-color">{{ $industry->industryPage->rowThree->btn_name }}</a>
-                    @endif
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                    <img class="img-fluid"
-                        src="{{ !empty($industry->industryPage->rowThree->image) && file_exists(public_path('storage/' . $industry->industryPage->rowThree->image)) ? asset('storage/' . $industry->industryPage->rowThree->image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                        style="height: 300px;width: 580px;border-bottom-left-radius: 60px;border-top-right-radius: 60px;">
+        <section class="py-lg-4 py-2 my-lg-5 my-2">
+            <div class="container">
+                <div class="row flex-column-reverse flex-lg-row align-items-center">
+                    <div class="col-lg-6 col-sm-12" style="text-align: justify;">
+                        <h4 class="container-text pt-lg-0 pt-3">{{ $industry->industryPage->rowThree->title }}</h4>
+                        <p class="m-0 pt-3" style="text-align: justify">{!! $industry->industryPage->rowThree->description !!}</p>
+                        @if (!empty($industry->industryPage->rowThree->link))
+                            <a href="{{ $industry->industryPage->rowThree->link }}"
+                                class="btn-color">{{ $industry->industryPage->rowThree->btn_name }}</a>
+                        @endif
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <img class="img-fluid"
+                            src="{{ !empty($industry->industryPage->rowThree->image) && file_exists(public_path('storage/' . $industry->industryPage->rowThree->image)) ? asset('storage/' . $industry->industryPage->rowThree->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                            style="height: 300px;width: 580px;border-bottom-left-radius: 60px;border-top-right-radius: 60px;">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     @endif
 
     @if (!empty($industry->industryPage->rowFive))
@@ -182,7 +183,51 @@
         </section>
     @endif
     <!----------End--------->
+
+    @if (!empty($industry->industryPage))
+        <section>
+            <div class="container-fluid my-5">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12 mt-3">
+                            <h3><span
+                                    class="beTopLine">{{ substr($industry->industryPage->row_four_title, 0, 2) }}</span>{{ substr($industry->industryPage->row_four_title, 2) }}
+                            </h3>
+                            <p>{{ $industry->industryPage->row_four_header }}</p>
+                        </div>
+                        <div class="col-lg-5 mt-3">
+                            <div style="background-color: #ae0a46; padding: 50px;">
+                                <h3 style="color: #fff;">
+                                    {{ $industry->industryPage->row_four_col_one_title }}
+                                </h3>
+                                <p style="text-align: justify;color: white;padding-top: 20px;">
+                                    {{ $industry->industryPage->row_four_col_one_header }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 mt-3">
+                            <div>
+                                <img class="img-fluid cusrve-arrow"
+                                    src="https://i.ibb.co/DVh5ZTs/red-arrow-1338626-1280.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-5 mt-3">
+                            <div style="background-color: #ae0a46; padding: 50px;">
+                                <h3 style="color: #fff;">
+                                    {{ $industry->industryPage->row_four_col_two_title }}
+                                </h3>
+                                <p style="text-align: justify;color: white;padding-top: 20px;">
+                                    {{ $industry->industryPage->row_four_col_two_header }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
     <!--======// Solution feature //======-->
+    <!----------End--------->
     <section class="container my-5 mb-5 d-lg-block d-sm-none">
         <h2 class="text-center"><span class="main_color">Related Featured Solutions</span></h2>
         <p class="text-center">Cutting-edge solutions showcased for a glimpse into innovative
@@ -249,52 +294,10 @@
             @endforeach
         </div>
     </section>
-    <!----------End--------->
-
     <!--=======// Building resilient IT //=====-->
 
 
-    @if (!empty($industry->industryPage))
-        <section>
-            <div class="container-fluid my-5">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-12 mt-3">
-                            <h3><span
-                                    class="beTopLine">{{ substr($industry->industryPage->row_four_title, 0, 2) }}</span>{{ substr($industry->industryPage->row_four_title, 2) }}
-                            </h3>
-                            <p>{{ $industry->industryPage->row_four_header }}</p>
-                        </div>
-                        <div class="col-lg-5 mt-3">
-                            <div style="background-color: #ae0a46; padding: 50px;">
-                                <h3 style="color: #fff;">
-                                    {{ $industry->industryPage->row_four_col_one_title }}
-                                </h3>
-                                <p style="text-align: justify;color: white;padding-top: 20px;">
-                                    {{ $industry->industryPage->row_four_col_one_header }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 mt-3">
-                            <div >
-                                <img class="img-fluid cusrve-arrow" src="https://i.ibb.co/DVh5ZTs/red-arrow-1338626-1280.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-5 mt-3">
-                            <div style="background-color: #ae0a46; padding: 50px;">
-                                <h3 style="color: #fff;">
-                                    {{ $industry->industryPage->row_four_col_two_title }}
-                                </h3>
-                                <p style="text-align: justify;color: white;padding-top: 20px;">
-                                    {{ $industry->industryPage->row_four_col_two_header }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
+
 
     <!-------------End--------->
     <!--======// Solution feature //======-->
@@ -330,43 +333,12 @@
     @endif
     <br>
     <!-------------End--------->
-    @if (count($solutions) > 0)
-        <section class="related_posts_wrapper">
-            <div class="container">
-                <div class="py-3">
-                    <h1 class="text-center"> Solutions Related to this Industry</h1>
-                </div>
 
-                <div class="row">
-                    <!--------item------->
-                    @if ($solutions)
-                        @foreach ($solutions as $item)
-                            <div class="col-lg-3 col-md-6 col-sm-12">
-                                <div class="related-item">
-                                    <a href="{{ route('solution.details', $item->id) }}">
-                                        <img class="img-fluid" src="{{ asset('storage/' . $item->banner_image) }}"
-                                            width="300px" alt="" style="height: 160px;">
-                                        <h4>{{ App\Models\Admin\Industry::where('id', $item->industry_id)->value('title') }}
-                                            </h6>
-                                            <h3><strong>{{ $item->name }}</strong></h3>
-                                    </a>
-
-                                </div>
-                            </div>
-                        @endforeach
-                    @endif
-
-
-                </div>
-
-            </div>
-        </section>
-    @endif
     <!--=======// Popular products //======-->
     <section>
         <div class="container p-0 my-4">
             <div class="Container spacer">
-                <h3 class="Head main_color">Related To This Industry <span class="Arrows"></span></h3>
+                <h3 class="Head main_color">Products Related To This Industry <span class="Arrows"></span></h3>
                 <!-- Carousel Container -->
                 <div class="SlickCarousel">
                     @if ($products)
@@ -505,4 +477,39 @@
         </section>
     @endif
     <!-------------End--------->
+
+    @if (count($solutions) > 0)
+        <section class="related_posts_wrapper">
+            <div class="container">
+                <div class="py-3">
+                    <h2 class="text-center"><span class="main_color">Other Solutions Related to this Industry</span></h2>
+                </div>
+
+                <div class="row">
+                    <!--------item------->
+                    <div class="SlickCarousel">
+                        <!--------item------->
+                        @foreach ($solutions as $item)
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="related-item">
+                                    <a href="{{ route('solution.details', $item->slug) }}">
+                                        <div>
+                                            <img class="img-fluid" src="{{ asset('storage/' . $item->banner_image) }}"
+                                                alt="" style="height: 200px; width:100%">
+                                        </div>
+                                        <div class="p-3" style="height:6.5rem;">
+                                            <h4 class="mb-1">
+                                                {{ App\Models\Admin\Industry::where('id', $item->industry_id)->value('title') }}
+                                            </h4>
+                                            <h3 class="mb-0 fw-bold">{{ $item->name }}</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
 @endsection

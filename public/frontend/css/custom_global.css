@@ -699,14 +699,14 @@ ul {
 
 .step-img {
     position: relative;
-    top: -10px;
+    top: -11px;
     left: -1.25rem;
     right: 0px;
 }
 
 .step-img img {
     /* height: 73px; */
-    height: 75px;
+    height: 74px;
 }
 
 #stand-logo {
@@ -13004,7 +13004,8 @@ switch input:checked+.slider {
 .related-item {
     opacity: 1;
     transition: all linear 0.3s;
-    margin-bottom: 10px;
+    margin: 10px;
+    border: 1px solid #e1e1e1;
 }
 
 .related-item:hover {
@@ -13021,15 +13022,14 @@ switch input:checked+.slider {
 }
 
 .related-item h4 {
-    color: #3e332d;
-    font-size: 18px;
-    margin: 10px 0;
+    color: #ae0a46;
+    font-size: 15px;
     font-family: var(--primary-font);
 }
 
 .related-item h3 {
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: 600;
     text-align: left;
     font-family: var(--primary-font);
 }

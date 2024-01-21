@@ -118,24 +118,23 @@
                                             <button type="button"
                                                 class="btn btn-light w-100 flex-column rounded-0 rounded-top-end py-2 h-125px">
                                                 @if (!empty($attendanceToday['check_in']))
+                                                
                                                     <div class="m-0 mb-1">
                                                         <span
-                                                            class="text-gray-700 fw-bolder d-block fs-1 lh-1 ls-n1 mb-1">{{ !empty($attendanceToday['check_in']) ? $attendanceToday['check_in'] : 'Absent' }}</span>
+                                                            class="text-success fw-bold d-block fs-1 lh-1 ls-n1 mb-1">{{ !empty($attendanceToday['check_in']) ? $attendanceToday['check_in'] : 'Absent' }}</span>
 
-                                                        <span class="text-gray-500 fw-semibold fs-5">Today's Entry </span>
+                                                        <span class="text-success fw-semibold fs-5">Entry Time</span>
                                                     </div>
                                                     <div class="m-0">
                                                         <span
-                                                            class="text-gray-700 fw-bolder d-block fs-4 lh-1 ls-n1 mb-1">{{ !empty($attendanceToday['check_out']) ? $attendanceToday['check_out'] : 'Absent' }}</span>
+                                                            class="text-gray-500 fw-bold d-block fs-6 lh-1 ls-n1 mb-1">{{ !empty($attendanceToday['check_out']) ? $attendanceToday['check_out'] : 'Absent' }}</span>
 
-                                                        <span class="text-gray-500 fw-semibold fs-6">Today's
-                                                            Check-Out</span>
+                                                        <span class="text-gray-500 fw-semibold fs-8">Check-Out</span>
                                                     </div>
                                                 @else
                                                 <div class="m-0 mb-1">
                                                     <span
                                                         class="text-danger fw-bolder d-block fs-1 lh-1 ls-n1 mb-1">Absent Today</span>
-
                                                 </div>
                                                 @endif
                                             </button>

@@ -19,7 +19,7 @@
             </div>
 
             <div class="d-flex justify-content-center">
-                <a class="common_button2" href="#Contact">Hear from our team</a>
+                <a class="btn-color" href="#Contact">Hear from our team</a>
             </div>
         </div>
 
@@ -92,8 +92,8 @@
 
                             <li class="d-flex">
                                 <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px"
+                                        height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
                                         xml:space="preserve">
                                         <path fill="#AE1D48"
                                             d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
@@ -103,8 +103,8 @@
 
                             <li class="d-flex">
                                 <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px"
+                                        height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
                                         xml:space="preserve">
                                         <path fill="#AE1D48"
                                             d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
@@ -114,8 +114,8 @@
 
                             <li class="d-flex">
                                 <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px"
+                                        height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
                                         xml:space="preserve">
                                         <path fill="#AE1D48"
                                             d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
@@ -125,8 +125,8 @@
 
                             <li class="d-flex">
                                 <div class="mr-2"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px"
+                                        height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
                                         xml:space="preserve">
                                         <path fill="#AE1D48"
                                             d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
@@ -224,8 +224,7 @@
                 @foreach ($cards as $card)
                     <div class="col-lg-4 col-md-6">
                         <div class="product_veiw_details_item_image">
-                            <img src="{{ asset('storage/' . $card->image) }}" alt="" width="150px"
-                                height="150px">
+                            <img src="{{ asset('storage/' . $card->image) }}" alt="" width="150px" height="150px">
                         </div>
                         <!-- content -->
                         <div class="product_veiw_details_item_content">
@@ -374,7 +373,7 @@
         <section class="related_posts_wrapper">
             <div class="container">
                 <div class="py-3">
-                    <h1 class="text-center">More Solutions You May Check</h1>
+                    <h2 class="text-center"><span class="main_color">More Solutions You May Check</span></h2>
                 </div>
                 <div class="row">
                     <div class="SlickCarousel">
@@ -383,13 +382,17 @@
                             <div class="col-lg-3 col-md-6 col-sm-12">
                                 <div class="related-item">
                                     <a href="{{ route('solution.details', $item->slug) }}">
-                                        <img class="img-fluid" src="{{ asset('storage/' . $item->banner_image) }}"
-                                            width="300px" alt="" style="height: 160px;">
-                                        <h4>{{ App\Models\Admin\Industry::where('id', $item->industry_id)->value('title') }}
-                                        </h4>
-                                        <h3><strong>{{ $item->name }}</strong></h3>
+                                        <div>
+                                            <img class="img-fluid" src="{{ asset('storage/' . $item->banner_image) }}"
+                                                alt="" style="height: 200px; width:100%">
+                                        </div>
+                                        <div class="p-3" style="height:6.5rem;">
+                                            <h4 class="mb-1">
+                                                {{ App\Models\Admin\Industry::where('id', $item->industry_id)->value('title') }}
+                                            </h4>
+                                            <h3 class="mb-0 fw-bold">{{ $item->name }}</h3>
+                                        </div>
                                     </a>
-
                                 </div>
                             </div>
                         @endforeach

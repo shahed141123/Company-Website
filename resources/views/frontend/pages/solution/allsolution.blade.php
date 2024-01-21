@@ -2,9 +2,7 @@
 @section('content')
 @section('styles')
     <meta property="og:title" content="Solutions, NGen IT Offers">
-    <!--<meta property="og:description" content="Description of your blog post">-->
     <meta property="og:image" content="{{ asset('frontend/images/solutions-banner.jpg') }}">
-    <!--<meta property="og:url" content="URL to your blog post">-->
 @endsection
 @if (!empty($learnmore->background_image))
     <style>
@@ -57,7 +55,6 @@
 <section class="mt-4">
     <div class="container my-3">
         <ul class="breadcrumb text-left">
-
             <a href="{{ route('homepage') }}">
                 <li class="breadcrumb__item breadcrumb__item-firstChild">
                     <span class="breadcrumb__inner">
@@ -65,11 +62,9 @@
                     </span>
                 </li>
             </a>
-
             <li class="breadcrumb_divider">
                 <span>></span>
             </li>
-
             <a href="{{ route('whatwedo') }}">
                 <li class="breadcrumb__item">
                     <span class="breadcrumb__inner">
@@ -80,7 +75,6 @@
             <li class="breadcrumb_divider">
                 <span>></span>
             </li>
-
             <a href="{{ route('all.solution') }}">
                 <li class="breadcrumb__item active">
                     <span class="breadcrumb__inner">
@@ -88,7 +82,6 @@
                     </span>
                 </li>
             </a>
-
         </ul>
     </div>
 </section>
