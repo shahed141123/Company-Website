@@ -237,7 +237,7 @@
                                                 alt="" style="height: 200px; width:100%">
                                         </div>
                                         <div class="p-3" style="height:6.5rem;">
-                                            <h4 class="mb-1">
+                                            <h4 class="mb-1 text-center">
                                                 {{ App\Models\Admin\Industry::where('id', $item->industry_id)->value('title') }}
                                             </h4>
                                             <h3 class="mb-0 fw-bold text-center">{{ $item->name }}</h3>
