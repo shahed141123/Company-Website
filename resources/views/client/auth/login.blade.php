@@ -460,7 +460,7 @@
 @section('scripts')
     <script>
         $('.viewPassword').on('click', function() {
-            let input = $(this).prev("input[type='password']");
+            let input = $(this).prev("input[name='password']");
             let icon = $(this).toggleClass('fa-eye fa-eye-slash'); // Updated to toggle classes correctly
             input.attr('type', input.attr('type') === 'password' ? 'text' : 'password');
         });

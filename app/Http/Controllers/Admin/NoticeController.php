@@ -7,8 +7,10 @@ use App\Models\User;
 use App\Models\Admin\Notice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\NoticeMail;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class NoticeController extends Controller
@@ -78,6 +80,12 @@ class NoticeController extends Controller
                 'achievement_status' => $request->achievement_status,
                 'attachment_path'    => $globalFunAttachmentPath['status'] == 1 ? $mainFile->hashName() : null,
             ]);
+            $user_emails = User::orderBy('id','desc')->pluck('email')->toArray();
+            $data = [
+                'title'              => $request->title,
+                'content'            => $request->content,
+            ];
+            Mail::to($user_emails)->send(new NoticeMail($data));
             Toastr::success('Data Inserted Successfully');
         } else {
             $messages = $validator->messages();
@@ -209,4 +217,3 @@ class NoticeController extends Controller
         return view('admin.pages.notice.notice_board', $data);
     }
 }
-
