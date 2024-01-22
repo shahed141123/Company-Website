@@ -87,7 +87,7 @@ class DashboardController extends Controller
         $data['events'] = Event::whereBetween('start_date', [$currentMonth, $endOfMonth])->get();
         $data['event_categorys'] = EventCategory::latest()->get();
         $data['users'] = User::latest('id', 'DESC')->get();
-        $data['leave_applications'] = LeaveApplication::get(['name','id']);
+        $data['leave_applications'] = LeaveApplication::get(['name','id', 'status']);
         // return view('admin.pages.HrandAdmin.all', $data);
         return view('admin.pages.HrandAdmin.all', [
             'attendanceData'     => $attendanceData,

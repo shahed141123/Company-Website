@@ -1,82 +1,59 @@
 @extends('frontend.master')
 @section('content')
     <style>
-        body {
-            background-color: #c9d6ff;
-            background: linear-gradient(to right, #e2e2e2, #c9d6ff);
-            height: 100vh;
-        }
-
         /* General Styling */
-        .custom-form {
+        .custom-login-form {
             background-color: #fff;
             border-radius: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
             position: relative;
             overflow: hidden;
-            width: 768px;
+            width: 80%;
             max-width: 100%;
             min-height: 600px;
             margin: auto;
         }
 
-        .custom-form p {
-            font-size: 14px;
-            line-height: 20px;
-            letter-spacing: 0.3px;
-            margin: 20px 0;
-        }
-
-        .custom-form span {
-            font-size: 12px;
-        }
-
-        .custom-form a {
-            color: #333;
-            font-size: 13px;
-            text-decoration: none;
-            margin: 15px 0 10px;
+        .custom-login-form li {
+            line-height: 1.5;
         }
 
         /* Styling for Buttons */
-        .custom-form button {
+        .custom-login-form button {
             background-color: #a00080;
+            width: 175px;
             color: #fff;
-            font-size: 12px;
-            padding: 10px 45px;
-            font-weight: 600;
+            font-size: 18px;
+            padding: 12px;
+            font-weight: 500;
             letter-spacing: 0.5px;
-            text-transform: uppercase;
             margin-top: 10px;
             cursor: pointer;
-            width: 100%;
             border: 2px solid #a00080;
         }
 
-        .custom-form button:hover {
+        .custom-login-form button:hover {
             background-color: transparent;
             color: #a00080;
             border: 2px solid #a00080;
             transition: all 0.5s ease-in;
         }
 
-        .custom-form button.hidden {
+        .custom-login-form button.hidden {
             background-color: white;
             color: #ae0a46;
             border: 2px solid white;
-            width: 50%;
         }
 
-        .custom-form button.hidden:hover {
+        .custom-login-form button.hidden:hover {
             background-color: transparent;
             color: white;
             border: 2px solid white;
             transition: all 0.5s ease-in;
-            width: 50%;
         }
 
         /* Styling for Forms */
-        .custom-form form {
+        .custom-login-form form {
             background-color: #fff;
             display: flex;
             align-items: center;
@@ -86,42 +63,47 @@
             height: 100%;
         }
 
-        .custom-form input {
-            background-color: #eee;
-            border: none;
+        .custom-login-form input {
+            background-color: #e8f0fe !important;
+            border: 1px solid #e8f0fe;
             margin: 8px 0;
-            padding: 10px 15px;
-            font-size: 13px;
+            padding: 12px 20px;
+            font-size: 18px;
             width: 100%;
-            outline: none;
+        }
+
+        .custom-login-form ::-webkit-input-placeholder {
+            color: #7c7c7c;
+            font-size: 18px;
+            font-weight: 700;
         }
 
         /* Styling for Form Sections */
-        .form-custom-form {
+        .form-custom-login-form {
             position: absolute;
             top: 0;
             height: 100%;
             transition: all 0.6s ease-in-out;
         }
 
-        .sign-in {
+        .custom-login-form-sign-in {
             left: 0;
             width: 50%;
             z-index: 2;
         }
 
-        .custom-form.active .sign-in {
+        .custom-login-form.active .custom-login-form-sign-in {
             transform: translateX(100%);
         }
 
-        .custom-sign-up {
+        .custom-login-sign-up {
             left: 0;
             width: 50%;
             opacity: 0;
             z-index: 1;
         }
 
-        .custom-form.active .custom-sign-up {
+        .custom-login-form.active .custom-login-sign-up {
             transform: translateX(100%);
             opacity: 1;
             z-index: 5;
@@ -163,7 +145,7 @@
         }
 
         /* Styling for Toggle Form Container */
-        .toggle-custom-form {
+        .toggle-custom-login-form {
             position: absolute;
             top: 0;
             left: 50%;
@@ -175,7 +157,7 @@
             z-index: 10;
         }
 
-        .custom-form.active .toggle-custom-form {
+        .custom-login-form.active .toggle-custom-login-form {
             transform: translateX(-100%);
             border-radius: 0 150px 100px 0;
         }
@@ -194,7 +176,7 @@
             transition: all 0.6s ease-in-out;
         }
 
-        .custom-form.active .toggle {
+        .custom-login-form.active .toggle {
             transform: translateX(50%);
         }
 
@@ -205,11 +187,12 @@
             height: 100%;
             display: flex;
             align-items: center;
-            justify-content: center;
+            /* justify-content: center; */
             flex-direction: column;
             padding: 0 30px;
             text-align: center;
-            top: 0;
+            /* top: 0; */
+            margin-top: 8rem;
             transform: translateX(0);
             transition: all 0.6s ease-in-out;
         }
@@ -218,7 +201,7 @@
             transform: translateX(-200%);
         }
 
-        .custom-form.active .toggle-left {
+        .custom-login-form.active .toggle-left {
             transform: translateX(0);
         }
 
@@ -227,23 +210,15 @@
             transform: translateX(0);
         }
 
-        .custom-form.active .toggle-right {
+        .custom-login-form.active .toggle-right {
             transform: translateX(200%);
         }
 
         /* Styling for Password Toggle Buttons */
         .password-toggle {
-            position: absolute;
-            top: 53.3%;
-            right: 50px;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-
-        .create-accounts {
-            position: absolute;
-            top: 61.3%;
-            right: 50px;
+            position: relative;
+            top: -41%;
+            left: 90%;
             transform: translateY(-50%);
             cursor: pointer;
         }
@@ -261,17 +236,9 @@
         /* Media Query for Larger Screens */
         @media screen and (min-width: 1401px) {
             .password-toggle {
-                position: absolute;
-                top: 53.3%;
-                right: 50px;
-                transform: translateY(-50%);
-                cursor: pointer;
-            }
-
-            .create-accounts {
-                position: absolute;
-                top: 61.3%;
-                right: 50px;
+                position: relative;
+                top: -41%;
+                left: 90%;
                 transform: translateY(-50%);
                 cursor: pointer;
             }
@@ -279,89 +246,157 @@
 
         /* Media Query for Small Devices */
         @media screen and (max-width: 767px) {
-            .password-toggle {
+            .create-accounts {
                 position: absolute;
-                top: 50.3%;
-                right: 50px;
+                top: 60.3%;
+                right: 25px;
                 transform: translateY(-50%);
                 cursor: pointer;
             }
 
-            .create-accounts {
+            .password-toggle {
                 position: absolute;
-                top: 63.3%;
-                right: 50px;
+                top: 52.3%;
+                right: 25px;
                 transform: translateY(-50%);
                 cursor: pointer;
+            }
+
+            .custom-login-form button {
+                background-color: #a00080;
+                color: #fff;
+                font-size: 12px;
+                padding: 10px 10px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+                margin-top: 10px;
+                cursor: pointer;
+                width: 100%;
+                border: 2px solid #a00080;
+            }
+
+            .custom-login-form form {
+                background-color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 0px 10px;
+                height: 100%;
+            }
+
+            .toggle-panel h1 {
+                font-size: 18px;
+            }
+
+            .custom-login-form p {
+                font-size: 9px;
+                line-height: 20px;
+                letter-spacing: 0.3px;
+                margin: 8px 0;
+                text-align: start;
+            }
+
+            .custom-login-form span {
+                font-size: 12px;
+                text-align: center;
             }
         }
     </style>
     <section>
         <div class="container">
-            <div class="row my-5 py-5">
+            <div class="row py-5">
                 <div class="col-lg-12">
-                    <div class="custom-form" id="custom-form">
+                    <div class="custom-login-form" id="custom-login-form">
 
                         <!-- Sign Up Form -->
-                        <div class="form-custom-form custom-sign-up">
-                            <form class="needs-validation" action="{{ route('clientRegister.store') }}" method="POST" novalidate>
+                        <div class="form-custom-login-form custom-login-sign-up">
+                            <form class="needs-validation" action="{{ route('clientRegister.store') }}" method="POST"
+                                novalidate>
                                 @csrf
-                                <h1>Create Account</h1>
-                                <span>or use your email for registration</span>
-
-                                <!-- Full Name Input -->
-                                <input type="text" name="name" placeholder="Full name" value="{{ old('name') }}"  maxlength="35" minlength="3" class="form-control" id="validationCustom01" required>
-
-                                <!-- Email Input -->
-                                <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" class="form-control" id="validationCustom02" required>
-
-                                <!-- Phone Input -->
-                                <input type="number" placeholder="Phone" name="phone" class="form-control" id="validationCustom03" required>
-
-                                <!-- Password Input -->
-                                <input type="password" name="password" placeholder="Password"  value="{{ old('password') }}" class="form-control" id="validationCustom04" required>
-
-                                <!-- Password Confirmation Input -->
-                                <input type="password" name="password_confirmation" placeholder="Confirm Password" class="form-control" id="validationCustom05" required>
-
-                                <!-- Eye Button for Password Visibility -->
-                                <div class="password-toggle create-accounts" onclick="togglePasswordVisibility(this)">
-                                    <i class="fas fa-eye"></i>
+                                <div class="row mb-3">
+                                    <h1>Create Account</h1>
+                                    <h6>or use your email for registration</h6>
                                 </div>
 
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <input type="text" name="name" placeholder="Full name"
+                                            value="{{ old('name') }}" maxlength="35" minlength="3" class=""
+                                            required>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <input type="email" name="email" placeholder="Email" value="{{ old('email') }}"
+                                            class="" required>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <input type="number" placeholder="Phone" name="phone" class=""
+                                            value="{{ old('phone') }}" required>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <input type="password" name="password" placeholder="Password"
+                                            value="{{ old('password') }}" class="" required>
+                                        <i class="fas fa-eye viewPassword password-toggle"></i>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <input type="password" name="password_confirmation" placeholder="Confirm Password"
+                                            class="" required>
+                                        <i class="fas fa-eye viewPassword password-toggle"></i>
+                                    </div>
+                                </div>
+
+
+                                <!-- Password Confirmation Input -->
+
+
                                 <!-- Sign Up Button -->
-                                <button type="submit">Sign Up</button>
+                                <button class="" type="submit">Sign Up</button>
                             </form>
                         </div>
 
                         <!-- Sign In Form -->
-                        <div class="form-custom-form sign-in">
-                            <form action="{{ route('client.loginstore') }}" method="POST" class="needs-validation" novalidate>
+                        <div class="form-custom-login-form custom-login-form-sign-in">
+                            <form action="{{ route('client.loginstore') }}" method="POST" class="needs-validation"
+                                novalidate>
                                 @csrf
-                                <h1>Sign In</h1>
-                                <span>use your email password</span>
-
-                                <!-- Email Input -->
-                                <input type="email" placeholder="Email" name="email" class="form-control" id="validationCustom06"  required>
-
-                                <!-- Password Input -->
-                                <input type="password" placeholder="Password" name="password" class="form-control" id="validationCustom07" required>
-
-                                <!-- Eye Button for Password Visibility -->
-                                <div class="password-toggle" onclick="togglePasswordVisibility(this)">
-                                    <i class="fas fa-eye"></i>
+                                <div class="row mb-3">
+                                    <h1 class="fw-bold main_color text-center">Sign In</h1>
+                                    <h6 class="text-center">Use Your NGEN IT Registered Email and Password</h6>
                                 </div>
 
-                                <!-- Forget Password Link -->
-                                <a href="javascript:void()">Forget Your <span class="text-primary">Password</span>?</a>
+                                <div class="row mb-3">
+                                    <!-- Email Input -->
+                                    <div class="col-lg-12">
+                                        <input type="email" placeholder="Email" name="email" class="loginEmailInput"
+                                            required>
+                                        <span class="email-login-message"></span>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <input type="password" placeholder="Password" name="password"
+                                            class="loginPasswordInput" required>
+                                        <i class="fas fa-eye password-toggle viewPassword"></i>
+                                        <span class="password-login-message"></span>
+                                    </div>
+
+                                    <!-- Forget Password Link -->
+                                    <a href="javascript:void()">Forget Your <span class="text-primary">Password</span>?</a>
+                                </div>
 
                                 <!-- Sign In Button -->
-                                <button type="submit">Sign In</button>
+                                <div class="row">
+                                    <button class="" type="submit">Sign In</button>
+                                </div>
                             </form>
                         </div>
 
                         <!-- Toggle Form Container -->
-                        <div class="toggle-custom-form">
+                        <div class="toggle-custom-login-form">
                             <div class="toggle">
                                 <!-- Toggle Left Panel (Sign In) -->
                                 <div class="toggle-panel toggle-left">
@@ -373,20 +408,42 @@
                                     </div>
                                     <h1>Welcome Back!</h1>
                                     <p>Enter your personal details to use all of the site features</p>
-                                    <button class="hidden" id="login">Sign In</button>
+                                    <button class="hidden custom-login-form-login">Sign In</button>
                                 </div>
 
                                 <!-- Toggle Right Panel (Sign Up) -->
                                 <div class="toggle-panel toggle-right">
-                                    <div class="error-message mt-4">
+                                    <div class="error-message mt-2">
                                         <p class="error-for-signin">
                                             <span>sign in Error For Email</span>
                                             <span class="d-none">Error For Password</span>
                                         </p>
                                     </div>
-                                    <h1>Hello, Friend!</h1>
-                                    <p>Register with your personal details to use all of the site features</p>
-                                    <button class="hidden" id="register">Sign Up</button>
+                                    <div class="text-center mb-4">
+                                        <h1 class="mb-0">Client Portal</h1>
+                                        <button class="hidden custom-login-form-register">Sign Up</button>
+                                    </div>
+                                    <div class="text-start">
+                                        {{-- <h1 class="mb-1">Hello, Client!</h1> --}}
+                                        <ul>
+                                            <li class="mb-3"><i class="fa fa-star me-2"></i><strong>NEW USER ?</strong>
+                                                Click on "Sign Up" button in the Above.</li>
+
+                                            <li class="mb-3"><i class="fa fa-star me-2"></i><strong>ALREADY REGISTERED
+                                                    CLIENT ?</strong>
+                                                &nbsp;Complete the form with the registered email and password to enter into
+                                                client dashboard.</li>
+
+                                            <li class="mb-3"><i class="fa fa-star me-2"></i><strong>FORGOT YOUR PASSWORD
+                                                    ?</strong>
+                                                &nbsp; Don't worry. Click "forget password" from the left section.
+                                            </li>
+                                            <li class="mb-3"><i class="fa fa-star me-2"></i><strong>PARTNER ?</strong>
+                                                Click <a class="fs-5 text-white fw-bold"
+                                                    href="{{ route('partner.login') }}">"here..".</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -402,42 +459,37 @@
 
 @section('scripts')
     <script>
-        function togglePasswordVisibility(icon) {
-            const passwordInput = icon.previousElementSibling; // Assuming the input comes before the icon
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-
-            // Toggle eye icon style
-            if (type === 'password') {
-                icon.innerHTML = '<i class="fas fa-eye"></i>';
-            } else {
-                icon.innerHTML = '<i class="fas fa-eye-slash"></i>';
-            }
-        }
+        $('.viewPassword').on('click', function() {
+            let input = $(this).prev("input[type='password']");
+            let icon = $(this).toggleClass('fa-eye fa-eye-slash'); // Updated to toggle classes correctly
+            input.attr('type', input.attr('type') === 'password' ? 'text' : 'password');
+        });
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const formContainer = document.getElementById('custom-form');
-            const registerBtn = document.getElementById('register');
-            const loginBtn = document.getElementById('login');
+        $(document).ready(function() {
+            // Toggle Form for Mobile
+            const toggleMobile = $('.toggle-custom-login-form-mobile');
+            const formContainer = $('.custom-login-form');
+            const registerBtn = $('.custom-login-form-register');
+            const loginBtn = $('.custom-login-form-login');
 
-            registerBtn.addEventListener('click', function() {
-                formContainer.classList.add('active');
+            registerBtn.on('click', function() {
+                formContainer.addClass('active');
             });
 
-            loginBtn.addEventListener('click', function() {
-                formContainer.classList.remove('active');
+            loginBtn.on('click', function() {
+                formContainer.removeClass('active');
             });
 
-            // For Required Fields in Sign-In Form
-            const signInForm = document.querySelector('.form-custom-form.sign-in form');
-            const signInButton = signInForm.querySelector('button');
+            // For Required Fields in custom-login-form-Sign-In Form
+            const signInForm = $('.form-custom-login-form.custom-login-form-sign-in form');
+            const signInButton = signInForm.find('button');
 
-            signInForm.addEventListener('input', function() {
-                const requiredInputs = signInForm.querySelectorAll('input[required]');
-                const isAnyEmpty = Array.from(requiredInputs).some(input => input.value.trim() === '');
+            signInForm.on('input', 'input[required]', function() {
+                const requiredInputs = signInForm.find('input[required]');
+                const isAnyEmpty = requiredInputs.toArray().some(input => $(input).val().trim() === '');
 
-                signInButton.disabled = isAnyEmpty;
+                signInButton.prop('disabled', isAnyEmpty);
             });
         });
     </script>

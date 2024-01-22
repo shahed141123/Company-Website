@@ -371,11 +371,10 @@ class LeaveApplicationController extends Controller
 
         $files = [
             $leaveApplication->substitute_signature,
+            $leaveApplication->supervisor_signature,
             $leaveApplication->applicant_signature,
-            $leaveApplication->checked_by,
-            $leaveApplication->recommended_by,
-            $leaveApplication->reviewed_by,
-            $leaveApplication->approved_by,
+            $leaveApplication->hr_signature,
+            $leaveApplication->ceo_signature,
         ];
 
         foreach ($files as $file) {

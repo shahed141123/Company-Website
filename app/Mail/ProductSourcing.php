@@ -39,7 +39,7 @@ class ProductSourcing extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Product Sourcing',
+            subject: '[Product Sourcing] - '.$this->data['name'],
         );
     }
 

@@ -119,10 +119,10 @@
                                                                 <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-white"
                                                                     style="color: #247297 !important;"></i>
                                                             </a>
-                                                            <a href="javascript:void(0);" href=""
+                                                            <a href="{{ route('leave-application.destroy',$leaveApplication->id) }}"
                                                                 class="text-danger delete">
                                                                 <i class="fa-solid fa-trash p-1 rounded-circle text-white"
-                                                                    style="color: #247297 !important;"></i>
+                                                                    style="color: #d60000 !important;"></i>
                                                             </a>
                                                         </td>
                                                     </tr>

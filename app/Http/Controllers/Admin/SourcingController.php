@@ -492,9 +492,9 @@ class SourcingController extends Controller
                 ];
 
                 Notification::send($users, new SourcingNotification($name, $slug));
-                $mail = Mail::to($user_emails);
+                $mail = Mail::to($user_emails)->send(new ProductSourcing($data));
+
                 if ($mail) {
-                    $mail->send(new ProductSourcing($data));
                     Toastr::success('Data has added Successfully');
                 } else {
                     Toastr::error('Email Failed to send', ['timeOut' => 30000]);
@@ -655,7 +655,7 @@ class SourcingController extends Controller
             foreach ($images as $img) {
                 $make_name = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
                 $multi_path = public_path('upload/Products/multi-image/' . $make_name);
-                move_uploaded_file($img, $multi_path); 
+                move_uploaded_file($img, $multi_path);
 
                 $uploadPath = 'upload/Products/multi-image/' . $make_name;
 
