@@ -802,18 +802,21 @@
                                                             </div>
                                                         </div>
                                                         <div class="row" style="border-top: 1px solid #eee;
-                                                        margin-top: 4rem;padding-top: 10px;">
+                                                        margin-top: 2rem;padding-top: 10px;">
                                                             <div class="col-lg-12">
-                                                                <div class="d-flex justify-content-between align-items-center">
-                                                                    <h5 class="m-0" style="font-family: 'Libre Franklin', sans-serif;">Contact Us |</h5>
+                                                                <div class="d-flex justify-content-between align-items-center pt-2">
+                                                                    <div class="m-0 d-flex" style="font-family: 'Libre Franklin', sans-serif;">
+                                                                        <h2>Contact Us </h2>
+                                                                        <h2 style="border-right: 1px solid #eee;padding-left: 15px;margin-top: 5px;"></h2>
+                                                                    </div>
                                                                     <div>
                                                                         <p class="m-0 p-0">
                                                                             <span><i class="fa-brands fa-square-whatsapp main_color"></i></span>
-                                                                            <span class="ps-2">+880 156875668</span>
+                                                                            <span class="ps-2">+880 1714243446</span>
                                                                         </p>
                                                                         <p class="m-0 p-0">
                                                                             <span><i class="fa-brands fa-skype main_color"></i></span>
-                                                                            <span class="ps-2">+880 156875668</span>
+                                                                            <span class="ps-2">+1 917-720-3055</span>
                                                                         </p>
                                                                     </div>
                                                                     <div>
