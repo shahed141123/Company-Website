@@ -1,5 +1,5 @@
-<ul class="nav nav-tabs border-0 d-flex align-items-center">
-    <li class="nav-item ms-1">
+<ul class="nav nav-tabs border-0 d-flex align-items-center pt-1">
+    <li class="nav-item">
         <a class="nav-link {{ Route::current()->getName() == 'product.saved' ? 'active' : '' }}" href="{{ route('product.saved') }}">
             Drafts
         </a>
@@ -16,11 +16,8 @@
     </li>
     <li class="nav-item ms-1">
         <a href="{{ route('product-sourcing.create') }}"
-            class="ms-2 btn btn-primary custom_btn btn-labeled btn-labeled-start">
-            <span class="btn-labeled-icon bg-black bg-opacity-20">
-                <i class="ph-plus icons_design"></i>
-            </span>
-            Add
+            class="nav-link">
+            <i class="ph-plus icons_design pe-2"></i> Add
         </a>
     </li>
 
