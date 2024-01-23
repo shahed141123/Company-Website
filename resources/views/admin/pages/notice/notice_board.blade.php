@@ -8,10 +8,10 @@
         }
 
         /* .sticky1:hover {
-                        transform: rotate(0deg);
-                        -webkit-transform: rotate(0deg);
-                        -moz-transform: rotate(0deg);
-                    } */
+                            transform: rotate(0deg);
+                            -webkit-transform: rotate(0deg);
+                            -moz-transform: rotate(0deg);
+                        } */
 
         .delete-btns {
             width: 30px;
@@ -217,7 +217,7 @@
                                 <label class="p-0 text-start text-black">
                                     Content</label>
                                 <div class="input-group">
-                                    <textarea name="content" class="form-control form-control-sm" id="" cols="30" rows="10"></textarea>
+                                    <textarea name="content" id="content" class="form-control form-control-sm" rows="10"></textarea>
                                 </div>
                             </div>
                             <div class="col-lg-4 pt-1 mb-3">
@@ -266,6 +266,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $(document).ready(function() {
+            
             $(".draggable-card").draggable();
 
             $(".delete-btns").click(function(e) {

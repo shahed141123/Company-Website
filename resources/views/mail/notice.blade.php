@@ -16,7 +16,7 @@
             style="background:#fff; border-collapse:collapse; width:100%; margin:0px;padding:0px;color:#333;text-align:center;font-family:Arial,Helvetica,sans-serif;text-align:center">
             <tbody>
                 <tr style="background-color:#eaeaea;">
-                    <td style="padding:5px 15px;border-bottom:1px solid #f1f1f1;text-align:left;">
+                    <td style="padding:15px 15px;border-bottom:1px solid #f1f1f1;text-align:left;">
                         <div>
                             <a href="https://www.ngenitltd.com/" target="_blank"
                                 data-saferedirecturl="https://www.google.com/url?q=https://www.ngenitltd.com/&amp;source=gmail&amp;ust=1683110822015000&amp;usg=AOvVaw1oh2knrZ8dutUp_6pTWSeQ">
@@ -26,10 +26,10 @@
                             </a>
                         </div>
                     </td>
-                    <td style="padding:5px 15px;border-bottom:1px solid #f1f1f1;text-align:right;">
+                    <td style="padding:15px 15px;border-bottom:1px solid #f1f1f1;text-align:right;">
 
                         <div>
-                            <h3 style="margin: 0; color:#ae0a46; font-size:2em;">NGEN IT HR Notice</h3>
+                            <h3 style="margin: 0; color:#ae0a46; font-size:2em;">Only for Internal Circular</h3>
                         </div>
                     </td>
                 </tr>
@@ -41,19 +41,20 @@
             <tbody>
                     <tr>
                         <td
-                            style="text-align:left;padding:20px 20px 20px 20px;color:#666;line-height:1.3;font-size:15px">
+                            style="text-align:left;padding:20px 20px 20px 20px;color:#666;line-height:1.3; font-size:17px">
                              <p>
-                                {!! nl2br(e($data['content'])) !!}
+                                {{-- {!! nl2br(e($data['content'])) !!} --}}
+                                {!! $data['content'] !!}
                              </p>
                         </td>
                     </tr>
 
-                    <tr>
+                    {{-- <tr>
                         <td
                             style="text-align:left;padding:0 15px 15px 15px;font-size:12px;color:#666;line-height:1.3;font-size:15px">
                             Thank You from NGEN IT HR Team.
                         </td>
-                    </tr>
+                    </tr> --}}
 
                 <tr>
                     <td style="padding:0px;">
@@ -61,7 +62,7 @@
                             style="padding:10px 0; text-align:center; background-color:#eaeaea; font-size:14px; font-family: sans-serif;">
 
                             <a href="https://www.ngenitltd.com" style="text-decoration:none;">
-                                <strong style="color: #ae0a46;">NGen IT Ltd.</strong>
+                                <strong style="color: #ae0a46;">NGEN IT LTD.</strong> is the sister concern of JARA Groups
                             </a>
 
                         </div>

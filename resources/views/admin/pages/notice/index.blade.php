@@ -235,7 +235,7 @@
                                     <label class="p-0 text-start text-black">
                                         Content</label>
                                     <div class="input-group">
-                                        <textarea name="content" class="form-control form-control-sm" id="" cols="30" rows="10"></textarea>
+                                        <textarea name="content" class="form-control form-control-sm" id="overview" rows="10"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 pt-1 mb-3">

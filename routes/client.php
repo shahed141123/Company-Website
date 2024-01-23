@@ -8,10 +8,19 @@ use App\Http\Controllers\Order\UserOrderController;
 use App\Http\Controllers\Client\ClientTeamController;
 use App\Http\Controllers\Client\SupportCaseController;
 use App\Http\Controllers\Client\ClientSupportController;
+use App\Http\Controllers\Client\ForgotPasswordController;
 use App\Http\Controllers\Client\ClientSupportMessageController;
 
 
-$client =!empty(Auth::guard('client')->user()->client_type) ? Auth::guard('client')->user()->client_type : 'client';
+$client = !empty(Auth::guard('client')->user()->client_type) ? Auth::guard('client')->user()->client_type : 'client';
+
+
+Route::group(['prefix' => $client, 'middleware' => 'guest'], function () {
+    Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+    Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
+    Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+    Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+});
 
 
 Route::get('/job-applicant/login',     [ClientController::class, 'jobApplicantLogin'])->name('job-applicant.login');
