@@ -169,7 +169,7 @@ class NoticeController extends Controller
             }
 
             $notice->update([
-                'employee_id'              => $request->employee_id,
+                'employee_id'        => $request->employee_id,
                 'title'              => $request->title,
                 'content'            => $request->content,
                 'publish_date'       => date('Y-m-d H:i:s', strtotime($request->publish_date)),

@@ -137,7 +137,7 @@ use App\Http\Controllers\Marketing\MarketingManagerRoleController;
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'ngen-backoffice', 'middleware' => ['auth']], function () {
 
     $userDepartment = auth()->check() ? json_decode(auth()->user()->department, true) : [];
 
