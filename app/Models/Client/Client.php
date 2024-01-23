@@ -16,6 +16,14 @@ class Client extends Authenticatable
 
     protected $guard = 'client';
 
+    protected static function booted()
+    {
+        static::creating(function ($client) {
+            $client->user_type = $client->user_type ?? 'job_seeker';
+            $client->client_type = $client->client_type ?? 'online';
+        });
+    }
+    
     protected $guarded = [];
 
     protected $hidden = [

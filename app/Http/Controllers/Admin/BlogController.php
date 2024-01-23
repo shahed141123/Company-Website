@@ -77,7 +77,7 @@ class BlogController extends Controller
             $mainFile = $request->file('image');
             $imgPath = storage_path('app/public/');
             if (isset($mainFile)) {
-                $mainFile = Helper::singleImageUpload($mainFile, $imgPath, 1800, 625);
+                $mainFile = Helper::customUpload($mainFile, $imgPath);
             } else {
                 $mainFile = ['status' => 0];
             }
@@ -183,7 +183,7 @@ class BlogController extends Controller
             $uploadPath = storage_path('app/public/');
 
             if (isset($mainFile)) {
-                $globalFunImg = Helper::singleImageUpload($mainFile, $uploadPath, 1180, 400);
+                $globalFunImg = Helper::customUpload($mainFile, $uploadPath);
             } else {
                 $globalFunImg['status'] = 0;
             }

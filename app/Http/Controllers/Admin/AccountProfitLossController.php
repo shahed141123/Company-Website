@@ -57,7 +57,7 @@ class AccountProfitLossController extends Controller
                 'loss'                   => 'nullable',
             ],
             [
-                'required' => 'the :attribute is required',
+                'required' => 'The :attribute is required',
             ]
         );
 
@@ -130,6 +130,9 @@ class AccountProfitLossController extends Controller
                 'loss'                   => 'nullable',
 
             ],
+            [
+                'required' => 'The :attribute is required',
+            ]
         );
 
         if ($validator->passes()) {

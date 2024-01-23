@@ -60,7 +60,7 @@ class BioMetricController extends Controller
         $zk->connect();
         $zk->disableDevice();
 
-        $attendances = $zk->getAttendance();
+        $attendances = $zk->getAttendance(2);
 
         // Filter attendances for the current month
         $currentMonthAttendances = array_filter($attendances, function ($attendance) {

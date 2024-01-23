@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Helper;
 use App\Models\User;
-use App\Models\Admin\Client;
 use Illuminate\Http\Request;
 use App\Models\Admin\Product;
+use App\Models\Client\Client;
 use App\Models\Partner\Partner;
 use App\Models\Admin\OfferPrice;
 use App\Http\Controllers\Controller;
