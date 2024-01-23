@@ -7,7 +7,7 @@
 
         .error-area {
             position: relative;
-            background: url('https://imageio.forbes.com/specials-images/imageserve/63990ad004b32ca023bf8641/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds') no-repeat center center fixed;
+            background: url('https://i.ibb.co/Qr8HnQc/0x0.webp') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             display: flex;
