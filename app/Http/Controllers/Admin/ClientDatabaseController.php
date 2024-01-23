@@ -213,9 +213,11 @@ class ClientDatabaseController extends Controller
             $result = 'active';
         }
         $data = [
-            'name'   => $client->title,
-            'email'  => $client->email,
-            'phone'  => $client->phone,
+            'name'            => $client->title,
+            'email'           => $client->email,
+            'phone'           => $client->phone,
+            'user_type'       => $client->user_type,
+            'password'        => $client->password,
         ];
         Mail::to($client->email)->send(new ClientApprovalMail($data));
 

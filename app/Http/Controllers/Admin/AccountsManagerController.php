@@ -8,7 +8,6 @@ use App\Models\Admin\Country;
 use App\Http\Controllers\Controller;
 use App\Notifications\AccountsManagerAdd;
 use Image;
-use Illuminate\Support\Facades\DB;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -86,7 +85,7 @@ class AccountsManagerController extends Controller
                     Image::make($image)->resize(176,176)->save($path);
                     $data['photo'] = $name_gen;
 
-                    
+
                 }
         else{
             $data['photo'] ="";
