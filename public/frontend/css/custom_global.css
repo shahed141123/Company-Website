@@ -13302,7 +13302,7 @@ switch input:checked + .slider {
 }
 
 .faq-area {
-    height: 50vh;
+    height: auto;
 }
 
 .faq-answers a {

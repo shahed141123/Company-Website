@@ -40,10 +40,11 @@
         @yield('content')
 
         <!--=======// Footer Section//=========-->
-        @if (str_contains(Route::current()->getName(), 'client'))
-        @else
-        @include('frontend.partials.footer')
-        @endif
+        @if (Route::current() && str_contains(Route::current()->getName(), 'client'))
+    <!-- Your content for client routes goes here -->
+@else
+    @include('frontend.partials.footer')
+@endif
     </div>
     <!----------End--------->
 

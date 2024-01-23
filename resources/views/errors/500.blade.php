@@ -1,63 +1,67 @@
-<style>
-    html, body{
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    font-family: sans-serif;
-    background-color: #E7FFFF;
-  }
+@extends('frontend.master')
+@section('content')
+    <style>
+        body {
+            margin: 0;
+        }
 
-  h1, a{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-  }
+        .error-area {
+            position: relative;
+            background: url('https://cdn.dribbble.com/users/32512/screenshots/3820721/brain_natural_os_by_gleb.gif') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
 
-  .section{
-    padding: 4rem 2rem;
-  }
+        .error-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #161515a4;
+            content: '';
+        }
 
-  .section .error{
-    font-size: 150px;
-    color: #008B62;
-    text-shadow:
-      1px 1px 1px #00593E,
-      2px 2px 1px #00593E,
-      3px 3px 1px #00593E,
-      4px 4px 1px #00593E,
-      5px 5px 1px #00593E,
-      6px 6px 1px #00593E,
-      7px 7px 1px #00593E,
-      8px 8px 1px #00593E,
-      25px 25px 8px rgba(0,0,0, 0.2);
-  }
+        .error-content {
+            position: relative; /* Add this line */
+            z-index: 2;
+        }
 
-  .page{
-    margin: 2rem 0;
-    font-size: 20px;
-    font-weight: 600;
-    color: #444;
-  }
+        h1 {
+            font-size: 6rem;
+            margin-bottom: 20px;
+        }
 
-  .back-home{
-    display: inline-block;
-    border: 2px solid #222;
-    color: #222;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding: 0.75rem 1rem 0.6rem;
-    transition: all 0.2s linear;
-    box-shadow: 0 3px 8px rgba(0,0,0, 0.3);
-  }
-  .back-home:hover{
-    background: #222;
-    color: #ddd;
-  }
-</style>
+        h4 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
 
-<div class="section">
-    <h1 class="error">500</h1>
-    <div class="page">Ooops!!! Something Unusual has been happened.</div>
-    <a class="back-home" href="{{route('homepage')}}">Back to home</a>
-    <a class="back-home" href="{{ URL::previous() }}">Back to Previous Page</a>
-  </div>
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+    </style>
+    <section>
+        <div class="container-fluid error-area">
+            <div class="error-overlay"></div> <!-- Add overlay here -->
+            <div class="error-content row justify-content-center align-items-center g-2">
+                <div class="col p-5">
+                    <div class="text-center p-5 mb-5">
+                        <div class="pb-5">
+                            <h1 style="font-size: 7rem">Oops !</h1>
+                            <h4>Something Went Wrong.</h4>
+                            <p>We apologize for the inconvenience. Please wait for some time and try again. <br> If the issue persists, contact our support team.</p>
+                        </div>
+                        <a href="{{ route('homepage') }}" class="btn-color">Go Home Page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection

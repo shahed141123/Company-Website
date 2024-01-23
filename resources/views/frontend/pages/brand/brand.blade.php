@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="row">
-                @foreach ($top_brands as $top_brand)
+                @foreach ($top_brand as $top_brand)
                     <div class="col-lg-2 col-sm-12 mb-lg-4 mb-3">
                         <div class="card rounded-0 brand_img_container">
                             <div class="card-body image_box">
