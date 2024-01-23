@@ -68,7 +68,13 @@
 @stack('scripts')
 
 <script>
-
+    document.addEventListener("DOMContentLoaded", function() {
+        // Simulate a delay (e.g., fetching data, loading resources)
+        setTimeout(function() {
+            // Hide the preloader
+            document.querySelector('.preloader').style.display = 'none';
+        }, 1000); // Adjust the delay time as needed
+    });
 </script>
 
 <script>

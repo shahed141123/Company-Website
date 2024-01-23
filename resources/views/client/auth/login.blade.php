@@ -322,6 +322,7 @@
 
                                 <div class="row">
                                     <div class="col-lg-12">
+                                        <input type="hidden" name="client_type" value="client">
                                         <input type="text" name="name" placeholder="Full name"
                                             value="{{ old('name') }}" maxlength="35" minlength="3" class=""
                                             required>

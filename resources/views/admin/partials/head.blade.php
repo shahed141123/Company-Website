@@ -72,4 +72,22 @@
     .border-bottom-link {
         border-bottom: 1px solid #007bff;
     }
+
+    .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(12, 12, 12);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .preloader-spinner {
+        max-width: 100%;
+        max-height: 100%;
+    }
 </style>

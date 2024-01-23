@@ -9,9 +9,11 @@ use App\Models\Client\Client;
 use App\Models\Admin\Industry;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Mail\ClientApprovalMail;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use App\Notifications\ClientRegister;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
@@ -200,15 +202,22 @@ class ClientDatabaseController extends Controller
 
     public function clientStatus(Request $request)
     {
+        $client = Client::where('id', $request->id)->first();
         $result = '';
 
         if ($request->mode == 'true') {
-            DB::table('clients')->where('id', $request->id)->update(['status' => 'inactive']);
+            $client->update(['status' => 'inactive']);
             $result = 'inactive';
         } else {
-            DB::table('clients')->where('id', $request->id)->update(['status' => 'active']);
+            $client->update(['status' => 'active']);
             $result = 'active';
         }
+        $data = [
+            'name'   => $client->title,
+            'email'  => $client->email,
+            'phone'  => $client->phone,
+        ];
+        Mail::to($client->email)->send(new ClientApprovalMail($data));
 
         return response()->json(['msg' => 'Successfully Updated Status', 'status' => true, 'client_status' => $result]);
     }
