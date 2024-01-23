@@ -390,7 +390,7 @@ textarea {
     font-weight: 600;
     padding: 5px 12px;
     text-transform: capitalize;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     font-size: 14px;
     border: none;
     background-color: #ae0a46;
@@ -406,7 +406,7 @@ textarea {
     border-radius: 3px;
     padding: 5px 12px;
     text-transform: capitalize;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     border: none;
     font-weight: 600;
     font-size: 14px;
@@ -551,13 +551,6 @@ textarea {
 
 .form-control-feedback-icon {
     display: none;
-}
-
-
-@media only screen and (max-width: 600px) {
-    .label_style {
-        width: 100% !important;
-    }
 }
 
 
@@ -1620,5 +1613,18 @@ input.invalid {
 }
 
 /*== purchase order details css end== */
-
-/* Oliullah CSS */
+@media only screen and (max-width: 600px) {
+    .label_style {
+        width: 100% !important;
+    }
+    #clock {
+        /* background-image: linear-gradient(to bottom, #0069bf, #077cd0, #178fe0, #27a2f0, #38b6ff); */
+        background-image: linear-gradient(to bottom, #c40148, #c8084f, #e11660, #f32973, #ff347e);
+        color: white;
+        display: inline-block;
+        width: auto;
+        border-radius: 0px;
+        padding: 0px 40px;
+        font-size: 1rem;
+    }
+}
