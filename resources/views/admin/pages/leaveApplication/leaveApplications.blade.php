@@ -30,7 +30,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
-                        <div class="card rounded-0">
+                        <div class="card">
                             <div class="card-header p-2 m-0">
                                 <h6 class="text-center mb-0 pb-0">Today's Leave Applications</h6>
                             </div>

@@ -1,11 +1,6 @@
 body {
-    font-size: 15px;
+    font-size: 13.975px;
 }
-
-.card {
-    border-radius: 0px;
-}
-
 
 .btn-next {
     background-color: #ae0a46;
@@ -146,10 +141,6 @@ body {
 
 /*Custom Row And Colum Table Style */
 
-table tbody td {
-    padding: 5px !important;
-    height: 30px;
-}
 
 .modal-header {
     background: #247297 !important;
@@ -174,8 +165,7 @@ table tbody td {
 }
 
 thead {
-    background-color: #24729759 !important;
-    color: #114863 !important;
+    background-color: #24729736 !important;
 }
 
 /* thead {
@@ -232,9 +222,6 @@ thead {
     padding: 0px;
 }
 
-table thead tr {
-    height: 24px !important;
-}
 
 .form-select {
     font-size: 12px !important;
