@@ -1,5 +1,5 @@
 body {
-    font-size: 13.975px;
+    font-size: 15px;
 }
 
 .btn-next {
@@ -249,9 +249,9 @@ thead {
     margin-right: 5px !important;
 }
 
-#DataTables_Table_0_wrapper {
+/* #DataTables_Table_0_wrapper {
     margin-top: -10px !important;
-}
+} */
 
 
 #DataTables_Table_0_filter input,
@@ -335,10 +335,14 @@ td{
     /* padding: 5px 0px 5px; */
 }
 
+.swal2-popup{
+    border-radius: 3px;
+}
+
 .swal2-confirm {
-    padding: 5px !important;
-    border-radius: 5px !important;
-    font-size: 12px !important;
+    padding: 8px 22px !important;
+    border-radius: 3px !important;
+    font-size: 17px !important;
     border: 0 !important;
     background: #247297 !important;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
@@ -347,11 +351,11 @@ td{
 }
 
 .swal2-cancel {
-    padding: 5px !important;
-    border-radius: 5px !important;
-    font-size: 12px !important;
+    padding: 8px 15px !important;
+    border-radius: 3px !important;
+    font-size: 17px !important;
     border: 0 !important;
-    background: #247297 !important;
+    background: #b71b1b  !important;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
     color: white !important;
     transition: 0.5s !important;

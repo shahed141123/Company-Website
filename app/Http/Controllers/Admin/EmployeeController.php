@@ -51,6 +51,8 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
+
         $mainFilePhoto                 = $request->file('photo');
         $mainFileSign                  = $request->file('sign');
         $mainFileCeoSign               = $request->file('ceo_sign');
@@ -90,7 +92,7 @@ class EmployeeController extends Controller
         }
 
         User::create([
-            'department_id'                        => $request->department_id,
+            'department_id'                                 => $request->department_id,
             'supervisor_id'                                 => $request->supervisor_id,
             'name'                                          => $request->name,
             'username'                                      => $request->username,
@@ -106,7 +108,7 @@ class EmployeeController extends Controller
             'department'                                    => json_encode($request->department),
             'status'                                        => 'active',
             'password'                                      => Hash::make($request->password),
-            'category_id'                          => $request->category_id,
+            'category_id'                                   => $request->category_id,
             'employee_id'                                   => $request->employee_id,
             'mobile'                                        => $request->mobile,
             'total_years_of_job_experience'                 => $request->total_years_of_job_experience,
