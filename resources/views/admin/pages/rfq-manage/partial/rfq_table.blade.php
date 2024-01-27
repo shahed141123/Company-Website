@@ -17,73 +17,45 @@
                     <td>{{ ucfirst($rfq->rfq_code) }}</td>
                     <td>{{ ucfirst($rfq->create_date) }}</td>
                     <td>{{ ucfirst($rfq->name) }}</td>
-                    <td>{{ ucfirst($rfq->email) }}</td>
+                    <td style="text-transform: lowercase;">{{ ucfirst($rfq->email) }}</td>
+                    <td><span class="badge bg-success p-1">{{ ucfirst($rfq->status) }}</span></td>
                     <td>
+                        <!-- Show RFQ Details Modal Trigger -->
                         <a href="javascript:void(0);" class="text-info mx-2" title="Show RFQ Details"
                             data-bs-toggle="modal" data-bs-target="#assign-manager-{{ $rfq->rfq_code }}">
-                            <i class="icon-eye"></i>
+                            <i class="fa-regular fa-eye dash-icons"></i>
                         </a>
                     </td>
-                    <td><span class="badge bg-success p-1">{{ ucfirst($rfq->status) }}</span></td>
                     <td class="text-center">
-                        {{-- <a href="{{ route('rfq.edit', [$rfq->id]) }}"
-                            class="text-primary">
-                            <i class="icon-pencil"></i>
-                        </a> --}}
-                        <a href="{{ route('single-rfq.show', $rfq->rfq_code) }}" class="text-success mx-3 float-start"
+                        <!-- Go to Details Link -->
+                        <a href="{{ route('single-rfq.show', $rfq->rfq_code) }}" class="text-success"
                             title="Go to Details">
-                            <i class="mi-airplay mi-1x"></i>
+                            <i class="fa-solid fa-display dash-icons me-3"></i>
                         </a>
+
                         @if ($rfq->status == 'rfq_created')
-                            <a href="javascript:void(0);" class="text-primary mx-3 mx-3" data-bs-toggle="modal"
+                            <!-- View & Assign Sales Manager Modal Trigger -->
+                            <a href="javascript:void(0);" class="text-primary" data-bs-toggle="modal"
                                 title="View & Assign Sales Manager"
                                 data-bs-target="#assign-manager-{{ $rfq->rfq_code }}">
-                                <i class="ph-user-circle-plus"></i>
+                                <i class="fa-solid fa-user-tie dash-icons me-3"></i>
                             </a>
                         @endif
 
                         @if ($rfq->status == 'assigned')
-                            <a href="{{ route('deal.convert', [$rfq->id]) }}" class="text-success mx-3 mx-3"
+                            <!-- Convert To Deal Link -->
+                            <a href="{{ route('deal.convert', [$rfq->id]) }}" class="text-success"
                                 title="Convert To Deal">
-                                <i class="icon-pen-plus icon-1x"></i>
+                                <i class="icon-pen-plus dash-icons me-3"></i>
                             </a>
                         @endif
-                        {{-- @if ($rfq->status == 'deal_created')
-                            <a href="{{ route('deal-sas.show', $rfq->rfq_code) }}" class="text-success mx-3 mx-3"
-                                title="Create SAS">
-                                <i class="ph-file-plus"></i>
-                            </a>
-                        @endif
-                        @if ($rfq->status == 'sas_created')
-                            <a href="{{ route('deal-sas.edit', $rfq->rfq_code) }}" class="text-info mx-2"
-                                title="Edit Sas">
-                                <i class="icon-pencil"></i>
-                            </a>
-                            <a href="{{ route('dealsasapprove', $rfq->rfq_code) }}" class="text-warning mx-3 mx-3"
-                                title="Approve Sas">
-                                <i class="mi-check-circle"></i>
-                            </a>
-                        @endif
-                        @if ($rfq->status == 'sas_approved')
-                            <a href="javascript:void(0);" class="text-primary mx-3 mx-3" data-bs-toggle="modal"
-                                title="Send Quotation" data-bs-target="#quotation-send-{{ $rfq->rfq_code }}">
-                                <i class="icon-paperplane"></i>
-                            </a>
-                        @endif --}}
-                        <a href="{{ route('rfq.destroy', [$rfq->id]) }}" class="text-danger delete mx-2"
+
+                        <!-- Delete Deal Link -->
+                        <a href="{{ route('rfq.destroy', [$rfq->id]) }}" class="text-danger delete"
                             title="Delete Deal">
-                            <i class="delete icon-trash"></i>
+                            <i class="delete fa-solid fa-trash dash-icons me-3"></i>
                         </a>
-
-                        <!---Assign Manager modal--->
-
-                        <!---Assign Manager modal--->
-                        <!---Send Quotation modal--->
-
-                        <!---Send Quotation modal--->
-
                     </td>
-
                 </tr>
             @endforeach
         @endif
@@ -113,24 +85,17 @@
                                         <tr class="text-center">
                                             <th class="text-black" colspan="3">
                                                 <h6 class="text-black">Product :
-                                                    {{ App\Models\Admin\Product::where('id', $rfq->product_id)->value('name') }}</h6>
+                                                    {{ App\Models\Admin\Product::where('id', $rfq->product_id)->value('name') }}
+                                                </h6>
                                             </th>
                                         </tr>
                                         <tr class="text-center">
-                                            <td>Asking Quantity :
-                                                {{-- @if (App\Models\Admin\DealSas::where('rfq_id', $rfq->id)->sum('qty') > 0)
-                                                    {{ App\Models\Admin\DealSas::where('rfq_id', $rfq->id)->sum('qty') }}
-                                                @else
-                                                    {{ $rfq->qty }}
-                                                @endif --}} {{ $rfq->qty }}
-                                            </td>
+                                            <td>Asking Quantity : {{ $rfq->qty }}</td>
                                         </tr>
                                     </thead>
                                 </table>
                                 <table class="table border p-1">
-
                                     <tbody>
-
                                         <tr>
                                             <td>
                                                 Client Type :
@@ -140,16 +105,13 @@
                                                 Name : {{ ucfirst($rfq->name) }}
                                             </td>
                                             <td>
-                                                Company Name :
-                                                {{ ucfirst($rfq->company_name) }}
+                                                Company Name : {{ ucfirst($rfq->company_name) }}
                                             </td>
                                         </tr>
-
                                         <tr>
-
                                             <td>Phone Number : {{ $rfq->phone }}</td>
                                             <td>
-                                                @if ($rfq->call = 1)
+                                                @if ($rfq->call == 1)
                                                     <span class="badge bg-success">Call Required</span>
                                                 @endif
                                             </td>
@@ -168,14 +130,12 @@
                                                     Assigned Sales Manager (T2) :
                                                     {{ App\Models\User::where('id', $rfq->sales_man_id_T2)->value('name') }}
                                                 @endif
-
                                             </td>
                                             <td>
                                                 Status :
                                                 <span class="badge bg-success p-1">{{ ucfirst($rfq->status) }}</span>
                                             </td>
                                         </tr>
-
                                     </tbody>
                                 </table>
                                 <div class="row p-2">
@@ -187,12 +147,11 @@
                                     </div>
                                     <div class="col-12 Rfquser" style="display:none">
                                         <div class="row mb-1 p-2 border">
-
-
                                             <div class="col-lg-4">
                                                 <div class="col-sm-12">
-                                                    <p class="mb-0">Sales Manager Name (Leader -
-                                                        L1) <span class="text-danger">*</span></p>
+                                                    <p class="mb-0">Sales Manager Name (Leader - L1)
+                                                        <span class="text-danger">*</span>
+                                                    </p>
                                                 </div>
                                                 <div class="form-group text-secondary col-sm-12">
                                                     <select name="sales_man_id_L1" class="form-control select"
@@ -208,8 +167,7 @@
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="col-sm-12">
-                                                    <p class="mb-0">Sales Manager Name (Team -
-                                                        T1)</p>
+                                                    <p class="mb-0">Sales Manager Name (Team - T1)</p>
                                                 </div>
                                                 <div class="form-group text-secondary col-sm-12">
                                                     <select name="sales_man_id_T1" class="form-control select"
@@ -223,11 +181,9 @@
                                                     </select>
                                                 </div>
                                             </div>
-
                                             <div class="col-lg-4">
                                                 <div class="col-sm-12">
-                                                    <p class="mb-0">Sales Manager Name (Team -
-                                                        T2)</p>
+                                                    <p class="mb-0">Sales Manager Name (Team - T2)</p>
                                                 </div>
                                                 <div class="form-group text-secondary col-sm-12">
                                                     <select name="sales_man_id_T2" class="form-control select"
@@ -243,7 +199,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

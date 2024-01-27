@@ -150,19 +150,6 @@ body {
 
 
 /*Custom Form Style  */
-.datatable-header {
-    /* background-color: #f1f4f9 !important; */
-    background-color: transparent !important;
-    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    color: #000 !important;
-    padding-top: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    display: flex;
-    justify-content: end;
-}
 
 thead {
     background-color: #24729736 !important;
@@ -289,16 +276,31 @@ textarea {
 }
 
 .datatable-header {
+    background-color: transparent !important;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    color: #000 !important;
+    display: flex;
+    justify-content: end;
     border-bottom: none !important;
     width: auto;
-    display: flex;
-    justify-content: flex-end;
     margin-left: auto;
     height: auto;
-    padding: 10px 0px 0px;
+    padding: 0px 0px 0px;
 }
 td{
-    padding: 0px 0px 0px !important;
+    padding: 5px 0px 5px !important;
+}
+.dash-icons {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 50%;
+    transition: transform 0.5s ease-out;
+}
+
+.dash-icons:hover {
+    transform: scale(1.2); /* Adjust the degree and scale factor as needed */
+    background-color: transparent;
 }
 .submit_btn {
     padding: 3px 5px;

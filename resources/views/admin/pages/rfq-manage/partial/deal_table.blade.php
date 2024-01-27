@@ -1,4 +1,5 @@
 <style>
+    /* Styling for the divider text */
     .devider-text {
         position: relative;
         bottom: -10px;
@@ -11,13 +12,19 @@
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
 </style>
+<!-- RFQ DataTable -->
 <table class="rfqDT2 table table-bordered table-hover text-center">
     <thead>
         <tr>
+            <!-- RFQ Code Column -->
             <th width="20%">RFQ Code</th>
+            <!-- Create Date Column -->
             <th width="15%">Create Date</th>
+            <!-- Details Column -->
             <th width="7%">Details</th>
+            <!-- Status Column -->
             <th style="width:20px !important;">Status</th>
+            <!-- Actions Column -->
             <th width="25%" class="text-center">Actions</th>
         </tr>
     </thead>
@@ -28,11 +35,13 @@
                     <td>{{ ucfirst($deal->rfq_code) }}</td>
                     <td>{{ ucfirst($deal->create_date) }}</td>
                     <td>
+                        <span class="badge bg-success">{{ ucfirst($deal->status) }}</span>
+                    </td>
+                    <td>
                         <a href="javascript:void(0);" class="text-info mx-2" title="Show Deal" data-bs-toggle="modal"
                             data-bs-target="#show-deals-{{ $deal->rfq_code }}">
-                            <i class="icon-eye"></i>
+                            <i class="fa-regular fa-eye dash-icons"></i>
                         </a>
-
                         <!---Category Update modal--->
                         <div id="show-deals-{{ $deal->rfq_code }}" class="modal fade" tabindex="-1"
                             style="display: none;" aria-hidden="true">
@@ -158,57 +167,51 @@
                             </div>
                         </div>
                     </td>
-
-                    <td>
-                        <span class="badge bg-success">{{ ucfirst($deal->status) }}</span>
-                    </td>
-
                     <td class="text-center">
 
-                        <a href="{{ route('single-rfq.show', $deal->rfq_code) }}" class="text-success mx-3 float-start"
+                        <a href="{{ route('single-rfq.show', $deal->rfq_code) }}" class="text-success"
                             title="Go to Details">
-                            <i class="mi-airplay mi-1x"></i>
+                            <i class="fa-solid fa-display text-info dash-icons me-2"></i>
                         </a>
-                        <a href="{{ route('deal.edit', $deal->id) }}" class="text-success mx-3 float-start"
-                            title="Deal Edit">
-                            <i class="icon-pen mi-1x"></i>
+                        <a href="{{ route('deal.edit', $deal->id) }}" class="text-success" title="Deal Edit">
+                            <i class="fa-solid fa-file-pen dash-icons me-2"></i>
                         </a>
                         @if ($deal->status == 'rfq_created')
-                            <a href="javascript:void(0);" class="text-primary mx-3" data-bs-toggle="modal"
+                            <a href="javascript:void(0);" class="text-primary" data-bs-toggle="modal"
                                 title="View & Assign Sales Manager"
                                 data-bs-target="#assign-manager-{{ $deal->rfq_code }}">
-                                <i class="ph-user-circle-plus"></i>
+                                <i class="fa-solid fa-user-plus  dash-icons me-2"></i>
                             </a>
                         @endif
 
                         @if ($deal->status == 'assigned')
-                            <a href="{{ route('deal.convert', [$deal->id]) }}" class="text-success mx-3"
+                            <a href="{{ route('deal.convert', [$deal->id]) }}" class="text-success"
                                 title="Convert To Deal">
-                                <i class="icon-pen-plus icon-1x"></i>
+                                <i class="icon-pen-plus dash-icons me-2"></i>
                             </a>
                         @endif
                         @if ($deal->status == 'deal_created')
-                            <a href="{{ route('deal-sas.show', $deal->rfq_code) }}" class="text-success mx-3"
+                            <a href="{{ route('deal-sas.show', $deal->rfq_code) }}" class="text-success"
                                 title="Create SAS">
-                                <i class="ph-file-plus"></i>
+                                <i class="fa-solid fa-file-circle-plus text-primary dash-icons me-2"></i>
                             </a>
                         @endif
                         @if ($deal->status == 'sas_created')
-                            <a href="{{ route('deal-sas.edit', $deal->rfq_code) }}" class="text-info mx-2">
-                                <i class="icon-pencil"></i>
+                            <a href="{{ route('deal-sas.edit', $deal->rfq_code) }}" class="text-info">
+                                <i class="fa-solid fa-file-pen dash-icons me-2"></i>
                             </a>
-                            <a href="{{ route('dealsasapprove', $deal->rfq_code) }}" class="text-warning mx-3">
-                                <i class="mi-check-circle"></i>
+                            <a href="{{ route('dealsasapprove', $deal->rfq_code) }}" class="text-warning">
+                                <i class="fa-solid fa-circle-check dash-icons me-2"></i>
                             </a>
                         @endif
                         @if ($deal->status == 'sas_approved')
-                            <a href="javascript:void(0);" class="text-primary mx-3" data-bs-toggle="modal"
+                            <a href="javascript:void(0);" class="text-primary" data-bs-toggle="modal"
                                 title="Send Quotation" data-bs-target="#quotation-send-{{ $deal->rfq_code }}">
-                                <i class="icon-paperplane"></i>
+                                <i class="fa-regular fa-circle-check dash-icons me-2"></i>
                             </a>
                         @endif
-                        <a href="{{ route('rfq.destroy', [$deal->id]) }}" class="text-danger delete mx-2 float-end">
-                            <i class="delete icon-trash"></i>
+                        <a href="{{ route('rfq.destroy', [$deal->id]) }}" class="text-danger delete">
+                            <i class="delete fa-solid fa-trash dash-icons me-2"></i>
                         </a>
 
                         <!---Assign Manager modal--->
@@ -502,7 +505,6 @@
                         <!---Send Quotation modal--->
 
                     </td>
-
                 </tr>
             @endforeach
         @endif
