@@ -82,7 +82,6 @@ class RFQController extends Controller
                 'name' => 'required',
                 'email' => 'required',
                 'phone' => 'required',
-                'rfq_code' => 'unique:rfqs',
                 'image' => 'file|mimes:jpeg,png,jpg|max:2048',
                 'g-recaptcha-response' => ['required', new Recaptcha],
             ],
@@ -106,34 +105,34 @@ class RFQController extends Controller
 
             $data['rfq_code'] = "RFQ-$today-$newNumber";
 
-            $product = Product::find($request->input('product_id'));
-            $product_name = $request->input('product_name') ?? $product->name;
+            $product = Product::find($request->product_id);
+            $product_name = $request->product_name ?? $product->name;
 
             $mainFile = $request->file('image');
             $imgPath = storage_path('app/public/');
             $globalFunImage = $mainFile ? Helper::singleImageUpload($mainFile, $imgPath, 450, 350) : ['status' => 0];
 
             $rfq_id = Rfq::insertGetId([
-                'client_id' => $request->client_id,
-                'partner_id' => $request->partner_id,
-                'product_id' => $request->product_id,
-                'solution_id' => $request->solution_id,
-                'rfq_code' => $data['rfq_code'],
-                'rfq_type' => 'rfq',
-                'deal_type' => $data['deal_type'],
-                'client_type' => $request->client_type,
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'qty' => $request->qty,
+                'client_id'    => $request->client_id,
+                'partner_id'   => $request->partner_id,
+                'product_id'   => $request->product_id,
+                'solution_id'  => $request->solution_id,
+                'rfq_code'     => $data['rfq_code'],
+                'rfq_type'     => 'rfq',
+                'deal_type'    => $data['deal_type'],
+                'client_type'  => $request->client_type,
+                'name'         => $request->name,
+                'email'        => $request->email,
+                'phone'        => $request->phone,
+                'qty'          => $request->qty,
                 'company_name' => $request->company_name,
-                'designation' => $request->designation,
-                'message' => $request->message,
-                'address' => $request->address,
-                'create_date' => now(),
-                'close_date' => $request->close_date,
-                'image' => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : '',
-                'status' => 'rfq_created',
+                'designation'  => $request->designation,
+                'message'      => $request->message,
+                'address'      => $request->address,
+                'create_date'  => Carbon::now(),
+                'close_date'   => $request->close_date,
+                'image'        => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : '',
+                'status'       => 'rfq_created',
             ]);
 
             if ($product_name) {
@@ -157,17 +156,17 @@ class RFQController extends Controller
             Notification::send($users, new RfqCreate($name, $rfq_code));
 
             $data = [
-                'name' => $name,
-                'sku_code' => !empty($product->sku_code) ?? $product->sku_code,
+                'name'         => $name,
+                'sku_code'     => !empty($product->sku_code) ?? $product->sku_code,
                 'product_name' => $product_name,
-                'phone' => $request->input('phone'),
-                'qty' => $request->input('qty'),
+                'phone'        => $request->input('phone'),
+                'qty'          => $request->input('qty'),
                 'company_name' => $request->input('company_name'),
-                'address' => $request->input('address'),
-                'message' => $request->input('message'),
-                'rfq_code' => $rfq_code,
-                'email' => $request->input('email'),
-                'link' => route('single-rfq.show', $rfq_code),
+                'address'      => $request->input('address'),
+                'message'      => $request->input('message'),
+                'rfq_code'     => $rfq_code,
+                'email'        => $request->input('email'),
+                'link'         => route('single-rfq.show', $rfq_code),
             ];
 
             Mail::to($request->input('email'))->send(new RFQNotificationMail($data));
@@ -582,7 +581,7 @@ class RFQController extends Controller
         $data['clients'] = Client::select('clients.id', 'clients.name')->get();
         $data['partners'] = Partner::select('partners.id', 'partners.name')->get();
         $data['rfq'] = Rfq::find($id);
-        $data['rfq_product'] = RfqProduct::where('rfq_id' , $data['rfq']->id)->first();
+        $data['rfq_product'] = RfqProduct::where('rfq_id', $data['rfq']->id)->first();
         return view('admin.pages.deal.deal_convert', $data);
     }
 

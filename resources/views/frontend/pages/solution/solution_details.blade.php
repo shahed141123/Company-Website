@@ -1,8 +1,9 @@
-@extends('frontend.master') @section('content')
+@extends('frontend.master')
+@section('content')
     <!--======// Header Title //======-->
     <section>
         <div>
-            <img class="page_top_banner" src="https://i.ibb.co/b31VkVh/image.jpg" alt="NGEN IT Software">
+            <img class="page_top_banner" src="{{asset('storage/'.$solution->banner_image)}}" alt="{{ $solution->name }}">
         </div>
     </section>
     <!----------End--------->
