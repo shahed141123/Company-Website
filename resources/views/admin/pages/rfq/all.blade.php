@@ -85,7 +85,7 @@
                                         @if ($rfqs)
                                             @foreach ($rfqs as $key => $rfq)
                                                 <tr>
-                                                    <td>{{ $loop->iteration() }}</td>
+                                                    <td>{{ $loop->iteration }}</td>
                                                     <td>{{ ucfirst($rfq->rfq_code) }}</td>
                                                     <td>{{ ucfirst($rfq->create_date) }}</td>
                                                     <td>{{ ucfirst($rfq->client_type) }}</td>

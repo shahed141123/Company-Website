@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use App\Models\Admin\Rfq;
 use Illuminate\Http\Request;
+use App\Models\Admin\DealSas;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+use App\Models\Admin\CommercialDocument;
 
 class RFQManageController extends Controller
 {
@@ -25,6 +27,32 @@ class RFQManageController extends Controller
         return view('admin.pages.rfq-manage.deal_index',$data);
     }
 
+
+    public function show($id)
+    {
+        $data['users'] = User::where(function ($query) {
+            $query->whereJsonContains('department', 'business');
+        })->select('id', 'name')->orderBy('id', 'DESC')->get();
+        $data['rfq_details'] = Rfq::where('rfq_code',$id)->first();
+        $data['deal_products'] = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->get();
+        $data['commercial_document'] = CommercialDocument::where('rfq_id', $data['rfq_details']->id)->first();
+        //dd($data['rfq_details']->rfq_code);
+        $data['sourcing'] = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->first();
+        return view('admin.pages.singleRfq.all',$data);
+    }
+
+    public function quotationMail($id)
+    {
+        $data['users'] = User::where(function ($query) {
+            $query->whereJsonContains('department', 'business');
+        })->select('id', 'name')->orderBy('id', 'DESC')->get();
+        $data['rfq_details'] = Rfq::where('rfq_code',$id)->first();
+        $data['deal_products'] = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->get();
+        $data['commercial_document'] = CommercialDocument::where('rfq_id', $data['rfq_details']->id)->first();
+        //dd($data['rfq_details']->rfq_code);
+        $data['sourcing'] = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->first();
+        return view('admin.pages.singleRfq.quotation_mail',$data);
+    }
 
 
     public function destroy($id)

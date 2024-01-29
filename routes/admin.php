@@ -181,7 +181,45 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
 
 
+    // All RFQ Routes
+    Route::controller(RFQManageController::class)->group(function () {
+        Route::get('/rfq/list', 'index')->name('rfq.list');
+        Route::get('/deal/list', 'dealList')->name('deal.list');
+        Route::get('/single-rfq/{id}', 'show')->name('single-rfq.show');
+        Route::get('/single-rfq/{id}/quotation', 'quotationMail')->name('single-rfq.quoation_mail');
 
+    });
+
+    Route::put('assign_salesmanager/{id}', [RFQController::class, 'AssignSalesMan'])->name('assign.salesman');
+    Route::controller(RFQController::class)->group(function () {
+        Route::get('/edit/{id}/rfq-to-deal', 'DealConvert')->name('deal.convert');
+        Route::put('convert-deal/store/{id}', 'ConvertDealStore')->name('convert.deal');
+        Route::get('/client/ajax/{client_id}', 'GetClient');
+    });
+
+    Route::controller(DealController::class)->group(function () {
+        Route::get('/partner/ajax/{partner_id}', 'GetPartner');
+        Route::get('/client/ajax/{client_id}', 'GetClient');
+        Route::put('/send/quotation/{id}',  'SendQuotation')->name('quotation.send');
+        Route::put('/send/invoice/{id}',  'dealInvoiceSent')->name('invoice.send');
+        // Route::put('/upload/payment-proof/{id}',  'proofPaymentUpload')->name('payment-proof.upload');
+        Route::put('/check/quotation/{id}', 'CheckQuotation')->name('quotation.check');
+    });
+
+    //Deal SAS
+    Route::get('/deal_sas_show/{id}', [DealSasController::class, 'DealSasShow'])->name('dealsasshow');
+    Route::get('/deal_sas_approve/{id}', [DealSasController::class, 'DealSasApprove'])->name('dealsasapprove');
+    Route::put('/deal_sas/product_unitprice/update/{id}/', [DealSasController::class, 'UnitPriceUpdate'])->name('update.unitprice');
+    Route::put('/deal-sas/approve/{id}/store/', [DealSasController::class, 'DealSasApproveStore'])->name('approve.deal-sas');
+
+    Route::resources(
+        [
+            'rfq'             => RFQController::class,
+            'rfq-manage'      => RFQManageController::class,
+            'deal'            => DealController::class,
+            'rfqOrderStatus'  => RfqOrderStatusController::class,
+        ]
+    );
 
 
 
@@ -206,16 +244,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::get('/product/stock', 'ProductStock')->name('product.stock');
         Route::get('product/price_notification', 'toastrIndex')->name('product.price_notification');
     });
+
     Route::controller(SourcingController::class)->group(function () {
         Route::get('/products/sourced', 'index')->name('product.sourced');
         Route::get('/products/saved', 'savedProducts')->name('product.saved');
         Route::get('/products/approved', 'approvedProducts')->name('product.approved');
     });
-    Route::controller(RFQManageController::class)->group(function () {
-        Route::get('/rfq/list', 'index')->name('rfq.list');
-        Route::get('/deal/list', 'dealList')->name('deal.list');
-        // Route::delete('/rfq-manage/destroy/{id}', 'destroy')->name('rfq-manage.destroy');
-    });
+
+
 
 
 
@@ -319,33 +355,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         ->name('resume.download');
 
 
-    Route::put('assign_salesmanager/{id}', [RFQController::class, 'AssignSalesMan'])->name('assign.salesman');
-    Route::controller(RFQController::class)->group(function () {
-        Route::get('/edit/{id}/rfq-to-deal', 'DealConvert')->name('deal.convert');
-        Route::put('convert-deal/store/{id}', 'ConvertDealStore')->name('convert.deal');
-        Route::get('/client/ajax/{client_id}', 'GetClient');
-    });
 
-    Route::controller(DealController::class)->group(function () {
-        Route::get('/partner/ajax/{partner_id}', 'GetPartner');
-        Route::get('/client/ajax/{client_id}', 'GetClient');
-        Route::put('/send/quotation/{id}',  'SendQuotation')->name('quotation.send');
-        Route::put('/send/invoice/{id}',  'dealInvoiceSent')->name('invoice.send');
-        // Route::put('/upload/payment-proof/{id}',  'proofPaymentUpload')->name('payment-proof.upload');
-        Route::put('/check/quotation/{id}', 'CheckQuotation')->name('quotation.check');
-    });
 
 
 
 
 
     Route::controller(SourcingController::class)->group(function () {
-        //Route::post('industry', 'store')->name('industry.store');
-        // Route::get('approve-product',  'ProductApprove')->name('product.approve')->whereNumber();
         Route::get('approve-product',  'ProductApprove')->name('product.approve');
         Route::put('product-approve/store/{id}', 'StoreProductApproval')->name('product-approve.store');
-        //Route::delete('industry/{id}', 'destroy')->name('industry.destroy');
     });
+
     //Product Sourcing
 
 
@@ -354,11 +374,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/sas/{id}/sourcing', [App\Http\Controllers\SAS\SASController::class, 'SourcingSas'])->name('sourcing.sas');
     Route::post('/sas/rejection/sourcing', [App\Http\Controllers\SAS\SASController::class, 'SasRejection'])->name('sas.reject');
 
-    //Deal SAS
-    Route::get('/deal_sas_show/{id}', [DealSasController::class, 'DealSasShow'])->name('dealsasshow');
-    Route::get('/deal_sas_approve/{id}', [DealSasController::class, 'DealSasApprove'])->name('dealsasapprove');
-    Route::put('/deal_sas/product_unitprice/update/{id}/', [DealSasController::class, 'UnitPriceUpdate'])->name('update.unitprice');
-    Route::put('/deal-sas/approve/{id}/store/', [DealSasController::class, 'DealSasApproveStore'])->name('approve.deal-sas');
+
 
 
 
@@ -405,7 +421,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'sales-profit-loss'          => SalesProfitLossController::class,
             'salesTeamTarget'            => SalesTeamTargetController::class,
             'salesYearTarget'            => SalesYearTargetController::class,
-            'rfqOrderStatus'             => RfqOrderStatusController::class,
             'feedback'                   => FeedbackController::class,
             'partner-account'            => PartnerController::class,
             'commercial-document'        => CommercialDocumentController::class,
@@ -413,7 +428,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'sales-achievement'          => SalesAchievementController::class,
             'deal-type-settings'         => DealTypeSettingController::class,
             'effort-ratings'             => EffortRatingController::class,
-            'single-rfq'                 => SingleRfqController::class,
             'marketing-manager-role'     => MarketingManagerRoleController::class,
             'marketing-team-target'      => MarketingTeamTargetController::class,
             'marketing-dmar'             => MarketingDmarController::class,
@@ -446,8 +460,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'solutionDetails'            => SolutionDetailsController::class,
             'policy'                     => PolicyController::class,
             'job'                        => JobController::class,
-            'rfq'                        => RFQController::class,
-            'deal'                       => DealController::class,
+
             'feature'                    => FeatureController::class,
             'brandPage'                  => BrandPageController::class,
             'country'                    => CountryController::class,
@@ -464,7 +477,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'crm'                        => CRMController::class,
             'delivery'                   => DeliveryController::class,
             'offer-price'                => OfferPriceController::class,
-            'rfq-manage'                 => RFQManageController::class,
 
             // phase 2 part 2
             'what-we-do-page'           => WhatWeDoPageController::class, // done
