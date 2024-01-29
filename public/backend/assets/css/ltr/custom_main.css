@@ -53,13 +53,6 @@ body {
 }
 
 
-#DataTables_Table_0_length select {
-    margin-left: 4px !important;
-    margin-right: 4px !important;
-    text-transform: capitalize !important;
-    padding: 5px 12px;
-}
-
 #DataTables_Table_0_previous {
     margin-right: 30px !important;
 }
@@ -78,6 +71,9 @@ body {
 
 .main_text_color {
     color: #247297 !important;
+}
+.btn-close path {
+    fill: #fff !important; /* Set the fill color to white */
 }
 
 /* bread_crumbs Style Start */
@@ -150,19 +146,6 @@ body {
 
 
 /*Custom Form Style  */
-.datatable-header {
-    /* background-color: #f1f4f9 !important; */
-    background-color: transparent !important;
-    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    color: #000 !important;
-    padding-top: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    display: flex;
-    justify-content: end;
-}
 
 thead {
     background-color: #24729736 !important;
@@ -243,16 +226,8 @@ thead {
 .dataTables_filter,
 .dataTables_length {
     font-size: 10px;
-    margin: 0px;
-    margin-top: 5px !important;
-    margin-bottom: 5px !important;
-    margin-right: 5px !important;
+    margin-bottom: 5px;
 }
-
-/* #DataTables_Table_0_wrapper {
-    margin-top: -10px !important;
-} */
-
 
 #DataTables_Table_0_filter input,
 .dataTables_filter .form-control {
@@ -289,16 +264,31 @@ textarea {
 }
 
 .datatable-header {
+    background-color: transparent !important;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    color: #000 !important;
+    display: flex;
+    justify-content: end;
     border-bottom: none !important;
     width: auto;
-    display: flex;
-    justify-content: flex-end;
     margin-left: auto;
     height: auto;
-    padding: 10px 0px 0px;
+    padding: 0px 0px 0px;
 }
 td{
-    padding: 0px 0px 0px !important;
+    padding: 5px 0px 5px !important;
+}
+.dash-icons {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 50%;
+    transition: transform 0.5s ease-out;
+}
+
+.dash-icons:hover {
+    transform: scale(1.2); /* Adjust the degree and scale factor as needed */
+    background-color: transparent;
 }
 .submit_btn {
     padding: 3px 5px;
@@ -311,15 +301,6 @@ td{
     transition: 0.5s;
 }
 
-/* .submit_btn:hover {
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 10px;
-    border: 0;
-    background: transparent;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    color: #247297;
-} */
 .submit_close_btn {
     color: #247297;
     padding: 9px 14px;
@@ -429,12 +410,6 @@ td{
 .mini_cards:hover {
     box-shadow: none;
 }
-
-/* .card a {
-    color: black;
-    text-decoration: none;
-} */
-
 
 /* business Card */
 .business_cards {
@@ -1499,20 +1474,6 @@ input.invalid {
     padding: 5px 5px;
     font-size: 13px;
 }
-
-/* .form-select-sm {
-            width: 100%;
-            height: 30px;
-            color: #000;
-            padding: 2px;
-        }
-
-        .form-control-sm {
-            width: 100%;
-            height: 30px;
-            padding: 2px;
-        } */
-
 
 
 /*===========Order Email Template===========*/
