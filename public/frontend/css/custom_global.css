@@ -15984,7 +15984,7 @@ thead {
 }
 
 .ag-offer_img {
-    height: 64px;
+    height: auto;
     margin: 0 15px 0 0;
 }
 
