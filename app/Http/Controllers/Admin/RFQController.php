@@ -151,8 +151,8 @@ class RFQController extends Controller
             $name = $request->input('name');
             $rfq_code = $data['rfq_code'];
 
-            $users = User::whereJsonContains('department', ['business', 'logistics'])->where('role', 'admin')->get();
-            $user_emails = User::whereJsonContains('department', ['business', 'logistics'])->where('role', 'admin')->pluck('email')->toArray();
+            $users = User::whereJsonContains('department', ['business', 'logistics'])->get();
+            $user_emails = User::whereJsonContains('department', ['business', 'logistics'])->pluck('email')->toArray();
 
             Notification::send($users, new RfqCreate($name, $rfq_code));
 

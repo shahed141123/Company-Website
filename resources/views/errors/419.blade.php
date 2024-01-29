@@ -9,7 +9,7 @@
             position: relative;
             background: url('https://i.ibb.co/Qr8HnQc/0x0.webp') no-repeat center center fixed;
             background-size: cover;
-            height: 100vh;
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;

@@ -9,7 +9,7 @@
             position: relative;
             background: url('https://cdn.dribbble.com/users/32512/screenshots/3820721/brain_natural_os_by_gleb.gif') no-repeat center center fixed;
             background-size: cover;
-            height: 100vh;
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;

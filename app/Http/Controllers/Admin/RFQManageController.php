@@ -10,17 +10,14 @@ use Illuminate\Support\Facades\File;
 
 class RFQManageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $data['users'] = User::whereJsonContains('department', 'business')->where('role', 'manager')->get(['id','name']);
         $data['rfqs'] = Rfq::where('rfq_type' , 'rfq')->orderBy('id', 'ASC')->get();
         return view('admin.pages.rfq-manage.rfq_index',$data);
     }
+
     public function dealList()
     {
         $data['users'] = User::whereJsonContains('department', 'business')->where('role', 'manager')->get(['id','name']);

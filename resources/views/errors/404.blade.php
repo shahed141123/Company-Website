@@ -9,7 +9,7 @@
             position: relative;
             background: url('https://i.ibb.co/dgHnp1b/The-Different-Types-of-Technology-GIF.gif') no-repeat center center fixed;
             background-size: cover;
-            height: 100vh;
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;

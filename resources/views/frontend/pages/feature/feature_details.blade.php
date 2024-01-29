@@ -157,7 +157,7 @@
             <div class="global_call_section_content">
                 <div class="home_title" style="width: 100%; margin: 0px;">
                     <h5 class="home_title_heading" style="text-align: left; color: #fff;">
-                        <span>{{ \Illuminate\Support\Str::substr($sentence, 1) }}</span>{{ implode(' ', array_slice(str_word_count($sentence, 1), 1, 4)) }}
+                        <span>{{ \Illuminate\Support\Str::substr($sentence, 0, 1) }}</span>{{ \Illuminate\Support\Str::substr($sentence, 1) }}
                     </h5>
                     <p class="home_title_text text-white pt-2 text-lg-start text-center">
                         {{ Illuminate\Support\Str::limit($feature->row_four_header, 150, '...') }}

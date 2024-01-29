@@ -15,7 +15,8 @@
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
     <meta name="author" content="NGen IT">
-    <script async data-id="9476858534" id="chatling-embed-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
+    <script async data-id="9476858534" id="chatling-embed-script" type="text/javascript"
+        src="https://chatling.ai/js/embed.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KB1NVD4FHE"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -40,11 +41,11 @@
         @yield('content')
 
         <!--=======// Footer Section//=========-->
-        @if (Route::current() && str_contains(Route::current()->getName(), 'client'))
-    <!-- Your content for client routes goes here -->
-@else
-    @include('frontend.partials.footer')
-@endif
+        @if (Route::current() && Route::current()->getName() && str_contains(Route::current()->getName(), 'client'))
+        @else
+            @include('frontend.partials.footer')
+        @endif
+
     </div>
     <!----------End--------->
 
