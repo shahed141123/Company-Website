@@ -676,9 +676,6 @@
             $(document).ready(function() {
                 $('select[name="client_id"]').on('change', function() {
                     var client_id = $(this).val();
-                    //alert(client_id);
-                    // alert($('select[name="client_id"]').val());
-                    // alert($('select[name="partner_id"]').val());
                     if (client_id) {
                         $.ajax({
                             url: "{{ url('admin/client/ajax') }}/" + client_id,

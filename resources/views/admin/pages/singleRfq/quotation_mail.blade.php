@@ -454,7 +454,7 @@
                                             <div style="text-align: start;">
                                                 <p style="font-size: 14px; font-weight: 600; padding-bottom: 0.5rem;">Thank You</p>
                                                 <p style="color: #ae0a46;">Kawsar Khan</p>
-                                                <p style="color: #ae0a46; font-size: 14px;">Manager, Business</p>
+                                                <p class="fw-bold" style="color: #ae0a46; font-size: 14px;">Manager, Business</p>
                                             </div>
                                             <div>
                                                 <div style="display: flex; font-size: 14px; justify-content: end;">
