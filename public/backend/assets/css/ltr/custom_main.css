@@ -215,7 +215,7 @@ thead {
 .dataTables_filter,
 .dataTables_length {
     font-size: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
 }
 
 #DataTables_Table_0_filter input,
@@ -645,20 +645,12 @@ input.invalid {
 
 /* Clock Start */
 #clock {
-    /* background-image: linear-gradient(to bottom, #0069bf, #077cd0, #178fe0, #27a2f0, #38b6ff); */
-    background-image: linear-gradient(
-        to bottom,
-        #c40148,
-        #c8084f,
-        #e11660,
-        #f32973,
-        #ff347e
-    );
+    background: linear-gradient(to right, #a80b6e 22%, #582873 100%);
     color: white;
     display: inline-block;
     width: auto;
     border-radius: 0px;
-    padding: 0px 15px;
+    padding: 5px 15px;
     font-size: 1.2rem;
 }
 

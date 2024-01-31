@@ -1,4 +1,4 @@
-<div class="navbar navbar-dark navbar-expand-lg navbar-static border-bottom border-bottom-white border-opacity-10 pt-0 pb-0"
+<div class="navbar navbar-dark navbar-expand-lg navbar-static border-bottom-white border-opacity-10 pt-0 pb-0"
     style="background: #111620;">
     <div class="container-fluid">
         <div class="d-flex d-lg-none me-5">

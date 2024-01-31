@@ -19,13 +19,13 @@
             <!-- RFQ Code Column -->
             <th width="20%">RFQ Code</th>
             <!-- Create Date Column -->
-            <th width="15%">Create Date</th>
+            <th width="20%">Create Date</th>
             <!-- Details Column -->
-            <th width="7%">Details</th>
+            <th width="30%">Details</th>
             <!-- Status Column -->
-            <th style="width:20px !important;">Status</th>
+            <th width="10">Status</th>
             <!-- Actions Column -->
-            <th width="25%" class="text-center">Actions</th>
+            <th width="20%" class="text-center">Actions</th>
         </tr>
     </thead>
     <tbody>
