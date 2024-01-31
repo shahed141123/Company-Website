@@ -27,7 +27,7 @@
 @section('content')
     <section class="container" style="margin-top: 0.5rem; margin-bottom: 0.5rem">
         <div
-            style=" background: white; margin: 0 auto; min-width: 320px; max-width: 100%; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+            style=" background: white; margin: 0 auto; min-width: 320px; max-width: 70%; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
             <div class="wrapper">
                 <!-- Email Header Start -->
                 <div>
@@ -179,7 +179,8 @@
                             <tr style="background-color: #e5e5e5;color: #000;border: 1px solid #eee;font-size: 14px;">
                                 <th style="text-align: center; padding: 8px; font-weight: 400;">
                                     <a href="javascript:void(0)" class="addRow">
-                                        <span> <i class="fa-solid fa-plus dash-icons"></i></span>
+                                        <span> <i class="fa-solid fa-plus dash-icons site_main_color"
+                                                style='padding: 6px 7px 6px !important; color: #ae0a46;'></i></span>
                                     </a>
                                 </th>
                                 <th style="text-align: center; padding: 8px; font-weight: 400;"> Product Description </th>
@@ -193,18 +194,21 @@
                             <tr>
                                 <td class="text-center p-0">
                                     <a href="javascript:void(0)" class="removeRow"><i
-                                            class="fa-solid fa-minus dash-icons"></i></a>
+                                            class="fa-solid fa-minus dash-icons"
+                                            style='padding: 6px 7px 6px !important; color: #ae0a46;'></i></a>
                                 </td>
                                 <td class="p-0">
                                     <input type="text" class="form-control w-100" name="item_name[]"
                                         placeholder='Product Name' required>
                                 </td>
-                                <td class="p-0"> <input type="text" class="form-control" name="qty[]" placeholder='Quantity'>
+                                <td class="p-0"> <input type="text" class="form-control" name="qty[]"
+                                        placeholder='Quantity'>
                                 </td>
-                                <td class="p-0"> <input type="text" class="form-control" name="unit_price[]" placeholder="Unit Price"></td>
+                                <td class="p-0"> <input type="text" class="form-control" name="unit_price[]"
+                                        placeholder="Unit Price"></td>
                                 <td class="p-0">
-                                    <input type="text" class="form-control" name="item_name[]"
-                                        placeholder='Total' required>
+                                    <input type="text" class="form-control" name="item_name[]" placeholder='Total'
+                                        required>
                                 </td>
                             </tr>
                         </tbody>
@@ -212,127 +216,59 @@
                     <!--  -->
                     <div style="display: flex; justify-content: end">
                         <table>
-                            <tr>
-                                <th>
-                                    Sub Total </th>
-                                <th>
-                                    $85,148.1 </th>
-                            </tr>
-                        </table>
-                    </div>
-                    <!--  -->
-                    <div>
-                        <div style="display: flex; justify-content: end">
-                            <table style="border-collapse: collapse; width: 100%; border: none">
-                                <tr
-                                    style="
-                      text-align: end;
-                      padding: 8px;
-                      color: #000;
-                      font-size: 14px;
-                      border: 1px solid #eee;
-                    ">
-                                    <td
-                                        style="
-                        width: 85%;
-                        text-align: end;
-                        padding: 10px;
-                        color: #000;
-                      ">
-                                        Special Discount - 10 % </td>
-                                    <td
-                                        style="
-                        width: 15%;
-                        text-align: end;
-                        padding: 8px;
-                        border-left: 1px solid #eee;
-                        color: #000;
-                      ">
-                                        -5,008.71 </td>
+                            <thead>
+                                <tr>
+                                    <th class="text-end"
+                                        style="width: 130px; padding: 10px;border: 1px solid transparent !important; background-color: white !important;">
+                                        Sub Total </th>
+                                    <th class="text-end" style="width: 200px; padding: 10px; background-color: white;">
+                                        $85,148.1 </th>
                                 </tr>
-                            </table>
-                        </div>
+                            </thead>
+                        </table>
                     </div>
                     <!--  -->
                     <!--  -->
                     <div style="display: flex; justify-content: end">
-                        <table
-                            style="
-                  border: 1px solid #eee;
-                  border-collapse: collapse;
-                  background-color: #eee;
-                  width: 100%;
-                  font-size: 14px;
-                ">
-                            <tr
-                                style="
-                    text-align: end;
-                    padding: 8px;
-                    border: 1px solid #eee;
-                    color: #000;
-                    font-size: 14px;
-                  ">
-                                <th
-                                    style="
-                      width: 85%;
-                      text-align: end;
-                      padding: 8px;
-                      color: #000;
-                      border: none;
-                    ">
-                                    Grand Total </th>
-                                <th
-                                    style="
-                      width: 15%;
-                      text-align: end;
-                      padding: 8px;
-                      color: #000;
-                      text-align: end;
-                      border-left: 1px solid #eee;
-                    ">
-                                    $85,148.1 </th>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="text-end" style="width: 225px; padding: 5px;border: 1px solid transparent !important; background-color: white !important;">
+                                        Special Discount - 10 %	 </th>
+                                    <th class="text-end" style="width: 200px; padding: 5px;background-color: white !important;">
+                                        -5,008.71
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <!--  -->
+                    <div style="display: flex; justify-content: end">
+                        <table style="border: 1px solid #eee; border-collapse: collapse; background-color: #eee; width: 100%; font-size: 14px;">
+                            <tr style="text-align: end; padding: 8px; border: 1px solid #eee; color: #000; font-size: 14px;">
+                                <th style="width: 85%; text-align: end; padding: 8px; color: #000; border: none;">Grand Total</th>
+                                <th style="width: 15%; text-align: end; padding: 8px; color: #000; text-align: end; border-left: 1px solid #eee;">$85,148.1</th>
                             </tr>
                         </table>
                     </div>
                     <!--  -->
                     <div style="display: flex; justify-content: end;margin-top: 1rem; margin-bottom: 1rem;">
-                        <table
-                            style="
-                  border-collapse: collapse;
-                  width: 60%;
-                  margin: auto;
-                  font-size: 14px;
-                  border: 1px solid #eee;
-                ">
-                            <tr
-                                style="
-                  width: 6%;
-                    text-align: end;
-                    padding: 8px;
-                    color: #000;
-                    font-size: 14px;
-                    border-bottom: 1px solid #eee;
-                  ">
-                                <th
-                                    style="
-                      text-align: center;
-                      padding: 8px;
-                      color: #000;
-                      font-weight: 400;
-                    ">
-                                    <span>
-                                        <strong>GST - 8%</strong> Not included. It may apply. </span>
+                        <table style="border-collapse: collapse; width: 50%; margin: auto; font-size: 14px; border: 1px solid #eee;">
+                            <tr style="width: 6%; text-align: end; padding: 8px; color: #000; font-size: 14px; border-bottom: 1px solid #eee;">
+                                <th style="text-align: center; padding: 8px; color: #000; font-weight: 400;">
+                                    <span><strong>GST - 8%</strong> Not included. It may apply.</span>
                                 </th>
                             </tr>
                         </table>
+
                     </div>
                     <!--  -->
                     <div>
                         <div class="table-responsive">
                             <table class="w-100">
-                                <tbody class="text-center">
+                                <tbody class="text-start">
                                     <tr>
-                                        <td width="25%">Validity </td>
+                                        <td class="ps-2" width="25%">Validity </td>
                                         <td width="50%" class="p-0">
                                             <input type="text" name="validity" class="form-control maxlength"
                                                 form-control-sm maxlength="200"
@@ -352,7 +288,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="25%">Payment </td>
+                                        <td class="ps-2" width="25%">Payment </td>
                                         <td width="50%" class="p-0">
                                             <input type="text" name="payment"
                                                 class="form-control form-control-sm maxlength" maxlength="200"
@@ -372,7 +308,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="25%">Payment Mode </td>
+                                        <td class="ps-2" width="25%">Payment Mode </td>
                                         <td width="50%" class="p-0">
                                             <input type="text" name="payment_mode"
                                                 class="form-control form-control-sm maxlength" maxlength="200"
@@ -394,7 +330,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="25%">Delivery </td>
+                                        <td class="ps-2" width="25%">Delivery </td>
                                         <td width="50%" class="p-0">
                                             <input type="text" name="delivery"
                                                 class="form-control form-control-sm maxlength" maxlength="200"
@@ -414,7 +350,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="25%">Delivery Location </td>
+                                        <td class="ps-2" width="25%">Delivery Location </td>
                                         <td width="50%" class="p-0">
                                             <input type="text" name="delivery_location"
                                                 class="form-control form-control-sm maxlength" maxlength="200"
@@ -436,7 +372,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="25%">Product & Order </td>
+                                        <td class="ps-2" width="25%">Product & Order </td>
                                         <td width="50%" class="p-0">
                                             <input type="text" name="product_order"
                                                 class="form-control form-control-sm maxlength" maxlength="200"
@@ -458,7 +394,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="25%">Installation Support </td>
+                                        <td class="ps-2" width="25%">Installation Support </td>
                                         <td width="50%" class="p-0">
                                             <input type="text" name="installation_support"
                                                 class="form-control form-control-sm maxlength" maxlength="200"
@@ -480,7 +416,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="25%">Pmt Condition </td>
+                                        <td class="ps-2" width="25%">Pmt Condition </td>
                                         <td width="50%" class="p-0">
                                             <input type="text" name="pmt_condition"
                                                 class="form-control form-control-sm maxlength" maxlength="200"
@@ -509,120 +445,51 @@
                 <!-- Main Content End -->
                 <!-- Column Area -->
                 <div>
-                    <table id="u_body"
-                        style="
-                border-collapse: collapse;
-                table-layout: fixed;
-                border-spacing: 0;
-                vertical-align: top;
-                min-width: 320px;
-                margin: 0 auto;
-                width: 100%;
-              "
-                        cellpadding="0" cellspacing="0">
-                        <tbody style="min-width: 320px">
+                    <table id="u_body" style="border-collapse: collapse; table-layout: fixed; border-spacing: 0; vertical-align: top; min-width: 320px; margin: 0 auto; width: 100%;" cellpadding="0" cellspacing="0">
+                        <tbody style="min-width: 320px;">
                             <tr>
-                                <div
-                                    style="
-                      padding: 15px;
-                      padding-left: 30px;
-                      padding-right: 30px;
-                      background-image: url(https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg);
-                    ">
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                                        <div style="text-align: start">
-                                            <p style="font-size: 14px; font-weight: 600; padding-bottom: 0.5rem;">Thank You
-                                            </p>
-                                            <p style="color: #ae0a46;">Kawsar Khan</p>
-                                            <p style="color: #ae0a46;font-size: 14px;">Manager, Business </p>
-                                        </div>
-                                        <!-- <p>Thank You</p> -->
-                                        <div>
-                                            <div
-                                                style="
-                            display: flex;
-                            font-size: 14px;
-                            justify-content: end;
-                          ">
-                                                <p style="font-size: 14px; padding-bottom: 0.5rem; font-weight: 600;">
-                                                    Contact</p>
+                                <td class="p-0">
+                                    <div style="padding: 15px; padding-left: 30px; padding-right: 30px; background-image: url(https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg);">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <div style="text-align: start;">
+                                                <p style="font-size: 14px; font-weight: 600; padding-bottom: 0.5rem;">Thank You</p>
+                                                <p style="color: #ae0a46;">Kawsar Khan</p>
+                                                <p style="color: #ae0a46; font-size: 14px;">Manager, Business</p>
                                             </div>
-                                            <div
-                                                style="
-                            display: flex;
-                            font-size: 14px;
-                            justify-content: end;
-                          ">
-                                                <p>sales@ngenitltd.com <i class="fa-solid fa-paper-plane"
-                                                        style="color: #ae0a46;"></i>
-                                                </p>
-                                            </div>
-                                            <div
-                                                style="
-                            display: flex;
-                            font-size: 14px;
-                            justify-content: end;
-                          ">
-                                            </div>
-                                            <div
-                                                style="
-                        display: flex;
-                        font-size: 14px;
-                        justify-content: end;
-                        align-items: center;
-                      ">
-                                                <p>+880 156845 985 <i class="fa-brands fa-skype fa-fw"
-                                                        style="color: #ae0a46;"></i>
-                                                </p>
-                                            </div>
-                                            <div
-                                                style="
-                        display: flex;
-                        font-size: 14px;
-                        justify-content: end;
-                        align-items: center;
-                      ">
-                                                <p>+880 156845 985 <i class="fa-brands fa-whatsapp"
-                                                        style="color: #ae0a46;"></i>
-                                                </p>
+                                            <div>
+                                                <div style="display: flex; font-size: 14px; justify-content: end;">
+                                                    <p style="font-size: 14px; padding-bottom: 0.5rem; font-weight: 600;">Contact</p>
+                                                </div>
+                                                <div style="display: flex; font-size: 14px; justify-content: end;">
+                                                    <p>sales@ngenitltd.com <i class="fa-solid fa-paper-plane" style="color: #ae0a46;"></i></p>
+                                                </div>
+                                                <div style="display: flex; font-size: 14px; justify-content: end;"></div>
+                                                <div style="display: flex; font-size: 14px; justify-content: end; align-items: center;">
+                                                    <p>+880 156845 985 <i class="fa-brands fa-skype fa-fw" style="color: #ae0a46;"></i></p>
+                                                </div>
+                                                <div style="display: flex; font-size: 14px; justify-content: end; align-items: center;">
+                                                    <p>+880 156845 985 <i class="fa-brands fa-whatsapp" style="color: #ae0a46;"></i></p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
+
                 </div>
                 <!-- Column Area End -->
                 <!-- Email Footer -->
                 <div>
-                    <table id="u_body"
-                        style="
-                border-collapse: collapse;
-                table-layout: fixed;
-                border-spacing: 0;
-                vertical-align: top;
-                min-width: 320px;
-                margin: 0 auto;
-                width: 100%;
-              "
-                        cellpadding="0" cellspacing="0">
-                        <tbody style="min-width: 320px">
+                    <table id="u_body" style="border-collapse: collapse; table-layout: fixed; border-spacing: 0; vertical-align: top; min-width: 320px; margin: 0 auto; width: 100%;" cellpadding="0" cellspacing="0">
+                        <tbody style="min-width: 320px;">
                             <tr>
-                                <div
-                                    style="
-                      text-align: center;
-                      background-color: #ae0a46;
-                      padding: 15px;
-                    ">
-                                    <a class="" href="www.ngenitltd.com"
-                                        style="
-                        color: #ffff;
-                        font-size: 14px;
-                        text-align: center;
-                        letter-spacing: 4px;
-                      ">www.ngenitltd.com</a>
-                                </div>
+                                <td class="p-0">
+                                    <div style="text-align: center; background-color: #ae0a46; padding: 15px;">
+                                        <a href="https://www.ngenitltd.com" style="color: #ffff; font-size: 14px; text-align: center; letter-spacing: 4px; text-decoration: none;">www.ngenitltd.com</a>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -639,7 +506,7 @@
                 $('thead').on('click', '.addRow', function() {
 
                     var tr = "<tr>" +
-                        "<td class='text-center'> <a href='javascript:void(0)' class='removeRow'><i class='ph-minus dash-icons'></i></a></td>" +
+                        "<td class='text-center'> <a href='javascript:void(0)' class='removeRow'><i class='fa-solid fa-minus dash-icons' style='padding: 6px 7px 6px !important;color: #ae0a46;'></i></a></td>" +
                         "<td class='p-0'> <input type='text' class='form-control' name='item_name[]' placeholder='Product Name' required></td>" +
                         "<td class='p-0'> <input type='text' class='form-control' name='qty[]' placeholder='Quantity' required></td>" +
                         "<td class='p-0'> <input type='text' class='form-control' name='unit_price[]' placeholder='Unit Price' ></td>" +
