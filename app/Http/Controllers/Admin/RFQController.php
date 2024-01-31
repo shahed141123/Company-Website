@@ -169,10 +169,18 @@ class RFQController extends Controller
                 'link'         => route('single-rfq.show', $rfq_code),
             ];
 
-            Mail::to($request->input('email'))->send(new RFQNotificationMail($data));
-            if (!empty($user_emails)) {
-                Mail::to($user_emails)->send(new RFQNotificationMail($data));
-            }
+            // Mail::to($request->input('email'))->send(new RFQNotificationMail($data));
+            // if (!empty($user_emails)) {
+            //     Mail::to($user_emails)->send(new RFQNotificationMail($data));
+            // }
+            Mail::to('khandkershahed23@gmail.com')
+                // ->cc('cc@example.com')  // Add CC recipient(s) here
+                // ->bcc($user_emails) // Add BCC recipient(s) here
+                ->send(new RFQNotificationMail($data));
+            // Mail::to($request->input('email'))
+            //     // ->cc('cc@example.com')  // Add CC recipient(s) here
+            //     ->bcc($user_emails) // Add BCC recipient(s) here
+            //     ->send(new RFQNotificationMail($data));
 
             Toastr::success('Your RFQ has been submitted successfully.');
         } else {

@@ -36,7 +36,6 @@
                             class="table table-striped table-hover align-middle rounded-0 table-row-bordered border fs-6 g-5"
                             id="kt_datatable_example">
                             <thead class="table_header_bg">
-                                <!--begin::Table row-->
                                 <tr class="text-center text-gray-900 fw-bolder fs-7 text-uppercase">
                                     <th width="20%">Date</th>
                                     <th width="20%">Check In</th>
@@ -44,32 +43,51 @@
                                     <th width="20%">Comments</th>
                                     <th width="20%">Action</th>
                                 </tr>
-                                <!--end::Table row-->
                             </thead>
                             <tbody class="fw-bold text-gray-600 text-center">
                                 @if ($attendanceThisMonths)
                                     @foreach ($attendanceThisMonths as $attendanceThisMonth)
-                                        <tr class="odd">
-                                            <td>{{ $attendanceThisMonth['date'] }}</td>
-                                            <td>{{ $attendanceThisMonth['check_in'] }}</td>
-                                            <td>{{ $attendanceThisMonth['check_out'] }}</td>
-                                            <td>
-                                                @if (Carbon\Carbon::parse($attendanceThisMonth['check_in']) > Carbon\Carbon::parse('09:05:00') &&
-                                                        Carbon\Carbon::parse($attendanceThisMonth['check_in']) < Carbon\Carbon::parse('10:05:00'))
-                                                    <h4 class="mb-0 text-danger fw-bold">Late (L)</h4>
-                                                @endif
-
-                                                @if (Carbon\Carbon::parse($attendanceThisMonth['check_in']) > Carbon\Carbon::parse('10:05:00'))
-                                                    <h4 class="mb-0 text-danger fw-bold">Half Day (LL)</h4>
-                                                @endif
-                                            </td>
-                                            <td></td>
-                                        </tr>
+                                        @if ($attendanceThisMonth['check_in'] === 'N/A' && isset($attendanceThisMonth['absent_note']))
+                                            <tr>
+                                                <td>{{ $attendanceThisMonth['date'] }}</td>
+                                                <td colspan="3">
+                                                    @if ($attendanceThisMonth['absent_note'] === 'Friday')
+                                                        <p class="mb-0 text-warning fw-bold">
+                                                            {{ $attendanceThisMonth['absent_note'] }}</p>
+                                                    @else
+                                                    <p class="mb-0 text-danger fw-bold">
+                                                        {{ $attendanceThisMonth['absent_note'] }}</p>
+                                                    @endif
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                        @elseif($attendanceThisMonth['check_in'] !== 'N/A')
+                                            <tr
+                                                class="{{ isset($attendanceThisMonth['absent_note']) ? 'absent-row' : 'odd' }}">
+                                                <td>{{ $attendanceThisMonth['date'] }}</td>
+                                                <td>{{ $attendanceThisMonth['check_in'] !== 'N/A' ? $attendanceThisMonth['check_in'] : 'N/A' }}
+                                                </td>
+                                                <td>{{ $attendanceThisMonth['check_out'] !== 'N/A' ? $attendanceThisMonth['check_out'] : 'N/A' }}
+                                                </td>
+                                                <td>
+                                                    @if (isset($attendanceThisMonth['check_in']) && $attendanceThisMonth['check_in'] !== 'N/A')
+                                                        @if (Carbon\Carbon::parse($attendanceThisMonth['check_in']) > Carbon\Carbon::parse('09:05:00') &&
+                                                                Carbon\Carbon::parse($attendanceThisMonth['check_in']) < Carbon\Carbon::parse('10:05:00'))
+                                                            <h4 class="mb-0 text-danger fw-bold">Late (L)</h4>
+                                                        @elseif (Carbon\Carbon::parse($attendanceThisMonth['check_in']) > Carbon\Carbon::parse('10:05:00'))
+                                                            <h4 class="mb-0 text-danger fw-bold">Half Day (LL)</h4>
+                                                        @endif
+                                                    @endif
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                        @endif
                                     @endforeach
                                 @endif
-                            </tbody>
 
+                            </tbody>
                         </table>
+
                     </div>
                 </div>
                 <div class="d-flex flex-center flex-row-fluid pt-12">

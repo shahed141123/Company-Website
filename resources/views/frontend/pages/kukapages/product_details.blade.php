@@ -34,25 +34,28 @@
 
                     <div class="col-lg-6 col-sm-12 col-xs-12">
                         <div class="single-product-details pt-2">
-                            <h4>{{ $sproduct->name }}</h4>
-                            <ul class="d-flex align-items-center p-1">
-                                <li class="me-1">
-                                    <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
-                                            class="fa-solid fa-tag me-1 single-bp-tag"></i>{{ $sproduct->sku_code }}</p>
-                                </li>
-                                <li class="me-1">
-                                    <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
-                                            class="fa-solid fa-tag me-1 single-bp-tag"></i>{{ $sproduct->mf_code }}</p>
-                                </li>
-                                <li class="me-1">
-                                    <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
-                                            class="fa-solid fa-tag me-1 single-bp-tag"></i>{{ $sproduct->product_code }}</p>
-                                </li>
-                            </ul>
-                            <div class="row">
+                            <div class="row gx-0 px-2">
+                                <h4>{{ $sproduct->name }}</h4>
+                                <ul class="d-flex align-items-center p-1">
+                                    <li class="me-1">
+                                        <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
+                                                class="fa-solid fa-tag me-1 single-bp-tag"></i>{{ $sproduct->sku_code }}</p>
+                                    </li>
+                                    <li class="me-1">
+                                        <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
+                                                class="fa-solid fa-tag me-1 single-bp-tag"></i>{{ $sproduct->mf_code }}</p>
+                                    </li>
+                                    <li class="me-1">
+                                        <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
+                                                class="fa-solid fa-tag me-1 single-bp-tag"></i>{{ $sproduct->product_code }}
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row gx-0 px-2">
                                 <p class="p-0">{!! $sproduct->short_desc !!}</p>
                             </div>
-                            <div class="row d-flex align-items-center gx-0">
+                            <div class="row d-flex align-items-center gx-0 px-2">
                                 <div class="col-sm-4">
                                     <span class="fw-bold">Manufactured by:</span>
                                 </div>
@@ -64,7 +67,7 @@
                             </div>
 
                             {{-- <div class="row mt-5"> --}}
-                            <div class="row product_quantity_wraper justify-content-between"
+                            <div class="row product_quantity_wraper justify-content-between gx-0"
                                 style="background-color: transparent !important;">
                                 @if ($sproduct->rfq == 1)
                                     <div class="d-lg-block d-sm-none p-0">
@@ -480,14 +483,16 @@
                                                 @elseif ($brand_product->price_status && $brand_product->price_status == 'offer_price')
                                                     <div class="d-flex justify-content-center">
                                                         <button class="btn-color special_btn" data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $brand_product->id }}">Your Price</button>
+                                                            data-bs-target="#rfq{{ $brand_product->id }}">Your
+                                                            Price</button>
                                                     </div>
                                                 @else
                                                     <div class="d-flex justify-content-center"
                                                         class="cart_button{{ $brand_product->id }}">
                                                         <button class="btn-color special_btn add_to_cart"
                                                             data-id="{{ $brand_product->id }}"
-                                                            data-name="{{ $brand_product->name }}" data-quantity="1">Add to
+                                                            data-name="{{ $brand_product->name }}" data-quantity="1">Add
+                                                            to
                                                             Cart</button>
                                                     </div>
                                                 @endif

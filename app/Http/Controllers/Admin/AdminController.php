@@ -162,36 +162,91 @@ class AdminController extends Controller
             }
             $attendanceToday = count($attendanceToday) > 0 ? $attendanceToday[0] : null;
 
-            $startDate = date('Y-m-01', strtotime('this month'));
-            $endDate = date('Y-m-d');
+            // $startDate = date('Y-m-01', strtotime('this month'));
+            // $endDate = date('Y-m-d');
 
-            // Filter attendances for for this month
-            $thisMonthAttendances = array_filter($attendances_all, function ($attendance) use ($id, $startDate, $endDate) {
-                $attendanceDate = date('Y-m-d', strtotime($attendance['timestamp']));
-                return ($attendanceDate >= $startDate) && ($attendanceDate <= $endDate) && ($attendance['id'] === $id);
-            });
+            // // Filter attendances for for this month
+            // $thisMonthAttendances = array_filter($attendances_all, function ($attendance) use ($id, $startDate, $endDate) {
+            //     $attendanceDate = date('Y-m-d', strtotime($attendance['timestamp']));
+            //     return ($attendanceDate >= $startDate) && ($attendanceDate <= $endDate) && ($attendance['id'] === $id);
+            // });
+
+            // // Initialize variables to store earliest check-in and latest check-out times for each day
+            // $earliestCheckInThisMonth = [];
+            // $latestCheckOutThisMonth = [];
+
+            // // Loop through the filtered attendances for for this month
+            // foreach ($thisMonthAttendances as $attendance) {
+            //     $attendanceDate = date('Y-m-d', strtotime($attendance['timestamp']));
+            //     $checkTime = date('H:i:s', strtotime($attendance['timestamp']));
+
+            //     // Update earliest check-in time
+            //     if (!isset($earliestCheckInThisMonth[$attendanceDate]) || strtotime($checkTime) < strtotime($earliestCheckInThisMonth[$attendanceDate])) {
+            //         $earliestCheckInThisMonth[$attendanceDate] = $checkTime;
+            //     }
+
+            //     // Update latest check-out time
+            //     if (!isset($latestCheckOutThisMonth[$attendanceDate]) || strtotime($checkTime) > strtotime($latestCheckOutThisMonth[$attendanceDate])) {
+            //         $latestCheckOutThisMonth[$attendanceDate] = $checkTime;
+            //     }
+            // }
+
+            // // Create entries for each day with the earliest check-in and latest check-out times
+            // foreach ($earliestCheckInThisMonth as $date => $checkIn) {
+            //     $attendanceThisMonth[] = [
+            //         'user_id' => $id,
+            //         'user_name' => $user_name,
+            //         'date' => $date,
+            //         'check_in' => $checkIn,
+            //         'check_out' => $latestCheckOutThisMonth[$date],
+            //     ];
+            // }
+
+
+            // This Month
+            $startDate = date('Y-m-01', strtotime('this month'));
+            $endDate = date('Y-m-t', strtotime('this month'));
 
             // Initialize variables to store earliest check-in and latest check-out times for each day
             $earliestCheckInThisMonth = [];
             $latestCheckOutThisMonth = [];
 
-            // Loop through the filtered attendances for for this month
-            foreach ($thisMonthAttendances as $attendance) {
-                $attendanceDate = date('Y-m-d', strtotime($attendance['timestamp']));
-                $checkTime = date('H:i:s', strtotime($attendance['timestamp']));
+            // Iterate through all dates in the month
+            $currentDate = $startDate;
+            while ($currentDate <= $endDate) {
+                // Check if there is attendance data for the current date
+                $attendanceForDate = array_filter($attendances_all, function ($attendance) use ($id, $currentDate) {
+                    $attendanceDate = date('Y-m-d', strtotime($attendance['timestamp']));
+                    return $attendanceDate === $currentDate && $attendance['id'] === $id;
+                });
 
-                // Update earliest check-in time
-                if (!isset($earliestCheckInThisMonth[$attendanceDate]) || strtotime($checkTime) < strtotime($earliestCheckInThisMonth[$attendanceDate])) {
-                    $earliestCheckInThisMonth[$attendanceDate] = $checkTime;
+                if (count($attendanceForDate) > 0) {
+                    // If there is attendance data, update earliest check-in and latest check-out times
+                    foreach ($attendanceForDate as $attendance) {
+                        $checkTime = date('H:i:s', strtotime($attendance['timestamp']));
+
+                        // Update earliest check-in time
+                        if (!isset($earliestCheckInThisMonth[$currentDate]) || strtotime($checkTime) < strtotime($earliestCheckInThisMonth[$currentDate])) {
+                            $earliestCheckInThisMonth[$currentDate] = $checkTime;
+                        }
+
+                        // Update latest check-out time
+                        if (!isset($latestCheckOutThisMonth[$currentDate]) || strtotime($checkTime) > strtotime($latestCheckOutThisMonth[$currentDate])) {
+                            $latestCheckOutThisMonth[$currentDate] = $checkTime;
+                        }
+                    }
+                } else {
+                    // If there is no attendance data, set default values
+                    $earliestCheckInThisMonth[$currentDate] = 'N/A';
+                    $latestCheckOutThisMonth[$currentDate] = 'N/A';
                 }
 
-                // Update latest check-out time
-                if (!isset($latestCheckOutThisMonth[$attendanceDate]) || strtotime($checkTime) > strtotime($latestCheckOutThisMonth[$attendanceDate])) {
-                    $latestCheckOutThisMonth[$attendanceDate] = $checkTime;
-                }
+                // Move to the next date
+                $currentDate = date('Y-m-d', strtotime($currentDate . '+1 day'));
             }
 
             // Create entries for each day with the earliest check-in and latest check-out times
+            $attendanceThisMonth = [];
             foreach ($earliestCheckInThisMonth as $date => $checkIn) {
                 $attendanceThisMonth[] = [
                     'user_id' => $id,
@@ -200,7 +255,36 @@ class AdminController extends Controller
                     'check_in' => $checkIn,
                     'check_out' => $latestCheckOutThisMonth[$date],
                 ];
+
+                // Check if it's Friday and no check-in time
+                $isFriday = date('N', strtotime($date)) == 5; // 5 corresponds to Friday in ISO-8601
+                if ($isFriday && $checkIn === 'N/A') {
+                    $attendanceThisMonth[] = [
+                        'user_id' => $id,
+                        'user_name' => $user_name,
+                        'date' => $date,
+                        'check_in' => 'N/A',
+                        'check_out' => 'N/A',
+                        'absent_note' => 'Friday',
+                    ];
+                } elseif ($checkIn === 'N/A') {
+                    // If there is no check-in time
+                    $attendanceThisMonth[] = [
+                        'user_id' => $id,
+                        'user_name' => $user_name,
+                        'date' => $date,
+                        'check_in' => 'N/A',
+                        'check_out' => 'N/A',
+                        'absent_note' => 'Absent',
+                    ];
+                }
             }
+
+            // Now $attendanceThisMonth should include all dates in the month with or without attendance entries.
+
+
+            // $data['attendanceThisMonths'] = $attendanceThisMonth;
+
 
             // For Last Month
 
@@ -247,6 +331,11 @@ class AdminController extends Controller
         }
 
         $lateCounts = array_filter($attendanceThisMonth, function ($attendance) {
+            // Check if check_in is 'N/A' or not set
+            if ($attendance['check_in'] === 'N/A' || !isset($attendance['check_in'])) {
+                return false; // Skip 'N/A' entries
+            }
+
             return Carbon::parse($attendance['check_in']) > Carbon::parse('09:05:00');
         });
 
