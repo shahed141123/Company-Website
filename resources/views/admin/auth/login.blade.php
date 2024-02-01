@@ -81,7 +81,7 @@
                                 <!-- Display Alert Message -->
                                 @if (Session::has('alert'))
                                     <div class="alert bg-danger text-white alert-dismissible fade show">
-                                        <span class="fw-semibold">{{ Session::get('alert') }} . Login
+                                        <span class="fw-semibold">{{ Session::get('alert') }}. Login
                                             First</span>
                                         <button type="button" class="btn-close btn-close-white"
                                             data-bs-dismiss="alert"></button>
@@ -93,13 +93,11 @@
                                         <div class="text-center mb-3">
                                             <!-- Brand Logo -->
                                             <div class="d-inline-flex align-items-center justify-content-center mb-4">
-                                                {{-- <img src="{{ !empty($setting->logo) && file_exists(public_path('storage/' . $setting->logo)) ? asset('storage/' . $setting->logo) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}"
-                                                    class="h-48px" alt=""> --}}
                                                 <img class="img-fluid" width="130px"
                                                     src="https://www.ngenitltd.com/storage/RZlRwzfUA8get0PcCzQphbeIJu6OhSL7ltNc4xiZ.png"
                                                     alt="">
                                             </div>
-                                            <h1 class="m-0">Welcome Back !</h1>
+                                            <h1 class="m-0">Welcome Back!</h1>
                                             <p class="mb-0 text-muted">Login to continue your admin account.</p>
                                         </div>
 
@@ -134,9 +132,6 @@
                                                     onclick="togglePassword()">
                                                     <i class="fas fa-eye-slash text-white" style="padding-top: 2px"></i>
                                                 </div>
-                                                {{-- <div class="password-toggle-icon" onclick="togglePassword()">
-                                                    <i class="fas fa-eye"></i>
-                                                </div> --}}
                                             </div>
                                             @error('password')
                                                 <div class="text-danger">
@@ -157,11 +152,11 @@
                                         <!-- Sign In Button -->
                                         <div class="text-center mb-3 pt-3">
                                             <a href="login_password_recover.html" class="mt-3 mb-3 pb-3">
-                                                <span class="text-muted">Forgot Password? </span>
+                                                <span style="color: #ae0a46;">Forgot Password? </span>
                                                 <span class="text-primary"
-                                                    style="text-decoration: underline">Click</span>
+                                                    style="text-decoration: underline">Click here!</span>
                                             </a>
-                                            <p class="text-muted m-0 p-0">Recover Your Password Now.</p>
+                                            <p class="text-muted m-0 p-0">If Need Recover Your Password Now.</p>
                                             <button type="submit" class="btn w-md-100 w-100 mt-3"
                                                 style="background:#ae0a46;border-radius: 0px;color: white;border: none;">Sign
                                                 In</button>
@@ -176,6 +171,7 @@
         </div>
     </div>
     <!-- /page content -->
+
     <!-- Core JS files -->
     <script src="{{ asset('backend/assets/demo/demo_configurator.js') }}"></script>
     <script src="{{ asset('backend/assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
