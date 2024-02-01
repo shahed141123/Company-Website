@@ -1923,11 +1923,7 @@ table.td {
     padding: 5px;
 }
 
-.form-control {
-    border-radius: 0px;
-    border: 1px solid #eee;
-    background-color: #eee;
-}
+
 
 .form-select {
     border-radius: 0px;
@@ -2467,7 +2463,7 @@ footer p a:hover {
     content: "";
     width: 7px;
     height: 93px;
-    background: #880736;
+    background: #ae0a46bf;
     position: absolute;
     top: -78px;
     z-index: -2;
@@ -2735,14 +2731,29 @@ select:focus-visible {
     position: relative;
     right: 4rem;
 }
+.form-control {
+    color: #212529;
+    background-color: #f7f6f5;
+    outline: 0;
+    border: 0;
+    border-radius: 0px;
+    padding: 0.375rem 0.75rem;
+    box-shadow: none !important;
+    z-index: 10;
+    transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+
+}
 
 .form-control:focus {
     color: #212529;
     background-color: #f7f6f5;
     outline: 0;
     border: 0;
-    padding: 7px;
-    padding-top: 2px;
+    border-radius: 0px;
+    padding: 0.375rem 0.75rem;
     box-shadow: none !important;
     z-index: 10;
     transition-duration: 0.4s;
@@ -12936,6 +12947,7 @@ switch input:checked + .slider {
 
 .byTopics a {
     color: #ae0a46;
+    text-transform: uppercase;
 }
 
 .byTopics a:hover {
@@ -12954,13 +12966,23 @@ switch input:checked + .slider {
 }
 
 .bySocial ul li a {
-    color: #383d41;
+    color: #ffffff;
+    background: #ae0a46;
+    padding: 10px 10px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease-in-out;
 }
 
 .bySocial ul li a:hover {
     color: #ae0a46;
+    background: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: 0.5s ease-in-out;
 }
-
 /*-----------------single blog ~ content_wrapper-------------------*/
 .blog_text_area h2 {
     margin: 10px 0px 30px 0px;
@@ -17029,6 +17051,13 @@ nav > div a.nav-item.nav-link.active {
     height: 18rem;
 }
 
+.rc-anchor-light{
+    background-color: white !important;
+    border: 0 !important;
+}
+.rc-anchor{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+}
 @media screen and (max-width: 767px) {
     .solution-feature-cards {
         height: 100% !important;

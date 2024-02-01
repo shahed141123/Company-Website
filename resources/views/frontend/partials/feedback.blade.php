@@ -147,16 +147,12 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-lg-9 mb-3">
+                                <div class="col-lg-6 mb-3">
                                     <div class="form-group px-3 mx-1 message g-recaptcha w-100"
                                         data-sitekey="{{ config('app.recaptcha_site_key') }}">
                                     </div>
                                 </div>
-                            </div>
-
-
-                            <div class="row justify-content-lg-between mb-3 align-items-center">
-                                <div class="col-lg-12 text-end">
+                                <div class="col-lg-3 mb-3">
                                     <button type="submit" class="btn rounded-0 p-2"
                                         style="background: #ae0a46; color: white; width:150px; font-size:20px" role="button">Submit</button>
                                 </div>
