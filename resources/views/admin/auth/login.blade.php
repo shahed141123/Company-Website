@@ -11,17 +11,8 @@
     <link href="{{ asset('backend/assets/fonts/inter/inter.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('backend/assets/icons/phosphor/styles.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('backend/assets/css/ltr/all.min.css') }}" id="stylesheet" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- /global stylesheets -->
-
-    <!-- Core JS files -->
-    <script src="{{ asset('backend/assets/demo/demo_configurator.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
-    <!-- /core JS files -->
-
-    <!-- Theme JS files -->
-    <script src="{{ asset('backend/assets/js/app.js') }}"></script>
-    <script src="{{ asset('backend/assets/demo/pages/form_validation_styles.js') }}"></script>
-    <!-- /theme JS files -->
 
     <!-- Custom CSS styles -->
     <style>
@@ -40,6 +31,14 @@
         .form-check-input:checked {
             background-color: #ae0a46;
             border-color: var(--form-check-input-checked-border-color);
+        }
+
+        .form-control-feedback-start .form-control-feedback-icon {
+            left: 0;
+            border-right: 1px solid #ae0a46;
+            background-color: #ae0a46;
+            color: white;
+            padding: 10px;
         }
 
         @media screen and (max-width: 767px) {
@@ -101,7 +100,7 @@
                                                     alt="">
                                             </div>
                                             <h1 class="m-0">Welcome Back !</h1>
-                                            <p class="mb-0 text-muted">Please Login To Continue Your Account.</p>
+                                            <p class="mb-0 text-muted">Login to continue your admin account.</p>
                                         </div>
 
                                         <!-- Email Input -->
@@ -113,7 +112,7 @@
                                                     placeholder="john@doe.com" required>
                                                 <div class="invalid-feedback">Enter your Email</div>
                                                 <div class="form-control-feedback-icon">
-                                                    <i class="ph-user-circle text-muted"></i>
+                                                    <i class="fas fa-envelope text-white" style="padding-top: 2px"></i>
                                                 </div>
                                             </div>
                                             @error('email')
@@ -124,16 +123,20 @@
                                         </div>
 
                                         <!-- Password Input -->
-                                        <div class="mb-3 text-left">
+                                        <div class="mb-3 text-left position-relative">
                                             <label class="form-label">Password</label>
                                             <div class="form-control-feedback form-control-feedback-start">
                                                 <input type="password" name="password" class="form-control"
                                                     style="border-radius: 0px; border: 0px; background-color:#eee;"
                                                     placeholder="•••••••••••" required>
                                                 <div class="invalid-feedback">Enter your Password</div>
-                                                <div class="form-control-feedback-icon">
-                                                    <i class="ph-lock text-muted"></i>
+                                                <div class="form-control-feedback-icon password-toggle-icon"
+                                                    onclick="togglePassword()">
+                                                    <i class="fas fa-eye-slash text-white" style="padding-top: 2px"></i>
                                                 </div>
+                                                {{-- <div class="password-toggle-icon" onclick="togglePassword()">
+                                                    <i class="fas fa-eye"></i>
+                                                </div> --}}
                                             </div>
                                             @error('password')
                                                 <div class="text-danger">
@@ -147,15 +150,18 @@
                                         <div class="d-flex align-items-center mb-3">
                                             <label class="form-check">
                                                 <input type="checkbox" name="remember" class="form-check-input" checked>
-                                                <span class="form-check-label">Remember</span>
+                                                <span class="form-check-label">Remember my login credentials</span>
                                             </label>
                                         </div>
 
                                         <!-- Sign In Button -->
                                         <div class="text-center mb-3 pt-3">
-                                            <a href="login_password_recover.html" class="mt-3 mb-3 pb-3"><span
-                                                    class="text-primary">Forgot Password?</span> <br> <span
-                                                    class="text-muted">Recover Your Password Now.</span></a>
+                                            <a href="login_password_recover.html" class="mt-3 mb-3 pb-3">
+                                                <span class="text-muted">Forgot Password? </span>
+                                                <span class="text-primary"
+                                                    style="text-decoration: underline">Click</span>
+                                            </a>
+                                            <p class="text-muted m-0 p-0">Recover Your Password Now.</p>
                                             <button type="submit" class="btn w-md-100 w-100 mt-3"
                                                 style="background:#ae0a46;border-radius: 0px;color: white;border: none;">Sign
                                                 In</button>
@@ -170,6 +176,30 @@
         </div>
     </div>
     <!-- /page content -->
+    <!-- Core JS files -->
+    <script src="{{ asset('backend/assets/demo/demo_configurator.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    <!-- /core JS files -->
+
+    <!-- Theme JS files -->
+    <script src="{{ asset('backend/assets/js/app.js') }}"></script>
+    <script src="{{ asset('backend/assets/demo/pages/form_validation_styles.js') }}"></script>
+    <script>
+        function togglePassword() {
+            const passwordInput = document.querySelector('input[name="password"]');
+            const passwordToggleIcon = document.querySelector('.password-toggle-icon i');
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                passwordToggleIcon.classList.remove('fa-eye-slash');
+                passwordToggleIcon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = "password";
+                passwordToggleIcon.classList.remove('fa-eye');
+                passwordToggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
 </body>
 
 </html>
