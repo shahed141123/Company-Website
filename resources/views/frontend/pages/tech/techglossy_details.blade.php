@@ -9,7 +9,7 @@
         @if (!empty($techglossy->image))
         <section>
             <div>
-                <img class="page_top_banner"
+                <img class="page_top_banner" width="1920px" height="330px"
                     src="{{ !empty($techglossy->image) && file_exists(public_path('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/no-banner(1920-330).png') }}"
                     alt="NGEN IT Software">
             </div>

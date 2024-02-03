@@ -1617,6 +1617,9 @@ ul.row-sm {
 }
 
 
+.small-font-size{
+    font-size: 11px;
+}
 
 /*== purchase order details css end== */
 @media only screen and (max-width: 600px) {

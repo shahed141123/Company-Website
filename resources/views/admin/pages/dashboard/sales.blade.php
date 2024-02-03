@@ -35,14 +35,304 @@
                 </div>
                 {{-- Extra Area --}}
                 <div class="row">
+                    <div class="col-lg-4">
+                        <div class="">
+                            <h6  class="m-0 p-1 text-center" style="color: #fff; border-bottom: 1px solid #247297;background: #247297;"> Sales Info</h6>
+                            <div class="card rounded-0">
+                                <div class="card-body rounded-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6">
+                                            <div>
+                                                <a href="http://127.0.0.1:8000/admin/expense">
+                                                    <h6 class="mb-0 text-black">Total Sales</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted"> 5,000TK</span></a>
+                                                    <i class="ph-trend-down me-2 text-danger"></i>
+                                                </div>
+                                                <div>
+                                                    <button type="button"
+                                                        class="btn rounded-circle p-3 text-white shadow-lg
+                                                        bg-secondary dashboard_btn chart_btn"
+                                                        style="width: 30px; height: 30px; font-size: 14px;">
+                                                        <span class="mb-0">18%</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2 text-info">Current Month <span class="text-black">(Jan)</span></p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-info small-font-size m-0 p-1">QTY</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-info small-font-size m-0 p-1">Target</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-info small-font-size m-0 p-1">Achiev</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-end text-info small-font-size m-0 pe-2 p-1">Ration</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Solution --}}
+                                        <div class="">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Sales Solution</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">20</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">15^</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>18%</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Web --}}
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Sales Web</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">20</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">15^</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-up pe-1 text-succsess"></i>23%</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Training --}}
+                                        <div class="">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Sales Training</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">20</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">15^</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-up pe-1 text-succsess"></i>18%</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Software development --}}
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Sales Development</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">20</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">15^</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>22%</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- RFQ Details Section -->
+                    <div class="col-lg-4">
+                        <div class="">
+                            <h6  class="m-0 p-1 text-center" style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Client RFQ</h6>
+                            <div class="card rounded-0">
+                                <div class="card-body rounded-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6">
+                                            <div>
+                                                <a href="http://127.0.0.1:8000/admin/expense">
+                                                    <h6 class="mb-0 text-black">Total RFQ</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted"> 58%</span></a>
+                                                    <i class="ph-trend-up me-2 text-success"></i>
+                                                </div>
+                                                <div>
+                                                    <button type="button"
+                                                        class="btn rounded-circle p-3 text-white shadow-lg
+                                                        bg-secondary dashboard_btn chart_btn"
+                                                        style="width: 30px; height: 30px; font-size: 14px;">
+                                                        <span class="mb-0">88%</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2 text-info">Current Month <span class="text-black">(Jan)</span></p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-info small-font-size m-0 p-1">Pending</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-info small-font-size m-0 p-1">Done</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-end text-info small-font-size m-0 p-1">Win/Lose</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Solution --}}
+                                        <div class="">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Total RFQ</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">{{ App\Models\Admin\Rfq::where('rfq_type', 'rfq')->count() }}</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">{{ App\Models\Admin\Rfq::where('rfq_type', 'rfq')->whereMonth('create_date', Carbon\Carbon::now()->month)->count() }}</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-up pe-1 text-succsess"></i>100%</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Web --}}
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Total Deals</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">{{ App\Models\Admin\Rfq::where('rfq_type', 'deal')->whereMonth('create_date', Carbon\Carbon::now()->month)->count() }}</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1"> {{ App\Models\Admin\Rfq::where('rfq_type', 'deal')->count() }}</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>125%</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Training --}}
+                                        <div class="pb-4">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Close By</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-secondary small-font-size m-0 p-1">4</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>165%</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Target Vs. Achievement Section -->
                     <div class="col-lg-4">
-                        <h6 style="color: #247297; border-bottom: 1px solid #247297;" class=" mb-0 pt-2 text-center">
-                            Target Vs. Achievement
-                        </h6>
-                        <div class="card card-body border-0 rounded-0 mb-0 "
-                            style="border-top-left-radius: 0px;border-top-right-radius: 0px; box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;">
-                            <div class="">
+                        <h6  class="m-0 p-1 text-center" style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Target Vs. Achievement/Sales Details</h6>
+                        <div class="card rounded-0">
+                            <div class="card-body rounded-0">
                                 <div class="row">
                                     <!-- Year Target -->
                                     <div class="col-sm-12 bg-light px-1 py-1 rounded-0">
@@ -58,7 +348,7 @@
                                         </div>
                                     </div>
                                     <!-- Individual Target -->
-                                    <div class="col-sm-12 bg-light px-1 py-1 rounded-0 mt-1">
+                                    <div class="col-sm-12 bg-light px-1 py-1 rounded-0 mt-2">
                                         <div class="d-flex justify-content-between">
                                             <a href="{{route('salesTeamTarget.index')}}" class="text-muted">
                                                 Individual Target
@@ -71,7 +361,7 @@
                                         </div>
                                     </div>
                                     <!-- Achievement Summary -->
-                                    <div class="col-sm-12 bg-light px-1 py-1 rounded-0 mt-1">
+                                    <div class="col-sm-12 bg-light px-1 py-1 rounded-0 mt-2">
                                         <div class="d-flex justify-content-between">
                                             <a href="{{ route('industry.index') }}" class="text-muted">
                                                 Achievement Summary
@@ -82,21 +372,9 @@
                                             </a>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Sales Details Section -->
-                    <div class="col-lg-4">
-                        <h6 style="color: #247297; border-bottom: 1px solid #247297;" class=" mb-0 pt-2 text-center">
-                            Sales Details</h6>
-                        <div class="card card-body border-0 mb-0 rounded-0"
-                            style="border-top-left-radius: 0px;border-top-right-radius: 0px; box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;">
-                            <div class="row">
-                                <!-- Sales Profit Loss -->
-                                <div class="col-sm-12 bg-light px-1 py-1 rounded-0">
-                                    <div class="d-flex justify-content-between">
-                                        <a href="{{ route('sales-profit-loss.index') }}" class="text-muted">
+                                    <div class="col-sm-12 bg-light px-1 py-1 rounded-0 mt-2">
+                                        <div class="d-flex justify-content-between">
+                                             <a href="{{ route('sales-profit-loss.index') }}" class="text-muted">
                                             Sales Profit Loss
                                         </a>
                                         <a href="{{ route('sales-profit-loss.create') }}">
@@ -104,12 +382,11 @@
                                                 <i class="fa fa-plus text-secondary"></i>
                                             </span>
                                         </a>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Order Status -->
-                                <div class="col-sm-12 bg-light px-1 py-1 rounded-0 mt-1">
-                                    <div class="d-flex justify-content-between">
-                                        <a href="{{ route('rfqOrderStatus.index') }}" class="text-muted">
+                                    <div class="col-sm-12 bg-light px-1 py-1 rounded-0 mt-2">
+                                        <div class="d-flex justify-content-between">
+                                           <a href="{{ route('rfqOrderStatus.index') }}" class="text-muted">
                                             Order Status
                                         </a>
                                         <a href="{{ route('rfqOrderStatus.create') }}">
@@ -117,55 +394,13 @@
                                                 <i class="fa fa-plus text-secondary"></i>
                                             </span>
                                         </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- RFQ Details Section -->
-                    <div class="col-lg-4">
-                        <h6 style="color: #247297; border-bottom: 1px solid #247297;" class=" mb-0 pt-2 text-center">RFQ Details</h6>
-                        <div class="card card-body border-0 mb-0 rounded-0" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;">
-                            <!-- Total RFQ & Deal Section -->
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="flex-fill title_text_link">
-                                    <a href="../full/income.html">
-                                        <h6 class="mb-0 text-primary">Total RFQ & Deal</h6>
-                                    </a>
-                                </div>
-                                <a href="{{ route('rfq-manage.index') }}">
-                                    <button type="button" class="btn  rounded-0 dashboard_btn"
-                                        style="width: 30px; height: 30px">
-                                        <i style="color: #247297" class="fa-solid fa-badge-percent fs-4 p-1"></i>
-                                    </button>
-                                </a>
-                            </div>
-                            <!-- Today's and This Month's RFQ & Deal Counts -->
-                            <div class="box_details">
-                                <a href="{{ route('rfq-manage.index') }}">
-                                    <span class="float-end">RFQ :
-                                        {{ App\Models\Admin\Rfq::where('rfq_type', 'rfq')->count() }}</span> Deal :
-                                    {{ App\Models\Admin\Rfq::where('rfq_type', 'deal')->count() }}
-                                </a>
-                            </div>
-                            <div class="box_details">
-                                <a href="{{ route('rfq-manage.index') }}">
-                                    <span class="float-end">Deal :
-                                        {{ App\Models\Admin\Rfq::where('rfq_type', 'deal')->whereDate('create_date', Carbon\Carbon::today())->count() }}
-                                        <span>RFQ :
-                                            {{ App\Models\Admin\Rfq::where('rfq_type', 'rfq')->whereDate('create_date', Carbon\Carbon::today())->count() }}</span>
-                                    </span> Today's </a>
-                            </div>
-                            <div class="box_details">
-                                <a href="{{ route('rfq-manage.index') }}">
-                                    <span class="float-end">Deal :
-                                        {{ App\Models\Admin\Rfq::where('rfq_type', 'deal')->whereMonth('create_date', Carbon\Carbon::now()->month)->count() }}
-                                        <span>RFQ :
-                                            {{ App\Models\Admin\Rfq::where('rfq_type', 'rfq')->whereMonth('create_date', Carbon\Carbon::now()->month)->count() }}</span>
-                                    </span> This Month's </a>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Sales Details Section -->
                 </div>
             </div>
         </div>
