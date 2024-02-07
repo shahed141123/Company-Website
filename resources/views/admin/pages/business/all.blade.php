@@ -21,6 +21,10 @@
         .Hide {
             display: none;
         }
+
+        .quick_link {
+            width: 150px;
+        }
     </style>
     <div class="content-wrapper">
         <div class="content p-0">
@@ -46,33 +50,34 @@
                     {{-- Inner Page Tab --}}
                     <!-- Basic tabs -->
                     <div>
-                        <a href="{{ route('rfq-manage.index') }}" class="btn navigation_btn">
+                        <a href="{{ route('rfq-manage.index') }}" class="btn navigation_btn" style="margin-right: 2px">
                             <div class="d-flex align-items-center ">
-                                <i class="fa-solid fa-truck-field me-1" style="font-size: 12px;"></i>
+                                <i class="fa-solid fa-truck-field pe-1" style="font-size: 12px;"></i>
                                 <span>RFQ Management</span>
                             </div>
                         </a>
-                        <a href="{{ route('deal.create') }}" class="btn navigation_btn">
+                        <a href="{{ route('deal.create') }}" class="btn navigation_btn" style="margin-right: 2px">
                             <div class="d-flex align-items-center ">
-                                <i class="fa-solid fa-truck-field me-1" style="font-size: 12px;"></i>
+                                <i class="fa-solid fa-truck-field pe-1" style="font-size: 12px;"></i>
                                 <span>Deal Create</span>
                             </div>
                         </a>
-                        <a href="{{ route('sales-dashboard.index') }}" class="btn navigation_btn">
+                        <a href="{{ route('sales-dashboard.index') }}" class="btn navigation_btn" style="margin-right: 2px">
                             <div class="d-flex align-items-center">
-                                <i class="fa-solid fa-business-time me-1" style="font-size: 12px;"></i>
+                                <i class="fa-solid fa-business-time pe-1" style="font-size: 12px;"></i>
                                 <span> Sales</span>
                             </div>
                         </a>
-                        <a href="{{ route('marketing-dashboard.index') }}" class="btn navigation_btn">
+                        <a href="{{ route('marketing-dashboard.index') }}" class="btn navigation_btn"
+                            style="margin-right: 2px">
                             <div class="d-flex align-items-center">
-                                <i class="fa-solid fa-calculator me-1" style="font-size: 12px;"></i>
+                                <i class="fa-solid fa-calculator pe-1" style="font-size: 12px;"></i>
                                 <span>Marketing</span>
                             </div>
                         </a>
-                        <a href="{{ route('show-case-video.index') }}" class="btn navigation_btn">
+                        <a href="{{ route('show-case-video.index') }}" class="btn navigation_btn" style="margin-right: 2px">
                             <div class="d-flex align-items-center">
-                                <i class="fa-solid fa-user-tie me-1" style="font-size: 12px;"></i>
+                                <i class="fa-solid fa-user-tie pe-1" style="font-size: 12px;"></i>
                                 <span>Showcase</span>
                             </div>
                         </a>
@@ -83,13 +88,14 @@
                 <div class="row">
                     <div class="col-lg-6 offset-lg-3">
                         <h3 class="text-center w-50 mx-auto" style="color: #247297;">
-                            Business</h3>
+                            Business Dashboard</h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="">
-                            <h6  class="m-0 p-1 text-center" style="color: #fff; border-bottom: 1px solid #247297;background: #247297;"> Sales</h6>
+                            <h6 class="m-0 p-1 text-center"
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;"> Sales</h6>
                             <div class="card rounded-0">
                                 <div class="card-body rounded-0">
                                     <div class="row align-items-center">
@@ -103,7 +109,8 @@
                                         <div class="col-lg-6">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div>
-                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted"> 5,000TK</span></a>
+                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted">
+                                                        5,000TK</span></a>
                                                     <i class="ph-trend-down me-2 text-danger"></i>
                                                 </div>
                                                 <div>
@@ -117,26 +124,35 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mt-3">
+                                    <div class="mt-3" data-bs-toggle="modal" data-bs-target="#chart1"
+                                        style="cursor: pointer;">
                                         <div class="bg-light">
                                             <div class="box_details">
                                                 <div class="row align-items-center">
                                                     <div class="col-sm-4">
-                                                        <p class="m-0 ps-2 text-info">Current Month <span class="text-black">(Jan)</span></p>
+                                                        <a href="">
+                                                            <p class="m-0 ps-2 text-info">Current Month <span
+                                                                    class="text-black">(Jan)</span></p>
+                                                        </a>
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-info small-font-size m-0 p-1">QTY</p>
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    QTY
+                                                                </p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-info small-font-size m-0 p-1">Target</p>
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Target</p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-info small-font-size m-0 p-1">Achiev</p>
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Achiev</p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-end text-info small-font-size m-0 pe-2 p-1">Ration</p>
+                                                                <p class="text-end text-info small-font-size m-0 pe-2 p-1">
+                                                                    Ration</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -153,16 +169,25 @@
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">20</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    20</p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">15^</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    15^</p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>18%</p>
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>18%
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -179,16 +204,25 @@
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">20</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    20</p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">15^</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    15^</p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-up pe-1 text-succsess"></i>23%</p>
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-up pe-1 text-succsess"></i>23%
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -205,16 +239,25 @@
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">20</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    20</p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">15^</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    15^</p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-up pe-1 text-succsess"></i>18%</p>
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-up pe-1 text-succsess"></i>18%
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -231,16 +274,25 @@
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">20</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    20</p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">15^</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    15^</p>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>22%</p>
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>22%
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -254,7 +306,8 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="">
-                            <h6  class="m-0 p-1 text-center" style="color: #fff; border-bottom: 1px solid #247297;background: #247297;"> Marketing</h6>
+                            <h6 class="m-0 p-1 text-center"
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;"> Marketing</h6>
                             <div class="card rounded-0">
                                 <div class="card-body rounded-0">
                                     <div class="row align-items-center">
@@ -268,7 +321,9 @@
                                         <div class="col-lg-6">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div>
-                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted"> 24%</span></a>
+                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted">
+                                                        <span>24%</span>
+                                                    </a>
                                                     <i class="ph-trend-down me-2 text-danger"></i>
                                                 </div>
                                                 <div>
@@ -282,23 +337,28 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mt-3">
+                                    <div class="mt-3" data-bs-toggle="modal" data-bs-target="#chart1"
+                                        style="cursor: pointer;">
                                         <div class="bg-light">
                                             <div class="box_details">
                                                 <div class="row align-items-center">
                                                     <div class="col-sm-4">
-                                                        <p class="m-0 ps-2 text-info">Current Month <span class="text-black">(Jan)</span></p>
+                                                        <p class="m-0 ps-2 text-info">Current Month <span
+                                                                class="text-black">(Jan)</span></p>
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-info small-font-size m-0 p-1">Target</p>
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Target</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-info small-font-size m-0 p-1">Achiev</p>
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Achiev</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-end text-info small-font-size m-0 pe-2 p-1">Ration</p>
+                                                                <p class="text-end text-info small-font-size m-0 pe-2 p-1">
+                                                                    Ration</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -315,13 +375,19 @@
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-danger small-font-size m-0 p-1">(-4.9%)</p>
+                                                                <p class="text-center text-danger small-font-size m-0 p-1">
+                                                                    (-4.9%)</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>100%</p>
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>100%
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -338,13 +404,20 @@
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">(+16.2%)</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    (+16.2%)</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-up pe-1 text-succsess"></i>125%</p>
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-up pe-1 text-succsess"></i>125%
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -361,13 +434,20 @@
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">(+16.2%)</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    (+16.2%)</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-up pe-1 text-succsess"></i>165%</p>
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-up pe-1 text-succsess"></i>165%
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -381,7 +461,8 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="">
-                            <h6  class="m-0 p-1 text-center" style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Client RFQ</h6>
+                            <h6 class="m-0 p-1 text-center"
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Client RFQ</h6>
                             <div class="card rounded-0">
                                 <div class="card-body rounded-0">
                                     <div class="row align-items-center">
@@ -395,7 +476,8 @@
                                         <div class="col-lg-6">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div>
-                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted"> 58%</span></a>
+                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted">
+                                                        58%</span></a>
                                                     <i class="ph-trend-up me-2 text-success"></i>
                                                 </div>
                                                 <div>
@@ -409,23 +491,28 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mt-3">
+                                    <div class="mt-3" data-bs-toggle="modal" data-bs-target="#chart1"
+                                        style="cursor: pointer;">
                                         <div class="bg-light">
                                             <div class="box_details">
                                                 <div class="row align-items-center">
                                                     <div class="col-sm-4">
-                                                        <p class="m-0 ps-2 text-info">Current Month <span class="text-black">(Jan)</span></p>
+                                                        <p class="m-0 ps-2 text-info">Current Month <span
+                                                                class="text-black">(Jan)</span></p>
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-info small-font-size m-0 p-1">Pending</p>
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Pending</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-info small-font-size m-0 p-1">Done</p>
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Done</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-end text-info small-font-size m-0 p-1">Win/Lose</p>
+                                                                <p class="text-end text-info small-font-size m-0 p-1">
+                                                                    Win/Lose</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -442,13 +529,20 @@
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">3</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    3</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-up pe-1 text-succsess"></i>100%</p>
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-up pe-1 text-succsess"></i>100%
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -465,13 +559,20 @@
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">1</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    1</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>125%</p>
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>125%
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -488,13 +589,20 @@
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">4</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    4</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>165%</p>
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>165%
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -506,9 +614,59 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-8 col-offset-2 mx-auto my-4">
+                        <div
+                            style="border: 2px;
+                        border-style: dashed;
+                        border-color: #247297;
+                        padding: 25px;">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a href="" class="btn navigation_btn quick_link me-3">Dashboard</a>
+                                <a href="" class="btn navigation_btn quick_link me-3">Supply Chain</a>
+                                <a href="" class="btn navigation_btn quick_link me-3">Expence</a>
+                                <a href="" class="btn navigation_btn quick_link me-3">Dashboard</a>
+                                <a href="" class="btn navigation_btn quick_link me-3">Client Support</a>
+                                <a href="" class="btn navigation_btn quick_link me-3">Supply Chain</a>
+                                <a href="" class="btn navigation_btn quick_link">Expence</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="row">
+                    <div class="col-lg-12">
+                        <h6 class="m-0 p-1 text-center"
+                            style="color: #fff; border-bottom: 1px solid #247297;background: #247297;"> Quick Link</h6>
+                        <div class="card rounded-0">
+                            <div class="card-body px-0 d-flex justify-content-center">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <a href="" class="btn navigation_btn">Dashboard</a>
+                                    <a href="" class="btn navigation_btn">About Us</a>
+                                    <a href="" class="btn navigation_btn">Business Dashboard</a>
+                                    <a href="" class="btn navigation_btn">RFQ</a>
+                                    <a href="" class="btn navigation_btn">Leave Dashboard</a>
+                                    <a href="" class="btn navigation_btn">Site Setting</a>
+                                    <a href="" class="btn navigation_btn">HR & Admin</a>
+                                    <a href="" class="btn navigation_btn">Policy</a>
+                                    <a href="" class="btn navigation_btn">CRM</a>
+                                    <a href="" class="btn navigation_btn">Supply Chain</a>
+                                    <a href="" class="btn navigation_btn">Employee</a>
+                                    <a href="" class="btn navigation_btn">Job Application</a>
+                                    <a href="" class="btn navigation_btn">Feature</a>
+                                    <a href="" class="btn navigation_btn">Client Support</a>
+                                    <a href="" class="btn navigation_btn me-0">Expence</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+                <div class="row">
                     <div class="col-lg-4">
                         <div class="">
-                            <h6  class="m-0 p-1 text-center" style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Product Showcase</h6>
+                            <h6 class="m-0 p-1 text-center"
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Product Showcase
+                            </h6>
                             <div class="card rounded-0">
                                 <div class="card-body rounded-0">
                                     <div class="row align-items-center">
@@ -522,7 +680,8 @@
                                         <div class="col-lg-6">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div>
-                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted"> 20%</span></a>
+                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted">
+                                                        20%</span></a>
                                                     <i class="ph-trend-up me-2 text-success"></i>
                                                 </div>
                                                 <div>
@@ -536,23 +695,28 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mt-3">
+                                    <div class="mt-3" data-bs-toggle="modal" data-bs-target="#chart1"
+                                        style="cursor: pointer;">
                                         <div class="bg-light">
                                             <div class="box_details">
                                                 <div class="row align-items-center">
                                                     <div class="col-sm-4">
-                                                        <p class="m-0 ps-2 text-info">Details<span class="text-black">(Jan)</span></p>
+                                                        <p class="m-0 ps-2 text-info">Details<span
+                                                                class="text-black">(Jan)</span></p>
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-info small-font-size m-0 p-1">Approved</p>
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Approved</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-info small-font-size m-0 p-1">Rejected</p>
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Rejected</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-end text-info small-font-size m-0 p-1">Ratio</p>
+                                                                <p class="text-end text-info small-font-size m-0 p-1">Ratio
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -569,13 +733,20 @@
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">3</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    3</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-up pe-1 text-succsess"></i>100%</p>
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-up pe-1 text-succsess"></i>100%
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -592,13 +763,20 @@
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">1</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    1</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>125%</p>
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>125%
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -615,13 +793,20 @@
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">4</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    4</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>165%</p>
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>165%
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -638,13 +823,20 @@
                                                     <div class="col-sm-8">
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">5</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-center text-secondary small-font-size m-0 p-1">4</p>
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    4</p>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>165%</p>
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>165%
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -658,7 +850,9 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="">
-                            <h6  class="m-0 p-1 text-center" style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Traning & Certificate</h6>
+                            <h6 class="m-0 p-1 text-center"
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Traning &
+                                Certificate</h6>
                             <div class="card rounded-0">
                                 <div class="card-body rounded-0">
                                     <div class="row align-items-center">
@@ -672,7 +866,8 @@
                                         <div class="col-lg-6">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div>
-                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted"> 30%</span></a>
+                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted">
+                                                        30%</span></a>
                                                     <i class="ph-trend-up me-2 text-success"></i>
                                                 </div>
                                                 <div>
@@ -680,21 +875,25 @@
                                                         class="btn rounded-circle p-3 text-white shadow-lg
                                                         bg-secondary dashboard_btn chart_btn"
                                                         style="width: 30px; height: 30px; font-size: 14px;">
-                                                        <span class="mb-0" style="font-size: 10px"><i class="fa-solid fa-user-check text-white"></i></span>
+                                                        <span class="mb-0" style="font-size: 10px"><i
+                                                                class="fa-solid fa-user-check text-white"></i></span>
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mt-3">
+                                    <div class="mt-3" data-bs-toggle="modal" data-bs-target="#chart1"
+                                        style="cursor: pointer;">
                                         <div class="bg-light">
                                             <div class="box_details">
                                                 <div class="row align-items-center">
                                                     <div class="col-sm-4">
-                                                        <p class="m-0 ps-2 text-info">This Month <span class="text-black">(Jan)</span></p>
+                                                        <p class="m-0 ps-2 text-info">This Month <span
+                                                                class="text-black">(Jan)</span></p>
                                                     </div>
                                                     <div class="col-sm-8">
-                                                        <p class="text-end text-info small-font-size m-0 pe-2 p-1">Ratio</p>
+                                                        <p class="text-end text-info small-font-size m-0 pe-2 p-1">Ratio
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -707,7 +906,8 @@
                                                         <p class="m-0 ps-2">Traning</p>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-up pe-1 text-succsess"></i>100%</p>
+                                                        <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i
+                                                                class="ph ph-arrow-up pe-1 text-succsess"></i>100%</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -720,7 +920,8 @@
                                                         <p class="m-0 ps-2">Certificate</p>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>125%</p>
+                                                        <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i
+                                                                class="ph ph-arrow-down pe-1 text-danger"></i>125%</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -733,7 +934,8 @@
                                                         <p class="m-0 ps-2">Partnership</p>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>165%</p>
+                                                        <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i
+                                                                class="ph ph-arrow-down pe-1 text-danger"></i>165%</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -745,7 +947,8 @@
                                                         <p class="m-0 ps-2">Others</p>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i class="ph ph-arrow-down pe-1 text-danger"></i>165%</p>
+                                                        <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i
+                                                                class="ph ph-arrow-down pe-1 text-danger"></i>165%</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -756,221 +959,114 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="">
-                            <h6  class="m-0 p-1 text-center" style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Quick Link</h6>
-                            <div class="card rounded-0">
-                                <div class="card-body rounded-0">
-                                    <div class="pt-1">
-                                        <div class="bg-light">
-                                            <div class="box_details">
-                                                <div class="row align-items-center">
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Learn More <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Home <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="">
-                                            <div class="box_details">
-                                                <div class="row align-items-center">
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Learn More <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Home <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="bg-light">
-                                            <div class="box_details">
-                                                <div class="row align-items-center">
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Learn More <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Home <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="">
-                                            <div class="box_details">
-                                                <div class="row align-items-center">
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Learn More <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Home <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="bg-light">
-                                            <div class="box_details">
-                                                <div class="row align-items-center">
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Learn More <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Home <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="">
-                                            <div class="box_details">
-                                                <div class="row align-items-center">
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Learn More <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Home <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="bg-light">
-                                            <div class="box_details">
-                                                <div class="row align-items-center">
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Learn More <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Home <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="">
-                                            <div class="box_details">
-                                                <div class="row align-items-center">
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Learn More <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Home <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="bg-light">
-                                            <div class="box_details">
-                                                <div class="row align-items-center">
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Learn More <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Home <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="">
-                                            <div class="box_details">
-                                                <div class="row align-items-center">
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Learn More <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">Home <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <a href="" class="ps-1 text-info">About <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
+                        <h6 class="m-0 p-1 text-center"
+                            style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Monthly Salses Query
+                        </h6>
+                        <div class="chart-container">
+                            <canvas class="chartjs-line-chart"></canvas>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 mt-3">
-                    <div class="data">
-                        <!-- Basic columns -->
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0 text-center">Monthly Sales Report</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-container">
-                                    <div class="chart has-fixed-height" id="columns_basic"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /basic columns -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {{-- Chart In Modal --}}
+    <!-- Modal trigger button -->
+    <!-- Modal Body -->
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div class="modal fade" id="chart1" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header px-3 py-2">
+                    <h5 class="modal-title m-0" id="modalTitleId">
+                        Sales Query
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="chart-container">
+                                    <canvas class="chartjs-line-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 @push('scripts')
+    <script>
+        // Chart data
+        var data = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+                'November', 'December'
+            ],
+            datasets: [{
+                    label: 'Target',
+                    data: [10, 15, 20, 25, 30, 35, 40, 45, 40, 35, 30, 25],
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2,
+                    fill: false,
+                    pointStyle: 'rect', // Point style for Data 1
+                    pointRadius: 6,
+                    pointBackgroundColor: 'rgba(255, 99, 132, 0.7)', // Color of the point for Data 1
+                    pointBorderColor: 'rgba(255, 99, 132, 1)', // Border color of the point for Data 1
+                    pointBorderWidth: 1 // Border width of the point for Data 1
+                },
+                {
+                    label: 'Achievement',
+                    data: [30, 40, 50, 60, 70, 80, 90, 100, 90, 80, 70, 60],
+                    borderColor: 'rgba(255, 206, 86, 1)', // Change color for 'Ratio'
+                    borderWidth: 2,
+                    fill: false,
+                    pointStyle: 'rect', // Point style for Data 2
+                    pointRadius: 6,
+                    pointBackgroundColor: 'rgba(255, 206, 86, 0.7)', // Color of the point for Data 2
+                    pointBorderColor: 'rgba(255, 206, 86, 1)', // Border color of the point for Data 2
+                    pointBorderWidth: 1 // Border width of the point for Data 2
+                }
+            ]
+        };
+
+        // Chart configuration
+        var config = {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    x: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Months'
+                        },
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }],
+                    y: [{
+                        type: 'linear',
+                        position: 'left'
+                    }]
+                }
+            }
+        };
+
+        // Chart initialization code using Chart.js
+        document.addEventListener('DOMContentLoaded', function() {
+            var chartContainers = document.getElementsByClassName('chartjs-line-chart');
+
+            for (var i = 0; i < chartContainers.length; i++) {
+                var ctx = chartContainers[i].getContext('2d');
+                new Chart(ctx, config);
+            }
+        });
+    </script>
+
     <script>
         $('.data').hide()
         jQuery('.chart_btn').on('click', function() {

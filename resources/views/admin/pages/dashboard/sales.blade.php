@@ -1,7 +1,6 @@
 @extends('admin.master')
 @section('content')
     <div class="content-wrapper">
-
         <!-- Page header -->
         <section class="shadow-sm">
             <div class="d-flex justify-content-between align-items-center">
@@ -22,19 +21,50 @@
                     </div>
                 </div>
                 {{-- Inner Page Tab --}}
-
+                <div>
+                    <a href="{{ route('salesYearTarget.index') }}" class="btn navigation_btn" style="margin-right: 2px">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-users-viewfinder pe-1" style="font-size: 12px;"></i>
+                            <span>Year Target</span>
+                        </div>
+                    </a>
+                    <a href="{{route('salesTeamTarget.index')}}" class="btn navigation_btn" style="margin-right: 2px">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-bullseye pe-1" style="font-size: 12px;"></i>
+                            <span>Individual Target</span>
+                        </div>
+                    </a>
+                    <a href="{{ route('industry.index') }}" class="btn navigation_btn" style="margin-right: 2px">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-clipboard-list pe-1" style="font-size: 12px;"></i>
+                            <span> Achievement Summary</span>
+                        </div>
+                    </a>
+                    <a href="{{ route('sales-profit-loss.index') }}" class="btn navigation_btn"
+                        style="margin-right: 2px">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-clipboard-check pe-1" style="font-size: 12px;"></i>
+                            <span>Sales Profit Loss</span>
+                        </div>
+                    </a>
+                    <a href="{{ route('rfqOrderStatus.index') }}" class="btn navigation_btn" style="margin-right: 2px">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-cart-flatbed pe-1" style="font-size: 12px;"></i>
+                            <span>Order Status</span>
+                        </div>
+                    </a>
+                </div>
         </section>
         <!-- /page header -->
 
         <!-- Sales Chain Page -->
         <div class="content pt-0">
             <div class="container-fluid ">
-                <div class="row mt-2 mb-5">
-                    <h1 class="mb-0 text-center w-25 mx-auto mb-2 text-info"
-                        style="color: #247297; border-bottom: 1px solid #247297;">Sales Dashboard</h1>
+                <div class="row mt-2 mb-2">
+                    <h1 class="m-0 text-center w-25 mx-auto text-info">Sales Dashboard</h1>
                 </div>
                 {{-- Extra Area --}}
-                <div class="row">
+                <div class="row d-flex justify-content-center">
                     <div class="col-lg-4">
                         <div class="">
                             <h6  class="m-0 p-1 text-center" style="color: #fff; border-bottom: 1px solid #247297;background: #247297;"> Sales Info</h6>
@@ -66,7 +96,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-3">
-                                        <div class="bg-light">
+                                        <div class="bg-light" data-bs-toggle="modal" data-bs-target="#chart1" style="cursor: pointer;">
                                             <div class="box_details">
                                                 <div class="row align-items-center">
                                                     <div class="col-sm-4">
@@ -118,7 +148,7 @@
                                             </div>
                                         </div>
                                         {{-- Sales Web --}}
-                                        <div class="bg-light">
+                                        <div class="bg-light" data-bs-toggle="modal" data-bs-target="#chart1" style="cursor: pointer;">
                                             <div class="box_details">
                                                 <div class="row align-items-center">
                                                     <div class="col-sm-4">
@@ -170,7 +200,7 @@
                                             </div>
                                         </div>
                                         {{-- Sales Software development --}}
-                                        <div class="bg-light">
+                                        <div class="bg-light" data-bs-toggle="modal" data-bs-target="#chart1" style="cursor: pointer;">
                                             <div class="box_details">
                                                 <div class="row align-items-center">
                                                     <div class="col-sm-4">
@@ -198,6 +228,15 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    {{-- Chart --}}
+                    <div class="col-lg-4">
+                        <h6 class="m-0 p-1 text-center"
+                            style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Monthly Salses Query
+                        </h6>
+                        <div class="chart-container">
+                            <canvas class="chartjs-line-chart"></canvas>
                         </div>
                     </div>
                     <!-- RFQ Details Section -->
@@ -328,80 +367,101 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Target Vs. Achievement Section -->
-                    <div class="col-lg-4">
-                        <h6  class="m-0 p-1 text-center" style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Target Vs. Achievement/Sales Details</h6>
-                        <div class="card rounded-0">
-                            <div class="card-body rounded-0">
-                                <div class="row">
-                                    <!-- Year Target -->
-                                    <div class="col-sm-12 bg-light px-1 py-1 rounded-0">
-                                        <div class="d-flex justify-content-between">
-                                            <a href="{{ route('salesYearTarget.index') }}" class="text-muted">
-                                                Year Target
-                                            </a>
-                                            <a href="{{ route('salesYearTarget.create') }}">
-                                                <span class="rounded-0 border border-secondary text-center">
-                                                    <i class="fa fa-plus text-secondary"></i>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Individual Target -->
-                                    <div class="col-sm-12 bg-light px-1 py-1 rounded-0 mt-2">
-                                        <div class="d-flex justify-content-between">
-                                            <a href="{{route('salesTeamTarget.index')}}" class="text-muted">
-                                                Individual Target
-                                            </a>
-                                            <a href="{{route('salesTeamTarget.create')}}">
-                                                <span class="rounded-0 border border-secondary text-center">
-                                                    <i class="fa fa-plus text-secondary"></i>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Achievement Summary -->
-                                    <div class="col-sm-12 bg-light px-1 py-1 rounded-0 mt-2">
-                                        <div class="d-flex justify-content-between">
-                                            <a href="{{ route('industry.index') }}" class="text-muted">
-                                                Achievement Summary
-                                            </a>
-                                            <a href=""><span class="rounded-0 border border-secondary text-center">
-                                                    <i class="fa fa-plus text-secondary"></i>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 bg-light px-1 py-1 rounded-0 mt-2">
-                                        <div class="d-flex justify-content-between">
-                                             <a href="{{ route('sales-profit-loss.index') }}" class="text-muted">
-                                            Sales Profit Loss
-                                        </a>
-                                        <a href="{{ route('sales-profit-loss.create') }}">
-                                            <span class="rounded-0 border border-secondary text-center">
-                                                <i class="fa fa-plus text-secondary"></i>
-                                            </span>
-                                        </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 bg-light px-1 py-1 rounded-0 mt-2">
-                                        <div class="d-flex justify-content-between">
-                                           <a href="{{ route('rfqOrderStatus.index') }}" class="text-muted">
-                                            Order Status
-                                        </a>
-                                        <a href="{{ route('rfqOrderStatus.create') }}">
-                                            <span class="rounded-0 border border-secondary text-center">
-                                                <i class="fa fa-plus text-secondary"></i>
-                                            </span>
-                                        </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Sales Details Section -->
                 </div>
             </div>
         </div>
+         <!-- Modal Body -->
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div class="modal fade" id="chart1" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header px-3 py-2">
+                <h5 class="modal-title m-0" id="modalTitleId">
+                    Sales Query
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="chart-container">
+                                <canvas class="chartjs-line-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     @endsection
+    @push('scripts')
+    <script>
+        // Chart data
+        var data = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+                'November', 'December'
+            ],
+            datasets: [{
+                    label: 'Target',
+                    data: [10, 15, 20, 25, 30, 35, 40, 45, 40, 35, 30, 25],
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2,
+                    fill: false,
+                    pointStyle: 'rect', // Point style for Data 1
+                    pointRadius: 6,
+                    pointBackgroundColor: 'rgba(255, 99, 132, 0.7)', // Color of the point for Data 1
+                    pointBorderColor: 'rgba(255, 99, 132, 1)', // Border color of the point for Data 1
+                    pointBorderWidth: 1 // Border width of the point for Data 1
+                },
+                {
+                    label: 'Achievement',
+                    data: [30, 40, 50, 60, 70, 80, 90, 100, 90, 80, 70, 60],
+                    borderColor: 'rgba(255, 206, 86, 1)', // Change color for 'Ratio'
+                    borderWidth: 2,
+                    fill: false,
+                    pointStyle: 'rect', // Point style for Data 2
+                    pointRadius: 6,
+                    pointBackgroundColor: 'rgba(255, 206, 86, 0.7)', // Color of the point for Data 2
+                    pointBorderColor: 'rgba(255, 206, 86, 1)', // Border color of the point for Data 2
+                    pointBorderWidth: 1 // Border width of the point for Data 2
+                }
+            ]
+        };
+
+        // Chart configuration
+        var config = {
+            type: 'bar', // Change chart type to 'bar'
+            data: data,
+            options: {
+                scales: {
+                    x: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Months'
+                        },
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }],
+                    y: [{
+                        type: 'linear',
+                        position: 'left'
+                    }]
+                }
+            }
+        };
+
+        // Chart initialization code using Chart.js
+        document.addEventListener('DOMContentLoaded', function() {
+            var chartContainers = document.getElementsByClassName('chartjs-line-chart');
+
+            for (var i = 0; i < chartContainers.length; i++) {
+                var ctx = chartContainers[i].getContext('2d');
+                new Chart(ctx, config);
+            }
+        });
+    </script>
+@endpush

@@ -7,7 +7,7 @@
         z-index: 9;
         width: 15%;
         color: white;
-        border-radius: 10px;
+        border-radius: 3px;
         left: 25px;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
@@ -20,12 +20,13 @@
             <th width="20%">RFQ Code</th>
             <!-- Create Date Column -->
             <th width="20%">Create Date</th>
-            <!-- Details Column -->
-            <th width="30%">Details</th>
             <!-- Status Column -->
-            <th width="10">Status</th>
+            <th width="25">Status</th>
+            <!-- Details Column -->
+            <th width="10%">Details</th>
+            <th width="15%">Status</th>
             <!-- Actions Column -->
-            <th width="20%" class="text-center">Actions</th>
+            <th width="10%" class="text-center">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -35,7 +36,7 @@
                     <td>{{ ucfirst($deal->rfq_code) }}</td>
                     <td>{{ ucfirst($deal->create_date) }}</td>
                     <td>
-                        <span class="badge bg-success">{{ ucfirst($deal->status) }}</span>
+                        <span class="text-primary" style="text-transform: capitalize">{{ ucfirst($deal->status) }}</span>
                     </td>
                     <td>
                         <a href="javascript:void(0);" class="text-info mx-2" title="Show Deal" data-bs-toggle="modal"
@@ -45,7 +46,7 @@
                         <!---Category Update modal--->
                         <div id="show-deals-{{ $deal->rfq_code }}" class="modal fade" tabindex="-1"
                             style="display: none;" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable modal-lg rounded-0">
+                            <div class="modal-dialog modal-dialog-scrollable modal-lg rounded-0 modal-dialog-centered">
                                 <div class="modal-content rounded-0">
                                     <div class="modal-header rounded-0">
                                         @php
@@ -64,20 +65,20 @@
                                                 <div class="border card rounded-0">
                                                     <div class="row mt-1">
                                                         <div class="col-lg-12 d-flex justify-content-between">
-                                                            <p class="p-2 m-0">
-                                                                <strong>Client Type :</strong>
+                                                            <p class="p-2 m-0 text-start">
+                                                                <span class="text-secondary">Client Type :</span> <br>
                                                                 {{ ucfirst($rfq_details->client_type) }}
                                                             </p>
-                                                            <p class="p-2 m-0">
-                                                                <strong>Name :</strong>
+                                                            <p class="p-2 m-0 text-start">
+                                                                <span class="text-secondary">Name :</span> <br>
                                                                 {{ ucfirst($rfq_details->name) }}
                                                             </p>
-                                                            <p class="p-2 m-0">
-                                                                <strong>Company Name :</strong>
+                                                            <p class="p-2 m-0 text-start">
+                                                                <span class="text-secondary">Company Name :</span> <br>
                                                                 {{ ucfirst($rfq_details->company_name) }}
                                                             </p>
-                                                            <p class="p-2 m-0">
-                                                                <strong>Phone Number : </strong>
+                                                            <p class="p-2 m-0 text-start">
+                                                                <span class="text-secondary">Phone Number : </span> <br>
                                                                 {{ $rfq_details->phone }}
                                                             </p>
                                                         </div>
@@ -85,7 +86,7 @@
                                                 </div>
                                                 <p class="devider-text mb-0 p-1">RFQ Details</p>
                                                 <div class="border card rounded-0">
-                                                    <div class="row mt-1">
+                                                    <div class="row mt-1 px-0 pt-2">
                                                         <div class="col-lg-12">
                                                             <div class="table-responsive p-2">
                                                                 <table class="table table-bordered table-striped p-1">
@@ -93,9 +94,9 @@
                                                                         style="background-color: #2472979e !important;color: white !important;">
                                                                         @if (count($deal_products) > 0)
                                                                             <tr>
-                                                                                <th class="p-0"> Product Name</th>
-                                                                                <th class="p-0"> Quantity </th>
-                                                                                <th class="p-0"> Sale Price </th>
+                                                                                <th class="p-1"> Product Name</th>
+                                                                                <th class="p-1"> Quantity </th>
+                                                                                <th class="p-1"> Sale Price </th>
                                                                             </tr>
 
                                                                             @foreach ($deal_products as $item)
@@ -111,43 +112,41 @@
                                                                     </thead>
                                                                 </table>
                                                             </div>
-                                                            <div class="row py-3">
-                                                                <div class="col-lg-4 align-items-center">
-                                                                    <strong>Asking Quantity : </strong>
+                                                            <div class="row py-3 px-3">
+                                                                <div class="col-lg-4 text-start">
+                                                                    <p class="p-0 m-0 text-secondary">Asking Quantity : </p> bt
                                                                     @if (App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->sum('qty') > 0)
                                                                         {{ App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->sum('qty') }}
                                                                     @else
                                                                         {{ $rfq_details->qty }}
                                                                     @endif
                                                                 </div>
-                                                                <div class="col-lg-4">
-                                                                    <strong> Total Price : $ </strong>
+                                                                <div class="col-lg-4 text-start">
+                                                                    <p class="p-0 m-0 text-secondary"> Total Price : $ </p>
                                                                     {{ App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->value('grand_total') }}
                                                                 </div>
-                                                                <div class="col-lg-4">
-                                                                    <strong>Status : </strong>
+                                                                <div class="col-lg-4 text-start">
+                                                                    <p class="p-0 m-0 text-secondary">Status : </p>
                                                                     <span
-                                                                        class="badge bg-success p-1">{{ ucfirst($rfq_details->status) }}</span>
+                                                                        class="text-success p-1">{{ ucfirst($rfq_details->status) }}</span>
                                                                 </div>
                                                             </div>
-                                                            <div class="row pb-2">
-                                                                <div class="col-lg-4">
-                                                                    <strong>Assigned Sales Manager (L1) :</strong> <br>
+                                                            <div class="row pb-3 px-3">
+                                                                <div class="col-lg-4 text-start">
+                                                                    <p class="p-0 m-0 text-secondary">Assigned Sales Manager (L1) :</p>
                                                                     {{ App\Models\User::where('id', $rfq_details->sales_man_id_L1)->value('name') }}
 
 
                                                                 </div>
-                                                                <div class="col-lg-4">
+                                                                <div class="col-lg-4 text-start">
                                                                     @if ($rfq_details->sales_man_id_T1)
-                                                                        <strong>Assigned Sales Manager (T1) :</strong>
-                                                                        <br>
+                                                                        <p class="p-0 m-0 text-secondary">Assigned Sales Manager (T1) :</p>
                                                                         {{ App\Models\User::where('id', $rfq_details->sales_man_id_T1)->value('name') }}
                                                                     @endif
                                                                 </div>
-                                                                <div class="col-lg-4">
+                                                                <div class="col-lg-4 text-start">
                                                                     @if ($rfq_details->sales_man_id_T2)
-                                                                        <strong> Assigned Sales Manager (T2) :</strong>
-                                                                        <br>
+                                                                        <p class="p-0 m-0 text-secondary"> Assigned Sales Manager (T2) :</p>
                                                                         {{ App\Models\User::where('id', $rfq_details->sales_man_id_T2)->value('name') }}
                                                                     @endif
                                                                 </div>
@@ -159,16 +158,11 @@
                                         </div>
                                         </form>
                                     </div>
-
-
-
-
                                 </div>
                             </div>
                         </div>
                     </td>
-                    <td class="text-center">
-
+                    <td>
                         <a href="{{ route('single-rfq.show', $deal->rfq_code) }}" class="text-success"
                             title="Go to Details">
                             <i class="fa-solid fa-display text-info dash-icons me-2"></i>
@@ -176,6 +170,8 @@
                         <a href="{{ route('deal.edit', $deal->id) }}" class="text-success" title="Deal Edit">
                             <i class="fa-solid fa-file-pen dash-icons me-2"></i>
                         </a>
+                    </td>
+                    <td class="text-end">
                         @if ($deal->status == 'rfq_created')
                             <a href="javascript:void(0);" class="text-primary" data-bs-toggle="modal"
                                 title="View & Assign Sales Manager"
@@ -503,7 +499,6 @@
                             </div>
                         </div>
                         <!---Send Quotation modal--->
-
                     </td>
                 </tr>
             @endforeach
