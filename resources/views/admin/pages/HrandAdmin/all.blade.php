@@ -20,6 +20,66 @@
             color: white;
             border-radius: 50%
         }
+
+        .badge-icons {
+            background: transparent;
+            border-radius: 50%;
+            padding: 9px 13px;
+            margin-right: 11px;
+            display: flex;
+            height: 32px;
+            justify-content: center;
+            width: 32px;
+            background-color: #805dca;
+            box-shadow: 0 10px 20px -8px #805dca;
+            color: white;
+        }
+
+        .badge-icons-pending {
+            background: transparent;
+            border-radius: 50%;
+            padding: 9px 13px;
+            margin-right: 11px;
+            display: flex;
+            height: 32px;
+            justify-content: center;
+            width: 32px;
+            background-color: #13a6d2;
+            box-shadow: 0 10px 20px -8px #805dca;
+            color: white;
+        }
+
+        .ammount {
+            padding: 5px 10px;
+            background-color: #247297;
+            color: white;
+        }
+
+        #canvas-holder {
+            width: 100%;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        #chartjs-tooltip {
+            opacity: 1;
+            position: absolute;
+            background: rgba(0, 0, 0, .7);
+            color: white;
+            border-radius: 3px;
+            -webkit-transition: all .1s ease;
+            transition: all .1s ease;
+            pointer-events: none;
+            -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+        }
+
+        .chartjs-tooltip-key {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 10px;
+        }
     </style>
     <div class="content-wrapper">
         <div class="content p-0">
@@ -46,30 +106,37 @@
 
                     <!-- Basic tabs -->
                     <div class="px-3">
+                        <a href="{{ route('job.regiserUser') }}" class="btn navigation_btn">
+                            <div class="d-flex align-items-center ">
+                                <i class="fa-solid fa-users me-1" style="font-size: 12px;"></i>
+                                <span>Tasks</span>
+                            </div>
+                        </a>
                         <a href="{{ route('employee.index') }}" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-users me-1" style="font-size: 12px;"></i>
-                                <span>Employees</span>
+                                <span>Notice</span>
+                            </div>
+                        </a>
+                        <a href="{{ route('employee.index') }}" class="btn navigation_btn">
+                            <div class="d-flex align-items-center ">
+                                <i class="fa-solid fa-users me-1" style="font-size: 12px;"></i>
+                                <span>Employe</span>
                             </div>
                         </a>
                         <a href="{{ route('leaveApplications') }}" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-users me-1" style="font-size: 12px;"></i>
-                                <span>Leave Applications</span>
+                                <span>Leave</span>
                             </div>
                         </a>
                         <a href="{{ route('job.index') }}" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-users me-1" style="font-size: 12px;"></i>
-                                <span>Job Post</span>
+                                <span>Jobs</span>
                             </div>
                         </a>
-                        <a href="{{ route('job.regiserUser') }}" class="btn navigation_btn">
-                            <div class="d-flex align-items-center ">
-                                <i class="fa-solid fa-users me-1" style="font-size: 12px;"></i>
-                                <span>Job Applier's List</span>
-                            </div>
-                        </a>
+
                     </div>
             </section>
             <!-- /page header -->
@@ -79,49 +146,55 @@
                 <div class="container-fluid ">
                     <div class="row">
                         <div class="col-lg-6 offset-lg-3">
-                            <h3 class="text-center w-50 mx-auto" style="color: #247297;"> Welcome to HRM [Admin]</h3>
+                            <h3 class="text-center w-50 mx-auto" style="color: #247297;"> Welcome to HR</h3>
                         </div>
                     </div>
                     <!-- Row End -->
                     <div class="row">
                         <div class="col-lg-4">
                             <h6 class="m-0 p-1 text-center"
-                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Employee Info
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Employee Details
                             </h6>
                             <a href="{{ route('employee.index') }}">
-                                <div class="card rounded-0">
+                                <div class="card rounded-0" style="height: 175px; overflow-x: hidden;">
                                     <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            {{-- Total Employee --}}
-                                            <div class="emplpyee-card">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <h6 class="m-0"><i
-                                                            class="fa-solid fa-user-group fs-1 main_color me-3"></i></h6>
-                                                    <h6 class="main_color m-0">{{ App\Models\User::count() }}</h6>
-                                                </div>
-                                                <div class="pt-3">
-                                                    <h6 class="text-muted m-0">Total Employees</h6>
-                                                </div>
-                                            </div>
-                                            {{-- Total Employee Prosent --}}
-                                            <div class="emplpyee-card">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <h6 class="m-0"><i
-                                                            class="fa-solid fa-user-check fs-1 main_color me-3"></i></h6>
-                                                    <h6 class="main_color m-0">{{ count($attendanceData) }}</h6>
-                                                </div>
-                                                <div class="pt-3">
-                                                    <h6 class="text-muted m-0">Present Employees</h6>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="emplpyee-card">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h6 class="m-0"><i
+                                                                class="fa-solid fa-user-group badge-icons me-3"></i>
+                                                        </h6>
+                                                        <h6 class="main_color m-0 ammount">{{ App\Models\User::count() }}
+                                                        </h6>
+                                                    </div>
+                                                    <div class="pt-3">
+                                                        <h6 class="text-muted m-0 text-center">Total Employees</h6>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="emplpyee-card">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <h6 class="m-0"><i
-                                                            class="fa-solid fa-user-slash fs-1 main_color me-3"></i></h6>
-                                                    <h6 class="main_color m-0">{{ 11 - count($attendanceData) }}</h6>
-                                                </div>
-                                                <div class="pt-3">
-                                                    <h6 class="text-muted m-0">Absent Employees</h6>
+                                            <div class="col-lg-8">
+                                                <div class="emplpyee-card">
+                                                    <div class="mb-1">
+                                                        <div class="d-flex justify-content-between align-items-center pb-1">
+                                                            <h6 class="m-0"><i
+                                                                    class="fa-solid fa-user-check badge-icons me-2"></i>
+                                                            </h6>
+                                                            <h6 class="text-muted m-0">Present Employees</h6>
+                                                            <h6 class="main_color m-0 ammount">{{ count($attendanceData) }}
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <h6 class="m-0"><i
+                                                                    class="fa-solid fa-user-slash badge-icons me-2"></i>
+                                                            </h6>
+                                                            <h6 class="text-muted m-0">Absent Employees</h6>
+                                                            <h6 class="main_color m-0 ammount">
+                                                                {{ 11 - count($attendanceData) }}</h6>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -131,43 +204,71 @@
                         </div>
                         <div class="col-lg-4">
                             <h6 class="m-0 p-1 text-center"
-                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Leave
-                                Notifications </h6>
-                            <div class="card rounded-0">
-                                <div class="card-body" style="height: 136px; overflow-x: hidden;">
-                                    @if ($leave_applications->count() > 0)
-                                        @foreach ($leave_applications as $leave_application)
-                                            @if ($leave_application->status === 'pending')
-                                                <div class="mb-2">
-                                                    <a
-                                                        href="{{ route('leave-application.edit', $leave_application->id) }}">
-                                                        <div class="d-flex align-items-center">
-                                                            <div><i class="fa-regular fa-bell me-2 bell-icon"></i></div>
-                                                            <div>
-                                                                <p class="mb-0 fs-7">{{ $leave_application->name }}
-                                                                    <span class="text-black"> has applied for a
-                                                                        leave.</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Leave Info
+                            </h6>
+                            <a href="{{ route('employee.index') }}">
+                                <div class="card rounded-0">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-4">
+                                                <div class="emplpyee-card">
+                                                    <div class="d-flex justify-content-between align-items-center pb-3">
+                                                        <h6 class="m-0"><i
+                                                                class="fa-solid fa-right-from-bracket badge-icons"></i>
+                                                        </h6>
+                                                        <h6 class="main_color m-0 ammount">14</h6>
+                                                    </div>
+                                                    <div class="pt-4">
+                                                        <h6 class="text-muted m-0 text-center">Total Yearly Leave</h6>
+                                                    </div>
                                                 </div>
-                                            @endif
-                                        @endforeach
-                                    @else
-                                        <div class="row">
-                                            <h5 class="text-center mb-0 fs-6">No Leave Application</h5>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <div class="emplpyee-card">
+                                                    <div>
+                                                        <div class="d-flex justify-content-between align-items-center pb-1">
+                                                            <p class="m-0"><i
+                                                                    class="fa-solid fa-bed-pulse badge-icons me-1"></i>
+                                                            </p>
+                                                            <p class="text-muted m-0">Sick Leave</p>
+                                                            <p class="main_color m-0 ammount">{{ count($attendanceData) }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="d-flex justify-content-between align-items-center pb-1">
+                                                            <p class="m-0">
+                                                                <i
+                                                                    class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
+                                                            </p>
+                                                            <p class="text-muted m-0">Earned Leave</p>
+                                                            <p class="main_color m-0 ammount">
+                                                                {{ 11 - count($attendanceData) }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="d-flex justify-content-between align-items-center ">
+                                                            <p class="m-0"><i
+                                                                    class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
+                                                            </p>
+                                                            <p class="text-muted m-0">Casual Leave</p>
+                                                            <p class="main_color m-0 ammount">
+                                                                {{ 11 - count($attendanceData) }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    @endif
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-lg-4">
                             <h6 class="m-0 p-1 text-center"
                                 style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">All Events Of
                                 This Month
                             </h6>
-                            <div class="card rounded-0" style="height: 136px; overflow-x: hidden;">
+                            <div class="card rounded-0" style="height: 175px; overflow-x: hidden;">
                                 <div class="card-body p-0">
                                     <div class="row align-items-center text-center">
                                         <div class="col-lg-6">
@@ -184,8 +285,8 @@
                                         </div>
                                         <div class="col-lg-6 text-end">
                                             <a href="javascript:void(0);" data-bs-toggle="modal"
-                                                data-bs-target="#eventAdd" class="btn btn-info text-white px-2 py-1"><i
-                                                    class="fa-solid fa-plus pe-2"></i>Add</a>
+                                                data-bs-target="#eventAdd" class="btn btn-info text-white px-2 py-1 mt-2">
+                                                <i class="fa-solid fa-plus pe-2"></i>Add</a>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="table-responsive col-lg-12">
@@ -216,185 +317,319 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="todas-attendance-tab" data-bs-toggle="tab"
-                                        data-bs-target="#todas-attendance" type="button" role="tab"
-                                        aria-controls="todas-attendance" aria-selected="false">
-                                        Today's Attendance
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="employee-tab" data-bs-toggle="tab"
-                                        data-bs-target="#employee" type="button" role="tab"
-                                        aria-controls="employee" aria-selected="false">
-                                        Employees
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="all-events-tab" data-bs-toggle="tab"
-                                        data-bs-target="#all-events" type="button" role="tab"
-                                        aria-controls="all-events" aria-selected="true">
-                                        All Events
-                                    </button>
-                                </li>
-                            </ul>
+
+                        <div class="col-lg-3">
+                            <h6 class="m-0 p-1 text-center"
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">
+                                <div class="d-flex justify-content-between align-items-center px-3">
+                                    <p class="p-0 m-0">Evulation</p>
+                                    <div class="dropdown dropstart border-0 nav nav-tabs" id="myTab" role="tablist">
+                                        <a href="javascript:void()" class="text-white" id="triggerId"
+                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </a>
+                                        <div class="dropdown-menu border-0" aria-labelledby="triggerId">
+                                            <button class="dropdown-item" id="home-tab" data-bs-toggle="tab"
+                                                data-bs-target="#home" type="button" role="tab"
+                                                aria-controls="home" aria-selected="true">Probation</button>
+                                            <button class="dropdown-item" id="profile-tab" data-bs-toggle="tab"
+                                                data-bs-target="#profile" type="button" role="tab"
+                                                aria-controls="profile" aria-selected="false">Permanent</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h6>
+                            <div class="card rounded-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <a href="{{ route('employee.index') }}">
+                                                <p><span class="text-info">Upcomming</span></p>
+                                                <ul class="ms-0 ps-0" style="list-style-type: none">
+                                                    <li class="d-flex align-items-center">
+                                                        <div class="pe-3">
+                                                            {{-- <i class="fa-solid fa-award main_color "></i> --}}
+                                                            <i class="fa-solid fa-user-tie badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                Sazeduzzaman </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                            font-weight: 600;
+                                                            color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </li>
+                                                    <li style="padding-left: 14px">|</li>
+                                                    <li class="d-flex align-items-center">
+                                                        <div class="pe-3">
+                                                            <i class="fa-solid fa-user-tie badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                Sazeduzzaman </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                            font-weight: 600;
+                                                            color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </li>
+                                                    <li style="padding-left: 14px">|</li>
+                                                    <li class="d-flex align-items-center">
+                                                        <div class="pe-3">
+                                                            <i class="fa-solid fa-user-tie badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                Nahid Molla </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                            font-weight: 600;
+                                                            color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </li>
+                                                    <li style="padding-left: 14px">|</li>
+                                                    <li class="d-flex align-items-center">
+                                                        <div class="pe-3">
+                                                            <i class="fa-solid fa-user-tie badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                Sagor Hasan</h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                            font-weight: 600;
+                                                            color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="{{ route('employee.index') }}">
+                                                <p><span class="text-info">Pending</span></p>
+                                                <ul class="ms-0 ps-0" style="list-style-type: none">
+                                                    <li class="d-flex align-items-center">
+                                                        <div class="pe-3">
+                                                            {{-- <i class="fa-solid fa-award main_color "></i> --}}
+                                                            <i class="fa-solid fa-user-tie badge-icons-pending"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                Sazeduzzaman </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                            font-weight: 600;
+                                                            color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </li>
+                                                    <li style="padding-left: 14px">|</li>
+                                                    <li class="d-flex align-items-center">
+                                                        <div class="pe-3">
+                                                            <i class="fa-solid fa-user-tie badge-icons-pending"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                Sazeduzzaman </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                            font-weight: 600;
+                                                            color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </li>
+                                                    <li style="padding-left: 14px">|</li>
+                                                    <li class="d-flex align-items-center">
+                                                        <div class="pe-3">
+                                                            <i class="fa-solid fa-user-tie badge-icons-pending"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                Nahid Molla </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                            font-weight: 600;
+                                                            color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </li>
+                                                    <li style="padding-left: 14px">|</li>
+                                                    <li class="d-flex align-items-center">
+                                                        <div class="pe-3">
+                                                            <i class="fa-solid fa-user-tie badge-icons-pending"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                Sagor Hassan </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                            font-weight: 600;
+                                                            color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <h6 class="m-0 p-1 text-center"
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;"> Present & Absent Percentage
+                            </h6>
+                            <div class="card rounded-0">
+                                <div class="card-body d-flex justify-content-center align-items-center py-5">
+                                    <div id="canvas-holder" class="mt-0" style="width: 50%">
+                                        <canvas class="chartjs-pie-chart" width="300" height="200"></canvas>
+                                    </div>
+                                    <div id="chartjs-tooltip"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <h6 class="m-0 p-1 text-center"
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">KPI Details
+                            </h6>
+                            <div class="card rounded-0">
+                                <div class="card-body">
+                                    <div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p>Pending</p>
+                                            <p>50%</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p>Pending</p>
+                                            <p>50%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <h6 class="m-0 p-1 text-center"
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">All Tasks
+                            </h6>
+                            <div class="card rounded-0">
+                                <div class="card-body">
+                                    <ul class="ms-0 ps-0" style="list-style-type: none">
+                                        <li class="d-flex align-items-center">
+                                            <div class="pe-3">
+                                                {{-- <i class="fa-solid fa-award main_color "></i> --}}
+                                                <i class="fa-solid fa-check badge-icons"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                    New project created : <a href="#">[NGen IT Admin]</a> </h6>
+                                                <p class="p-0 m-0"
+                                                    style="font-size: 12px;
+                                                font-weight: 600;
+                                                color: #888ea8">
+                                                    07 May, 2022</p>
+                                            </div>
+                                        </li>
+                                        <li style="padding-left: 14px">|</li>
+                                        <li class="d-flex align-items-center">
+                                            <div class="pe-3">
+                                                <i class="fa-regular fa-envelope badge-icons"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                    Mail sent to HR and Admin </h6>
+                                                <p class="p-0 m-0"
+                                                    style="font-size: 12px;
+                                                font-weight: 600;
+                                                color: #888ea8">
+                                                    06 May, 2022</p>
+                                            </div>
+                                        </li>
+                                        <li style="padding-left: 14px">|</li>
+                                        <li class="d-flex align-items-center">
+                                            <div class="pe-3">
+                                                <i class="fa-solid fa-check badge-icons"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">Server Logs Updated </h6>
+                                                <p class="p-0 m-0"
+                                                    style="font-size: 12px;
+                                                font-weight: 600;
+                                                color: #888ea8">30 Apr, 2022</p>
+                                            </div>
+                                        </li>
+                                        <li style="padding-left: 14px">|</li>
+                                        <li class="d-flex align-items-center">
+                                            <div class="pe-3">
+                                                <i class="fa-solid fa-check badge-icons"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                    Documents Submitted from Sara</h6>
+                                                <p class="p-0 m-0"
+                                                    style="font-size: 12px;
+                                                font-weight: 600;
+                                                color: #888ea8">
+                                                    25 Apr, 2022</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div class="tab-pane active" id="todas-attendance" role="tabpanel"
-                                    aria-labelledby="todas-attendance-tab">
-                                    <div class="col-lg-6">
-                                        <div class="card rounded-0">
-                                            <div class="card-body p-0">
-                                                <table class="table attendance table-striped table-hover" width="100%">
-                                                    <thead class="text-center">
-                                                        <td>User ID</td>
-                                                        <td>User Name</td>
-                                                        <td>Check-In Time</td>
-                                                        <td>Check-Out Time</td>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach ($attendanceData as $userId => $times)
-                                                            <tr class="text-center" class="clickable-row" onclick="window.location='{{ route('attendance.single', $userId) }}'">
-                                                                <td><span class="">{{ $userId }}</span></td>
-                                                                <td><span class="">{{ $times['user_name'] }}</span></td>
-                                                                <td class="text-center">
-                                                                    @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:05:00'))
-                                                                        <div class="">
-                                                                            <span class="text-danger">{{ $times['check_in'] }}</span>
-
-                                                                            @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:05:00') &&
-                                                                                    Carbon\Carbon::parse($times['check_in']) <Carbon\Carbon::parse('10:05:00'))
-                                                                                <span class="text-danger"><i class="fa-regular fa-circle-xmark px-1"></i><span class="">(L)</span></span>
-                                                                            @endif
-
-                                                                            @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('10:05:00'))
-                                                                                <span class="text-danger"><i class="fa-regular fa-circle-xmark px-1"></i>(LL)</span>
-                                                                            @endif
-                                                                        </div>
-                                                                    @else
-                                                                        <span class="">{{ $times['check_in'] }} <i class="fa-regular fa-circle-check ps-1"></i></span>
-                                                                    @endif
-
-                                                                </td>
-                                                                <td><span class="text-info">{{ $times['check_out'] }} <i class="fa-regular fa-clock ps-1"></i></span></td>
-                                                            </tr>
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="employee" role="tabpanel" aria-labelledby="employee-tab">
-                                    <div class="col-lg-12">
-                                        <div class="card rounded-0 px-0">
-                                            <div class="card-body p-0">
-                                                <table class="table employee table-striped table-hover" width="100%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th width="25%">Name</th>
-                                                            <th width="15%">Job Status</th>
-                                                            <th width="50%">Department</th>
-                                                            <th width="15%" class="text-center">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach ($users as $employee)
-                                                            <tr>
-                                                                <td class="ps-2">
-                                                                    {{ $employee->name }}
-                                                                </td>
-                                                                <td class="ps-2"> Not Yet</td>
-                                                                <td class="ps-2">
-                                                                    @if (is_array(json_decode($employee->department)))
-                                                                        @foreach (json_decode($employee->department) as $department)
-                                                                            <span
-                                                                                class="text-info">{{ ucfirst($department) }},</span>
-                                                                        @endforeach
-                                                                    @else
-                                                                        <span
-                                                                            class="text-info">{{ ucfirst($employee->department) }},</span>
-                                                                    @endif
-                                                                </td>
-                                                                <td class="text-center">
-                                                                    <a class=""
-                                                                        href="{{ route('employeement.create') }}">
-                                                                        <i
-                                                                            class="fa-solid fa-plus dash-icons main_color"></i>
-                                                                    </a>
-                                                                    <a class=""
-                                                                        href="{{ route('salary-form.show', $employee->id) }}"
-                                                                        title="Salary Form">
-                                                                        <i
-                                                                            class="fa-regular fa-rectangle-list dash-icons main_color"></i>
-                                                                    </a>
-                                                                    <a class=""
-                                                                        href="{{ route('evaluation.show', $employee->id) }}"
-                                                                        title="Evaluation Form">
-                                                                        <i
-                                                                            class="fa-solid fa-pen-to-square dash-icons main_color"></i>
-                                                                    </a>
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="all-events" role="tabpanel" aria-labelledby="all-events-tab">
-                                    <div class="card rounded-0" style="height: 136px; overflow-x: hidden;">
-                                        <div class="card-body p-0">
-                                            <div class="row align-items-center text-center">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group d-flex align-items-center ps-2 pt-2">
-                                                        <label for="category_filter">Category:</label>
-                                                        <select class="form-control select category_filter"
-                                                            id="category_filter">
-                                                            <option value="">All</option>
-                                                            @foreach ($event_categorys as $category)
-                                                                <option value="{{ $category->id }}">{{ $category->name }}
-                                                                </option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 text-end">
-                                                    <a href="javascript:void(0);" data-bs-toggle="modal"
-                                                        data-bs-target="#eventAdd"
-                                                        class="btn btn-info text-white px-2 py-1"><i
-                                                            class="fa-solid fa-plus pe-2"></i>Add</a>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="table-responsive col-lg-12">
-                                                        <table
-                                                            class="table datatable-scroll-y data_event mt-2 mb-4 border pt-2 events_table">
+                                <div class="tab-pane" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <h6 class="m-0 p-1 text-center"
+                                        style="color: #fff; border-bottom: 1px solid #247297;background: #247297;"> Employee In Probation
+                                    </h6>
+                                    <div class="card rounded-0">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h3 class="p-0 m-0">Total</h3>
+                                                <p class="badge-icons-pending pt-1">3</p>
+                                                <hr>
+                                                <div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-primary">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>Name</th>
-                                                                    <th>Date</th>
-                                                                    <th>Time</th>
-                                                                    <th>Category</th>
+                                                                    <th scope="col">Name</th>
+                                                                    <th scope="col">Start</th>
+                                                                    <th scope="col">End</th>
+                                                                    <th scope="col">Status</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                @foreach ($events as $event)
-                                                                    <tr>
-                                                                        <td>{{ $event->title }}</td>
-                                                                        <td>{{ $event->start_date }}</td>
-                                                                        <td>{{ $event->start_time }}</td>
-                                                                        <td>{{ $event->eventCategory->name ?? 'No Category' }}
-                                                                        </td>
-                                                                    </tr>
-                                                                @endforeach
+                                                                <tr class="">
+                                                                    <td scope="row">Sazeduzaman</td>
+                                                                    <td>01 March 2023</td>
+                                                                    <td>01 August 2023</td>
+                                                                    <td>Probation</td>
+                                                                </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
+
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <h6 class="m-0 p-1 text-center"
+                                        style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">All
+                                        Employee In Parmanent
+                                    </h6>
+                                    <div class="card rounded-0">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                6
                                             </div>
                                         </div>
                                     </div>
@@ -410,6 +645,47 @@
     </div>
 @endsection
 @push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        var data = {
+            labels: ['Present', 'Absent'],
+            datasets: [{
+                data: [15, 5], // Example data for "Present" and "Absent" in the current month
+                backgroundColor: ['#805dca',
+                '#13a6d2'], // Pie slice colors for "Present" and "Absent"
+                borderWidth: 1
+            }]
+        };
+
+        // Chart configuration
+        var config = {
+            type: 'pie', // Change chart type to 'pie'
+            data: data,
+            options: {
+                responsive: true,
+                legend: {
+                    display: true,
+                    position: 'top',
+                    labels: {
+                        padding: 20
+                    },
+                }
+            }
+        };
+
+        // Chart initialization code using Chart.js
+        document.addEventListener('DOMContentLoaded', function() {
+            var chartContainers = document.getElementsByClassName('chartjs-pie-chart');
+
+            for (var i = 0; i < chartContainers.length; i++) {
+                var ctx = chartContainers[i].getContext('2d');
+                new Chart(ctx, config);
+            }
+        });
+    </script>
+
+
     <script type="text/javascript">
         $(document).ready(function() {
             $('.employee').DataTable({
