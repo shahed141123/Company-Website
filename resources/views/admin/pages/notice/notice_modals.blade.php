@@ -1,7 +1,12 @@
+<style>
+    .note-editor{
+        width: 100%;
+    }
+</style>
 <div id="noticeAdd" class="modal fade" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header py-2">
                 <h6 class="modal-title text-white mb-0">Add Notice</h6>
                 <a type="button" data-bs-dismiss="modal">
                     <i class="ph ph-x text-white" style="font-weight: 800;font-size: 18px;"></i>
@@ -13,7 +18,7 @@
                     <div class="row">
                         <div class="col-lg-5 pt-1 mb-3">
                             <label class="">Employee Name</label>
-                            <select class="form-control select" name="employee_id" data-placeholder="Select Employee..."
+                            <select class="form-select select" name="employee_id" data-placeholder="Select Employee..."
                                 data-allow-clear="true">
                                 <option></option>
                                 @foreach ($employees as $employee)
@@ -31,8 +36,7 @@
                             </div>
                         </div>
                         <div class="col-lg-12 pt-1 mb-3">
-                            <label class="p-0 text-start text-black">
-                                Content</label>
+                            <label class="p-0 text-start text-black"> Content</label>
                             <div class="input-group">
                                 <textarea name="content" id="overview" class="form-control form-control-sm" rows="10"></textarea>
                             </div>
@@ -68,7 +72,6 @@
                         </div>
                     </div>
                     <div class="modal-footer border-0 pt-3 pb-0 pe-0">
-                        <button type="button" class="submit_close_btn " data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="submit_btn from-prevent-multiple-submits"
                             style="padding: 5px;">Submit</button>
                     </div>

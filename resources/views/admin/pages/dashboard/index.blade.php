@@ -1,5 +1,10 @@
 @extends('admin.master')
 @section('content')
+    <style>
+        td {
+            font-size: 12px;
+        }
+    </style>
     <div class="content-wrapper">
 
         <!-- Inner content -->
@@ -44,130 +49,259 @@
             <!-- Content area -->
             <div class="content pt-2">
                 <div class="row">
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card">
-                            <div class="card-header py-2">
-                                <h5 class="text-center mb-0">Hello, <span
-                                        class="main_color fw-bold">{{ Auth::user()->name }}</span></h5>
+                    <div class="col-lg-3">
+                        <div class="card rounded-1 border-0"
+                            style="background: url(https://i.ibb.co/0rmmhtP/Asset-2-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                            <div class="card-body d-flex justify-content-between align-items-center">
+                                <div class="">
+                                    <p class="m-0 p-0 text-white">Hello</p>
+                                    <h5 class="m-0 p-0 text-white">{{ Auth::user()->name }}</h5>
+                                    <h5 class="m-0 p-0 text-white">
+                                        ({{ !empty($attendanceToday['user_name']) ? $attendanceToday['user_name'] : 'Not Defined' }})
+                                    </h5>
+                                </div>
+                                <div>
+                                    <img width="50px" height="50px" class="img-fluid"
+                                        src="https://i.ibb.co/kxxT0LC/4450752.png" alt="">
+                                </div>
                             </div>
-                            <div class="card-body px-1 py-1">
-                                <div class="mb-3">
-                                    <div class="row row-tile g-0">
-                                        <div class="col">
-                                            <button type="button"
-                                                class="btn btn-light w-100 flex-column rounded-0 rounded-top-start py-2 h-125px">
-                                                <div>
-                                                    <div>
-                                                        <i class="fa-solid fa-clock fs-1 text-primary pe-3"></i>Today in Office
-                                                    </div>
-                                                    <div id="live-clock" style="font-size: 24px">
-                                                        <span id="live-clock-hours">0</span> H:
-                                                        <span id="live-clock-minutes">0</span> M:
-                                                        <span id="live-clock-seconds">0</span> S
-                                                    </div>
-                                                </div>
-                                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card rounded-1 border-0"
+                            style="background: url(https://i.ibb.co/BtLj7TV/Asset-6-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="m-0 p-0 text-white">Today's In Office</p>
+                                    <i class="fa-solid fa-clock badge-icons"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white fw-bold mb-0 pb-2" id="live-clock" style="font-size: 24px">
+                                        <span id="live-clock-hours">0</span> H:
+                                        <span id="live-clock-minutes">0</span> M:
+                                        <span id="live-clock-seconds">0</span> S
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card rounded-1 border-0"
+                            style="background: url(https://i.ibb.co/WNCWFh1/Asset-3-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="m-0 p-0 text-white">Today's Check In</p>
+                                    <i class="fa-solid fa-building-circle-check badge-icons"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white mb-0 pb-2" style="font-size: 24px">
+                                        {{ !empty($attendanceToday['check_in']) ? $attendanceToday['check_in'] : 'Absent' }}
+                                        AM</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card rounded-1 border-0"
+                            style="background: url(https://i.ibb.co/jG5kKSf/Asset-5-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="m-0 p-0 text-white">Today's Check Out</p>
+                                    <i class="fa-solid fa-house-circle-xmark badge-icons"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white mb-0 pb-2" style="font-size: 24px">
+                                        {{ !empty($attendanceToday['check_out']) ? $attendanceToday['check_out'] : 'Absent' }}
+                                        PM</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                                    type="button" role="tab" aria-controls="home" aria-selected="true">
+                                    Running Month
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                                    type="button" role="tab" aria-controls="profile" aria-selected="false">
+                                    Total Late Entry
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="messages-tab" data-bs-toggle="tab"
+                                    data-bs-target="#messages" type="button" role="tab" aria-controls="messages"
+                                    aria-selected="false">
+                                    Last Month
+                                </button>
+                            </li>
+                        </ul>
 
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#lateCount"
-                                                class="btn btn-light w-100 flex-column rounded-0 rounded-bottom-start py-2 h-125px">
-                                                <div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
-                                                    <div class="d-flex align-items-center justify-content-between mb-4">
-                                                        <div class="symbol symbol-30px">
-                                                            <span class="symbol-label">
-                                                                <img class="h-25px w-25px"
-                                                                    src="{{ asset('backend/images/Late Time.png') }}"
-                                                                    alt="">
-                                                            </span>
-                                                        </div>
-                                                        <div>
-                                                            <a href="#"
-                                                                class="card-title fw-bolder text-danger text-hover-primary fs-7"
-                                                                data-bs-toggle="modal" data-bs-target="#lateCount">
-                                                                <span
-                                                                    class="text-danger fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">
-                                                                    {{ !empty(count($lateCounts)) ? count($lateCounts) : 0 }}
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="card rounded-0">
+                                    <div class="card-body p-1">
+                                        <div class="table-responsive">
+                                            <table class="table employee table-striped table-hover text-center" style="width: 100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Date</th>
+                                                        <th scope="col">Check In</th>
+                                                        <th scope="col">Check Out</th>
+                                                        <th scope="col">Comments</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if ($attendanceThisMonths)
+                                                        @foreach ($attendanceThisMonths as $attendanceThisMonth)
+                                                            <tr>
+                                                                <td>{{ $attendanceThisMonth['date'] }}</td>
+                                                                @if ($attendanceThisMonth['check_in'] === 'N/A' && isset($attendanceThisMonth['absent_note']))
+                                                                    <td colspan="3">
+                                                                        @if ($attendanceThisMonth['absent_note'] === 'Friday')
+                                                                            <span class="text-warning fw-bold">
+                                                                                {{ $attendanceThisMonth['absent_note'] }}
+                                                                            </span>
+                                                                        @else
+                                                                            <span class="text-danger fw-bold">
+                                                                                {{ $attendanceThisMonth['absent_note'] }}
+                                                                            </span>
+                                                                        @endif
+                                                                    </td>
+                                                                @else
+                                                                    <td>{{ $attendanceThisMonth['check_in'] !== 'N/A' ? $attendanceThisMonth['check_in'] : 'N/A' }}</td>
+                                                                    <td>{{ $attendanceThisMonth['check_out'] !== 'N/A' ? $attendanceThisMonth['check_out'] : 'N/A' }}</td>
+                                                                    <td>
+                                                                        @if (isset($attendanceThisMonth['check_in']) && $attendanceThisMonth['check_in'] !== 'N/A')
+                                                                            @if (Carbon\Carbon::parse($attendanceThisMonth['check_in']) > Carbon\Carbon::parse('09:05:00') &&
+                                                                                    Carbon\Carbon::parse($attendanceThisMonth['check_in']) < Carbon\Carbon::parse('10:05:00'))
+                                                                                <span class="text-danger fw-bold">Late (L)</span>
+                                                                            @elseif (Carbon\Carbon::parse($attendanceThisMonth['check_in']) > Carbon\Carbon::parse('10:05:00'))
+                                                                                <span class="text-danger fw-bold">Half Day (LL)</span>
+                                                                            @endif
+                                                                        @endif
+                                                                    </td>
+                                                                @endif
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
+                                                </tbody>
+                                            </table>
 
-                                                    <div class="m-0">
-                                                        <a href="#"
-                                                            class="card-title fw-bolder text-danger text-hover-primary fs-7"
-                                                            data-bs-toggle="modal" data-bs-target="#lateCount">
-                                                            <span class="text-gray-500 fw-semibold fs-7">Late Count(This
-                                                                Month)</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </button>
-                                        </div>
-
-                                        <div class="col">
-                                            <button type="button"
-                                                class="btn btn-light w-100 flex-column rounded-0 rounded-top-end py-2 h-125px">
-                                                @if (!empty($attendanceToday['check_in']))
-
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <div class="m-0 mb-1">
-                                                            <span
-                                                                class="text-success fw-bold d-block fs-1 lh-1 ls-n1 mb-1">{{ !empty($attendanceToday['check_in']) ? $attendanceToday['check_in'] : 'Absent' }}</span>
-
-                                                            <span class="text-success fw-semibold fs-5">Entry Time</span>
-                                                        </div>
-                                                        <div class="m-0">
-                                                            <span
-                                                                class="text-gray-500 fw-bold d-block fs-6 lh-1 ls-n1 mb-1">{{ !empty($attendanceToday['check_out']) ? $attendanceToday['check_out'] : 'Absent' }}</span>
-
-                                                            <span class="text-gray-500 fw-semibold fs-8">Check-Out</span>
-                                                        </div>
-                                                    </div>
-                                                @else
-                                                <div class="m-0 mb-1">
-                                                    <span
-                                                        class="text-danger fw-bolder d-block fs-1 lh-1 ls-n1 mb-1">Absent Today</span>
-                                                </div>
-                                                @endif
-                                            </button>
-
-                                            <button type="button"
-                                                class="btn btn-light w-100 flex-column rounded-0 rounded-bottom-end py-2 h-125px">
-                                                <div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
-                                                    <div class="symbol symbol-30px me-5 mb-0">
-                                                        <div>
-                                                            <a href="#"
-                                                                class="card-title fw-bolder main_color text-hover-primary fs-8"
-                                                                data-bs-toggle="modal" data-bs-target="#thisMonth">
-                                                                <span class="text-start">This Month</span> <span
-                                                                    class="ms-3"><i class="fas fa-arrow-right"></i></span>
-                                                            </a>
-                                                        </div>
-                                                        <a href="#"
-                                                            class="card-title fw-bolder main_color text-hover-primary fs-8"
-                                                            data-bs-toggle="modal" data-bs-target="#lastMonth">
-                                                            <span class="">Last Month</span> <span class="ms-3"><i
-                                                                    class="fas fa-arrow-right"></i></span>
-                                                        </a>
-
-                                                    </div>
-                                                    <div class="m-0">
-                                                        <span
-                                                            class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1"></span>
-
-                                                        <span class="text-gray-500 fw-semibold fs-6">Attendance List</span>
-                                                    </div>
-                                                </div>
-                                            </button>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="m-0 p-1 d-flex justify-content-between align-items-center w-100 px-3"
+                                        style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">
+                                        <span>Total Late Entry</span>
+                                        <span>{{ !empty(count($lateCounts)) ? count($lateCounts) : 0 }}</span>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table
+                                        class="table employee table-striped table-hover text-center">
+                                        <thead class="table_header_bg">
+                                            <!--begin::Table row-->
+                                            <tr class="text-center">
+                                                <th width="20%">Date</th>
+                                                <th width="20%">Check In</th>
+                                                <th width="20%">Check Out</th>
+                                                <th width="20%">Comments</th>
+                                            </tr>
+                                            <!--end::Table row-->
+                                        </thead>
+                                        <tbody class="text-center">
+                                            @if ($lateCounts)
+                                                @foreach ($lateCounts as $lateCount)
+                                                    <tr class="odd">
+                                                        <td>{{ $lateCount['date'] }}</td>
+                                                        <td>{{ $lateCount['check_in'] }}</td>
+                                                        <td>{{ $lateCount['check_out'] }}</td>
+                                                        <td>
+                                                            @if (Carbon\Carbon::parse($lateCount['check_in']) > Carbon\Carbon::parse('09:05:00') &&
+                                                                    Carbon\Carbon::parse($lateCount['check_in']) < Carbon\Carbon::parse('10:05:00'))
+                                                                <span class="mb-0 text-danger fw-bold">Late (L)</span>
+                                                            @endif
+
+                                                            @if (Carbon\Carbon::parse($lateCount['check_in']) > Carbon\Carbon::parse('10:05:00'))
+                                                                <span class="mb-0 text-danger fw-bold">Half Day (LL)</span>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            @endif
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+                                <div class="table-responsive">
+                                    <table
+                                        class="table employee table-striped table-hover text-center">
+                                        <thead class="table_header_bg">
+                                            <!--begin::Table row-->
+                                            <tr class="text-center">
+                                                <th width="20%">Date</th>
+                                                <th width="20%">Check In</th>
+                                                <th width="20%">Check Out</th>
+                                                <th width="20%">Comments</th>
+                                            </tr>
+                                            <!--end::Table row-->
+                                        </thead>
+                                        <tbody class="text-center">
+                                            @if ($attendanceLastMonths)
+                                                @foreach ($attendanceLastMonths as $attendanceLastMonth)
+                                                    <tr class="odd">
+                                                        <td>{{ $attendanceLastMonth['date'] }}</td>
+                                                        <td>{{ $attendanceLastMonth['check_in'] }}</td>
+                                                        <td>{{ $attendanceLastMonth['check_out'] }}</td>
+                                                        <td>
+                                                            @if (Carbon\Carbon::parse($attendanceLastMonth['check_in']) > Carbon\Carbon::parse('09:05:00') &&
+                                                                    Carbon\Carbon::parse($attendanceLastMonth['check_in']) < Carbon\Carbon::parse('10:05:00'))
+                                                                <span class="text-danger fw-bold">L</span>
+                                                            @endif
+
+                                                            @if (Carbon\Carbon::parse($attendanceLastMonth['check_in']) > Carbon\Carbon::parse('10:05:00'))
+                                                                <span class="text-danger fw-bold">Half Day (LL)</span>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h6 class="m-0 p-1 text-center"
+                                        style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">All
+                                        Employee Statistic
+                                    </h6>
+                        <div class="card rounded-0">
+                            <div class="card-body p-0">
+                                <div>
+                                    <canvas id="radarChart" width="300" height="200"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            @include('admin.partials.leave_modal')
-            @include('admin.partials.attendance_modals')
+            {{-- @include('admin.partials.leave_modal')
+            @include('admin.partials.attendance_modals') --}}
             <!-- /content area -->
         </div>
         <!-- /inner content -->
@@ -177,10 +311,91 @@
 
 @once
     @push('scripts')
+    <script>
+        // Sample data (replace with your actual data)
+        var data = {
+            labels: ['Total Present', 'Total Absent', 'Total Late'],
+            datasets: [{
+                label: 'Employee Statistics',
+                data: [20, 5, 10], // Replace these values with your actual data
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)', // Color for Total Present
+                    'rgba(255, 99, 132, 0.2)', // Color for Total Absent
+                    'rgba(255, 205, 86, 0.2)'  // Color for Total Late
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 205, 86, 1)'
+                ],
+                borderWidth: 2,
+                pointBackgroundColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 205, 86, 1)'
+                ],
+            }]
+        };
+
+        // Chart configuration
+        var options = {
+            scale: {
+                ticks: {
+                    beginAtZero: true,
+                    max: 30 // Adjust the max value based on your data range
+                }
+            }
+        };
+
+        // Get the canvas element
+        var ctx = document.getElementById('radarChart').getContext('2d');
+
+        // Create the radar chart
+        var radarChart = new Chart(ctx, {
+            type: 'radar',
+            data: data,
+            options: options
+        });
+    </script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                // Initialize DataTable
+                var table = $('.employee').DataTable({
+                    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                    "iDisplayLength": 5,
+                    "lengthMenu": [10, 26, 30, 50],
+                    columnDefs: [{
+                        orderable: false,
+                        targets: [0, 1, 2, 3],
+                    }],
+                });
+
+                // Manually destroy DataTable before reinitializing
+                table.destroy();
+
+                // Reinitialize DataTable with updated HTML structure
+                $('.employeedt').DataTable({
+                    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                    "iDisplayLength": 5,
+                    "lengthMenu": [10, 26, 30, 50],
+                    columnDefs: [{
+                        orderable: false,
+                        targets: [0, 1, 2, 3],
+                    }],
+                });
+            });
+        </script>
         <script>
             $(document).ready(function() {
-                $("#accordion").click(function() {
-                    $('.expandable').toggle("slide");
+                $('.running-month').DataTable({
+                    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                    "iDisplayLength": 5,
+                    "lengthMenu": [10, 26, 30, 50],
+                    columnDefs: [{
+                        orderable: false,
+                        targets: [0, 1, 2],
+                    }],
                 });
             });
         </script>

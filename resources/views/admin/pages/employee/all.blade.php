@@ -1,6 +1,5 @@
 @extends('admin.master')
 @section('content')
-
     <div class="content-wrapper">
         <!-- Page header -->
         <div class="page-header page-header-light">
@@ -38,105 +37,328 @@
                             <span>Department</span>
                         </div>
                     </a>
+                    <a href="{{ route('employee-department.index') }}" data-bs-toggle="modal" data-bs-target="#addEmployee"
+                        class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-nfc-magnifying-glass me-1"></i>
+                            <span>Add</span>
+                        </div>
+                    </a>
                 </div>
                 <!-- Basic tabs -->
             </div>
         </div>
         <!-- page header -->
-
-
-<!-- Sales Chain Page -->
-<div class="content p-1 my-3">
-    <div class="card rounded-0">
-        <div class="card-header">
-            <div class="row">
-                <!-- Add Employee Button Section -->
-                <div class="col-lg-5 ps-0">
-                    <div>
-                        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#addEmployee"
-                            type="button"
-                            class="btn btn-sm btn-info custom_btn btn-labeled btn-labeled-start float-start">
-                            <span class="btn-labeled-icon bg-black bg-opacity-20">
-                                <i class="icon-plus2"></i>
-                            </span>
-                            Add
-                        </a>
+        <!-- Sales Chain Page -->
+        <div class="content p-1 my-3">
+            <div class="row nav-tabs border-0" id="myTab" role="tablist">
+                <div class="col-lg-2">
+                    <div class="card rounded-1 border-0 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                    role="tab" aria-controls="home" aria-selected="true"
+                        style="background: url(https://i.ibb.co/9vY37V3/Asset-4-5x-8.png);background-size: cover; background-position: center; background-repeat: no-repeat;">
+                        <div class="card-body" >
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="m-0 p-0 text-white">Total Employee</p>
+                                <i class="fa-solid fa-user-tie badge-icons"></i>
+                            </div>
+                            <div>
+                                <h5 class="p-0 m-0 text-white">8</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Employee Details Heading Section -->
-                <div class="col-lg-7">
-                    <h5 class="ms-1 mb-0 text-start" style="color: #247297;">Employee Details</h5>
+                <div class="col-lg-2">
+                    <div class="card rounded-1 border-0"
+                        style="background: url(https://i.ibb.co/jG5kKSf/Asset-5-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                        <div class="card-body" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                            type="button" role="tab" aria-controls="profile" aria-selected="false">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="m-0 p-0 text-white">Present</p>
+                                <i class="fa-solid fa-clipboard-check badge-icons"></i>
+                            </div>
+                            <div>
+                                <h5 class="p-0 m-0 text-white">8</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card rounded-1 border-0"
+                        style="background: url(https://i.ibb.co/BtLj7TV/Asset-6-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                        <div class="card-body" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages"
+                            type="button" role="tab" aria-controls="messages" aria-selected="false">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="m-0 p-0 text-white">Absent</p>
+                                <i class="fa-solid fa-user-slash badge-icons"></i>
+                            </div>
+                            <div>
+                                <h5 class="p-0 m-0 text-white">8</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card rounded-1 border-0"
+                        style="background: url(https://i.ibb.co/WNCWFh1/Asset-3-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="m-0 p-0 text-white">In Parmanent</p>
+                                <i class="fa-solid fa-ribbon badge-icons"></i>
+                            </div>
+                            <div>
+                                <h5 class="p-0 m-0 text-white">8</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card rounded-1 border-0"
+                        style="background: url(https://i.ibb.co/0rmmhtP/Asset-2-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="m-0 p-0 text-white">In Probation</p>
+                                <i class="fa-solid fa-check-to-slot badge-icons"></i>
+                            </div>
+                            <div>
+                                <h5 class="p-0 m-0 text-white">8</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card rounded-1 border-0"
+                        style="background: url(https://i.ibb.co/JtzLZ1Q/Asset-1-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h6 class="m-0 p-0 text-white">In Intern</h6>
+                                <i class="fa-solid fa-user badge-icons"></i>
+                            </div>
+                            <div>
+                                <h5 class="p-0 m-0 text-white">8</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="col-lg-12">
+                                <h6 class="m-0 p-1 text-center"
+                                    style="color: #fff; border-bottom: 1px solid #9042fc;background: #9042fc;">Total Employee</h6>
+                                <div class="card ronded-0">
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table employeeDT table-bordered table-hover text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="5%">SL</th>
+                                                        <th width="7%">Image</th>
+                                                        <th width="18%">Name</th>
+                                                        <th width="18%">Email</th>
+                                                        <th width="10%">Designation</th>
+                                                        <th width="9%">Role</th>
+                                                        <th width="23%">Department</th>
+                                                        <th width="10%" class="text-center">Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if ($employees)
+                                                        @foreach ($employees as $key => $employee)
+                                                            <tr>
+                                                                <!-- Serial Number -->
+                                                                <td>{{ ++$key }}</td>
+                                                                <!-- Employee Image -->
+                                                                <td>
+                                                                    <img src="{{ !file_exists($employee->photo) ? url('upload/no_image.jpg') : url('upload/admin/' . $employee->photo) }}"
+                                                                        alt="" width="40px" height="40px"
+                                                                        style="border-radius: 50%">
+                                                                </td>
+                                                                <!-- Employee Name -->
+                                                                <td>{{ $employee->name }}</td>
+                                                                <!-- Employee Email -->
+                                                                <td>{{ $employee->email }}</td>
+                                                                <!-- Employee Designation -->
+                                                                <td>{{ $employee->designation }}</td>
+                                                                <!-- Employee Role -->
+                                                                <td>{{ ucfirst($employee->role) }}</td>
+                                                                <!-- Employee Department -->
+                                                                <td>
+                                                                    @if (is_array(json_decode($employee->department)))
+                                                                        @foreach (json_decode($employee->department) as $department)
+                                                                            <span class="text-primary">{{ ucfirst($department) }},</span>
+                                                                        @endforeach
+                                                                    @else
+                                                                        <span class="text-primary">{{ ucfirst($employee->department) }},</span>
+                                                                    @endif
+                                                                </td>
+                                                                <!-- Employee Actions -->
+                                                                <td class="text-center">
+                                                                    <a href="javascript:void(0);" class="text-primary"
+                                                                        data-bs-target="#editEmployee{{ $employee->id }}"
+                                                                        data-bs-toggle="modal" type="button">
+                                                                        <i class="fa-solid fa-pen-to-square dash-icons"></i>
+                                                                    </a>
+                                                                    <a href="{{ route('employee.destroy', [$employee->id]) }}"
+                                                                        class="text-danger delete mx-2">
+                                                                        <i class="delete fa-solid fa-trash dash-icons"></i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane " id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="col-lg-8">
+                                <h6 class="m-0 p-1 text-center"
+                                    style="color: #fff; border-bottom: 1px solid #69d89e;
+                                    background: #69d89e;">
+                                   Total Present </h6>
+                                <div class="card ronded-0">
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table employeeDT table-bordered table-hover text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="5%">SL</th>
+                                                        <th width="7%">Image</th>
+                                                        <th width="18%">Name</th>
+                                                        <th width="10%">Designation</th>
+                                                        <th width="23%">Department</th>
+                                                        <th width="10%" class="text-center">Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if ($employees)
+                                                        @foreach ($employees as $key => $employee)
+                                                            <tr>
+                                                                <!-- Serial Number -->
+                                                                <td>{{ ++$key }}</td>
+                                                                <!-- Employee Image -->
+                                                                <td>
+                                                                    <img src="{{ !file_exists($employee->photo) ? url('upload/no_image.jpg') : url('upload/admin/' . $employee->photo) }}"
+                                                                        alt="" width="40px" height="40px"
+                                                                        style="border-radius: 50%">
+                                                                </td>
+                                                                <!-- Employee Name -->
+                                                                <td>{{ $employee->name }}</td>
+                                                                <!-- Employee Designation -->
+                                                                <td>{{ $employee->designation }}</td>
+                                                                <!-- Employee Department -->
+                                                                <td>
+                                                                    @if (is_array(json_decode($employee->department)))
+                                                                        @foreach (json_decode($employee->department) as $department)
+                                                                            <span
+                                                                                class="text-primary">{{ ucfirst($department) }},</span>
+                                                                        @endforeach
+                                                                    @else
+                                                                        <span
+                                                                            class="text-primary">{{ ucfirst($employee->department) }},</span>
+                                                                    @endif
+                                                                </td>
+                                                                <!-- Employee Actions -->
+                                                                <td class="text-center">
+                                                                    <a href="javascript:void(0);" class="text-primary"
+                                                                        data-bs-target="#editEmployee{{ $employee->id }}"
+                                                                        data-bs-toggle="modal" type="button">
+                                                                        <i class="fa-solid fa-pen-to-square dash-icons"></i>
+                                                                    </a>
+                                                                    <a href="{{ route('employee.destroy', [$employee->id]) }}"
+                                                                        class="text-danger delete mx-2">
+                                                                        <i class="delete fa-solid fa-trash dash-icons"></i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+                            <div class="col-lg-8">
+                                <h6 class="m-0 p-1 text-center"
+                                    style="color: #fff; border-bottom: 1px solid #f49f9a;
+                                    background: #f49f9a;">
+                                    Total Absent</h6>
+                                <div class="card ronded-0">
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table employeeDT2 table-bordered table-hover text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="5%">SL</th>
+                                                        <th width="7%">Image</th>
+                                                        <th width="18%">Name</th>
+                                                        <th width="10%">Designation</th>
+                                                        <th width="23%">Department</th>
+                                                        <th width="10%" class="text-center">Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if ($employees)
+                                                        @foreach ($employees as $key => $employee)
+                                                            <tr>
+                                                                <!-- Serial Number -->
+                                                                <td>{{ ++$key }}</td>
+                                                                <!-- Employee Image -->
+                                                                <td>
+                                                                    <img src="{{ !file_exists($employee->photo) ? url('upload/no_image.jpg') : url('upload/admin/' . $employee->photo) }}"
+                                                                        alt="" width="40px" height="40px"
+                                                                        style="border-radius: 50%">
+                                                                </td>
+                                                                <!-- Employee Name -->
+                                                                <td>{{ $employee->name }}</td>
+                                                                <!-- Employee Designation -->
+                                                                <td>{{ $employee->designation }}</td>
+                                                                <!-- Employee Department -->
+                                                                <td>
+                                                                    @if (is_array(json_decode($employee->department)))
+                                                                        @foreach (json_decode($employee->department) as $department)
+                                                                            <span
+                                                                                class="text-primary">{{ ucfirst($department) }},</span>
+                                                                        @endforeach
+                                                                    @else
+                                                                        <span
+                                                                            class="text-primary">{{ ucfirst($employee->department) }},</span>
+                                                                    @endif
+                                                                </td>
+                                                                <!-- Employee Actions -->
+                                                                <td class="text-center">
+                                                                    <a href="javascript:void(0);" class="text-primary"
+                                                                        data-bs-target="#editEmployee{{ $employee->id }}"
+                                                                        data-bs-toggle="modal" type="button">
+                                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                                    </a>
+                                                                    <a href="{{ route('employee.destroy', [$employee->id]) }}"
+                                                                        class="text-danger delete mx-2">
+                                                                        <i class="delete fa-solid fa-trash"></i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table employeeDT table-bordered table-hover text-center">
-                    <thead>
-                        <tr>
-                            <th width="5%">SL</th>
-                            <th width="7%">Image</th>
-                            <th width="18%">Name</th>
-                            <th width="18%">Email</th>
-                            <th width="10%">Designation</th>
-                            <th width="9%">Role</th>
-                            <th width="23%">Department</th>
-                            <th width="10%" class="text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if ($employees)
-                            @foreach ($employees as $key => $employee)
-                                <tr>
-                                    <!-- Serial Number -->
-                                    <td>{{ ++$key }}</td>
-                                    <!-- Employee Image -->
-                                    <td>
-                                        <img src="{{ !file_exists($employee->photo) ? url('upload/no_image.jpg') : url('upload/admin/' . $employee->photo) }}"
-                                            alt="" width="40px" height="40px" style="border-radius: 50%">
-                                    </td>
-                                    <!-- Employee Name -->
-                                    <td>{{ $employee->name }}</td>
-                                    <!-- Employee Email -->
-                                    <td>{{ $employee->email }}</td>
-                                    <!-- Employee Designation -->
-                                    <td>{{ $employee->designation }}</td>
-                                    <!-- Employee Role -->
-                                    <td>{{ ucfirst($employee->role) }}</td>
-                                    <!-- Employee Department -->
-                                    <td>
-                                        @if (is_array(json_decode($employee->department)))
-                                            @foreach (json_decode($employee->department) as $department)
-                                                <span class="badge bg-success">{{ ucfirst($department) }}</span>
-                                            @endforeach
-                                        @else
-                                            <span class="badge bg-success">{{ ucfirst($employee->department) }}</span>
-                                        @endif
-                                    </td>
-                                    <!-- Employee Actions -->
-                                    <td class="text-center">
-                                        <a href="javascript:void(0);" class="text-primary"
-                                            data-bs-target="#editEmployee{{ $employee->id }}"
-                                            data-bs-toggle="modal" type="button">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </a>
-                                        <a href="{{ route('employee.destroy', [$employee->id]) }}"
-                                            class="text-danger delete mx-2">
-                                            <i class="delete fa-solid fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Sales Chain Page -->
-
-
+        <!-- Sales Chain Page -->
         <div id="addEmployee" class="modal fade" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
@@ -147,8 +369,8 @@
                         </a>
                     </div>
                     <div class="modal-body pt-0">
-                        <form id="myform" method="post" class="needs-validation" action="{{ route('employee.store') }}"
-                            enctype="multipart/form-data" novalidate>
+                        <form id="myform" method="post" class="needs-validation"
+                            action="{{ route('employee.store') }}" enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class="container pt-2">
                                 <div class="row">
@@ -338,7 +560,6 @@
                 </div>
             </div>
         </div>
-
         @foreach ($employees as $employee)
             <div id="editEmployee{{ $employee->id }}" class="modal fade" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -563,10 +784,7 @@
                 </div>
             </div>
         @endforeach
-
-
     </div>
-
 @endsection
 
 
@@ -605,7 +823,16 @@
                     "lengthMenu": [10, 25, 30, 50],
                     columnDefs: [{
                         orderable: false,
-                        targets: [0, 1, 2, 3, 4, 6, 7],
+                        targets: [0,1,2,3,4,5],
+                    }],
+                });
+                var table = $('.employeeDT2').DataTable({
+                    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                    "iDisplayLength": 10,
+                    "lengthMenu": [10, 25, 30, 50],
+                    columnDefs: [{
+                        orderable: false,
+                        targets: [0,1,2,3,4,5],
                     }],
                 });
 

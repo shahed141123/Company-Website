@@ -1,86 +1,5 @@
 @extends('admin.master')
 @section('content')
-    <style>
-        .emplpyee-card {
-            border: 1px;
-            border-style: dashed;
-            border-color: #247297;
-            padding: 10px;
-        }
-
-        .bell-icon {
-            padding: 10px;
-            background-color: #247297;
-            color: white;
-        }
-
-        .action-icons {
-            padding: 5px;
-            background-color: #247297;
-            color: white;
-            border-radius: 50%
-        }
-
-        .badge-icons {
-            background: transparent;
-            border-radius: 50%;
-            padding: 9px 13px;
-            margin-right: 11px;
-            display: flex;
-            height: 32px;
-            justify-content: center;
-            width: 32px;
-            background-color: #805dca;
-            box-shadow: 0 10px 20px -8px #805dca;
-            color: white;
-        }
-
-        .badge-icons-pending {
-            background: transparent;
-            border-radius: 50%;
-            padding: 9px 13px;
-            margin-right: 11px;
-            display: flex;
-            height: 32px;
-            justify-content: center;
-            width: 32px;
-            background-color: #13a6d2;
-            box-shadow: 0 10px 20px -8px #805dca;
-            color: white;
-        }
-
-        .ammount {
-            padding: 5px 10px;
-            background-color: #247297;
-            color: white;
-        }
-
-        #canvas-holder {
-            width: 100%;
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        #chartjs-tooltip {
-            opacity: 1;
-            position: absolute;
-            background: rgba(0, 0, 0, .7);
-            color: white;
-            border-radius: 3px;
-            -webkit-transition: all .1s ease;
-            transition: all .1s ease;
-            pointer-events: none;
-            -webkit-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
-        }
-
-        .chartjs-tooltip-key {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 10px;
-        }
-    </style>
     <div class="content-wrapper">
         <div class="content p-0">
             <!-- Page header -->
@@ -106,13 +25,13 @@
 
                     <!-- Basic tabs -->
                     <div class="px-3">
-                        <a href="{{ route('job.regiserUser') }}" class="btn navigation_btn">
+                        <a href="#" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-users me-1" style="font-size: 12px;"></i>
                                 <span>Tasks</span>
                             </div>
                         </a>
-                        <a href="{{ route('employee.index') }}" class="btn navigation_btn">
+                        <a href="{{ route('notice.index') }}" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-users me-1" style="font-size: 12px;"></i>
                                 <span>Notice</span>
@@ -130,7 +49,7 @@
                                 <span>Leave</span>
                             </div>
                         </a>
-                        <a href="{{ route('job.index') }}" class="btn navigation_btn">
+                        <a href="{{ route('job.regiserUser') }}" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-users me-1" style="font-size: 12px;"></i>
                                 <span>Jobs</span>
@@ -153,7 +72,7 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <h6 class="m-0 p-1 text-center"
-                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Employee Details
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Attendance Details
                             </h6>
                             <a href="{{ route('employee.index') }}">
                                 <div class="card rounded-0" style="height: 175px; overflow-x: hidden;">
@@ -581,7 +500,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div class="tab-pane" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -589,34 +508,28 @@
                                         style="color: #fff; border-bottom: 1px solid #247297;background: #247297;"> Employee In Probation
                                     </h6>
                                     <div class="card rounded-0">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <h3 class="p-0 m-0">Total</h3>
-                                                <p class="badge-icons-pending pt-1">3</p>
-                                                <hr>
-                                                <div>
-                                                    <div class="table-responsive">
-                                                        <table class="table table-primary">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th scope="col">Name</th>
-                                                                    <th scope="col">Start</th>
-                                                                    <th scope="col">End</th>
-                                                                    <th scope="col">Status</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr class="">
-                                                                    <td scope="row">Sazeduzaman</td>
-                                                                    <td>01 March 2023</td>
-                                                                    <td>01 August 2023</td>
-                                                                    <td>Probation</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-
-                                                </div>
+                                        <div class="card-body p-1">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-hover text-center" style="width: 100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Start</th>
+                                                            <th scope="col">End</th>
+                                                            <th scope="col">Next Evulation</th>
+                                                            <th scope="col">Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="">
+                                                            <td scope="row">Sazeduzaman</td>
+                                                            <td>01 March 2023</td>
+                                                            <td>01 August 2023</td>
+                                                            <td>01 December 2023</td>
+                                                            <td>Probation</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -627,9 +540,28 @@
                                         Employee In Parmanent
                                     </h6>
                                     <div class="card rounded-0">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                6
+                                        <div class="card-body p-1">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-hover text-center" style="width: 100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Start</th>
+                                                            <th scope="col">End</th>
+                                                            <th scope="col">Next Evulation</th>
+                                                            <th scope="col">Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="">
+                                                            <td scope="row">Sazeduzaman</td>
+                                                            <td>01 March 2023</td>
+                                                            <td>01 August 2023</td>
+                                                            <td>01 December 2023</td>
+                                                            <td>Probation</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>

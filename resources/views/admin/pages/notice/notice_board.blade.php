@@ -1,62 +1,21 @@
 @extends('admin.master')
 @section('content')
     <style>
-        .sticky1 {
-            transform: rotate(-3.5deg);
-            -webkit-transform: rotate(-3.5deg);
-            -moz-transform: rotate(-3.5deg);
-        }
-
         .delete-btns {
             width: 30px;
             height: 30px;
+            border: 0;
         }
 
-        .delete-btns:hover {
-            transform: scale(1.5);
-            transition: 0.5s;
-        }
+        .delete-btns:hover {}
 
-        .delete {
-            width: 30px;
-            height: 30px;
-        }
+        .delete {}
 
-        .delete:hover {
-            transform: scale(1.5);
-            transition: 0.5s;
-        }
-
-        .pin-img:hover {
-            transform: scale(1.5);
-            transition: 0.5s;
-        }
-
-        .notes-1 {
-            background-color: rgb(211, 240, 253);
-        }
-
-        .notes-2 {
-            background-color: #d8ffd5
-        }
-
-        .notes-3 {
-            background-color: #fde1e1;
-        }
-
-        .notes-4 {
-            background-color: #ffddea;
-        }
-
-        .card-headers-border {
-            border-bottom: 1px solid white;
-            background-color: inherit;
-        }
+        .delete:hover {}
 
         .notes {
-            height: 50vh;
+            height: 40vh;
             overflow: auto;
-            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         }
 
         .notes::-webkit-scrollbar {
@@ -72,23 +31,53 @@
             outline: 0px solid slategrey;
         }
 
-        .post-date {
-            font-size: 15px;
-            color: black;
-        }
-
         .main-bg-image {
-            background: #ebe5e5;
-            /* background-image: url(https://img.freepik.com/free-photo/design-space-paper-textured-background_53876-41739.jpg?t=st=1695545104~exp=1695545704~hmac=221f4ccaa726b7b105d726d7060ba06ef13b3cb78e229dc59212eb8701649c9b); */
+            background: #fff;
             width: 100%;
             height: 100%;
+        }
+
+        .notice-card {
+            position: relative;
+            background-image: url('https://img.freepik.com/premium-vector/abstract-style-halftone-concept-your-graphic-design_29865-2643.jpg');
+            background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .notice-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+        }
+
+        .notice-card p,
+        .notice-card h2, h4 {
+            /* Adjust this value to counteract the blur effect on text elements */
+            filter: blur(0);
+        }
+
+        .notice-card-header {
+            /* Your styles for the card header, for example: */
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
         }
     </style>
     <div class="content-wrapper">
         <!-- Page header -->
-        <div class="page-header page-header-light">
+        <div class="page-header page-header-light" style="border-bottom: 1px solid #eee;">
             <div class="d-flex justify-content-between align-items-center">
                 {{-- Page Destination/ BreadCrumb --}}
                 <div class="page-header-content d-lg-flex">
@@ -131,7 +120,12 @@
             </div>
         </div>
         <div class="container-fluid main-bg-image">
-            <div class="container-fluid p-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h5 class="text-center pt-2">All Official Notice</h5>
+                    </div>
+                </div>
                 {{-- first Row --}}
                 <div class="row">
                     @foreach ($notices as $notice)
@@ -139,7 +133,7 @@
                             $randomClass = 'notes-' . rand(1, 4);
                         @endphp
                         <div id="card-{{ $notice->id }}" class="col-lg-4 col-sm-12 draggable-card">
-                            <div class="card sticky1 notes {{ $randomClass }} rounded-0 text-white">
+                            <div class="card sticky1 notes {{ $randomClass }} rounded-0 text-white notice-card">
                                 <div
                                     class="card-header sticky-top card-headers-border py-2 my-0 d-flex justify-content-between align-content-center">
                                     <div>
@@ -161,15 +155,16 @@
                                         @endif
                                         <a href="javascript:void(0);" class="btn btn-light rounded-circle delete-btns"
                                             data-card-id="{{ $notice->id }}">
-                                            <i class="fa-solid fa-xmark text-danger"></i>
+                                            <i class="fa-solid fa-trash text-danger"></i>
                                         </a>
 
                                     </div>
                                 </div>
                                 <div class="card-header border-0 py-0 my-0">
                                     <h4 class="mb-0 text-black">{{ $notice->title }}</h4>
-                                    <p class="p-0 m-0 post-date">
-                                        Post On<span class="ms-2 text-black">{{ $notice->publish_date }}</span>
+                                    <p class="p-0 m-0 post-date py-2">
+                                        <span class="fw-bold text-muted">Post On</span><span
+                                            class="ms-2 text-black">{{ $notice->publish_date }}</span>
                                     </p>
                                 </div>
                                 <div class="card-body pt-0 mt-0 text-black">

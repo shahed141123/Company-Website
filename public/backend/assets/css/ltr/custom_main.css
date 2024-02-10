@@ -1633,6 +1633,87 @@ ul.row-sm {
     justify-content: center;
 }
 
+
+.emplpyee-card {
+    border: 1px;
+    border-style: dashed;
+    border-color: #247297;
+    padding: 10px;
+}
+
+.bell-icon {
+    padding: 10px;
+    background-color: #247297;
+    color: white;
+}
+
+.action-icons {
+    padding: 5px;
+    background-color: #247297;
+    color: white;
+    border-radius: 50%
+}
+
+.badge-icons {
+    background: transparent;
+    border-radius: 50%;
+    padding: 9px 13px;
+    margin-right: 11px;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    width: 32px;
+    background-color: #805dca;
+    box-shadow: 0 10px 20px -8px #805dca;
+    color: white;
+}
+
+.badge-icons-pending {
+    background: transparent;
+    border-radius: 50%;
+    padding: 9px 13px;
+    margin-right: 11px;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    width: 32px;
+    background-color: #13a6d2;
+    box-shadow: 0 10px 20px -8px #805dca;
+    color: white;
+}
+
+.ammount {
+    padding: 5px 10px;
+    background-color: #247297;
+    color: white;
+}
+
+#canvas-holder {
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+}
+
+#chartjs-tooltip {
+    opacity: 1;
+    position: absolute;
+    background: rgba(0, 0, 0, .7);
+    color: white;
+    border-radius: 3px;
+    -webkit-transition: all .1s ease;
+    transition: all .1s ease;
+    pointer-events: none;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.chartjs-tooltip-key {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}
+
 /*== purchase order details css end== */
 @media only screen and (max-width: 600px) {
     .label_style {
