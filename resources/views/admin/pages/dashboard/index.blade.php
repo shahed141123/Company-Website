@@ -12,13 +12,16 @@
             <!-- Page header -->
             <div class="page-header page-header-light">
                 <div class="d-flex justify-content-between align-items-center">
+
                     {{-- Page Destination/ BreadCrumb --}}
                     <div class="page-header-content d-lg-flex">
                         <div class="d-flex px-2">
                             <div class="breadcrumb py-2">
+                                <!-- Home breadcrumb link -->
                                 <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house"></i></a>
                                 <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item">Home</a>
                             </div>
+                            <!-- Collapsible breadcrumb for smaller screens -->
                             <a href="#breadcrumb_elements"
                                 class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
                                 data-bs-toggle="collapse">
@@ -26,14 +29,18 @@
                             </a>
                         </div>
                     </div>
+
                     {{-- Inner Page Tab --}}
                     <div>
+                        <!-- Leave Dashboard link -->
                         <a href="{{ route('leave-application.show', Auth::user()->id) }}" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
                                 <span>Leave Dashboard</span>
                             </div>
                         </a>
+
+                        <!-- Notice Board link -->
                         <a href="{{ route('noticeboard') }}" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
@@ -41,32 +48,38 @@
                             </div>
                         </a>
                     </div>
-                    <!-- Basic tabs -->
+
                 </div>
             </div>
 
-            <!-- /page header -->
+
+            <!-- page header -->
             <!-- Content area -->
             <div class="content pt-2">
                 <div class="row">
+                    <!-- User Info Card -->
                     <div class="col-lg-3">
                         <div class="card rounded-1 border-0"
                             style="background: url(https://i.ibb.co/0rmmhtP/Asset-2-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
                             <div class="card-body d-flex justify-content-between align-items-center">
-                                <div class="">
+                                <div>
+                                    <!-- User Greeting and Name -->
                                     <p class="m-0 p-0 text-white">Hello</p>
                                     <h5 class="m-0 p-0 text-white">{{ Auth::user()->name }}</h5>
                                     <h5 class="m-0 p-0 text-white">
-                                        ({{ !empty($attendanceToday['user_name']) ? $attendanceToday['user_name'] : 'Not Defined' }})
+                                        {{ !empty($attendanceToday['user_name']) ? $attendanceToday['user_name'] : 'Not Defined' }}
                                     </h5>
                                 </div>
                                 <div>
+                                    <!-- User Avatar -->
                                     <img width="50px" height="50px" class="img-fluid"
                                         src="https://i.ibb.co/kxxT0LC/4450752.png" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Today's In Office Card -->
                     <div class="col-lg-3">
                         <div class="card rounded-1 border-0"
                             style="background: url(https://i.ibb.co/BtLj7TV/Asset-6-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
@@ -76,6 +89,7 @@
                                     <i class="fa-solid fa-clock badge-icons"></i>
                                 </div>
                                 <div>
+                                    <!-- Live Clock -->
                                     <h5 class="text-white fw-bold mb-0 pb-2" id="live-clock" style="font-size: 24px">
                                         <span id="live-clock-hours">0</span> H:
                                         <span id="live-clock-minutes">0</span> M:
@@ -85,6 +99,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Today's Check In Card -->
                     <div class="col-lg-3">
                         <div class="card rounded-1 border-0"
                             style="background: url(https://i.ibb.co/WNCWFh1/Asset-3-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
@@ -94,6 +110,7 @@
                                     <i class="fa-solid fa-building-circle-check badge-icons"></i>
                                 </div>
                                 <div>
+                                    <!-- Check In Time -->
                                     <h5 class="text-white mb-0 pb-2" style="font-size: 24px">
                                         {{ !empty($attendanceToday['check_in']) ? $attendanceToday['check_in'] : 'Absent' }}
                                         AM</h5>
@@ -101,6 +118,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Today's Check Out Card -->
                     <div class="col-lg-3">
                         <div class="card rounded-1 border-0"
                             style="background: url(https://i.ibb.co/jG5kKSf/Asset-5-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
@@ -110,6 +129,7 @@
                                     <i class="fa-solid fa-house-circle-xmark badge-icons"></i>
                                 </div>
                                 <div>
+                                    <!-- Check Out Time -->
                                     <h5 class="text-white mb-0 pb-2" style="font-size: 24px">
                                         {{ !empty($attendanceToday['check_out']) ? $attendanceToday['check_out'] : 'Absent' }}
                                         PM</h5>
@@ -118,6 +138,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-lg-6">
                         <!-- Nav tabs -->
@@ -135,9 +156,8 @@
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="messages-tab" data-bs-toggle="tab"
-                                    data-bs-target="#messages" type="button" role="tab" aria-controls="messages"
-                                    aria-selected="false">
+                                <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages"
+                                    type="button" role="tab" aria-controls="messages" aria-selected="false">
                                     Last Month
                                 </button>
                             </li>
@@ -149,7 +169,8 @@
                                 <div class="card rounded-0">
                                     <div class="card-body p-1">
                                         <div class="table-responsive">
-                                            <table class="table employee table-striped table-hover text-center" style="width: 100%">
+                                            <table class="table employee table-striped table-hover text-center"
+                                                style="width: 100%">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">Date</th>
@@ -176,15 +197,20 @@
                                                                         @endif
                                                                     </td>
                                                                 @else
-                                                                    <td>{{ $attendanceThisMonth['check_in'] !== 'N/A' ? $attendanceThisMonth['check_in'] : 'N/A' }}</td>
-                                                                    <td>{{ $attendanceThisMonth['check_out'] !== 'N/A' ? $attendanceThisMonth['check_out'] : 'N/A' }}</td>
+                                                                    <td>{{ $attendanceThisMonth['check_in'] !== 'N/A' ? $attendanceThisMonth['check_in'] : 'N/A' }}
+                                                                    </td>
+                                                                    <td>{{ $attendanceThisMonth['check_out'] !== 'N/A' ? $attendanceThisMonth['check_out'] : 'N/A' }}
+                                                                    </td>
                                                                     <td>
                                                                         @if (isset($attendanceThisMonth['check_in']) && $attendanceThisMonth['check_in'] !== 'N/A')
                                                                             @if (Carbon\Carbon::parse($attendanceThisMonth['check_in']) > Carbon\Carbon::parse('09:05:00') &&
                                                                                     Carbon\Carbon::parse($attendanceThisMonth['check_in']) < Carbon\Carbon::parse('10:05:00'))
-                                                                                <span class="text-danger fw-bold">Late (L)</span>
+                                                                                <span class="text-danger fw-bold">Late
+                                                                                    (L)
+                                                                                </span>
                                                                             @elseif (Carbon\Carbon::parse($attendanceThisMonth['check_in']) > Carbon\Carbon::parse('10:05:00'))
-                                                                                <span class="text-danger fw-bold">Half Day (LL)</span>
+                                                                                <span class="text-danger fw-bold">Half Day
+                                                                                    (LL)</span>
                                                                             @endif
                                                                         @endif
                                                                     </td>
@@ -208,8 +234,7 @@
                                     </div>
                                 </div>
                                 <div class="table-responsive">
-                                    <table
-                                        class="table employee table-striped table-hover text-center">
+                                    <table class="table employee table-striped table-hover text-center">
                                         <thead class="table_header_bg">
                                             <!--begin::Table row-->
                                             <tr class="text-center">
@@ -247,8 +272,7 @@
                             </div>
                             <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
                                 <div class="table-responsive">
-                                    <table
-                                        class="table employee table-striped table-hover text-center">
+                                    <table class="table employee table-striped table-hover text-center">
                                         <thead class="table_header_bg">
                                             <!--begin::Table row-->
                                             <tr class="text-center">
@@ -285,107 +309,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <h6 class="m-0 p-1 text-center"
-                                        style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">All
-                                        Employee Statistic
-                                    </h6>
-                        <div class="card rounded-0">
-                            <div class="card-body p-0">
-                                <div>
-                                    <canvas id="radarChart" width="300" height="200"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             {{-- @include('admin.partials.leave_modal')
             @include('admin.partials.attendance_modals') --}}
-            <!-- /content area -->
+            <!-- content area -->
         </div>
-        <!-- /inner content -->
+        <!-- inner content -->
     </div>
-    <!-- /content wrapper area -->
+    <!-- content wrapper area -->
 @endsection
 
 @once
     @push('scripts')
-    <script>
-        // Sample data (replace with your actual data)
-        var data = {
-            labels: ['Total Present', 'Total Absent', 'Total Late'],
-            datasets: [{
-                label: 'Employee Statistics',
-                data: [20, 5, 10], // Replace these values with your actual data
-                backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)', // Color for Total Present
-                    'rgba(255, 99, 132, 0.2)', // Color for Total Absent
-                    'rgba(255, 205, 86, 0.2)'  // Color for Total Late
-                ],
-                borderColor: [
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 205, 86, 1)'
-                ],
-                borderWidth: 2,
-                pointBackgroundColor: [
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 205, 86, 1)'
-                ],
-            }]
-        };
-
-        // Chart configuration
-        var options = {
-            scale: {
-                ticks: {
-                    beginAtZero: true,
-                    max: 30 // Adjust the max value based on your data range
-                }
-            }
-        };
-
-        // Get the canvas element
-        var ctx = document.getElementById('radarChart').getContext('2d');
-
-        // Create the radar chart
-        var radarChart = new Chart(ctx, {
-            type: 'radar',
-            data: data,
-            options: options
-        });
-    </script>
-
-        <script type="text/javascript">
-            $(document).ready(function() {
-                // Initialize DataTable
-                var table = $('.employee').DataTable({
-                    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-                    "iDisplayLength": 5,
-                    "lengthMenu": [10, 26, 30, 50],
-                    columnDefs: [{
-                        orderable: false,
-                        targets: [0, 1, 2, 3],
-                    }],
-                });
-
-                // Manually destroy DataTable before reinitializing
-                table.destroy();
-
-                // Reinitialize DataTable with updated HTML structure
-                $('.employeedt').DataTable({
-                    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-                    "iDisplayLength": 5,
-                    "lengthMenu": [10, 26, 30, 50],
-                    columnDefs: [{
-                        orderable: false,
-                        targets: [0, 1, 2, 3],
-                    }],
-                });
-            });
-        </script>
         <script>
             $(document).ready(function() {
                 $('.running-month').DataTable({

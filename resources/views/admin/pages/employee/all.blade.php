@@ -53,10 +53,10 @@
         <div class="content p-1 my-3">
             <div class="row nav-tabs border-0" id="myTab" role="tablist">
                 <div class="col-lg-2">
-                    <div class="card rounded-1 border-0 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
-                    role="tab" aria-controls="home" aria-selected="true"
+                    <div class="card rounded-1 border-0 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                        type="button" role="tab" aria-controls="home" aria-selected="true"
                         style="background: url(https://i.ibb.co/9vY37V3/Asset-4-5x-8.png);background-size: cover; background-position: center; background-repeat: no-repeat;">
-                        <div class="card-body" >
+                        <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <p class="m-0 p-0 text-white">Total Employee</p>
                                 <i class="fa-solid fa-user-tie badge-icons"></i>
@@ -145,7 +145,8 @@
                         <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="col-lg-12">
                                 <h6 class="m-0 p-1 text-center"
-                                    style="color: #fff; border-bottom: 1px solid #9042fc;background: #9042fc;">Total Employee</h6>
+                                    style="color: #fff; border-bottom: 1px solid #9042fc;background: #9042fc;">Total
+                                    Employee</h6>
                                 <div class="card ronded-0">
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
@@ -186,10 +187,12 @@
                                                                 <td>
                                                                     @if (is_array(json_decode($employee->department)))
                                                                         @foreach (json_decode($employee->department) as $department)
-                                                                            <span class="text-primary">{{ ucfirst($department) }},</span>
+                                                                            <span
+                                                                                class="text-primary">{{ ucfirst($department) }},</span>
                                                                         @endforeach
                                                                     @else
-                                                                        <span class="text-primary">{{ ucfirst($employee->department) }},</span>
+                                                                        <span
+                                                                            class="text-primary">{{ ucfirst($employee->department) }},</span>
                                                                     @endif
                                                                 </td>
                                                                 <!-- Employee Actions -->
@@ -197,7 +200,8 @@
                                                                     <a href="javascript:void(0);" class="text-primary"
                                                                         data-bs-target="#editEmployee{{ $employee->id }}"
                                                                         data-bs-toggle="modal" type="button">
-                                                                        <i class="fa-solid fa-pen-to-square dash-icons"></i>
+                                                                        <i
+                                                                            class="fa-solid fa-pen-to-square dash-icons"></i>
                                                                     </a>
                                                                     <a href="{{ route('employee.destroy', [$employee->id]) }}"
                                                                         class="text-danger delete mx-2">
@@ -219,7 +223,7 @@
                                 <h6 class="m-0 p-1 text-center"
                                     style="color: #fff; border-bottom: 1px solid #69d89e;
                                     background: #69d89e;">
-                                   Total Present </h6>
+                                    Total Present </h6>
                                 <div class="card ronded-0">
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
@@ -267,7 +271,8 @@
                                                                     <a href="javascript:void(0);" class="text-primary"
                                                                         data-bs-target="#editEmployee{{ $employee->id }}"
                                                                         data-bs-toggle="modal" type="button">
-                                                                        <i class="fa-solid fa-pen-to-square dash-icons"></i>
+                                                                        <i
+                                                                            class="fa-solid fa-pen-to-square dash-icons"></i>
                                                                     </a>
                                                                     <a href="{{ route('employee.destroy', [$employee->id]) }}"
                                                                         class="text-danger delete mx-2">
@@ -823,7 +828,7 @@
                     "lengthMenu": [10, 25, 30, 50],
                     columnDefs: [{
                         orderable: false,
-                        targets: [0,1,2,3,4,5],
+                        targets: [0, 1, 2, 3, 4, 5],
                     }],
                 });
                 var table = $('.employeeDT2').DataTable({
@@ -832,7 +837,7 @@
                     "lengthMenu": [10, 25, 30, 50],
                     columnDefs: [{
                         orderable: false,
-                        targets: [0,1,2,3,4,5],
+                        targets: [0, 1, 2, 3, 4, 5],
                     }],
                 });
 
