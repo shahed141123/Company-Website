@@ -48,6 +48,7 @@
                                 </h6>
                                 <div class="row text-start">
                                     <div class="col-lg-7 mb-3">
+                                        <input type="hidden" name="user_type" value="job_seeker">
                                         <input type="hidden" name="client_type" value="job_seeker">
                                         <label for="">Full Name <span class="text-danger">*</span></label>
                                         <input class="input_login registered_name" type="text" name="name"

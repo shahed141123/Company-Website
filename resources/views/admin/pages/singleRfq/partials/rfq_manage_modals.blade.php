@@ -333,101 +333,129 @@
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <div class="row mb-3">
-                        <div class="card">
-                            <div class="row">
-                                <table class="table table-bordered table-striped p-1">
-                                    <thead>
-                                        <tr>
-                                            <th> Product Name</th>
-                                            <th> Quantity </th>
-                                            <th> Sale Price </th>
-                                        </tr>
 
-                                        @if ($deal_products)
-                                            @foreach ($deal_products as $item)
-                                                <tr class="bg-gray text-white">
-                                                    <th>{{ $item->item_name }}</th>
-                                                    <th>{{ $item->qty }}</th>
-                                                    <th>{{ $item->sub_total_cost }}</th>
-                                                </tr>
-                                            @endforeach
-                                        @endif
-
-
-
-                                    </thead>
-                                </table>
-                            </div>
-                            <div class="row">
-                                <table class="table table-bordered table-striped p-1">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                Client Type : {{ ucfirst($rfq_details->client_type) }}
-                                            </th>
-                                            <th>
-                                                Name : {{ ucfirst($rfq_details->name) }}
-                                            </th>
-                                            <th>
-                                                Company Name : {{ ucfirst($rfq_details->company_name) }}
-                                            </th>
-                                        </tr>
-                                        {{-- <tr>
-                                                        <th colspan="3" style="background: #7e7d7c">
-                                                            <p class="text-center pt-1 text-white">Product Name : {{App\Models\Admin\DealSas::where('id' , $rfq_details->product_id)->value('name')}}</p>
-                                                        </th>
-                                                    </tr> --}}
-                                        <tr>
-                                            <th>Asking Quantity :
-                                                {{ App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->sum('qty') }}
-                                            </th>
-                                            <th>Phone Number : {{ $rfq_details->phone }}</th>
-                                            <th>
-                                                Total Price : $
-                                                {{ App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->value('grand_total') }}
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                Assigned Sales Manager (L1) :
-                                                {{ App\Models\User::where('id', $rfq_details->sales_man_id_L1)->value('name') }}
-                                                <br>
-                                                @if ($rfq_details->sales_man_id_T1)
-                                                    Assigned Sales Manager (T1) :
-                                                    {{ App\Models\User::where('id', $rfq_details->sales_man_id_T1)->value('name') }}
+                    <div class="container-fluid">
+                        <div class="row mb-3">
+                            <div class="card">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th> Product Name</th>
+                                                <th> Quantity </th>
+                                                <th> Sale Price </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if ($deal_products)
+                                                @foreach ($deal_products as $item)
+                                                    <tr class="text-black">
+                                                        <td>{{ $item->item_name }}</td>
+                                                        <td>{{ $item->qty }}</td>
+                                                        <td>{{ $item->sub_total_cost }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    Client Type : {{ ucfirst($rfq_details->client_type) }}
+                                                </td>
+                                                <td>
+                                                    Name : {{ ucfirst($rfq_details->name) }}
+                                                </td>
+                                                <td>
+                                                    Company Name : {{ ucfirst($rfq_details->company_name) }}
+                                                </td>
+                                            </tr>
+                                            {{-- <tr>
+                                                            <td colspan="3" style="background: #7e7d7c">
+                                                                <p class="text-center pt-1 text-white">Product Name : {{App\Models\Admin\DealSas::where('id' , $rfq_details->product_id)->value('name')}}</p>
+                                                            </td>
+                                                        </tr> --}}
+                                            <tr>
+                                                <td>Asking Quantity :
+                                                    {{ App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->sum('qty') }}
+                                                </td>
+                                                <td>Phone Number : {{ $rfq_details->phone }}</td>
+                                                <td>
+                                                    Total Price : $
+                                                    {{ App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->value('grand_total') }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Assigned Sales Manager (L1) :
+                                                    {{ App\Models\User::where('id', $rfq_details->sales_man_id_L1)->value('name') }}
                                                     <br>
-                                                @endif
-                                                @if ($rfq_details->sales_man_id_T2)
-                                                    Assigned Sales Manager (T2) :
-                                                    {{ App\Models\User::where('id', $rfq_details->sales_man_id_T2)->value('name') }}
-                                                @endif
+                                                    @if ($rfq_details->sales_man_id_T1)
+                                                        Assigned Sales Manager (T1) :
+                                                        {{ App\Models\User::where('id', $rfq_details->sales_man_id_T1)->value('name') }}
+                                                        <br>
+                                                    @endif
+                                                    @if ($rfq_details->sales_man_id_T2)
+                                                        Assigned Sales Manager (T2) :
+                                                        {{ App\Models\User::where('id', $rfq_details->sales_man_id_T2)->value('name') }}
+                                                    @endif
 
-                                            </th>
-                                            <th>
-                                                Status : <span
-                                                    class="badge bg-success p-2">{{ ucfirst($rfq_details->status) }}</span>
+                                                </td>
+                                                <td>
+                                                    Status : <span
+                                                        class="badge bg-success p-2">{{ ucfirst($rfq_details->status) }}</span>
 
 
-                                            </th>
-                                            <th></th>
-                                        </tr>
-                                        <tr>
-                                            <th colspan="3" style="background: #7e7d7c">
-                                                <p class="text-center pt-1 text-white">Send Quotation To : <input
-                                                        type="email" name="email" id=""
-                                                        value="{{ $rfq_details->email }}"></p>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                </table>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: #7e7d7c">
+                                                    <p class="text-center pt-1 text-white">PQ NO:
+                                                        <input class="form-control form-control-sm" type="text"
+                                                            name="pq_code" placeholder="NG-BD/Genexis/RV/231021">
+                                                    </p>
+                                                </td>
+                                                <td style="background: #7e7d7c">
+                                                    <p class="text-center pt-1 text-white">PQR NO:
+                                                        <input class="form-control form-control-sm" type="text"
+                                                            name="pqr_code_one" placeholder="MEO-P021(T10)-W(L1)">
+                                                    </p>
+                                                </td>
+                                                <td style="background: #7e7d7c">
+                                                    <p class="text-center pt-1 text-white">Currency:
+                                                        <select name="currency"
+                                                            class="form-control form-control-sm select"
+                                                            data-minimum-results-for-search="Infinity"
+                                                            data-placeholder="Chose Currency" required>
+                                                            <option value="taka">
+                                                                Taka
+                                                            </option>
+                                                            <option value="dollar">
+                                                                Dollar</option>
+                                                            {{-- <option value="Others">
+                                                                Others</option> --}}
+                                                        </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" style="background: #7e7d7c">
+                                                    <p class="text-center pt-1 text-white">Send Quotation To :
+                                                        <input class="form-control form-control-sm" type="email"
+                                                            name="email" value="{{ $rfq_details->email }}">
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
-
                         </div>
                     </div>
-
-
-
 
                     <div class="row">
                         <div class="col-sm-3"></div>

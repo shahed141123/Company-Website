@@ -20,7 +20,7 @@
                                         of personalized service and customer satisfaction.
                                     </p>
                                 </div>
-                                @if (Auth::guard('client')->user()->client_type == 'job_seeker')
+                                @if (Auth::guard('client')->user()->user_type == 'job_seeker')
                                     <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
                                         <h2>Job Management</h2>
                                         <ul>
@@ -103,7 +103,7 @@
                                             Soon</a>
                                     </ul>
                                 </div>
-                                @if (Auth::guard('client')->user()->client_type != 'job_seeker')
+                                @if (Auth::guard('client')->user()->user_type != 'job_seeker')
                                     <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
                                         <h2>Job Management</h2>
                                         <ul>

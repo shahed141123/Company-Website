@@ -12,7 +12,7 @@ use App\Http\Controllers\Client\ForgotPasswordController;
 use App\Http\Controllers\Client\ClientSupportMessageController;
 
 
-$client = !empty(Auth::guard('client')->user()->client_type) ? Auth::guard('client')->user()->client_type : 'client';
+$client = !empty(Auth::guard('client')->user()->user_type) ? Auth::guard('client')->user()->user_type : 'client';
 
 
 Route::group(['prefix' => $client, 'middleware' => 'guest'], function () {
@@ -24,9 +24,13 @@ Route::group(['prefix' => $client, 'middleware' => 'guest'], function () {
 
 
 Route::get('/job-applicant/login',     [ClientController::class, 'jobApplicantLogin'])->name('job-applicant.login');
-Route::get('/client/login',     [ClientController::class, 'ClientLogin'])->name('client.login');
+Route::get('/client/login',     [ClientController::class, 'clientLogin'])->name('client.login');
 Route::post('client/register',  [ClientController::class, 'clientRegisterStore'])->name('clientRegister.store');
 Route::post('client/login',     [ClientController::class, 'clientLoginStore'])->name('client.loginstore');
+
+Route::get('partner/login',  [ClientController::class, 'partnerLogin'])->name('showLoginForm');
+Route::post('partner/register',  [ClientController::class, 'PartnerRegistration'])->name('partner.store');
+Route::post('/partner/login', [ClientController::class, 'Partnerlogin'])->name('partner.login');
 
 Route::group(['prefix' => $client, 'middleware' => ['auth:client']], function () {
 

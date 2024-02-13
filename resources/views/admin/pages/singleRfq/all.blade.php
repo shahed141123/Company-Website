@@ -709,22 +709,21 @@
                                                 <div class="pt-1 pb-1">
                                                     <div class="d-flex justify-content-between align-items-center border ">
                                                         <div class="ps-2">
-                                                            <span>Sales Profit Loss</span>
+                                                            <span>Deal</span>
                                                         </div>
                                                         <div class="">
                                                             <button type="button" class="btn navigation_btn me-0"
                                                                 data-bs-toggle="modal"
                                                                 data-bs-target="#modal_sale_profit_loss">
-                                                                <i class="ph-plus-circle ph-1x"></i> Add
+                                                                <i class="ph-plus-circle ph-1x"></i> Edit
                                                             </button>
-                                                            @include('admin.pages.singleRfq.sales-modal')
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="pt-1 pb-1">
                                                     <div class="d-flex justify-content-between align-items-center border">
                                                         <div class="ps-2">
-                                                            <span>Sales Forecast</span>
+                                                            <span>Deal SAS</span>
                                                         </div>
                                                         <div class="">
                                                             <button type="button" class="btn navigation_btn me-0"
@@ -738,13 +737,32 @@
                                                 <div class="pt-1 pb-1">
                                                     <div class="d-flex justify-content-between align-items-center border">
                                                         <div class="ps-2">
-                                                            <span>Commercial Documents</span>
+                                                            <span>Quotation Send</span>
                                                         </div>
                                                         <div class="">
                                                             <button type="button" class="btn navigation_btn me-0"
                                                                 data-bs-toggle="modal"
-                                                                data-bs-target="#modal_commercial_documents">
-                                                                <i class="ph-plus-circle ph-1x"></i> Add
+                                                                data-bs-target="#quotation-send-{{ $rfq_details->rfq_code }}">
+                                                                <i class="ph-airplane-tilt ph-1x me-1"></i>
+                                                                @if ($rfq_details->status == 'assigned')
+                                                                    Send
+                                                                @elseif ($rfq_details->status == 'deal_created')
+                                                                    Send
+                                                                @elseif ($rfq_details->status == 'sas_created')
+                                                                    Send
+                                                                @elseif ($rfq_details->status == 'sas_approved')
+                                                                    Send
+                                                                @elseif ($rfq_details->status == 'quoted')
+                                                                    Resend
+                                                                @elseif ($rfq_details->status == 'workorder_uploaded')
+                                                                    Resend
+                                                                @elseif ($rfq_details->status == 'invoice_sent')
+                                                                    Resend
+                                                                @elseif ($rfq_details->status == 'proof_of_payment_uploaded')
+                                                                    Resend
+                                                                @else
+                                                                    Send
+                                                                @endif
                                                             </button>
                                                         </div>
                                                     </div>

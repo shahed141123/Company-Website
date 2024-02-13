@@ -4,7 +4,7 @@
         <div class="row py-5">
             <div class="col-lg-4 offset-lg-4">
                 <div class="partner-form-container sign-in-container mx-auto client_login">
-                    <form action="{{ route('partner.login') }}" method="POST" id="partnerLoginForm">
+                    <form action="{{ route('client.loginstore') }}" method="POST" id="partnerLoginForm">
                         @csrf
                         <h2 class="main_color mb-1">Partner Login</h2>
 
@@ -32,12 +32,13 @@
                 <div class="col-lg-12">
                     <div class="partner-container" id="partner-login-container">
                         <div class="partner-form-container sign-up-container">
-                            <form action="{{ route('partner.store') }}" method="POST" id="partnersignUpForm">
+                            <form action="{{ route('clientRegister.store') }}" method="POST" id="partnersignUpForm">
                                 @csrf
                                 <h2 class="pb-1 pt-0 mb-1 main_color">Partner Register</h2>
                                 Allready Have An Account ?<a href="javascript:void(0);" class="mb-3"> <span id="signIn"
                                         class="main_color">Sign In Now</span></a>
-                                <input class="input_login registered_name" type="text" name="name"
+                                        <input type="hidden" name="user_type" value="partner">
+                                        <input class="input_login registered_name" type="text" name="name"
                                     placeholder="Full name" required value="{{ old('name') }}" maxlength="35"
                                     minlength="3">
                                 <input class="input_login" type="email" name="email" placeholder="Email" required

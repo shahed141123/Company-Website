@@ -440,6 +440,9 @@ class DealController extends Controller
 
     public function SendQuotation(Request $request, $id)
     {
+        $data['pq_code'] = $request->pq_code;
+        $data['currency'] = $request->currency;
+        $data['pqr_code_one'] = $request->pqr_code_one;
         $data['email'] = $request->email;
         $data['rfq'] = Rfq::where('rfq_code', $id)->where('rfq_type', 'deal')->first();
         $data['products'] = DealSas::where('rfq_id',  $data['rfq']->id)->get();
@@ -453,14 +456,14 @@ class DealController extends Controller
         Storage::put($filePath, $pdf_output);
         //dd($pdf_upload);
         $email = $data['email'];
-        $subject = 'Quotation From Ngen It';
-        $message = 'Here is the Quotation From Ngen It which is generated against your RFQ.';
+        $subject = 'Quotation From Ngen IT';
+        $message = 'Here is the Quotation From NGen IT which is generated against your RFQ.';
 
 
 
         // create a new email message
         $mail = Mail::raw($message, function ($message) use ($email, $subject, $pdf) {
-            $message->to($email)
+            $message->from('sales@ngenit.com', 'NGEN-Sales')->to($email)
                 ->subject($subject)
                 ->attachData($pdf->output(), 'quotation-Ngenit.pdf');
         });
@@ -503,6 +506,9 @@ class DealController extends Controller
         }
 
         $rfq->update([
+            'currency'  => $request->currency,
+            'pq_code'  => $request->pq_code,
+            'pqr_code_one'  => $request->pqr_code_one,
             'status'  => 'quoted',
             'quoted_price' => $quoted_price,
         ]);

@@ -169,7 +169,17 @@
 
                                             </div>
                                             <div class="col-lg-6 col-sm-12">
-
+                                                @if (!empty($data->user_type) && $data->user_type === 'partner')
+                                                    <div class="row mb-1">
+                                                        <div class="col-4">
+                                                            <h6 class="ms-3 main_color fw-bold p-0 m-0">Tin Number</h6>
+                                                        </div>
+                                                        <div class="col-1">:</div>
+                                                        <div class="col-7">
+                                                            <h6 class="p-0 m-0 ms-1">{{ $data->tin_number }}</h6>
+                                                        </div>
+                                                    </div>
+                                                @endif
                                                 <div class="row mb-1">
                                                     <div class="col-4">
                                                         <h6 class="ms-3 main_color fw-bold p-0 m-0">Address</h6>
@@ -188,15 +198,17 @@
                                                         <h6 class="p-0 m-0 ms-1">{{ $data->city }}</h6>
                                                     </div>
                                                 </div>
-                                                <div class="row mb-1">
-                                                    <div class="col-4">
-                                                        <h6 class="ms-3 main_color fw-bold p-0 m-0">Country</h6>
+                                                @if (!empty($data->user_type) && $data->user_type === 'client')
+                                                    <div class="row mb-1">
+                                                        <div class="col-4">
+                                                            <h6 class="ms-3 main_color fw-bold p-0 m-0">Country</h6>
+                                                        </div>
+                                                        <div class="col-1">:</div>
+                                                        <div class="col-7">
+                                                            <h6 class="p-0 m-0 ms-1">{{ $data->country }}</h6>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-1">:</div>
-                                                    <div class="col-7">
-                                                        <h6 class="p-0 m-0 ms-1">{{ $data->country }}</h6>
-                                                    </div>
-                                                </div>
+                                                @endif
                                                 <div class="row mb-1">
                                                     <div class="col-4">
                                                         <h6 class="ms-3 main_color fw-bold p-0 m-0">Account Status</h6>
@@ -390,7 +402,8 @@
                                                             <input type="tel" class="form-control form-control-sm"
                                                                 id="basicpill-phoneno-input" name="phone"
                                                                 placeholder="Eg: (+880)1754348949"
-                                                                value="{{ $data->phone }}" title="Please enter a valid phone number in the format: (+XXX)XXXXXXXXX"
+                                                                value="{{ $data->phone }}"
+                                                                title="Please enter a valid phone number in the format: (+XXX)XXXXXXXXX"
                                                                 pattern="^\(\+\d{1,3}\)\d{1,}$">
 
                                                         </div>

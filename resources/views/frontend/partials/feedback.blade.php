@@ -1,24 +1,24 @@
 <style>
-.extra-btns {
-    font-size: 18px;
-    letter-spacing: 1px;
-    position: fixed;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%) rotate(-90deg);
-    transform-origin: left center;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 46px 23px 10px;
-    border: none;
-    margin-top: 220px;
-    z-index: 950;
-    border-radius: 0;
-    width: 367px;
-    text-align: center;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-}
+    .extra-btns {
+        font-size: 18px;
+        letter-spacing: 1px;
+        position: fixed;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg);
+        transform-origin: left center;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 46px 23px 10px;
+        border: none;
+        margin-top: 220px;
+        z-index: 950;
+        border-radius: 0;
+        width: 367px;
+        text-align: center;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
 
     .extra-btns:hover {
         border: 1px solid #fa025df4;
@@ -92,7 +92,7 @@
     </a>
 
     <div class="offcanvas offcanvas-start"
-    style="width: 50%; height: 40vh; transform: translate(0, 85%); border-top-right-radius: 20px; border-bottom-right-radius: 20px; background: url('https://img.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg') no-repeat center center / cover;"
+        style="width: 50%; height: 40vh; transform: translate(0, 85%); border-top-right-radius: 20px; border-bottom-right-radius: 20px; background: url('https://img.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg') no-repeat center center / cover;"
         tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <a href="{{ route('rfq') }}">
             <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
@@ -193,37 +193,30 @@
                             </div>
                             <div class="row mb-4">
                                 <div class="col-lg-4 mb-3 pe-0">
-                                    {{-- <label for="name">Name <span class="text-danger">*</span> </label> --}}
-                                    <input type="text" class="form-control rounded-0" required id="name"
-                                        name="name" placeholder="Your Name *" />
+                                    <input type="text" class="form-control rounded-0" required id="name" name="name" placeholder="Your Name *"
+                                        value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->name : '' }}" />
                                 </div>
                                 <div class="col-lg-4 mb-3 pe-0">
-
-                                    <input type="number" class="form-control rounded-0" id="phone"
-                                        name="phone" placeholder="Your Phone Number *" required />
+                                    <input type="number" class="form-control rounded-0" id="phone" name="phone" placeholder="Your Phone Number *"
+                                        required value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->phone : '' }}" />
                                 </div>
                                 <div class="col-lg-4 mb-3">
-                                    {{-- <label for="contact">Company Name </label> --}}
-                                    <input type="text" class="form-control rounded-0" id="contact"
-                                        name="company_name" placeholder="Your Company Name *" required />
+                                    <input type="text" class="form-control rounded-0" id="contact" name="company_name" placeholder="Your Company Name *"
+                                        required value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->company_name : '' }}" />
                                 </div>
                                 <div class="col-lg-5 mb-3 pe-0">
-                                    {{-- <label for="email">Email <span class="text-danger">*</span> </label> --}}
-                                    <input type="email" required class="form-control rounded-0" id="email"
-                                        name="email" placeholder="Your Email *" required />
-                                    <span class="text-danger text-start p-0 m-0 email_validation"
-                                        style="display: none">Please input valid email</span>
+                                    <input type="email" required class="form-control rounded-0" id="email" name="email" placeholder="Your Email *"
+                                        value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->email : '' }}" />
+                                    <span class="text-danger text-start p-0 m-0 email_validation" style="display: none">Please input valid email</span>
                                 </div>
                                 <div class="col-lg-7 mb-3">
-                                    {{-- <label for="contact">Custom Image </label> --}}
-                                    <input type="file" name="image" class="form-control rounded-0"
-                                        id="image" accept="image/*" placeholder="Your Custom Image" />
+                                    <input type="file" name="image" class="form-control rounded-0" id="image" accept="image/*" placeholder="Your Custom Image" />
                                 </div>
                                 <div class="col-lg-12 mb-3">
-                                    {{-- <label for="message">Type Message</label> --}}
                                     <textarea class="form-control rounded-0" id="message" name="message" rows="3" placeholder="Your Message"></textarea>
                                 </div>
                             </div>
+
 
                             <div class="row align-items-center">
                                 <div class="col-lg-3 mb-3">
