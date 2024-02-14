@@ -27,20 +27,20 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card-body">
-                            <ul class="nav nav-tabs mb-3">
+                            <ul class="nav nav-tabs border-0">
                                 <li class="nav-item">
                                     <a href="#site" class="nav-link active" data-bs-toggle="tab">
-                                        Site
+                                        SITE
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#smtp" class="nav-link " data-bs-toggle="tab">
-                                        Smtp
+                                        SMTP
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#seo" class="nav-link" data-bs-toggle="tab">
-                                        Seo
+                                        SEO
                                     </a>
                                 </li>
                             </ul>

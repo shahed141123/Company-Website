@@ -38,7 +38,7 @@
             border: 1px solid #247297;
         }
 
-        .link_title_admin {
+        .text-muted {
             font-size: 12px;
         }
 
@@ -87,16 +87,16 @@
                         <a href="{{ route('marketing-dashboard.index') }}" class="btn navigation_btn">
                             <div class="d-flex align-items-center">
                                 <i class="fa-solid fa-business-time me-1" style="font-size: 12px;"></i>
-                                <span> Business</span>
+                                <span>Business</span>
                             </div>
                         </a>
-                        <a href="" class="btn navigation_btn">
+                        <a href="{{ route('accounts-manager.index') }}" class="btn navigation_btn">
                             <div class="d-flex align-items-center">
                                 <i class="fa-solid fa-calculator me-1" style="font-size: 12px;"></i>
                                 <span>Accounts</span>
                             </div>
                         </a>
-                        <a href="" class="btn navigation_btn">
+                        <a href="{{ route('hr-and-admin.index') }}" class="btn navigation_btn">
                             <div class="d-flex align-items-center">
                                 <i class="fa-solid fa-user-tie me-1" style="font-size: 12px;"></i>
                                 <span>HR Admin</span>
@@ -108,7 +108,7 @@
                                 <span>Website Settings</span>
                             </div>
                         </a>
-                        <a href="" class="btn navigation_btn">
+                        <a href="#" class="btn navigation_btn">
                             <div class="d-flex align-items-center">
                                 <i class="fa-solid fa-gallery-thumbnails me-1" style="font-size: 12px;"></i>
                                 <span>Role Settings</span>
@@ -121,252 +121,190 @@
             <section>
                 <div class="container-fluid ">
                     <div class="row py-2">
-                        <h5 class="mb-0 text-center mx-auto bg-secondary"
-                            style="border-bottom: 1px solid #247297; width: 13%;
-                        color: white;">
-                            Site Settings</h5>
+                        <h4 class="mb-0 text-center">
+                            Site Settings</h4>
                     </div>
                     {{-- Fisrt Row --}}
                     <div class="row mt-1">
-                        <div class="col-lg-3">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
-                                Website Settings</h6>
-                            <div class="card card-body border-0 shadow-none mb-0"
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                {{-- Link Start --}}
-                                <div class="row gx-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('setting.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Site Settings</span>
+                        <div class="col-lg-4">
+                            <h6 class="m-0 p-0 card-main-title text-center">Website Settings</h6>
+                            <div class="card rounded-0">
+                                <div class="card-body" style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
+                                    {{-- Link Start --}}
+                                    <div class="row gx-2">
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('setting.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">Site Settings</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i> </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('setting.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('faq.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">FAQs</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('faq.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">FAQs</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('faq.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('frontend-navbar-module.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Fro. Menu Builder</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('frontend-navbar-module.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">Fro. Menu Builder</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('frontend-navbar-module.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('office-location.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Office Locatios</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('office-location.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">Office Locatios</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('office-location.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
+                        <div class="col-lg-4">
+                            <h6 class="m-0 p-0 card-main-title text-center">
                                 Supply Chain</h6>
-                            <div class="card card-body border-0 shadow-none mb-0"
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                {{-- Link Start --}}
-                                <div class="row gx-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('setting.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">DMAR</span>
+                            <div class="card rounded-0">
+                                <div class="card-body border-0 shadow-none mb-0"
+                                    style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
+                                    {{-- Link Start --}}
+                                    <div class="row gx-2">
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('setting.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">DMAR</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('setting.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('faq.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">CMAR</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('faq.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">CMAR</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('faq.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('frontend-navbar-module.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">EMAR</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('frontend-navbar-module.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">EMAR</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('frontend-navbar-module.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
+                        <div class="col-lg-4">
+                            <h6 class="m-0 p-0 card-main-title text-center">
                                 Business</h6>
-                            <div class="card card-body border-0 shadow-none mb-0"
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                {{-- Link Start --}}
-                                <div class="row gx-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('setting.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Knowledge</span>
+                            <div class="card rounded-0">
+                                <div class="card-body border-0 shadow-none mb-0"
+                                    style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
+                                    {{-- Link Start --}}
+                                    <div class="row gx-2">
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('setting.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">Knowledge</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('setting.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('faq.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Presentation</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('faq.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">Presentation</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('faq.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('frontend-navbar-module.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Showcase BD</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('frontend-navbar-module.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">Showcase BD</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('frontend-navbar-module.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
-                                Accounts</h6>
-                            <div class="card card-body border-0 shadow-none mb-0"
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                {{-- Link Start --}}
-                                <div class="row gx-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('setting.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Knowledge</span>
-                                                </div>
-                                                <a href="{{ route('setting.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('faq.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Presentation</span>
-                                                </div>
-                                                <a href="{{ route('faq.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('frontend-navbar-module.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Showcase BD</span>
-                                                </div>
-                                                <a href="{{ route('frontend-navbar-module.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -374,146 +312,203 @@
                     </div>
                     {{-- Second Row --}}
                     <div class="row mt-1">
-                        <div class="col-lg-3">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
-                                HR Admin</h6>
-                            <div class="card card-body border-0 shadow-none mb-0"
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                {{-- Link Start --}}
-                                <div class="row gx-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('setting.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Site Settings</span>
+                        <div class="col-lg-4">
+                            <h6 class="m-0 p-0 card-main-title text-center">
+                                Accounts</h6>
+                            <div class="card rounded-0">
+                                <div class="card-body border-0 shadow-none mb-0"
+                                    style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
+                                    {{-- Link Start --}}
+                                    <div class="row gx-2">
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('setting.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">Knowledge</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('setting.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('faq.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">FAQs</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('faq.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">Presentation</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('faq.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('frontend-navbar-module.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Fro. Menu Builder</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('frontend-navbar-module.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">Showcase BD</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('frontend-navbar-module.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('office-location.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Office Locatios</span>
-                                                </div>
-                                                <a href="{{ route('office-location.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
-                                Role Settings</h6>
-                            <div class="card card-body border-0 shadow-none mb-0"
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                {{-- Link Start --}}
-                                <div class="row gx-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.permission') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">All Permission </span>
+                        <div class="col-lg-4">
+                            <h6 class="m-0 p-0 card-main-title text-center">
+                                HR Admin</h6>
+                            <div class="card rounded-0">
+                                <div class="card-body border-0 shadow-none mb-0"
+                                    style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
+                                    {{-- Link Start --}}
+                                    <div class="row gx-2">
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('setting.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">Site Settings</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('all.permission') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.roles') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">All Roles </span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('faq.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">FAQs</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('all.roles') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('frontend-navbar-module.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">Fro. Menu Builder</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('office-location.index') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">Office Locatios</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.roles') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">Roles In Permission</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <h6 class="m-0 p-0 card-main-title text-center">
+                                Role Settings</h6>
+                            <div class="card rounded-0">
+                                <div class="card-body border-0 shadow-none mb-0"
+                                    style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
+                                    {{-- Link Start --}}
+                                    <div class="row gx-2">
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('all.permission') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">All Permission </span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('all.roles') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('all.roles.permission') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-sm">
-                                                <div>
-                                                    <span class="link_title_admin">All Roles in Permission</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('all.roles') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">All Roles </span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('all.roles.permission') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('all.roles') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">Roles In Permission</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <a href="{{ route('all.roles.permission') }}">
+                                                <div
+                                                    class="box_details d-flex justify-content-between align-items-center bg-light p-1">
+                                                    <div>
+                                                        <span class="text-muted ps-1">All Roles in Permission</span>
+                                                    </div>
+                                                    <div class="pe-1">
+                                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                                class="ph ph-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
