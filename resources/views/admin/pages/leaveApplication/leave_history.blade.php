@@ -84,11 +84,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
+                        <h6 class="text-center m-0 p-1 card-main-title">Leave Applications</h6>
                         <div class="card rounded-0">
-                            <div class="card-header p-2 m-0">
-                                <h6 class="text-center mb-0 pb-0">Leave Applications</h6>
-                            </div>
-                            <div class="card-body p-1 m-0">
+                            <div class="card-body p-0">
                                 <div class="table-responsive table-bordered">
                                     <table class="table table-hover">
                                         <thead class="border">
@@ -110,16 +108,18 @@
                                                         <td>{{ $leaveApplication->type_of_leave }}</td>
                                                         <td>{{ $leaveApplication->designation }}</td>
                                                         <td>
-                                                            <span class="badge bg-{{ (optional($leaveApplication)->application_status == 'approved') ? 'success' : ((optional($leaveApplication)->application_status == 'rejected') ? 'danger' : 'warning') }}">
-                                                                {{ (optional($leaveApplication)->application_status == 'approved') ? 'Approved' : ((optional($leaveApplication)->application_status == 'rejected') ? 'Rejected' : 'Pending') }}
+                                                            <span
+                                                                class="badge bg-{{ optional($leaveApplication)->application_status == 'approved' ? 'success' : (optional($leaveApplication)->application_status == 'rejected' ? 'danger' : 'warning') }}">
+                                                                {{ optional($leaveApplication)->application_status == 'approved' ? 'Approved' : (optional($leaveApplication)->application_status == 'rejected' ? 'Rejected' : 'Pending') }}
                                                             </span>
                                                         </td>
                                                         <td class="text-center">
-                                                            <a href="{{ route('leave-application.edit',$leaveApplication->id) }}" class="text-primary">
+                                                            <a href="{{ route('leave-application.edit', $leaveApplication->id) }}"
+                                                                class="text-primary">
                                                                 <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-white"
                                                                     style="color: #247297 !important;"></i>
                                                             </a>
-                                                            <a href="{{ route('leave-application.destroy',$leaveApplication->id) }}"
+                                                            <a href="{{ route('leave-application.destroy', $leaveApplication->id) }}"
                                                                 class="text-danger delete">
                                                                 <i class="fa-solid fa-trash p-1 rounded-circle text-white"
                                                                     style="color: #d60000 !important;"></i>

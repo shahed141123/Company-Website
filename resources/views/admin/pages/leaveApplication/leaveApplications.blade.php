@@ -29,17 +29,15 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-10 offset-lg-1">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h6 class="text-center card-main-title m-0 p-1">Today's Leave Applications</h6>
                         <div class="card">
-                            <div class="card-header p-2 m-0">
-                                <h6 class="text-center mb-0 pb-0">Today's Leave Applications</h6>
-                            </div>
-                            <div class="card-body p-1 m-0">
+                            <div class="card-body p-0">
                                 <div class="table-responsive table-bordered">
                                     <table class="table table-hover leaveDT">
                                         <thead class="border">
                                             <tr>
-                                                <th width="5%" class="text-center">Sl:</th>
+                                                <th width="5%" class="text-center">Sl</th>
                                                 <th width="30%">Applicant name</th>
                                                 <th width="15%">Type Of Leave</th>
                                                 <th width="15%">Designation</th>
@@ -62,11 +60,12 @@
                                                             </span>
                                                         </td>
                                                         <td class="text-center">
-                                                            <a href="{{ route('leave-application.edit',$leaveApplication->id) }}" class="text-primary">
+                                                            <a href="{{ route('leave-application.edit', $leaveApplication->id) }}"
+                                                                class="text-primary">
                                                                 <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-white"
                                                                     style="color: #247297 !important;"></i>
                                                             </a>
-                                                            <a href="{{ route('leave-application.destroy',$leaveApplication->id) }}"
+                                                            <a href="{{ route('leave-application.destroy', $leaveApplication->id) }}"
                                                                 class="text-danger delete">
                                                                 <i class="fa-solid fa-trash p-1 rounded-circle text-white"
                                                                     style="color: #d60000 !important;"></i>
@@ -239,8 +238,7 @@
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <div class="mb-1">
-                                                                    <label class="form-label mb-0">Leave
-                                                                        Address</label>
+                                                                    <label class="form-label mb-0">Leave Address</label>
                                                                     <input type="text" name="leave_address"
                                                                         value="{{ $leaveApplication->leave_address }}"
                                                                         class="form-control" @disabled(true)
@@ -460,7 +458,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                         </div>
                     </div>
                     <div class="modal-footer rounded-0">

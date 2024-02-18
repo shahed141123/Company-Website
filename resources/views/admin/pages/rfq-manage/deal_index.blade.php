@@ -30,32 +30,35 @@
 
             <!-- Content area -->
             <div class="content pt-1">
-                <div class="card mt-4">
-                    <div class="card-header p-0">
-                        <div class="row align-items-center">
-                            <div class="col-lg-4">
-                                @include('admin.pages.rfq-manage.partial.rfq_sidebar')
+                <div class="row">
+                    <div class="col-lg-10 col-offset-1 mx-auto">
+                        <div class="card mt-4">
+                            <div class="card-header p-0">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-4">
+                                        @include('admin.pages.rfq-manage.partial.rfq_sidebar')
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <h5 class="text-center m-0 p-0">Deals List</h5>
+                                    </div>
+                                    <div class="col-lg-4 d-flex justify-content-end">
+                                        <a href="{{ route('deal.create') }}"
+                                            class="btn btn-secondary">
+                                            <i class="ph-plus icons_design pe-2"></i>
+                                            Add
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-lg-4">
-                                <h5 class="text-center m-0 p-0">Deals List</h5>
+                            <div class="card-body p-0">
+                                <div class="table-responive">
+                                    <!-- Include RFQ Table Partial -->
+                                    @include('admin.pages.rfq-manage.partial.deal_table')
+                                </div>
                             </div>
-                            <div class="col-lg-4 d-flex justify-content-end">
-                                <a href="{{ route('deal.create') }}"
-                                    class="btn btn-primary">
-                                    <i class="ph-plus icons_design pe-2"></i>
-                                    Add
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="table-responive">
-                            <!-- Include RFQ Table Partial -->
-                            @include('admin.pages.rfq-manage.partial.deal_table')
                         </div>
                     </div>
                 </div>
-
             </div>
             <!-- Content area -->
         </div>

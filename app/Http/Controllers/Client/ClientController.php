@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Notification;
 class ClientController extends Controller
 {
 
-    public function ClientLogin()
+    public function clientLogin()
     {
         if (Auth::guard('client')->check()) {
             $data['orders'] = Order::where('client_id', Auth::guard('client')->user()->id)->get();
@@ -41,6 +41,18 @@ class ClientController extends Controller
             return redirect()->route('client.dashboard', $data);
         } else {
             return view('client.auth.login');
+        }
+    } // End Mehtod
+
+    public function partnerLogin()
+    {
+        if (Auth::guard('client')->check()) {
+            $data['orders'] = Order::where('client_id', Auth::guard('client')->user()->id)->get();
+            $data['deals'] = Rfq::where('client_id', Auth::guard('client')->user()->id)->get();
+            $data['rfqs'] = Rfq::where('client_id', Auth::guard('client')->user()->id)->where('rfq_type', 'rfq')->get();
+            return redirect()->route('client.dashboard', $data);
+        } else {
+            return view('client.auth.partner_login');
         }
     } // End Mehtod
 
@@ -114,6 +126,7 @@ class ClientController extends Controller
                 'address'                  => $request->address,
                 'client_id'                => $request->client_id,
                 'client_type'              => $request->client_type,
+                'user_type'                => $request->user_type,
                 'phone'                    => $request->phone,
                 'status'                   => $request->filled('status') ? $request->status : 'inactive',
                 'password'                 => Hash::make($request->password),
@@ -159,21 +172,26 @@ class ClientController extends Controller
         $profile = Client::findOrFail(Auth::guard('client')->user()->id);
 
         $validator = Validator::make($request->all(), [
-            'name'     => 'required',
+            'name' => 'required',
             'username' => 'required',
-            'phone'    => 'nullable|numeric|digits:11',
-            'email'    => [
+            'phone' => 'nullable',
+            'email' => [
                 'required',
                 'email',
                 Rule::unique('users', 'email')->ignore($profile->id),
             ],
-            'image'    => 'nullable|image|mimes:png,jpg,jpeg|max:5000',
+            'image' => 'nullable|image|mimes:png,jpg,jpeg|max:5000',
         ], [
+            'name.required' => 'The name field is required.',
+            'username.required' => 'The username field is required.',
+            'email.required' => 'The email address field is required.',
+            'email.email' => 'Please provide a valid email address.',
             'email.unique' => 'The email address has already been taken.',
-            'image.max'    => 'The image must be smaller than 5 MB.',
-            'image.image'  => 'The file must be an image.',
-            'image.mimes'  => 'The image must be a file of type: PNG - JPEG - JPG',
+            'image.max' => 'The image must be smaller than 5 MB.',
+            'image.image' => 'Please upload an image file.',
+            'image.mimes' => 'The image must be a file of type: PNG, JPEG, JPG.',
         ]);
+
 
         if ($validator->passes()) {
 

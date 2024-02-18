@@ -29,21 +29,25 @@
 
             <!-- Content area -->
             <div class="content pt-1">
-                <div class="card mt-4">
-                    <div class="card-header p-0">
-                        <div class="row align-items-center">
-                            <div class="col-lg-5">
-                                @include('admin.pages.rfq-manage.partial.rfq_sidebar')
+                <div class="row">
+                    <div class="col-lg-10 col-offset-1 mx-auto">
+                        <div class="card mt-4 rounded-0">
+                            <div class="card-header p-0">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-5">
+                                        @include('admin.pages.rfq-manage.partial.rfq_sidebar')
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <h5 class="text-start m-0 p-0">Client RFQS (Pending to Convert Deals)</h5>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-lg-7">
-                                <h5 class="text-start m-0 p-0">Client RFQS (Pending to Convert Deals)</h5>
+                            <div class="card-body p-0">
+                                <div class="table-responive">
+                                    <!-- Include RFQ Table Partial -->
+                                    @include('admin.pages.rfq-manage.partial.rfq_table')
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="table-responive">
-                            <!-- Include RFQ Table Partial -->
-                            @include('admin.pages.rfq-manage.partial.rfq_table')
                         </div>
                     </div>
                 </div>

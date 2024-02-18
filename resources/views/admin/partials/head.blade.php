@@ -42,6 +42,8 @@
 <link href="{{ asset('backend/assets/css/oliullah.css') }}" rel="stylesheet">
 {{-- Custom CSS --}}
 
+<link rel="stylesheet" href="https://unpkg.com/c3/c3.min.css">
+
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css">
 @stack('styles')
 <style type="text/css">

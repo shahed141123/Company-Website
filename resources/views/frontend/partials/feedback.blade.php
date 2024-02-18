@@ -1,77 +1,165 @@
+<style>
+    .extra-btns {
+        font-size: 18px;
+        letter-spacing: 1px;
+        position: fixed;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg);
+        transform-origin: left center;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 46px 23px 10px;
+        border: none;
+        margin-top: 220px;
+        z-index: 950;
+        border-radius: 0;
+        width: 367px;
+        text-align: center;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .extra-btns:hover {
+        border: 1px solid #fa025df4;
+        background-color: #fa025df4;
+        color: #ffff;
+        transition: 0.5s ease-in;
+    }
+
+    .btn-check:checked+.btn,
+    .btn.active,
+    .btn.show,
+    .btn:first-child:active,
+    :not(.btn-check)+.btn:active {
+        color: var(--bs-btn-active-color);
+        background-color: #ae0a46;
+        border-color: #ae0a46;
+        border-color: #ae0a46;
+    }
+
+    .offcanvas {
+        position: fixed;
+        top: 50%;
+        width: 50%;
+        height: 50vh;
+        transform: translate(0, 50%);
+    }
+
+    /* Initial state */
+    .extra-btns .fa-arrow-up {
+        display: none;
+    }
+
+    /* Show up arrow when button is active */
+    .extra-btns.active .fa-arrow-up {
+        display: inline-block;
+    }
+
+    /* Hide down arrow when button is active */
+    .extra-btns.active .fa-arrow-down {
+        display: none;
+    }
+
+
+    .icon-container {
+        /* background-color: #ae0a46; */
+        padding: 10px;
+        border-radius: 7px;
+        /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+    }
+
+    .custom-btn {
+        background: #ae0a46;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 5px;
+        border: 1 px solid #ae0a46;
+    }
+
+    .custom-btn:hover {
+        background: white;
+        border: 1px solid #ae0a46;
+        color: #ae0a46;
+        padding: 15px 25px;
+        border-radius: 5px;
+    }
+</style>
 <section>
+    <a class="extra-btns" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"
+        id="offcanvasTrigger">
+        Quote Your Product<i class="fa-solid fa-arrow-down ps-2"></i><i class="fa-solid fa-arrow-up ps-2"></i>
+    </a>
 
-
-    {{-- <div id="feedback_Sidebar" class="feedbacksidebar border-0">
-        <div class="feedback_header_logo">
-            <button class="close_feedback" onclick="feedbackButtonClicked()"><i
-                    class="close-btn fas fa-times"></i></button>
-            <div class="modal_logo_feedback">
-                <img src="{{ asset('frontend') }}/images/ngenit.png" alt="">
-            </div>
-        </div>
-        <div
-            style="height: 5px; width:100%; background: linear-gradient(90deg, #ae0a46, #a80b6e 25%, #582873 75%);margin: 5px 0px;">
-        </div>
-        <div id="feedback" class="d-flex flex-column p-2" style="display: inherit !important;">
-            <p>Thank you for assisting us with your feedback in this quick survey. Please take a minute to answer the
-                questions below regarding your experience. <br>
-                If you are experiencing an issue with your account, orders, or billing and want immediate assistance,
-                please use our chat feature. </p>
-            <div class="d-flex justify-content-end">
-                <button class="feedback_continue_btn" onclick="feedbackVisible();" value="Click">continue</button>
-            </div>
-        </div>
-
-
-        <div id="feedback_details" class="feedback_details" style="display: none;">
-            <p>What topic(s) would you like to provide feedback on?</p>
-            <form action="{{ route('feedback.store') }}" method="post">
-                @csrf
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h5 class="text-center">Product Details and availability</h5>
-                        <div class="d-flex justify-content-center">
-                            <fieldset class="rating">
-                                <input type="radio" id="star5" name="rating" value="5" /><label
-                                    class="full" for="star5" title="Awesome - 5 stars"></label>
-                                <input type="radio" id="star4half" name="rating" value="4 and a half" /><label
-                                    class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                                <input type="radio" id="star4" name="rating" value="4" /><label
-                                    class="full" for="star4" title="Pretty good - 4 stars"></label>
-                                <input type="radio" id="star3half" name="rating" value="3 and a half" /><label
-                                    class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                                <input type="radio" id="star3" name="rating" value="3" /><label
-                                    class="full" for="star3" title="Meh - 3 stars"></label>
-                                <input type="radio" id="star2half" name="rating" value="2 and a half" /><label
-                                    class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                                <input type="radio" id="star2" name="rating" value="2" /><label
-                                    class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                                <input type="radio" id="star1half" name="rating" value="1 and a half" /><label
-                                    class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                                <input type="radio" id="star1" name="rating" value="1" /><label
-                                    class="full" for="star1" title="Sucks big time - 1 star"></label>
-                                <input type="radio" id="starhalf" name="rating" value="half" /><label
-                                    class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                            </fieldset>
+    <div class="offcanvas offcanvas-start"
+        style="width: 50%; height: 40vh; transform: translate(0, 85%); border-top-right-radius: 20px; border-bottom-right-radius: 20px; background: url('https://img.freepik.com/premium-vector/abstract-white-shapes-background_79603-1360.jpg') no-repeat center center / cover;"
+        tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <a href="{{ route('rfq') }}">
+            <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12 pb-5 pt-3">
+                            <h4 class="m-0 text-center main_color fw-bold">Make Request For Quote</h4>
+                            <p class="text-center p-0 m-0 pt-2">Tell us what you need, and we'll provide the best price.
+                            </p>
+                        </div>
+                        <div class="col-lg-4 mb-5">
+                            <div class="card shadow-sm" style="border: 1px solid #eee;">
+                                <div class="card-body">
+                                    <div class="d-flex flex-column justify-content-center align-items-center">
+                                        <div class="icon-container">
+                                            <img class="img-fluid" width="80px" src="https://i.ibb.co/NNWQ583/11.png"
+                                                alt="">
+                                        </div>
+                                        <div class="text-center pt-3">
+                                            <h6>Describe Your <br> Project Requirements</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-5">
+                            <div class="card shadow-sm" style="border: 1px solid #eee;">
+                                <div class="card-body">
+                                    <div class="d-flex flex-column justify-content-center align-items-center">
+                                        <div class="icon-container">
+                                            <img class="img-fluid" width="80px" src="https://i.ibb.co/zbqrcXX/13.png"
+                                                alt="">
+                                        </div>
+                                        <div class="text-center pt-3">
+                                            <h6>We Check The Right <br> Products & Prices For You</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-5">
+                            <div class="card shadow-sm" style="border: 1px solid #eee;">
+                                <div class="card-body">
+                                    <div class="d-flex flex-column justify-content-center align-items-center">
+                                        <div class="icon-container">
+                                            <img class="img-fluid" width="80px" src="https://i.ibb.co/6DgcD6F/12.png"
+                                                alt="">
+                                        </div>
+                                        <div class="text-center pt-3">
+                                            <h6>Review The Quation & <br> Complete Your Purchase</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </a>
+    </div>
+</section>
 
-                <div class="d-flex justify-content-between m-2">
-                    <a class="common_button2 text-center text-white" style="font-size:14px "
-                        onclick="feedbackVisible();" value="Click"><i class="fa-solid fa-chevron-left"></i>
-                        Previous</a>
-                    <a class="common_button2 text-center text-white" style="font-size: 14px" type="submit">Submit<i
-                            class="fa-solid fa-chevron-right"></i></a>
-                </div>
-            </form>
-        </div>
-
-
-    </div> --}}
-
-
+<section>
     <div class="">
+        <button class="feedback_upper_modal d-lg-block d-sm-none" data-bs-toggle="modal" data-bs-target="#rfqModal">RFQ
+            <i class="fa-solid fa-question" style="font-size: 14px;"></i>
+        </button>
         <button class="feedback_upper_modal d-lg-block d-sm-none" data-bs-toggle="modal" data-bs-target="#rfqModal">RFQ
             <i class="fa-solid fa-question" style="font-size: 14px;"></i>
         </button>
@@ -92,50 +180,43 @@
                             @csrf
                             <div class="row mb-4">
                                 <div class="col-lg-9">
-                                    <label class="mb-2" for="product_name">Product Name <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="product_name"
-                                        id="product_name" value="{{ old('product_name') }}" required>
+                                    <label class="mb-2" for="product_name">Product Name <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="product_name" id="product_name"
+                                        value="{{ old('product_name') }}" required>
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="mb-2" for="qty">Custom Quantity</label>
-                                    <input type="text" class="form-control" name="qty"
-                                        id="qty" value="{{ old('qty') }}">
+                                    <input type="text" class="form-control" name="qty" id="qty"
+                                        value="{{ old('qty') }}">
                                 </div>
                             </div>
                             <div class="row mb-4">
                                 <div class="col-lg-4 mb-3 pe-0">
-                                    {{-- <label for="name">Name <span class="text-danger">*</span> </label> --}}
-                                    <input type="text" class="form-control rounded-0" required
-                                        id="name" name="name" placeholder="Your Name *" />
+                                    <input type="text" class="form-control rounded-0" required id="name" name="name" placeholder="Your Name *"
+                                        value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->name : '' }}" />
                                 </div>
                                 <div class="col-lg-4 mb-3 pe-0">
-
-                                    <input type="number" class="form-control rounded-0" id="phone"
-                                        name="phone" placeholder="Your Phone Number *" required />
+                                    <input type="number" class="form-control rounded-0" id="phone" name="phone" placeholder="Your Phone Number *"
+                                        required value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->phone : '' }}" />
                                 </div>
                                 <div class="col-lg-4 mb-3">
-                                    {{-- <label for="contact">Company Name </label> --}}
-                                    <input type="text" class="form-control rounded-0" id="contact"
-                                        name="company_name" placeholder="Your Company Name *" required />
+                                    <input type="text" class="form-control rounded-0" id="contact" name="company_name" placeholder="Your Company Name *"
+                                        required value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->company_name : '' }}" />
                                 </div>
                                 <div class="col-lg-5 mb-3 pe-0">
-                                    {{-- <label for="email">Email <span class="text-danger">*</span> </label> --}}
-                                    <input type="email" required class="form-control rounded-0"
-                                        id="email" name="email" placeholder="Your Email *" required />
-                                    <span class="text-danger text-start p-0 m-0 email_validation"
-                                        style="display: none">Please input valid email</span>
+                                    <input type="email" required class="form-control rounded-0" id="email" name="email" placeholder="Your Email *"
+                                        value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->email : '' }}" />
+                                    <span class="text-danger text-start p-0 m-0 email_validation" style="display: none">Please input valid email</span>
                                 </div>
                                 <div class="col-lg-7 mb-3">
-                                    {{-- <label for="contact">Custom Image </label> --}}
-                                    <input type="file" name="image" class="form-control rounded-0"
-                                        id="image" accept="image/*" placeholder="Your Custom Image" />
+                                    <input type="file" name="image" class="form-control rounded-0" id="image" accept="image/*" placeholder="Your Custom Image" />
                                 </div>
                                 <div class="col-lg-12 mb-3">
-                                    {{-- <label for="message">Type Message</label> --}}
-                                    <textarea class="form-control rounded-0" id="message" name="message" rows="3"
-                                        placeholder="Your Message"></textarea>
+                                    <textarea class="form-control rounded-0" id="message" name="message" rows="3" placeholder="Your Message"></textarea>
                                 </div>
                             </div>
+
 
                             <div class="row align-items-center">
                                 <div class="col-lg-3 mb-3">
@@ -154,7 +235,8 @@
                                 </div>
                                 <div class="col-lg-3 mb-3">
                                     <button type="submit" class="btn rounded-0 p-2"
-                                        style="background: #ae0a46; color: white; width:150px; font-size:20px" role="button">Submit</button>
+                                        style="background: #ae0a46; color: white; width:150px; font-size:20px"
+                                        role="button">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -164,22 +246,8 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-    {{-- Feed Back Button --}}
-    {{-- <div id="feedback_btn">
-        <button id="sidebarButton_fb" class="openbtnfeedback d-lg-block d-sm-none"
-            onclick="feedbackButtonClicked()"><i class="fa-solid fa-bullhorn"></i> Feedback</button>
-    </div> --}}
-
-
 </section>
-
 <section>
-
     {{-- Faborite --}}
     <div class="fab-info-icon-wrapper">
         <input id="fab-info-iconCheckbox" type="checkbox" class="fab-info-icon-checkbox" />
@@ -262,8 +330,32 @@
 
         </div>
     </div>
-
 </section>
+<script>
+    document.getElementById('offcanvasTrigger').addEventListener('click', function() {
+        document.querySelector('.extra-btns').style.left = '50%'; // Move button to the center
+    });
 
+    document.getElementById('offcanvasExample').addEventListener('hidden.bs.offcanvas', function() {
+        document.querySelector('.extra-btns').style.left = '0'; // Move button back to the left
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var offcanvasTrigger = document.getElementById('offcanvasTrigger');
+        var offcanvasElement = document.getElementById('offcanvasExample');
 
+        offcanvasTrigger.addEventListener('click', function() {
+            offcanvasElement.classList.toggle('active');
+        });
+
+        offcanvasElement.addEventListener('hidden.bs.offcanvas', function() {
+            offcanvasTrigger.classList.remove('active');
+        });
+
+        offcanvasElement.addEventListener('shown.bs.offcanvas', function() {
+            offcanvasTrigger.classList.add('active');
+        });
+    });
+</script>
 {{-- Feed Back Button --}}

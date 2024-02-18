@@ -1033,7 +1033,7 @@ ul {
     width: 75%;
     position: relative;
     top: -6rem;
-    z-index: 5;
+    z-index: 0;
 }
 
 /* Tab table search */
@@ -5009,7 +5009,7 @@ tr td:hover {
     line-height: 1;
     cursor: pointer;
     position: fixed;
-    bottom: 50%;
+    bottom: 45%;
     right: -36px;
     background-color: var(--primary-color);
     color: white;
@@ -8156,7 +8156,7 @@ a:hover {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 99;
+    z-index: 5;
 }
 
 .gradient-overlay {
@@ -8173,7 +8173,7 @@ a:hover {
         #3b3b3b00,
         #00000000
     );
-    z-index: 980;
+    z-index: 10;
     pointer-events: none;
 }
 
@@ -17048,7 +17048,7 @@ nav > div a.nav-item.nav-link.active {
     width: 18rem;
 }
 .solution-feature-cards {
-    height: 18rem;
+    height: 12rem;
 }
 
 .rc-anchor-light{

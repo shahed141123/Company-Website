@@ -45,7 +45,7 @@
                         <a href="javascript:void(0)" class="btn navigation_btn" data-bs-toggle="modal"
                             data-bs-target="#makeleave">
                             <div class="d-flex align-items-center">
-                                <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 14px;"></i>
+                                <i class="fa-solid fa-envelope-open-text me-1" style="font-size: 14px;"></i>
                                 <span>Make A Leave</span>
                             </div>
                         </a>
@@ -64,53 +64,19 @@
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2 col-12">
                         <div class="row my-4">
-                            <div class="col-lg-4">
-                                <!-- Employee Status Card -->
-                                <div class="card main_color mb-0">
-                                    <div class="card-header border-0" style="background-color: #ae0a46">
-                                        <h6 class="text-center mb-0 p-0 text-white">Employee Status</h6>
-                                    </div>
-                                    <div class="card-body p-0">
-                                        <div class="px-3 py-3">
-                                            <!-- Employee Status Details -->
-                                            <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                                <span>Job Status</span>
-                                                <span class="text-danger">{{ $user->getCategoryName() ?? 'Not set' }}</span>
-                                            </p>
-                                            <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                                <span>Next Evaluation Date</span>
-                                                <span class="text-danger">{{ Auth::user()->evaluation_date ?? '0' }}
-                                                    Days</span>
-                                            </p>
-                                            <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                                <span>Designation</span>
-                                                <span class="text-danger" title="September 12">
-                                                    {{ Auth::user()->designation ?? 'Not set' }}
-                                                </span>
-                                            </p>
-                                            <p class="p-0 m-0 text-muted d-flex justify-content-between">
-                                                <span>Joining</span>
-                                                <span class="text-danger" title="September 12">
-                                                    {{ Auth::user()->sign_date ?? '00-00-0000' }}
-                                                </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-8">
+                            <div class="col-lg-8 mx-auto">
                                 <!-- Leave Information Card -->
-                                <div class="card">
+                                <div class="card rounded-0">
                                     <div class="row gx-0">
                                         <div class="table-responsive">
-                                            <table class="table">
+                                            <table class="table text-center table-striped table-hover">
                                                 <thead
                                                     style="background-color: #ae0a46 !important; color: white !important;">
                                                     <tr>
-                                                        <th width="30%" style="border-top-left-radius: 8px;">Leave Position</th>
+                                                        <th width="30%">Leave Position</th>
                                                         <th width="25%">Leave Due As On</th>
                                                         <th width="25%">Leave Availed</th>
-                                                        <th width="20%" style="border-top-right-radius: 8px;">Balance Due</th>
+                                                        <th width="20%">Balance Due</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="text-center">
@@ -155,21 +121,20 @@
                 <div class="row">
                     <div class="col-10 offset-1">
                         <!-- Leave Applications Table -->
-                        <div class="card">
-                            <div class="card-header p-1">
-                                <h2 class="text-center m-0">Leave Details Table</h2>
-                            </div>
+                        <h6 class="m-0 p-1 text-center"
+                                    style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Leave Details Table</h6>
+                        <div class="card rounded-0">
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-hover table-bordered table-striped">
                                         <thead class="text-center">
                                             <tr>
-                                                <th width="5%" class="text-center" style="border-top-left-radius: 8px;">Sl:</th>
+                                                <th width="5%" class="text-center">Sl:</th>
                                                 <th width="15%">Type Of Leave</th>
                                                 <th width="25%">Leave Period</th>
                                                 <th width="15%">Reporting On</th>
                                                 <th width="20%">Leave Applied at</th>
-                                                <th width="20%" style="border-top-right-radius: 8px;">Status</th>
+                                                <th width="20%">Status</th>
                                                 {{-- <th width="15%" class="text-center">Action</th> --}}
                                             </tr>
                                         </thead>

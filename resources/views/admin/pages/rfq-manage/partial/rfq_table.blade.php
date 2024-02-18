@@ -5,8 +5,8 @@
             <th width="12%">Created At</th>
             <th width="18%">Client Name</th>
             <th width="20%">Client Email</th>
-            <th width="5%">Details</th>
             <th width="8%">Status</th>
+            <th width="5%">Details</th>
             <th width="15%" class="text-center">Actions</th>
         </tr>
     </thead>
@@ -18,7 +18,7 @@
                     <td>{{ ucfirst($rfq->create_date) }}</td>
                     <td>{{ ucfirst($rfq->name) }}</td>
                     <td style="text-transform: lowercase;">{{ ucfirst($rfq->email) }}</td>
-                    <td><span class="badge bg-success p-1">{{ ucfirst($rfq->status) }}</span></td>
+                    <td><span class="text-muted p-1">{{ ucfirst($rfq->status) }}</span></td>
                     <td>
                         <!-- Show RFQ Details Modal Trigger -->
                         <a href="javascript:void(0);" class="text-info mx-2" title="Show RFQ Details"

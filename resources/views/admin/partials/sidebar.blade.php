@@ -4,7 +4,7 @@
 @endphp
 
 
-<div class="sidebar sidebar-dark sidebar-main sidebar-expand-lg sidebar-main-resized" style="background: black;">
+<div class="sidebar sidebar-dark sidebar-main sidebar-expand-lg sidebar-main-resized" style="background: url('https://i.ibb.co/qgHN3jC/Background.jpg') no-repeat center center; background-size: cover;">
     <!-- Sidebar content -->
     <div class="sidebar-content">
         <!-- Sidebar header -->

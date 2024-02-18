@@ -1,4 +1,3 @@
-
 @extends('admin.master')
 @section('content')
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css">
@@ -6,17 +5,25 @@
         .accordion {
             --accordion-border-width: 0px !important;
         }
+
         .section-border {
             border-bottom: 0.5px solid #acdaf063;
         }
+
         .card_title {
             text-align: left !important;
         }
+
         .target {
             display: none;
         }
+
         .Hide {
             display: none;
+        }
+
+        .quick_link {
+            width: 150px;
         }
     </style>
     <div class="content-wrapper">
@@ -43,33 +50,34 @@
                     {{-- Inner Page Tab --}}
                     <!-- Basic tabs -->
                     <div>
-                        <a href="{{ route('rfq-manage.index') }}" class="btn navigation_btn">
-                                <div class="d-flex align-items-center ">
-                                    <i class="fa-solid fa-truck-field me-1" style="font-size: 12px;"></i>
-                                    <span>RFQ Management</span>
-                                </div>
-                            </a>
-                        <a href="{{ route('deal.create') }}" class="btn navigation_btn">
-                                <div class="d-flex align-items-center ">
-                                    <i class="fa-solid fa-truck-field me-1" style="font-size: 12px;"></i>
-                                    <span>Deal Create</span>
-                                </div>
-                            </a>
-                        <a href="{{ route('sales-dashboard.index') }}" class="btn navigation_btn">
+                        <a href="{{ route('rfq-manage.index') }}" class="btn navigation_btn" style="margin-right: 2px">
+                            <div class="d-flex align-items-center ">
+                                <i class="fa-solid fa-truck-field pe-1" style="font-size: 12px;"></i>
+                                <span>RFQ Management</span>
+                            </div>
+                        </a>
+                        <a href="{{ route('deal.create') }}" class="btn navigation_btn" style="margin-right: 2px">
+                            <div class="d-flex align-items-center ">
+                                <i class="fa-solid fa-truck-field pe-1" style="font-size: 12px;"></i>
+                                <span>Deal Create</span>
+                            </div>
+                        </a>
+                        <a href="{{ route('sales-dashboard.index') }}" class="btn navigation_btn" style="margin-right: 2px">
                             <div class="d-flex align-items-center">
-                                <i class="fa-solid fa-business-time me-1" style="font-size: 12px;"></i>
+                                <i class="fa-solid fa-business-time pe-1" style="font-size: 12px;"></i>
                                 <span> Sales</span>
                             </div>
                         </a>
-                        <a href="{{ route('marketing-dashboard.index') }}" class="btn navigation_btn">
+                        <a href="{{ route('marketing-dashboard.index') }}" class="btn navigation_btn"
+                            style="margin-right: 2px">
                             <div class="d-flex align-items-center">
-                                <i class="fa-solid fa-calculator me-1" style="font-size: 12px;"></i>
+                                <i class="fa-solid fa-calculator pe-1" style="font-size: 12px;"></i>
                                 <span>Marketing</span>
                             </div>
                         </a>
-                        <a href="{{ route('show-case-video.index') }}" class="btn navigation_btn">
+                        <a href="{{ route('show-case-video.index') }}" class="btn navigation_btn" style="margin-right: 2px">
                             <div class="d-flex align-items-center">
-                                <i class="fa-solid fa-user-tie me-1" style="font-size: 12px;"></i>
+                                <i class="fa-solid fa-user-tie pe-1" style="font-size: 12px;"></i>
                                 <span>Showcase</span>
                             </div>
                         </a>
@@ -79,82 +87,213 @@
             <div class="container-fluid my-2">
                 <div class="row">
                     <div class="col-lg-6 offset-lg-3">
-                        <h3 class="text-center w-50 mx-auto" style="color: #247297; border-bottom: 1px solid #247297;">
-                            Business</h3>
+                        <h3 class="text-center w-50 mx-auto" style="color: #247297;">
+                            Business Dashboard</h3>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="">
-                            <h6 style="color: #247297; border-bottom: 1px solid #247297;" class=" mb-0 pt-2 text-center">
-                                Sales</h6>
-                            <div class="card card-body border-0 shadow-none mb-0"
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                <div class="row text-start mb-3 d-flex align-items-center">
-                                    <div class="flex-fill title_text_link col-sm-6">
-                                        <a href="http://127.0.0.1:8000/admin/expense">
-                                            <h6 class="mb-0 text-primary">Total Sales Value</h6>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <a href="http://127.0.0.1:8000/admin/expense">
-                                            <span class="text-danger"><i class="ph-trend-down me-2"></i> 8.02%</span>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <button type="button"
-                                            class="btn rounded-circle p-2 text-white shadow-lg
-                                            bg-secondary dashboard_btn chart_btn" style="width: 30px; height: 30px; font-size: 14px;">
-                                            <span class="mb-0">18%</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="mb-2">
-                                    <div class="row">
-                                        <div class="col-sm-5">
-                                            <span class="text-center text-secondary">Total Monthly</span>
+                            <h6 class="m-0 p-1 text-center"
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;"> Sales</h6>
+                            <div class="card rounded-0">
+                                <div class="card-body rounded-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6">
+                                            <div>
+                                                <a href="http://127.0.0.1:8000/admin/expense">
+                                                    <h6 class="mb-0 text-black">Total Sales</h6>
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="col-sm-7">
-                                            <div class="row text-end">
-                                                <div class="col-sm-6">
-                                                    <span class="text-center text-secondary">QTY</span>
+                                        <div class="col-lg-6">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted">
+                                                        5,000TK</span></a>
+                                                    <i class="ph-trend-down me-2 text-danger"></i>
                                                 </div>
-                                                <div class="col-sm-6">
-                                                    <span class="text-center text-secondary">Ration</span>
+                                                <div>
+                                                    <button type="button"
+                                                        class="btn rounded-circle p-3 text-white shadow-lg
+                                                        bg-secondary dashboard_btn chart_btn"
+                                                        style="width: 30px; height: 30px; font-size: 14px;">
+                                                        <span class="mb-0">18%</span>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="bg-light p-1">
-                                        <div class="box_details pb-1  p-1">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <span>Sales Value</span>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="row text-end">
-                                                        <div class="col-sm-6">
-                                                            <span class="text-center text-secondary">50</span>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <span class="text-center text-secondary">60</span>
+                                    <div class="mt-3" data-bs-toggle="modal" data-bs-target="#chart1"
+                                        style="cursor: pointer;">
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <a href="">
+                                                            <p class="m-0 ps-2 text-info">Current Month <span
+                                                                    class="text-black">(Jan)</span></p>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    QTY
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Target</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Achiev</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p class="text-end text-info small-font-size m-0 pe-2 p-1">
+                                                                    Ration</p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="box_details border-top pt-1 p-1">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <span>Ration </span>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="row text-end">
-                                                        <div class="col-sm-6">
-                                                            <span class="text-center text-warning">50</span>
+                                        {{-- Sales Solution --}}
+                                        <div class="">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Sales Solution</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    20</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    15^</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>18%
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-sm-6">
-                                                            <span class="text-center text-warning">60</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Web --}}
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Sales Web</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    20</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    15^</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-up pe-1 text-succsess"></i>23%
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Training --}}
+                                        <div class="">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Sales Training</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    20</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    15^</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-up pe-1 text-succsess"></i>18%
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Software development --}}
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Sales Development</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    20</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    15^</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>22%
+                                                                </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -165,258 +304,769 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-9">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <h6 style="color: #247297; border-bottom: 1px solid #247297;"
-                                    class=" mb-0 pt-2 text-center">Marketing </h6>
-                                <div class="card card-body border-0 shadow-none mb-0"
-                                    style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                    <div class="row text-start mb-3 d-flex align-items-center">
-                                        <div class="flex-fill title_text_link col-sm-6">
-                                            <a href="http://127.0.0.1:8000/admin/expense">
-                                                <h6 class="mb-0 text-primary">Total Marketing</h6>
-                                            </a>
+                    <div class="col-lg-4">
+                        <div class="">
+                            <h6 class="m-0 p-1 text-center"
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;"> Marketing</h6>
+                            <div class="card rounded-0">
+                                <div class="card-body rounded-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6">
+                                            <div>
+                                                <a href="http://127.0.0.1:8000/admin/expense">
+                                                    <h6 class="mb-0 text-black">Total Marketing</h6>
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <a href="http://127.0.0.1:8000/admin/expense">
-                                                <span class="text-success"><i class="ph-trend-up"></i> 2.43%</span>
-                                            </a>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <a href="http://127.0.0.1:8000/admin/expense">
-                                                <button type="button"
-                                                    class="btn rounded-circle p-2 text-white shadow-lg bg-secondary dashboard_btn"
-                                                    style="width: 30px; height: 30px; font-size: 14px;">
-                                                    <span class="mb-0">18%</span>
-                                                </button>
-                                            </a>
+                                        <div class="col-lg-6">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted">
+                                                        <span>24%</span>
+                                                    </a>
+                                                    <i class="ph-trend-down me-2 text-danger"></i>
+                                                </div>
+                                                <div>
+                                                    <button type="button"
+                                                        class="btn rounded-circle p-3 text-white shadow-lg
+                                                        bg-secondary dashboard_btn chart_btn"
+                                                        style="width: 30px; height: 30px; font-size: 14px;">
+                                                        <span class="mb-0">58%</span>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="mt-1">
-                                        <div class="box_details pb-1 bg-light p-1">
-                                            <div class="row">
-                                                <div class="col-lg-3">
-                                                    <span>DMAR </span>
-                                                </div>
-                                                <div class="col-lg-6"> <span class="text-success ms-2">
-                                                        <i class="ph-arrow-up fs-base lh-base align-top"></i>
-                                                        (+16.2%)
-                                                    </span>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <p class="p-0 m-0 main_text_color value text-end"
-                                                        style="font-size: 30px">
-                                                        <i class="fa-light fa-hourglass-start"></i> <span>165</span> %
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="box_details border-top pt-1 p-1">
-                                            <div class="row">
-                                                <div class="col-lg-3">
-                                                    <span>CMAR </span>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <span class="text-danger ms-2">
-                                                        <i class="ph-arrow-down fs-base lh-base align-top"></i>
-                                                        (-4.9%)
-                                                    </span>
-                                                </div>
-                                                <div class="col-lg-3 ">
-                                                    <p class="p-0 m-0 main_text_color value text-end"
-                                                        style="font-size: 30px">
-                                                        <i class="fa-light fa-hourglass-start"></i> <span>165</span> %
-                                                    </p>
+                                    <div class="mt-3" data-bs-toggle="modal" data-bs-target="#chart1"
+                                        style="cursor: pointer;">
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2 text-info">Current Month <span
+                                                                class="text-black">(Jan)</span></p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Target</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Achiev</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-end text-info small-font-size m-0 pe-2 p-1">
+                                                                    Ration</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="box_details pb-1 bg-light p-1">
-                                            <div class="row">
-                                                <div class="col-lg-3">
-                                                    <span>EMAR </span>
+                                        {{-- Sales Solution --}}
+                                        <div class="">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">DMAR</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-danger small-font-size m-0 p-1">
+                                                                    (-4.9%)</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>100%
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="col-lg-6"> <span class="text-success ms-2">
-                                                        <i class="ph-arrow-up fs-base lh-base align-top"></i>
-                                                        (+16.2%)
-                                                    </span>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Web --}}
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">CMAR</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    (+16.2%)</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-up pe-1 text-succsess"></i>125%
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="col-lg-3 text-end">
-                                                    <p class="p-0 m-0 main_text_color value text-end"
-                                                        style="font-size: 30px">
-                                                        <i class="fa-light fa-hourglass-start"></i> <span>165</span> %
-                                                    </p>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Training --}}
+                                        <div class="pb-4">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">EMAR</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    (+16.2%)</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-up pe-1 text-succsess"></i>165%
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <h6 style="color: #247297; border-bottom: 1px solid #247297;"
-                                    class=" mb-0 pt-2 text-center">Product Showcase</h6>
-                                <div class="card card-body border-0 shadow-none mb-0"
-                                    style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="flex-fill title_text_link">
-                                            <a href="http://127.0.0.1:8000/admin/expense">
-                                                <h6 class="mb-0 text-primary">Total Show</h6>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <a href="http://127.0.0.1:8000/admin/expense">
-                                                <button type="button"
-                                                    class="btn rounded-circle p-3 text-white shadow-lg bg-secondary dashboard_btn"
-                                                    style="width: 30px; height: 30px">
-                                                    <span class="mb-0">330</span>
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="box_details pb-1 bg-light p-1">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <span>Knowledge </span>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <p class="p-0 m-0 main_text_color value text-end" style="font-size: 30px">
-                                                    <i class="fa-light fa-hourglass-start"></i> <span>165</span> %
-                                                </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="">
+                            <h6 class="m-0 p-1 text-center"
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Client RFQ</h6>
+                            <div class="card rounded-0">
+                                <div class="card-body rounded-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6">
+                                            <div>
+                                                <a href="http://127.0.0.1:8000/admin/expense">
+                                                    <h6 class="mb-0 text-black">Total RFQ</h6>
+                                                </a>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="box_details border-top pt-1 p-1">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="col-lg-6">
-                                                    <span>Present</span>
+                                        <div class="col-lg-6">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted">
+                                                        58%</span></a>
+                                                    <i class="ph-trend-up me-2 text-success"></i>
+                                                </div>
+                                                <div>
+                                                    <button type="button"
+                                                        class="btn rounded-circle p-3 text-white shadow-lg
+                                                        bg-secondary dashboard_btn chart_btn"
+                                                        style="width: 30px; height: 30px; font-size: 14px;">
+                                                        <span class="mb-0">88%</span>
+                                                    </button>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
-                                                <p class="p-0 m-0 main_text_color value text-end" style="font-size: 30px">
-                                                    <i class="fa-light fa-hourglass-start"></i> <span>165</span> %
-                                                </p>
-                                            </div>
                                         </div>
                                     </div>
-                                    <div class="box_details pb-1 bg-light p-1">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <span>Showcase BD</span>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <p class="p-0 m-0 main_text_color value text-end" style="font-size: 30px">
-                                                    <i class="fa-light fa-hourglass-start"></i> <span>165</span> %
-                                                </p>
+                                    <div class="mt-3" data-bs-toggle="modal" data-bs-target="#chart1"
+                                        style="cursor: pointer;">
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2 text-info">Current Month <span
+                                                                class="text-black">(Jan)</span></p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Pending</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Done</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-end text-info small-font-size m-0 p-1">
+                                                                    Win/Lose</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <h6 style="color: #247297; border-bottom: 1px solid #247297;"
-                                    class=" mb-0 pt-2 text-center">Quick Link</h6>
-                                <div class="card card-body border-0 shadow-none mb-0"
-                                    style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                    <div class="box_details d-flex justify-content-between">
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Homepage (+)
-                                        </a>
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Learnmore Page (+)
-                                        </a>
-                                    </div>
-                                    <div class="box_details d-flex justify-content-between">
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Homepage 2 (+)
-                                        </a>
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Learnmore Page 2 (+)
-                                        </a>
-                                    </div>
-                                    <div class="box_details d-flex justify-content-between">
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Homepage 3 (+)
-                                        </a>
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Learnmore Page 3 (+)
-                                        </a>
-                                    </div>
-                                    <div class="box_details d-flex justify-content-between">
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Homepage 4 (+)
-                                        </a>
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Learnmore Page 4 (+)
-                                        </a>
-                                    </div>
-                                    <div class="box_details d-flex justify-content-between">
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Homepage 5 (+)
-                                        </a>
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Learnmore Page 5 (+)
-                                        </a>
-                                    </div>
-                                    <div class="box_details d-flex justify-content-between">
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Homepage 5 (+)
-                                        </a>
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Learnmore Page 5 (+)
-                                        </a>
-                                    </div>
-                                    <div class="box_details d-flex justify-content-between">
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Homepage 5 (+)
-                                        </a>
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Learnmore Page 5 (+)
-                                        </a>
-                                    </div>
-                                    <div class="box_details d-flex justify-content-between">
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Homepage 5 (+)
-                                        </a>
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Learnmore Page 5 (+)
-                                        </a>
-                                    </div>
-                                    <div class="box_details d-flex justify-content-between">
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Homepage 5 (+)
-                                        </a>
-                                        <a href="" style="color: #247297; font-size: 12px;">
-                                            Learnmore Page 5 (+)
-                                        </a>
+                                        {{-- Sales Solution --}}
+                                        <div class="">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Total RFQ</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    3</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-up pe-1 text-succsess"></i>100%
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Web --}}
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Total Deals</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    1</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>125%
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Training --}}
+                                        <div class="pb-4">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Close By</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    4</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>165%
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12 mt-3">
-                    <div class="data">
-                        <!-- Basic columns -->
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0 text-center">Monthly Sales Report</h5>
+                <div class="row mb-3">
+                    <div class="col-md-8 col-offset-2 mx-auto my-4">
+                        <div
+                            style="border: 2px;
+                        border-style: dashed;
+                        border-color: #247297;
+                        padding: 25px;">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a href="" class="btn navigation_btn quick_link me-3">Dashboard</a>
+                                <a href="" class="btn navigation_btn quick_link me-3">Supply Chain</a>
+                                <a href="" class="btn navigation_btn quick_link me-3">Expence</a>
+                                <a href="" class="btn navigation_btn quick_link me-3">Dashboard</a>
+                                <a href="" class="btn navigation_btn quick_link me-3">Client Support</a>
+                                <a href="" class="btn navigation_btn quick_link me-3">Supply Chain</a>
+                                <a href="" class="btn navigation_btn quick_link">Expence</a>
                             </div>
-                            <div class="card-body">
-                                <div class="chart-container">
-                                    <div class="chart has-fixed-height" id="columns_basic"></div>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="row">
+                    <div class="col-lg-12">
+                        <h6 class="m-0 p-1 text-center"
+                            style="color: #fff; border-bottom: 1px solid #247297;background: #247297;"> Quick Link</h6>
+                        <div class="card rounded-0">
+                            <div class="card-body px-0 d-flex justify-content-center">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <a href="" class="btn navigation_btn">Dashboard</a>
+                                    <a href="" class="btn navigation_btn">About Us</a>
+                                    <a href="" class="btn navigation_btn">Business Dashboard</a>
+                                    <a href="" class="btn navigation_btn">RFQ</a>
+                                    <a href="" class="btn navigation_btn">Leave Dashboard</a>
+                                    <a href="" class="btn navigation_btn">Site Setting</a>
+                                    <a href="" class="btn navigation_btn">HR & Admin</a>
+                                    <a href="" class="btn navigation_btn">Policy</a>
+                                    <a href="" class="btn navigation_btn">CRM</a>
+                                    <a href="" class="btn navigation_btn">Supply Chain</a>
+                                    <a href="" class="btn navigation_btn">Employee</a>
+                                    <a href="" class="btn navigation_btn">Job Application</a>
+                                    <a href="" class="btn navigation_btn">Feature</a>
+                                    <a href="" class="btn navigation_btn">Client Support</a>
+                                    <a href="" class="btn navigation_btn me-0">Expence</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- /basic columns -->
+                    </div>
+                </div> --}}
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="">
+                            <h6 class="m-0 p-1 text-center"
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Product Showcase
+                            </h6>
+                            <div class="card rounded-0">
+                                <div class="card-body rounded-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6">
+                                            <div>
+                                                <a href="http://127.0.0.1:8000/admin/expense">
+                                                    <h6 class="mb-0 text-black">Total Show</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted">
+                                                        20%</span></a>
+                                                    <i class="ph-trend-up me-2 text-success"></i>
+                                                </div>
+                                                <div>
+                                                    <button type="button"
+                                                        class="btn rounded-circle p-3 text-white shadow-lg
+                                                        bg-secondary dashboard_btn chart_btn"
+                                                        style="width: 30px; height: 30px; font-size: 14px;">
+                                                        <span class="mb-0" style="font-size: 10px">2200 PCS</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3" data-bs-toggle="modal" data-bs-target="#chart1"
+                                        style="cursor: pointer;">
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2 text-info">Details<span
+                                                                class="text-black">(Jan)</span></p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Approved</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-center text-info small-font-size m-0 p-1">
+                                                                    Rejected</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p class="text-end text-info small-font-size m-0 p-1">Ratio
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Solution --}}
+                                        <div class="">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Knowledge</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    3</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-up pe-1 text-succsess"></i>100%
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Web --}}
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Present</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    1</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>125%
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Training --}}
+                                        <div class="">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Brochure</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    4</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>165%
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Training --}}
+                                        <div class="">
+                                            <div class="box_details bg-light">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2">Features</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    5</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-center text-secondary small-font-size m-0 p-1">
+                                                                    4</p>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p
+                                                                    class="text-end text-secondary small-font-size m-0 pe-2 p-1">
+                                                                    <i class="ph ph-arrow-down pe-1 text-danger"></i>165%
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="">
+                            <h6 class="m-0 p-1 text-center"
+                                style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Traning &
+                                Certificate</h6>
+                            <div class="card rounded-0">
+                                <div class="card-body rounded-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6">
+                                            <div>
+                                                <a href="http://127.0.0.1:8000/admin/expense">
+                                                    <h6 class="mb-0 text-black">Total</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <a href="http://127.0.0.1:8000/admin/expense" class="text-muted">
+                                                        30%</span></a>
+                                                    <i class="ph-trend-up me-2 text-success"></i>
+                                                </div>
+                                                <div>
+                                                    <button type="button"
+                                                        class="btn rounded-circle p-3 text-white shadow-lg
+                                                        bg-secondary dashboard_btn chart_btn"
+                                                        style="width: 30px; height: 30px; font-size: 14px;">
+                                                        <span class="mb-0" style="font-size: 10px"><i
+                                                                class="fa-solid fa-user-check text-white"></i></span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3" data-bs-toggle="modal" data-bs-target="#chart1"
+                                        style="cursor: pointer;">
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4">
+                                                        <p class="m-0 ps-2 text-info">This Month <span
+                                                                class="text-black">(Jan)</span></p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <p class="text-end text-info small-font-size m-0 pe-2 p-1">Ratio
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Solution --}}
+                                        <div class="">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-6">
+                                                        <p class="m-0 ps-2">Traning</p>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i
+                                                                class="ph ph-arrow-up pe-1 text-succsess"></i>100%</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Web --}}
+                                        <div class="bg-light">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-6">
+                                                        <p class="m-0 ps-2">Certificate</p>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i
+                                                                class="ph ph-arrow-down pe-1 text-danger"></i>125%</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Sales Training --}}
+                                        <div class="">
+                                            <div class="box_details">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-6">
+                                                        <p class="m-0 ps-2">Partnership</p>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i
+                                                                class="ph ph-arrow-down pe-1 text-danger"></i>165%</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <div class="box_details bg-light">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-6">
+                                                        <p class="m-0 ps-2">Others</p>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <p class="text-end text-secondary small-font-size m-0 pe-2 p-1"><i
+                                                                class="ph ph-arrow-down pe-1 text-danger"></i>165%</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <h6 class="m-0 p-1 text-center"
+                            style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Monthly Salses Query
+                        </h6>
+                        <div class="chart-container">
+                            <canvas class="chartjs-line-chart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {{-- Chart In Modal --}}
+    <!-- Modal trigger button -->
+    <!-- Modal Body -->
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div class="modal fade" id="chart1" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header px-3 py-2">
+                    <h5 class="modal-title m-0" id="modalTitleId">
+                        Sales Query
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="chart-container">
+                                    <canvas class="chartjs-line-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 @push('scripts')
+    <script>
+        // Chart data
+        var data = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+                'November', 'December'
+            ],
+            datasets: [{
+                    label: 'Target',
+                    data: [10, 15, 20, 25, 30, 35, 40, 45, 40, 35, 30, 25],
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2,
+                    fill: false,
+                    pointStyle: 'rect', // Point style for Data 1
+                    pointRadius: 6,
+                    pointBackgroundColor: 'rgba(255, 99, 132, 0.7)', // Color of the point for Data 1
+                    pointBorderColor: 'rgba(255, 99, 132, 1)', // Border color of the point for Data 1
+                    pointBorderWidth: 1 // Border width of the point for Data 1
+                },
+                {
+                    label: 'Achievement',
+                    data: [30, 40, 50, 60, 70, 80, 90, 100, 90, 80, 70, 60],
+                    borderColor: 'rgba(255, 206, 86, 1)', // Change color for 'Ratio'
+                    borderWidth: 2,
+                    fill: false,
+                    pointStyle: 'rect', // Point style for Data 2
+                    pointRadius: 6,
+                    pointBackgroundColor: 'rgba(255, 206, 86, 0.7)', // Color of the point for Data 2
+                    pointBorderColor: 'rgba(255, 206, 86, 1)', // Border color of the point for Data 2
+                    pointBorderWidth: 1 // Border width of the point for Data 2
+                }
+            ]
+        };
+
+        // Chart configuration
+        var config = {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    x: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Months'
+                        },
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }],
+                    y: [{
+                        type: 'linear',
+                        position: 'left'
+                    }]
+                }
+            }
+        };
+
+        // Chart initialization code using Chart.js
+        document.addEventListener('DOMContentLoaded', function() {
+            var chartContainers = document.getElementsByClassName('chartjs-line-chart');
+
+            for (var i = 0; i < chartContainers.length; i++) {
+                var ctx = chartContainers[i].getContext('2d');
+                new Chart(ctx, config);
+            }
+        });
+    </script>
+
     <script>
         $('.data').hide()
         jQuery('.chart_btn').on('click', function() {
@@ -441,9 +1091,3 @@
         });
     </script>
 @endpush
-
-
-
-
-
-

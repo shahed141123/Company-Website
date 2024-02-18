@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('username', 200)->unique()->nullable();
             $table->string('email', 200)->unique();
             $table->string('phone', 200)->nullable();
-            $table->string('image', 200)->nullable();
+            $table->string('photo', 200)->nullable();
             $table->text('address')->nullable();
             $table->string('city', 200)->nullable();
             $table->string('country', 200)->nullable();

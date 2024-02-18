@@ -64,7 +64,7 @@
 <script src="{{ asset('backend/lib/year-select.js') }}"></script>
 <script src="{{ asset('backend/assets/js/calculate.js') }}"></script>
 {!! Toastr::message() !!}
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 @stack('scripts')
 

@@ -62,6 +62,7 @@ return new class extends Migration
             $table->double('total_price')->nullable();
             $table->double('quoted_price')->nullable();
             $table->text('price_text')->nullable();
+            $table->string('currency')->nullable();
             $table->string('rfq_department')->nullable();
 
             $table->foreign('sales_man_id_L1')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

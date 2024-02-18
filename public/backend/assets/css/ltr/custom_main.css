@@ -1536,7 +1536,7 @@ input.invalid {
     width: 25%;
     margin-top: -18px;
     text-align: center;
-    position: relative
+    position: relative;
 }
 
 .track .step.active:before {
@@ -1549,13 +1549,12 @@ input.invalid {
     content: "";
     width: 100%;
     left: 0;
-    top: 18px
+    top: 18px;
 }
 
 .track .step.active .icon {
     background: #247297;
-    ;
-    color: #fff
+    color: #fff;
 }
 
 .track .icon {
@@ -1571,12 +1570,12 @@ input.invalid {
 
 .track .step.active .text {
     font-weight: 400;
-    color: #000
+    color: #000;
 }
 
 .track .text {
     display: block;
-    margin-top: 7px
+    margin-top: 7px;
 }
 
 .itemside {
@@ -1584,40 +1583,217 @@ input.invalid {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 100%
+    width: 100%;
 }
 
 .itemside .aside {
     position: relative;
     -ms-flex-negative: 0;
-    flex-shrink: 0
+    flex-shrink: 0;
 }
 
 .img-sm {
     width: 80px;
     height: 80px;
-    padding: 7px
+    padding: 7px;
 }
 
 ul.row,
 ul.row-sm {
     list-style: none;
-    padding: 0
+    padding: 0;
 }
 
 .itemside .info {
     padding-left: 15px;
-    padding-right: 7px
+    padding-right: 7px;
 }
 
 .itemside .title {
     display: block;
     margin-bottom: 5px;
-    color: #212529
+    color: #212529;
 }
 
+.small-font-size {
+    font-size: 11px;
+}
 
+.offcanvas.offcanvas-start {
+    top: 240px !important;
+    left: 0;
+    width: var(--bs-offcanvas-width);
+    border-right: var(--bs-offcanvas-border-width) solid
+        var(--bs-offcanvas-border-color);
+    transform: translateX(-100%);
+    height: 540px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.emplpyee-card {
+    border: 1px;
+    border-style: dashed;
+    border-color: #247297;
+    padding: 10px;
+}
+
+.bell-icon {
+    padding: 10px;
+    background-color: #247297;
+    color: white;
+}
+
+.action-icons {
+    padding: 5px;
+    background-color: #247297;
+    color: white;
+    border-radius: 50%;
+}
+
+.badge-icons {
+    background: transparent;
+    border-radius: 50%;
+    padding: 9px 13px;
+    margin-right: 11px;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    width: 32px;
+    background-color: #805dca;
+    box-shadow: 0 10px 20px -8px #805dca;
+    color: white;
+}
+
+.badge-icons-pending {
+    background: transparent;
+    border-radius: 50%;
+    padding: 9px 13px;
+    margin-right: 11px;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    width: 32px;
+    background-color: #13a6d2;
+    box-shadow: 0 10px 20px -8px #805dca;
+    color: white;
+}
+
+.ammount {
+    padding: 5px 10px;
+    background-color: #247297;
+    color: white;
+}
+
+#canvas-holder {
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+}
+
+#chartjs-tooltip {
+    opacity: 1;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 3px;
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+    pointer-events: none;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.chartjs-tooltip-key {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}
+
+.card-main-title {
+    color: #fff;
+    border-bottom: 1px solid #247297;
+    background: #247297;
+}
+/* Notice Board */
+ /* Custom styles for this page */
+ .delete-btns {
+    width: 30px;
+    height: 30px;
+    border: 0;
+}
+
+.delete-btns:hover {}
+
+.delete {}
+
+.delete:hover {}
+
+.notes {
+    height: 40vh;
+    overflow: auto;
+}
+
+.notes::-webkit-scrollbar {
+    width: 2px;
+}
+
+.notes::-webkit-scrollbar-track {
+    box-shadow: none;
+}
+
+.notes::-webkit-scrollbar-thumb {
+    background-color: white;
+    outline: 0px solid slategrey;
+}
+
+.main-bg-image {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+.notice-card {
+    /* Styling for notice cards */
+    position: relative;
+    background-image: url('https://img.freepik.com/premium-vector/abstract-style-halftone-concept-your-graphic-design_29865-2643.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.notice-card::before {
+    /* Background filter for blur effect */
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.notice-card p,
+.notice-card h2, h4 {
+    /* Counteract the blur effect on text elements */
+    filter: blur(0);
+}
+
+.notice-card-header {
+    /* Styles for card header */
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
 /*== purchase order details css end== */
 @media only screen and (max-width: 600px) {
     .label_style {
