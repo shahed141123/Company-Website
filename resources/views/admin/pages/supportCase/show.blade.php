@@ -364,7 +364,8 @@
                                                                                         <label for="validationCustom02"
                                                                                             class="form-label mt-3">
                                                                                             Sub <span
-                                                                                                class="text-danger">*</span> :
+                                                                                                class="text-danger">*</span>
+                                                                                            :
                                                                                         </label>
                                                                                     </div>
                                                                                     <div class="col-lg-5 my-2 pt-2">
@@ -408,11 +409,11 @@
                                                                                 <div class="row gx-1">
                                                                                     <div class="col-lg-12 mb-3">
                                                                                         <textarea class="form-control form-control-sm w-100 border-bottom" name="message" placeholder="Enter Your Message"
-                                                                                            rows="1">{{ old('message') }}</textarea>
+                                                                                            rows="2">{{ old('message') }}</textarea>
                                                                                     </div>
 
                                                                                     <div
-                                                                                        class="col-lg-12 d-flex justify-content-between align-items-center mb-2">
+                                                                                        class="col-lg-12 d-flex justify-content-between align-items-center mb-3">
                                                                                         <div>
                                                                                             <input type="file"
                                                                                                 class="form-control mx-4 w-lg-75"
@@ -602,8 +603,13 @@
         <script>
             $(document).ready(function() {
                 $('.reply').click(function() {
-                    $(".chat_box").toggle();
+                    // Find the closest chat box related to the clicked "Reply" button
+                    var chatBox = $(this).closest('.row').next('.chat_box');
+
+                    // Toggle the visibility of the found chat box
+                    chatBox.toggle();
                 });
+
                 $('.remove_div').on('click', function() {
                     $(this).closest('.row').remove();
                 });

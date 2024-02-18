@@ -95,6 +95,16 @@ class AdminController extends Controller
 
         $data['notifications'] = auth()->user()->unreadNotifications;
 
+        if (auth()->check() && in_array('support', json_decode(auth()->user()->department, true))) {
+            $data['projects'] = Project::with('client')->orderBy('id', 'DESC')->get();
+            $data['supports'] = ClientSupport::with('client', 'project')->where('status', '!=', 'closed')->orderBy('id', 'DESC')->get();
+            $data['cases'] = SupportCase::latest('id')->get();
+            $data['latest_case'] = SupportCase::where('status', '!=', 'closed')->latest('id')->first();
+
+            return view('admin.pages.project.dashboard', $data);
+        } else {
+
+
         $id = Auth::user()->employee_id;
         // Connect to the ZKtecho device
         $deviceip = $this->device_ip();
@@ -345,14 +355,7 @@ class AdminController extends Controller
         $data['attendanceLastMonths'] = isset($attendanceLastMonth) ? $attendanceLastMonth : null;
         $data['deviceip']             = isset($deviceip) ? $deviceip : null;
 
-        if (auth()->check() && in_array('support', json_decode(auth()->user()->department, true))) {
-            $data['projects'] = Project::with('client')->orderBy('id', 'DESC')->get();
-            $data['supports'] = ClientSupport::with('client', 'project')->where('status', '!=', 'closed')->orderBy('id', 'DESC')->get();
-            $data['cases'] = SupportCase::latest('id')->get();
-            $data['latest_case'] = SupportCase::where('status', '!=', 'closed')->latest('id')->first();
 
-            return view('admin.pages.project.dashboard', $data);
-        } else {
             return view('admin.pages.dashboard.index', $data);
         }
     }
