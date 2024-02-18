@@ -49,6 +49,13 @@
                                 <span>Make A Leave</span>
                             </div>
                         </a>
+                        <a href="javascript:void(0)" class="btn navigation_btn" data-bs-toggle="modal"
+                            data-bs-target="#makeleave">
+                            <div class="d-flex align-items-center">
+                                <i class="fa-solid fa-envelope-open-text me-1" style="font-size: 14px;"></i>
+                                <span>All Attendance </span>
+                            </div>
+                        </a>
                         {{-- Example: Button for another action --}}
                         {{-- <a href="" class="btn navigation_btn" data-bs-toggle="modal" data-bs-target="#checkapproved">
                             <div class="d-flex align-items-center">
@@ -61,17 +68,75 @@
                 </div>
             </div>
             <div class="content mt-2">
+                <h5 class="text-center py-1">My Leave Dashboard</h5>
                 <div class="row">
-                    <div class="col-lg-8 offset-lg-2 col-12">
-                        <div class="row my-4">
-                            <div class="col-lg-8 mx-auto">
-                                <!-- Leave Information Card -->
+                    <div class="col-lg-10 offset-lg-1 mx-auto">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h6 class="m-0 p-1 text-center card-main-title">Leave Info</h6>
+                                <a href="{{ route('employee.index') }}">
+                                    <div class="card rounded-0">
+                                        <div class="card-body pb-0 p-2">
+                                            <div class="row align-items-center">
+                                                <div class="col-lg-6">
+                                                    <div class="emplpyee-card">
+                                                        <div class="d-flex justify-content-between align-items-center pb-3">
+                                                            <h6 class="m-0"><i
+                                                                    class="fa-solid fa-right-from-bracket badge-icons"></i>
+                                                            </h6>
+                                                            <h6 class="main_color m-0 ammount rounded-1">14</h6>
+                                                        </div>
+                                                        <div class="pt-4">
+                                                            <h6 class="text-muted m-0 text-center">Pending Monthly Leave</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="emplpyee-card">
+                                                        <div>
+                                                            <div class="d-flex justify-content-between align-items-center pb-1">
+                                                                <p class="m-0"><i
+                                                                        class="fa-solid fa-bed-pulse badge-icons me-1"></i>
+                                                                </p>
+                                                                <p class="text-muted m-0">Sick Leave</p>
+                                                                <p class="main_color m-0 ammount rounded-1">
+                                                                    5
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="d-flex justify-content-between align-items-center pb-1">
+                                                                <p class="m-0">
+                                                                    <i class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
+                                                                </p>
+                                                                <p class="text-muted m-0">Earned Leave</p>
+                                                                <p class="main_color m-0 ammount rounded-1">
+                                                                    3</p>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="d-flex justify-content-between align-items-center ">
+                                                                <p class="m-0"><i
+                                                                        class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
+                                                                </p>
+                                                                <p class="text-muted m-0">Casual Leave</p>
+                                                                <p class="main_color m-0 ammount rounded-1">
+                                                                    5</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-8">
                                 <div class="card rounded-0">
-                                    <div class="row gx-0">
+                                    <div class="card-body p-0">
                                         <div class="table-responsive">
                                             <table class="table text-center table-striped table-hover">
-                                                <thead
-                                                    style="background-color: #ae0a46 !important; color: white !important;">
+                                                <thead style="background-color: #247297 !important; color: white !important;">
                                                     <tr>
                                                         <th width="30%">Leave Position</th>
                                                         <th width="25%">Leave Due As On</th>
@@ -82,30 +147,30 @@
                                                 <tbody class="text-center">
                                                     <!-- Leave Information Rows -->
                                                     <tr>
-                                                        <td>Earned Leave</td>
-                                                        <td>{{ optional($employee_leave_due)->earned_leave_due_as_on ?? '' }}
+                                                        <td class="p-2">Earned Leave</td>
+                                                        <td class="p-2">{{ optional($employee_leave_due)->earned_leave_due_as_on ?? '' }}
                                                         </td>
-                                                        <td>{{ optional($employee_leave_due)->earned_leave_availed ?? '' }}
+                                                        <td class="p-2">{{ optional($employee_leave_due)->earned_leave_availed ?? '' }}
                                                         </td>
-                                                        <td>{{ optional($employee_leave_due)->earned_balance_due ?? '' }}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Casual Leave</td>
-                                                        <td>{{ optional($employee_leave_due)->casual_leave_due_as_on ?? '' }}
-                                                        </td>
-                                                        <td>{{ optional($employee_leave_due)->casual_leave_availed ?? '' }}
-                                                        </td>
-                                                        <td>{{ optional($employee_leave_due)->casual_balance_due ?? '' }}
+                                                        <td class="p-2">{{ optional($employee_leave_due)->earned_balance_due ?? '' }}
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Medical Leave</td>
-                                                        <td>{{ optional($employee_leave_due)->medical_leave_due_as_on ?? '' }}
+                                                        <td class="p-2">Casual Leave</td>
+                                                        <td class="p-2">{{ optional($employee_leave_due)->casual_leave_due_as_on ?? '' }}
                                                         </td>
-                                                        <td>{{ optional($employee_leave_due)->medical_leave_availed ?? '' }}
+                                                        <td class="p-2">{{ optional($employee_leave_due)->casual_leave_availed ?? '' }}
                                                         </td>
-                                                        <td>{{ optional($employee_leave_due)->medical_balance_due ?? '' }}
+                                                        <td class="p-2">{{ optional($employee_leave_due)->casual_balance_due ?? '' }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="p-2">Medical Leave</td>
+                                                        <td class="p-2">{{ optional($employee_leave_due)->medical_leave_due_as_on ?? '' }}
+                                                        </td>
+                                                        <td class="p-2">{{ optional($employee_leave_due)->medical_leave_availed ?? '' }}
+                                                        </td>
+                                                        <td class="p-2">{{ optional($employee_leave_due)->medical_balance_due ?? '' }}
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -118,15 +183,16 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row mt-4">
                     <div class="col-10 offset-1">
                         <!-- Leave Applications Table -->
                         <h6 class="m-0 p-1 text-center"
-                                    style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Leave Details Table</h6>
+                            style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Leave Details Table
+                        </h6>
                         <div class="card rounded-0">
-                            <div class="card-body">
+                            <div class="card-body p-0">
                                 <div class="table-responsive">
-                                    <table class="table table-hover table-bordered table-striped">
+                                    <table class="table table-hover leaveDT table-bordered table-striped">
                                         <thead class="text-center">
                                             <tr>
                                                 <th width="5%" class="text-center">Sl:</th>
@@ -143,14 +209,14 @@
                                                 <!-- Iterate through Leave Applications -->
                                                 @foreach ($leaveApplications as $leaveApplication)
                                                     <tr>
-                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td class="text-capitalize">{{ $loop->iteration }}</td>
                                                         <td>{{ $leaveApplication->type_of_leave }}</td>
                                                         <td>From {{ $leaveApplication->leave_start_date }} To
                                                             {{ $leaveApplication->leave_end_date }}</td>
                                                         <td>{{ $leaveApplication->reporting_on }}</td>
                                                         <td>{{ $leaveApplication->reporting_on }}</td>
                                                         <td>
-                                                            <!-- Application Status Badge -->
+                                                            <!-- Application Status Badge --> Leave Approval
                                                             <span
                                                                 class="badge bg-{{ optional($leaveApplication)->application_status == 'approved' ? 'success' : (optional($leaveApplication)->application_status == 'rejected' ? 'danger' : 'warning') }}">
                                                                 {{ optional($leaveApplication)->application_status == 'approved' ? 'Approved' : (optional($leaveApplication)->application_status == 'rejected' ? 'Rejected' : 'Pending') }}
@@ -188,7 +254,8 @@
                         <!-- Modal Header -->
                         <div class="modal-header text-white" style="background-color: #ae0a46 !important;">
                             <h5 class="modal-title text-uppercase" id="checkapprovedLabel">For Official Use</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
                         </div>
 
                         <!-- Modal Body -->
@@ -198,7 +265,8 @@
                                 <div class="row gx-0 mb-3">
                                     <div class="col-lg-12">
                                         <table class="table table-bordered">
-                                            <thead style="background-color: #ae0a468f !important; color: white !important;">
+                                            <thead
+                                                style="background-color: #ae0a468f !important; color: white !important;">
                                                 <tr>
                                                     <th scope="col">Leave Position</th>
                                                     <th scope="col">Leave Due As On</th>
@@ -282,3 +350,18 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.leaveDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 25, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [5],
+                }, ],
+            });
+        });
+    </script>
+@endpush

@@ -1,28 +1,8 @@
 @extends('admin.master')
 @section('content')
     <style>
-        .accordion {
-            --accordion-border-width: 0px !important;
-        }
-
         .section-border {
             border-bottom: 0.5px solid #acdaf063;
-        }
-
-        .card_title {
-            text-align: left !important;
-        }
-
-        .btn-link {
-            background-color: #247297;
-            color: white;
-            padding: 0px 4px 0px;
-        }
-
-        .btn-link:hover {
-            background-color: transparent;
-            color: #247297;
-            padding: 0px 4px 0px;
         }
 
         .btn-circle {
@@ -37,17 +17,13 @@
             border: 1px solid #247297;
         }
 
-        .link_title_admin {
-            font-size: 12px;
-        }
-
         .site_content_main_card {
-            height: 16rem;
+            height: 19.5rem;
         }
 
-        .card_title_info {
-            color: #247297;
-            border-bottom: 1px solid #247297;
+        .border-right {
+            border-top-right-radius: 50px !important;
+            border-bottom-right-radius: 50px !important;
         }
     </style>
     <div class="content-wrapper">
@@ -119,480 +95,522 @@
             <section>
                 <div class="container-fluid mb-2">
                     <div class="row py-2">
-                        <h5 class="mb-0 text-center mx-auto bg-secondary"
-                            style="border-bottom: 1px solid #247297; width: 13%;
-                        color: white;">
-                            Site Contents</h5>
+                        <h5 class="mb-0 text-center mx-auto">Site Contents</h5>
                     </div>
-                    <div class="row mt-1">
-                        <div class="col-lg-4">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
-                                Page Builder</h6>
-                            <div class="card site_content_main_card card-body border-0 shadow-none mb-0"
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                {{-- Link Start --}}
-                                <div class="row gx-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('row.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin"> Row Builder</span>
+                    <div class="row">
+                        <div class="col-lg-8 offset-2 mx-auto">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <h6 class="m-0 p-0 card-main-title text-center">Category</h6>
+                                    <div class="card rounded-0">
+                                        <div class="card-body">
+                                            <div class="emplpyee-card">
+                                                <div class="mb-1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="d-flex align-items-center">
+                                                            <h6 class="m-0"><i class="fa-solid fa-list badge-icons me-2"></i>
+                                                            </h6>
+                                                            <h6 class="text-muted m-0">Total Category</h6>
+                                                        </div>
+                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                            8
+                                                        </h6>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('row.create') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('solutionCard.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Solution Card</span>
+                                                <div class="mb-1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="d-flex align-items-center">
+                                                            <h6 class="m-0"><i class="fa-solid fa-list-check badge-icons me-2"></i>
+                                                            </h6>
+                                                            <h6 class="text-muted m-0">Sub Category</h6>
+                                                        </div>
+                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                            40</h6>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('solutionCard.create') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
-                                                </a>
+                                                <div class="mb-1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="d-flex align-items-center">
+                                                            <h6 class="m-0"><i class="fa-solid fa-table-list badge-icons me-2"></i>
+                                                            </h6>
+                                                            <h6 class="text-muted m-0">Sub Sub Category</h6>
+                                                        </div>
+                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                            20</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="d-flex align-items-center">
+                                                            <h6 class="m-0"><i class="fa-solid fa-box badge-icons me-2"></i>
+                                                            </h6>
+                                                            <h6 class="text-muted m-0">Total Product</h6>
+                                                        </div>
+                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                            1,800</h6>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </a>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="col-lg-4">
+                                    <h6 class="m-0 p-0 card-main-title text-center">Content Info</h6>
+                                    <div class="card rounded-0">
+                                        <div class="card-body">
+                                            <div class="emplpyee-card">
+                                                <div class="mb-1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="d-flex align-items-center">
+                                                            <h6 class="text-muted m-0">Brand</h6>
+                                                        </div>
+                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                            16
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="d-flex align-items-center">
+                                                            <h6 class="text-muted m-0">Solution</h6>
+                                                        </div>
+                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                            40</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="d-flex align-items-center">
+                                                            <h6 class="text-muted m-0">Project</h6>
+                                                        </div>
+                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                            20</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="d-flex align-items-center">
+                                                            <h6 class="text-muted m-0">Feature</h6>
+                                                        </div>
+                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                            50</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <h6 class="m-0 p-0 card-main-title text-center">All Pages</h6>
+                                    <div class="card rounded-0">
+                                        <div class="card-body">
+                                            <div class="emplpyee-card">
+                                                <div class="mb-1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="d-flex align-items-center">
+                                                            <h6 class="text-muted m-0">Common</h6>
+                                                        </div>
+                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                            16
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="d-flex align-items-center">
+                                                            <h6 class="text-muted m-0">Single</h6>
+                                                        </div>
+                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                            40</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="d-flex align-items-center">
+                                                            <h6 class="text-muted m-0">Blogs</h6>
+                                                        </div>
+                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                            20</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="d-flex align-items-center">
+                                                            <h6 class="text-muted m-0">Techglossy</h6>
+                                                        </div>
+                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                            50</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 offset-lg-2 mx-auto">
+                        <div class="row mt-1 mx-auto">
+                            <div class="col-lg-6 ps-0">
+                                <h6 class="m-0 p-0 card-main-title text-center">Page Builder</h6>
+                                <div class="card rounded-0 site_content_main_card">
+                                    <div class="card-body"
+                                        style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
+                                        {{-- Link Start --}}
+                                        <div class="row gx-1">
+                                            <div class="col-lg-6">
+                                                <a href="{{ route('row.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted"> Row Builder</span>
+                                                        </div>
+                                                        <a href="{{ route('row.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <a href="{{ route('solutionCard.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Solution Card</span>
+                                                        </div>
+                                                        <a href="{{ route('solutionCard.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
 
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('homepage.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Homepage</span>
-                                                </div>
-                                                <a href="{{ route('homepage.create') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                        <div class="row gx-1 mt-1">
+                                            <div class="col-lg-6">
+                                                <a href="{{ route('homepage.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Homepage</span>
+                                                        </div>
+                                                        <a href="{{ route('homepage.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('learnMore.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Learnmore Page</span>
-                                                </div>
-                                                <a href="{{ route('learnMore.create') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                            <div class="col-lg-6">
+                                                <a href="{{ route('learnMore.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Learnmore Page</span>
+                                                        </div>
+                                                        <a href="{{ route('learnMore.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                </div>
+                                        </div>
 
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('software-info-page.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Software Info</span>
-                                                </div>
-                                                <a href="{{ route('software-info-page.create') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                        <div class="row gx-1 mt-1">
+                                            <div class="col-lg-6">
+                                                <a href="{{ route('software-info-page.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Software Info</span>
+                                                        </div>
+                                                        <a href="{{ route('software-info-page.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('software-common-page.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Software Common</span>
-                                                </div>
-                                                <a href="{{ route('software-common-page.create') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                            <div class="col-lg-6">
+                                                <a href="{{ route('software-common-page.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Software Common</span>
+                                                        </div>
+                                                        <a href="{{ route('software-common-page.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('hardware-info-page.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Hardware Info</span>
-                                                </div>
-                                                <a href="{{ route('hardware-info-page.create') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                        </div>
+                                        <div class="row gx-1 mt-1">
+                                            <div class="col-lg-6">
+                                                <a href="{{ route('hardware-info-page.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Hardware Info</span>
+                                                        </div>
+                                                        <a href="{{ route('hardware-info-page.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('hardware-common-page.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Hardware Common</span>
-                                                </div>
-                                                <a href="{{ route('hardware-common-page.create') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                            <div class="col-lg-6">
+                                                <a href="{{ route('hardware-common-page.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Hardware Common</span>
+                                                        </div>
+                                                        <a href="{{ route('hardware-common-page.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                </div>
+                                        </div>
 
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('industry.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Industry</span>
-                                                </div>
+                                        <div class="row gx-1 mt-1">
+                                            <div class="col-lg-6">
                                                 <a href="{{ route('industry.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Industry</span>
+                                                        </div>
+                                                        <a href="{{ route('industry.index') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('industryPage.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Industry Details</span>
-                                                </div>
-                                                <a href="{{ route('industryPage.create') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                            <div class="col-lg-6">
+                                                <a href="{{ route('industryPage.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Industry Details</span>
+                                                        </div>
+                                                        <a href="{{ route('industryPage.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                </div>
+                                        </div>
 
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('brandPage.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Brand Page</span>
-                                                </div>
-                                                <a href="{{ route('brandPage.create') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                        <div class="row gx-1 mt-1">
+                                            <div class="col-lg-6">
+                                                <a href="{{ route('brandPage.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Brand Page</span>
+                                                        </div>
+                                                        <a href="{{ route('brandPage.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('solutionDetails.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Solution Details</span>
-                                                </div>
-                                                <a href="{{ route('solutionDetails.create') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                            <div class="col-lg-6">
+                                                <a href="{{ route('solutionDetails.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Solution Details</span>
+                                                        </div>
+                                                        <a href="{{ route('solutionDetails.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                </div>
+                                        </div>
 
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('what-we-do-page.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">What We Do</span>
-                                                </div>
-                                                <a href="{{ route('what-we-do-page.create') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                        <div class="row gx-1 mt-1">
+                                            <div class="col-lg-6">
+                                                <a href="{{ route('what-we-do-page.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">What We Do</span>
+                                                        </div>
+                                                        <a href="{{ route('what-we-do-page.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('about-us.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">About Us</span>
-                                                </div>
-                                                <a href="{{ route('about-us.create') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                            <div class="col-lg-6">
+                                                <a href="{{ route('about-us.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">About Us</span>
+                                                        </div>
+                                                        <a href="{{ route('about-us.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
-                                Portfolio</h6>
-                            <div class="card site_content_main_card card-body border-0 shadow-none mb-0"
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                {{-- Link Start --}}
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('portfolio-category.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Portfolio Category</span>
-                                                </div>
+                            <div class="col-lg-6 pe-0">
+                                <h6 class="m-0 p-0 card-main-title text-center">Portfolio</h6>
+                                <div class="card rounded-0 site_content_main_card">
+                                    <div class="card-body">
+                                        {{-- Link Start --}}
+                                        <div class="row gx-1 mt-1">
+                                            <div class="col-lg-6">
                                                 <a href="{{ route('portfolio-category.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Portfolio Category</span>
+                                                        </div>
+                                                        <a href="{{ route('portfolio-category.index') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('portfolio-client.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Portfolio Clients</span>
-                                                </div>
+                                            <div class="col-lg-6">
                                                 <a href="{{ route('portfolio-client.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Portfolio Clients</span>
+                                                        </div>
+                                                        <a href="{{ route('portfolio-client.index') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('portfolio-team.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Portfolio Team</span>
-                                                </div>
+                                        </div>
+                                        <div class="row gx-1 mt-1">
+                                            <div class="col-lg-6">
                                                 <a href="{{ route('portfolio-team.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Portfolio Team</span>
+                                                        </div>
+                                                        <a href="{{ route('portfolio-team.index') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('portfolio-choose-us.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Portfolio Choose</span>
-                                                </div>
+                                            <div class="col-lg-6">
                                                 <a href="{{ route('portfolio-choose-us.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Portfolio Choose</span>
+                                                        </div>
+                                                        <a href="{{ route('portfolio-choose-us.index') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('portfolio-page.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Portfolio Page</span>
-                                                </div>
+                                        </div>
+                                        <div class="row gx-1 mt-1">
+                                            <div class="col-lg-6">
                                                 <a href="{{ route('portfolio-page.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Portfolio Page</span>
+                                                        </div>
+                                                        <a href="{{ route('portfolio-page.index') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('portfolio-detail.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Portfolio Details</span>
-                                                </div>
+                                            <div class="col-lg-6">
                                                 <a href="{{ route('portfolio-detail.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Portfolio Details</span>
+                                                        </div>
+                                                        <a href="{{ route('portfolio-detail.index') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row gx-1 mt-1">
-                                    <div class="col-lg-6">
-                                        <a href="{{ route('portfolio-client-feedback.index') }}">
-                                            <div
-                                                class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0">
-                                                <div>
-                                                    <span class="link_title_admin">Client Feedback</span>
-                                                </div>
-                                                <a href="{{ route('portfolio-page.index') }}">
-                                                    <button type="button" class="btn btn-default btn-circle"><i
-                                                            class="ph ph-plus"></i>
-                                                    </button>
+                                            <div class="col-lg-6 mt-1">
+                                                <a href="{{ route('portfolio-client-feedback.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Client Feedback</span>
+                                                        </div>
+                                                        <a href="{{ route('portfolio-page.index') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
-                                Quick Link</h6>
-                            <div class="card card-body border-0 shadow-none mb-0"
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                <div class="box_details d-flex justify-content-between">
-                                    <a class="text-center py-1" href="{{ route('homepage.index') }}"
-                                        style="color: #247297; font-size: 14px;">
-                                        Homepage
-                                    </a>
-                                    <a class="text-center py-1" href="{{ route('learnMore.index') }}"
-                                        style="color: #247297; font-size: 14px;">
-                                        Learnmore Page
-                                    </a>
-                                </div>
-                                <div class="box_details d-flex justify-content-between">
-                                    <a class="text-center py-1" href="{{ route('portfolio-page.index') }}"
-                                        style="color: #247297; font-size: 14px;">
-                                        Portfolio
-                                    </a>
-                                    <a class="text-center py-1" href="{{ route('policy.index') }}"
-                                        style="color: #247297; font-size: 14px;">
-                                        Terms & Policy
-                                    </a>
-                                </div>
-                                <div class="box_details d-flex justify-content-between">
-                                    <a class="text-center py-1" href="{{ route('blog.index') }}"
-                                        style="color: #247297; font-size: 14px;">
-                                        Blogs
-                                    </a>
-                                    <a class="text-center py-1" href="{{ route('clientstory.index') }}"
-                                        style="color: #247297; font-size: 14px;">
-                                        Client Story
-                                    </a>
-                                </div>
-                                <div class="box_details d-flex justify-content-between">
-                                    <a class="text-center py-1" href="{{ route('techglossy.index') }}"
-                                        style="color: #247297; font-size: 14px;">
-                                        TechGlossary
-                                    </a>
-                                    <a class="text-center py-1" href="{{ route('feature.index') }}"
-                                        style="color: #247297; font-size: 14px;">
-                                        Feature
-                                    </a>
-                                </div>
-                                <div class="box_details d-flex justify-content-between">
-                                    <a class="text-center py-1" href="{{ route('document.index') }}"
-                                        style="color: #247297; font-size: 14px;">
-                                        Document Uploads
-                                    </a>
-                                    <a class="text-center py-1" href="{{ route('technology-data.index') }}"
-                                        style="color: #247297; font-size: 14px;">
-                                        Technology Data
-                                    </a>
+                                        </div>
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="row">
-
-                        <div class="col-lg-3">
-                            <h6 class="card_title_info mb-0 pt-2 text-center">
-                                Quick Link</h6>
-                            <div class="card card-body border-0 shadow-none mb-0"
-                                style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                <div class="box_details d-flex justify-content-between">
-                                    <a href="" style="color: #247297; font-size: 12px;">
-                                        Homepage
-                                    </a>
-                                    <a href="" style="color: #247297; font-size: 12px;">
-                                        Learnmore Page
-                                    </a>
-                                </div>
-                                <div class="box_details d-flex justify-content-between">
-                                    <a href="" style="color: #247297; font-size: 12px;">
-                                        Homepage 2
-                                    </a>
-                                    <a href="" style="color: #247297; font-size: 12px;">
-                                        Learnmore Page 2
-                                    </a>
-                                </div>
-                                <div class="box_details d-flex justify-content-between">
-                                    <a href="" style="color: #247297; font-size: 12px;">
-                                        Homepage 3
-                                    </a>
-                                    <a href="" style="color: #247297; font-size: 12px;">
-                                        Learnmore Page 3
-                                    </a>
-                                </div>
-                                <div class="box_details d-flex justify-content-between">
-                                    <a href="" style="color: #247297; font-size: 12px;">
-                                        Homepage 4
-                                    </a>
-                                    <a href="" style="color: #247297; font-size: 12px;">
-                                        Learnmore Page 4
-                                    </a>
-                                </div>
-                                <div class="box_details d-flex justify-content-between">
-                                    <a href="" style="color: #247297; font-size: 12px;">
-                                        Homepage 5
-                                    </a>
-                                    <a href="" style="color: #247297; font-size: 12px;">
-                                        Learnmore Page 5
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div> --}}
                 </div>
             </section>
             <!-- Sales Chain Page -->

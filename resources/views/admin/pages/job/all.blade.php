@@ -3,7 +3,7 @@
     <div class="content-wrapper">
         <!-- Inner content -->
         <!-- Page header -->
-        <div class="page-header page-header-light shadow">
+        <div class="page-header page-header-light shadow d-flex justify-content-between align-items-center">
             <div class="page-header-content d-lg-flex border-top">
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
@@ -15,69 +15,155 @@
                     <a href="#breadcrumb_elements"
                         class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
                         data-bs-toggle="collapse">
-                        <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
+                        <i class="ph-plus ph-sm m-1"></i>
                     </a>
                 </div>
+            </div>
+            <div class="px-3">
+                <a href="{{ route('job.create') }}" class="btn navigation_btn">
+                    <div class="d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Add Solution Details">
+                        <i class="fa-solid fa-users me-1" style="font-size: 12px;"></i>
+                        <span>Add</span>
+                    </div>
+                </a>
             </div>
         </div>
         <!-- /page header -->
-        <div class="content pt-0 ">
-            <div class="d-flex align-items-center py-2">
-                {{-- Add Details Start --}}
-                <div class="text-success nav-link cat-tab3"
-                    style="position: relative;
-                    z-index: 999;
-                    margin-bottom: -40px;">
-                    <a href="{{ route('job.create') }}">
-                        <div class="d-flex align-items-center">
-                            <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                data-bs-placement="top" title="Add Solution Details">
-                                <i class="ph-plus icons_design"></i> </span>
-                            <span class="ms-1" style="color: #247297;">Add</span>
+        <div class="content">
+            <h4 class="text-center main_color" style="    width: 250px;
+            margin: auto;
+            background: white;
+            position: relative;
+            z-index: 5;">Company Job Details</h4>
+            <p class="devider_line"></p>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 mx-auto">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card rounded-2">
+                                <div class="card-header  p-1 py-2" style="background-color: #ae0a46; border-top-right-radius: 8px; border-top-left-radius: 8px;">
+                                    <h6 class="m-0 p-0 text-center text-white">Total Job Post</h6>
+                                </div>
+                                <div class="card-body py-4 px-4" style="background: #eeeeee73;">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <img class="img-fluid" width="50px" height="50px"
+                                                src="https://i.ibb.co/DkcfYsz/Asset-8-5x-8.png" alt="">
+                                            <h6 class="m-0">Total Job Posting</h6>
+                                        </div>
+                                        <div>
+                                            <div class="">
+                                                <h1 class="m-0 job-countr-title">156</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </a>
-                    <div class="text-center" style="margin-left: 540px">
-                        <h5 class="ms-1" style="color: #247297;">All Jobs</h5>
+                        <div class="col-lg-4">
+                            <div class="card rounded-2">
+                                <div class="card-header  p-1 py-2" style="background-color: #ae0a46; border-top-right-radius: 8px; border-top-left-radius: 8px;">
+                                    <h6 class="m-0 p-0 text-center text-white">Jobs Details</h6>
+                                </div>
+                                <div class="card-body" style="background: #eeeeee73;">
+                                    <div class="d-flex justify-content-between align-items-center ps-3">
+                                        <div>
+                                            <div class="">
+                                                <p class="p-0 m-0" style="line-height: 1.3;">Registered Candidate</p>
+                                                <h1 class="m-0 pt-1 job-countr">60</h1>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="">
+                                                <p class="p-0 m-0" style="line-height: 1.3;">Posted Designation</p>
+                                                <h1 class="m-0 pt-1 job-countr">05</h1>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="">
+                                                <p class="p-0 m-0" style="line-height: 1.3;">Others Jobs</p>
+                                                <h1 class="m-0 pt-1 job-countr">20</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card rounded-2">
+                                <div class="card-header  p-1 py-2" style="background-color: #ae0a46; border-top-right-radius: 8px; border-top-left-radius: 8px;">
+                                    <h6 class="m-0 p-0 text-center text-white">Total Job Post</h6>
+                                </div>
+                                <div class="card-body py-4 px-4" style="background: #eeeeee73;">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <img class="img-fluid" width="50px" height="50px"
+                                                src="https://i.ibb.co/DkcfYsz/Asset-8-5x-8.png" alt="">
+                                            <h6 class="m-0">Total Job Posting</h6>
+                                        </div>
+                                        <div>
+                                            <div class="">
+                                                <h1 class="m-0 job-countr-title">156</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                {{-- Add Details End --}}
             </div>
-            <div>
-                <table class="datatable table jobDT table-bordered table-hover text-center">
-                    <thead>
-                        <tr>
-                            <th width="5% ">Id</th>
-                            <th width="27%">Name</th>
-                            <th width="14%">Deadline</th>
-                            <th width="14%">Link</th>
-                            <th width="14%">Category</th>
-                            <th width="14%">Experience</th>
-                            <th width="10%" class="text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if ($jobs)
-                            @foreach ($jobs as $key => $jobs)
-                                <tr>
-                                    <td>{{ ++$key }}</td>
-                                    <td>{{ $jobs->name }}</td>
-                                    <td>{{ $jobs->deadline }}</td>
-                                    <td>{{ $jobs->link }}</td>
-                                    <td>{{ $jobs->category }}</td>
-                                    <td>{{ $jobs->experience }}</td>
-                                    <td>
-                                        <a href="{{ route('job.edit', [$jobs->id]) }}" class="text-primary">
-                                            <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
-                                        </a>
-                                        <a href="{{ route('job.destroy', [$jobs->id]) }}" class="text-danger delete">
-                                            <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
-                    </tbody>
-                </table>
+            <div class="row mt-4">
+                <div class="col-lg-12">
+                    <div class="card rounded-0 border-0">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="datatable table jobDT table-striped table-bordered table-hover text-center">
+                                    <thead style="background-color: #ae0a46 !important;
+                                    color: white;">
+                                        <tr>
+                                            <th width="5%">Id</th>
+                                            <th width="30%">Name</th>
+                                            <th width="15%">Deadline</th>
+                                            <th width="10%">Post Link</th>
+                                            <th width="30%">Category</th>
+                                            {{-- <th width="14%">Experience</th> --}}
+                                            <th width="10%" class="text-center">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if ($jobs)
+                                            @foreach ($jobs as $key => $jobs)
+                                                <tr>
+                                                    <td>{{ ++$key }}</td>
+                                                    <td>{{ $jobs->name }}</td>
+                                                    <td>{{ $jobs->deadline }}</td>
+                                                    <td>
+                                                        <a href="{{ $jobs->link }}">
+                                                            <i class="fa-solid fa-arrow-up-right-from-square main_color"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>{{ $jobs->category }}</td>
+                                                    {{-- <td>{{ $jobs->experience }}</td> --}}
+                                                    <td>
+                                                        <a href="{{ route('job.edit', [$jobs->id]) }}" class="text-primary">
+                                                            <i class="fa-solid fa-pen-to-square dash-icons me-3"></i>
+                                                        </a>
+                                                        <a href="{{ route('job.destroy', [$jobs->id]) }}"
+                                                            class="main_color delete">
+                                                            <i class="fa-solid fa-trash dash-icons"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -92,7 +178,7 @@
                     "lengthMenu": [10, 25, 30, 50],
                     columnDefs: [{
                         orderable: false,
-                        targets: [0, 1, 3, 6],
+                        targets: [5],
                     }, ],
                 });
             });
