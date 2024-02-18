@@ -172,7 +172,7 @@
                                         Post On<span class="ms-2 text-black">{{ $notice->publish_date }}</span>
                                     </p>
                                 </div>
-                                <div class="card-body pt-0 mt-0 text-black">
+                                <div class="card-body pt-0 mt-0 text-black"> 
                                     <p class="ps-0 text-black">{!! $notice->content !!}</p>
                                 </div>
                             </div>

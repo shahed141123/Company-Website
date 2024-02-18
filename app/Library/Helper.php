@@ -274,6 +274,29 @@ class Helper
         return $output;
     }
 
+    public static function caseAttachment($file, $filePath)
+    {
+        // Check if file is valid
+        if ($file->isValid()) {
+            // Generate a unique file name
+            $fileName = time() . '_' . $file->getClientOriginalName();
 
-    
+            // Move the uploaded file to the specified directory
+            $file->storeAs($filePath, $fileName);
+
+            // Return the status and file name in an array
+            return [
+                'status' => 1,
+                'file_name' => $fileName
+            ];
+        } else {
+            // Return error status if file is not valid
+            return [
+                'status' => 0,
+                'file_name' => null
+            ];
+        }
+    }
+
+
 }

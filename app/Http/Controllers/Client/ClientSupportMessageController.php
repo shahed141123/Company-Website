@@ -46,6 +46,7 @@ class ClientSupportMessageController extends Controller
      */
     public function store(Request $request)
     {
+
         $validator = Validator::make(
             $request->all(),
             [
@@ -86,16 +87,33 @@ class ClientSupportMessageController extends Controller
             SupportCase::find($request->case_id)->update([
                 'status' => 'on_going',
             ]);
+            // if ($request->hasFile('attachment')) {
+            //     $files = $request->file('attachment');
+
+            //     foreach ($files as $file) {
+            //         $filePath = 'caseMessage';
+            //         $uploadedFile = Helper::multiAttachment($file, $filePath);
+            //         // @dd($uploadedFile[0]);
+            //         if ($uploadedFile['status'] == 1) {
+            //             MessageAttachment::create([
+            //                 'message_id' =>  $supportCaseId,
+            //                 'attachment' => $uploadedFile['file_name'],
+            //             ]);
+            //         }
+            //     }
+            // }
+
             if ($request->hasFile('attachment')) {
                 $files = $request->file('attachment');
 
                 foreach ($files as $file) {
                     $filePath = 'caseMessage';
-                    $uploadedFile = Helper::multiAttachment($file, $filePath);
-                    // @dd($uploadedFile[0]);
+
+                    $uploadedFile = Helper::caseAttachment($file, $filePath);
+
                     if ($uploadedFile['status'] == 1) {
                         MessageAttachment::create([
-                            'message_id' =>  $supportCaseId,
+                            'message_id' => $supportCaseId,
                             'attachment' => $uploadedFile['file_name'],
                         ]);
                     }
@@ -129,29 +147,42 @@ class ClientSupportMessageController extends Controller
 
 
             // Send the email
-            Mail::send('mail.case_message', ['data' => $data], function ($message) use ($client_emails, $mail_cc, $request) { // changed to use $client_emails
+            Mail::send('mail.case_message', ['data' => $data], function ($message) use ($client_emails, $mail_cc, $request) {
                 $message->from('support@ngenitltd.com', 'NGEN-Support');
-                $message->to($client_emails); // changed to use $client_emails
+                $message->to($client_emails);
+                // $message->to('khandkershahed23@gmail.com');
                 $message->subject($request->input('subject'));
+
                 // CC recipients
                 if ($request->sender_type == 'admin') {
                     if ($mail_cc) {
                         $message->cc($mail_cc);
                     }
+                } elseif ($request->sender_type == 'client') {
+                    $message->cc($mail_cc);
                 }
-                if ($request->sender_type == 'client') {
-                        $message->cc($mail_cc);
 
-                }
                 // Attachments
                 if ($request->hasFile('attachment')) {
                     $files = $request->file('attachment');
                     foreach ($files as $file) {
+                        // Get the original file name
+                        $fileName = $file->getClientOriginalName();
+
+                        // Determine the MIME type based on the file extension
+                        $mimeType = $file->getMimeType();
+                        if ($mimeType === 'application/octet-stream' && $file->getClientOriginalExtension() === 'apk') {
+                            $mimeType = 'application/vnd.android.package-archive';
+                        }
+
+                        // Attach the file with the original file name and MIME type
                         $message->attach($file->getRealPath(), [
-                            'as' => $file->getClientOriginalName(),
+                            'as' => $fileName,
+                            'mime' => $mimeType,
                         ]);
                     }
                 }
+
             });
 
             Toastr::success('Message Sent Successfully');

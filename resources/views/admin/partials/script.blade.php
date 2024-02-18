@@ -58,7 +58,8 @@
 
 <script src="{{ asset('backend/assets/demo/pages/dashboard.js') }}"></script>
 
-
+<script src="https://cdn.tiny.cloud/1/n4jpbhtanca801bcjejx1pc9j033yn0de5ral6e7r0wd6383/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"></script>
 <script src="{{ asset('backend/js/toastr.min.js') }}"></script>
 <script src="{{ asset('backend/lib/year-select.js') }}"></script>
 <script src="{{ asset('backend/assets/js/calculate.js') }}"></script>
@@ -327,6 +328,18 @@ function addToCart(event) {
                 ['view', ['fullscreen', 'codeview', 'help']]
             ]
         });
+        $('.commonSummernote').summernote({
+            placeholder: "Write Text Here....",
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
 
         $("#common").on("keypress", function() {
             var limiteCaracteres = 255;
@@ -344,6 +357,13 @@ function addToCart(event) {
     });
 </script>
 
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    });
+</script>
 <script>
     $(document).ready(function() {
         $(".allow_numeric").on("input", function(evt) {
