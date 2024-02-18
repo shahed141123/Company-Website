@@ -41,14 +41,14 @@
             <div class="content pt-1 mx-lg-3 mx-1">
                 <div class="row">
                     <div class="col-12 p-0">
-                        <div class="card mt-3">
-                            <div class="card-header d-flex justify-content-between align-items-center p-2 ps-3">
+                        <div class="card mt-3 rounded-0">
+                            <div class="card-header p-0 d-flex justify-content-start align-items-center rounded-0 ">
                                 <div>
                                     @include('admin.pages.product_sourcing.partials.header')
                                 </div>
-                                <h5 class="text-center mb-0 pe-3">Sourced Products (Pending for Approval)</h5>
+                                <h5 class="text-center mb-0 ps-3">Sourced Products (Pending for Approval)</h5>
                             </div>
-                            <div class="card-body pt-2">
+                            <div class="card-body p-0">
                                 <div class="table-responsive">
                                     <table class="productDt table table-bordered table-striped text-center">
                                         <thead>
@@ -68,14 +68,14 @@
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>
                                                         <span>
-                                                            <img src="{{ !file_exists($product->thumbnail) ? url('upload/no_image.jpg') : asset($product->thumbnail) }}" width="70px" height="40px">
+                                                            <img src="{{ !file_exists($product->thumbnail) ? url('upload/no_image.jpg') : asset($product->thumbnail) }}" width="40px" height="40px" style="border-radius: 50%;">
                                                         </span>
                                                     </td>
                                                     <td>{{ $product->name }}</td>
                                                     <td>{{ $product->added_by }}</td>
                                                     <td>
                                                         @if ($product->price_status === 'rfq')
-                                                            <span class="text-black"><strong>{{ ucfirst($product->price_status) }}</strong></span>
+                                                            <span class="text-black"><span>{{ ucfirst($product->price_status) }}</span></span>
                                                         @else
                                                             {{ ucfirst($product->price_status) }}
                                                         @endif

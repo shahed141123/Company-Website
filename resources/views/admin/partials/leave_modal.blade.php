@@ -2,7 +2,7 @@
     aria-labelledby="checkapprovedLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content rounded-0">
-            <div class="modal-header rounded-0 text-white px-4 py-2" style="background-color: #ae0a46 !important;">
+            <div class="modal-header rounded-0 text-white px-4 py-2" style="background-color: #247297 !important;">
                 <h5 class="modal-title" id="checkapprovedLabel">Leave Application</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>

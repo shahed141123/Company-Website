@@ -5,7 +5,7 @@
         <div class="page-header page-header-light">
             <div class="d-flex justify-content-between align-items-center">
                 {{-- Page Destination/ BreadCrumb --}}
-                <div class="page-header-content d-lg-flex sticky">
+                <div class="page-header-content">
                     <div class="d-flex px-2">
                         <div class="breadcrumb py-2">
                             <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house"></i></a>
@@ -52,94 +52,73 @@
         <!-- Sales Chain Page -->
         <div class="content p-1 my-3">
             <div class="row nav-tabs border-0" id="myTab" role="tablist">
-                <div class="col-lg-2">
-                    <div class="card rounded-1 border-0 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
-                        type="button" role="tab" aria-controls="home" aria-selected="true"
-                        style="background: url(https://i.ibb.co/9vY37V3/Asset-4-5x-8.png);background-size: cover; background-position: center; background-repeat: no-repeat;">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="m-0 p-0 text-white">Total Employee</p>
-                                <i class="fa-solid fa-user-tie badge-icons"></i>
+                <div class="col-lg-8 offset-lg-2 mx-auto">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="card rounded-1 border-0 active" id="home-tab" data-bs-toggle="tab"
+                                data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                aria-selected="true"
+                                style="background: url(https://i.ibb.co/9vY37V3/Asset-4-5x-8.png);background-size: cover; background-position: center; background-repeat: no-repeat;">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="m-0 p-0 text-white">Total Employee</p>
+                                        <i class="fa-solid fa-user-tie badge-icons"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="p-0 m-0 text-white">8</h5>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <h5 class="p-0 m-0 text-white">8</h5>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card rounded-1 border-0"
+                                style="background: url(https://i.ibb.co/jG5kKSf/Asset-5-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                                <div class="card-body" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                                    type="button" role="tab" aria-controls="profile" aria-selected="false">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="m-0 p-0 text-white">Probation</p>
+                                        <i class="fa-solid fa-clipboard-check badge-icons"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="p-0 m-0 text-white">8</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card rounded-1 border-0"
+                                style="background: url(https://i.ibb.co/BtLj7TV/Asset-6-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                                <div class="card-body" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages"
+                                    type="button" role="tab" aria-controls="messages" aria-selected="false">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="m-0 p-0 text-white">Intern</p>
+                                        <i class="fa-solid fa-user-slash badge-icons"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="p-0 m-0 text-white">8</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card rounded-1 border-0 active" id="home-tab" data-bs-toggle="tab"
+                                data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                aria-selected="true"
+                                style="background: url(https://i.ibb.co/9vY37V3/Asset-4-5x-8.png);background-size: cover; background-position: center; background-repeat: no-repeat;">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="m-0 p-0 text-white">Parmanent</p>
+                                        <i class="fa-solid fa-user-tie badge-icons"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="p-0 m-0 text-white">8</h5>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2">
-                    <div class="card rounded-1 border-0"
-                        style="background: url(https://i.ibb.co/jG5kKSf/Asset-5-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                        <div class="card-body" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                            type="button" role="tab" aria-controls="profile" aria-selected="false">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="m-0 p-0 text-white">Present</p>
-                                <i class="fa-solid fa-clipboard-check badge-icons"></i>
-                            </div>
-                            <div>
-                                <h5 class="p-0 m-0 text-white">8</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="card rounded-1 border-0"
-                        style="background: url(https://i.ibb.co/BtLj7TV/Asset-6-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                        <div class="card-body" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages"
-                            type="button" role="tab" aria-controls="messages" aria-selected="false">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="m-0 p-0 text-white">Absent</p>
-                                <i class="fa-solid fa-user-slash badge-icons"></i>
-                            </div>
-                            <div>
-                                <h5 class="p-0 m-0 text-white">8</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="card rounded-1 border-0"
-                        style="background: url(https://i.ibb.co/WNCWFh1/Asset-3-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="m-0 p-0 text-white">In Parmanent</p>
-                                <i class="fa-solid fa-ribbon badge-icons"></i>
-                            </div>
-                            <div>
-                                <h5 class="p-0 m-0 text-white">8</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="card rounded-1 border-0"
-                        style="background: url(https://i.ibb.co/0rmmhtP/Asset-2-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="m-0 p-0 text-white">In Probation</p>
-                                <i class="fa-solid fa-check-to-slot badge-icons"></i>
-                            </div>
-                            <div>
-                                <h5 class="p-0 m-0 text-white">8</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="card rounded-1 border-0"
-                        style="background: url(https://i.ibb.co/JtzLZ1Q/Asset-1-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h6 class="m-0 p-0 text-white">In Intern</h6>
-                                <i class="fa-solid fa-user badge-icons"></i>
-                            </div>
-                            <div>
-                                <h5 class="p-0 m-0 text-white">8</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
+                <div class="col-lg-8 offset-lg-2 mx-auto">
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -154,12 +133,11 @@
                                                 <thead>
                                                     <tr>
                                                         <th width="5%">SL</th>
-                                                        <th width="7%">Image</th>
-                                                        <th width="18%">Name</th>
-                                                        <th width="18%">Email</th>
+                                                        <th width="10%">Image</th>
+                                                        <th width="45%">Name</th>
+                                                        <th width="20%">Email</th>
                                                         <th width="10%">Designation</th>
-                                                        <th width="9%">Role</th>
-                                                        <th width="23%">Department</th>
+                                                        {{-- <th width="23%">Department</th> --}}
                                                         <th width="10%" class="text-center">Actions</th>
                                                     </tr>
                                                 </thead>
@@ -182,19 +160,19 @@
                                                                 <!-- Employee Designation -->
                                                                 <td>{{ $employee->designation }}</td>
                                                                 <!-- Employee Role -->
-                                                                <td>{{ ucfirst($employee->role) }}</td>
+                                                                {{-- <td>{{ ucfirst($employee->role) }}</td> --}}
                                                                 <!-- Employee Department -->
-                                                                <td>
-                                                                    @if (is_array(json_decode($employee->department)))
-                                                                        @foreach (json_decode($employee->department) as $department)
-                                                                            <span
-                                                                                class="text-primary">{{ ucfirst($department) }},</span>
-                                                                        @endforeach
-                                                                    @else
+                                                                {{-- <td>
+                                                                @if (is_array(json_decode($employee->department)))
+                                                                    @foreach (json_decode($employee->department) as $department)
                                                                         <span
-                                                                            class="text-primary">{{ ucfirst($employee->department) }},</span>
-                                                                    @endif
-                                                                </td>
+                                                                            class="text-primary">{{ ucfirst($department) }},</span>
+                                                                    @endforeach
+                                                                @else
+                                                                    <span
+                                                                        class="text-primary">{{ ucfirst($employee->department) }},</span>
+                                                                @endif
+                                                            </td> --}}
                                                                 <!-- Employee Actions -->
                                                                 <td class="text-center">
                                                                     <a href="javascript:void(0);" class="text-primary"
@@ -219,11 +197,11 @@
                             </div>
                         </div>
                         <div class="tab-pane " id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="col-lg-8">
+                            <div class="col-lg-12">
                                 <h6 class="m-0 p-1 text-center"
                                     style="color: #fff; border-bottom: 1px solid #69d89e;
-                                    background: #69d89e;">
-                                    Total Present </h6>
+                                background: #69d89e;">
+                                    Total Probation </h6>
                                 <div class="card ronded-0">
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
@@ -290,11 +268,11 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-                            <div class="col-lg-8">
+                            <div class="col-lg-12">
                                 <h6 class="m-0 p-1 text-center"
                                     style="color: #fff; border-bottom: 1px solid #f49f9a;
-                                    background: #f49f9a;">
-                                    Total Absent</h6>
+                                background: #f49f9a;">
+                                    Total Intern</h6>
                                 <div class="card ronded-0">
                                     <div class="card-body p-0">
                                         <div class="table-responsive">

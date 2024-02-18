@@ -1,3 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+.job-countr {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 300;
+    font-size: 35px;
+    color: #ae0a46;
+}
+.devider_line{
+    border-top: 1px solid #ae0a46;
+    width: 1190px;
+    margin: auto;
+    position: relative;
+    top: -15px;
+
+}
+.job-countr-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 300;
+    font-size: 50px;
+    color: #ae0a46;
+}
 body {
     font-size: 15px;
 }
@@ -1718,18 +1739,21 @@ ul.row-sm {
     background: #247297;
 }
 /* Notice Board */
- /* Custom styles for this page */
- .delete-btns {
+/* Custom styles for this page */
+.delete-btns {
     width: 30px;
     height: 30px;
     border: 0;
 }
 
-.delete-btns:hover {}
+.delete-btns:hover {
+}
 
-.delete {}
+.delete {
+}
 
-.delete:hover {}
+.delete:hover {
+}
 
 .notes {
     height: 40vh;
@@ -1758,7 +1782,7 @@ ul.row-sm {
 .notice-card {
     /* Styling for notice cards */
     position: relative;
-    background-image: url('https://img.freepik.com/premium-vector/abstract-style-halftone-concept-your-graphic-design_29865-2643.jpg');
+    background-image: url("https://img.freepik.com/premium-vector/abstract-style-halftone-concept-your-graphic-design_29865-2643.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1768,7 +1792,7 @@ ul.row-sm {
 
 .notice-card::before {
     /* Background filter for blur effect */
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -1781,7 +1805,8 @@ ul.row-sm {
 }
 
 .notice-card p,
-.notice-card h2, h4 {
+.notice-card h2,
+h4 {
     /* Counteract the blur effect on text elements */
     filter: blur(0);
 }
