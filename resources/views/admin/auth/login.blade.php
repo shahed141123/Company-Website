@@ -74,7 +74,7 @@
                     <div class="d-flex justify-content-center align-items-center"
                         style="background-color: white; height: 100vh;">
                         <div class="d-flex justify-content-center align-items-center">
-                            <form class="login-form needs-validation" method="POST" action="{{ route('login') }}"
+                            <form class="login-form needs-validation" method="POST" action="{{ route('admin.login') }}"
                                 style="width: 30rem;" novalidate>
                                 @csrf
 
@@ -130,7 +130,7 @@
                                                 <div class="invalid-feedback">Enter your Password</div>
                                                 <div class="form-control-feedback-icon password-toggle-icon"
                                                     onclick="togglePassword()">
-                                                    <i class="fas fa-eye-slash text-white" style="padding-top: 2px"></i>
+                                                    <i class="fas fa-eye text-white" style="padding-top: 2px"></i>
                                                 </div>
                                             </div>
                                             @error('password')
@@ -151,7 +151,7 @@
 
                                         <!-- Sign In Button -->
                                         <div class="text-center mb-3 pt-3">
-                                            <a href="{{route('password.request')}}" class="mt-3 mb-3 pb-3">
+                                            <a href="{{route('admin.password.request')}}" class="mt-3 mb-3 pb-3">
                                                 <span style="color: #ae0a46;">Forgot Password? </span>
                                                 <span class="text-primary"
                                                     style="text-decoration: underline">Click here!</span>
@@ -187,12 +187,12 @@
 
             if (passwordInput.type === "password") {
                 passwordInput.type = "text";
-                passwordToggleIcon.classList.remove('fa-eye-slash');
-                passwordToggleIcon.classList.add('fa-eye');
+                passwordToggleIcon.classList.add('fa-eye-slash');
+                passwordToggleIcon.classList.remove('fa-eye');
             } else {
                 passwordInput.type = "password";
-                passwordToggleIcon.classList.remove('fa-eye');
-                passwordToggleIcon.classList.add('fa-eye-slash');
+                passwordToggleIcon.classList.add('fa-eye');
+                passwordToggleIcon.classList.remove('fa-eye-slash');
             }
         }
     </script>
