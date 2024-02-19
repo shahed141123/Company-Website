@@ -76,7 +76,7 @@
                                         </div>
                                         <div class="col-lg-12 col-sm-12">
 
-                                        <select name="brand_id" data-placeholder="Select row_four.."
+                                        <select data-allow-clear="true" name="brand_id" data-placeholder="Select row_four.."
                                                 class="form-control form-control-sm select">
                                                 <option value="">Select...</option>
                                                 @foreach ($brands as $brand)
@@ -150,9 +150,9 @@
                                             <span>Card One</span>
                                         </div>
                                         <div class="col-lg-12 col-sm-12">
-                                            <select name="solution_card_one_id" data-placeholder="Select card One.."
+                                            <select data-allow-clear="true" name="solution_card_one_id" data-placeholder="Select card One.."
                                                 class="form-control form-control-sm select">
-                                                
+
                                                 @foreach ($solution_cards as $solution_card)
                                                     <option class="form-control form-control-sm" value=""> Select..</option>
                                                     <option class="form-control" value="{{ $solution_card->id }}"
@@ -168,7 +168,7 @@
                                             <span>Card Two</span>
                                         </div>
                                         <div class="col-lg-12 col-sm-12">
-                                            <select name="solution_card_two_id" data-placeholder="Select Card two"
+                                            <select data-allow-clear="true" name="solution_card_two_id" data-placeholder="Select Card two"
                                                 class="form-control form-control-sm select">
                                                 <option class="form-control form-control-sm" value=""> Select..</option>
                                                 @foreach ($solution_cards as $solution_card)
@@ -186,7 +186,7 @@
                                             <span>Card Three</span>
                                         </div>
                                         <div class="col-lg-12 col-sm-12">
-                                            <select name="solution_card_three_id" data-placeholder="Select Card Three.."
+                                            <select data-allow-clear="true" name="solution_card_three_id" data-placeholder="Select Card Three.."
                                                 class="form-control form-control-sm select">
                                                 <option class="form-control form-control-sm" value=""> Select..</option>
                                                 @foreach ($solution_cards as $solution_card)
@@ -221,7 +221,7 @@
                                             <span>Row Four</span>
                                         </div>
                                         <div class="col-lg-12 col-sm-12">
-                                            <select name="row_four_id" data-placeholder="Select row_four.."
+                                            <select data-allow-clear="true" name="row_four_id" data-placeholder="Select row_four.."
                                                 class="form-control form-control-sm select">
                                                 <option value="">Select...</option>
                                                 @foreach ($rows as $row)
@@ -238,7 +238,7 @@
                                             <span>Row Five</span>
                                         </div>
                                         <div class="col-lg-12 col-sm-12">
-                                            <select name="row_five_id" data-placeholder="Select Row Five.."
+                                            <select data-allow-clear="true" name="row_five_id" data-placeholder="Select Row Five.."
                                             class="form-control form-control-sm select">
                                             <option value="">Select...</option>
                                             @foreach ($rows as $row)
@@ -290,7 +290,7 @@
                                             <span>Row Seven Id</span>
                                         </div>
                                         <div class="col-lg-12 col-sm-12">
-                                            <select name="row_seven_id" data-placeholder="Select Row Seven.."
+                                            <select data-allow-clear="true" name="row_seven_id" data-placeholder="Select Row Seven.."
                                                 class="form-control select">
                                                 <option value="">Select...</option>
                                                 @foreach ($rows as $row)
@@ -307,7 +307,7 @@
                                             <span>Row Eight Id</span>
                                         </div>
                                         <div class="col-lg-12 col-sm-12">
-                                            <select name="row_eight_id" data-placeholder="Select Row Eight.."
+                                            <select data-allow-clear="true" name="row_eight_id" data-placeholder="Select Row Eight.."
                                             class="form-control select">
                                             <option value="">Select...</option>
                                             @foreach ($rows as $row)

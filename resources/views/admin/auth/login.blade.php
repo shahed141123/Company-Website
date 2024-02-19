@@ -151,7 +151,7 @@
 
                                         <!-- Sign In Button -->
                                         <div class="text-center mb-3 pt-3">
-                                            <a href="login_password_recover.html" class="mt-3 mb-3 pb-3">
+                                            <a href="{{route('password.request')}}" class="mt-3 mb-3 pb-3">
                                                 <span style="color: #ae0a46;">Forgot Password? </span>
                                                 <span class="text-primary"
                                                     style="text-decoration: underline">Click here!</span>
