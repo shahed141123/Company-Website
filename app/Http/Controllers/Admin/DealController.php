@@ -450,7 +450,18 @@ class DealController extends Controller
 
         $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
         $filePath = 'public/files/' . $fileName;
-        $pdf = PDF::loadView('pdf.quotation', $data);
+        // $pdf = PDF::loadView('pdf.quotation', $data);
+
+
+        $pdf = new PDF();
+        $html = view('pdf.quotation', $data)->render();
+        $pdf->loadHtml($html);
+        $pdf->setPaper('A4', 'landscape');
+        $pdf->render();
+
+        // Return the PDF for display
+        return $pdf->stream();
+
         //$pdf_upload = $pdf->save($filePath);
         $pdf_output = $pdf->output();
         Storage::put($filePath, $pdf_output);
