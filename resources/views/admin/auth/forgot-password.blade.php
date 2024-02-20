@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Ngen It | Log In</title>
+    <title>Ngen It | Forgot Password</title>
 
     <!-- Global stylesheets -->
     <link href="{{ asset('backend/assets/fonts/inter/inter.css') }}" rel="stylesheet" type="text/css">
@@ -77,19 +77,11 @@
                     <div class="d-flex justify-content-center align-items-center"
                         style="background-color: white; height: 100vh;">
                         <div class="d-flex justify-content-center align-items-center">
-                            <form class="login-form needs-validation" method="POST" action="{{ route('login') }}"
+                            <form class="login-form needs-validation" method="POST" action="{{ route('admin.password.email') }}"
                                 style="width: 30rem;" novalidate>
                                 @csrf
 
-                                <!-- Display Alert Message -->
-                                @if (Session::has('alert'))
-                                    <div class="alert bg-danger text-white alert-dismissible fade show">
-                                        <span class="fw-semibold">{{ Session::get('alert') }}. Login
-                                            First</span>
-                                        <button type="button" class="btn-close btn-close-white"
-                                            data-bs-dismiss="alert"></button>
-                                    </div>
-                                @endif
+
 
                                 <div class="card mb-0 admin-login-form pt-1">
                                     <div class="card-body">
@@ -108,7 +100,7 @@
                                         <div class="mb-3 text-left">
                                             <label class="form-label">Recover Email</label>
                                             <div class="form-control-feedback form-control-feedback-start">
-                                                <input type="text" name="email" class="form-control"
+                                                <input type="email" name="email" class="form-control"
                                                     style="border-radius: 0px; border: 0px; background-color:#eee;"
                                                     placeholder="john@doe.com" required>
                                                 <div class="invalid-feedback">Enter your Email</div>
@@ -127,7 +119,7 @@
                                         <div class="text-center mb-3 pt-3">
                                             <p class="text-muted m-0 p-0">Have You Recalled The Password <a class="main_color" href="{{ route('admin.login') }}">Login !</a></p>
                                             <button type="submit" class="btn w-md-100 w-100 mt-3"
-                                                style="background:#ae0a46;border-radius: 0px;color: white;border: none;">Send Password</button>
+                                                style="background:#ae0a46;border-radius: 0px;color: white;border: none;">Send Link</button>
                                         </div>
                                     </div>
                                 </div>
