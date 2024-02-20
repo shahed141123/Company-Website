@@ -448,17 +448,27 @@ class DealController extends Controller
     $data['products'] = DealSas::where('rfq_id',  $data['rfq']->id)->get();
     $data['deal_sas'] = DealSas::where('rfq_id',  $data['rfq']->id)->first();
 
-    // Generate PDF using Dompdf
-    $dompdf = new Dompdf();
-    $html = view('pdf.quotation', $data)->render();
-    $dompdf->loadHtml($html);
-    $dompdf->setPaper('A4', 'landscape');
-    $dompdf->render();
-    $pdf_output = $dompdf->output();
+        $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
+        $filePath = 'public/files/' . $fileName;
+        // $pdf = PDF::loadView('pdf.quotation', $data);
 
-    $email = $data['email'];
-    $subject = 'Quotation From Ngen IT';
-    $message = 'Here is the Quotation From NGen IT which is generated against your RFQ.';
+
+        $pdf = new PDF();
+        $html = view('pdf.quotation', $data)->render();
+        $pdf->loadHtml($html);
+        $pdf->setPaper('A4', 'landscape');
+        $pdf->render();
+
+        // Return the PDF for display
+        return $pdf->stream();
+
+        //$pdf_upload = $pdf->save($filePath);
+        $pdf_output = $pdf->output();
+        Storage::put($filePath, $pdf_output);
+        //dd($pdf_upload);
+        $email = $data['email'];
+        $subject = 'Quotation From Ngen IT';
+        $message = 'Here is the Quotation From NGen IT which is generated against your RFQ.';
 
     // send the email
     try {
