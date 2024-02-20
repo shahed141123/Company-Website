@@ -439,14 +439,14 @@ class DealController extends Controller
     }
 
     public function SendQuotation(Request $request, $id)
-    {
-        $data['pq_code'] = $request->pq_code;
-        $data['currency'] = $request->currency;
-        $data['pqr_code_one'] = $request->pqr_code_one;
-        $data['email'] = $request->email;
-        $data['rfq'] = Rfq::where('rfq_code', $id)->where('rfq_type', 'deal')->first();
-        $data['products'] = DealSas::where('rfq_id',  $data['rfq']->id)->get();
-        $data['deal_sas'] = DealSas::where('rfq_id',  $data['rfq']->id)->first();
+{
+    $data['pq_code'] = $request->pq_code;
+    $data['currency'] = $request->currency;
+    $data['pqr_code_one'] = $request->pqr_code_one;
+    $data['email'] = $request->email;
+    $data['rfq'] = Rfq::where('rfq_code', $id)->where('rfq_type', 'deal')->first();
+    $data['products'] = DealSas::where('rfq_id',  $data['rfq']->id)->get();
+    $data['deal_sas'] = DealSas::where('rfq_id',  $data['rfq']->id)->first();
 
         $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
         $filePath = 'public/files/' . $fileName;
@@ -467,62 +467,62 @@ class DealController extends Controller
         $subject = 'Quotation From Ngen IT';
         $message = 'Here is the Quotation From NGen IT which is generated against your RFQ.';
 
-
-
-        // create a new email message
-        $mail = Mail::raw($message, function ($message) use ($email, $subject, $pdf) {
-            $message->from('sales@ngenit.com', 'NGEN-Sales')->to($email)
-                ->subject($subject)
-                ->attachData($pdf->output(), 'quotation-Ngenit.pdf');
+    // send the email
+    try {
+        Mail::send([], [], function ($message) use ($email, $subject, $pdf_output) {
+            $message->to($email)
+                    ->subject($subject)
+                    ->attachData($pdf_output, 'quotation-Ngenit.pdf');
         });
 
-        // send the email
-        if ($mail) {
-            Toastr::success('Quotation Mail Sent Successfully');
-        } else {
-            Toastr::error($message, 'Quotation Mail Sent Failed', ['timeOut' => 30000]);
-        }
-
-
-
-        $document_check = CommercialDocument::where('rfq_id', $data['rfq']->id)->first();
-        if (!empty($document_check)) {
-            CommercialDocument::find($document_check->id)->update([
-                'client_pq' => $filePath,
-            ]);
-            Toastr::success('PDF Uploaded Successfully');
-        } else {
-            CommercialDocument::create([
-                'rfq_id' => $data['rfq']->id,
-                'client_pq' => $filePath,
-            ]);
-            Toastr::success('PDF Uploaded Successfully');
-        }
-
-        $user = User::latest()->get();
-
-        $name = Auth::user()->name;
-        $rfq_code = $data['rfq']->rfq_code;
-
-        Notification::send($user, new Quotation($name, $rfq_code));
-
-        $rfq = Rfq::find($data['rfq']->id);
-        if (!empty($data['deal_sas']->tax_sales)) {
-            $quoted_price = ($data['deal_sas']->grand_total) - ($data['deal_sas']->tax_sales);
-        } else {
-            $quoted_price = $data['deal_sas']->grand_total;
-        }
-
-        $rfq->update([
-            'currency'  => $request->currency,
-            'pq_code'  => $request->pq_code,
-            'pqr_code_one'  => $request->pqr_code_one,
-            'status'  => 'quoted',
-            'quoted_price' => $quoted_price,
-        ]);
-        //return $pdf->download('Quotation-'.$id.'.pdf');
-        return redirect()->back();
+        Toastr::success('Quotation Mail Sent Successfully');
+    } catch (\Exception $e) {
+        Toastr::error($e->getMessage(), 'Quotation Mail Sent Failed', ['timeOut' => 30000]);
     }
+
+    $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
+    $filePath = 'public/files/' . $fileName;
+    // Save PDF to storage
+    file_put_contents($filePath, $pdf_output);
+
+    $document_check = CommercialDocument::where('rfq_id', $data['rfq']->id)->first();
+    if (!empty($document_check)) {
+        CommercialDocument::find($document_check->id)->update([
+            'client_pq' => $filePath,
+        ]);
+        Toastr::success('PDF Uploaded Successfully');
+    } else {
+        CommercialDocument::create([
+            'rfq_id' => $data['rfq']->id,
+            'client_pq' => $filePath,
+        ]);
+        Toastr::success('PDF Uploaded Successfully');
+    }
+
+    $user = User::latest()->get();
+
+    $name = Auth::user()->name;
+    $rfq_code = $data['rfq']->rfq_code;
+
+    Notification::send($user, new Quotation($name, $rfq_code));
+
+    if (!empty($data['deal_sas']->tax_sales)) {
+        $quoted_price = ($data['deal_sas']->grand_total) - ($data['deal_sas']->tax_sales);
+    } else {
+        $quoted_price = $data['deal_sas']->grand_total;
+    }
+
+    $rfq = Rfq::find($data['rfq']->id);
+    $rfq->update([
+        'currency'  => $request->currency,
+        'pq_code'  => $request->pq_code,
+        'pqr_code_one'  => $request->pqr_code_one,
+        'status'  => 'quoted',
+        'quoted_price' => $quoted_price,
+    ]);
+
+    return redirect()->back();
+}
 
 
     public function dealInvoiceSent(Request $request, $id)
