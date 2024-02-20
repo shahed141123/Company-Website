@@ -131,8 +131,8 @@ class DealController extends Controller
         //         $data['partner_id'] = $partner_id;
         //     }
         // } else {
-            $data['client_id'] =  $request->client_id;
-            $data['partner_id'] = $request->partner_id;
+        $data['client_id'] =  $request->client_id;
+        $data['partner_id'] = $request->partner_id;
         // }
         $data['pq_code'] = 'NG' . '-' . date('dmy');
 
@@ -453,11 +453,8 @@ class DealController extends Controller
         // $pdf = PDF::loadView('pdf.quotation', $data);
 
 
-        $pdf = new PDF();
-        $html = view('pdf.quotation', $data)->render();
-        $pdf->loadHtml($html);
-        $pdf->setPaper('A4', 'landscape');
-        $pdf->render();
+        $pdf = PDF::loadView('pdf.quotation', $data);
+        $pdf->setPaper('A4', 'portrait');
 
         // Return the PDF for display
         return $pdf->stream();
