@@ -64,7 +64,7 @@
                 <div class="col-lg-5 col-sm-12 p-0" style="border-right: 1px solid #eee">
                     <div class="back_img">
                         <img class="img-fluid"
-                            src="https://images.unsplash.com/photo-1526666424717-ee515eb594e4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            src="https://i.ibb.co/S5gB7Jh/Backend-side-image-NGen-IT.jpg"
                             alt="">
                     </div>
                 </div>
