@@ -1,149 +1,291 @@
 @extends('frontend.master')
-@section('content')
+
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('path/to/your/external/style.css') }}">
     <style>
-        .labels {
-            background-color: #ae0a46;
-            color: white;
-            border-radius: 0px;
-            padding: 8px;
-            font-family: "Poppins", sans-serif !important;
-            font-weight: normal;
+        .sign-in-form {
+            background-color: #ffff;
+        }
+
+        .sign-in-area {
+            background-color: #f2f2f2;
+        }
+
+        .subtitle {
+            font-size: 17px;
+        }
+
+        .main-title {
+            font-size: 32px;
+            font-weight: bold;
         }
 
         label {
-            font-family: "Poppins", sans-serif !important;
-            font-weight: normal;
+            font-size: 17px;
         }
 
-        p,
-        ul {
-            color: #5f5753;
-            font-weight: 900;
+        .main-container {}
+
+        .client-login-field {
+            background-color: white !important;
+            border: 1px solid #eee !important;
         }
 
-        .client-info li {
-            list-style-type: disc;
+        .card-container {
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        }
+
+        .client-login-form {
+            height: 90vh;
         }
     </style>
-    <div class="container-fluid px-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-4 mx-auto">
-                    <div class="row gx-0">
-                        <div class="col-lg-6">
-                            <div class="card border-0 rounded-0 shadow-sm my-5">
-                                <div class="card-body">
-                                    <h2 class="text-center">Client Portal</h2>
+@endsection
 
-                                    <div>
-                                        <ul class="client-info p-3">
-                                            <li class="pb-4"><strong class="main_color">NEW USER: </strong>Complete the
-                                                form with the
-                                                registered email and
-                                                password to enter into client dashboard.</li>
-                                            <li class="pb-4"><strong class="main_color">FORGOT YOUR PASSWORD:</strong>
-                                                Don't worry. Click
-                                                "forget password"
-                                                from the left section.</li>
-                                            <li class="pb-4"><strong class="main_color">ALREADY REGISTERED CLIENT
-                                                    :</strong> Complete the
-                                                form with the registered email and password to enter into client dashboard.
-                                            </li>
-                                            <li class="pb-4">
-                                                <strong class="main_color">PARTNER:</strong> Click <a href=""
-                                                    class="text-primary">Here!</a>
-                                            </li>
-                                        </ul>
+@section('content')
+    <div class="container login-container">
+        <div class="row justify-content-center align-items-center client-login-form">
+            <form action="{{ route('client.loginstore') }}" method="POST">
+                @csrf
+                <div class="col-lg-10 offset-lg-1 mx-auto">
+                    <div class="row card-container">
+                        <div class="col-lg-6 sign-in-form shadow-sm py-5">
+                            <div class="text-center">
+                                <h1 class="main-title">Sign In</h1>
+                                <h3 class="text-center py-3">Welcome Back !</h3>
+                                <p class="subtitle pt-2">Use Your <span class="main_color">NGen It </span>Registered <br>
+                                    Email
+                                    and Password</p>
+                            </div>
+                            <div class="px-5 pt-5">
+                                <div class="pt-4">
+                                    <label for="" class="form-label">Email Address</label>
+                                    <div class="input-group flex-nowrap">
+                                        <span class="input-group-text border-0" id="addon-wrapping"
+                                            style="cursor: pointer; background-color: #ae0a46;"><i
+                                                class="fa-solid fa-envelope text-white"></i></span>
+                                        <input type="email" class="form-control rounded-1 client-login-field"
+                                            name="email" placeholder="your-email@mail.com"
+                                            aria-label="your-email@mail.com" aria-describedby="addon-wrapping">
                                     </div>
+                                </div>
+                                <div class="pt-4">
+                                    <label for="" class="form-label">Password</label>
+                                    <div class="input-group flex-nowrap">
+                                        <span class="input-group-text border-0 toggle-password" toggle="#password"
+                                            id="addon-wrapping" style="cursor: pointer; background-color: #ae0a46;"><i
+                                                class="fa-solid fa-eye-slash text-white"></i></span>
+                                        <input type="password" id="password" name="password"
+                                            class="form-control rounded-1 client-login-field"
+                                            placeholder="*******************" aria-label="Password"
+                                            aria-describedby="addon-wrapping">
+                                    </div>
+                                </div>
+                                <div class="mt-5">
+                                    <button type="submit" class="btn-color w-100">
+                                        Login
+                                    </button>
+                                </div>
+                                <div class="text-center pt-5">
+                                    <p class="subtitle m-0">Forgot Your Password? <a href="" class="main_color">
+                                            Recover It!</a></p>
+                                    <p class="subtitle m-0 show-register">New Here? Then<a href="javascript:void()"
+                                            class="main_color"> Register
+                                            Now!</a>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6 sign-in-area shadow-sm py-5">
+                            <div class="text-start ps-3 pe-2">
+                                <h1 class="main-title text-center">User Board</h1>
+                                <ul>
+                                    <li class="pb-3 pt-3">
+                                        <strong class="main_color">New User:</strong>
+                                        Complete the form with the registered email & password to enter into client
+                                        dashboard.
+                                    </li>
+                                    <li class="pb-3">
+                                        <strong class="main_color">Forgot Password:</strong>
+                                        Recover your password by following the instructions sent to your registered email
+                                        address.
+                                    </li>
+                                    <li class="pb-3">
+                                        <strong class="main_color">Already Registered:</strong>
+                                        Registered user. If you are facing issues or have questions, please contact our
+                                        support
+                                        team.
+                                    </li>
+                                    <li class="pb-3">
+                                        <strong class="main_color">Are Your Partner ?:</strong>
+                                        <a href="" class="text-primary">Click</a> To Partner Login
+                                    </li>
+                                </ul>
+
+                                <div>
+                                    <img class="img-fluid" src="https://i.ibb.co/Tgd1zfd/Client-Login.png" alt="">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <form action="{{ route('client.loginstore') }}" method="POST" class="needs-validation"
-                                novalidate>
-                                @csrf
-                                <div class="card border-0 rounded-0 shadow-sm my-5">
-                                    <div class="card-body">
-                                        <div class="container py-2">
-                                            <div class="row py-3">
-                                                <div class="col-lg-12">
-                                                    <h2 class="text-center">Sign In</h2>
-                                                    <p class="pt-2 text-center">Use Your <span
-                                                            class="main_color fw-bold">NGEN IT</span> <br> Registered Email
-                                                        and Password!</p>
-                                                </div>
-                                            </div>
-                                            <div class="row py-3">
-                                                <div class="col-lg-12">
-                                                    <label class="pb-1" for="email">Email</label>
-                                                    <div class="input-group input-group-sm">
-                                                        <span class="input-group-text labels border-0 rounded-0"
-                                                            id="inputGroup-sizing-default" style="cursor: pointer">
-                                                            <i class="fa-solid fa-envelope"></i></span>
-                                                        <input type="text" class="form-control form-control-sm rounded-0"
-                                                            aria-label="Sizing example input"
-                                                            aria-describedby="inputGroup-sizing-default">
-                                                        <br>
-                                                    </div>
-                                                    <p class="text-muted pt-2">Enter Your Email Address</p>
-                                                    <div class="col-lg-12">
-                                                        <label class="pb-1" for="email">Email</label>
-                                                        <div class="input-group input-group-sm">
-                                                            <span class="input-group-text labels border-0 rounded-0"
-                                                                id="inputGroup-sizing-default" style="cursor: pointer"><i
-                                                                    class="fa-regular fa-eye"></i></span>
-                                                            <input type="text"
-                                                                class="form-control form-control-sm rounded-0"
-                                                                aria-label="Sizing example input"
-                                                                aria-describedby="inputGroup-sizing-default">
-                                                        </div>
-                                                        <p class="text-muted pt-2">Enter Your Email Address</p>
-                                                    </div>
-                                                    <div class="col-lg-12 pt-5">
-                                                        <p class="text-center">Forget Your Password ?<a href=""
-                                                                class="text-primary">Recover It!</a></p>
-                                                        <p class="text-center">New Here? Then <a href=""
-                                                                class="text-primary">Register Now!</a></p>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <button type="submit" class="w-100 btn-color">Sign In</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container register-container" style="display: none;">
+        <div class="row justify-content-center align-items-center client-login-form">
+            <form action="" method="get">
+                <div class="col-lg-10 offset-lg-1 mx-auto">
+                    <div class="row card-container">
+                        <div class="col-lg-6 sign-in-form shadow-sm py-3">
+                            <div class="text-center">
+                                <h1 class="main-title">Register</h1>
+                            </div>
+                            <div class="px-5 pt-2">
+                                <div class="pt-2">
+                                    <label for="" class="form-label">Name</label>
+                                    <div class="input-group flex-nowrap">
+                                        <span class="input-group-text border-0" id="addon-wrapping"
+                                            style="cursor: pointer; background-color: #ae0a46;"><i
+                                                class="fa-solid fa-envelope text-white"></i></span>
+                                        <input type="email" class="form-control rounded-1 client-login-field"
+                                            placeholder="your-email@mail.com" aria-label="your-email@mail.com"
+                                            aria-describedby="addon-wrapping">
                                     </div>
                                 </div>
-                            </form>
+                                <div class="pt-2">
+                                    <label for="" class="form-label">Email</label>
+                                    <div class="input-group flex-nowrap">
+                                        <span class="input-group-text border-0" id="addon-wrapping"
+                                            style="cursor: pointer; background-color: #ae0a46;"><i
+                                                class="fa-solid fa-envelope text-white"></i></span>
+                                        <input type="email" class="form-control rounded-1 client-login-field"
+                                            placeholder="your-email@mail.com" aria-label="your-email@mail.com"
+                                            aria-describedby="addon-wrapping">
+                                    </div>
+                                </div>
+                                <div class="pt-2">
+                                    <label for="" class="form-label">Phone</label>
+                                    <div class="input-group flex-nowrap">
+                                        <span class="input-group-text border-0" id="addon-wrapping"
+                                            style="cursor: pointer; background-color: #ae0a46;"><i
+                                                class="fa-solid fa-envelope text-white"></i></span>
+                                        <input type="email" class="form-control rounded-1 client-login-field"
+                                            placeholder="your-email@mail.com" aria-label="your-email@mail.com"
+                                            aria-describedby="addon-wrapping">
+                                    </div>
+                                </div>
+                                <div class="pt-2">
+                                    <label for="" class="form-label">Password</label>
+                                    <div class="input-group flex-nowrap">
+                                        <span class="input-group-text border-0 toggle-password" toggle="#password"
+                                            id="addon-wrapping" style="cursor: pointer; background-color: #ae0a46;"><i
+                                                class="fa-solid fa-eye-slash text-white"></i></span>
+                                        <input type="password" id="password"
+                                            class="form-control rounded-1 client-login-field"
+                                            placeholder="*******************" aria-label="Password"
+                                            aria-describedby="addon-wrapping">
+                                    </div>
+                                </div>
+                                <div class="pt-2">
+                                    <label for="" class="form-label">Confirm Password</label>
+                                    <div class="input-group flex-nowrap">
+                                        <span class="input-group-text border-0 toggle-password" toggle="#password"
+                                            id="addon-wrapping" style="cursor: pointer; background-color: #ae0a46;"><i
+                                                class="fa-solid fa-eye-slash text-white"></i></span>
+                                        <input type="password" id="password"
+                                            class="form-control rounded-1 client-login-field"
+                                            placeholder="*******************" aria-label="Password"
+                                            aria-describedby="addon-wrapping">
+                                    </div>
+                                </div>
+
+                                <div class="mt-5">
+                                    <button type="submit" class="btn-color w-100">
+                                        Login
+                                    </button>
+                                </div>
+                                <div class="text-center pt-4">
+                                    <p class="subtitle m-0 show-login">Already Have and Account? <br> Then<a
+                                            href="javascript:void()" class="main_color"> Login
+                                            Now!</a>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6 sign-in-area shadow-sm py-5">
+                            <div class="text-start ps-3 pe-2">
+                                <h1 class="main-title text-center">User Board</h1>
+                                <ul>
+                                    <li class="pb-3 pt-3">
+                                        <strong class="main_color">New User:</strong>
+                                        Complete the form with the registered email & password to enter into client
+                                        dashboard.
+                                    </li>
+                                    <li class="pb-3">
+                                        <strong class="main_color">Forgot Password:</strong>
+                                        Recover your password by following the instructions sent to your registered email
+                                        address.
+                                    </li>
+                                    <li class="pb-3">
+                                        <strong class="main_color">Already Registered:</strong>
+                                        Registered user. If you are facing issues or have questions, please contact our
+                                        support
+                                        team.
+                                    </li>
+                                    <li class="pb-3">
+                                        <strong class="main_color">Are Your Partner ?:</strong>
+                                        <a href="" class="text-primary">Click Here !</a> To Partner Login
+                                    </li>
+                                </ul>
+
+                                <div>
+                                    <img class="img-fluid" src="https://i.ibb.co/Tgd1zfd/Client-Login.png"
+                                        alt="">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
-    @include('frontend.partials.footer')
 @endsection
 
 @section('scripts')
     <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function() {
-            'use strict'
+        $(document).ready(function() {
+            // Function to toggle password visibility
+            $('.toggle-password').click(function() {
+                var input = $($(this).attr('toggle'));
+                var icon = $(this).find('i');
 
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.querySelectorAll('.needs-validation')
+                // Toggle password visibility
+                input.attr('type', input.attr('type') === 'password' ? 'text' : 'password');
 
-            // Loop over them and prevent submission
-            Array.prototype.slice.call(forms)
-                .forEach(function(form) {
-                    form.addEventListener('submit', function(event) {
-                        if (!form.checkValidity()) {
-                            event.preventDefault()
-                            event.stopPropagation()
-                        }
+                // Toggle eye icon based on password visibility
+                if (input.attr('type') === 'password') {
+                    icon.removeClass('fa-eye').addClass('fa-eye-slash');
+                } else {
+                    icon.removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Show register container on click
+            $(".show-register").click(function() {
+                $(".login-container").hide();
+                $(".register-container").show();
+            });
 
-                        form.classList.add('was-validated')
-                    }, false)
-                })
-        })()
+            // Show login container on click
+            $(".show-login").click(function() {
+                $(".register-container").hide();
+                $(".login-container").show();
+            });
+        });
     </script>
 @endsection

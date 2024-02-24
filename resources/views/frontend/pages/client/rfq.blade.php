@@ -4,7 +4,7 @@
         .page-wrapper {
             height: 100vh;
         }
-    </style> 
+    </style>
     <!--=========Content Wrapper=============-->
     <section class="content_wrapper">
         <div class="page-wrapper chiller-theme toggled">
@@ -15,7 +15,7 @@
                         <div class="section_wrapper">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <div class="card rounded-0 client_card border">
+                                    <div class="card rounded-0 border-0 shadow-sm">
                                         <div class="card-header rounded-0 border-0 p-2 card_main_support">
                                             <div class="px-3 p-2 d-flex justify-content-between">
                                                 <h5 class="m-0 text-center text-white px-3 py-1 upper_title">MY RFQs / Deals

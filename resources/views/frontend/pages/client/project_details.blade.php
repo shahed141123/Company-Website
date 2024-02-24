@@ -143,7 +143,7 @@
                             <div class="row mt-2">
                                 {{-- Project Details --}}
                                 <div class="col-lg-12">
-                                    <div class="card rounded-0 client_card border">
+                                    <div class="card rounded-0 shadow-sm border-0">
                                         <div class="card-header rounded-0 border-0 p-2 card_main_support">
                                             <div class="px-3 p-2 d-flex justify-content-between">
                                                 <h5 class="m-0 text-center text-white px-3 py-1 upper_title">
@@ -365,7 +365,7 @@
 
                                 {{-- Support Details --}}
                                 <div class="col-lg-12">
-                                    <div class="card rounded-0 client_card border">
+                                    <div class="card rounded-0 shadow-sm border-0">
                                         <div class="card-header rounded-0 border-0 p-2 card_main_support">
                                             <div class="px-3 p-2 d-flex justify-content-between">
                                                 <h5 class="m-0 text-center text-white px-3 py-1 upper_title">
@@ -598,7 +598,7 @@
 
                                 {{-- History --}}
                                 <div class="col-lg-12">
-                                    <div class="card rounded-0 client_card border">
+                                    <div class="card rounded-0 shadow-sm border-0">
                                         <div class="card-header rounded-0 border-0 p-2 card_main_support">
                                             <div class="px-3 p-2 d-flex justify-content-between">
                                                 <h5 class="m-0 text-center text-white px-3 py-1 upper_title">
