@@ -5,7 +5,7 @@
         <!-- Inner content -->
         <!-- Page header -->
         <div class="page-header page-header-light shadow">
-            <div class="page-header-content d-lg-flex border-top">
+            <div class="page-header-content d-flex justify-content-between align-items-center border-top">
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
                         <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
@@ -16,6 +16,15 @@
                         class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
                         data-bs-toggle="collapse">
                         <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
+                    </a>
+                </div>
+                <div>
+                    <!-- Leave Dashboard link -->
+                    <a href="{{ route('show-case-video.create') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="ph-plus me-1" style="font-size: 10px;"></i>
+                            <span>Add Show Case</span>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -45,7 +54,7 @@
                     </div>
                     <div class="row">
                         <div class="content">
-                            <div class="tab-content">
+                            <div class="tab-content ">
                                 <div class="tab-pane fade show active" id="js-tab1">
                                     <div id="table1" class="card cardT">
                                         <table class="datatable table table-bordered table-hover showCaseVideoDT">

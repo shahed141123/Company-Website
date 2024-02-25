@@ -69,7 +69,7 @@
                                             <p class="m-0 p-0 text-muted">Hello</p>
                                             <h5 class="m-0 p-0 text-muted">{{ Auth::user()->name }}</h5>
                                             <h5 class="m-0 p-0 text-muted">
-                                                {{ !empty($attendanceToday['user_name']) ? $attendanceToday['user_name'] : 'Not Defined' }}
+                                                {{ $attendanceToday['user_name'] ?? $attendanceToday['designation'] ?? 'Not Defined' }}
                                             </h5>
                                         </div>
                                         <div>

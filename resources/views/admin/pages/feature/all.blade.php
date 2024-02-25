@@ -4,7 +4,7 @@
         <!-- Inner content -->
         <!-- Page header -->
         <div class="page-header page-header-light shadow">
-            <div class="page-header-content d-lg-flex border-top">
+            <div class="page-header-content d-flex justify-content-between align-items-center border-top">
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
                         <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
@@ -17,65 +17,67 @@
                         <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
                     </a>
                 </div>
+                <div>
+                    <!-- Leave Dashboard link -->
+                    <a href="{{ route('feature.create') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="ph-plus me-1" style="font-size: 10px;"></i>
+                            <span>add Features</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
         <!-- /page header -->
-        <div class="content pt-0 ">
-            <div class="d-flex align-items-center py-2">
-                {{-- Add Details Start --}}
-                <div class="text-success nav-link cat-tab3"
-                    style="position: relative;
-                    z-index: 999;
-                    margin-bottom: -40px;">
-                    <a href="{{ route('feature.create') }}">
-                        <div class="d-flex align-items-center">
-                            <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                data-bs-placement="top" title="Add Solution Details">
-                                <i class="ph-plus icons_design"></i> </span>
-                            <span class="ms-1" style="color: #247297;">Add</span>
+        <div class="content">
+            <div class="text-center">
+                <h4 class="m-0" style="color: #247297;">All Client Experience</h4>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card shadow-sm border-0 rounded-0">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table newsLetterDt table-bordered table-hover text-center">
+                                    <thead>
+                                        <tr>
+                                            <th width="5%">Id</th>
+                                            <th width="5%">Logo</th>
+                                            <th width="20%">Title</th>
+                                            <th width="60%">Header</th>
+                                            <th width="10%" class="text-center">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if ($features)
+                                            @foreach ($features as $key => $feature)
+                                                <tr>
+                                                    <td>{{ ++$key }}</td>
+                                                    <td class="text-center"><img class="rounded-circle"
+                                                            src="{{ asset('storage/thumb/' . $feature->logo) }}"
+                                                            height="25" width="25" alt=""></td>
+                                                    <td>{{ $feature->title }}</td>
+                                                    <td>{!! $feature->header !!}</td>
+                                                    <td>
+                                                        <a href="{{ route('feature.edit', $feature->id) }}"
+                                                            class="text-primary">
+                                                            <i
+                                                                class="fa-solid fa-pen-to-square dash-icons"></i>
+                                                        </a>
+                                                        <a href="{{ route('feature.destroy', [$feature->id]) }}"
+                                                            class="text-danger delete">
+                                                            <i class="fa-solid fa-trash dash-icons"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </a>
-                    <div class="text-center" style="margin-left: 505px">
-                        <h5 class="ms-1" style="color: #247297;">All Features</h5>
                     </div>
                 </div>
-                {{-- Add Details End --}}
-            </div>
-            <div>
-                <table class="table newsLetterDt table-bordered table-hover text-center">
-                    <thead>
-                        <tr>
-                            <th width="10%">Id</th>
-                            <th width="15%">Logo</th>
-                            <th width="20%">Title</th>
-                            <th width="40%">Header</th>
-                            <th width="15%" class="text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if ($features)
-                        @foreach ($features as $key => $feature)
-                            <tr>
-                                <td>{{ ++$key }}</td>
-                                <td class="text-center"><img class="rounded-circle"
-                                        src="{{ asset('storage/thumb/' . $feature->logo) }}"
-                                        height="25" width="25" alt=""></td>
-                                <td>{{ $feature->title }}</td>
-                                <td>{!! $feature->header !!}</td>
-                                    <td>
-                                        <a href="{{ route('feature.edit', $feature->id) }}" class="text-primary" >
-                                            <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
-                                        </a>
-                                        <a href="{{ route('feature.destroy', [$feature->id]) }}"
-                                            class="text-danger delete">
-                                            <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
