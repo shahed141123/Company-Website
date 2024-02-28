@@ -187,7 +187,7 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="mb-2" for="qty">Custom Quantity</label>
-                                    <input type="text" class="form-control" name="qty" id="qty"
+                                    <input type="number" class="form-control" name="qty" id="qty" placeholder="Example: 0,1,2..."
                                         value="{{ old('qty') }}">
                                 </div>
                             </div>

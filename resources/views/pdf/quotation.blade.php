@@ -264,8 +264,8 @@
                 </tr>
                 @if ($rfq->special == '1')
                     <tr class="amount-container">
-                        <td colspan="4" class="special-discount">Special Discount
-                            {{ $deal_sas->special_discount }}</td>
+                        <td colspan="4" class="special-discount">Special Discount &nbsp;&nbsp;
+                            ({{ $deal_sas->special_discount }} %)</td>
                         <td>{{ $currency === 'taka' ? 'TK' : '$' }}
                             {{ $deal_sas->sub_total_sales - $deal_sas->special_discounted_sales }}
                         </td>

@@ -530,7 +530,8 @@
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <form action="" id="yourFormIdss" action="" method="post" novalidate>
+                    <form action="{{route('rfq.add')}}" id="yourFormIdss" action="" method="post" novalidate>
+                        @csrf
                         <div id="multi_step_form">
                             <div class="container p-0 mb-5">
                                 <div id="multistep_nav">
@@ -574,7 +575,7 @@
                                                             <div class="col-lg-10">
                                                                 <div class="searchInput">
                                                                     <label class="control-label pb-1">Product Name</label>
-                                                                    <input type="text"
+                                                                    <input type="text" name="product_name[]"
                                                                         class="form-control form-control-sm"
                                                                         placeholder="Product"
                                                                         onkeyup="showSuggestions(event)">
@@ -592,7 +593,7 @@
                                                                 class="col-lg-2 d-flex justify-content-between align-items-center">
                                                                 <div style="width: 95%">
                                                                     <label class="control-label pb-1">Quantity</label>
-                                                                    <input type="number" name="qty" value=""
+                                                                    <input type="number" name="qty[]" value=""
                                                                         class="form-control form-control-sm">
                                                                 </div>
 

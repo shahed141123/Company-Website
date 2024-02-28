@@ -79,9 +79,10 @@ class RFQController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required',
+                'name'  => 'required',
                 'email' => 'required',
                 'phone' => 'required',
+                'qty'   => 'int',
                 'image' => 'file|mimes:jpeg,png,jpg|max:2048',
                 'g-recaptcha-response' => ['required', new Recaptcha],
             ],
