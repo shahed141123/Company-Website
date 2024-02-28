@@ -58,8 +58,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <div class="card m-0 mb-3 rounded-0 p-3"
-                                        style="box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;">
+                                    <div class="card m-0 mb-3 rounded-0 p-3 shadow-sm border-0">
                                         <h3 style="font-family: 'system-ui';">My Supports</h3>
                                         <p style="text-align: justify;font-family: 'system-ui';">
                                             This section will show the list of all supports and details. You will be able to
@@ -70,9 +69,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row pt-3">
                                 <div class="col-lg-12">
-                                    <div class="card rounded-0 client_card border">
+                                    <div class="card rounded-0 shadow-sm border-0">
                                         <div class="card-header rounded-0 border-0 p-2 card_main_support">
                                             <div class="px-3 p-2 d-flex justify-content-between">
                                                 <h5 class="m-0 text-center text-white px-3 py-1 upper_title">All Supports
@@ -86,7 +85,7 @@
                                         <div class="card-body">
                                             <div class="col-lg-12 p-0">
                                                 <div class="table-responsive p-2">
-                                                    <table class="table supportDT text-center">
+                                                    <table class="table supportDT text-center table-striped table-hover">
                                                         <thead style="background-color:#24729759 !important">
                                                             <tr>
                                                                 <th width="15%">Support ID</th>
@@ -110,15 +109,15 @@
                                                                             <span class="border-bottom-link">
                                                                                 @if ($support->support_type == 'amc_support')
                                                                                     <span
-                                                                                        class="text-info badge-text rounded-1">AMC
+                                                                                        class="text-primary badge-text rounded-1">AMC
                                                                                         Support</span>
                                                                                 @elseif($support->support_type == 'implementation_support')
                                                                                     <span
-                                                                                        class="fw-bold badge-text text-info rounded-1">Implementation
+                                                                                        class="fw-bold badge-text text-primary rounded-1">Implementation
                                                                                         Support</span>
                                                                                 @else
                                                                                     <span
-                                                                                        class="fw-bold badge-text text-info rounded-1">Others
+                                                                                        class="fw-bold badge-text text-primary rounded-1">Others
                                                                                         Support</span>
                                                                                 @endif
                                                                             </span>

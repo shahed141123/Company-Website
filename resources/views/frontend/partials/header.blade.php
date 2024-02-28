@@ -1276,7 +1276,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <p class="m-0">Contact Us</p>
+                                    <p class="m-0">Help</p>
                                 </div>
                                 <div class="col-lg-4">
                                     <p class="m-0">+8801714243446</p>

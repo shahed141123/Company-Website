@@ -37,7 +37,7 @@
             position: relative;
             z-index: 5;">Company Job Details</h4>
             <p class="devider_line"></p>
-            <div class="row">
+            <div class="row pt-3">
                 <div class="col-lg-8 offset-lg-2 mx-auto">
                     <div class="row">
                         <div class="col-lg-4">
@@ -93,14 +93,14 @@
                         <div class="col-lg-4">
                             <div class="card rounded-2">
                                 <div class="card-header  p-1 py-2" style="background-color: #ae0a46; border-top-right-radius: 8px; border-top-left-radius: 8px;">
-                                    <h6 class="m-0 p-0 text-center text-white">Total Job Post</h6>
+                                    <h6 class="m-0 p-0 text-center text-white">Total Available Jobs</h6>
                                 </div>
                                 <div class="card-body py-4 px-4" style="background: #eeeeee73;">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div>
                                             <img class="img-fluid" width="50px" height="50px"
                                                 src="https://i.ibb.co/DkcfYsz/Asset-8-5x-8.png" alt="">
-                                            <h6 class="m-0">Total Job Posting</h6>
+                                            <h6 class="m-0">Available Jobs</h6>
                                         </div>
                                         <div>
                                             <div class="">

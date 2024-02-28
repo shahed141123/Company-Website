@@ -234,26 +234,6 @@
                                         <img src="{{ asset('storage/' . $item->image) }}" class="img-fluid" alt="">
                                         <div class="row d-flex justify-content-between">
                                             <div class="col mt-3">
-                                                {{-- Writer --}}
-                                                {{-- <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex justify-content-start">
-                                                        <img class="blog_writer"
-                                                            src="https://openlisthtml.themever.net/images/author-1.jpg"
-                                                            alt="">
-                                                        <div class="ml-3">
-                                                            <h6>Harry Ramos</h6>
-                                                            <p>5 Minute ago</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex justify-content-start">
-                                                        <div class="">
-                                                            <button class="btn btn-primary rounded-circle">
-                                                                <i class="fa fa-bars"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
-                                                {{-- Writer End --}}
                                                 {{-- Blog Descrition --}}
                                                 <div>
                                                     <h5 class="fw-semibold">{{ $item->title }}</h5>
@@ -266,27 +246,15 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="d-flex justify-content-center align-items-center">
                                                 <div class="bySocial col-12">
-                                                    <ul class="social-icon-links pull-right" style="font-size: 1.5rem;">
-                                                        {!! Share::page(url('/blog/' . $item->id . '/details'))->facebook()->twitter()->whatsapp() !!}
-                                                    </ul>
+                                                    {{-- <ul class="social-icon-links pull-right" style="font-size: 1.5rem;">
+                                                        <li>{!! Share::page(url('/blog/' . $item->id . '/details'))->facebook()->twitter()->whatsapp() !!}</li>
+                                                    </ul> --}}
                                                 </div>
                                             </div>
                                             <div class="d-flex justify-content-center align-items-center">
-                                                {{-- <button class="btn btn-primary rounded-circle">
-                                                    <i class="fa fa-arrow-down"></i>
-                                                </button>
-                                                <button class="btn btn-primary rounded-circle ml-1">
-                                                    <i class="fa fa-arrow-up"></i>
-                                                </button> --}}
                                                 <p class="ml-2 pt-3"><strong>Created at :
                                                     </strong>{{ $item->created_at->format('Y-m-d') }}</p>
                                             </div>
-                                            {{-- <div class="d-flex justify-content-center align-items-center">
-                                                <button class="btn btn-primary rounded-circle">
-                                                    <i class="fa fa-comment"></i>
-                                                </button>
-                                                <p class="  ml-2 pt-3">15</p>
-                                            </div> --}}
                                         </div>
                                         {{-- Blog Button End --}}
                                     </div>
