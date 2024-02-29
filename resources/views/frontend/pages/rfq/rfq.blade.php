@@ -241,7 +241,7 @@
 
         #multi_step_form .container #multistep_nav .progress_holder_custom {
             padding: 20px;
-            width: 24.5%;
+            width: 33%;
             text-align: center;
             background-color: #eee;
         }
@@ -256,25 +256,24 @@
         #multi_step_form .container fieldset.step {
             position: relative;
             padding: 10px;
-            padding-bottom: 30px;
+            padding-bottom: 50px;
         }
 
 
         #multi_step_form .container fieldset.step .nextStep {
             position: absolute;
-            right: 5px;
+            right: 25px;
             bottom: 5px;
             padding: 10px;
             width: 100px;
             color: white !important;
-            background-color: #0000FF !important;
-            border: 1px solid #0000FF !important;
+            background-color: #ae0a46 !important;
+            border: 1px solid #ae0a46 !important;
         }
 
         #multi_step_form .container fieldset.step .nextStep:hover {
             position: absolute;
-            right: 5px;
-            bottom: 5px;
+            right: 25px;
             padding: 10px;
             width: 100px;
             background-color: transparent !important;
@@ -419,12 +418,12 @@
             box-sizing: inherit;
         }
 
-        [type="checkbox"]:checked,
-        [type="checkbox"]:not(:checked) {
-            position: absolute;
-            left: 0px;
-            top: 6px;
-        }
+        /* [type="checkbox"]:checked,
+                        [type="checkbox"]:not(:checked) {
+                            position: absolute;
+                            left: 0px;
+                            top: 6px;
+                        } */
 
         /* For Multi Select */
         .select2-container--default .select2-selection--multiple .select2-selection__choice {
@@ -463,6 +462,23 @@
         .form-control {
             border: 1px solid #eee;
         }
+
+        .nav-tabs-rfq {
+            display: flex !important;
+            align-items: center;
+        }
+
+        /* Add your custom styles for radio buttons here */
+        .custom-radio input[type="radio"] {
+            background: black;
+            border: 0;
+            width: 20px;
+            height: 20px;
+        }
+
+        .custom-radio label {
+            /* Add your styles for the label containing the radio button and text */
+        }
     </style>
     <!--======// Header Title //======-->
     <section>
@@ -474,432 +490,164 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-offset-2 m-auto">
-                    <div class="row gx-3 my-5">
-                        <div class="col-lg-6">
-                            <div class="p-3 rfq_box text-start"
-                                style="background-image: url('https://i.pinimg.com/originals/96/03/b3/9603b3ad189fa4d29a3a7b2a33c5cd45.jpg')">
-                                <a href="javascript:void()" class="custom_rfq"
-                                    onclick="toggleSection('custom-rfq', 'query-rfq')">
-                                    <div class="d-flex justify-content-between">
-                                        <img width="120px" height="70px" src="https://i.ibb.co/zm36Ccz/Asset-6-5x-8.png"
+                <div class="col-lg-10 offset-lg-1 mx-auto">
+                    <!-- Nav tabs -->
+                    <div class="d-flex justify-content-center align-items-center pb-4 pt-5">
+                        <ul class="nav nav-tabs nav-tabs-rfq" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <label class="nav-link active rounded-0 custom-radio" id="home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">
+                                    <input type="radio" class="form-check-input me-2"
+                                        aria-label="Select RFQ with Product Selection" name="rfqType" checked>
+                                    RFQ WITH PRODUCT SELECTION
+                                    <div class="d-flex align-items-center pt-2">
+                                        <img class="me-3" width="50px" src="https://i.ibb.co/Tc9HNjK/Asset-4-5x-8.png"
                                             alt="">
-                                        <div class="ps-4">
-                                            <h6 class="main_color"> RFQ WITH PRODUCT SELECTION</h6>
-                                            <p style="text-align: justify;">RFQ with product selection streamlines
-                                                procurement by offering a user-friendly interface, facilitating efficient
-                                                requests for quotes tailored to specific product requirements.</p>
-                                        </div>
+                                        RFQ with product selection streamlines <br>
+                                         procurement by offering a user-friendly <br>
+                                        interface, facilitating efficient requests <br>
+                                         for quotes tailored to specific product <br>
+                                        requirements.
                                     </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="p-3 rfq_box text-start"
-                                style="background-image: url('https://i.pinimg.com/originals/96/03/b3/9603b3ad189fa4d29a3a7b2a33c5cd45.jpg')">
-                                <a href="javascript:void()" class="query_rfq"
-                                    onclick="toggleSection('query-rfq', 'custom-rfq')">
-                                    <div class="d-flex justify-content-between">
-                                        <img width="120px" height="70px" src="https://i.ibb.co/Tc9HNjK/Asset-4-5x-8.png"
+                                </label>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <label class="nav-link rounded-0 custom-radio" id="profile-tab" data-bs-toggle="tab"
+                                    data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                                    <input type="radio" class="form-check-input me-2"
+                                        aria-label="Select Custom Request for Quote" name="rfqType">
+                                    CUSTOM REQUEST FOR QUOTE
+                                    <div class="d-flex align-items-center pt-2">
+                                        <img class="me-3" width="50px" src="https://i.ibb.co/Tc9HNjK/Asset-4-5x-8.png"
                                             alt="">
-                                        <div class="ps-4">
-                                            <h6 class="main_color">CUSTOM REQUEST FOR QUOTE</h6>
-                                            <p style="text-align: justify;">Custom Request for Quote empowers users to
-                                                tailor procurement needs, providing a personalized approach to sourcing
-                                                quotes for unique and specialized requirements.</p>
-                                        </div>
+                                        RFQ WITH PRODUCT SELECTION <br>
+                                        RFQ WITH PRODUCT SELECTION <br>
+                                        RFQ WITH PRODUCT SELECTION
                                     </div>
-                                </a>
-                            </div>
-                        </div>
+                                </label>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="container">
-            <div class="row" id="custom-rfq">
-                <div class="col-lg-12">
-                    <div class="d-flex justify-content-center">
-                        <div>
-                            <img width="50px" height="30px"
-                                src="https://i.ibb.co/WPZGh6G/free-png-ru-195-340x340.png" alt="">
-                        </div>
-                        <h4 class="text-center mb-5">RFQ WITH PRODUCT SELECTION</h4>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <form action="" id="yourFormIdss" action="" method="post" novalidate>
-                        <div id="multi_step_form">
-                            <div class="container p-0 mb-5">
-                                <div id="multistep_nav">
-                                    <div class="progress_holder progress_holder_custom">
-                                        Product QUERY
-                                    </div>
-                                    <div class="progress_holder progress_holder_custom">
-                                        QUERY DETAILS
-                                    </div>
-                                    <div class="progress_holder progress_holder_custom">
-                                        Company DETAILS
-                                    </div>
-                                    <div class="progress_holder progress_holder_custom ">
-                                        Finish
-                                    </div>
-                                </div>
-                                <fieldset class="step" id="step1">
-                                    <div class="container">
-                                        <div class="row mb-4">
-                                            <div class="col-lg-12">
-                                                <div class="d-flex p-4 px-0">
-                                                    <div class="me-2">
-                                                        <i class="fa-solid fa-circle-question main_color"
-                                                            style="font-size: 35px;"></i>
-                                                    </div>
-                                                    <div class="">
-                                                        <h5>Chose should you enter product query details here?</h5>
-                                                        <p>Describing query details will enable suppliers to prepare a
-                                                            proposal perfectly suited to your needs. Your query details
-                                                            remain
-                                                            confidential. Only the suppliers we select will have access to
-                                                            the
-                                                            information.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="repeater-default">
-                                                    <div data-repeater-list="car" class="drag">
-                                                        <div data-repeater-item="" class="row gx-2 align-items-center me-4">
-                                                            <div class="col-lg-10">
-                                                                <div class="searchInput">
-                                                                    <label class="control-label pb-1">Product Name</label>
-                                                                    <input type="text"
-                                                                        class="form-control form-control-sm"
-                                                                        placeholder="Product"
-                                                                        onkeyup="showSuggestions(event)">
-                                                                    <div class="resultBox">
-                                                                        <ul class="suggestionList" style="display: none;">
-                                                                            @foreach ($products as $product)
-                                                                                <li>{{$product->name}}</li>
-                                                                            @endforeach
-                                                                            <!-- Add other list items here -->
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div
-                                                                class="col-lg-2 d-flex justify-content-between align-items-center">
-                                                                <div style="width: 95%">
-                                                                    <label class="control-label pb-1">Quantity</label>
-                                                                    <input type="number" name="qty" value=""
-                                                                        class="form-control form-control-sm">
-                                                                </div>
 
-                                                                <div class="mt-4" style="width: 5%">
-                                                                    <span data-repeater-delete=""
-                                                                        style="
-                                                                            font-size: 18px;
-                                                                            padding: 7.5px;
-                                                                            color: red;
-                                                                            cursor: pointer;">
-                                                                        <i class="fa-solid fa-trash"></i>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-offset-1 col-sm-11">
-                                                            <div class="mt-4">
-                                                                <span class="p-2" data-repeater-create=""
-                                                                    style="background-color: #2882d1;color:#fff; width: 50px; cursor: pointer;">
-                                                                    <i class="fa-solid fa-plus"></i> <span
-                                                                        class="glyphicon glyphicon-plus"></span> Add
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
+
+                    <!-- Tab panes -->
+                    <div class="tab-content pt-5">
+                        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <form action="" id="yourFormIdss" action="" method="post" novalidate>
+                                <div id="multi_step_form">
+                                    <div class="container p-0 mb-5">
+                                        <div id="multistep_nav">
+                                            <div class="progress_holder progress_holder_custom">
+                                                Product QUERY
+                                            </div>
+                                            <div class="progress_holder progress_holder_custom">
+                                                QUERY DETAILS
+                                            </div>
+                                            <div class="progress_holder progress_holder_custom">
+                                                Company DETAILS
                                             </div>
                                         </div>
-                                    </div>
-                                    <button type="button" class="nextStep btn-color">Next</button>
-                                </fieldset>
-                                <fieldset class="step" id="step2">
-                                    <div class="prevStep btn-color">Prev</div>
-                                    <div class="container pb-4">
-                                        <div class="row mb-4">
-                                            <div class="col-lg-12">
-                                                <div class="d-flex p-4 px-0">
-                                                    <div class="me-2">
-                                                        <i class="fa-solid fa-circle-question main_color"
-                                                            style="font-size: 35px;"></i>
-                                                    </div>
-                                                    <div>
-                                                        <p>Why is it important to enter your company information?</p>
-                                                        <p>Entering precise company information ensures you will receive
-                                                            the quotation.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1"
-                                                                class="form-label">Budget Ammount <span
-                                                                    class="text-danger">*</span></label>
-                                                            <input type="number" name="email"
-                                                                class="form-control form-control-sm"
-                                                                id="exampleFormControlInput1" placeholder="Your Budget"
-                                                                required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1"
-                                                                class="form-label">Closing Date<span
-                                                                    class="text-danger">*</span></label>
-                                                            <input type="date" name="company_name"
-                                                                class="form-control form-control-sm"
-                                                                id="exampleFormControlInput1" placeholder="Closing Date"
-                                                                required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1"
-                                                                class="form-label">Select Stage<span
-                                                                    class="text-danger">*</span></label>
-                                                            <select class="form-select form-select-sm"
-                                                                aria-label="Default select example">
-                                                                <option selected>Open this select menu</option>
-                                                                <option value="1">Budget Stage</option>
-                                                                <option value="2">Tore Stage</option>
-                                                                <option value="3">RFQ Stage</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1"
-                                                                class="form-label">Status<span
-                                                                    class="text-danger">*</span></label>
-                                                            <select class="form-select form-select-sm"
-                                                                aria-label="Default select example">
-                                                                <option selected>Select A Status</option>
-                                                                <option value="1">Quicke</option>
-                                                                <option value="2">Slow Step</option>
-                                                                <option value="3">Normal</option>
-                                                            </select>
+                                        <fieldset class="step" id="step1">
+                                            <div class="container">
+                                                <div class="row mb-4">
+                                                    <div class="col-lg-12">
+                                                        <div class="d-flex p-4 px-0">
+                                                            <div class="me-2">
+                                                                <i class="fa-solid fa-circle-question main_color"
+                                                                    style="font-size: 35px;"></i>
+                                                            </div>
+                                                            <div class="">
+                                                                <h5>Chose should you enter product query details here?</h5>
+                                                                <p>Describing query details will enable suppliers to prepare
+                                                                    a
+                                                                    proposal perfectly suited to your needs. Your query
+                                                                    details
+                                                                    remain
+                                                                    confidential. Only the suppliers we select will have
+                                                                    access to
+                                                                    the
+                                                                    information.</p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
-                                                        <div class="form-check text-start ps-0">
-                                                            <div class="checkbox-wrapper-13">
-                                                                <input id="c1-13" type="checkbox">
-                                                                <label for="c1-13">Would you like to have a brochure
-                                                                    created? Please let me know if you need assistance with
-                                                                    designing a brochure.</label>
+                                                        <div class="repeater-default">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-lg-12 d-flex align-items-center">
+                                                                    <div class=""
+                                                                        style="width: 5%; margin-top: 10px;">
+                                                                        <div class="mt-4">
+                                                                            <span class="p-2" data-repeater-create=""
+                                                                                style=" font-size: 18px;padding: 5px 10px !important;color: white;cursor: pointer;background-color: #ae0a46; border-radius: 5px;">
+                                                                                <i class="fa-solid fa-plus"></i> <span
+                                                                                    class="glyphicon glyphicon-plus"></span>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div style="width: 97%">
+                                                                        <div data-repeater-list="car" class="drag">
+                                                                            <div data-repeater-item=""
+                                                                                class="row gx-2 align-items-center me-4">
+                                                                                <div class="col-lg-10">
+                                                                                    <div class="searchInput">
+                                                                                        <label
+                                                                                            class="control-label pb-2">Product
+                                                                                            Name</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control form-control-sm border-0 rounded-1"
+                                                                                            placeholder="Product"
+                                                                                            onkeyup="showSuggestions(event)">
+                                                                                        <div class="resultBox">
+                                                                                            <ul class="suggestionList"
+                                                                                                style="display: none;">
+                                                                                                @foreach ($products as $product)
+                                                                                                    <li>{{ $product->name }}
+                                                                                                    </li>
+                                                                                                @endforeach
+                                                                                                <!-- Add other list items here -->
+                                                                                            </ul>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="col-lg-2 d-flex justify-content-between align-items-center">
+                                                                                    <div style="width: 95%">
+                                                                                        <label
+                                                                                            class="control-label pb-2">Quantity</label>
+                                                                                        <input type="number"
+                                                                                            name="qty" value=""
+                                                                                            class="form-control form-control-sm border-0 rounded-1">
+                                                                                    </div>
+                                                                                    <div class="mt-4 ms-2"
+                                                                                        style="width: 5%; margin-top: 30px !important;">
+                                                                                        <span data-repeater-delete=""
+                                                                                            style=" font-size: 18px;padding: 5px 10px;color: white;cursor: pointer;background-color: #ae0a46; border-radius: 5px;">
+                                                                                            <i
+                                                                                                class="fa-solid fa-trash"></i>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12 text-end">
+                                                            <button type="button"
+                                                                class="nextStep btn-color mb-2">Next</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="nextStep btn-color">Next</button>
-                                </fieldset>
-                                <fieldset class="step" id="step3">
-                                    <div class="prevStep btn-color">Prev</div>
-                                    <div class="container p-0 pb-4">
-                                        <div class="row m-1 pb-4">
-                                            <div class="col-lg-12">
-                                                <div class="d-flex p-4 px-0">
-                                                    <div class="me-2">
-                                                        <i class="fa-solid fa-circle-question main_color"
-                                                            style="font-size: 35px;"></i>
-                                                    </div>
-                                                    <div>
-                                                        <p>Why is it important to enter your QUERY information?</p>
-                                                        <p>Entering precise QUERY information ensures you will receive
-                                                            the quotation.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="form-group pt-2">
-                                                    <label for="" class="pb-1">Name</label>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        placeholder="Your Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="form-group pt-2">
-                                                    <label for="" class="pb-1">Email</label>
-                                                    <input type="numnber" class="form-control form-control-sm"
-                                                        placeholder="Your Email">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="form-group pt-2">
-                                                    <label for="" class="pb-1">Phone Number</label>
-                                                    <input type="numnber" class="form-control form-control-sm"
-                                                        placeholder="Your Phone Number">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="form-group pt-2">
-                                                    <label for="" class="pb-1">City</label>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        placeholder="Enter City">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="form-group pt-2">
-                                                    <label for="" class="pb-1">Zip Code</label>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        placeholder="Enter Zip Code">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="form-group pt-2">
-                                                    <label for="" class="pb-1">Company Name</label>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        placeholder="Enter Company Name">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="nextStep btn-color">Next</button>
-                                </fieldset>
-                                <fieldset class="step" id="step4">
-                                    <div class="prevStep btn-color">Prev</div>
-                                    <div class="container p-0">
-                                        <div class="row">
-                                            <div class="col-lg-12 d-flex justify-content-center">
-                                                <img width="350px"
-                                                    src="https://static.wixstatic.com/media/b99d36_8fa88e6afeae4ef4ae76b8e3d19d6a1b~mv2.gif"
-                                                    alt="">
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <p>Last Step To Submit.</p>
-                                                <p class="text-center">All fields have been successfully filled up. <br>
-                                                    Now, submit the RFQ</p>
-                                            </div>
-                                            <div class="col-lg-12 d-flex justify-content-end pe-0">
 
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="nextStep btn-color">Submit</button>
-                                </fieldset>
-                                {{-- <fieldset class="step" id="step4">
-
-
-                                </fieldset> --}}
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="row" id="query-rfq">
-                <div class="col-lg-12">
-                    <div class="d-flex justify-content-center">
-                        <h4 class="text-center mb-5">CUSTOM REQUEST FOR QUOTE</h4>
-                        <div>
-                            <img width="50px" height="30px"
-                                src="https://i.ibb.co/HhKxFBw/131275-up-arrow-free-transparent-image-hq.png"
-                                alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <form action="" id="yourFormIdss" action="" method="post" novalidate>
-                        <div id="multi_step_form">
-                            <div class="container p-0 mb-5">
-                                <div id="multistep_nav">
-                                    <div class="progress_holder progress_holder_custom">
-                                        CUSTOM PRODUCT QUERY
-                                    </div>
-                                    <div class="progress_holder progress_holder_custom">
-                                        QUERY DETAILS
-                                    </div>
-                                    <div class="progress_holder progress_holder_custom">
-                                        COMPANY DETAILS
-                                    </div>
-                                    <div class="progress_holder progress_holder_custom">
-                                        Finish
-                                    </div>
-                                </div>
-                                <fieldset class="step" id="step1">
-                                    <div class="container">
-                                        <div class="row mb-4">
-                                            <div class="col-lg-12">
-                                                <div class="d-flex p-4 px-0">
-                                                    <div class="me-2">
-                                                        <i class="fa-solid fa-circle-question main_color"
-                                                            style="font-size: 35px;"></i>
-                                                    </div>
-                                                    <div class="">
-                                                        <h5>Chose should you enter complete query details here?</h5>
-                                                        <p>Describing query details will enable suppliers to prepare a
-                                                            proposal perfectly suited to your needs. Your query details
-                                                            remain confidential. Only the suppliers we select will have
-                                                            access to
-                                                            the information.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <label class="control-label pb-1">Category</label> <br>
-                                                        <select class="multiSelect" multiple="multiple"
-                                                            style="width: 100%;">
-                                                            @foreach ($categorys as $category)
-                                                                <option value="{{$category->id}}">{{$category->title}}</option>
-                                                            @endforeach
-                                                            <!-- Add more options as needed -->
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <label class="control-label pb-1">Brand</label> <br>
-                                                        <select class="multiSelect" multiple="multiple"
-                                                            style="width: 100%;">
-                                                            @foreach ($brands as $brand)
-                                                                <option value="{{$brand->id}}">{{$brand->title}}</option>
-                                                            @endforeach
-                                                            <!-- Add more options as needed -->
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <label class="control-label pb-1">Industry</label> <br>
-                                                        <select class="multiSelect" multiple="multiple"
-                                                            style="width: 100%;">
-                                                            @foreach ($industrys as $industry)
-                                                                <option value="{{$industry->id}}">{{$industry->title}}</option>
-                                                            @endforeach
-                                                            <!-- Add more options as needed -->
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-lg-12 pt-4">
-                                                        <label class="control-label pb-1">Don't Find Suitable Option ?
-                                                            Enter
-                                                            Your Custom Query</label>
-                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="nextStep btn-color">Next</button>
-                                </fieldset>
-                                <fieldset class="step" id="step2">
-                                    <div class="prevStep btn-color">Prev</div>
-                                    <div class="container pb-4">
-                                        <div class="row mb-4">
-                                            <div class="col-lg-12">
+                                        </fieldset>
+                                        <fieldset class="step" id="step2">
+                                            <div class="prevStep btn-color mb-2 ms-3">Prev</div>
+                                            <div class="container pb-4">
                                                 <div class="row mb-4">
                                                     <div class="col-lg-12">
                                                         <div class="d-flex p-4 px-0">
@@ -908,8 +656,9 @@
                                                                     style="font-size: 35px;"></i>
                                                             </div>
                                                             <div>
-                                                                <p>Why is it important to enter your QUERY information?</p>
-                                                                <p>Entering precise QUERY information ensures you will
+                                                                <p>Why is it important to enter your company information?
+                                                                </p>
+                                                                <p>Entering precise company information ensures you will
                                                                     receive
                                                                     the quotation.</p>
                                                             </div>
@@ -921,7 +670,7 @@
                                                                         class="form-label">Budget Ammount <span
                                                                             class="text-danger">*</span></label>
                                                                     <input type="number" name="email"
-                                                                        class="form-control form-control-sm"
+                                                                        class="form-control form-control-sm border-0 rounded-1"
                                                                         id="exampleFormControlInput1"
                                                                         placeholder="Your Budget" required>
                                                                 </div>
@@ -932,7 +681,7 @@
                                                                         class="form-label">Closing Date<span
                                                                             class="text-danger">*</span></label>
                                                                     <input type="date" name="company_name"
-                                                                        class="form-control form-control-sm"
+                                                                        class="form-control form-control-sm border-0 rounded-1"
                                                                         id="exampleFormControlInput1"
                                                                         placeholder="Closing Date" required>
                                                                 </div>
@@ -981,39 +730,339 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                            <button type="button" class="nextStep btn-color mb-2">Next</button>
+                                        </fieldset>
+                                        <fieldset class="step" id="step3">
+                                            <div class="prevStep btn-color mb-2 ms-3">Prev</div>
+                                            <div class="container p-0 pb-4">
+                                                <div class="row m-1 pb-4">
+                                                    <div class="col-lg-12">
+                                                        <div class="d-flex p-4 px-0">
+                                                            <div class="me-2">
+                                                                <i class="fa-solid fa-circle-question main_color"
+                                                                    style="font-size: 35px;"></i>
+                                                            </div>
+                                                            <div>
+                                                                <p>Why is it important to enter your QUERY information?</p>
+                                                                <p>Entering precise QUERY information ensures you will
+                                                                    receive
+                                                                    the quotation.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group pt-2">
+                                                            <label for="" class="pb-1">Name</label>
+                                                            <input type="text"
+                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                placeholder="Your Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group pt-2">
+                                                            <label for="" class="pb-1">Email</label>
+                                                            <input type="numnber"
+                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                placeholder="Your Email">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group pt-2">
+                                                            <label for="" class="pb-1">Phone Number</label>
+                                                            <input type="numnber"
+                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                placeholder="Your Phone Number">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group pt-2">
+                                                            <label for="" class="pb-1">City</label>
+                                                            <input type="text"
+                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                placeholder="Enter City">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group pt-2">
+                                                            <label for="" class="pb-1">Zip Code</label>
+                                                            <input type="text"
+                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                placeholder="Enter Zip Code">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group pt-2">
+                                                            <label for="" class="pb-1">Company Name</label>
+                                                            <input type="text"
+                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                placeholder="Enter Company Name">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="nextStep btn-color mb-2">Submit</button>
+                                        </fieldset>
                                     </div>
-                                    <button type="button" class="nextStep btn-color">Next</button>
-                                </fieldset>
-                                <fieldset class="step" id="step3">
-                                    <div class="prevStep btn-color">Prev</div>
-                                    <div class="container p-0">
-                                        <div class="row">
-                                            <div class="col-lg-12 d-flex justify-content-center">
-                                                <img width="350px"
-                                                    src="https://static.wixstatic.com/media/b99d36_8fa88e6afeae4ef4ae76b8e3d19d6a1b~mv2.gif"
-                                                    alt="">
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <p>Last Step To Submit.</p>
-                                                <p class="text-center">All fields have been successfully filled up. <br>
-                                                    Now, submit the RFQ</p>
-                                            </div>
-                                            <div class="col-lg-12 d-flex justify-content-end pe-0">
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="nextStep btn-color">Submit</button>
-                                </fieldset>
-                                {{-- <fieldset class="step" id="step4">
-
-
-                                </fieldset> --}}
-                            </div>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <form action="" id="yourFormIdss" action="" method="post" novalidate>
+                                <div id="multi_step_form">
+                                    <div class="container p-0 mb-5">
+                                        <div id="multistep_nav">
+                                            <div class="progress_holder progress_holder_custom">
+                                                CUSTOM PRODUCT QUERY
+                                            </div>
+                                            <div class="progress_holder progress_holder_custom">
+                                                QUERY DETAILS
+                                            </div>
+                                            <div class="progress_holder progress_holder_custom">
+                                                COMPANY DETAILS
+                                            </div>
+                                        </div>
+                                        <fieldset class="step" id="step1">
+                                            <div class="container">
+                                                <div class="row mb-4">
+                                                    <div class="col-lg-12">
+                                                        <div class="d-flex p-4 px-0">
+                                                            <div class="me-2">
+                                                                <i class="fa-solid fa-circle-question main_color"
+                                                                    style="font-size: 35px;"></i>
+                                                            </div>
+                                                            <div class="">
+                                                                <h5>Chose should you enter complete query details here?</h5>
+                                                                <p>Describing query details will enable suppliers to prepare
+                                                                    a
+                                                                    proposal perfectly suited to your needs. Your query
+                                                                    details
+                                                                    remain confidential. Only the suppliers we select will
+                                                                    have
+                                                                    access to
+                                                                    the information.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
+                                                            <div class="col-lg-4">
+                                                                <label class="control-label pb-1">Category</label> <br>
+                                                                <select class="multiSelect" multiple="multiple"
+                                                                    style="width: 100%;">
+                                                                    @foreach ($categorys as $category)
+                                                                        <option value="{{ $category->id }}">
+                                                                            {{ $category->title }}
+                                                                        </option>
+                                                                    @endforeach
+                                                                    <!-- Add more options as needed -->
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <label class="control-label pb-1">Brand</label> <br>
+                                                                <select class="multiSelect" multiple="multiple"
+                                                                    style="width: 100%;">
+                                                                    @foreach ($brands as $brand)
+                                                                        <option value="{{ $brand->id }}">
+                                                                            {{ $brand->title }}
+                                                                        </option>
+                                                                    @endforeach
+                                                                    <!-- Add more options as needed -->
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <label class="control-label pb-1">Industry</label> <br>
+                                                                <select class="multiSelect" multiple="multiple"
+                                                                    style="width: 100%;">
+                                                                    @foreach ($industrys as $industry)
+                                                                        <option value="{{ $industry->id }}">
+                                                                            {{ $industry->title }}
+                                                                        </option>
+                                                                    @endforeach
+                                                                    <!-- Add more options as needed -->
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-lg-12 pt-4">
+                                                                <label class="control-label pb-1">Don't Find Suitable
+                                                                    Option ?
+                                                                    Enter Your Custom Query</label>
+                                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="nextStep btn-color mb-2">Next</button>
+                                        </fieldset>
+                                        <fieldset class="step" id="step2">
+                                            <div class="prevStep btn-color mb-2 ms-3">Prev</div>
+                                            <div class="container pb-4">
+                                                <div class="row mb-4">
+                                                    <div class="col-lg-12">
+                                                        <div class="row mb-4">
+                                                            <div class="col-lg-12">
+                                                                <div class="d-flex p-4 px-0">
+                                                                    <div class="me-2">
+                                                                        <i class="fa-solid fa-circle-question main_color"
+                                                                            style="font-size: 35px;"></i>
+                                                                    </div>
+                                                                    <div>
+                                                                        <p>Why is it important to enter your QUERY
+                                                                            information?</p>
+                                                                        <p>Entering precise QUERY information ensures you
+                                                                            will
+                                                                            receive
+                                                                            the quotation.</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <div class="mb-3">
+                                                                            <label for="exampleFormControlInput1"
+                                                                                class="form-label">Budget Ammount <span
+                                                                                    class="text-danger">*</span></label>
+                                                                            <input type="number" name="email"
+                                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                                id="exampleFormControlInput1"
+                                                                                placeholder="Your Budget" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="mb-3">
+                                                                            <label for="exampleFormControlInput1"
+                                                                                class="form-label">Closing Date<span
+                                                                                    class="text-danger">*</span></label>
+                                                                            <input type="date" name="company_name"
+                                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                                id="exampleFormControlInput1"
+                                                                                placeholder="Closing Date" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="mb-3">
+                                                                            <label for="exampleFormControlInput1"
+                                                                                class="form-label">Select Stage<span
+                                                                                    class="text-danger">*</span></label>
+                                                                            <select class="form-select form-select-sm"
+                                                                                aria-label="Default select example">
+                                                                                <option selected>Open this select menu
+                                                                                </option>
+                                                                                <option value="1">Budget Stage
+                                                                                </option>
+                                                                                <option value="2">Tore Stage</option>
+                                                                                <option value="3">RFQ Stage</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="mb-3">
+                                                                            <label for="exampleFormControlInput1"
+                                                                                class="form-label">Status<span
+                                                                                    class="text-danger">*</span></label>
+                                                                            <select class="form-select form-select-sm"
+                                                                                aria-label="Default select example">
+                                                                                <option selected>Select A Status</option>
+                                                                                <option value="1">Quicke</option>
+                                                                                <option value="2">Slow Step</option>
+                                                                                <option value="3">Normal</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <div class="form-check text-start ps-0">
+                                                                            <div class="checkbox-wrapper-13">
+                                                                                <input id="c1-13" type="checkbox">
+                                                                                <label for="c1-13">Would you like to
+                                                                                    have a
+                                                                                    brochure
+                                                                                    created? Please let me know if you need
+                                                                                    assistance with
+                                                                                    designing a brochure.</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="nextStep btn-color mb-2">Next</button>
+                                        </fieldset>
+                                        <fieldset class="step" id="step3">
+                                            <div class="prevStep btn-color mb-2 ms-3">Prev</div>
+                                            <div class="container p-0 pb-4">
+                                                <div class="row m-1 pb-4">
+                                                    <div class="col-lg-12">
+                                                        <div class="d-flex p-4 px-0">
+                                                            <div class="me-2">
+                                                                <i class="fa-solid fa-circle-question main_color"
+                                                                    style="font-size: 35px;"></i>
+                                                            </div>
+                                                            <div>
+                                                                <p>Why is it important to enter your QUERY information?</p>
+                                                                <p>Entering precise QUERY information ensures you will
+                                                                    receive
+                                                                    the quotation.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group pt-2">
+                                                            <label for="" class="pb-1">Name</label>
+                                                            <input type="text"
+                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                placeholder="Your Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group pt-2">
+                                                            <label for="" class="pb-1">Email</label>
+                                                            <input type="numnber"
+                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                placeholder="Your Email">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group pt-2">
+                                                            <label for="" class="pb-1">Phone Number</label>
+                                                            <input type="numnber"
+                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                placeholder="Your Phone Number">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group pt-2">
+                                                            <label for="" class="pb-1">City</label>
+                                                            <input type="text"
+                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                placeholder="Enter City">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group pt-2">
+                                                            <label for="" class="pb-1">Zip Code</label>
+                                                            <input type="text"
+                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                placeholder="Enter Zip Code">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group pt-2">
+                                                            <label for="" class="pb-1">Company Name</label>
+                                                            <input type="text"
+                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                placeholder="Enter Company Name">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="nextStep btn-color mb-2">Submit</button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

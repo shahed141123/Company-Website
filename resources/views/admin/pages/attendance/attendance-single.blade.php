@@ -143,26 +143,6 @@
                     }
                 ]
             });
-            // $('.datatable-button-print-columns').DataTable({
-            //     columnDefs: [{
-            //         targets: -1, // Hide actions column
-            //         visible: false
-            //     }],
-            //     buttons: [{
-            //             extend: 'print',
-            //             text: '<i class="ph-printer me-2"></i> Print table',
-            //             className: 'btn btn-light',
-            //             exportOptions: {
-            //                 columns: ':visible'
-            //             }
-            //         },
-            //         {
-            //             extend: 'colvis',
-            //             text: '<i class="ph-list"></i>',
-            //             className: 'btn btn-light btn-icon dropdown-toggle'
-            //         }
-            //     ]
-            // });
         </script>
     @endpush
 @endonce

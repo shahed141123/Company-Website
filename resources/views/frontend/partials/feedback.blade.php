@@ -16,8 +16,6 @@
         border-radius: 0;
         width: 367px;
         text-align: center;
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
     }
 
     .extra-btns:hover {
