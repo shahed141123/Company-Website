@@ -51,7 +51,7 @@
                                                                                 data-bs-toggle="modal"
                                                                                 title="Upload Work order"
                                                                                 data-bs-target="#Work-order-{{ $rfq->rfq_code }}">
-                                                                                <i class="icon-file-plus2"></i>
+                                                                                <i class="fas fa-upload"></i>
                                                                             </a>
                                                                             <!---Category Update modal--->
                                                                             <div id="Work-order-{{ $rfq->rfq_code }}"
@@ -254,8 +254,8 @@
                                                                                                                     </tr>
 
                                                                                                                     <!-- <tr>
-                                                                                                                            <th colspan="2" width="40%"> In Words: </th> <th colspan="5" width="60%"> <small> <b> Thirty One Lac sixty Four Thousand and Four Hundred Twenty One Taka Only (w/o Tax / VAT) </b> </small> </th>
-                                                                                                                            </tr> -->
+                                                                                                                                    <th colspan="2" width="40%"> In Words: </th> <th colspan="5" width="60%"> <small> <b> Thirty One Lac sixty Four Thousand and Four Hundred Twenty One Taka Only (w/o Tax / VAT) </b> </small> </th>
+                                                                                                                                    </tr> -->
 
 
                                                                                                                 </table>
@@ -288,8 +288,7 @@
                                                 <div class="row">
                                                     <table class="table table-bordered"
                                                         style="background: offset; width:60%; margin:auto;">
-
-                                                        <thead>
+                                                        <tbody>
                                                             <tr class="border-none">
                                                                 <th class="border-none" colspan="3"
                                                                     style="background: offset; width:60%; margin:auto;">
@@ -301,7 +300,7 @@
                                                                         * Accepts PDF only</span>
                                                                 </th>
                                                             </tr>
-                                                        </thead>
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                             </div>
@@ -452,8 +451,8 @@
                                                             </tr>
 
                                                             <!-- <tr>
-                                                                                                                            <th colspan="2" width="40%"> In Words: </th> <th colspan="5" width="60%"> <small> <b> Thirty One Lac sixty Four Thousand and Four Hundred Twenty One Taka Only (w/o Tax / VAT) </b> </small> </th>
-                                                                                                                            </tr> -->
+                                                                                                                                    <th colspan="2" width="40%"> In Words: </th> <th colspan="5" width="60%"> <small> <b> Thirty One Lac sixty Four Thousand and Four Hundred Twenty One Taka Only (w/o Tax / VAT) </b> </small> </th>
+                                                                                                                                    </tr> -->
 
 
                                                         </table>
@@ -487,7 +486,8 @@
                                                                         style="background: offset; width:60%; margin:auto;">
                                                                         <label for="clientPO"
                                                                             style="font-size:16px;">Payment Slip
-                                                                            (Pdf)</label>
+                                                                            (Pdf)
+                                                                        </label>
                                                                         <input class="form-control" type="file"
                                                                             name="client_po" id="clientPO">
                                                                         <span class="text-info">

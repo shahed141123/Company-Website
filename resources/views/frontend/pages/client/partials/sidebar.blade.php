@@ -67,7 +67,7 @@
 
                 <li><a href="{{ route('client.dashboard') }}"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
                 </li>
-                <li><a href="{{ route('client.profile') }}"><i class="fa fa-user"></i><span>My Account</span></a></li>
+                <li><a href="{{ route('client.profile') }}"><i class="fa fa-user"></i><span>My Profile</span></a></li>
                 {{-- <li><a href="#"><i class="fa fa-calendar"></i><span>Deal</span></a></li> --}}
                 <li><a href="{{route('client.rfq')}}"><i class="fa fa-calendar"></i><span>My RFQs</span></a></li>
                 <li><a href="{{route('client.orders')}}"><i class="fa fa-shopping-cart"></i><span>My Orders</span></a></li>
