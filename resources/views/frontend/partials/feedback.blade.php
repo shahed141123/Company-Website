@@ -16,8 +16,6 @@
         border-radius: 0;
         width: 367px;
         text-align: center;
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
     }
 
     .extra-btns:hover {
@@ -92,7 +90,7 @@
     </a>
 
     <div class="offcanvas offcanvas-start"
-        style="width: 50%; height: 40vh; transform: translate(0, 85%); border-top-right-radius: 20px; border-bottom-right-radius: 20px; background: url('https://img.freepik.com/premium-vector/abstract-white-shapes-background_79603-1360.jpg') no-repeat center center / cover;"
+        style="width: 50%; height: 40vh; transform: translate(0, 85%); border-top-right-radius: 20px; border-bottom-right-radius: 20px; background: url('https://i.ibb.co/t204YkF/Background-quote-tray.jpg') no-repeat center center / cover;"
         tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <a href="{{ route('rfq') }}">
             <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">

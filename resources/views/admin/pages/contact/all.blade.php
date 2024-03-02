@@ -4,7 +4,7 @@
         <!-- Inner content -->
         <!-- Page header -->
         <div class="page-header page-header-light shadow">
-            <div class="page-header-content d-lg-flex border-top">
+            <div class="page-header-content d-lg-flex justify-content-between align-items-center border-top">
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
                         <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
@@ -17,68 +17,71 @@
                         <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
                     </a>
                 </div>
+                {{-- Inner Page Tab --}}
+                <div>
+                    <!-- Leave Dashboard link -->
+                    <a href="{{ route('contact.create') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="ph-plus me-1" style="font-size: 10px;"></i>
+                            <span>Add</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
         <!-- /page header -->
         <div class="content container-fluid">
-            <div class="card p-0">
-                <div class="card-body p-0">
-                    <div class="d-flex align-items-center w-50 justify-content-between"
-                        style="position: relative; z-index: 999; margin-bottom: -2.5rem;">
-                        {{-- Add Details Start --}}
-                        <div class="text-success nav-link cat-tab3">
-                            <a href="{{ route('contact.create') }}" class="text-white py-1 px-2"
-                                style="background-color: #247297;">
-                                <i class="ph-plus text-white"></i> Add
-                            </a>
-                        </div>
-                        <div class="text-center" style="margin-left: 300px">
-                            <h5 class="m-0" style="color: #247297;">User Contacts Message</h5>
-                        </div>
-
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table contactDT table-bordered table-hover text-center">
-                            <thead>
-                                <tr class="text-center">
-                                    <th width="5%">Id</th>
-                                    <th width="30%">Name</th>
-                                    <th width="25%">Email</th>
-                                    <th width="20%">Date</th>
-                                    <th width="10%">Message</th>
-                                    <th width="10%">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if ($contacts)
-                                    @foreach ($contacts as $key => $contact)
-                                        <tr>
-                                            <td>{{ ++$key }}</td>
-                                            <td>{{ $contact->name }}</td>
-                                            <td>{{ $contact->email }}</td>
-                                            <td>{{ $contact->created_at }}</td>
-                                            <td><a href="" class="text-info" data-bs-toggle="modal"
-                                                    data-bs-target="#userMessageShow-{{ $contact->id }}">
-                                                    <i class="fa-solid fa-eye dash-icons"></i>
-                                                </a></td>
-                                            <td class="text-center">
-                                                <a href="" class="text-info" data-bs-toggle="modal"
-                                                    data-bs-target="#userMessage-{{ $contact->id }}">
-                                                    <i class="fa-solid fa-reply dash-icons me-2"></i>
-                                                </a>
-                                                <a href="{{ route('contact.edit', [$contact->id]) }}" class="text-primary">
-                                                    <i class="fa-solid fa-pen-to-square dash-icons me-2"></i>
-                                                </a>
-                                                <a href="{{ route('contact.destroy', [$contact->id]) }}"
-                                                    class="text-danger delete">
-                                                    <i class="fa-solid fa-trash dash-icons"></i>
-                                                </a>
-                                            </td>
+            <div class="text-center">
+                <h4 class="m-0" style="color: #247297;">All Contacts Message</h4>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1 mx-auto">
+                    <div class="card p-0 border-0">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table contactDT table-striped table-bordered table-hover text-center">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th width="5%">Id</th>
+                                            <th width="30%">Name</th>
+                                            <th width="25%">Email</th>
+                                            <th width="20%">Date</th>
+                                            <th width="10%">Message</th>
+                                            <th width="10%">Actions</th>
                                         </tr>
-                                    @endforeach
-                                @endif
-                            </tbody>
-                        </table>
+                                    </thead>
+                                    <tbody>
+                                        @if ($contacts)
+                                            @foreach ($contacts as $key => $contact)
+                                                <tr>
+                                                    <td>{{ ++$key }}</td>
+                                                    <td>{{ $contact->name }}</td>
+                                                    <td>{{ $contact->email }}</td>
+                                                    <td>{{ $contact->created_at }}</td>
+                                                    <td><a href="" class="text-info" data-bs-toggle="modal"
+                                                            data-bs-target="#userMessageShow-{{ $contact->id }}">
+                                                            <i class="fa-solid fa-eye dash-icons"></i>
+                                                        </a></td>
+                                                    <td class="text-center">
+                                                        <a href="" class="text-info" data-bs-toggle="modal"
+                                                            data-bs-target="#userMessage-{{ $contact->id }}">
+                                                            <i class="fa-solid fa-reply dash-icons me-2"></i>
+                                                        </a>
+                                                        <a href="{{ route('contact.edit', [$contact->id]) }}" class="text-primary">
+                                                            <i class="fa-solid fa-pen-to-square dash-icons me-2"></i>
+                                                        </a>
+                                                        <a href="{{ route('contact.destroy', [$contact->id]) }}"
+                                                            class="text-danger delete">
+                                                            <i class="fa-solid fa-trash dash-icons"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

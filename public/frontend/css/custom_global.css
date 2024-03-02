@@ -16962,7 +16962,6 @@ nav > div a.nav-item.nav-link.active {
 
 .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link:hover {
-    border: none;
     border-radius: 0;
     transition: background 0.2s linear;
 }

@@ -4,7 +4,7 @@
         <!-- Inner content -->
         <!-- Page header -->
         <div class="page-header page-header-light shadow">
-            <div class="page-header-content d-lg-flex border-top">
+            <div class="page-header-content d-flex justify-content-between align-items-center border-top">
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house"></i></a>
@@ -12,93 +12,93 @@
                         <a href="{{ route('crm.index') }}" class="breadcrumb-item">CRM</a>
                         <span class="breadcrumb-item active">Client Database</span>
                     </div>
-
+                </div>
+                {{-- Inner Page Tab --}}
+                <div>
+                    <!-- Leave Dashboard link -->
+                    <a href="{{ route('client-database.create') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="ph-plus me-1" style="font-size: 10px;"></i>
+                            <span>Add Database</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
         <!-- /page header -->
         <div class="content">
             <div class="row mx-3">
-                <div class="col-12 mb-2" style="background-color: #247297; color: white;">
-                    <div class="row">
-                        <div class="col-lg-5 col-6">
-                            <a href="{{ route('client-database.create') }}" type="button"
-                                class="btn btn-sm btn-success btn-labeled btn-labeled-start text-center">
-                                <span class="btn-labeled-icon bg-black bg-opacity-20">
-                                    <i class="icon-plus2"></i>
-                                </span>
-                                Add New
-                            </a>
-                        </div>
-                        <div class="col-lg-5 col-6 mt-1">
-                            <h5 class="mb-0">Client Database</h5>
-                        </div>
-                    </div>
+                <div class="text-center">
+                    <h4 class="m-0" style="color: #247297;">Client Databases</h4>
                 </div>
-                <div class="col-12 p-0">
-                    <div class="table-responive">
-                        <table class="table clientDatabaseDT table-bordered table-hover text-center table-sm">
-                            <thead>
-                                <tr>
-                                    <th width="5%">Sl</th>
-                                    <th width="7%">Image</th>
-                                    <th width="20%">Name</th>
-                                    <th width="10%">Phone</th>
-                                    <th width="13%">Country</th>
-                                    <th width="25%">Email</th>
-                                    <th width="8%">Status</th>
-                                    <th width="15%">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if ($clientDatabases)
-                                    @foreach ($clientDatabases as $key => $clientDatabase)
+                <div class="col-lg-10 offset-lg-1 mx-auto">
+                    <div class="card border-0">
+                        <div class="card-body p-0">
+                            <div class="table-responive">
+                                <table class="table clientDatabaseDT table-bordered table-hover text-center table-sm">
+                                    <thead>
                                         <tr>
-                                            <td>{{ ++$key }}</td>
-                                            <td class="text-center"><img class=""
-                                                    src="{{ asset('upload/Profile/user/' . $clientDatabase->photo) }}"
-                                                    height="40px" width="50px" alt=""></td>
-                                            <td>{{ $clientDatabase->name }}</td>
-                                            <td>{{ $clientDatabase->phone }}</td>
-                                            <td>{{ $clientDatabase->country }}</td>
-                                            <td>{{ $clientDatabase->email }}</td>
-                                            <td>
-                                                <div class="clientStatus-{{ $clientDatabase->id }}"
-                                                    id="{{ $clientDatabase->id }}">
-                                                    @if ($clientDatabase->status == 'active')
-                                                        <span class="badge bg-success">Approved</span>
-                                                    @else
-                                                        <span class="badge bg-danger">Pending</span>
-                                                    @endif
-                                                </div>
-
-                                            </td>
-                                            <td>
-
-                                                <div class="text-center d-flex justify-content-center align-items-center">
-                                                    <div class="form-switch">
-                                                        <input name="toggle" type="checkbox"
-                                                            class="form-check-input form-check-input-sm form-check-input-danger"
-                                                            value="{{ $clientDatabase->id }}" id="sc_r_danger"
-                                                            {{ $clientDatabase->status == 'inactive' ? 'checked' : '' }}>
-                                                    </div>
-                                                    <div>
-                                                        <a href="{{ route('client-database.edit', [$clientDatabase->id]) }}"
-                                                            class="text-info mx-2">
-                                                            <i class="fa-solid fa-pencil p-1 rounded-circle text-info"></i>
-                                                        </a>
-                                                        <a href="{{ route('client-database.destroy', [$clientDatabase->id]) }}"
-                                                            class="text-danger delete mx-2">
-                                                            <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
+                                            <th width="5%">Sl</th>
+                                            <th width="7%">Image</th>
+                                            <th width="20%">Name</th>
+                                            <th width="10%">Phone</th>
+                                            <th width="13%">Country</th>
+                                            <th width="25%">Email</th>
+                                            <th width="8%">Status</th>
+                                            <th width="15%">Actions</th>
                                         </tr>
-                                    @endforeach
-                                @endif
-                            </tbody>
-                        </table>
+                                    </thead>
+                                    <tbody>
+                                        @if ($clientDatabases)
+                                            @foreach ($clientDatabases as $key => $clientDatabase)
+                                                <tr>
+                                                    <td>{{ ++$key }}</td>
+                                                    <td class="text-center"><img class=""
+                                                            src="{{ asset('upload/Profile/user/' . $clientDatabase->photo) }}"
+                                                            height="40px" width="50px" alt=""></td>
+                                                    <td>{{ $clientDatabase->name }}</td>
+                                                    <td>{{ $clientDatabase->phone }}</td>
+                                                    <td>{{ $clientDatabase->country }}</td>
+                                                    <td>{{ $clientDatabase->email }}</td>
+                                                    <td>
+                                                        <div class="clientStatus-{{ $clientDatabase->id }}"
+                                                            id="{{ $clientDatabase->id }}">
+                                                            @if ($clientDatabase->status == 'active')
+                                                                <span class="badge bg-success">Approved</span>
+                                                            @else
+                                                                <span class="badge bg-danger">Pending</span>
+                                                            @endif
+                                                        </div>
+
+                                                    </td>
+                                                    <td>
+
+                                                        <div class="text-center d-flex justify-content-center align-items-center">
+                                                            <div class="form-switch pe-2">
+                                                                <input name="toggle" type="checkbox"
+                                                                    class="form-check-input form-check-input-sm form-check-input-danger"
+                                                                    value="{{ $clientDatabase->id }}" id="sc_r_danger"
+                                                                    {{ $clientDatabase->status == 'inactive' ? 'checked' : '' }}>
+                                                            </div>
+                                                            <div>
+                                                                <a href="{{ route('client-database.edit', [$clientDatabase->id]) }}"
+                                                                    class="text-info">
+                                                                    <i class="fa-solid fa-pencil dash-icons"></i>
+                                                                </a>
+                                                                <a href="{{ route('client-database.destroy', [$clientDatabase->id]) }}"
+                                                                    class="text-danger delete">
+                                                                    <i class="fa-solid fa-trash dash-icons"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
