@@ -1,14 +1,14 @@
 @extends('admin.master')
 @section('content')
-<style>
-    .page_titles {
+    <style>
+        .page_titles {
             background-color: #307a9d;
             width: 30%;
             border-radius: 20px;
             color: white;
             margin: auto;
         }
-</style>
+    </style>
     <div class="content-wrapper">
         <div class="d-flex justify-content-between align-items-center shadow-sm">
             <div class="page-header-content d-lg-flex">
@@ -104,8 +104,38 @@
                 "lengthMenu": [10, 25, 30, 50],
                 columnDefs: [{
                     orderable: false,
-                    targets: [5],
+                    targets: [0,1,2,3,4],
                 }, ],
+
+                buttons: {
+                    buttons: [{
+                            extend: 'copyHtml5',
+                            className: 'btn btn-light',
+                            exportOptions: {
+                                columns: [0, ':visible']
+                            }
+                        },
+                        {
+                            extend: 'excelHtml5',
+                            className: 'btn btn-light',
+                            exportOptions: {
+                                columns: ':visible'
+                            }
+                        },
+                        {
+                            extend: 'pdfHtml5',
+                            className: 'btn btn-light',
+                            exportOptions: {
+                                columns: [0, 1, 2]
+                            }
+                        },
+                        {
+                            extend: 'colvis',
+                            text: '<i class="ph-list"></i>',
+                            className: 'btn btn-primary btn-icon dropdown-toggle'
+                        }
+                    ]
+                }
             });
         </script>
     @endpush

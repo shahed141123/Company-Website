@@ -111,7 +111,8 @@
                                                             </h6>
                                                             <h6 class="text-muted m-0">Absent Employees</h6>
                                                             <h6 class="main_color m-0 ammount rounded-1">
-                                                                {{ 11 - count($attendanceData) }}</h6>
+                                                                {{ App\Models\User::count() - count($attendanceData) - 1 }}
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -122,114 +123,87 @@
                             </a>
                         </div>
                         <div class="col-lg-4">
-                            <h6 class="m-0 p-1 text-center card-main-title">Leave Info</h6>
-                            <a href="{{ route('employee.index') }}">
-                                <div class="card rounded-0">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-6">
-                                                <div class="emplpyee-card">
-                                                    <div class="d-flex justify-content-between align-items-center pb-3">
-                                                        <h6 class="m-0"><i
-                                                                class="fa-solid fa-right-from-bracket badge-icons"></i>
-                                                        </h6>
-                                                        <h6 class="main_color m-0 ammount rounded-1">14</h6>
-                                                    </div>
-                                                    <div class="pt-4">
-                                                        <h6 class="text-muted m-0 text-center">Pending Monthly Leave</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="emplpyee-card">
-                                                    <div>
-                                                        <div class="d-flex justify-content-between align-items-center pb-1">
-                                                            <p class="m-0"><i
-                                                                    class="fa-solid fa-bed-pulse badge-icons me-1"></i>
-                                                            </p>
-                                                            <p class="text-muted m-0">Sick Leave</p>
-                                                            <p class="main_color m-0 ammount rounded-1">
-                                                                {{ count($attendanceData) }}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-center pb-1">
-                                                            <p class="m-0">
-                                                                <i
-                                                                    class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
-                                                            </p>
-                                                            <p class="text-muted m-0">Earned Leave</p>
-                                                            <p class="main_color m-0 ammount rounded-1">
-                                                                {{ 11 - count($attendanceData) }}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div class="d-flex justify-content-between align-items-center ">
-                                                            <p class="m-0"><i
-                                                                    class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
-                                                            </p>
-                                                            <p class="text-muted m-0">Casual Leave</p>
-                                                            <p class="main_color m-0 ammount rounded-1">
-                                                                {{ 11 - count($attendanceData) }}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4">
-                            <h6 class="m-0 p-1 text-center card-main-title">All Events Of This Month</h6>
-                            <div class="card rounded-0" style="height: 175px; overflow-x: hidden;">
-                                <div class="card-body p-0">
-                                    <div class="row align-items-center text-center">
-                                        <div class="col-lg-6">
-                                            <div class="form-group d-flex align-items-center ps-2 pt-2">
-                                                <label for="category_filter">Category:</label>
-                                                <select class="form-control select category_filter" id="category_filter">
-                                                    <option value="">All</option>
-                                                    @foreach ($event_categorys as $category)
-                                                        <option value="{{ $category->id }}">{{ $category->name }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 text-end">
-                                            <a href="javascript:void(0);" data-bs-toggle="modal"
-                                                data-bs-target="#eventAdd" class="btn btn-info text-white px-2 py-1 mt-2">
-                                                <i class="fa-solid fa-plus pe-2"></i>Add</a>
-                                        </div>
+                            <h6 class="m-0 p-1 text-center card-main-title">Today's Attendance</h6>
+                            <div class="card rounded-0">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
                                         <div class="col-lg-12">
-                                            <div class="table-responsive col-lg-12">
+                                            <div class="emplpyee-card">
                                                 <table
-                                                    class="table datatable-scroll-y data_event mt-2 mb-4 border pt-2 events_table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Name</th>
-                                                            <th>Date</th>
-                                                            <th>Time</th>
-                                                            <th>Category</th>
+                                                    class="table datatable-scroll-y data_user mt-2 mb-4 border text-center"
+                                                    width="100%">
+                                                    <tr>
+                                                        <th>User Name</th>
+                                                        <th>Check-In Time</th>
+                                                        <th>Check-Out Time</th>
+                                                    </tr>
+                                                    @foreach ($attendanceData as $userId => $times)
+                                                        <tr class="text-center" class="clickable-row"
+                                                            onclick="window.location='{{ route('attendance.single', $userId) }}'">
+                                                            {{-- <td><span class="border-bottom-link">{{ $userId }}</span></td> --}}
+                                                            <td><span
+                                                                    class="border-bottom-link">{{ $times['user_name'] }}</span>
+                                                            </td>
+                                                            <td>
+                                                                @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:05:00'))
+                                                                    <div
+                                                                        class="d-flex align-items-center justify-content-center">
+                                                                        <p class="text-danger me-3">
+                                                                            {{ $times['check_in'] }}</p>
+                                                                        @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:05:00') &&
+                                                                                Carbon\Carbon::parse($times['check_in']) < Carbon\Carbon::parse('10:05:00'))
+                                                                            <p class="text-danger">L</p>
+                                                                        @endif
+
+                                                                        @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('10:05:00'))
+                                                                            <p class="text-danger">Half Day
+                                                                                (LL)
+                                                                            </p>
+                                                                        @endif
+                                                                    </div>
+                                                                @else
+                                                                    <span
+                                                                        class="border-bottom-link">{{ $times['check_in'] }}</span>
+                                                                @endif
+
+                                                            </td>
+                                                            <td><span
+                                                                    class="border-bottom-link">{{ $times['check_out'] }}</span>
+                                                            </td>
                                                         </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach ($events as $event)
-                                                            <tr>
-                                                                <td>{{ $event->title }}</td>
-                                                                <td>{{ $event->start_date }}</td>
-                                                                <td>{{ $event->start_time }}</td>
-                                                                <td>{{ $event->eventCategory->name ?? 'No Category' }}
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
-                                                    </tbody>
+                                                    @endforeach
                                                 </table>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <h6 class="m-0 p-1 text-center card-main-title">All Notification
+                            </h6>
+                            <div class="card rounded-0" style="height: 22.2rem; overflow: auto;">
+                                <div class="card-body">
+                                    <div class="">
+
+                                        @if ($leave_applications->count() > 0)
+                                            @foreach ($leave_applications as $leave_application)
+                                                @if ($leave_application->status === 'pending')
+                                                    <p class="mb-2 p-0">
+                                                        <a
+                                                            href="{{ route('leave-application.edit', $leave_application->id) }}">
+                                                            <i
+                                                                class="fa-solid fa-bell ammount rounded-1 pe-2 me-2"></i>{{ $leave_application->name }}
+                                                            has applied for a leave.
+                                                        </a>
+                                                    </p>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <div class="row">
+                                                <h5 class="text-center mb-0 fs-6">No Leave Application</h5>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -259,7 +233,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <div style=" border-left: 1px !important;  border-top: 0; border-style: dashed;border-color: #247297;border-bottom: 0;">
+                                            <div
+                                                style=" border-left: 1px !important;  border-top: 0; border-style: dashed;border-color: #247297;border-bottom: 0;">
                                                 <div class="pb-2">
                                                     <a href="" class="btn navigation_btn w-100">KPI Details</a>
                                                 </div>
@@ -274,8 +249,13 @@
                                                                 <h6 class="p-0 m-0"
                                                                     style="font-size: 14px;color: #3b3f5c">
                                                                     Sazeduzzaman </h6>
-                                                                <p class="p-0 m-0" style="font-size: 12px; font-weight: 600; color: #888ea8">
-                                                                    <i class="fa-solid fa-arrow-trend-up text-success pe-2"></i>  4,447 <i class="fa-solid fa-bangladeshi-taka-sign ps-2"></i></p>
+                                                                <p class="p-0 m-0"
+                                                                    style="font-size: 12px; font-weight: 600; color: #888ea8">
+                                                                    <i
+                                                                        class="fa-solid fa-arrow-trend-up text-success pe-2"></i>
+                                                                    4,447 <i
+                                                                        class="fa-solid fa-bangladeshi-taka-sign ps-2"></i>
+                                                                </p>
                                                             </div>
                                                         </li>
                                                         <li style="padding-left: 14px">|</li>
@@ -287,8 +267,13 @@
                                                                 <h6 class="p-0 m-0"
                                                                     style="font-size: 14px;color: #3b3f5c">
                                                                     Sazeduzzaman </h6>
-                                                                    <p class="p-0 m-0" style="font-size: 12px; font-weight: 600; color: #888ea8">
-                                                                        <i class="fa-solid fa-arrow-trend-down text-danger pe-2"></i>  4,447 <i class="fa-solid fa-bangladeshi-taka-sign ps-2"></i></p>
+                                                                <p class="p-0 m-0"
+                                                                    style="font-size: 12px; font-weight: 600; color: #888ea8">
+                                                                    <i
+                                                                        class="fa-solid fa-arrow-trend-down text-danger pe-2"></i>
+                                                                    4,447 <i
+                                                                        class="fa-solid fa-bangladeshi-taka-sign ps-2"></i>
+                                                                </p>
                                                             </div>
                                                         </li>
                                                         <li style="padding-left: 14px">|</li>
@@ -300,8 +285,13 @@
                                                                 <h6 class="p-0 m-0"
                                                                     style="font-size: 14px;color: #3b3f5c">
                                                                     Nahid Molla </h6>
-                                                                    <p class="p-0 m-0" style="font-size: 12px; font-weight: 600; color: #888ea8">
-                                                                        <i class="fa-solid fa-arrow-trend-down text-danger pe-2"></i>  4,447 <i class="fa-solid fa-bangladeshi-taka-sign ps-2"></i></p>
+                                                                <p class="p-0 m-0"
+                                                                    style="font-size: 12px; font-weight: 600; color: #888ea8">
+                                                                    <i
+                                                                        class="fa-solid fa-arrow-trend-down text-danger pe-2"></i>
+                                                                    4,447 <i
+                                                                        class="fa-solid fa-bangladeshi-taka-sign ps-2"></i>
+                                                                </p>
                                                             </div>
                                                         </li>
                                                         <li style="padding-left: 14px">|</li>
@@ -313,8 +303,13 @@
                                                                 <h6 class="p-0 m-0"
                                                                     style="font-size: 14px;color: #3b3f5c">
                                                                     Sagor Hassan </h6>
-                                                                    <p class="p-0 m-0" style="font-size: 12px; font-weight: 600; color: #888ea8">
-                                                                        <i class="fa-solid fa-arrow-trend-up text-success pe-2"></i>  4,447 <i class="fa-solid fa-bangladeshi-taka-sign ps-2"></i></p>
+                                                                <p class="p-0 m-0"
+                                                                    style="font-size: 12px; font-weight: 600; color: #888ea8">
+                                                                    <i
+                                                                        class="fa-solid fa-arrow-trend-up text-success pe-2"></i>
+                                                                    4,447 <i
+                                                                        class="fa-solid fa-bangladeshi-taka-sign ps-2"></i>
+                                                                </p>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -447,7 +442,7 @@
                                                         07 May, 2022</p>
                                                 </div>
                                             </div>
-                                           <div class="pe-3">
+                                            <div class="pe-3">
                                                 {{-- <i class="fa-solid fa-award main_color "></i> --}}
                                                 <i class="fa-solid fa-check dash-icons"></i>
                                                 <i class="fa-solid fa-tower-observation dash-icons"></i>
@@ -470,7 +465,7 @@
                                                         07 May, 2022</p>
                                                 </div>
                                             </div>
-                                           <div class="pe-3">
+                                            <div class="pe-3">
                                                 {{-- <i class="fa-solid fa-award main_color "></i> --}}
                                                 <i class="fa-solid fa-check dash-icons"></i>
                                                 <i class="fa-solid fa-tower-observation dash-icons"></i>
@@ -493,7 +488,7 @@
                                                         07 May, 2022</p>
                                                 </div>
                                             </div>
-                                           <div class="pe-3">
+                                            <div class="pe-3">
                                                 {{-- <i class="fa-solid fa-award main_color "></i> --}}
                                                 <i class="fa-solid fa-check dash-icons"></i>
                                                 <i class="fa-solid fa-tower-observation dash-icons"></i>
@@ -516,7 +511,7 @@
                                                         07 May, 2022</p>
                                                 </div>
                                             </div>
-                                           <div class="pe-3">
+                                            <div class="pe-3">
                                                 {{-- <i class="fa-solid fa-award main_color "></i> --}}
                                                 <i class="fa-solid fa-check dash-icons"></i>
                                                 <i class="fa-solid fa-tower-observation dash-icons"></i>
@@ -526,22 +521,55 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-lg-4 mt-3">
-                            <h6 class="m-0 p-1 text-center card-main-title">All Notification
-                            </h6>
-                            <div class="card rounded-0" style="height: 22.2rem; overflow: auto;">
-                                <div class="card-body">
-                                    <div class="">
-                                        <p class="mb-2 p-0"><i class="fa-solid fa-bell ammount rounded-1 pe-2 me-2"></i>Khandker Shahed has created</p>
-                                        <p class="mb-2 p-0"><i class="fa-solid fa-bell ammount rounded-1 pe-2 me-2"></i>Faisal Iqbal has Approved SAS</p>
-                                        <p class="mb-2 p-0"><i class="fa-solid fa-bell ammount rounded-1 pe-2 me-2"></i>Akash Mirza has Approved a new</p>
-                                        <p class="mb-2 p-0"><i class="fa-solid fa-bell ammount rounded-1 pe-2 me-2"></i>Ngen It Super Admin has registered</p>
-                                        <p class="mb-2 p-0"><i class="fa-solid fa-bell ammount rounded-1 pe-2 me-2"></i>Deal No : RFQ-271023549</p>
-                                        <p class="mb-2 p-0"><i class="fa-solid fa-bell ammount rounded-1 pe-2 me-2"></i>Khandker Shahed has created</p>
-                                        <p class="mb-2 p-0"><i class="fa-solid fa-bell ammount rounded-1 pe-2 me-2"></i>Faisal Iqbal has Approved SAS</p>
-                                        <p class="mb-2 p-0"><i class="fa-solid fa-bell ammount rounded-1 pe-2 me-2"></i>Akash Mirza has Approved a new</p>
-                                        <p class="mb-2 p-0"><i class="fa-solid fa-bell ammount rounded-1 pe-2 me-2"></i>Ngen It Super Admin has registered</p>
-                                        <p class="mb-2 p-0"><i class="fa-solid fa-bell ammount rounded-1 pe-2 me-2"></i>Deal No : RFQ-271023549</p>
+                            <h6 class="m-0 p-1 text-center card-main-title">All Events Of This Month</h6>
+                            <div class="card rounded-0" style="height: 175px; overflow-x: hidden;">
+                                <div class="card-body p-0">
+                                    <div class="row align-items-center text-center">
+                                        <div class="col-lg-6">
+                                            <div class="form-group d-flex align-items-center ps-2 pt-2">
+                                                <label for="category_filter">Category:</label>
+                                                <select class="form-control select category_filter" id="category_filter">
+                                                    <option value="">All</option>
+                                                    @foreach ($event_categorys as $category)
+                                                        <option value="{{ $category->id }}">{{ $category->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 text-end">
+                                            <a href="javascript:void(0);" data-bs-toggle="modal"
+                                                data-bs-target="#eventAdd" class="btn btn-info text-white px-2 py-1 mt-2">
+                                                <i class="fa-solid fa-plus pe-2"></i>Add</a>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="table-responsive col-lg-12">
+                                                <table
+                                                    class="table datatable-scroll-y data_event mt-2 mb-4 border pt-2 events_table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Date</th>
+                                                            <th>Time</th>
+                                                            <th>Category</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($events as $event)
+                                                            <tr>
+                                                                <td>{{ $event->title }}</td>
+                                                                <td>{{ $event->start_date }}</td>
+                                                                <td>{{ $event->start_time }}</td>
+                                                                <td>{{ $event->eventCategory->name ?? 'No Category' }}
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -614,6 +642,69 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h6 class="m-0 p-1 text-center card-main-title">Leave Info</h6>
+                            <a href="{{ route('employee.index') }}">
+                                <div class="card rounded-0">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6">
+                                                <div class="emplpyee-card">
+                                                    <div class="d-flex justify-content-between align-items-center pb-3">
+                                                        <h6 class="m-0"><i
+                                                                class="fa-solid fa-right-from-bracket badge-icons"></i>
+                                                        </h6>
+                                                        <h6 class="main_color m-0 ammount rounded-1">14</h6>
+                                                    </div>
+                                                    <div class="pt-4">
+                                                        <h6 class="text-muted m-0 text-center">Pending Monthly Leave</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="emplpyee-card">
+                                                    <div>
+                                                        <div
+                                                            class="d-flex justify-content-between align-items-center pb-1">
+                                                            <p class="m-0"><i
+                                                                    class="fa-solid fa-bed-pulse badge-icons me-1"></i>
+                                                            </p>
+                                                            <p class="text-muted m-0">Sick Leave</p>
+                                                            <p class="main_color m-0 ammount rounded-1">
+                                                                {{ count($attendanceData) }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div
+                                                            class="d-flex justify-content-between align-items-center pb-1">
+                                                            <p class="m-0">
+                                                                <i
+                                                                    class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
+                                                            </p>
+                                                            <p class="text-muted m-0">Earned Leave</p>
+                                                            <p class="main_color m-0 ammount rounded-1">
+                                                                {{ 11 - count($attendanceData) }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="d-flex justify-content-between align-items-center ">
+                                                            <p class="m-0"><i
+                                                                    class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
+                                                            </p>
+                                                            <p class="text-muted m-0">Casual Leave</p>
+                                                            <p class="main_color m-0 ammount rounded-1">
+                                                                {{ 11 - count($attendanceData) }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>

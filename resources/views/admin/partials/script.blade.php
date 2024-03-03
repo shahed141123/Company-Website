@@ -14,6 +14,8 @@
 <script src="{{ asset('backend/assets/js/vendor/visualization/d3/d3_tooltip.js') }}"></script>
 
 <script src="{{ asset('backend/assets/js/vendor/tables/datatables/datatables.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/vendor/tables/datatables/extensions/pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/vendor/tables/datatables/extensions/pdfmake/vfs_fonts.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/vendor/tables/datatables/extensions/buttons.min.js') }}"></script>
 {{-- <script src="../../../assets/js/vendor/tables/datatables/extensions/buttons.min.js"></script> --}}
 
@@ -66,7 +68,7 @@
 {!! Toastr::message() !!}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-@stack('scripts')
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -482,3 +484,4 @@ function addToCart(event) {
 </script>
 
 {{-- @yield('scripts') --}}
+@stack('scripts')

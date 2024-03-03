@@ -178,8 +178,8 @@
                         <div class="card-body d-flex justify-content-between align-items-center">
                             <div>
                                 <h4 class="m-0 p-0">Welcome Back</h4>
-                                <h1 class="m-0 p-0 user-name">Sazeduzzaman Saju</h1>
-                                <p class="m-0 p-0">Frontend Developer</p>
+                                <h1 class="m-0 p-0 user-name">{{ Auth::user()->name }}</h1>
+                                <p class="m-0 p-0">{{ Auth::user()->designation }}</p>
                             </div>
                             <div>
                                 <img class="rounded-1" width="250px" src="https://i.ibb.co/N1SpwX5/Woman-with-laptop.png"
@@ -201,7 +201,9 @@
                                             <p class="para-text m-0">Check In</p>
                                         </div>
                                         <div>
-                                            <h1 class="user-counter mb-0">10:50 Am</h1>
+                                            <h1 class="user-counter mb-0">
+                                                {{ !empty($attendanceToday['check_in']) ? $attendanceToday['check_in'] : 'Absent' }}
+                                            </h1>
                                         </div>
                                     </div>
                                 </div>
@@ -213,7 +215,9 @@
                                             <p class="para-text m-0">Check Out</p>
                                         </div>
                                         <div>
-                                            <h1 class="user-counter mb-0">10:50 Am</h1>
+                                            <h1 class="user-counter mb-0">
+                                                {{ !empty($attendanceToday['check_out']) ? $attendanceToday['check_out'] : 'Absent' }}
+                                            </h1>
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +231,7 @@
                                             <p class="para-text m-0">Movement</p>
                                         </div>
                                         <div>
-                                            <h1 class="user-counter mb-0">10:50 Am</h1>
+                                            <h1 class="user-counter mb-0">None</h1>
                                         </div>
                                     </div>
                                 </div>
@@ -363,84 +367,53 @@
                                                 class="table currentMonthDT table-striped table-bordered table-hover text-center">
                                                 <thead>
                                                     <tr>
-                                                        <th>User ID</th>
-                                                        <th>User Name</th>
                                                         <th>Date</th>
                                                         <th>Check-In</th>
                                                         <th>Check-Out</th>
+                                                        <th>Comments</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Sazeduzzaman</td>
-                                                        <td>02 Feb 2024</td>
-                                                        <td>08:42 AM</td>
-                                                        <td>06:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Sazeduzzaman</td>
-                                                        <td>02 Feb 2024</td>
-                                                        <td>08:42 AM</td>
-                                                        <td>06:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Sazeduzzaman</td>
-                                                        <td>02 Feb 2024</td>
-                                                        <td>08:42 AM</td>
-                                                        <td>06:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Sazeduzzaman</td>
-                                                        <td>02 Feb 2024</td>
-                                                        <td>08:42 AM</td>
-                                                        <td>06:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Sazeduzzaman</td>
-                                                        <td>02 Feb 2024</td>
-                                                        <td>08:42 AM</td>
-                                                        <td>06:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Sazeduzzaman</td>
-                                                        <td>02 Feb 2024</td>
-                                                        <td>08:42 AM</td>
-                                                        <td>06:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Sazeduzzaman</td>
-                                                        <td>02 Feb 2024</td>
-                                                        <td>08:42 AM</td>
-                                                        <td>06:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Sazeduzzaman</td>
-                                                        <td>02 Feb 2024</td>
-                                                        <td>08:42 AM</td>
-                                                        <td>06:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Sazeduzzaman</td>
-                                                        <td>02 Feb 2024</td>
-                                                        <td>08:42 AM</td>
-                                                        <td>06:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Sazeduzzaman</td>
-                                                        <td>02 Feb 2024</td>
-                                                        <td>08:42 AM</td>
-                                                        <td>06:00 PM</td>
-                                                    </tr>
+                                                    @if ($attendanceThisMonths)
+                                                        @foreach ($attendanceThisMonths as $attendance)
+                                                            <tr
+                                                                class="{{ isset($attendance['absent_note']) ? 'absent-row' : 'odd' }}">
+                                                                <td>{{ $attendance['date'] }}</td>
+                                                                @if ($attendance['check_in'] === 'N/A' && isset($attendance['absent_note']))
+                                                                    <td colspan="3">
+                                                                        <p
+                                                                            class="mb-0 fw-bold text-{{ $attendance['absent_note'] === 'Friday' ? 'warning' : 'danger' }} m-0 p-0">
+                                                                            {{ $attendance['absent_note'] }}
+                                                                        </p>
+                                                                    </td>
+                                                                @else
+                                                                    <td>{{ $attendance['check_in'] !== 'N/A' ? $attendance['check_in'] : 'N/A' }}
+                                                                    </td>
+                                                                    <td>{{ $attendance['check_out'] !== 'N/A' ? $attendance['check_out'] : 'N/A' }}
+                                                                    </td>
+                                                                    <td>
+                                                                        @if (isset($attendance['check_in']) && $attendance['check_in'] !== 'N/A')
+                                                                            @php
+                                                                                $checkInTime = Carbon\Carbon::parse(
+                                                                                    $attendance['check_in'],
+                                                                                );
+                                                                            @endphp
+                                                                            @if ($checkInTime > Carbon\Carbon::parse('09:05:00') && $checkInTime < Carbon\Carbon::parse('10:05:00'))
+                                                                                <p
+                                                                                    class="mb-0 fw-bold text-danger m-0 p-0">
+                                                                                    Late (L)
+                                                                                </p>
+                                                                            @elseif ($checkInTime > Carbon\Carbon::parse('10:05:00'))
+                                                                                <p
+                                                                                    class="mb-0 fw-bold text-danger m-0 p-0">
+                                                                                    Half Day (LL)</p>
+                                                                            @endif
+                                                                        @endif
+                                                                    </td>
+                                                                @endif
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
                                                 </tbody>
                                             </table>
                                         </div>
@@ -452,24 +425,37 @@
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
                                             <table
-                                                class="table currentMonthDT table-striped table-bordered table-hover text-center">
+                                                class="table lastMonthDT table-striped table-bordered table-hover text-center">
                                                 <thead>
                                                     <tr>
-                                                        <th>User ID</th>
-                                                        <th>User Name</th>
                                                         <th>Date</th>
                                                         <th>Check-In</th>
                                                         <th>Check-Out</th>
+                                                        <th>Comments</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Sazeduzzaman</td>
-                                                        <td>02 Feb 2024</td>
-                                                        <td>08:42 AM</td>
-                                                        <td>06:00 PM</td>
-                                                    </tr>
+                                                    @if ($attendanceLastMonths)
+                                                        @foreach ($attendanceLastMonths as $attendanceLastMonth)
+                                                            <tr class="odd">
+                                                                <td>{{ $attendanceLastMonth['date'] }}</td>
+                                                                <td>{{ $attendanceLastMonth['check_in'] }}</td>
+                                                                <td>{{ $attendanceLastMonth['check_out'] }}</td>
+                                                                <td>
+                                                                    @if (Carbon\Carbon::parse($attendanceLastMonth['check_in']) > Carbon\Carbon::parse('09:05:00') &&
+                                                                            Carbon\Carbon::parse($attendanceLastMonth['check_in']) < Carbon\Carbon::parse('10:05:00'))
+                                                                        <p class="text-danger fw-bold m-0 p-0">L</p>
+                                                                    @endif
+
+                                                                    @if (Carbon\Carbon::parse($attendanceLastMonth['check_in']) > Carbon\Carbon::parse('10:05:00'))
+                                                                        <p class="text-danger fw-bold m-0 p-0">Half Day
+                                                                            (LL)
+                                                                        </p>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
                                                 </tbody>
                                             </table>
                                         </div>
@@ -481,24 +467,39 @@
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
                                             <table
-                                                class="table currentMonthDT table-striped table-bordered table-hover text-center">
+                                                class="table lateDT table-striped table-bordered table-hover text-center">
                                                 <thead>
                                                     <tr>
-                                                        <th>User ID</th>
-                                                        <th>User Name</th>
                                                         <th>Date</th>
                                                         <th>Check-In</th>
                                                         <th>Check-Out</th>
+                                                        <th>Comments</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Sazeduzzaman</td>
-                                                        <td>02 Feb 2024</td>
-                                                        <td>08:42 AM</td>
-                                                        <td>06:00 PM</td>
-                                                    </tr>
+                                                    @if ($lateCounts)
+                                                        @foreach ($lateCounts as $lateCount)
+                                                            <tr class="odd">
+                                                                <td>{{ $lateCount['date'] }}</td>
+                                                                <td>{{ $lateCount['check_in'] }}</td>
+                                                                <td>{{ $lateCount['check_out'] }}</td>
+                                                                <td>
+                                                                    @if (Carbon\Carbon::parse($lateCount['check_in']) > Carbon\Carbon::parse('09:05:00') &&
+                                                                            Carbon\Carbon::parse($lateCount['check_in']) < Carbon\Carbon::parse('10:05:00'))
+                                                                        <p class="mb-0 text-danger fw-bold m-0 p-0">Late
+                                                                            (L)
+                                                                        </p>
+                                                                    @endif
+
+                                                                    @if (Carbon\Carbon::parse($lateCount['check_in']) > Carbon\Carbon::parse('10:05:00'))
+                                                                        <p class="mb-0 text-danger fw-bold m-0 p-0">Half
+                                                                            Day (LL)
+                                                                        </p>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
                                                 </tbody>
                                             </table>
                                         </div>
@@ -719,17 +720,88 @@
         </div>
     </div>
 @endsection
+
 @push('scripts')
-    <script type="text/javascript">
-        $('.currentMonthDT').DataTable({
-            // dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-            dom: '<"datatable-header justify-content-start"f<"ms-sm-auto"l><"ms-sm-3"B>><"datatable-scroll-wrap"t><"datatable-footer"ip>',
-            "iDisplayLength": 5,
-            "lengthMenu": [5, 10, 31],
-            columnDefs: [{
-                orderable: false,
-                targets: [4],
-            }]
+    <script>
+        $(document).ready(function() {
+            $('.currentMonthDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                // dom: '<"datatable-header justify-content-start"f<"ms-sm-auto"l><"ms-sm-3"B>><"datatable-scroll-wrap"t><"datatable-footer"ip>',
+                "iDisplayLength": 5,
+                "lengthMenu": [5, 10, 50],
+                 buttons: [{
+                        extend: 'print',
+                        text: '<i class="ph-printer me-2"></i> Print table',
+                        className: 'btn btn-light',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    {
+                        extend: 'colvis',
+                        text: '<i class="ph-list"></i>',
+                        className: 'btn btn-light btn-icon dropdown-toggle'
+                    }
+                ]
+                // columnDefs: [{
+                //     orderable: false,
+                //     // targets: [1, 2],
+                // }]
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.lateDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                // dom: '<"datatable-header justify-content-start"f<"ms-sm-auto"l><"ms-sm-3"B>><"datatable-scroll-wrap"t><"datatable-footer"ip>',
+                "iDisplayLength": 5,
+                "lengthMenu": [5, 10, 31],
+                 buttons: [{
+                        extend: 'print',
+                        text: '<i class="ph-printer me-2"></i> Print table',
+                        className: 'btn btn-light',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    {
+                        extend: 'colvis',
+                        text: '<i class="ph-list"></i>',
+                        className: 'btn btn-light btn-icon dropdown-toggle'
+                    }
+                ]
+                // columnDefs: [{
+                //     orderable: false,
+                //     // targets: [1, 2],
+                // }]
+            });
+        });
+        $(document).ready(function() {
+            $('.lastMonthDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                // dom: '<"datatable-header justify-content-start"f<"ms-sm-auto"l><"ms-sm-3"B>><"datatable-scroll-wrap"t><"datatable-footer"ip>',
+                "iDisplayLength": 5,
+                "lengthMenu": [5, 10, 31],
+                 buttons: [{
+                        extend: 'print',
+                        text: '<i class="ph-printer me-2"></i> Print table',
+                        className: 'btn btn-light',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    {
+                        extend: 'colvis',
+                        text: '<i class="ph-list"></i>',
+                        className: 'btn btn-light btn-icon dropdown-toggle'
+                    }
+                ]
+                // columnDefs: [{
+                //     orderable: false,
+                //     // targets: [1, 2],
+                // }]
+            });
         });
     </script>
     <script>
