@@ -418,13 +418,6 @@
             box-sizing: inherit;
         }
 
-        /* [type="checkbox"]:checked,
-                                            [type="checkbox"]:not(:checked) {
-                                                position: absolute;
-                                                left: 0px;
-                                                top: 6px;
-                                            } */
-
         /* For Multi Select */
         .select2-container--default .select2-selection--multiple .select2-selection__choice {
             background-color: #ae0a46;
@@ -470,14 +463,70 @@
 
         /* Add your custom styles for radio buttons here */
         .custom-radio input[type="radio"] {
-            background: black;
+            background: transparent;
             border: 0;
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid white;
         }
 
         .custom-radio label {
             /* Add your styles for the label containing the radio button and text */
+        }
+
+        .form-check-input:focus {
+            border-color: transparent;
+            outline: 0;
+            box-shadow: none;
+        }
+
+        .repeater-add {
+            position: relative;
+            z-index: 5;
+            top: -51px;
+            width: 30px !important;
+            right: 50px;
+            background: transparent;
+            color: white;
+            border: 0;
+        }
+
+        .repeater-delete {
+            background: transparent;
+            color: white;
+            border: 0;
+        }
+
+        .nav-tabs .nav-item .nav-link.active {
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .nav-tabs .nav-link,
+        .nav-tabs .nav-item .nav-link {
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 400;
+        }
+
+        .nav-tabs .nav-item {
+            margin: 0px;
+        }
+    </style>
+    <style>
+        /* Add your additional styles here */
+        .rfq_box1,
+        .rfq_box2 {
+            transition: box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .changing-class {
+            background-image: url('https://i.pinimg.com/originals/96/03/b3/9603b3ad189fa4d29a3a7b2a33c5cd45.jpg');
+        }
+        .rfq-text{
+            border-bottom: 2px solid #ae0a46;
         }
     </style>
     <!--======// Header Title //======-->
@@ -489,21 +538,21 @@
     </section>
     <section>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mx-auto">
+            <h2 class="p-0 m-0 text-center pt-4">Select <span class="main_color rfq-text">RFQ</span> Options</h2>
+            <div class="row gx-2">
+                <div class="col-lg-8 offset-lg-2 mx-auto">
                     <!-- Nav tabs -->
-                    <ul class="nav nav-tabs nav-tabs-rfq px-0 mt-5 d-flex justify-content-center align-items-center"
+                    <ul class="nav nav-tabs nav-tabs-rfq px-0 mt-5 d-flex justify-content-center align-items-center w-100"
                         id="myTab" role="tablist">
-                        <li class="nav-item " role="presentation">
+                        <li class="nav-item w-50" role="presentation">
                             <label class="nav-link active rounded-0 custom-radio" id="home-tab" data-bs-toggle="tab"
                                 data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">
                                 <input type="radio" class="form-check-input me-2"
                                     aria-label="Select RFQ with Product Selection" name="rfqType" checked>
                                 RFQ WITH PRODUCT SELECTION
-
                             </label>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item w-50" role="presentation">
                             <label class="nav-link rounded-0 custom-radio" id="profile-tab" data-bs-toggle="tab"
                                 data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="false">
                                 <input type="radio" class="form-check-input me-2"
@@ -512,145 +561,139 @@
                             </label>
                         </li>
                     </ul>
-                    <div class="col-lg-8 col-offset-2 m-auto">
-                        <div class="row gx-3 my-5">
-                            <div class="col-lg-6">
-                                <div class="p-3 rfq_box text-start"
-                                    style="background-image: url('https://i.pinimg.com/originals/96/03/b3/9603b3ad189fa4d29a3a7b2a33c5cd45.jpg')">
-                                    <div class="d-flex justify-content-between">
-                                        <img width="120px" height="70px" src="https://i.ibb.co/zm36Ccz/Asset-6-5x-8.png"
-                                            alt="">
-                                        <div class="ps-4">
-                                            <h6 class="main_color"> RFQ WITH PRODUCT SELECTION</h6>
-                                            <p style="text-align: justify;">RFQ with product selection streamlines
-                                                procurement by offering a user-friendly interface, facilitating efficient
-                                                requests for quotes tailored to specific product requirements.</p>
-                                        </div>
+                </div>
+                <div class="col-lg-8 col-offset-lg-2 m-auto">
+                    <div class="row gx-3 my-2">
+                        <div class="col-lg-6 pe-0">
+                            <div class="p-3 rfq_box1 text-start active-background">
+                                <div class="d-flex justify-content-between">
+                                    <img width="120px" height="70px" src="https://i.ibb.co/zm36Ccz/Asset-6-5x-8.png"
+                                        alt="">
+                                    <div class="ps-4">
+                                        <p class="text-muted" style="text-align: justify;">RFQ with product selection
+                                            streamlines
+                                            procurement by offering a user-friendly interface, facilitating efficient
+                                            requests for quotes tailored to specific product requirements.</p>
                                     </div>
-                                    {{-- <a href="javascript:void()" class="custom_rfq">
-                                    </a> --}}
                                 </div>
+                                {{-- <a href="javascript:void()" class="custom_rfq">
+                                </a> --}}
                             </div>
-                            <div class="col-lg-6">
-                                <div class="p-3 rfq_box text-start"
-                                    style="background-image: url('https://i.pinimg.com/originals/96/03/b3/9603b3ad189fa4d29a3a7b2a33c5cd45.jpg')">
-                                    <div class="d-flex justify-content-between">
-                                        <img width="120px" height="70px" src="https://i.ibb.co/Tc9HNjK/Asset-4-5x-8.png"
-                                            alt="">
-                                        <div class="ps-4">
-                                            <h6 class="main_color">CUSTOM REQUEST FOR QUOTE</h6>
-                                            <p style="text-align: justify;">Custom Request for Quote empowers users to
-                                                tailor procurement needs, providing a personalized approach to sourcing
-                                                quotes for unique and specialized requirements.</p>
-                                        </div>
+                        </div>
+                        <div class="col-lg-6 ps-0">
+                            <div class="p-3 rfq_box2 text-start">
+                                <div class="d-flex justify-content-between">
+                                    <img width="120px" height="70px" src="https://i.ibb.co/Tc9HNjK/Asset-4-5x-8.png"
+                                        alt="">
+                                    <div class="ps-4">
+                                        <p class="text-muted" style="text-align: justify;">Custom Request for Quote empowers
+                                            users to
+                                            tailor procurement needs, providing a personalized approach to sourcing
+                                            quotes for unique and specialized requirements.</p>
                                     </div>
-                                    {{-- <a href="javascript:void()" class="query_rfq" >
-                                    </a> --}}
                                 </div>
+                                {{-- <a href="javascript:void()" class="query_rfq" >
+                                </a> --}}
                             </div>
                         </div>
                     </div>
-                    <!-- Tab panes -->
+                </div>
+                <!-- Tab panes -->
+                <div class="col-lg-10 offset-lg-1 mx-auto">
                     <div class="tab-content pt-2">
                         <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <form action="" id="yourFormIdss" action="" method="post" novalidate>
+                            <form action="" id="repeater-form" action="" method="post" novalidate>
                                 <div id="multi_step_form">
                                     <div class="container p-0 mb-5">
                                         <div id="multistep_nav">
                                             <div class="progress_holder progress_holder_custom">
-                                                Product QUERY
+                                                PRODUCT QUERY
                                             </div>
                                             <div class="progress_holder progress_holder_custom">
                                                 QUERY DETAILS
                                             </div>
                                             <div class="progress_holder progress_holder_custom">
-                                                Company DETAILS
+                                                COMPANY DETAILS
                                             </div>
                                         </div>
                                         <fieldset class="step" id="step1">
                                             <div class="container">
-                                                <div class="row mb-4">
-                                                    <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div class="col-lg-10 offset-lg-1 mx-auto">
                                                         <div class="d-flex p-4 px-0">
                                                             <div class="me-2">
-                                                                <i class="fa-solid fa-circle-question main_color"
-                                                                    style="font-size: 35px;"></i>
+                                                                <i
+                                                                    class="fa-solid fa-circle-question main_color"style="font-size: 35px;"></i>
                                                             </div>
                                                             <div class="">
-                                                                <h5>Chose should you enter product query details here?</h5>
+                                                                <h5>Chose should you enter product query details here?
+                                                                </h5>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="repeater-default">
-                                                            <div class="row align-items-center">
-                                                                <div class="col-lg-12 mx-auto d-flex align-items-center">
-                                                                    <div data-repeater-list="car" class="drag"
-                                                                        style="width: 100%">
-                                                                        <div class="" style="width: 5%;">
-                                                                            <span class="p-2" data-repeater-create=""
-                                                                                style=" font-size: 12px;padding: 8px 5px !important;color: white;cursor: pointer;background-color: #ae0a46; border-radius: 5px;">
-                                                                                <i class="fa-solid fa-plus"></i>
-                                                                                <span
-                                                                                    class="glyphicon glyphicon-plus"></span>
-                                                                            </span>
+                                                    <div class="col-lg-9  mx-auto">
+                                                        <div class="repeater">
+                                                            <div data-repeater-list="items">
+                                                                <div data-repeater-item class="mb-3">
+                                                                    <div class="row gx-2">
+                                                                        <div class="col-lg-8">
+                                                                            <div class="searchInput">
+                                                                                <div class="row">
+                                                                                    <div class="col-lg-12 ps-0">
+                                                                                        <input type="text"
+                                                                                            class="form-control form-control-sm border-0 rounded-1"
+                                                                                            placeholder="Product Title"
+                                                                                            id="productSearchInput">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="resultBox">
+                                                                                    <ul class="suggestionList"
+                                                                                        style="display: none;">
+                                                                                        @foreach ($products as $product)
+                                                                                            <li>{{ $product->name }}
+                                                                                            </li>
+                                                                                        @endforeach
+                                                                                        <!-- Add other list items here -->
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
-                                                                        <div data-repeater-item="" class="">
-                                                                            <div class="row">
-                                                                                <div class="col-lg-8">
-                                                                                    <div class="searchInput">
-                                                                                        <div class="row">
-                                                                                            <div class="col-lg-2">
-                                                                                                <label
-                                                                                                    class="control-label pb-2">Product
-                                                                                                    Name</label>
-                                                                                            </div>
-                                                                                            <div class="col-lg-10 ps-0">
-                                                                                                <input type="text"
-                                                                                                    class="form-control form-control-sm border-0 rounded-1"
-                                                                                                    placeholder="Product"
-                                                                                                    onkeyup="showSuggestions(event)">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="resultBox">
-                                                                                            <ul class="suggestionList"
-                                                                                                style="display: none;">
-                                                                                                @foreach ($products as $product)
-                                                                                                    <li>{{ $product->name }}
-                                                                                                    </li>
-                                                                                                @endforeach
-                                                                                                <!-- Add other list items here -->
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-lg-3">
-                                                                                    <div>
-                                                                                        <input type="number"
-                                                                                            name="qty" value=""
-                                                                                            class="form-control form-control-sm border-0 rounded-1">
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-lg-1">
-                                                                                    <div class="ms-2">
-                                                                                        <span data-repeater-delete=""
-                                                                                            style=" font-size: 12px;padding: 8px 5px;color: white;cursor: pointer;background-color: #ae0a46; border-radius: 5px;">
-                                                                                            <i
-                                                                                                class="fa-solid fa-trash"></i>
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </div>
+                                                                        <div class="col-lg-4 d-flex">
+                                                                            <div style="width: 90%">
+                                                                                <input type="text" name="qty"
+                                                                                    value=""
+                                                                                    placeholder="Enter Product Qty"
+                                                                                    class="form-control form-control-sm border-0" />
+                                                                            </div>
+                                                                            <div style="width: 10%" class="ms-2">
+                                                                                <button data-repeater-delete type="button"
+                                                                                    class="repeater-delete">
+                                                                                    <img width="20px"
+                                                                                        src="https://i.ibb.co/qr49zm6/Asset-1-2x-8.png"
+                                                                                        alt="">
+                                                                                </button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <button data-repeater-create type="button"
+                                                                        class="repeater-add">
+                                                                        <img width="20px"
+                                                                            src="https://i.ibb.co/yQgJTTh/Asset-2-2x-8.png"
+                                                                            alt="">
+                                                                    </button>
+                                                                </div>
+                                                            </div>
                                                         </div>
+
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-12 text-end d-flex">
+                                                    <div class="col-lg-8 offset-lg-2 mx-auto">
+                                                        <div>
                                                             <button type="button"
-                                                                class="nextStep btn-color mb-2">Next</button>
+                                                                class="nextStep btn-color mb-2 me-4">Next</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -668,7 +711,8 @@
                                                                     style="font-size: 35px;"></i>
                                                             </div>
                                                             <div>
-                                                                <p>Why is it important to enter your company information?
+                                                                <p>Why is it important to enter your company
+                                                                    information?
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -752,7 +796,8 @@
                                                                     style="font-size: 35px;"></i>
                                                             </div>
                                                             <div>
-                                                                <p>Why is it important to enter your QUERY information?</p>
+                                                                <p>Why is it important to enter your QUERY information?
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -837,7 +882,8 @@
                                                                     style="font-size: 35px;"></i>
                                                             </div>
                                                             <div class="">
-                                                                <h5>Chose should you enter complete query details here?</h5>
+                                                                <h5>Chose should you enter complete query details here?
+                                                                </h5>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -942,8 +988,10 @@
                                                                                 </option>
                                                                                 <option value="1">Budget Stage
                                                                                 </option>
-                                                                                <option value="2">Tore Stage</option>
-                                                                                <option value="3">RFQ Stage</option>
+                                                                                <option value="2">Tore Stage
+                                                                                </option>
+                                                                                <option value="3">RFQ Stage
+                                                                                </option>
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -954,9 +1002,11 @@
                                                                                     class="text-danger">*</span></label>
                                                                             <select class="form-select form-select-sm"
                                                                                 aria-label="Default select example">
-                                                                                <option selected>Select A Status</option>
+                                                                                <option selected>Select A Status
+                                                                                </option>
                                                                                 <option value="1">Quicke</option>
-                                                                                <option value="2">Slow Step</option>
+                                                                                <option value="2">Slow Step
+                                                                                </option>
                                                                                 <option value="3">Normal</option>
                                                                             </select>
                                                                         </div>
@@ -964,11 +1014,12 @@
                                                                     <div class="col-lg-12">
                                                                         <div class="form-check text-start ps-0">
                                                                             <div class="checkbox-wrapper-13">
-                                                                                <input id="c1-13" type="checkbox">
-                                                                                <label for="c1-13">Would you like to
+                                                                                <input id="c1-15" type="checkbox">
+                                                                                <label for="c1-15">Would you like to
                                                                                     have a
                                                                                     brochure
-                                                                                    created? Please let me know if you need
+                                                                                    created? Please let me know if you
+                                                                                    need
                                                                                     assistance with
                                                                                     designing a brochure.</label>
                                                                             </div>
@@ -993,7 +1044,8 @@
                                                                     style="font-size: 35px;"></i>
                                                             </div>
                                                             <div>
-                                                                <p>Why is it important to enter your QUERY information?</p>
+                                                                <p>Why is it important to enter your QUERY information?
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1061,9 +1113,25 @@
 @endsection
 
 @section('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.repeater/1.2.1/jquery.repeater.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- jQuery Repeater -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery.repeater@1.2.1/jquery.repeater.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    {{-- Form Repeater --}}
+    <script>
+        $(document).ready(function() {
+            $("#repeater-form").repeater({
+                show: function() {
+                    $(this).slideDown();
+                },
+                hide: function(deleteElement) {
+                    $(this).slideUp(deleteElement);
+                },
+            });
+        });
+    </script>
+    {{-- Multi Select --}}
     <script>
         // Initialize Select2
         $(document).ready(function() {
@@ -1073,14 +1141,16 @@
             });
         });
     </script>
+    {{-- For Search --}}
     <script>
         document.addEventListener('keyup', function(event) {
-            if (event.target.matches('.searchInput input')) {
-                showSuggestions(event.target);
+            if (event.target.matches('#productSearchInput')) {
+                showSuggestions(event);
             }
         });
 
-        function showSuggestions(inputElement) {
+        function showSuggestions(event) {
+            let inputElement = event.target;
             let suggestionsList = inputElement.parentElement.querySelector(".suggestionList");
             let suggestions = suggestionsList.getElementsByTagName("li");
 
@@ -1111,7 +1181,7 @@
         }
 
         document.addEventListener('click', function(event) {
-            if (!event.target.matches('.suggestionList li') && !event.target.matches('.searchInput input')) {
+            if (!event.target.matches('.suggestionList li') && !event.target.matches('#productSearchInput')) {
                 hideAllSuggestions();
             }
         });
@@ -1123,62 +1193,9 @@
             });
         }
     </script>
-    <script>
-        document.addEventListener('keyup', function(event) {
-            if (event.target.matches('.searchInput input')) {
-                showSuggestions(event.target);
-            }
-        });
 
-        function showSuggestions(inputElement) {
-            let parentRepeaterItem = inputElement.closest('[data-repeater-item]');
-            let suggestionsList = parentRepeaterItem.querySelector(".suggestionList");
-            let suggestions = suggestionsList.getElementsByTagName("li");
-
-            // Iterate through suggestions and show/hide based on user input
-            for (let i = 0; i < suggestions.length; i++) {
-                let suggestion = suggestions[i].innerText.toLowerCase();
-                if (suggestion.startsWith(inputElement.value.toLowerCase())) {
-                    suggestions[i].style.display = "block";
-                } else {
-                    suggestions[i].style.display = "none";
-                }
-            }
-
-            // Show/hide the suggestion list based on user input
-            if (inputElement.value.trim() !== "") {
-                suggestionsList.style.display = "block";
-            } else {
-                suggestionsList.style.display = "none";
-            }
-
-            // Add click event listener to dynamically generated suggestions
-            suggestionsList.addEventListener('click', function(event) {
-                if (event.target.tagName === 'LI') {
-                    inputElement.value = event.target.innerText;
-                    suggestionsList.style.display = "none";
-                }
-            });
-        }
-
-        document.addEventListener('click', function(event) {
-            if (!event.target.matches('.suggestionList li') && !event.target.matches('.searchInput input')) {
-                hideAllSuggestions();
-            }
-        });
-
-        function hideAllSuggestions() {
-            let allSuggestionLists = document.querySelectorAll('.suggestionList');
-            allSuggestionLists.forEach(function(suggestionsList) {
-                suggestionsList.style.display = "none";
-            });
-        }
-    </script>
     {{-- Select With Search --}}
     <script>
-        // SETUP
-        // /////////////////////////////////
-        // assign names to things we'll need to use more than once
         const csSelector = document.querySelector('#myCustomSelect') // the input, svg and ul as a group
         const csInput = csSelector.querySelector('input')
         const csList = csSelector.querySelector('ul')
@@ -1463,6 +1480,7 @@
             }
         }
     </script>
+
     <script>
         // For Step Form
         // start //
@@ -1524,33 +1542,28 @@
             }
         });
     </script>
+
+    {{-- Active Background Color --}}
     <script>
-        var repeater = $('.repeater-default').repeater({
-            initval: 1,
-        });
+        $(document).ready(function() {
+            // Initial setup based on the default active tab
+            updateShadowClass();
 
+            // Handle tab changes
+            $('input[name="rfqType"]').on('change', function() {
+                updateShadowClass();
+            });
 
-        jQuery(".drag").sortable({
-            axis: "y",
-            cursor: 'pointer',
-            opacity: 0.5,
-            placeholder: "row-dragging",
-            delay: 150,
-            update: function(event, ui) {
-                console.log('repeaterVal');
-                console.log(repeater.repeaterVal());
-                console.log('serializeArray');
-                console.log($('form').serializeArray());
+            // Function to update the shadow class based on the active tab
+            function updateShadowClass() {
+                if ($('#home-tab').hasClass('active')) {
+                    $('.rfq_box1').addClass('changing-class');
+                    $('.rfq_box2').removeClass('changing-class');
+                } else {
+                    $('.rfq_box1').removeClass('changing-class');
+                    $('.rfq_box2').addClass('changing-class');
+                }
             }
-        }).disableSelection();
-    </script>
-    <script>
-        function toggleSection(showId, hideId) {
-            // Show the section with the specified ID
-            document.getElementById(showId).style.display = 'block';
-
-            // Hide the section with the other ID
-            document.getElementById(hideId).style.display = 'none';
-        }
+        });
     </script>
 @endsection

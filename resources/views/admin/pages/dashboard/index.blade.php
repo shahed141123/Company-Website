@@ -558,6 +558,7 @@
                                         </div>
                                         <div>
                                             <p class="approved-btn mb-0 shadow-sm rounded-1">Approved</p>
+                                            <p class="approved-btn mb-0 shadow-sm rounded-1 mt-1"><a href="" class="text-white">Check Now</a></p>
                                         </div>
                                     </div>
                                 </div>
