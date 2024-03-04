@@ -226,8 +226,12 @@
                                             <i class="fa-solid fa-building-circle-arrow-right user-dash-icons"></i>
                                             <p class="para-text m-0">Movement</p>
                                         </div>
-                                        <div>
-                                            <h1 class="user-counter mb-0">10:50 Am</h1>
+                                        <div class="d-flex align-items-center">
+                                            <h1 class="user-counter mb-0 pe-1" style="border-right: 2px solid black;">02</h1>
+                                            <div class="ps-1">
+                                                <p class="p-0 m-0">Duration</p>
+                                                <p class="p-0 m-0 main_color">15 Min</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -271,7 +275,7 @@
                         <div class="card-body">
                             <h3>Today's Achievement</h3>
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="card me-2 user-inner-card" style="height: 12rem; width: 25%">
+                                <div class="card me-2 user-inner-card" style="height: 12rem; width: 30%">
                                     <div class="card-body align-items-center">
                                         <p class="para-text m-0">Achieve</p>
                                         <div class="d-flex justify-content-between align-items-center pt-3">
@@ -300,24 +304,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card me-2" style="height: 12rem; width: 25%">
+                                <div class="card me-2" style="height: 12rem; width: 70%">
                                     <div class="card-body user-inner-card">
                                         <p class="para-text m-0">Perform</p>
                                         <div>
                                             This Meter is Under Construction
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card" style="height: 12rem; width: 50%">
-                                    <div class="card-body user-inner-card">
-                                        <p class="para-text m-0">Others</p>
-                                        <div>
-                                            <ol class="">
-                                                <li>Lorem ipsum dolor.</li>
-                                                <li>Lorem ipsum dolor.</li>
-                                                <li>Lorem ipsum dolor.</li>
-                                                <li>Lorem ipsum dolor.</li>
-                                            </ol>
                                         </div>
                                     </div>
                                 </div>
@@ -634,8 +625,8 @@
             </div>
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="card rounded-0">
-                        <div class="card-header p-1 rounded-0" style="background-color: #f2f3ff">
+                    <div class="card ">
+                        <div class="card-header p-1 " style="background-color: #f2f3ff">
                             <h4 class="m-0 text-center">Assigned Task</h4>
                         </div>
                         <div class="card-body">
@@ -698,8 +689,8 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card rounded-0">
-                        <div class="card-header p-1 rounded-0" style="background-color: #f2f3ff">
+                    <div class="card">
+                        <div class="card-header p-1" style="background-color: #f2f3ff">
                             <h4 class="m-0 text-center">Notice</h4>
                         </div>
                         <div class="card-body">
