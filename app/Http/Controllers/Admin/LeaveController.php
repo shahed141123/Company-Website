@@ -24,7 +24,7 @@ class LeaveController extends Controller
     public function leaveDashboard()
     {
         //
-    }
+    } 
 
     public function substituteApproval(Request $request, $id)
     {
