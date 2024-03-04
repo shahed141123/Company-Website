@@ -224,7 +224,7 @@
                 <td class="" style="text-align: right;">
                     <div class="qutation-details" style="text-align: right">
                         <!-- Company Details -->
-                        <h3>Invoice</h3>
+                        <h2>INVOICE</h2>
                         <p>Date : {{ \Carbon\Carbon::now()->format('d F Y') }}</p>
                         <p>PQ#:# {{ $pq_code }}</p>
                         <p>PQR#: {{ $pqr_code_one }}</p>

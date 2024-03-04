@@ -465,20 +465,29 @@ class DealController extends Controller
         //dd($pdf_upload);
         $email = $data['email'];
         $subject = 'Quotation From Ngen IT';
-        $message = 'Here is the Quotation From NGen IT which is generated against your RFQ.';
+        $message = "
+        Dear {$data['rfq']->name},
 
-    // send the email
-    try {
-        Mail::send([], [], function ($message) use ($email, $subject, $pdf_output) {
-            $message->to($email)
-                    ->subject($subject)
-                    ->attachData($pdf_output, 'quotation-Ngenit.pdf');
+        Thank you for being with us. You can find the Quotation From NGen IT which is generated against your RFQ attached with this email.
+
+
+        Thank You,
+        NGEN IT Business Team
+        ";
+
+        // Send email with attachment and message
+        $mail = Mail::raw($message, function ($message) use ($email, $subject, $pdf_output) {
+            $message->to($email)->from('sales@ngenitltd.com,', 'NGEN-Business')
+                ->subject($subject)
+                ->attachData($pdf_output, 'Quotation-Ngenit.pdf');
         });
 
-        Toastr::success('Quotation Mail Sent Successfully');
-    } catch (\Exception $e) {
-        Toastr::error($e->getMessage(), 'Quotation Mail Sent Failed', ['timeOut' => 30000]);
-    }
+        // send the email
+        if ($mail) {
+            Toastr::success('Quotation Mail Sent Successfully');
+        } else {
+            Toastr::error($message, 'Quotation Mail Sent Failed', ['timeOut' => 30000]);
+        }
 
     $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
     $filePath = 'public/files/' . $fileName;
@@ -560,34 +569,28 @@ class DealController extends Controller
         $subject = 'Invoice From Ngen IT';
 
         // Email message body
-        $messageBody = "
-            <html>
-            <body>
-                <p>Dear {$data['rfq']->name},</p>
-                <p>Thank you for being with us. You can find the Invoice From NGen IT which is generated against your RFQ attached with this email.</p>
-                <p>Thank You,<br>NGEN IT Sales Team</p>
-            </body>
-            </html>
+        $message = "
+        Dear {$data['rfq']->name},
+
+        Thank you for being with us. You can find the Invoice From NGen IT which is generated against your RFQ attached with this email.
+
+
+        Thank You,
+        NGEN IT Sales Team
         ";
 
-        // Create an instance of HtmlPart
-        $htmlPart = new HtmlPart($messageBody);
-
-        // Now you can set the body of the email message
-        $message->setBody($htmlPart);
-
         // Send email with attachment and message
-        try {
-            Mail::send([], [], function ($message) use ($email, $subject, $pdf_output, $fileName, $messageBody) {
-                $message->to($email)
-                        ->subject($subject)
-                        ->setBody($messageBody, 'text/html')
-                        ->attachData($pdf_output, $fileName);
-            });
+        $mail = Mail::raw($message, function ($message) use ($email, $subject, $pdf_output) {
+            $message->to($email)->from('sales@ngenitltd.com,', 'NGEN-Business')
+                ->subject($subject)
+                ->attachData($pdf_output, 'invoice-Ngenit.pdf');
+        });
 
+        // send the email
+        if ($mail) {
             Toastr::success('Invoice Mail Sent Successfully');
-        } catch (\Exception $e) {
-            Toastr::error($e->getMessage(), 'Invoice Mail Sent Failed', ['timeOut' => 30000]);
+        } else {
+            Toastr::error($message, 'Invoice Mail Sent Failed', ['timeOut' => 30000]);
         }
 
 
