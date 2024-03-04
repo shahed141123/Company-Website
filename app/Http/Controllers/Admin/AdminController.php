@@ -10,6 +10,7 @@ use DateInterval;
 use Carbon\Carbon;
 use App\Models\User;
 use Rats\Zkteco\Lib\ZKTeco;
+use App\Models\Admin\Notice;
 use Illuminate\Http\Request;
 use App\Models\Admin\Country;
 use App\Models\Admin\Product;
@@ -19,6 +20,7 @@ use App\Models\Client\SupportCase;
 use App\Notifications\EmployeeAdd;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use App\Models\Admin\EmployeeLeave;
 use App\Http\Controllers\Controller;
 use App\Models\Client\ClientSupport;
 use Brian2694\Toastr\Facades\Toastr;
@@ -78,6 +80,8 @@ class AdminController extends Controller
 
     public function AdminDashboard()
     {
+        $data['notices'] = Notice::latest()->get();
+        $data['employee_leave_due'] = EmployeeLeave::where('employee_id', Auth::user()->id)->first();
         $resulNotify = [];
         $presentDate = date('Y-m-d');
         $notification_days = Product::whereNotNull('notification_days')->whereNotNull('create_date')->get(['id', 'notification_days', 'create_date']);

@@ -205,11 +205,8 @@
                 <div class="col-lg-4">
                     {{-- Attendance Info --}}
                     <div class="card user-dash-bg">
-                        <div class="card-header py-0 px-2">
-                            <p class="text-end pt-2"><a href=""><i
-                                        class="fa-solid fa-arrow-up-right-from-square main_color go-icon"></i></a></p>
-                        </div>
-                        <div class="card-body pt-0">
+
+                        <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="card w-50 me-2" style="height: 7rem;">
                                     <div class="card-body d-flex justify-content-between align-items-center">
@@ -253,20 +250,44 @@
                                         </div>
                                     </div>
                                 </div>
+                                @php
+                                    $absentCountA = collect($attendanceThisMonths)
+                                        ->where(function ($item) {
+                                            return $item['check_in'] === 'N/A' &&
+                                                isset($item['absent_note']) &&
+                                                $item['absent_note'] !== 'Friday';
+                                        })
+                                        ->count();
+                                    // Filter late counts for 'Late (L)'
+                                    $lateCountL = collect($lateCounts)
+                                        ->where(function ($item) {
+                                            return Carbon\Carbon::parse($item['check_in']) >
+                                                Carbon\Carbon::parse('09:05:00') &&
+                                                Carbon\Carbon::parse($item['check_in']) <
+                                                    Carbon\Carbon::parse('10:05:00');
+                                        })
+                                        ->count();
+
+                                    // Filter late counts for 'Half Day (LL)'
+                                    $lateCountLL = collect($lateCounts)
+                                        ->where(function ($item) {
+                                            return Carbon\Carbon::parse($item['check_in']) >
+                                                Carbon\Carbon::parse('10:05:00');
+                                        })
+                                        ->count();
+                                @endphp
                                 <div class="card me-2" style="width: 30%; height: 7rem;">
                                     <div class="card-body pt-2">
                                         {{-- Icons Info --}}
                                         <div class="d-flex justify-content-between align-items-center pt-1 px-2">
-                                            <h5 class="user-counter mb-0">EL</h5>
                                             <h5 class="user-counter mb-0">A</h5>
                                             <h5 class="user-counter mb-0">L</h5>
                                             <h5 class="user-counter mb-0">LL</h5>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center pt-2">
-                                            <h5 class="user-counter amout-count mb-0">05</h5>
-                                            <h5 class="user-counter amout-count mb-0">01</h5>
-                                            <h5 class="user-counter amout-count mb-0">02</h5>
-                                            <h5 class="user-counter amout-count mb-0">03</h5>
+                                            <h5 class="user-counter amout-count mb-0">{{ $absentCountA }}</h5>
+                                            <h5 class="user-counter amout-count mb-0">{{ $lateCountL }}</h5>
+                                            <h5 class="user-counter amout-count mb-0">{{ $lateCountLL }}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -544,7 +565,7 @@
                     {{-- Attendance Info --}}
                     <div class="card user-dash-bg">
                         <div class="card-header py-0 px-2">
-                            <p class="text-end pt-2"><a href=""><i
+                            <p class="text-end pt-2"><a href="{{ route('leaveDashboard') }}"><i
                                         class="fa-solid fa-arrow-up-right-from-square main_color go-icon"></i></a></p>
                         </div>
                         <div class="card-body pt-0">
@@ -553,12 +574,22 @@
                                     <div class="card-body d-flex justify-content-between align-items-center px-4">
                                         {{-- Icons Info --}}
                                         <div>
-                                            <h1 class="user-counter w-75 mb-0" style="line-height: 1">Leave Application
-                                            </h1>
+                                            <a href="javascript:void(0)" class="user-color" data-bs-toggle="modal"
+                                                data-bs-target="#makeleave">
+                                                <h3 class="user-counter w-75 mb-0" style="line-height: 1">Leave
+                                                    Application
+                                                </h3>
+                                            </a>
                                         </div>
                                         <div>
+<<<<<<< HEAD
                                             <p class="approved-btn mb-0 shadow-sm rounded-1">Approved</p>
                                             <p class="approved-btn mb-0 shadow-sm rounded-1 mt-1"><a href="" class="text-white">Check Now</a></p>
+=======
+                                            <a href="{{ route('leaveDashboard') }}">
+                                                <p class="approved-btn mb-0 shadow-sm rounded-1">Check</p>
+                                            </a>
+>>>>>>> 39a8142bf5224624a87f4d399c01f28dd3691aa5
                                         </div>
                                     </div>
                                 </div>
@@ -566,10 +597,17 @@
                                     <div class="card-body d-flex justify-content-between align-items-center px-4">
                                         {{-- Icons Info --}}
                                         <div>
-                                            <h1 class="user-counter w-75 mb-0" style="line-height: 1">Leave Availed</h1>
+                                            <a href="{{ route('leaveDashboard') }}">
+                                                <h3 class="user-counter w-75 mb-0" style="line-height: 1">Leave Availed
+                                                </h3>
+                                            </a>
                                         </div>
                                         <div>
-                                            <h1 class="user-counter mb-0">03</h1>
+                                            <a href="{{ route('leaveDashboard') }}">
+                                                <h1 class="user-counter mb-0 user-color">
+                                                    {{ optional($employee_leave_due)->sum('earned_leave_availed', 'casual_leave_availed', 'medical_leave_availed') ?? 0 }}
+                                                </h1>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -580,15 +618,15 @@
                                         {{-- Icons Info --}}
                                         <div>
                                             <p class="para-text m-0">Sick Leave</p>
-                                            <h1 class="user-counter mb-0 text-center user-color">02</h1>
+                                            <h1 class="user-counter mb-0 text-center user-color">{{ optional($employee_leave_due)->medical_leave_availed  ?? 0 }}</h1>
                                         </div>
                                         <div>
                                             <p class="para-text m-0">Casual Leave</p>
-                                            <h1 class="user-counter mb-0 text-center user-color">02</h1>
+                                            <h1 class="user-counter mb-0 text-center user-color">{{ optional($employee_leave_due)->casual_leave_availed  ?? 0 }}</h1>
                                         </div>
                                         <div>
                                             <p class="para-text m-0">Earned Leave</p>
-                                            <h1 class="user-counter mb-0 text-center user-color">02</h1>
+                                            <h1 class="user-counter mb-0 text-center user-color">{{ optional($employee_leave_due)->earned_leave_availed  ?? 0 }}</h1>
                                         </div>
                                     </div>
                                 </div>
@@ -724,11 +762,11 @@
                         <div class="card-body">
                             <div>
                                 <ol>
-                                    <li class="pb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
-                                    <li class="pb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
-                                    <li class="pb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
-                                    <li class="pb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
-                                    <li class="pb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
+                                    @foreach ($notices as $notice)
+                                        <a href="{{ route('noticeboard') }}">
+                                            <li class="pb-1">{{ $notice->title }}</li>
+                                        </a>
+                                    @endforeach
                                 </ol>
                             </div>
                         </div>
@@ -737,6 +775,7 @@
             </div>
         </div>
     </div>
+    @include('admin.partials.leave_modal')
 @endsection
 
 @push('scripts')

@@ -1,5 +1,10 @@
 @extends('admin.master')
 @section('content')
+<style>
+    .border-bottom-link{
+        cursor: pointer;
+    }
+</style>
     <div class="content-wrapper">
         <div class="content p-0">
             <!-- Page header -->
@@ -141,34 +146,34 @@
                                                         <tr class="text-center" class="clickable-row"
                                                             onclick="window.location='{{ route('attendance.single', $userId) }}'">
                                                             {{-- <td><span class="border-bottom-link">{{ $userId }}</span></td> --}}
-                                                            <td><span
-                                                                    class="border-bottom-link">{{ $times['user_name'] }}</span>
-                                                            </td>
                                                             <td>
+                                                                <a href="{{ route('attendance.single', $userId) }}" class="border-bottom-link">{{ $times['user_name'] }}</a>
+                                                            </td>
+                                                            <td onclick="window.location='{{ route('attendance.single', $userId) }}'">
                                                                 @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:05:00'))
                                                                     <div
                                                                         class="d-flex align-items-center justify-content-center">
-                                                                        <p class="text-danger me-3">
+                                                                        <p class="text-danger me-1 m-0 p-0">
                                                                             {{ $times['check_in'] }}</p>
                                                                         @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:05:00') &&
                                                                                 Carbon\Carbon::parse($times['check_in']) < Carbon\Carbon::parse('10:05:00'))
-                                                                            <p class="text-danger">L</p>
+                                                                            <p class="text-danger m-0 p-0">L</p>
                                                                         @endif
 
                                                                         @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('10:05:00'))
-                                                                            <p class="text-danger">Half Day
+                                                                            <p class="text-danger m-0 p-0">Half Day
                                                                                 (LL)
                                                                             </p>
                                                                         @endif
                                                                     </div>
                                                                 @else
-                                                                    <span
-                                                                        class="border-bottom-link">{{ $times['check_in'] }}</span>
+                                                                    <a href="{{ route('attendance.single', $userId) }}"
+                                                                        class="border-bottom-link">{{ $times['check_in'] }}</a>
                                                                 @endif
 
                                                             </td>
-                                                            <td><span
-                                                                    class="border-bottom-link">{{ $times['check_out'] }}</span>
+                                                            <td><a href="{{ route('attendance.single', $userId) }}"
+                                                                    class="border-bottom-link">{{ $times['check_out'] }}</a>
                                                             </td>
                                                         </tr>
                                                     @endforeach

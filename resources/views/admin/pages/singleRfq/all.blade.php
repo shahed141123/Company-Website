@@ -508,7 +508,7 @@
                                                                     style="padding-top: 8px;padding-bottom: 8px; background-color: #247297 !important;">
                                                                     <th width="86%" colspan="4" class="text-white"
                                                                         style="border:none; font-size:18px !important; padding-top:8px !important;padding-bottom:8px !important;">
-                                                                        <i class="icon1 fa fa-plus mx-3"></i> Product
+                                                                        <i class="icon1 fa fa-minus mx-3"></i> Product
                                                                         Details
                                                                     </th>
                                                                     <th width="14%" class="text-center"
@@ -529,7 +529,7 @@
                                                                 </tr>
                                                             </thead>
 
-                                                            <tbody class="expand-div1 d-none">
+                                                            <tbody class="expand-div1">
                                                                 <tr class="text-center"
                                                                     style="background-color: rgba(0,0,0,.03);">
                                                                     <th width="40%">Product Description</th>
@@ -551,7 +551,7 @@
                                                                 @foreach ($deal_products as $key => $item)
                                                                     <tr>
                                                                         <td>
-                                                                            {{ Str::words($item->item_name, 12) }}
+                                                                            {{ Str::words($item->item_name, 30) }}
                                                                         </td>
                                                                         <td class="text-center">
                                                                             {{ $item->qty }}
@@ -627,7 +627,7 @@
 
                                                         <!-- Tax / VAT Table -->
                                                         @if ($rfq_details->tax_status == '1')
-                                                            <table class="table table-bordered mt-2 expand-div1 d-none">
+                                                            <table class="table table-bordered mt-2 expand-div1">
                                                                 <th colspan="3" width="80%"> Tax / VAT</td>
                                                                 <td class="text-center" width="10%">
                                                                     {{ $sourcing->tax }}%</td>
@@ -770,6 +770,39 @@
                                                 <div class="pt-1 pb-1">
                                                     <div class="d-flex justify-content-between align-items-center border">
                                                         <div class="ps-2">
+                                                            <span>Invoice Send</span>
+                                                        </div>
+                                                        <div class="">
+                                                            <button type="button" class="btn navigation_btn me-0"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#invoice-send-{{ $rfq_details->rfq_code }}">
+                                                                <i class="ph-airplane-tilt ph-1x me-1"></i>
+                                                                @if ($rfq_details->status == 'assigned')
+                                                                    Send
+                                                                @elseif ($rfq_details->status == 'deal_created')
+                                                                    Send
+                                                                @elseif ($rfq_details->status == 'sas_created')
+                                                                    Send
+                                                                @elseif ($rfq_details->status == 'sas_approved')
+                                                                    Send
+                                                                @elseif ($rfq_details->status == 'quoted')
+                                                                Send
+                                                                @elseif ($rfq_details->status == 'workorder_uploaded')
+                                                                Send
+                                                                @elseif ($rfq_details->status == 'invoice_sent')
+                                                                    Resend
+                                                                @elseif ($rfq_details->status == 'proof_of_payment_uploaded')
+                                                                    Resend
+                                                                @else
+                                                                    Send
+                                                                @endif
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="pt-1 pb-1">
+                                                    <div class="d-flex justify-content-between align-items-center border">
+                                                        <div class="ps-2">
                                                             <span>Commercial Documents</span>
                                                         </div>
                                                         <div class="">
@@ -871,7 +904,7 @@
                                     <h4 class="m-0 p-0 text-center text-white">Bypass Process</h4>
                                 </div>
                                 <div class="card-body p-0">
-                                    asdasdasdasdasdasd
+                                    Processing
                                 </div>
                             </div>
                         </div>

@@ -1,285 +1,394 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Invoice PDF</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Invoice | NGenIT</title>
-    <link rel="stylesheet" type="text/css" href="quoation-css.css">
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
+    <!-- Bootstrap CSS -->
+    <link href="{{ asset('frontend/css/bootstrap/bootstrap@5.min.css') }}" rel="stylesheet" type="text/css" />
 
-    <style type="text/css">
-        .padding {
-            padding: 0px;
+    <!-- Google Fonts -->
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />  -->
+
+    <!-- Custom Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        body {
+            padding: 0;
+            /* font-family: "Raleway", sans-serif; */
+            margin: 0;
+        }
+
+        /* Resetting some default styles for consistency */
+        a,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            text-decoration: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Table Styles */
         .quotation-header {
-            min-height: 60px;
-            background: whitesmoke;
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
-
-        .quotation-header-banner h3 {
-            line-height: 50px;
-            font-size: 30px !important;
-            text-align: center;
-            color: #FD1C03;
-        }
-
-        .header-to-contact-area {
-            min-height: 150px;
-            background: whitesmoke;
-        }
-
-        .tableCustomice {
+        table {
             width: 100%;
-            height: auto;
+            border-collapse: collapse;
         }
 
-        .tableCustomice th,
         td {
-            padding: 2px 5px;
+            padding: 10px;
             border: 1px solid #ddd;
+        }
+
+        /* Flexbox for Logo Column */
+        .logo-column {
+            display: flex;
+        }
+
+        /* Text Column Styles */
+        .text-column {
+            color: white;
+            text-align: end;
+        }
+
+        /* Responsive Image Styles */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Quotation Header Styles */
+        .quotation-header {
+            background-color: #ae0a46;
+            border: 0;
+        }
+
+        .quotation-header td {
+            border: 0;
+        }
+
+        /* Brand Logo Styles */
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+        }
+
+        .qutation-client-details {
+            padding-bottom: 1.5rem;
+            padding-left: 10px;
+        }
+
+        .qutation-client-details h3,
+        .qutation-details h3 {
+            color: #ae0a46;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .qutation-details {
+            padding-bottom: 1.5rem;
+            padding-right: 5px;
+        }
+
+        .qutation-details {
+            text-align: end;
+        }
+
+        .quotation-info-table td {
+            border: 0;
+        }
+
+        .company-name {
+            font-weight: 600;
+            color: #ae0a46;
+        }
+
+        .table-border {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .table-border th {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .amount-container .sub-total {
+            text-align: right;
+        }
+
+        .amount-container .special-discount {
+            text-align: right;
+        }
+
+        .terms-condition tr td {
             font-size: 13px;
         }
 
-        .header-referencebar {
-            min-height: 20px;
-            background: #ccc;
-            line-height: 20px;
-            margin-top: 5px;
+        p {
+            font-size: 13px;
         }
 
-        .header-referencebar p {
-            padding: 0px 5px;
-            font-size: 14px;
+        .footer-footer {
+            border: 0;
         }
 
-        .product-details-area {
-            min-height: 120px;
-            background: #fff;
-            margin-top: 10px;
+        .footer-table td {
+            border: 0;
         }
 
-        .terms-contditions {
-            margin-top: 10px;
+        .footer-footer-top-info {
+            background-image: url(https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg);
+            background-size: cover;
+            border: 0;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
         }
 
-        .terms-contditions-area {
-            min-height: 120px;
-            background: whitesmoke;
-        }
-
-        .footer-quotation-left ul {
-            list-style: none;
-        }
-
-        .footer-quotation-left ul li {
-            width: 50%;
-            height: 30px;
-            float: left;
-            list-style: decimal;
-        }
-
-        .footer-quotation-blow {
-            min-height: 40px;
-            background: #222222;
-            line-height: 40px;
-
+        .footer-footer-top-info tr td {
+            border: 0;
+            padding-top: 3px;
+            padding-bottom: 3px;
         }
     </style>
 </head>
+
 <body>
-    <div class="container mt-5" style=" width: 100%;padding-right: 15px;padding-left: 15px;margin-right: auto;margin-left: auto;margin-top: 1rem!important;">
-        <div class="card" style="display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-orient: vertical;
-            -webkit-box-direction: normal;-ms-flex-direction: column;flex-direction: column;min-width: 0;
-            word-wrap: break-word;background-color: #fff;background-clip: border-box;border: 1px solid rgba(0,0,0,.125);
-            border-radius: 0.25rem;">
-            <div class="card-header" style="padding: 0.25rem 0.25rem;margin-bottom: 0;background-color: rgba(0,0,0,.03);border-bottom: 1px solid rgba(0,0,0,.125);">
-                <div class="col-lg-12 float-left quotation-header-banner padding"
-                style="min-height: 40px; background: whitesmoke;">
-
-                      <h4 style="text-align:center;font-size: 20px; margin:auto; padding: 7px;">
-                    INVOICE From NGENIT</h4>
-
-                </div>
-            </div>
-
-            <div class="card-body" style="width:90%; margin:auto;min-height:120px;">
-
-                <div class="col-lg-6 float-left headerto padding" style="float: left; margin-top:10px;">
-
-                    <div class="col-lg-12 padding">
-                        <img src="http://165.22.48.109/ngenit/upload/logoimage/1755708668937189.png"
-                        alt="" class="img-responsive" style="height:50px;width: 120px;">
-                        <p style="padding:5px; padding-top:0px;font-size: 14px;text-align: left;font-weight: 600;
-                            font-size: 14px;">
-                            89/2, Haque Chamber, Panthapath, Dhaka 1205</p>
+    <div class="container px-0">
+        <!-- Quotation Header Table -->
+        <table width="100%" class="table-responsive border-0 quotation-header-table">
+            <tr class="quotation-header">
+                <!-- Logo Column -->
+                <td class="logo-column">
+                    <div class="brand-logo">
+                        <!-- NGen IT Logo -->
+                        <img src="https://i.ibb.co/GkjPXN7/Logo-NGen-IT-White.png" alt="NGen IT"
+                            style="height: 51px" />
                     </div>
+                </td>
 
+                <!-- Text Column -->
+                <td class="text-column">
+                    <div class="header-register" style="text-align: right">
+                        <!-- Company Details -->
+                        <h2>NGEN IT LTD.</h2>
+                        <p>REG-NO: 20437861K</p>
+                    </div>
+                </td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </table>
+        <!-- Qutation Info -->
+        <table width="100%" class="table-responsive border-0 quotation-info-table">
+            <tr class="">
+                <!-- Logo Column -->
+                <td class="qutation-client-details">
+                    <div>
+                        <h3>{{ $rfq->company_name }}</h3>
+                        @if (!empty($rfq->address))
+                            <p>{{ $rfq->address }}</p>
+                        @endif
+                        <p class="company-name">{{ $rfq->name }}</p>
+                        <p>
+                            <span>{{ $rfq->email }}</span> | <span> {{ $rfq->phone }}</span>
+                        </p>
+                    </div>
+                </td>
 
-
-
-                </div>
-
-                <div class="col-lg-2 float-left" style="float: left;"></div>
-
-                <div class="col-lg-4 float-left headertocontact padding" style="float:right;">
-
-                    <p style="padding: 10px;font-size: 14px;float: left;font-weight: 600;">
-                        <label>Phone &nbsp;&nbsp;&nbsp;: 65 6424 8442</label> <br>
-                            <label>Fax &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : ----</label> <br>
-                                <label>Email &nbsp;&nbsp; :
-                                    ngenit@gmail.com</label>
-                                    <br>
-                                    <label>URL &nbsp;&nbsp;&nbsp;&nbsp; :
-                                        www.ngenit.com </label>
-                                        <br>
-                                        <label>GST &nbsp;&nbsp;&nbsp;&nbsp; :
-                                            201118027W </label>
-
-                    </p>
-
-
-                </div>
-
-
-            </div>
-
-            <div class="col-lg-12 table-responsive" style="margin:auto; width: 100%; height: 100px;
-                background-color: #fff;background-clip: border-box;border: 1px solid rgba(0,0,0,.125);
-                border-radius: 0.25rem;">
-                <table style="width:100%;">
-                    <tr style="width:100%;">
-                        <td class="text-center" style="border:none; width:40%;">
-                            <p style="font-size: 15px;font-weight: 600;">
-                                <label>Invoice No &nbsp;&nbsp;&nbsp;: {{ $invoice_no }}</label> <br>
-                                    <label>Invoice Date : {{ \Carbon\Carbon::now()->format('d F Y') }}</label>
-                            </p>
-
-                        </td>
-                        <td class="text-center" style="border:none;width:10%;">
-
-
-                        </td>
-                        <td class="text-center" style="border:none;width:50%;">
-                            <p style="font-weight: 600;font-size: 14px;">
-                                <label>Customer &nbsp;&nbsp;&nbsp;: {{ $rfq->name }}</label> <br>
-                                    <label>Contact &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{ $rfq->phone }}</label> <br>
-                                        <label>Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
-                                            {{ $rfq->email }}</label>
-                                            <br>
-                                            <label>Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
-                                                {{ $rfq->address }}</label>
-                                                <br>
-                            </p>
-
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-        </div>
-
-
-
-
-
-
-        <div class="col-lg-12 product-details-area float-left padding table-responsive"
-             style="min-height: 120px;background: #fff; width:90%; margin:auto; margin-top: 20px;">
-
-            <table class="tableCustomice" style="width: 100%;height: auto;">
-                <thead>
-                    <tr style="text-align: center;">
-                        <th width="10%" style="padding: 5px;border: 1px solid #ddd;font-size: 12px;"> SL. No. </th>
-                        <th width="40%" style="padding: 5px;border: 1px solid #ddd;font-size: 12px;">Item Name </th>
-                        <th width="10%" style="padding: 5px;border: 1px solid #ddd;font-size: 12px;"> Quantity </th>
-                        <th width="15%" style="padding: 5px;border: 1px solid #ddd;font-size: 12px;">Unit Price </th>
-                        <th width="25%" style="padding: 5px;border: 1px solid #ddd;font-size: 12px;">Amount </th>
-                    </tr>
-                </thead>
-                <tbody>
-
-
-
-
-                    @foreach ($products as $key => $item)
-                        <tr>
-                            <td style="padding: 5px;border: 1px solid #ddd;font-size: 12px;text-align: center;">
-                                {{++$key}}
-                            </td>
-                            <td style="padding: 5px;border: 1px solid #ddd;font-size: 12px;text-align: left;">
-                                {{ $item->item_name }}
-                            </td>
-                            <td style="padding: 5px;border: 1px solid #ddd;font-size: 12px;text-align: center;">
-                                {{ $item->qty }}
-                            </td>
-                            <td style="padding: 5px;border: 1px solid #ddd;font-size: 12px;text-align: center;"> $
-                                {{ number_format($item->sales_price / $item->qty, 2) }}</td>
-                            <td style="padding: 5px;border: 1px solid #ddd;font-size: 12px;text-align: center;"> $
-                                {{ $item->sales_price}} </td>
-                        </tr>
-                    @endforeach
-
+                <!-- Text Column -->
+                <td class="" style="text-align: right;">
+                    <div class="qutation-details" style="text-align: right">
+                        <!-- Company Details -->
+                        <h2>INVOICE</h2>
+                        <p>Date : {{ \Carbon\Carbon::now()->format('d F Y') }}</p>
+                        <p>PQ#:# {{ $pq_code }}</p>
+                        <p>PQR#: {{ $pqr_code_one }}</p>
+                    </div>
+                </td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </table>
+        <!-- Qutation Main content Table -->
+        <table width="100%" class="table-responsive table-border pricing-details-table">
+            <thead>
+                <tr style="background-color: #ddd;">
+                    <th>Sl</th>
+                    <th>Product Description</th>
+                    <th>Qty</th>
+                    <th>Unit Price</th>
+                    <th>Total ({{ $currency === 'taka' ? 'TK' : '$' }})</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($products as $key => $item)
                     <tr>
-
-                        <td colspan="2" style="text-align:center;padding: 5px;border: 1px solid #ddd;font-size: 12px;text-transform:capitalize">
+                        <td>{{ ++$key }}</td>
+                        <td>{{ $item->item_name }}</td>
+                        <td>{{ $item->qty }}
                         </td>
-                        <td colspan="2" style="text-align:center;padding: 5px;border: 1px solid #ddd;font-size: 12px;text-transform:capitalize">
-                            <b>Total Amount : </b>
+                        <td>
+                            {{ $currency === 'taka' ? 'TK' : '$' }}
+                            {{ number_format($item->sales_price / $item->qty, 2) }}
                         </td>
-                        <td style="text-align:center;padding: 5px;border: 1px solid #ddd;font-size: 15px;text-transform:capitalize">
-                            <b> {{ $deal_sas->grand_total }}</b>
-                        </td>
-
+                        <td>{{ $currency === 'taka' ? 'TK' : '$' }} {{ $item->sales_price }}</td>
                     </tr>
-                    {{-- <tr>
-
-                        <td colspan="5" style="text-align:center;padding: 5px;border: 1px solid #ddd;font-size: 12px;text-transform:capitalize"><b>In Word : {{ $total_amount }}</b>
-                        </td>
-
-                    </tr> --}}
-                </tbody>
-            </table>
-        </div>
-
-        <div class="col-lg-12 table-responsive" style="width: 100%; margin-top:80px; height: 70px; float: left;background-color: #fff;">
-
-
-                <table style="width:100%;">
-                    <tr style="width:100%;">
-                        <td class="text-center" style="border:none;">
-                                <center> {{ $rfq->name }}</center>
-                                <b style="text-decoration: overline;">
-                                    <center> Customer, Purchase </center>
-                                </b>
-
-                        </td>
-                        <td class="text-center" style="border:none;">
-                                <center> NGenIT</center>
-                                <b style="text-decoration: overline;">
-                                    <center> Director, Finance </center>
-                                </b>
-
-                        </td>
-                        <td class="text-center" style="border:none;">
-                                <center>{{ \Carbon\Carbon::now()->format('d F Y') }}</center>
-                                <b style="text-decoration: overline;">
-                                    <center> Date </center>
-                                </b>
-
+                @endforeach
+                <tr class="amount-container" style="background-color: #ddd;">
+                    <td colspan="4" class="sub-total">Sub Total</td>
+                    <td>{{ $currency === 'taka' ? 'TK' : '$' }} {{ $deal_sas->sub_total_sales }}</td>
+                </tr>
+                @if ($rfq->special == '1')
+                    <tr class="amount-container">
+                        <td colspan="4" class="special-discount">Special Discount
+                            {{ $deal_sas->special_discount }}</td>
+                        <td>{{ $currency === 'taka' ? 'TK' : '$' }}
+                            {{ $deal_sas->sub_total_sales - $deal_sas->special_discounted_sales }}
                         </td>
                     </tr>
-                </table>
+                @endif
+                <tr class="amount-container" style="background-color: #ddd;">
+                    <td colspan="4" class="special-discount">Grand Total</td>
+                    <td>{{ $currency === 'taka' ? 'TK' : '$' }} {{ $deal_sas->grand_total }}</td>
+                </tr>
+            </tbody>
+            <!-- Add more rows as needed -->
+        </table>
+        {{-- GST --}}
 
+        <table class="table-responsive table-border pricing-details-table" style="width:50%; margin: auto;">
+            <thead>
+                <tr style="background-color: #ddd;">
+                    <th colspan="2"><strong>GST - 8%</strong> Not included. It may apply.
+                </tr>
+            </thead>
+            {{-- <thead>
+                @if ($rfq->tax_status == '1')
+                    <tr>
+                        <th colspan="2"><strong>GST - 8%</strong> Not included. It may apply.
+                    </tr>
+                @endif
+            </thead> --}}
+        </table>
+        {{-- Terms & Condition --}}
+        <table width="100%" class="table-responsive table-border pricing-details-table">
+            <thead>
+                <tr class="quotation-header">
+                    <th colspan="2" style="color: white;">Terms & Conditions</th>
+                </tr>
+            </thead>
+            <tbody class="terms-condition">
+                @if (!empty($rfq->validity))
+                    <tr>
+                        <td>Validity :</td>
+                        <td>{{ $rfq->validity }}</td>
+                    </tr>
+                @endif
+                @if (!empty($rfq->payment))
+                    <tr>
+                        <td>Payment :</td>
+                        <td>{{ $rfq->payment }}</td>
+                    </tr>
+                @endif
+                @if (!empty($rfq->validity))
+                    <tr>
+                        <td>Payment Mode:</td>
+                        <td>{{ $rfq->payment_mode }}</td>
+                    </tr>
+                @endif
+                @if (!empty($rfq->delivery))
+                    <tr>
+                        <td>Delivery :</td>
+                        <td> {{ $rfq->delivery }}</td>
+                    </tr>
+                @endif
+                @if (!empty($rfq->delivery_location))
+                    <tr>
+                        <td>Delivery Location :</td>
+                        <td>{{ $rfq->delivery_location }}</td>
+                    </tr>
+                @endif
+                @if (!empty($rfq->product_order))
+                    <tr>
+                        <td>Product Order :</td>
+                        <td>{{ $rfq->product_order }}</td>
+                    </tr>
+                @endif
+                @if (!empty($rfq->installation_support))
+                    <tr>
+                        <td>Installation Support:</td>
+                        <td>{{ $rfq->installation_support }}</td>
+                    </tr>
+                @endif
+                @if (!empty($rfq->pmt_condition))
+                    <tr>
+                        <td>Pmt Condition :</td>
+                        <td>{{ $rfq->pmt_condition }}</td>
+                    </tr>
+                @endif
+            </tbody>
+        </table>
+        {{-- Qutation Footer --}}
+        <table width="100%" class="table-responsive table-border pricing-details-table footer-footer"
+            style="margin: 0px; padding-left:0; padding-right:0; padding-bottom: 0px; margin-top: 2.5px;">
+            <tbody style="border: 0;" class="footer-footer-top-info">
+                <tr>
+                    <td style="text-align: left; font-weight: bold; padding-top: 2rem; padding-left: 2rem;">Thank You
+                    </td>
+                    <td style="text-align: right; color: #ae0a46; padding-top: 2rem; padding-right: 2rem;">
+                        sales@ngenitltd.com</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; color: #ae0a46;padding-left: 2rem;">NGen IT Sales Team</td>
+                    <td style="text-align: right; color: #ae0a46;padding-right: 2rem;">(skype) +1 917-720-3055</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; color: #ae0a46; padding-bottom: 2rem;padding-left: 2rem;">Manager,
+                        Business</td>
+                    <td style="text-align: right; color: #ae0a46; padding-bottom: 2rem;padding-right: 2rem;">(whats app)
+                        +880 1714 243446</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Quotation Header Table -->
+        <table width="100%" class="table-responsive border-0 quotation-header-table footer-table" style="">
+            <tr class="quotation-header">
+                <!-- Text Column -->
+                <td class="text-column" style="text-align: center;padding: 30px;">
+                    <div class="header-register" style="text-align: center">
+                        <!-- Company Details -->
+                        <h2 class="">www.ngenitltd.com</h2>
+                    </div>
+                </td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </table>
 
-        </div>
-
-
-
+        <!-- Additional details or content can be added here -->
     </div>
 </body>
 
