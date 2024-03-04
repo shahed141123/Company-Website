@@ -3,7 +3,7 @@
     <style>
         .user-dash-bg {
             background-color: #f2f3ff;
-            height: 18rem;
+            height: 20rem;
         }
 
         .user-name {
@@ -168,6 +168,20 @@
                 transform: scale(1.2);
             }
         }
+
+        .go-icon {
+            border: 1px solid;
+            padding: 6px;
+            border-radius: 15px;
+        }
+
+        .go-icon:hover {
+            border: 1px solid;
+            padding: 6px;
+            border-radius: 15px;
+            background-color: #ae0a46;
+            color: white;
+        }
     </style>
     <div class="content-wrapper">
         <div class="container-fluid">
@@ -191,14 +205,18 @@
                 <div class="col-lg-4">
                     {{-- Attendance Info --}}
                     <div class="card user-dash-bg">
-                        <div class="card-body">
+                        <div class="card-header py-0 px-2">
+                            <p class="text-end pt-2"><a href=""><i
+                                        class="fa-solid fa-arrow-up-right-from-square main_color go-icon"></i></a></p>
+                        </div>
+                        <div class="card-body pt-0">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="card w-50 me-2" style="height: 7rem;">
                                     <div class="card-body d-flex justify-content-between align-items-center">
                                         {{-- Icons Info --}}
                                         <div>
                                             <i class="fa-solid fa-building-circle-check user-dash-icons"></i>
-                                            <p class="para-text m-0">Check In</p>
+                                            <p class="para-text m-0 ps-0">Check In</p>
                                         </div>
                                         <div>
                                             <h1 class="user-counter mb-0">
@@ -212,7 +230,7 @@
                                         {{-- Icons Info --}}
                                         <div>
                                             <i class="fa-solid fa-building-circle-xmark user-dash-icons"></i>
-                                            <p class="para-text m-0">Check Out</p>
+                                            <p class="para-text m-0 ps-0">Check Out</p>
                                         </div>
                                         <div>
                                             <h1 class="user-counter mb-0">
@@ -228,7 +246,7 @@
                                         {{-- Icons Info --}}
                                         <div>
                                             <i class="fa-solid fa-building-circle-arrow-right user-dash-icons"></i>
-                                            <p class="para-text m-0">Movement</p>
+                                            <p class="para-text m-0 ps-0">Movement</p>
                                         </div>
                                         <div>
                                             <h1 class="user-counter mb-0">None</h1>
@@ -236,7 +254,7 @@
                                     </div>
                                 </div>
                                 <div class="card me-2" style="width: 30%; height: 7rem;">
-                                    <div class="card-body">
+                                    <div class="card-body pt-2">
                                         {{-- Icons Info --}}
                                         <div class="d-flex justify-content-between align-items-center pt-1 px-2">
                                             <h5 class="user-counter mb-0">EL</h5>
@@ -256,7 +274,7 @@
                                     <div class="card-body d-flex justify-content-between align-items-center ps-1">
                                         {{-- Icons Info --}}
                                         <a href="javascript:void();" id="show-attendance">
-                                            <div>
+                                            <div class="ps-1">
                                                 <h4 class="user-counter mb-0 text-muted" style="line-height: 1">Monthly
                                                     Attendance</h4>
                                                 <img width="50px"src="https://i.ibb.co/F0vQD5f/png-clipart-drawing-long-arrow-angle-arrow-thumbnail-removebg-preview.png"
@@ -272,10 +290,14 @@
                 <div class="col-lg-4">
                     {{-- Achivement Info --}}
                     <div class="card user-dash-bg">
-                        <div class="card-body">
+                        <div class="card-header py-0 px-2">
+                            <p class="text-end pt-2"><a href=""><i
+                                        class="fa-solid fa-arrow-up-right-from-square main_color go-icon"></i></a></p>
+                        </div>
+                        <div class="card-body pt-0">
                             <h3>Today's Achievement</h3>
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="card me-2 user-inner-card" style="height: 12rem; width: 25%">
+                                <div class="card me-2 user-inner-card" style="height: 12rem; width: 30%">
                                     <div class="card-body align-items-center">
                                         <p class="para-text m-0">Achieve</p>
                                         <div class="d-flex justify-content-between align-items-center pt-3">
@@ -304,24 +326,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card me-2" style="height: 12rem; width: 25%">
+                                <div class="card me-2" style="height: 12rem; width: 70%">
                                     <div class="card-body user-inner-card">
                                         <p class="para-text m-0">Perform</p>
                                         <div>
                                             This Meter is Under Construction
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card" style="height: 12rem; width: 50%">
-                                    <div class="card-body user-inner-card">
-                                        <p class="para-text m-0">Others</p>
-                                        <div>
-                                            <ol class="">
-                                                <li>Lorem ipsum dolor.</li>
-                                                <li>Lorem ipsum dolor.</li>
-                                                <li>Lorem ipsum dolor.</li>
-                                                <li>Lorem ipsum dolor.</li>
-                                            </ol>
                                         </div>
                                     </div>
                                 </div>
@@ -534,7 +543,11 @@
                 <div class="col-lg-4">
                     {{-- Attendance Info --}}
                     <div class="card user-dash-bg">
-                        <div class="card-body">
+                        <div class="card-header py-0 px-2">
+                            <p class="text-end pt-2"><a href=""><i
+                                        class="fa-solid fa-arrow-up-right-from-square main_color go-icon"></i></a></p>
+                        </div>
+                        <div class="card-body pt-0">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="card w-50 me-2" style="height: 7rem;">
                                     <div class="card-body d-flex justify-content-between align-items-center px-4">
@@ -585,7 +598,11 @@
                 <div class="col-lg-4">
                     {{-- Profile Card --}}
                     <div class="card user-dash-bg">
-                        <div class="card-body">
+                        <div class="card-header py-0 px-2">
+                            <p class="text-end pt-2"><a href=""><i
+                                        class="fa-solid fa-arrow-up-right-from-square main_color go-icon"></i></a></p>
+                        </div>
+                        <div class="card-body pt-0">
                             <h3>Key Performance Indicator (KPI)</h3>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="card me-2" style="height: 7rem;width: 33.3%">
@@ -635,12 +652,12 @@
             </div>
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="card rounded-0">
-                        <div class="card-header p-1 rounded-0" style="background-color: #f2f3ff">
+                    <div class="card">
+                        <div class="card-header p-1 " style="background-color: #f2f3ff">
                             <h4 class="m-0 text-center">Assigned Task</h4>
                         </div>
                         <div class="card-body">
-                            <div class="assigned-task">
+                            <div class="assigned-task pb-1">
                                 <input class="inp-cbx" id="cbx-15" type="checkbox" style="display: none;" />
                                 <label class="cbx" for="cbx-15">
                                     <span>
@@ -651,7 +668,7 @@
                                     <span>Complete The Whole Design On This Week</span>
                                 </label>
                             </div>
-                            <div class="assigned-task">
+                            <div class="assigned-task pb-1">
                                 <input class="inp-cbx" id="cbx-16" type="checkbox" style="display: none;" />
                                 <label class="cbx" for="cbx-16">
                                     <span>
@@ -662,7 +679,7 @@
                                     <span>Complete The Whole Design On This Week</span>
                                 </label>
                             </div>
-                            <div class="assigned-task">
+                            <div class="assigned-task pb-1">
                                 <input class="inp-cbx" id="cbx-17" type="checkbox" style="display: none;" />
                                 <label class="cbx" for="cbx-17">
                                     <span>
@@ -673,7 +690,7 @@
                                     <span>Complete The Whole Design On This Week</span>
                                 </label>
                             </div>
-                            <div class="assigned-task">
+                            <div class="assigned-task pb-1">
                                 <input class="inp-cbx" id="cbx-18" type="checkbox" style="display: none;" />
                                 <label class="cbx" for="cbx-18">
                                     <span>
@@ -684,7 +701,7 @@
                                     <span>Complete The Whole Design On This Week</span>
                                 </label>
                             </div>
-                            <div class="assigned-task">
+                            <div class="assigned-task pb-1">
                                 <input class="inp-cbx" id="cbx-19" type="checkbox" style="display: none;" />
                                 <label class="cbx" for="cbx-19">
                                     <span>
@@ -699,18 +716,18 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card rounded-0">
-                        <div class="card-header p-1 rounded-0" style="background-color: #f2f3ff">
+                    <div class="card">
+                        <div class="card-header p-1" style="background-color: #f2f3ff">
                             <h4 class="m-0 text-center">Notice</h4>
                         </div>
                         <div class="card-body">
                             <div>
                                 <ol>
-                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
-                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
-                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
-                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
-                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
+                                    <li class="pb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
+                                    <li class="pb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
+                                    <li class="pb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
+                                    <li class="pb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
+                                    <li class="pb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quos?</li>
                                 </ol>
                             </div>
                         </div>
@@ -729,7 +746,7 @@
                 // dom: '<"datatable-header justify-content-start"f<"ms-sm-auto"l><"ms-sm-3"B>><"datatable-scroll-wrap"t><"datatable-footer"ip>',
                 "iDisplayLength": 5,
                 "lengthMenu": [5, 10, 50],
-                 buttons: [{
+                buttons: [{
                         extend: 'print',
                         text: '<i class="ph-printer me-2"></i> Print table',
                         className: 'btn btn-light',
@@ -757,7 +774,7 @@
                 // dom: '<"datatable-header justify-content-start"f<"ms-sm-auto"l><"ms-sm-3"B>><"datatable-scroll-wrap"t><"datatable-footer"ip>',
                 "iDisplayLength": 5,
                 "lengthMenu": [5, 10, 31],
-                 buttons: [{
+                buttons: [{
                         extend: 'print',
                         text: '<i class="ph-printer me-2"></i> Print table',
                         className: 'btn btn-light',
@@ -783,7 +800,7 @@
                 // dom: '<"datatable-header justify-content-start"f<"ms-sm-auto"l><"ms-sm-3"B>><"datatable-scroll-wrap"t><"datatable-footer"ip>',
                 "iDisplayLength": 5,
                 "lengthMenu": [5, 10, 31],
-                 buttons: [{
+                buttons: [{
                         extend: 'print',
                         text: '<i class="ph-printer me-2"></i> Print table',
                         className: 'btn btn-light',

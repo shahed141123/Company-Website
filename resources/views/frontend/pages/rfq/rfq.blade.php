@@ -233,15 +233,15 @@
 
 
         #multi_step_form .container #multistep_nav .progress_holder {
-            padding: 20px;
-            width: 33%;
+            padding: 10px;
+            width: 33.3%;
             text-align: center;
             background-color: #eee;
         }
 
         #multi_step_form .container #multistep_nav .progress_holder_custom {
-            padding: 20px;
-            width: 33%;
+            padding: 10px;
+            width: 33.3%;
             text-align: center;
             background-color: #eee;
         }
@@ -419,11 +419,11 @@
         }
 
         /* [type="checkbox"]:checked,
-                        [type="checkbox"]:not(:checked) {
-                            position: absolute;
-                            left: 0px;
-                            top: 6px;
-                        } */
+                                            [type="checkbox"]:not(:checked) {
+                                                position: absolute;
+                                                left: 0px;
+                                                top: 6px;
+                                            } */
 
         /* For Multi Select */
         .select2-container--default .select2-selection--multiple .select2-selection__choice {
@@ -490,49 +490,68 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 mx-auto">
+                <div class="col-lg-12 mx-auto">
                     <!-- Nav tabs -->
-                    <div class="d-flex justify-content-center align-items-center pb-4 pt-5">
-                        <ul class="nav nav-tabs nav-tabs-rfq" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <label class="nav-link active rounded-0 custom-radio" id="home-tab" data-bs-toggle="tab"
-                                    data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">
-                                    <input type="radio" class="form-check-input me-2"
-                                        aria-label="Select RFQ with Product Selection" name="rfqType" checked>
-                                    RFQ WITH PRODUCT SELECTION
-                                    <div class="d-flex align-items-center pt-2">
-                                        <img class="me-3" width="50px" src="https://i.ibb.co/Tc9HNjK/Asset-4-5x-8.png"
+                    <ul class="nav nav-tabs nav-tabs-rfq px-0 mt-5 d-flex justify-content-center align-items-center"
+                        id="myTab" role="tablist">
+                        <li class="nav-item " role="presentation">
+                            <label class="nav-link active rounded-0 custom-radio" id="home-tab" data-bs-toggle="tab"
+                                data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">
+                                <input type="radio" class="form-check-input me-2"
+                                    aria-label="Select RFQ with Product Selection" name="rfqType" checked>
+                                RFQ WITH PRODUCT SELECTION
+
+                            </label>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <label class="nav-link rounded-0 custom-radio" id="profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                                <input type="radio" class="form-check-input me-2"
+                                    aria-label="Select Custom Request for Quote" name="rfqType">
+                                CUSTOM REQUEST FOR QUOTE
+                            </label>
+                        </li>
+                    </ul>
+                    <div class="col-lg-8 col-offset-2 m-auto">
+                        <div class="row gx-3 my-5">
+                            <div class="col-lg-6">
+                                <div class="p-3 rfq_box text-start"
+                                    style="background-image: url('https://i.pinimg.com/originals/96/03/b3/9603b3ad189fa4d29a3a7b2a33c5cd45.jpg')">
+                                    <div class="d-flex justify-content-between">
+                                        <img width="120px" height="70px" src="https://i.ibb.co/zm36Ccz/Asset-6-5x-8.png"
                                             alt="">
-                                        RFQ with product selection streamlines <br>
-                                         procurement by offering a user-friendly <br>
-                                        interface, facilitating efficient requests <br>
-                                         for quotes tailored to specific product <br>
-                                        requirements.
+                                        <div class="ps-4">
+                                            <h6 class="main_color"> RFQ WITH PRODUCT SELECTION</h6>
+                                            <p style="text-align: justify;">RFQ with product selection streamlines
+                                                procurement by offering a user-friendly interface, facilitating efficient
+                                                requests for quotes tailored to specific product requirements.</p>
+                                        </div>
                                     </div>
-                                </label>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <label class="nav-link rounded-0 custom-radio" id="profile-tab" data-bs-toggle="tab"
-                                    data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="false">
-                                    <input type="radio" class="form-check-input me-2"
-                                        aria-label="Select Custom Request for Quote" name="rfqType">
-                                    CUSTOM REQUEST FOR QUOTE
-                                    <div class="d-flex align-items-center pt-2">
-                                        <img class="me-3" width="50px" src="https://i.ibb.co/Tc9HNjK/Asset-4-5x-8.png"
+                                    {{-- <a href="javascript:void()" class="custom_rfq">
+                                    </a> --}}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-3 rfq_box text-start"
+                                    style="background-image: url('https://i.pinimg.com/originals/96/03/b3/9603b3ad189fa4d29a3a7b2a33c5cd45.jpg')">
+                                    <div class="d-flex justify-content-between">
+                                        <img width="120px" height="70px" src="https://i.ibb.co/Tc9HNjK/Asset-4-5x-8.png"
                                             alt="">
-                                        RFQ WITH PRODUCT SELECTION <br>
-                                        RFQ WITH PRODUCT SELECTION <br>
-                                        RFQ WITH PRODUCT SELECTION
+                                        <div class="ps-4">
+                                            <h6 class="main_color">CUSTOM REQUEST FOR QUOTE</h6>
+                                            <p style="text-align: justify;">Custom Request for Quote empowers users to
+                                                tailor procurement needs, providing a personalized approach to sourcing
+                                                quotes for unique and specialized requirements.</p>
+                                        </div>
                                     </div>
-                                </label>
-                            </li>
-                        </ul>
+                                    {{-- <a href="javascript:void()" class="query_rfq" >
+                                    </a> --}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-
-
                     <!-- Tab panes -->
-                    <div class="tab-content pt-5">
+                    <div class="tab-content pt-2">
                         <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <form action="" id="yourFormIdss" action="" method="post" novalidate>
                                 <div id="multi_step_form">
@@ -559,45 +578,40 @@
                                                             </div>
                                                             <div class="">
                                                                 <h5>Chose should you enter product query details here?</h5>
-                                                                <p>Describing query details will enable suppliers to prepare
-                                                                    a
-                                                                    proposal perfectly suited to your needs. Your query
-                                                                    details
-                                                                    remain
-                                                                    confidential. Only the suppliers we select will have
-                                                                    access to
-                                                                    the
-                                                                    information.</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="repeater-default">
                                                             <div class="row align-items-center">
-                                                                <div class="col-lg-12 d-flex align-items-center">
-                                                                    <div class=""
-                                                                        style="width: 5%; margin-top: 10px;">
-                                                                        <div class="mt-4">
+                                                                <div class="col-lg-12 mx-auto d-flex align-items-center">
+                                                                    <div data-repeater-list="car" class="drag"
+                                                                        style="width: 100%">
+                                                                        <div class="" style="width: 5%;">
                                                                             <span class="p-2" data-repeater-create=""
-                                                                                style=" font-size: 18px;padding: 5px 10px !important;color: white;cursor: pointer;background-color: #ae0a46; border-radius: 5px;">
-                                                                                <i class="fa-solid fa-plus"></i> <span
+                                                                                style=" font-size: 12px;padding: 8px 5px !important;color: white;cursor: pointer;background-color: #ae0a46; border-radius: 5px;">
+                                                                                <i class="fa-solid fa-plus"></i>
+                                                                                <span
                                                                                     class="glyphicon glyphicon-plus"></span>
                                                                             </span>
                                                                         </div>
-                                                                    </div>
-                                                                    <div style="width: 97%">
-                                                                        <div data-repeater-list="car" class="drag">
-                                                                            <div data-repeater-item=""
-                                                                                class="row gx-2 align-items-center me-4">
-                                                                                <div class="col-lg-10">
+                                                                        <div data-repeater-item="" class="">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-8">
                                                                                     <div class="searchInput">
-                                                                                        <label
-                                                                                            class="control-label pb-2">Product
-                                                                                            Name</label>
-                                                                                        <input type="text"
-                                                                                            class="form-control form-control-sm border-0 rounded-1"
-                                                                                            placeholder="Product"
-                                                                                            onkeyup="showSuggestions(event)">
+                                                                                        <div class="row">
+                                                                                            <div class="col-lg-2">
+                                                                                                <label
+                                                                                                    class="control-label pb-2">Product
+                                                                                                    Name</label>
+                                                                                            </div>
+                                                                                            <div class="col-lg-10 ps-0">
+                                                                                                <input type="text"
+                                                                                                    class="form-control form-control-sm border-0 rounded-1"
+                                                                                                    placeholder="Product"
+                                                                                                    onkeyup="showSuggestions(event)">
+                                                                                            </div>
+                                                                                        </div>
                                                                                         <div class="resultBox">
                                                                                             <ul class="suggestionList"
                                                                                                 style="display: none;">
@@ -610,19 +624,17 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div
-                                                                                    class="col-lg-2 d-flex justify-content-between align-items-center">
-                                                                                    <div style="width: 95%">
-                                                                                        <label
-                                                                                            class="control-label pb-2">Quantity</label>
+                                                                                <div class="col-lg-3">
+                                                                                    <div>
                                                                                         <input type="number"
                                                                                             name="qty" value=""
                                                                                             class="form-control form-control-sm border-0 rounded-1">
                                                                                     </div>
-                                                                                    <div class="mt-4 ms-2"
-                                                                                        style="width: 5%; margin-top: 30px !important;">
+                                                                                </div>
+                                                                                <div class="col-lg-1">
+                                                                                    <div class="ms-2">
                                                                                         <span data-repeater-delete=""
-                                                                                            style=" font-size: 18px;padding: 5px 10px;color: white;cursor: pointer;background-color: #ae0a46; border-radius: 5px;">
+                                                                                            style=" font-size: 12px;padding: 8px 5px;color: white;cursor: pointer;background-color: #ae0a46; border-radius: 5px;">
                                                                                             <i
                                                                                                 class="fa-solid fa-trash"></i>
                                                                                         </span>
@@ -636,7 +648,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-lg-12 text-end">
+                                                        <div class="col-lg-12 text-end d-flex">
                                                             <button type="button"
                                                                 class="nextStep btn-color mb-2">Next</button>
                                                         </div>
@@ -658,9 +670,6 @@
                                                             <div>
                                                                 <p>Why is it important to enter your company information?
                                                                 </p>
-                                                                <p>Entering precise company information ensures you will
-                                                                    receive
-                                                                    the quotation.</p>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -744,9 +753,6 @@
                                                             </div>
                                                             <div>
                                                                 <p>Why is it important to enter your QUERY information?</p>
-                                                                <p>Entering precise QUERY information ensures you will
-                                                                    receive
-                                                                    the quotation.</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -832,14 +838,6 @@
                                                             </div>
                                                             <div class="">
                                                                 <h5>Chose should you enter complete query details here?</h5>
-                                                                <p>Describing query details will enable suppliers to prepare
-                                                                    a
-                                                                    proposal perfectly suited to your needs. Your query
-                                                                    details
-                                                                    remain confidential. Only the suppliers we select will
-                                                                    have
-                                                                    access to
-                                                                    the information.</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -885,7 +883,7 @@
                                                                 <label class="control-label pb-1">Don't Find Suitable
                                                                     Option ?
                                                                     Enter Your Custom Query</label>
-                                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -908,10 +906,6 @@
                                                                     <div>
                                                                         <p>Why is it important to enter your QUERY
                                                                             information?</p>
-                                                                        <p>Entering precise QUERY information ensures you
-                                                                            will
-                                                                            receive
-                                                                            the quotation.</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
@@ -1000,9 +994,6 @@
                                                             </div>
                                                             <div>
                                                                 <p>Why is it important to enter your QUERY information?</p>
-                                                                <p>Entering precise QUERY information ensures you will
-                                                                    receive
-                                                                    the quotation.</p>
                                                             </div>
                                                         </div>
                                                     </div>
