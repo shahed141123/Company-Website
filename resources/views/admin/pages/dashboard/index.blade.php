@@ -280,11 +280,13 @@
                                     <div class="card-body pt-2">
                                         {{-- Icons Info --}}
                                         <div class="d-flex justify-content-between align-items-center pt-1 px-2">
+                                            <h5 class="user-counter mb-0">EL</h5>
                                             <h5 class="user-counter mb-0">A</h5>
                                             <h5 class="user-counter mb-0">L</h5>
                                             <h5 class="user-counter mb-0">LL</h5>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center pt-2">
+                                            <h5 class="user-counter amout-count mb-0">{{ $absentCountA }}</h5>
                                             <h5 class="user-counter amout-count mb-0">{{ $absentCountA }}</h5>
                                             <h5 class="user-counter amout-count mb-0">{{ $lateCountL }}</h5>
                                             <h5 class="user-counter amout-count mb-0">{{ $lateCountLL }}</h5>
@@ -582,14 +584,9 @@
                                             </a>
                                         </div>
                                         <div>
-<<<<<<< HEAD
-                                            <p class="approved-btn mb-0 shadow-sm rounded-1">Approved</p>
-                                            <p class="approved-btn mb-0 shadow-sm rounded-1 mt-1"><a href="" class="text-white">Check Now</a></p>
-=======
                                             <a href="{{ route('leaveDashboard') }}">
                                                 <p class="approved-btn mb-0 shadow-sm rounded-1">Check</p>
                                             </a>
->>>>>>> 39a8142bf5224624a87f4d399c01f28dd3691aa5
                                         </div>
                                     </div>
                                 </div>
@@ -598,7 +595,8 @@
                                         {{-- Icons Info --}}
                                         <div>
                                             <a href="{{ route('leaveDashboard') }}">
-                                                <h3 class="user-counter w-75 mb-0" style="line-height: 1">Leave Availed
+                                                <h3 class="user-counter w-75 mb-0 main_color" style="line-height: 1">Leave
+                                                    Availed
                                                 </h3>
                                             </a>
                                         </div>
@@ -618,15 +616,18 @@
                                         {{-- Icons Info --}}
                                         <div>
                                             <p class="para-text m-0">Sick Leave</p>
-                                            <h1 class="user-counter mb-0 text-center user-color">{{ optional($employee_leave_due)->medical_leave_availed  ?? 0 }}</h1>
+                                            <h1 class="user-counter mb-0 text-center user-color">
+                                                {{ optional($employee_leave_due)->medical_leave_availed ?? 0 }}</h1>
                                         </div>
                                         <div>
                                             <p class="para-text m-0">Casual Leave</p>
-                                            <h1 class="user-counter mb-0 text-center user-color">{{ optional($employee_leave_due)->casual_leave_availed  ?? 0 }}</h1>
+                                            <h1 class="user-counter mb-0 text-center user-color">
+                                                {{ optional($employee_leave_due)->casual_leave_availed ?? 0 }}</h1>
                                         </div>
                                         <div>
                                             <p class="para-text m-0">Earned Leave</p>
-                                            <h1 class="user-counter mb-0 text-center user-color">{{ optional($employee_leave_due)->earned_leave_availed  ?? 0 }}</h1>
+                                            <h1 class="user-counter mb-0 text-center user-color">
+                                                {{ optional($employee_leave_due)->earned_leave_availed ?? 0 }}</h1>
                                         </div>
                                     </div>
                                 </div>
@@ -691,83 +692,161 @@
             </div>
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="card">
-                        <div class="card-header p-1 " style="background-color: #f2f3ff">
-                            <h4 class="m-0 text-center">Assigned Task</h4>
+                    <div class="card rounded-0" style="height: 22.2rem; overflow: auto;">
+                        <div class="card-header p-1" style="background-color: #f2f3ff">
+                            <h4 class="m-0 text-center">All Task</h4>
                         </div>
                         <div class="card-body">
-                            <div class="assigned-task pb-1">
-                                <input class="inp-cbx" id="cbx-15" type="checkbox" style="display: none;" />
-                                <label class="cbx" for="cbx-15">
-                                    <span>
-                                        <svg width="12px" height="9px" viewbox="0 0 12 9">
-                                            <polyline points="1 5 4 8 11 1"></polyline>
-                                        </svg>
-                                    </span>
-                                    <span>Complete The Whole Design On This Week</span>
-                                </label>
-                            </div>
-                            <div class="assigned-task pb-1">
-                                <input class="inp-cbx" id="cbx-16" type="checkbox" style="display: none;" />
-                                <label class="cbx" for="cbx-16">
-                                    <span>
-                                        <svg width="12px" height="9px" viewbox="0 0 12 9">
-                                            <polyline points="1 5 4 8 11 1"></polyline>
-                                        </svg>
-                                    </span>
-                                    <span>Complete The Whole Design On This Week</span>
-                                </label>
-                            </div>
-                            <div class="assigned-task pb-1">
-                                <input class="inp-cbx" id="cbx-17" type="checkbox" style="display: none;" />
-                                <label class="cbx" for="cbx-17">
-                                    <span>
-                                        <svg width="12px" height="9px" viewbox="0 0 12 9">
-                                            <polyline points="1 5 4 8 11 1"></polyline>
-                                        </svg>
-                                    </span>
-                                    <span>Complete The Whole Design On This Week</span>
-                                </label>
-                            </div>
-                            <div class="assigned-task pb-1">
-                                <input class="inp-cbx" id="cbx-18" type="checkbox" style="display: none;" />
-                                <label class="cbx" for="cbx-18">
-                                    <span>
-                                        <svg width="12px" height="9px" viewbox="0 0 12 9">
-                                            <polyline points="1 5 4 8 11 1"></polyline>
-                                        </svg>
-                                    </span>
-                                    <span>Complete The Whole Design On This Week</span>
-                                </label>
-                            </div>
-                            <div class="assigned-task pb-1">
-                                <input class="inp-cbx" id="cbx-19" type="checkbox" style="display: none;" />
-                                <label class="cbx" for="cbx-19">
-                                    <span>
-                                        <svg width="12px" height="9px" viewbox="0 0 12 9">
-                                            <polyline points="1 5 4 8 11 1"></polyline>
-                                        </svg>
-                                    </span>
-                                    <span>Complete The Whole Design On This Week</span>
-                                </label>
-                            </div>
+                            <ul class="ms-0 ps-0" style="list-style-type: none">
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <div class="pe-3">
+
+                                            <i class="fa-solid fa-check badge-icons"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                New project created : <a href="#">[NGen IT Admin]</a> </h6>
+                                            <p class="p-0 m-0"
+                                                style="font-size: 12px;
+                                        font-weight: 600;
+                                        color: #888ea8">
+                                                07 May, 2022</p>
+                                        </div>
+                                    </div>
+                                    <div class="pe-3">
+
+                                        <i class="fa-solid fa-check dash-icons"></i>
+                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                    </div>
+                                </li>
+                                <li style="padding-left: 14px">|</li>
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <div class="pe-3">
+
+                                            <i class="fa-solid fa-check badge-icons"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                Mail sent to HR and Admin</h6>
+                                            <p class="p-0 m-0"
+                                                style="font-size: 12px;
+                                        font-weight: 600;
+                                        color: #888ea8">
+                                                07 May, 2022</p>
+                                        </div>
+                                    </div>
+                                    <div class="pe-3">
+
+                                        <i class="fa-solid fa-check dash-icons"></i>
+                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                    </div>
+                                </li>
+                                <li style="padding-left: 14px">|</li>
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <div class="pe-3">
+
+                                            <i class="fa-solid fa-check badge-icons"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                Mail sent to HR and Admin</h6>
+                                            <p class="p-0 m-0"
+                                                style="font-size: 12px;
+                                        font-weight: 600;
+                                        color: #888ea8">
+                                                07 May, 2022</p>
+                                        </div>
+                                    </div>
+                                    <div class="pe-3">
+
+                                        <i class="fa-solid fa-check dash-icons"></i>
+                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                    </div>
+                                </li>
+                                <li style="padding-left: 14px">|</li>
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <div class="pe-3">
+
+                                            <i class="fa-solid fa-check badge-icons"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                Mail sent to HR and Admin</h6>
+                                            <p class="p-0 m-0"
+                                                style="font-size: 12px;
+                                        font-weight: 600;
+                                        color: #888ea8">
+                                                07 May, 2022</p>
+                                        </div>
+                                    </div>
+                                    <div class="pe-3">
+
+                                        <i class="fa-solid fa-check dash-icons"></i>
+                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                    </div>
+                                </li>
+                                <li style="padding-left: 14px">|</li>
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <div class="pe-3">
+
+                                            <i class="fa-solid fa-check badge-icons"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                Mail sent to HR and Admin</h6>
+                                            <p class="p-0 m-0"
+                                                style="font-size: 12px;
+                                        font-weight: 600;
+                                        color: #888ea8">
+                                                07 May, 2022</p>
+                                        </div>
+                                    </div>
+                                    <div class="pe-3">
+
+                                        <i class="fa-solid fa-check dash-icons"></i>
+                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card">
+                    <div class="card" style="height: 22.2rem; overflow: auto;">
                         <div class="card-header p-1" style="background-color: #f2f3ff">
                             <h4 class="m-0 text-center">Notice</h4>
                         </div>
                         <div class="card-body">
                             <div>
-                                <ol>
+                                <ul class="ms-0 ps-0" style="list-style-type: none">
                                     @foreach ($notices as $notice)
-                                        <a href="{{ route('noticeboard') }}">
-                                            <li class="pb-1">{{ $notice->title }}</li>
-                                        </a>
+                                        <li class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <div class="pe-3">
+                                                    <i class="fa-regular fa-message badge-icons"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                        <a href="{{ route('noticeboard') }}">{{ $notice->title }}</a>
+                                                    </h6>
+                                                    <p class="p-0 m-0"
+                                                        style="font-size: 12px; font-weight: 600; color: #888ea8">07 May,
+                                                        2022</p>
+                                                </div>
+                                            </div>
+                                            <div class="pe-3">
+                                                <span class="dash-icons">1H</span>
+                                                {{-- <span class="dash-icons"></span> --}}
+                                            </div>
+                                        </li>
+                                        <li style="padding-left: 14px">|</li>
                                     @endforeach
-                                </ol>
+                                </ul>
                             </div>
                         </div>
                     </div>
