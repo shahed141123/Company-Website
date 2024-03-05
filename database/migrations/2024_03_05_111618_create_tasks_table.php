@@ -13,25 +13,30 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('employee_tasks', function (Blueprint $table) {
+        Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('employee_id')->nullable()->constrained('users')->cascadeOnDelete();
-            
-            $table->string('title')->nullable();
+            $table->foreignId('employee_task_id')->nullable()->constrained('employee_tasks')->cascadeOnDelete();
+            $table->foreignId('supervisor_id')->nullable()->constrained('users');
+            $table->string('task_name');
             $table->string('slug')->unique();
-            $table->year('fiscal_year')->nullable();
-            $table->enum('quarter', ['q1', 'q2', 'q3', 'q4'])->nullable();
-            $table->string('month')->nullable();
-            $table->date('create_date')->nullable();
+            $table->text('task_description')->nullable();
+            $table->string('task_target')->nullable();
+            $table->string('task_rating')->nullable();
+            $table->integer('task_weight')->nullable();
+            $table->json('assignees')->nullable();
             $table->json('supervisors')->nullable();
             $table->json('notify_id')->nullable();
+            $table->text('completion_url')->nullable();
+            $table->text('employee_comment')->nullable();
             $table->integer('supervisor_rating')->nullable();
             $table->integer('hr_rating')->nullable();
             $table->integer('ceo_rating')->nullable();
             $table->text('supervisor_review')->nullable();
             $table->text('hr_review')->nullable();
             $table->text('ceo_review')->nullable();
-            $table->string('kpi_percentage')->nullable();
+            $table->string('priority')->nullable();
+            $table->enum('task_type', ['project_task', 'agenda', 'task'])->default('task')->nullable();
             $table->enum('status', ['done', 'not_done', 'partial_done'])->default('done')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
@@ -46,6 +51,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employee_tasks');
+        Schema::dropIfExists('tasks');
     }
 };

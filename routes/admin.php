@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\SAS\SASController;
 use App\Http\Controllers\DeliveryController;
+use App\Http\Controllers\KPI\TaskController;
 use App\Http\Controllers\Admin\CRMController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\JobController;
@@ -39,15 +40,15 @@ use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\PartnerPermission;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\SectionController;
 
+use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\SuccessController;
 use App\Http\Controllers\Salary\EntityController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\FeedbackController;
-use App\Http\Controllers\Admin\HomepageController;
 
+use App\Http\Controllers\Admin\HomepageController;
 use App\Http\Controllers\Admin\HrPolicyController;
 use App\Http\Controllers\Admin\IndustryController;
 use App\Http\Controllers\Admin\PurchaseController;
@@ -533,6 +534,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'evaluation'                => EvaluationController::class,
             'salary'                    => SalaryController::class,
             'employee-task'             => EmployeeTaskController::class,
+            'task'                      => TaskController::class,
             'employee-project'          => EmployeeProjectController::class,
         ],
         [
