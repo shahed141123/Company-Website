@@ -1,0 +1,51 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('employee_tasks', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('employee_id')->nullable()->constrained('users')->cascadeOnDelete();
+            
+            $table->string('title')->nullable();
+            $table->string('slug')->unique();
+            $table->year('fiscal_year')->nullable();
+            $table->enum('quarter', ['q1', 'q2', 'q3', 'q4'])->nullable();
+            $table->string('month')->nullable();
+            $table->date('create_date')->nullable();
+            $table->json('supervisors')->nullable();
+            $table->json('notify_id')->nullable();
+            $table->integer('supervisor_rating')->nullable();
+            $table->integer('hr_rating')->nullable();
+            $table->integer('ceo_rating')->nullable();
+            $table->text('supervisor_review')->nullable();
+            $table->text('hr_review')->nullable();
+            $table->text('ceo_review')->nullable();
+            $table->string('kpi_percentage')->nullable();
+            $table->enum('status', ['done', 'not_done', 'partial_done'])->default('done')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('employee_tasks');
+    }
+};
