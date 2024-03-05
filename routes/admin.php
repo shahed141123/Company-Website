@@ -68,6 +68,7 @@ use App\Http\Controllers\Admin\OfferPriceController;
 use App\Http\Controllers\Admin\RowWithColController;
 use App\Http\Controllers\Admin\TechGlossyController;
 use App\Http\Controllers\Admin\WebSettingController;
+use App\Http\Controllers\KPI\EmployeeTaskController;
 use App\Http\Controllers\Order\AdminOrderController;
 use App\Http\Controllers\Salary\AttributeController;
 use App\Http\Controllers\Admin\ClientStoryController;
@@ -89,11 +90,14 @@ use App\Http\Controllers\Admin\PortfolioTeamController;
 use App\Http\Controllers\Admin\ShowCaseVideoController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Event\EventCategoryController;
+use App\Http\Controllers\KPI\EmployeeProjectController;
 use App\Http\Controllers\Marketing\BulkEmailController;
 use App\Http\Controllers\Admin\ClientDatabaseController;
+use App\Http\Controllers\Admin\HardwareCommonController;
 use App\Http\Controllers\Admin\OfficeLocationController;
 use App\Http\Controllers\Admin\PolicyCategoryController;
 use App\Http\Controllers\Admin\RfqOrderStatusController;
+use App\Http\Controllers\Admin\SoftwareCommonController;
 use App\Http\Controllers\Admin\TechnologyDataController;
 use App\Http\Controllers\Attendance\BioMetricController;
 use App\Http\Controllers\Client\ClientSupportController;
@@ -129,9 +133,7 @@ use App\Http\Controllers\Admin\PaymentMethodDetailsController;
 use App\Http\Controllers\Admin\PolicyAcknowledgmentsController;
 use App\Http\Controllers\Client\ClientSupportMessageController;
 use App\Http\Controllers\Admin\FrontendNavbarMenuItemController;
-use App\Http\Controllers\Admin\HardwareCommonController;
 use App\Http\Controllers\Admin\PortfolioClientFeedbackController;
-use App\Http\Controllers\Admin\SoftwareCommonController;
 use App\Http\Controllers\Marketing\MarketingTeamTargetController;
 use App\Http\Controllers\Marketing\MarketingManagerRoleController;
 
@@ -530,7 +532,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'project'                   => ProjectController::class,
             'evaluation'                => EvaluationController::class,
             'salary'                    => SalaryController::class,
-
+            'employee-task'             => EmployeeTaskController::class,
+            'employee-project'          => EmployeeProjectController::class,
         ],
         [
             // 'frontend-navbar-menu'->except(['show','create','edit']),
