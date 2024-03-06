@@ -182,6 +182,39 @@
             background-color: #ae0a46;
             color: white;
         }
+
+        .notification .circle-check {
+            display: none;
+        }
+
+        .notification.clicked .envelope {
+            display: none;
+        }
+
+        .notification.clicked .circle-check {
+            display: inline-block;
+            /* or any other desired display property */
+        }
+
+        .tasks-bar {
+            background: white;
+            padding: 0px 1px;
+            border-radius: 20px;
+        }
+
+        .badge-icons {
+            background: transparent;
+            border-radius: 50%;
+            padding: 9px 13px;
+            margin-right: 11px;
+            display: flex;
+            height: 32px;
+            justify-content: center;
+            width: 32px;
+            background-color: #ae0a46;
+            box-shadow: 0 10px 20px -8px #ae0a46;
+            color: white;
+        }
     </style>
     <div class="content-wrapper">
         <div class="container-fluid">
@@ -320,7 +353,7 @@
                         <div class="card-body pt-0">
                             <h3>Today's Achievement</h3>
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="card me-2 user-inner-card" style="height: 12rem; width: 30%">
+                                <div class="card me-2 user-inner-card" style="height: 12rem; width: 40%">
                                     <div class="card-body align-items-center">
                                         <p class="para-text m-0">Achieve</p>
                                         <div class="d-flex justify-content-between align-items-center pt-3">
@@ -329,27 +362,36 @@
                                                 <i class="fa-solid fa-star text-yellow"></i>
                                                 <i class="fa-solid fa-star text-yellow"></i>
                                                 <i class="fa-regular fa-star-half-stroke text-yellow"></i>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <i class="fa-solid fa-star text-yellow"></i>
-                                                <i class="fa-solid fa-star text-yellow"></i>
-                                                <i class="fa-solid fa-star text-yellow"></i>
                                                 <i class="fa-regular fa-star"></i>
                                             </div>
                                         </div>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <i class="fa-solid fa-star text-yellow"></i>
-                                                <i class="fa-solid fa-star text-yellow"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
+                                        <div class="d-flex justify-content-between align-items-center pt-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p><i class="fa-solid fa-face-tired text-yellow" title="Unusual"
+                                                        style="font-size: 30px;"></i></p>
+                                                <p>--</p>
+                                                <p><i class="fa-regular fa-face-smile text-yellow" title="Unusual"
+                                                        style="font-size: 30px;"></i></p>
+                                                <p>--</p>
+                                                <p><i class="fa-regular fa-face-smile-beam text-yellow" title="Proud"
+                                                        style="font-size: 30px;"></i></p>
+                                                <p>--</p>
+                                                <p><i class="fa-regular fa-face-laugh-squint text-yellow" title="excellent"
+                                                        style="font-size: 30px;"></i></p>
                                             </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p class="mb-0" style="font-size: 10px">Worst</p>
+                                            <p class="mb-0" style="font-size: 10px">-</p>
+                                            <p class="mb-0" style="font-size: 10px">Unusual</p>
+                                            <p class="mb-0" style="font-size: 10px">-</p>
+                                            <p class="mb-0" style="font-size: 10px">Proude</p>
+                                            <p class="mb-0" style="font-size: 10px">-</p>
+                                            <p class="mb-0" style="font-size: 10px">Excellent</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card me-2" style="height: 12rem; width: 70%">
+                                <div class="card me-2" style="height: 12rem; width: 60%">
                                     <div class="card-body user-inner-card">
                                         <p class="para-text m-0">Perform</p>
                                         <div>
@@ -691,125 +733,285 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="card rounded-0" style="height: 22.2rem; overflow: auto;">
-                        <div class="card-header p-1" style="background-color: #f2f3ff">
+                <div class="col-lg-8">
+                    <div class="card" style="height: 22.2rem; overflow: auto; background-color: #f2f3ff">
+                        <div class="card-header p-1">
                             <h4 class="m-0 text-center">All Task</h4>
                         </div>
                         <div class="card-body">
                             <ul class="ms-0 ps-0" style="list-style-type: none">
-                                <li class="d-flex justify-content-between align-items-center">
+                                <li class="d-flex justify-content-between align-items-center tasks-bar">
                                     <div class="d-flex align-items-center">
                                         <div class="pe-3">
-
+                                            <i class="fa-solid fa-people-arrows badge-icons"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                New project created : <a href="#">[NGen IT Admin]</a> </h6>
+                                        </div>
+                                    </div>
+                                    <div class="pe-3">
+                                        <div class="d-flex justify-content-between align-items-center"
+                                            style="border: 1px solid #fff;
+                                            width: 250px;
+                                            background: #ae0a46;
+                                            color: white;
+                                            border-radius: 10px;
+                                            padding: 0px 7px;">
+                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;;">
+                                                07 May, 2022</p>
+                                            <p class="p-0 m-0 text-black" style="font-size: 12px;font-weight: 600;">
+                                                To</p>
+                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;">
+                                                08 May, 2022</p>
+                                        </div>
+                                        <p class="p-0 m-0 text-center"
+                                            style="font-size: 12px;
+                                            font-weight: 600;
+                                            color: #ffffff;
+                                            background: #ae0a46;
+                                            border-radius: 10px;">
+                                            4 Hour</p>
+                                    </div>
+                                    <div class="pe-3">
+                                        <p class="p-0 m-0 text-center px-2 rounded-2"
+                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
+                                            03H:05M</p>
+                                    </div>
+                                    <div class="pe-3">
+                                        <p class="p-0 m-0 text-center px-2 rounded-2"
+                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
+                                            Some Time Left</p>
+                                    </div>
+                                    <div class="pe-0">
+                                        <a href=""><i class="fa-solid fa-check dash-icons"
+                                                title="Make Azenda"></i></a>
+                                        <a href=""><i class="fa-solid fa-angles-up dash-icons text-danger"
+                                                title="Priority"></i></a>
+                                        <a href="javascript:void()" data-bs-toggle="modal" data-bs-target="#extendTime"><i class="fa-solid fa-business-time dash-icons text-primary"
+                                                title="Extend Time"></i></a>
+                                    </div>
+                                </li>
+                                <li style="padding-left: 14px">|</li>
+                                <li class="d-flex justify-content-between align-items-center tasks-bar">
+                                    <div class="d-flex align-items-center">
+                                        <div class="pe-3">
                                             <i class="fa-solid fa-check badge-icons"></i>
                                         </div>
                                         <div>
                                             <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
                                                 New project created : <a href="#">[NGen IT Admin]</a> </h6>
-                                            <p class="p-0 m-0"
-                                                style="font-size: 12px;
-                                        font-weight: 600;
-                                        color: #888ea8">
-                                                07 May, 2022</p>
                                         </div>
                                     </div>
                                     <div class="pe-3">
-
-                                        <i class="fa-solid fa-check dash-icons"></i>
-                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                        <div class="d-flex justify-content-between align-items-center"
+                                            style="border: 1px solid #fff;
+                                            width: 250px;
+                                            background: #ae0a46;
+                                            color: white;
+                                            border-radius: 10px;
+                                            padding: 0px 7px;">
+                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;;">
+                                                07 May, 2022</p>
+                                            <p class="p-0 m-0 text-black" style="font-size: 12px;font-weight: 600;">
+                                                To</p>
+                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;">
+                                                08 May, 2022</p>
+                                        </div>
+                                        <p class="p-0 m-0 text-center"
+                                            style="font-size: 12px;
+                                            font-weight: 600;
+                                            color: #ffffff;
+                                            background: #ae0a46;
+                                            border-radius: 10px;">
+                                            4 Hour</p>
+                                    </div>
+                                    <div class="pe-3">
+                                        <p class="p-0 m-0 text-center px-2 rounded-2"
+                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
+                                            03H:05M</p>
+                                    </div>
+                                    <div class="pe-3">
+                                        <p class="p-0 m-0 text-center px-2 rounded-2"
+                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
+                                            Some Time Left</p>
+                                    </div>
+                                    <div class="pe-0">
+                                        <a href=""><i class="fa-solid fa-check dash-icons"
+                                                title="Make Azenda"></i></a>
+                                        <a href=""><i class="fa-solid fa-angles-down dash-icons text-info"
+                                                title="priority heigh"></i></a>
+                                        <a href="javascript:void()" data-bs-toggle="modal" data-bs-target="#extendTime"><i
+                                                class="fa-solid fa-business-time dash-icons text-primary"
+                                                title="Extend Time"></i></a>
                                     </div>
                                 </li>
                                 <li style="padding-left: 14px">|</li>
-                                <li class="d-flex justify-content-between align-items-center">
+                                <li class="d-flex justify-content-between align-items-center tasks-bar">
                                     <div class="d-flex align-items-center">
                                         <div class="pe-3">
-
                                             <i class="fa-solid fa-check badge-icons"></i>
                                         </div>
                                         <div>
                                             <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                Mail sent to HR and Admin</h6>
-                                            <p class="p-0 m-0"
-                                                style="font-size: 12px;
-                                        font-weight: 600;
-                                        color: #888ea8">
-                                                07 May, 2022</p>
+                                                New project created : <a href="#">[NGen IT Admin]</a> </h6>
                                         </div>
                                     </div>
                                     <div class="pe-3">
-
-                                        <i class="fa-solid fa-check dash-icons"></i>
-                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                        <div class="d-flex justify-content-between align-items-center"
+                                            style="border: 1px solid #fff;
+                                            width: 250px;
+                                            background: #ae0a46;
+                                            color: white;
+                                            border-radius: 10px;
+                                            padding: 0px 7px;">
+                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;;">
+                                                07 May, 2022</p>
+                                            <p class="p-0 m-0 text-black" style="font-size: 12px;font-weight: 600;">
+                                                To</p>
+                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;">
+                                                08 May, 2022</p>
+                                        </div>
+                                        <p class="p-0 m-0 text-center"
+                                            style="font-size: 12px;
+                                            font-weight: 600;
+                                            color: #ffffff;
+                                            background: #ae0a46;
+                                            border-radius: 10px;">
+                                            4 Hour</p>
+                                    </div>
+                                    <div class="pe-3">
+                                        <p class="p-0 m-0 text-center px-2 rounded-2"
+                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
+                                            03H:05M</p>
+                                    </div>
+                                    <div class="pe-3">
+                                        <p class="p-0 m-0 text-center px-2 rounded-2"
+                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
+                                            Some Time Left</p>
+                                    </div>
+                                    <div class="pe-0">
+                                        <a href=""><i class="fa-solid fa-check dash-icons"
+                                                title="Make Azenda"></i></a>
+                                        <a href=""><i class="fa-solid fa-angles-down dash-icons text-info"
+                                                title="priority heigh"></i></a>
+                                        <a href="javascript:void()" data-bs-toggle="modal" data-bs-target="#extendTime"><i
+                                                class="fa-solid fa-business-time dash-icons text-primary"
+                                                title="Extend Time"></i></a>
                                     </div>
                                 </li>
                                 <li style="padding-left: 14px">|</li>
-                                <li class="d-flex justify-content-between align-items-center">
+                                <li class="d-flex justify-content-between align-items-center tasks-bar">
                                     <div class="d-flex align-items-center">
                                         <div class="pe-3">
-
                                             <i class="fa-solid fa-check badge-icons"></i>
                                         </div>
                                         <div>
                                             <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                Mail sent to HR and Admin</h6>
-                                            <p class="p-0 m-0"
-                                                style="font-size: 12px;
-                                        font-weight: 600;
-                                        color: #888ea8">
-                                                07 May, 2022</p>
+                                                New project created : <a href="#">[NGen IT Admin]</a> </h6>
                                         </div>
                                     </div>
                                     <div class="pe-3">
-
-                                        <i class="fa-solid fa-check dash-icons"></i>
-                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                        <div class="d-flex justify-content-between align-items-center"
+                                            style="border: 1px solid #fff;
+                                            width: 250px;
+                                            background: #ae0a46;
+                                            color: white;
+                                            border-radius: 10px;
+                                            padding: 0px 7px;">
+                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;;">
+                                                07 May, 2022</p>
+                                            <p class="p-0 m-0 text-black" style="font-size: 12px;font-weight: 600;">
+                                                To</p>
+                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;">
+                                                08 May, 2022</p>
+                                        </div>
+                                        <p class="p-0 m-0 text-center"
+                                            style="font-size: 12px;
+                                            font-weight: 600;
+                                            color: #ffffff;
+                                            background: #ae0a46;
+                                            border-radius: 10px;">
+                                            4 Hour</p>
+                                    </div>
+                                    <div class="pe-3">
+                                        <p class="p-0 m-0 text-center px-2 rounded-2"
+                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
+                                            03H:05M</p>
+                                    </div>
+                                    <div class="pe-3">
+                                        <p class="p-0 m-0 text-center px-2 rounded-2"
+                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
+                                            Some Time Left</p>
+                                    </div>
+                                    <div class="pe-0">
+                                        <a href=""><i class="fa-solid fa-check dash-icons"
+                                                title="Make Azenda"></i></a>
+                                        <a href="">
+                                            <i class="fa-solid fa-angles-down dash-icons text-info"
+                                            title="priority heigh"></i>
+                                        </a>
+                                        <a href="javascript:void()" data-bs-toggle="modal" data-bs-target="#extendTime">
+                                            <i class="fa-solid fa-business-time dash-icons text-primary"
+                                                title="Extend Time"></i>
+                                        </a>
                                     </div>
                                 </li>
                                 <li style="padding-left: 14px">|</li>
-                                <li class="d-flex justify-content-between align-items-center">
+                                <li class="d-flex justify-content-between align-items-center tasks-bar">
                                     <div class="d-flex align-items-center">
                                         <div class="pe-3">
-
                                             <i class="fa-solid fa-check badge-icons"></i>
                                         </div>
                                         <div>
                                             <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                Mail sent to HR and Admin</h6>
-                                            <p class="p-0 m-0"
-                                                style="font-size: 12px;
-                                        font-weight: 600;
-                                        color: #888ea8">
-                                                07 May, 2022</p>
+                                                New project created : <a href="#">[NGen IT Admin]</a> </h6>
                                         </div>
                                     </div>
                                     <div class="pe-3">
-
-                                        <i class="fa-solid fa-check dash-icons"></i>
-                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
-                                    </div>
-                                </li>
-                                <li style="padding-left: 14px">|</li>
-                                <li class="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <div class="pe-3">
-
-                                            <i class="fa-solid fa-check badge-icons"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                Mail sent to HR and Admin</h6>
-                                            <p class="p-0 m-0"
-                                                style="font-size: 12px;
-                                        font-weight: 600;
-                                        color: #888ea8">
+                                        <div class="d-flex justify-content-between align-items-center"
+                                            style="border: 1px solid #fff;
+                                            width: 250px;
+                                            background: #ae0a46;
+                                            color: white;
+                                            border-radius: 10px;
+                                            padding: 0px 7px;">
+                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;;">
                                                 07 May, 2022</p>
+                                            <p class="p-0 m-0 text-black" style="font-size: 12px;font-weight: 600;">
+                                                To</p>
+                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;">
+                                                08 May, 2022</p>
                                         </div>
+                                        <p class="p-0 m-0 text-center"
+                                            style="font-size: 12px;
+                                            font-weight: 600;
+                                            color: #ffffff;
+                                            background: #ae0a46;
+                                            border-radius: 10px;">
+                                            4 Hour</p>
                                     </div>
                                     <div class="pe-3">
-
-                                        <i class="fa-solid fa-check dash-icons"></i>
-                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                        <p class="p-0 m-0 text-center px-2 rounded-2"
+                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
+                                            03H:05M</p>
+                                    </div>
+                                    <div class="pe-3">
+                                        <p class="p-0 m-0 text-center px-2 rounded-2"
+                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
+                                            Some Time Left</p>
+                                    </div>
+                                    <div class="pe-0">
+                                        <a href=""><i class="fa-solid fa-check dash-icons"
+                                                title="Make Azenda"></i></a>
+                                        <a href="">
+                                            <i class="fa-solid fa-angles-down dash-icons text-info"
+                                            title="priority heigh"></i>
+                                        </a>
+                                        <a href="javascript:void()" data-bs-toggle="modal" data-bs-target="#extendTime">
+                                            <i class="fa-solid fa-business-time dash-icons text-primary"
+                                                title="Extend Time"></i>
+                                        </a>
                                     </div>
                                 </li>
                             </ul>
@@ -839,9 +1041,11 @@
                                                         2022</p>
                                                 </div>
                                             </div>
-                                            <div class="pe-3">
-                                                <span class="dash-icons">1H</span>
-                                                {{-- <span class="dash-icons"></span> --}}
+                                            <div class="pe-3 notification" id="notification{{ $loop->index }}">
+                                                <i class="fa-solid fa-envelope-open-text dash-icons envelope"
+                                                    data-id="{{ $loop->index }}"></i>
+                                                <i class="fa-regular fa-check-circle dash-icons check-circle"
+                                                    data-id="{{ $loop->index }}"></i>
                                             </div>
                                         </li>
                                         <li style="padding-left: 14px">|</li>
@@ -854,10 +1058,80 @@
             </div>
         </div>
     </div>
+    {{-- Extend Time Modal --}}
+
+    <!-- Modal Body -->
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div class="modal fade" id="extendTime" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header p-0 px-3">
+                    <h5 class="modal-title" id="modalTitleId">
+                        Extend Task Deadline
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div>
+                                    <label for="">Extend Date</label>
+                                    <input type="date" name="" id="" class="form-control form-contorl-sm" placeholder="Increase Date">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div>
+                                    <label for="">Extend Time</label>
+                                    <input type="time" name="" id="" class="form-control form-contorl-sm" placeholder="Increase Time">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mt-3 text-center">
+                                    <button type="submit" class="btn btn-primary">Extend Time</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional: Place to the bottom of scripts -->
+    <script>
+        const myModal = new bootstrap.Modal(
+            document.getElementById("modalId"),
+            options,
+        );
+    </script>
+
+    {{-- Extend Time Modal --}}
     @include('admin.partials.leave_modal')
 @endsection
 
 @push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all elements with class 'envelope'
+            var envelopes = document.querySelectorAll('.envelope');
+
+            // Loop through each envelope
+            envelopes.forEach(function(envelope) {
+                // Add click event listener to each envelope
+                envelope.addEventListener('click', function() {
+                    var dataId = envelope.getAttribute('data-id');
+                    var notification = document.getElementById('notification' + dataId);
+
+                    // Hide envelope and show check-circle
+                    envelope.style.display = 'none';
+                    var checkCircle = notification.querySelector('.check-circle');
+                    checkCircle.style.display = 'inline-block';
+                });
+            });
+        });
+    </script>
     <script>
         $(document).ready(function() {
             $('.currentMonthDT').DataTable({
