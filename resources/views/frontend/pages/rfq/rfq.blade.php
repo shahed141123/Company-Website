@@ -463,11 +463,11 @@
 
         /* Add your custom styles for radio buttons here */
         .custom-radio input[type="radio"] {
-            background: transparent;
+            background: #ae0a46;
             border: 0;
             width: 16px;
             height: 16px;
-            border: 2px solid white;
+            border: 2px solid #e1e1e1;
         }
 
         .custom-radio label {
@@ -513,19 +513,27 @@
         .nav-tabs .nav-item {
             margin: 0px;
         }
+        .nav-tabs .nav-link, .nav-tabs .nav-item .nav-link:hover{
+            border: 1px solid #ae0a46;
+        }
     </style>
     <style>
         /* Add your additional styles here */
         .rfq_box1,
         .rfq_box2 {
+            background-image: url('https://i.pinimg.com/originals/96/03/b3/9603b3ad189fa4d29a3a7b2a33c5cd45.jpg');
             transition: box-shadow 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .changing-class {
-            background-image: url('https://i.pinimg.com/originals/96/03/b3/9603b3ad189fa4d29a3a7b2a33c5cd45.jpg');
+            background-color: #ae0a46;
+            background-image: none;
+            border: 1px solid #ae0a46;
+            color: white;
         }
-        .rfq-text{
+
+        .rfq-text {
             border-bottom: 2px solid #ae0a46;
         }
     </style>
@@ -544,7 +552,7 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs nav-tabs-rfq px-0 mt-5 d-flex justify-content-center align-items-center w-100"
                         id="myTab" role="tablist">
-                        <li class="nav-item w-50" role="presentation">
+                        <li class="nav-item" role="presentation" style="width: 49%; margin-right: 8px;">
                             <label class="nav-link active rounded-0 custom-radio" id="home-tab" data-bs-toggle="tab"
                                 data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">
                                 <input type="radio" class="form-check-input me-2"
@@ -552,7 +560,7 @@
                                 RFQ WITH PRODUCT SELECTION
                             </label>
                         </li>
-                        <li class="nav-item w-50" role="presentation">
+                        <li class="nav-item" role="presentation" style="width: 50%">
                             <label class="nav-link rounded-0 custom-radio" id="profile-tab" data-bs-toggle="tab"
                                 data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="false">
                                 <input type="radio" class="form-check-input me-2"
@@ -565,12 +573,12 @@
                 <div class="col-lg-8 col-offset-lg-2 m-auto">
                     <div class="row gx-3 my-2">
                         <div class="col-lg-6 pe-0">
-                            <div class="p-3 rfq_box1 text-start active-background">
+                            <div class="p-3 rfq_box1 text-start active-background me-2">
                                 <div class="d-flex justify-content-between">
                                     <img width="120px" height="70px" src="https://i.ibb.co/zm36Ccz/Asset-6-5x-8.png"
                                         alt="">
                                     <div class="ps-4">
-                                        <p class="text-muted" style="text-align: justify;">RFQ with product selection
+                                        <p class="" style="text-align: justify;">RFQ with product selection
                                             streamlines
                                             procurement by offering a user-friendly interface, facilitating efficient
                                             requests for quotes tailored to specific product requirements.</p>
@@ -586,7 +594,7 @@
                                     <img width="120px" height="70px" src="https://i.ibb.co/Tc9HNjK/Asset-4-5x-8.png"
                                         alt="">
                                     <div class="ps-4">
-                                        <p class="text-muted" style="text-align: justify;">Custom Request for Quote empowers
+                                        <p class="" style="text-align: justify;">Custom Request for Quote empowers
                                             users to
                                             tailor procurement needs, providing a personalized approach to sourcing
                                             quotes for unique and specialized requirements.</p>
@@ -704,7 +712,7 @@
                                             <div class="prevStep btn-color mb-2 ms-3">Prev</div>
                                             <div class="container pb-4">
                                                 <div class="row mb-4">
-                                                    <div class="col-lg-12">
+                                                    <div class="col-lg-10 offset-lg-1 mx-auto">
                                                         <div class="d-flex p-4 px-0">
                                                             <div class="me-2">
                                                                 <i class="fa-solid fa-circle-question main_color"
@@ -788,65 +796,69 @@
                                         <fieldset class="step" id="step3">
                                             <div class="prevStep btn-color mb-2 ms-3">Prev</div>
                                             <div class="container p-0 pb-4">
-                                                <div class="row m-1 pb-4">
-                                                    <div class="col-lg-12">
-                                                        <div class="d-flex p-4 px-0">
-                                                            <div class="me-2">
-                                                                <i class="fa-solid fa-circle-question main_color"
-                                                                    style="font-size: 35px;"></i>
+                                                <div class="row">
+                                                    <div class="col-lg-10 offset-lg-1 mx-auto">
+                                                        <div class="row m-1 pb-4">
+                                                            <div class="col-lg-12 mx-auto">
+                                                                <div class="d-flex p-4 px-0">
+                                                                    <div class="me-2">
+                                                                        <i class="fa-solid fa-circle-question main_color"
+                                                                            style="font-size: 35px;"></i>
+                                                                    </div>
+                                                                    <div>
+                                                                        <p>Why is it important to enter your QUERY information?
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div>
-                                                                <p>Why is it important to enter your QUERY information?
-                                                                </p>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group pt-2">
+                                                                    <label for="" class="pb-1">Name</label>
+                                                                    <input type="text"
+                                                                        class="form-control form-control-sm border-0 rounded-1"
+                                                                        placeholder="Your Name">
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group pt-2">
-                                                            <label for="" class="pb-1">Name</label>
-                                                            <input type="text"
-                                                                class="form-control form-control-sm border-0 rounded-1"
-                                                                placeholder="Your Name">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group pt-2">
-                                                            <label for="" class="pb-1">Email</label>
-                                                            <input type="numnber"
-                                                                class="form-control form-control-sm border-0 rounded-1"
-                                                                placeholder="Your Email">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group pt-2">
-                                                            <label for="" class="pb-1">Phone Number</label>
-                                                            <input type="numnber"
-                                                                class="form-control form-control-sm border-0 rounded-1"
-                                                                placeholder="Your Phone Number">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group pt-2">
-                                                            <label for="" class="pb-1">City</label>
-                                                            <input type="text"
-                                                                class="form-control form-control-sm border-0 rounded-1"
-                                                                placeholder="Enter City">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group pt-2">
-                                                            <label for="" class="pb-1">Zip Code</label>
-                                                            <input type="text"
-                                                                class="form-control form-control-sm border-0 rounded-1"
-                                                                placeholder="Enter Zip Code">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group pt-2">
-                                                            <label for="" class="pb-1">Company Name</label>
-                                                            <input type="text"
-                                                                class="form-control form-control-sm border-0 rounded-1"
-                                                                placeholder="Enter Company Name">
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group pt-2">
+                                                                    <label for="" class="pb-1">Email</label>
+                                                                    <input type="numnber"
+                                                                        class="form-control form-control-sm border-0 rounded-1"
+                                                                        placeholder="Your Email">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group pt-2">
+                                                                    <label for="" class="pb-1">Phone Number</label>
+                                                                    <input type="numnber"
+                                                                        class="form-control form-control-sm border-0 rounded-1"
+                                                                        placeholder="Your Phone Number">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group pt-2">
+                                                                    <label for="" class="pb-1">City</label>
+                                                                    <input type="text"
+                                                                        class="form-control form-control-sm border-0 rounded-1"
+                                                                        placeholder="Enter City">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group pt-2">
+                                                                    <label for="" class="pb-1">Zip Code</label>
+                                                                    <input type="text"
+                                                                        class="form-control form-control-sm border-0 rounded-1"
+                                                                        placeholder="Enter Zip Code">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group pt-2">
+                                                                    <label for="" class="pb-1">Company Name</label>
+                                                                    <input type="text"
+                                                                        class="form-control form-control-sm border-0 rounded-1"
+                                                                        placeholder="Enter Company Name">
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -875,7 +887,7 @@
                                         <fieldset class="step" id="step1">
                                             <div class="container">
                                                 <div class="row mb-4">
-                                                    <div class="col-lg-12">
+                                                    <div class="col-lg-10 offset-lg-1 mx-auto">
                                                         <div class="d-flex p-4 px-0">
                                                             <div class="me-2">
                                                                 <i class="fa-solid fa-circle-question main_color"
@@ -887,7 +899,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-12">
+                                                    <div class="col-lg-10 offset-lg-1 mx-auto">
                                                         <div class="row">
                                                             <div class="col-lg-4">
                                                                 <label class="control-label pb-1">Category</label> <br>
@@ -941,7 +953,7 @@
                                             <div class="prevStep btn-color mb-2 ms-3">Prev</div>
                                             <div class="container pb-4">
                                                 <div class="row mb-4">
-                                                    <div class="col-lg-12">
+                                                    <div class="col-lg-10 offset-lg-1 mx-auto">
                                                         <div class="row mb-4">
                                                             <div class="col-lg-12">
                                                                 <div class="d-flex p-4 px-0">
@@ -1036,65 +1048,67 @@
                                         <fieldset class="step" id="step3">
                                             <div class="prevStep btn-color mb-2 ms-3">Prev</div>
                                             <div class="container p-0 pb-4">
-                                                <div class="row m-1 pb-4">
-                                                    <div class="col-lg-12">
-                                                        <div class="d-flex p-4 px-0">
-                                                            <div class="me-2">
-                                                                <i class="fa-solid fa-circle-question main_color"
-                                                                    style="font-size: 35px;"></i>
+                                                <div class="col-lg-10 offset-lg-1 mx-auto">
+                                                    <div class="row m-1 pb-4">
+                                                        <div class="col-lg-12 mx-auto">
+                                                            <div class="d-flex p-4 px-0">
+                                                                <div class="me-2">
+                                                                    <i class="fa-solid fa-circle-question main_color"
+                                                                        style="font-size: 35px;"></i>
+                                                                </div>
+                                                                <div>
+                                                                    <p>Why is it important to enter your QUERY information?
+                                                                    </p>
+                                                                </div>
                                                             </div>
-                                                            <div>
-                                                                <p>Why is it important to enter your QUERY information?
-                                                                </p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group pt-2">
+                                                                <label for="" class="pb-1">Name</label>
+                                                                <input type="text"
+                                                                    class="form-control form-control-sm border-0 rounded-1"
+                                                                    placeholder="Your Name">
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group pt-2">
-                                                            <label for="" class="pb-1">Name</label>
-                                                            <input type="text"
-                                                                class="form-control form-control-sm border-0 rounded-1"
-                                                                placeholder="Your Name">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group pt-2">
+                                                                <label for="" class="pb-1">Email</label>
+                                                                <input type="numnber"
+                                                                    class="form-control form-control-sm border-0 rounded-1"
+                                                                    placeholder="Your Email">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group pt-2">
-                                                            <label for="" class="pb-1">Email</label>
-                                                            <input type="numnber"
-                                                                class="form-control form-control-sm border-0 rounded-1"
-                                                                placeholder="Your Email">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group pt-2">
+                                                                <label for="" class="pb-1">Phone Number</label>
+                                                                <input type="numnber"
+                                                                    class="form-control form-control-sm border-0 rounded-1"
+                                                                    placeholder="Your Phone Number">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group pt-2">
-                                                            <label for="" class="pb-1">Phone Number</label>
-                                                            <input type="numnber"
-                                                                class="form-control form-control-sm border-0 rounded-1"
-                                                                placeholder="Your Phone Number">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group pt-2">
+                                                                <label for="" class="pb-1">City</label>
+                                                                <input type="text"
+                                                                    class="form-control form-control-sm border-0 rounded-1"
+                                                                    placeholder="Enter City">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group pt-2">
-                                                            <label for="" class="pb-1">City</label>
-                                                            <input type="text"
-                                                                class="form-control form-control-sm border-0 rounded-1"
-                                                                placeholder="Enter City">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group pt-2">
+                                                                <label for="" class="pb-1">Zip Code</label>
+                                                                <input type="text"
+                                                                    class="form-control form-control-sm border-0 rounded-1"
+                                                                    placeholder="Enter Zip Code">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group pt-2">
-                                                            <label for="" class="pb-1">Zip Code</label>
-                                                            <input type="text"
-                                                                class="form-control form-control-sm border-0 rounded-1"
-                                                                placeholder="Enter Zip Code">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group pt-2">
-                                                            <label for="" class="pb-1">Company Name</label>
-                                                            <input type="text"
-                                                                class="form-control form-control-sm border-0 rounded-1"
-                                                                placeholder="Enter Company Name">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group pt-2">
+                                                                <label for="" class="pb-1">Company Name</label>
+                                                                <input type="text"
+                                                                    class="form-control form-control-sm border-0 rounded-1"
+                                                                    placeholder="Enter Company Name">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

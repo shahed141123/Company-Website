@@ -806,7 +806,7 @@
                                                             <div class="col-lg-12">
                                                                 <div class="d-flex justify-content-between align-items-center pt-2">
                                                                     <div class="m-0 d-flex" style="font-family: 'Libre Franklin', sans-serif;">
-                                                                        <h2>Contact Us </h2>
+                                                                        <h2>Help </h2>
                                                                         <h2 style="border-right: 1px solid #eee;padding-left: 15px;margin-top: 5px;"></h2>
                                                                     </div>
                                                                     <div>
