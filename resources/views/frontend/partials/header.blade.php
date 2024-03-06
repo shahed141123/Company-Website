@@ -28,15 +28,15 @@
                                         </div> --}}
                                         <hr class="text-muted" />
                                         <div class="d-flex flex-column align-items-center">
-                                            <a href="{{ route('client.login') }}"
+                                            <a href="https://wa.me/{{ $setting->whatsapp_number }}"
                                                 class="mx-auto py-2 btn-color mb-2 top-info-text w-100"
                                                 style="font-size: 13px">
                                                 <i class="fa-brands fa-whatsapp"></i> <span>Whats App</span>
                                             </a>
-                                            <a href="{{ route('client.login') }}"
+                                            <a href="skype:<ngenit>?chat"
                                                 class="mx-auto py-2 btn-color mb-2 top-info-text w-100"
                                                 style="font-size: 13px">
-                                                <i class="fa-brands fa-skype"></i> <span>Sign In</span>
+                                                <i class="fa-brands fa-skype"></i> <span>Skype</span>
                                             </a>
                                         </div>
                                         <hr class="text-muted" />
