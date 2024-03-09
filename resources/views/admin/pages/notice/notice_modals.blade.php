@@ -134,7 +134,7 @@
                                 <div class="col-lg-12 mb-3">
                                     <label class="p-0 text-start text-black">
                                         Content</label>
-                                    <div class="input-group">
+                                    <div class="">
                                         <textarea name="content" class="form-control form-control-sm" id="short_desc" cols="30" rows="10">{{ $notice->content }}</textarea>
                                     </div>
                                 </div>

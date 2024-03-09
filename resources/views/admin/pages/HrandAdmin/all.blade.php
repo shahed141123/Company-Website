@@ -130,12 +130,13 @@
                         <div class="col-lg-4">
                             <h6 class="m-0 p-1 text-center card-main-title">Today's Attendance</h6>
                             <div class="card rounded-0">
-                                <div class="card-body">
+                                <div class="card-body" style="height: 11.5em;
+                                overflow: auto;">
                                     <div class="row align-items-center">
                                         <div class="col-lg-12">
                                             <div class="emplpyee-card">
                                                 <table
-                                                    class="table datatable-scroll-y data_user mt-2 mb-4 border text-center"
+                                                    class="table datatable-scroll-y data_user border text-center"
                                                     width="100%">
                                                     <tr>
                                                         <th>User Name</th>
@@ -187,8 +188,9 @@
                         <div class="col-lg-4">
                             <h6 class="m-0 p-1 text-center card-main-title">All Notification
                             </h6>
-                            <div class="card rounded-0" style="height: 22.2rem; overflow: auto;">
-                                <div class="card-body">
+                            <div class="card rounded-0">
+                                <div class="card-body" style="height: 11.5em;
+                                overflow: auto;">
                                     <div class="">
 
                                         @if ($leave_applications->count() > 0)
@@ -405,7 +407,7 @@
                         <div class="col-lg-5 mt-3">
                             <h6 class="m-0 p-1 text-center card-main-title">All Tasks
                             </h6>
-                            <div class="card rounded-0" style="height: 22.2rem; overflow: auto;">
+                            <div class="card rounded-0" style="height: 25.4rem; overflow: auto;">
                                 <div class="card-body">
                                     <ul class="ms-0 ps-0" style="list-style-type: none">
                                         <li class="d-flex justify-content-between align-items-center">
@@ -529,7 +531,7 @@
 
                         <div class="col-lg-4 mt-3">
                             <h6 class="m-0 p-1 text-center card-main-title">All Events Of This Month</h6>
-                            <div class="card rounded-0" style="height: 175px; overflow-x: hidden;">
+                            <div class="card rounded-0" style="height: 25.4rem; overflow: auto;">
                                 <div class="card-body p-0">
                                     <div class="row align-items-center text-center">
                                         <div class="col-lg-6">
@@ -578,6 +580,66 @@
                                     </div>
                                 </div>
                             </div>
+                            <h6 class="m-0 p-1 text-center card-main-title">Leave Info</h6>
+                            <a href="{{ route('employee.index') }}">
+                                <div class="card rounded-0">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6">
+                                                <div class="emplpyee-card">
+                                                    <div class="d-flex justify-content-between align-items-center pb-3">
+                                                        <h6 class="m-0"><i
+                                                                class="fa-solid fa-right-from-bracket badge-icons"></i>
+                                                        </h6>
+                                                        <h6 class="main_color m-0 ammount rounded-1">14</h6>
+                                                    </div>
+                                                    <div class="pt-4">
+                                                        <h6 class="text-muted m-0 text-center">Pending Monthly Leave</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="emplpyee-card">
+                                                    <div>
+                                                        <div
+                                                            class="d-flex justify-content-between align-items-center pb-1">
+                                                            <p class="m-0"><i
+                                                                    class="fa-solid fa-bed-pulse badge-icons me-1"></i>
+                                                            </p>
+                                                            <p class="text-muted m-0">Sick Leave</p>
+                                                            <p class="main_color m-0 ammount rounded-1">
+                                                                {{ count($attendanceData) }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div
+                                                            class="d-flex justify-content-between align-items-center pb-1">
+                                                            <p class="m-0">
+                                                                <i
+                                                                    class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
+                                                            </p>
+                                                            <p class="text-muted m-0">Earned Leave</p>
+                                                            <p class="main_color m-0 ammount rounded-1">
+                                                                {{ 11 - count($attendanceData) }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="d-flex justify-content-between align-items-center ">
+                                                            <p class="m-0"><i
+                                                                    class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
+                                                            </p>
+                                                            <p class="text-muted m-0">Casual Leave</p>
+                                                            <p class="main_color m-0 ammount rounded-1">
+                                                                {{ 11 - count($attendanceData) }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                         <div class="col-lg-6 mt-3">
                             <!-- Tab panes -->
@@ -647,69 +709,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <h6 class="m-0 p-1 text-center card-main-title">Leave Info</h6>
-                            <a href="{{ route('employee.index') }}">
-                                <div class="card rounded-0">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-6">
-                                                <div class="emplpyee-card">
-                                                    <div class="d-flex justify-content-between align-items-center pb-3">
-                                                        <h6 class="m-0"><i
-                                                                class="fa-solid fa-right-from-bracket badge-icons"></i>
-                                                        </h6>
-                                                        <h6 class="main_color m-0 ammount rounded-1">14</h6>
-                                                    </div>
-                                                    <div class="pt-4">
-                                                        <h6 class="text-muted m-0 text-center">Pending Monthly Leave</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="emplpyee-card">
-                                                    <div>
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-center pb-1">
-                                                            <p class="m-0"><i
-                                                                    class="fa-solid fa-bed-pulse badge-icons me-1"></i>
-                                                            </p>
-                                                            <p class="text-muted m-0">Sick Leave</p>
-                                                            <p class="main_color m-0 ammount rounded-1">
-                                                                {{ count($attendanceData) }}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-center pb-1">
-                                                            <p class="m-0">
-                                                                <i
-                                                                    class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
-                                                            </p>
-                                                            <p class="text-muted m-0">Earned Leave</p>
-                                                            <p class="main_color m-0 ammount rounded-1">
-                                                                {{ 11 - count($attendanceData) }}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div class="d-flex justify-content-between align-items-center ">
-                                                            <p class="m-0"><i
-                                                                    class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
-                                                            </p>
-                                                            <p class="text-muted m-0">Casual Leave</p>
-                                                            <p class="main_color m-0 ammount rounded-1">
-                                                                {{ 11 - count($attendanceData) }}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
                         </div>
                     </div>
                 </div>

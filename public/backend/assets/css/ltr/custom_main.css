@@ -1757,7 +1757,7 @@ ul.row-sm {
 }
 
 .notes {
-    height: 40vh;
+    height: 20vh;
     overflow: auto;
 }
 
@@ -1810,6 +1810,7 @@ ul.row-sm {
 h4 {
     /* Counteract the blur effect on text elements */
     filter: blur(0);
+    font-size: 12px;
 }
 
 .notice-card-header {
