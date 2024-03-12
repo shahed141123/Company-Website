@@ -327,130 +327,132 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
-            <div class="modal-body border p-1 m-0">
+            <div class="modal-body">
 
                 <form method="post" action="{{ route('quotation.send', $rfq_details->rfq_code) }}"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
-                    <div class="container-fluid">
+                    <div class="container">
                         <div class="row mb-3">
                             <div class="card">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th> Product Name</th>
-                                                <th> Quantity </th>
-                                                <th> Sale Price </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if ($deal_products)
-                                                @foreach ($deal_products as $item)
-                                                    <tr class="text-black">
-                                                        <td>{{ $item->item_name }}</td>
-                                                        <td>{{ $item->qty }}</td>
-                                                        <td>{{ $item->sub_total_cost }}</td>
-                                                    </tr>
-                                                @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-striped">
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    Client Type : {{ ucfirst($rfq_details->client_type) }}
-                                                </td>
-                                                <td>
-                                                    Name : {{ ucfirst($rfq_details->name) }}
-                                                </td>
-                                                <td>
-                                                    Company Name : {{ ucfirst($rfq_details->company_name) }}
-                                                </td>
-                                            </tr>
-                                            {{-- <tr>
-                                                            <td colspan="3" style="background: #7e7d7c">
-                                                                <p class="text-center pt-1 text-white">Product Name : {{App\Models\Admin\DealSas::where('id' , $rfq_details->product_id)->value('name')}}</p>
-                                                            </td>
-                                                        </tr> --}}
-                                            <tr>
-                                                <td>Asking Quantity :
-                                                    {{ App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->sum('qty') }}
-                                                </td>
-                                                <td>Phone Number : {{ $rfq_details->phone }}</td>
-                                                <td>
-                                                    Total Price : $
-                                                    {{ App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->value('grand_total') }}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Assigned Sales Manager (L1) :
-                                                    {{ App\Models\User::where('id', $rfq_details->sales_man_id_L1)->value('name') }}
-                                                    <br>
-                                                    @if ($rfq_details->sales_man_id_T1)
-                                                        Assigned Sales Manager (T1) :
-                                                        {{ App\Models\User::where('id', $rfq_details->sales_man_id_T1)->value('name') }}
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th> Product Name</th>
+                                                    <th> Quantity </th>
+                                                    <th> Sale Price </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if ($deal_products)
+                                                    @foreach ($deal_products as $item)
+                                                        <tr class="text-black">
+                                                            <td>{{ $item->item_name }}</td>
+                                                            <td>{{ $item->qty }}</td>
+                                                            <td>{{ $item->sub_total_cost }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        Client Type : {{ ucfirst($rfq_details->client_type) }}
+                                                    </td>
+                                                    <td>
+                                                        Name : {{ ucfirst($rfq_details->name) }}
+                                                    </td>
+                                                    <td>
+                                                        Company Name : {{ ucfirst($rfq_details->company_name) }}
+                                                    </td>
+                                                </tr>
+                                                {{-- <tr>
+                                                                <td colspan="3" style="background: #7e7d7c">
+                                                                    <p class="text-center pt-1 text-white">Product Name : {{App\Models\Admin\DealSas::where('id' , $rfq_details->product_id)->value('name')}}</p>
+                                                                </td>
+                                                            </tr> --}}
+                                                <tr>
+                                                    <td>Asking Quantity :
+                                                        {{ App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->sum('qty') }}
+                                                    </td>
+                                                    <td>Phone Number : {{ $rfq_details->phone }}</td>
+                                                    <td>
+                                                        Total Price : $
+                                                        {{ App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->value('grand_total') }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Assigned Sales Manager (L1) :
+                                                        {{ App\Models\User::where('id', $rfq_details->sales_man_id_L1)->value('name') }}
                                                         <br>
-                                                    @endif
-                                                    @if ($rfq_details->sales_man_id_T2)
-                                                        Assigned Sales Manager (T2) :
-                                                        {{ App\Models\User::where('id', $rfq_details->sales_man_id_T2)->value('name') }}
-                                                    @endif
+                                                        @if ($rfq_details->sales_man_id_T1)
+                                                            Assigned Sales Manager (T1) :
+                                                            {{ App\Models\User::where('id', $rfq_details->sales_man_id_T1)->value('name') }}
+                                                            <br>
+                                                        @endif
+                                                        @if ($rfq_details->sales_man_id_T2)
+                                                            Assigned Sales Manager (T2) :
+                                                            {{ App\Models\User::where('id', $rfq_details->sales_man_id_T2)->value('name') }}
+                                                        @endif
 
-                                                </td>
-                                                <td>
-                                                    Status : <span
-                                                        class="badge bg-success p-2">{{ ucfirst($rfq_details->status) }}</span>
+                                                    </td>
+                                                    <td>
+                                                        Status : <span
+                                                            class="badge bg-success p-2">{{ ucfirst($rfq_details->status) }}</span>
 
 
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="background: #7e7d7c">
-                                                    <p class="text-center pt-1 text-white">PQ NO:
-                                                        <input class="form-control form-control-sm" type="text"
-                                                            name="pq_code" placeholder="NG-BD/Genexis/RV/231021">
-                                                    </p>
-                                                </td>
-                                                <td style="background: #7e7d7c">
-                                                    <p class="text-center pt-1 text-white">PQR NO:
-                                                        <input class="form-control form-control-sm" type="text"
-                                                            name="pqr_code_one" placeholder="MEO-P021(T10)-W(L1)">
-                                                    </p>
-                                                </td>
-                                                <td style="background: #7e7d7c">
-                                                    <p class="text-center pt-1 text-white">Currency:
-                                                        <select name="currency"
-                                                            class="form-control form-control-sm select"
-                                                            data-minimum-results-for-search="Infinity"
-                                                            data-placeholder="Chose Currency" required>
-                                                            <option value="taka">
-                                                                Taka
-                                                            </option>
-                                                            <option value="dollar">
-                                                                Dollar</option>
-                                                            {{-- <option value="Others">
-                                                                Others</option> --}}
-                                                        </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3" style="background: #7e7d7c">
-                                                    <p class="text-center pt-1 text-white">Send Quotation To :
-                                                        <input class="form-control form-control-sm" type="email"
-                                                            name="email" value="{{ $rfq_details->email }}">
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="background: #7e7d7c">
+                                                        <p class="text-center pt-1 text-white">PQ NO:
+                                                            <input class="form-control form-control-sm" type="text"
+                                                                name="pq_code" placeholder="NG-BD/Genexis/RV/231021">
+                                                        </p>
+                                                    </td>
+                                                    <td style="background: #7e7d7c">
+                                                        <p class="text-center pt-1 text-white">PQR NO:
+                                                            <input class="form-control form-control-sm" type="text"
+                                                                name="pqr_code_one" placeholder="MEO-P021(T10)-W(L1)">
+                                                        </p>
+                                                    </td>
+                                                    <td style="background: #7e7d7c">
+                                                        <p class="text-center pt-1 text-white">Currency:
+                                                            <select name="currency"
+                                                                class="form-control form-control-sm select"
+                                                                data-minimum-results-for-search="Infinity"
+                                                                data-placeholder="Chose Currency" required>
+                                                                <option value="taka">
+                                                                    Taka
+                                                                </option>
+                                                                <option value="dollar">
+                                                                    Dollar</option>
+                                                                {{-- <option value="Others">
+                                                                    Others</option> --}}
+                                                            </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" style="background: #7e7d7c">
+                                                        <p class="text-center pt-1 text-white">Send Quotation To :
+                                                            <input class="form-control form-control-sm" type="email"
+                                                                name="email" value="{{ $rfq_details->email }}">
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
 
                             </div>
@@ -458,8 +460,8 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-3"></div>
-                        <div class="col-sm-9 text-secondary">
+                        <div class="col-lg-8 col-6"></div>
+                        <div class="col-lg-4 col-6 text-secondary text-right">
                             <button type="submit" class="btn btn-primary">Send Quotation <i
                                     class="icon-paperplane ml-2"></i></button>
                         </div>
@@ -489,75 +491,95 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
-            <div class="modal-body border br-7 m-0 p-1">
+            <div class="modal-body border">
                 <form method="post" action="{{ route('invoice.send', $rfq_details->rfq_code) }}"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <div class="row mb-3">
-                        <div class="card">
-                            <div class="table-responsive">
+                    <div class="container">
+                        <div class="row mb-3">
+                            <div class="card">
+                                <div class="card-body table-responsive">
 
-                                @if (!empty($sourcing->grand_total))
-                                    <table class="table table-bordered" style="width: 100%;height: auto;">
+                                    @if (!empty($sourcing->grand_total))
+                                        <table class="table table-bordered" style="width: 100%;height: auto;">
 
 
-                                        <tbody>
-                                            <tr class="text-center" style="background-color: rgba(0,0,0,.03);">
-                                                <th width="40%">Product Description</th>
-                                                <th width="14%">Quantity</th>
+                                            <tbody>
+                                                <tr class="text-center" style="background-color: rgba(0,0,0,.03);">
+                                                    <th width="40%">Product Description</th>
+                                                    <th width="14%">Quantity</th>
 
-                                                @if ($rfq_details->regular == '1')
-                                                    <th width="10%" class="rg_discount d-none">Discount </th>
-                                                    <th width="10%" class="rg_discount d-none">Disc. Unit </th>
-                                                @else
-                                                    <th width="10%" class="rg_unit">Unit Price </th>
-                                                @endif
-
-                                                <th width="15%">Unit Total</th>
-                                            </tr>
-
-                                            @foreach ($deal_products as $key => $item)
-                                                <tr>
-                                                    <td>
-                                                        <a class="text-black"
-                                                            title="{{ $item->item_name }}">{{ Str::limit($item->item_name, 28) }}</a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        {{ $item->qty }}</td>
                                                     @if ($rfq_details->regular == '1')
-                                                        <th width="10%" class="rg_discount d-none">
-                                                            {{ $item->regular_discount }} % </th>
-                                                        <th width="10%" class="rg_discount d-none">
-                                                            {{ number_format($item->sales_price / $item->qty, 2) }}
-                                                        </th>
+                                                        <th width="10%" class="rg_discount d-none">Discount </th>
+                                                        <th width="10%" class="rg_discount d-none">Disc. Unit </th>
                                                     @else
-                                                        <th width="10%" class="rg_unit">
-                                                            {{ number_format($item->sales_price / $item->qty, 2) }}
-                                                        </th>
+                                                        <th width="10%" class="rg_unit">Unit Price </th>
                                                     @endif
 
-                                                    <td class="text-center">$
-                                                        {{ $item->sales_price }}</td>
+                                                    <th width="15%">Unit Total</th>
                                                 </tr>
-                                            @endforeach
+
+                                                @foreach ($deal_products as $key => $item)
+                                                    <tr>
+                                                        <td>
+                                                            <a class="text-black"
+                                                                title="{{ $item->item_name }}">{{ Str::limit($item->item_name, 28) }}</a>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            {{ $item->qty }}</td>
+                                                        @if ($rfq_details->regular == '1')
+                                                            <th width="10%" class="rg_discount d-none">
+                                                                {{ $item->regular_discount }} % </th>
+                                                            <th width="10%" class="rg_discount d-none">
+                                                                {{ number_format($item->sales_price / $item->qty, 2) }}
+                                                            </th>
+                                                        @else
+                                                            <th width="10%" class="rg_unit">
+                                                                {{ number_format($item->sales_price / $item->qty, 2) }}
+                                                            </th>
+                                                        @endif
+
+                                                        <td class="text-center">$
+                                                            {{ $item->sales_price }}</td>
+                                                    </tr>
+                                                @endforeach
 
 
-                                            <tr>
-                                                <th> </th>
+                                                <tr>
+                                                    <th> </th>
 
-                                                @if ($rfq_details->regular == '1')
-                                                    <th width="10%" class="rg_discount d-none"></th>
-                                                    <th width="10%" class="rg_discount d-none"></th>
-                                                @else
-                                                    <th width="10%" class="rg_unit"></th>
+                                                    @if ($rfq_details->regular == '1')
+                                                        <th width="10%" class="rg_discount d-none"></th>
+                                                        <th width="10%" class="rg_discount d-none"></th>
+                                                    @else
+                                                        <th width="10%" class="rg_unit"></th>
+                                                    @endif
+                                                    <td class="text-center"> Sub Total </td>
+                                                    <td class="text-center"> $
+                                                        {{ $sourcing->sub_total_sales }}</td>
+                                                </tr>
+                                                @if ($rfq_details->special == '1')
+                                                    <tr class="special_discount">
+                                                        <th> </th>
+                                                        @if ($rfq_details->regular == '1')
+                                                            <th width="10%" class="rg_discount d-none"></th>
+                                                            <th width="10%" class="rg_discount d-none"></th>
+                                                        @else
+                                                            <th width="10%" class="rg_unit"></th>
+                                                        @endif
+                                                        <td class="text-center">
+                                                            Special discount </td>
+                                                        <td class="text-center">
+                                                            {{ $sourcing->special_discount }} %</td>
+                                                        <td class="text-center"> $
+                                                            {{ $sourcing->special_discounted_sales }}</td>
+                                                    </tr>
                                                 @endif
-                                                <td class="text-center"> Sub Total </td>
-                                                <td class="text-center"> $
-                                                    {{ $sourcing->sub_total_sales }}</td>
-                                            </tr>
-                                            @if ($rfq_details->special == '1')
-                                                <tr class="special_discount">
+
+
+
+                                                <tr>
                                                     <th> </th>
                                                     @if ($rfq_details->regular == '1')
                                                         <th width="10%" class="rg_discount d-none"></th>
@@ -565,86 +587,65 @@
                                                     @else
                                                         <th width="10%" class="rg_unit"></th>
                                                     @endif
+                                                    <th class="text-center"> Total </th>
                                                     <td class="text-center">
-                                                        Special discount </td>
-                                                    <td class="text-center">
-                                                        {{ $sourcing->special_discount }} %</td>
-                                                    <td class="text-center"> $
-                                                        {{ $sourcing->special_discounted_sales }}</td>
+                                                        $ {{ $sourcing->grand_total - $sourcing->tax_sales }}</td>
                                                 </tr>
-                                            @endif
+                                            </tbody>
 
 
-
-                                            <tr>
-                                                <th> </th>
-                                                @if ($rfq_details->regular == '1')
-                                                    <th width="10%" class="rg_discount d-none"></th>
-                                                    <th width="10%" class="rg_discount d-none"></th>
-                                                @else
-                                                    <th width="10%" class="rg_unit"></th>
-                                                @endif
-                                                <th class="text-center"> Total </th>
-                                                <td class="text-center">
-                                                    $ {{ $sourcing->grand_total - $sourcing->tax_sales }}</td>
-                                            </tr>
-                                        </tbody>
-
-
-
-                                    </table>
-
-                                    @if ($rfq_details->tax_status == '1')
-                                        <table class="table table-bordered mt-2 expand-div1 d-none">
-                                            <th colspan="3" width="80%"> Tax / VAT</td>
-                                            <td class="text-center" width="10%"> {{ $sourcing->tax }}%</td>
-                                            <td class="text-center" width="10%"> $ {{ $sourcing->tax_sales }}
-                                            </td>
-                                            </tr>
 
                                         </table>
-                                    @endif
 
-                                @endif
+                                        @if ($rfq_details->tax_status == '1')
+                                            <table class="table table-bordered mt-2 expand-div1 d-none">
+                                                <th colspan="3" width="80%"> Tax / VAT</td>
+                                                <td class="text-center" width="10%"> {{ $sourcing->tax }}%</td>
+                                                <td class="text-center" width="10%"> $ {{ $sourcing->tax_sales }}
+                                                </td>
+                                                </tr>
+
+                                            </table>
+                                        @endif
+
+                                    @endif
+                                </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header m-0 p-0" style="background: black;">
-                                <h6 class="mb-0 text-center p-0 text-white">Send Invoice</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="col-sm-12">
-                                            <h6 class="m-0 text-center">Work Order No </h6>
+                            <div class="card">
+                                <div class="card-header m-0 p-0" style="background: black;">
+                                    <h6 class="mb-0 text-center p-0 text-white">Send Invoice</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="col-sm-12">
+                                                <h6 class="m-0 text-center">Work Order No </h6>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" name="work_order_no"
+                                                    value="{{ $rfq_details->work_order_no }}">
+                                            </div>
                                         </div>
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control" name="work_order_no"
-                                                value="{{ $rfq_details->work_order_no }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="col-sm-12">
-                                            <h6 class="m-0 text-center">Email Id to Send Invoice</h6>
-                                        </div>
-                                        <div class="col-sm-12 m-auto" style="width:60%;">
-                                            <input type="text" class="form-control" name="email"
-                                                value="{{ $rfq_details->email }}">
+                                        <div class="col-lg-6">
+                                            <div class="col-sm-12">
+                                                <h6 class="m-0 text-center">Email Id to Send Invoice</h6>
+                                            </div>
+                                            <div class="col-sm-12 m-auto" style="width:60%;">
+                                                <input type="text" class="form-control" name="email"
+                                                    value="{{ $rfq_details->email }}">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-
-
-
-                    <div class="row">
-                        <div class="col-sm-3"></div>
-                        <div class="col-sm-9 text-secondary text-center">
-                            <button type="submit" class="btn btn-primary">Send Invoice <i
-                                    class="icon-paperplane ml-2"></i></button>
+                        <div class="row">
+                            <div class="col-lg-8 col-6"></div>
+                            <div class="col-lg-4 col-6 text-secondary text-right">
+                                <button type="submit" class="btn btn-primary">Send Invoice <i
+                                        class="icon-paperplane ms-2"></i></button>
+                            </div>
                         </div>
                     </div>
 

@@ -16,8 +16,6 @@
         border-radius: 0;
         width: 367px;
         text-align: center;
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
     }
 
     .extra-btns:hover {
@@ -88,7 +86,7 @@
 <section>
     <a class="extra-btns" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"
         id="offcanvasTrigger">
-        Quote Your Product<i class="fa-solid fa-arrow-down ps-2"></i><i class="fa-solid fa-arrow-up ps-2"></i>
+        Request For Quote<i class="fa-solid fa-arrow-down ps-2"></i><i class="fa-solid fa-arrow-up ps-2"></i>
     </a>
 
     <div class="offcanvas offcanvas-start"

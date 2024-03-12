@@ -178,7 +178,7 @@
     </style>
 </head>
 
-<body>
+<body> 
     <div class="container px-0">
         <!-- Quotation Header Table -->
         <table width="100%" class="table-responsive border-0 quotation-header-table">

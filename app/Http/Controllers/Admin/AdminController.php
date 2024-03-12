@@ -3,30 +3,35 @@
 namespace App\Http\Controllers\Admin;
 
 
-use App\Models\User;
-use Illuminate\Http\Request;
+use DateTime;
+use DatePeriod;
 // use App\Http\Middleware\Role;
+use DateInterval;
+use Carbon\Carbon;
+use App\Models\User;
+use Rats\Zkteco\Lib\ZKTeco;
+use App\Models\Admin\Notice;
+use Illuminate\Http\Request;
 use App\Models\Admin\Country;
-use App\Notifications\AdminAdd;
-use Illuminate\Support\Facades\DB;
-use Spatie\Permission\Models\Role;
-use App\Http\Controllers\Controller;
-use App\Mail\EmployeeAdd as MailEmployeeAdd;
 use App\Models\Admin\Product;
-use App\Models\Client\ClientSupport;
 use App\Models\Client\Project;
+use App\Notifications\AdminAdd;
 use App\Models\Client\SupportCase;
 use App\Notifications\EmployeeAdd;
+use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use App\Models\Admin\EmployeeLeave;
+use App\Http\Controllers\Controller;
+use App\Models\Client\ClientSupport;
 use Brian2694\Toastr\Facades\Toastr;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\EmployeeAdd as MailEmployeeAdd;
 use Illuminate\Support\Facades\Notification;
-use Rats\Zkteco\Lib\ZKTeco;
 
 class AdminController extends Controller
 {
@@ -75,6 +80,8 @@ class AdminController extends Controller
 
     public function AdminDashboard()
     {
+        $data['notices'] = Notice::latest()->get();
+        $data['employee_leave_due'] = EmployeeLeave::where('employee_id', Auth::user()->id)->first();
         $resulNotify = [];
         $presentDate = date('Y-m-d');
         $notification_days = Product::whereNotNull('notification_days')->whereNotNull('create_date')->get(['id', 'notification_days', 'create_date']);
@@ -214,80 +221,42 @@ class AdminController extends Controller
 
 
             // This Month
-            $startDate = date('Y-m-01', strtotime('this month'));
-            $endDate = date('Y-m-t', strtotime('this month'));
+            $startDate = new DateTime('first day of this month');
 
-            // Initialize variables to store earliest check-in and latest check-out times for each day
-            $earliestCheckInThisMonth = [];
-            $latestCheckOutThisMonth = [];
+            // Get today's date
+            $endDate = new DateTime('today +1 day');
 
-            // Iterate through all dates in the month
-            $currentDate = $startDate;
-            while ($currentDate <= $endDate) {
+            // Initialize the array to store attendance data for this month
+            $attendanceThisMonth = [];
+
+            // Iterate from the first day of the month to today
+            foreach (new DatePeriod($startDate, new DateInterval('P1D'), $endDate) as $date) {
+                $currentDate = $date->format('Y-m-d');
+
                 // Check if there is attendance data for the current date
                 $attendanceForDate = array_filter($attendances_all, function ($attendance) use ($id, $currentDate) {
-                    $attendanceDate = date('Y-m-d', strtotime($attendance['timestamp']));
-                    return $attendanceDate === $currentDate && $attendance['id'] === $id;
+                    return (new DateTime($attendance['timestamp']))->format('Y-m-d') === $currentDate && $attendance['id'] === $id;
                 });
 
+                // If attendance data is found for the current date
                 if (count($attendanceForDate) > 0) {
-                    // If there is attendance data, update earliest check-in and latest check-out times
-                    foreach ($attendanceForDate as $attendance) {
-                        $checkTime = date('H:i:s', strtotime($attendance['timestamp']));
-
-                        // Update earliest check-in time
-                        if (!isset($earliestCheckInThisMonth[$currentDate]) || strtotime($checkTime) < strtotime($earliestCheckInThisMonth[$currentDate])) {
-                            $earliestCheckInThisMonth[$currentDate] = $checkTime;
-                        }
-
-                        // Update latest check-out time
-                        if (!isset($latestCheckOutThisMonth[$currentDate]) || strtotime($checkTime) > strtotime($latestCheckOutThisMonth[$currentDate])) {
-                            $latestCheckOutThisMonth[$currentDate] = $checkTime;
-                        }
-                    }
+                    $earliestCheckIn = min(array_column($attendanceForDate, 'timestamp'));
+                    $latestCheckOut = max(array_column($attendanceForDate, 'timestamp'));
                 } else {
-                    // If there is no attendance data, set default values
-                    $earliestCheckInThisMonth[$currentDate] = 'N/A';
-                    $latestCheckOutThisMonth[$currentDate] = 'N/A';
+                    // If there is no attendance data for the current date, set default values
+                    $earliestCheckIn = 'N/A';
+                    $latestCheckOut = 'N/A';
                 }
 
-                // Move to the next date
-                $currentDate = date('Y-m-d', strtotime($currentDate . '+1 day'));
-            }
-
-            // Create entries for each day with the earliest check-in and latest check-out times
-            $attendanceThisMonth = [];
-            foreach ($earliestCheckInThisMonth as $date => $checkIn) {
+                // Add attendance data for the current date to the array
                 $attendanceThisMonth[] = [
                     'user_id' => $id,
                     'user_name' => $user_name,
-                    'date' => $date,
-                    'check_in' => $checkIn,
-                    'check_out' => $latestCheckOutThisMonth[$date],
+                    'date' => $currentDate,
+                    'check_in' => $earliestCheckIn === 'N/A' ? 'N/A' : (new DateTime($earliestCheckIn))->format('H:i:s'),
+                    'check_out' => $latestCheckOut === 'N/A' ? 'N/A' : (new DateTime($latestCheckOut))->format('H:i:s'),
+                    'absent_note' => $earliestCheckIn === 'N/A' ? ($date->format('N') == 5 ? 'Friday' : 'Absent') : null,
                 ];
-
-                // Check if it's Friday and no check-in time
-                $isFriday = date('N', strtotime($date)) == 5; // 5 corresponds to Friday in ISO-8601
-                if ($isFriday && $checkIn === 'N/A') {
-                    $attendanceThisMonth[] = [
-                        'user_id' => $id,
-                        'user_name' => $user_name,
-                        'date' => $date,
-                        'check_in' => 'N/A',
-                        'check_out' => 'N/A',
-                        'absent_note' => 'Friday',
-                    ];
-                } elseif ($checkIn === 'N/A') {
-                    // If there is no check-in time
-                    $attendanceThisMonth[] = [
-                        'user_id' => $id,
-                        'user_name' => $user_name,
-                        'date' => $date,
-                        'check_in' => 'N/A',
-                        'check_out' => 'N/A',
-                        'absent_note' => 'Absent',
-                    ];
-                }
             }
 
             // Now $attendanceThisMonth should include all dates in the month with or without attendance entries.

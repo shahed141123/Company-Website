@@ -83,14 +83,14 @@
                                             @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('09:05:00'))
                                                 <div
                                                     class="d-flex align-items-center justify-content-center">
-                                                    <h5 class="text-danger fw-bold me-3">{{ $attendance['check_in'] }}</h5>
+                                                    <p class="text-danger mb-0 me-3 p-0">{{ $attendance['check_in'] }}</p>
                                                     @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('09:05:00') &&
                                                             Carbon\Carbon::parse($attendance['check_in']) < Carbon\Carbon::parse('10:05:00'))
-                                                        <h5 class="text-danger fw-bold">L</h5>
+                                                        <p class="text-danger mb-0 p-0 fw-bold">(L)</p>
                                                     @endif
 
                                                     @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('10:05:00'))
-                                                        <h5 class="text-danger fw-bold">Half Day (LL)</h5>
+                                                        <p class="text-danger mb-0 p-0 fw-bold">Half Day (LL)</p>
                                                     @endif
                                                 </div>
                                             @else
@@ -98,11 +98,11 @@
                                             @endif
                                         </td>
                                         <td>{{ $attendance['check_out'] }}</td>
-                                        <td>
+                                        {{-- <td>
                                             @if (Carbon\Carbon::parse($attendance['date'])->dayOfWeek == Carbon\Carbon::FRIDAY)
                                                 <span class="text-primary">Friday</span>
                                             @endif
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -143,26 +143,6 @@
                     }
                 ]
             });
-            // $('.datatable-button-print-columns').DataTable({
-            //     columnDefs: [{
-            //         targets: -1, // Hide actions column
-            //         visible: false
-            //     }],
-            //     buttons: [{
-            //             extend: 'print',
-            //             text: '<i class="ph-printer me-2"></i> Print table',
-            //             className: 'btn btn-light',
-            //             exportOptions: {
-            //                 columns: ':visible'
-            //             }
-            //         },
-            //         {
-            //             extend: 'colvis',
-            //             text: '<i class="ph-list"></i>',
-            //             className: 'btn btn-light btn-icon dropdown-toggle'
-            //         }
-            //     ]
-            // });
         </script>
     @endpush
 @endonce

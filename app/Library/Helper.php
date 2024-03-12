@@ -183,12 +183,22 @@ class Helper
         // Check if the uploaded file is an image
         if (strpos($mainFile->getMimeType(), 'image') === 0) {
             // Image file upload
+            // $mainFile->storeAs('public/', $fileName);
+            // $img = Image::make($mainFile)->resize($reqWidth, $reqHeight, function ($constraint) {
+            //     $constraint->aspectRatio();
+            //     $constraint->upsize();
+            // });
+            // $img->save("{$uploadPath}/requestImg/{$fileName}");
             $mainFile->storeAs('public/', $fileName);
-            $img = Image::make($mainFile)->resize($reqWidth, $reqHeight, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            });
-            $img->save("{$uploadPath}/requestImg/{$fileName}");
+            $img = Image::make($mainFile);
+            if ($reqWidth !== null && $reqHeight !== null) {
+                $img->resize($reqWidth, $reqHeight, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                $img->save("{$uploadPath}/requestImg/{$fileName}");
+            }
+
         } else {
             // Non-image file upload
             $mainFile->storeAs('public/files/', $fileName);

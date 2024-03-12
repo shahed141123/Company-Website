@@ -33,69 +33,8 @@
         <!-- Content area -->
         <div class="content">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="card mt-1">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-9">
-                                    <h4 class="text-center">All Show Case Video</h4>
-                                </div>
-                                <div class="col-lg-3">
-                                    <a href="{{ route('show-case-video.create') }}" type="button"
-                                        class="btn btn-sm btn-success btn-labeled btn-labeled-start float-end">
-                                        <span class="btn-labeled-icon bg-black bg-opacity-20">
-                                            <i class="icon-plus2"></i>
-                                        </span>
-                                        Add New
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="content">
-                            <div class="tab-content ">
-                                <div class="tab-pane fade show active" id="js-tab1">
-                                    <div id="table1" class="card cardT">
-                                        <table class="datatable table table-bordered table-hover showCaseVideoDT">
-                                            <thead>
-                                                <tr>
-                                                    <th width="8%">Sl No:</th>
-                                                    <th width="12%">Type</th>
-                                                    <th width="70%">Show Case Video Link</th>
-                                                    <th width="10%" class="text-center">Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @if ($showCaseVideos)
-                                                    @foreach ($showCaseVideos as $key => $showCaseVideo)
-                                                        <tr>
-                                                            <td>{{ ++$key }}</td>
-                                                            <td>{{ $showCaseVideo->type }}</td>
-                                                            <td>
-                                                                <a target="_blank"
-                                                                    href="{{ $showCaseVideo->url }}">{{ $showCaseVideo->url }}</a>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <a href="{{ route('show-case-video.edit', [$showCaseVideo->id]) }}"
-                                                                    class="text-primary">
-                                                                    <i class="icon-pencil"></i>
-                                                                </a>
-                                                                <a href="{{ route('show-case-video.destroy', [$showCaseVideo->id]) }}"
-                                                                    class="text-danger delete mx-2">
-                                                                    <i class="delete icon-trash"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-                                                @endif
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-8 offset-lg-2 mx-auto">
+                    <div class="card"></div>
                 </div>
             </div>
         </div>

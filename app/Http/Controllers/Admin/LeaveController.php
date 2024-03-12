@@ -8,11 +8,12 @@ use App\Models\User;
 use App\Models\Admin\Event;
 use Illuminate\Http\Request;
 use App\Mail\LeaveApprovalMail;
-use App\Http\Controllers\Controller;
 use App\Models\Admin\EmployeeLeave;
+use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Admin\EmployeeCategory;
 use App\Models\Admin\LeaveApplication;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Notification;
@@ -23,7 +24,18 @@ class LeaveController extends Controller
 {
     public function leaveDashboard()
     {
-        //
+
+            $data = [];
+            $data['user'] = User::where('id', Auth::user()->id)->first();
+            $data = [
+                'user' => $data['user'],
+                'employeeCategory' => EmployeeCategory::whereId($data['user']->category_id)->first(),
+                'leaveApplications' => LeaveApplication::where('employee_id', Auth::user()->id)->get(),
+                'employee_leave_due' => EmployeeLeave::where('employee_id', Auth::user()->id)->first(),
+            ];
+
+            return view('admin.pages.leaveApplication.all', $data);
+
     }
 
     public function substituteApproval(Request $request, $id)

@@ -400,6 +400,27 @@ ul {
 /* -------------------------------------------------------------------------- */
 /*                                 Main Header                                */
 /* -------------------------------------------------------------------------- */
+.header-bottom-link{
+    background-image: url(https://st5.depositphotos.com/17620692/62586/v/450/depositphotos_625863978-stock-illustration-abstract-background-modern-trendy-white.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.help-icons {
+    color: white;
+    background: #ae0a46;
+    padding: 6px 0px;
+    text-align: center;
+    width: 25px;
+    border-radius: 50%;
+    height: 25px;
+    font-size: 13px;
+}
+.connect-us-header{
+    height: 22rem;
+}
+.header-menu-content{
+    height: 25rem;
+}
 /* Saju Main Header Start */
 .top-bar-left-side {
     position: relative;
@@ -4617,6 +4638,9 @@ tr td:hover {
 
 /* For Client Project Design End */
 /* Saju: Header */
+.extra-spacing-menu{
+    height: 25rem;
+}
 .navbar-toggler {
     border-radius: 50%;
     height: 40px;
@@ -16215,6 +16239,18 @@ thead {
     max-width: 1200px;
     margin: 50px auto;
 }
+@media only screen and (min-width: 1366px) {
+    .extra-btns {
+        transform: translateY(-67%) rotate(-90deg) !important;
+        width: 344px !important;
+    }
+  }
+@media only screen and (min-width: 1920px) {
+    .extra-btns {
+        transform: translateY(-50%) rotate(-90deg) !important;
+        width: 367px !important;
+    }
+  }
 
 @media screen and (min-width: 992px) {
     .wedo-cards__container {
@@ -16962,7 +16998,6 @@ nav > div a.nav-item.nav-link.active {
 
 .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link:hover {
-    border: none;
     border-radius: 0;
     transition: background 0.2s linear;
 }

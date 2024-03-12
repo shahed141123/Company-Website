@@ -463,14 +463,21 @@ class DealController extends Controller
         //dd($pdf_upload);
         $email = $data['email'];
         $subject = 'Quotation From Ngen IT';
-        $message = 'Here is the Quotation From NGen IT which is generated against your RFQ.';
+        $message = "
+        Dear {$data['rfq']->name},
 
-        // send the email
-        // create a new email message
-        $mail = Mail::raw($message, function ($message) use ($email, $subject, $pdf) {
-            $message->to($email)
+        Thank you for being with us. You can find the Quotation From NGen IT which is generated against your RFQ attached with this email.
+
+
+        Thank You,
+        NGEN IT Business Team
+        ";
+
+        // Send email with attachment and message
+        $mail = Mail::raw($message, function ($message) use ($email, $subject, $pdf_output) {
+            $message->to($email)->from('sales@ngenitltd.com,', 'NGEN-Business')
                 ->subject($subject)
-                ->attachData($pdf->output(), 'quotation-Ngenit.pdf');
+                ->attachData($pdf_output, 'Quotation-Ngenit.pdf');
         });
 
         // send the email
@@ -530,37 +537,48 @@ class DealController extends Controller
         $data['rfq'] = Rfq::where('rfq_code', $id)->where('rfq_type', 'deal')->first();
         $data['products'] = DealSas::where('rfq_id',  $data['rfq']->id)->get();
         $data['deal_sas'] = DealSas::where('rfq_id',  $data['rfq']->id)->first();
-
-
+        $data['pq_code'] = $data['rfq']->pq_code;
+        $data['currency'] = $data['rfq']->currency;
+        $data['pqr_code_one'] = $data['rfq']->pqr_code_one;
 
         $data['work_order_no'] = $request->work_order_no;
-
         $data['notes'] = $request->notes;
 
 
         $data['invoice_no'] = 'NI-' . date('dmY') . Order::latest()->value('order_number');
 
-
-        //return view('pdf.invoice', $data);
-
-        $fileName = 'Invoice(' . $data['invoice_no'] . ').pdf';
+        // Define file name and path
+        $fileName = 'Invoice(' . $data['rfq']->rfq_code . ').pdf';
         $filePath = 'public/files/' . $fileName;
-        $pdf = PDF::loadView('pdf.quotation', $data);
-        //$pdf_upload = $pdf->save($filePath);
+
+        // Generate PDF
+        $pdf = PDF::loadView('pdf.invoice', $data);
+        $pdf->setPaper('A4', 'portrait');
         $pdf_output = $pdf->output();
+
+        // Save PDF to storage
         Storage::put($filePath, $pdf_output);
-        //dd($pdf_upload);
+
+        // Prepare email details
         $email = $data['email'];
-        $subject = 'Invoice From Ngen It';
-        $message = 'Here is the Invoice From Ngen It which is generated against your RFQ.';
+        $subject = 'Invoice From Ngen IT';
+
+        // Email message body
+        $message = "
+        Dear {$data['rfq']->name},
+
+        Thank you for being with us. You can find the Invoice From NGen IT which is generated against your RFQ attached with this email.
 
 
+        Thank You,
+        NGEN IT Sales Team
+        ";
 
-        // create a new email message
-        $mail = Mail::raw($message, function ($message) use ($email, $subject, $pdf) {
-            $message->to($email)
+        // Send email with attachment and message
+        $mail = Mail::raw($message, function ($message) use ($email, $subject, $pdf_output) {
+            $message->to($email)->from('sales@ngenitltd.com,', 'NGEN-Business')
                 ->subject($subject)
-                ->attachData($pdf->output(), 'Invoice-Ngenit.pdf');
+                ->attachData($pdf_output, 'invoice-Ngenit.pdf');
         });
 
         // send the email
@@ -569,7 +587,6 @@ class DealController extends Controller
         } else {
             Toastr::error($message, 'Invoice Mail Sent Failed', ['timeOut' => 30000]);
         }
-
 
 
         $document_check = CommercialDocument::where('rfq_id', $data['rfq']->id)->first();
@@ -583,7 +600,7 @@ class DealController extends Controller
                 'rfq_id' => $data['rfq']->id,
                 'client_invoice' => $filePath,
             ]);
-            Toastr::success('PDF Uploaded Successfully');
+            Toastr::success('Invoice PDF Uploaded Successfully');
         }
 
         $user = User::latest()->get();
