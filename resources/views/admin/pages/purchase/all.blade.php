@@ -126,74 +126,74 @@
             </div>
             <!-- tab month menu start-->
             <h3 class="text-center" style="color: #247297;">Purchase History</h3>
-            <ul class="nav nav-tabs mx-auto" role="tablist" style="width: 70%; border-bottom: 1px solid #247297;">
-                <li class="nav-item" role="presentation">
+            <ul class="nav nav-tabs mx-auto d-flex justify-content-center align-items-center" role="tablist" style=" border-bottom: 1px solid #247297;">
+                <li class="nav-item mb-0" role="presentation">
                     <a href="#js-January-tab" class="nav-link  js-January-tab" data-bs-toggle="tab" aria-selected="true"
                         role="tab" tabindex="-1">
                         January
                     </a>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item mb-0" role="presentation">
                     <a href="#js-February-tab" class="nav-link  js-February-tab" data-bs-toggle="tab" aria-selected="false"
                         role="tab" tabindex="-1">
                         February
                     </a>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item mb-0" role="presentation">
                     <a href="#js-March-tab" class="nav-link  js-March-tab" data-bs-toggle="tab" aria-selected="false"
                         role="March" tabindex="-1">
                         March
                     </a>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item mb-0" role="presentation">
                     <a href="#js-April-tab" class="nav-link  js-April-tab" data-bs-toggle="tab" aria-selected="false"
                         role="tab" tabindex="-1">
                         April
                     </a>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item mb-0" role="presentation">
                     <a href="#js-May-tab" class="nav-link  js-May-tab" data-bs-toggle="tab" aria-selected="false"
                         role="tab" tabindex="-1">
                         May
                     </a>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item mb-0" role="presentation">
                     <a href="#js-June-tab" class="nav-link  js-June-tab" data-bs-toggle="tab" aria-selected="false"
                         role="tab" tabindex="-1">
                         June
                     </a>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item mb-0" role="presentation">
                     <a href="#js-July-tab" class="nav-link  js-July-tab" data-bs-toggle="tab" aria-selected="false"
                         role="tab" tabindex="-1">
                         July
                     </a>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item mb-0" role="presentation">
                     <a href="#js-August-tab" class="nav-link  js-August-tab" data-bs-toggle="tab" aria-selected="false"
                         role="tab" tabindex="-1">
                         August
                     </a>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item mb-0" role="presentation">
                     <a href="#js-September-tab" class="nav-link  js-September-tab" data-bs-toggle="tab"
                         aria-selected="false" role="tab" tabindex="-1">
                         September
                     </a>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item mb-0" role="presentation">
                     <a href="#js-October-tab" class="nav-link  js-October-tab" data-bs-toggle="tab"
                         aria-selected="false" role="tab" tabindex="-1">
                         October
                     </a>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item mb-0" role="presentation">
                     <a href="#js-November-tab" class="nav-link  js-November-tab" data-bs-toggle="tab"
                         aria-selected="false" role="tab" tabindex="-1">
                         November
                     </a>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item mb-0" role="presentation">
                     <a href="#js-December-tab" class="nav-link  js-December-tab" data-bs-toggle="tab"
                         aria-selected="false" role="tab" tabindex="-1">
                         December
@@ -331,8 +331,10 @@
                     </table>
                 </div>
                 <div class="tab-pane fade js-March-tab" id="js-March-tab" role="tabpanel">
-                    <div class="d-flex align-items-center py-2">
-                        {{-- Add Details Start --}}
+                    <div class="text-center">
+                        <h5 class="ms-1 mb-0" style="color: #247297;">March Purchase</h5>
+                    </div>
+                    {{-- <div class="d-flex align-items-center py-2">
                         <div class="text-success nav-link cat-tab3"
                             style="position: relative;
                             z-index: 999;
@@ -341,16 +343,10 @@
                                 <div class="d-flex align-items-center">
                                     <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
                                         data-bs-placement="top" title="Add Solution Details">
-                                        {{-- <i class="ph-plus icons_design"></i> </span>
-                                    <span class="ms-1" style="color: #247297;">Add</span> --}}
                                 </div>
                             </a>
-                            <div class="text-center" style="margin-left: 540px">
-                                <h5 class="ms-1 mb-0" style="color: #247297;">March Purchase</h5>
-                            </div>
                         </div>
-                        {{-- Add Details End --}}
-                    </div>
+                    </div> --}}
                     <table class="table newsLetterDt table-bordered table-hover text-center  march">
                         <thead>
                             <tr class="text-small">

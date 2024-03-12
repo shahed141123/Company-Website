@@ -170,13 +170,11 @@
         }
 
         .go-icon {
-            border: 1px solid;
             padding: 6px;
             border-radius: 15px;
         }
 
         .go-icon:hover {
-            border: 1px solid;
             padding: 6px;
             border-radius: 15px;
             background-color: #ae0a46;
@@ -214,6 +212,56 @@
             background-color: #ae0a46;
             box-shadow: 0 10px 20px -8px #ae0a46;
             color: white;
+        }
+
+        .time-left-count {
+            background-color: #ae0a46;
+            color: white;
+            padding: 3px 7px;
+            margin-left: 5px;
+            border-radius: 5px;
+        }
+
+        tbody,
+        td,
+        tfoot,
+        th,
+        thead,
+        tr {
+            border-color: inherit;
+            border-style: solid;
+            border-width: 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .task-icons {
+            background: transparent;
+            font-size: 18px;
+            border-radius: 50%;
+            padding: 7px;
+            margin-right: 10px;
+            display: flex;
+            height: 25px;
+            justify-content: center;
+            width: 25px;
+            /* background-color: #ae0a46; */
+            /* box-shadow: 0 10px 20px -8px #ae0a46; */
+            color: #ae0a46;
+        }
+
+        .task-calander {
+            background-color: #e2d1e3;
+            color: #ae0a46;
+        }
+
+        .time-left-count {
+            background-color: #ae0a461c;
+            color: #ae0a46;
+            font-weight: bold;
+        }
+
+        thead {
+            background-color: transparent !important;
         }
     </style>
     <div class="content-wrapper">
@@ -347,8 +395,11 @@
                     {{-- Achivement Info --}}
                     <div class="card user-dash-bg">
                         <div class="card-header py-0 px-2">
-                            <p class="text-end pt-2"><a href=""><i
-                                        class="fa-solid fa-arrow-up-right-from-square main_color go-icon"></i></a></p>
+                            <p class="text-end pt-2">
+                                <a href="">
+                                    <i class="fa-solid fa-arrow-up-right-from-square main_color go-icon"></i>
+                                </a>
+                            </p>
                         </div>
                         <div class="card-body pt-0">
                             <h3>Today's Achievement</h3>
@@ -734,287 +785,424 @@
             </div>
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="card" style="height: 22.2rem; overflow: auto; background-color: #f2f3ff">
-                        <div class="card-header p-1">
-                            <h4 class="m-0 text-center">All Task</h4>
-                        </div>
-                        <div class="card-body">
-                            <ul class="ms-0 ps-0" style="list-style-type: none">
-                                <li class="d-flex justify-content-between align-items-center tasks-bar">
-                                    <div class="d-flex align-items-center">
-                                        <div class="pe-3">
-                                            <i class="fa-solid fa-people-arrows badge-icons"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                New project created : <a href="#">[NGen IT Admin]</a> </h6>
-                                        </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body p-0">
+                                    <div class="table-responsive d-flex justify-content-center">
+                                        <table class="table mb-0 border-0 table-border table-striped"
+                                            style="background-color: #f2f3ff !important ;border-top-right-radius: 15px; border-top-left-radius: 15px;">
+                                            <thead>
+                                                <tr class="text-center">
+                                                    <th class="text-start">Task Name</th>
+                                                    <th class="">Duration</th>
+                                                    <th class="">Total Time</th>
+                                                    <th class="">Time Left</th>
+                                                    <th class="">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="align-items-center">
+                                                <tr>
+                                                    <td>
+                                                        <p class="mb-0 d-flex align-items-center ps-3">
+                                                            <span><i
+                                                                    class="fa-solid fa-people-arrows task-icons"></i></span>
+                                                            Complete The User Dashboard Under 3 Days
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-muted ps-1 pe-1"> - </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p class="mb-0 text-center">
+                                                            <span class="">23D: 2H: 30M</span>
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-clipboard-check task-icons"></i></a>
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-ranking-star task-icons"></i></a>
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-business-time task-icons"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p class="mb-0 d-flex align-items-center ps-3">
+                                                            <span><i class="fa-solid fa-check task-icons"></i></span>
+                                                            Complete The User Dashboard Under 3 Days
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-black ps-1 pe-1">
+                                                                    -
+                                                                </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p class="mb-0 text-center">
+                                                            <span class="">23D: 2H: 30M</span>
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-clipboard-check task-icons"></i></a>
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-ranking-star task-icons"></i></a>
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-business-time task-icons"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p class="mb-0 d-flex align-items-center ps-3">
+                                                            <span><i
+                                                                    class="fa-solid fa-people-arrows task-icons"></i></span>
+                                                            Complete The User Dashboard Under 3 Days
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-black ps-1 pe-1">
+                                                                    -
+                                                                </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p class="mb-0 text-center">
+                                                            <span class="">23D: 2H: 30M</span>
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-clipboard-check task-icons"></i></a>
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-ranking-star task-icons"></i></a>
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-business-time task-icons"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p class="mb-0 d-flex align-items-center ps-3">
+                                                            <span><i
+                                                                    class="fa-solid fa-people-arrows task-icons"></i></span>
+                                                            Complete The User Dashboard Under 3 Days
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-black ps-1 pe-1">
+                                                                    -
+                                                                </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p class="mb-0 text-center">
+                                                            <span class="">23D: 2H: 30M</span>
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-clipboard-check task-icons"></i></a>
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-ranking-star task-icons"></i></a>
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-business-time task-icons"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p class="mb-0 d-flex align-items-center ps-3">
+                                                            <span><i
+                                                                    class="fa-solid fa-people-arrows task-icons"></i></span>
+                                                            Complete The User Dashboard Under 3 Days
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-black ps-1 pe-1">
+                                                                    -
+                                                                </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p class="mb-0 text-center">
+                                                            <span class="">23D: 2H: 30M</span>
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-clipboard-check task-icons"></i></a>
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-ranking-star task-icons"></i></a>
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-business-time task-icons"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p class="mb-0 d-flex align-items-center ps-3">
+                                                            <span><i
+                                                                    class="fa-solid fa-people-arrows task-icons"></i></span>
+                                                            Complete The User Dashboard Under 3 Days
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-black ps-1 pe-1">
+                                                                    -
+                                                                </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p class="mb-0 text-center">
+                                                            <span class="">23D: 2H: 30M</span>
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-clipboard-check task-icons"></i></a>
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-ranking-star task-icons"></i></a>
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-business-time task-icons"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p class="mb-0 d-flex align-items-center ps-3">
+                                                            <span><i
+                                                                    class="fa-solid fa-people-arrows task-icons"></i></span>
+                                                            Complete The User Dashboard Under 3 Days
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-black ps-1 pe-1">
+                                                                    -
+                                                                </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p class="mb-0 text-center">
+                                                            <span class="">23D: 2H: 30M</span>
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-clipboard-check task-icons"></i></a>
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-ranking-star task-icons"></i></a>
+                                                            <a href=""><i
+                                                                    class="fa-solid fa-business-time task-icons"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <div class="pe-3">
-                                        <div class="d-flex justify-content-between align-items-center"
-                                            style="border: 1px solid #fff;
-                                            width: 250px;
-                                            background: #ae0a46;
-                                            color: white;
-                                            border-radius: 10px;
-                                            padding: 0px 7px;">
-                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;;">
-                                                07 May, 2022</p>
-                                            <p class="p-0 m-0 text-black" style="font-size: 12px;font-weight: 600;">
-                                                To</p>
-                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;">
-                                                08 May, 2022</p>
-                                        </div>
-                                        <p class="p-0 m-0 text-center"
-                                            style="font-size: 12px;
-                                            font-weight: 600;
-                                            color: #ffffff;
-                                            background: #ae0a46;
-                                            border-radius: 10px;">
-                                            4 Hour</p>
-                                    </div>
-                                    <div class="pe-3">
-                                        <p class="p-0 m-0 text-center px-2 rounded-2"
-                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
-                                            03H:05M</p>
-                                    </div>
-                                    <div class="pe-3">
-                                        <p class="p-0 m-0 text-center px-2 rounded-2"
-                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
-                                            Some Time Left</p>
-                                    </div>
-                                    <div class="pe-0">
-                                        <a href=""><i class="fa-solid fa-check dash-icons"
-                                                title="Make Azenda"></i></a>
-                                        <a href=""><i class="fa-solid fa-angles-up dash-icons text-danger"
-                                                title="Priority"></i></a>
-                                        <a href="javascript:void()" data-bs-toggle="modal" data-bs-target="#extendTime"><i class="fa-solid fa-business-time dash-icons text-primary"
-                                                title="Extend Time"></i></a>
-                                    </div>
-                                </li>
-                                <li style="padding-left: 14px">|</li>
-                                <li class="d-flex justify-content-between align-items-center tasks-bar">
-                                    <div class="d-flex align-items-center">
-                                        <div class="pe-3">
-                                            <i class="fa-solid fa-check badge-icons"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                New project created : <a href="#">[NGen IT Admin]</a> </h6>
-                                        </div>
-                                    </div>
-                                    <div class="pe-3">
-                                        <div class="d-flex justify-content-between align-items-center"
-                                            style="border: 1px solid #fff;
-                                            width: 250px;
-                                            background: #ae0a46;
-                                            color: white;
-                                            border-radius: 10px;
-                                            padding: 0px 7px;">
-                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;;">
-                                                07 May, 2022</p>
-                                            <p class="p-0 m-0 text-black" style="font-size: 12px;font-weight: 600;">
-                                                To</p>
-                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;">
-                                                08 May, 2022</p>
-                                        </div>
-                                        <p class="p-0 m-0 text-center"
-                                            style="font-size: 12px;
-                                            font-weight: 600;
-                                            color: #ffffff;
-                                            background: #ae0a46;
-                                            border-radius: 10px;">
-                                            4 Hour</p>
-                                    </div>
-                                    <div class="pe-3">
-                                        <p class="p-0 m-0 text-center px-2 rounded-2"
-                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
-                                            03H:05M</p>
-                                    </div>
-                                    <div class="pe-3">
-                                        <p class="p-0 m-0 text-center px-2 rounded-2"
-                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
-                                            Some Time Left</p>
-                                    </div>
-                                    <div class="pe-0">
-                                        <a href=""><i class="fa-solid fa-check dash-icons"
-                                                title="Make Azenda"></i></a>
-                                        <a href=""><i class="fa-solid fa-angles-down dash-icons text-info"
-                                                title="priority heigh"></i></a>
-                                        <a href="javascript:void()" data-bs-toggle="modal" data-bs-target="#extendTime"><i
-                                                class="fa-solid fa-business-time dash-icons text-primary"
-                                                title="Extend Time"></i></a>
-                                    </div>
-                                </li>
-                                <li style="padding-left: 14px">|</li>
-                                <li class="d-flex justify-content-between align-items-center tasks-bar">
-                                    <div class="d-flex align-items-center">
-                                        <div class="pe-3">
-                                            <i class="fa-solid fa-check badge-icons"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                New project created : <a href="#">[NGen IT Admin]</a> </h6>
-                                        </div>
-                                    </div>
-                                    <div class="pe-3">
-                                        <div class="d-flex justify-content-between align-items-center"
-                                            style="border: 1px solid #fff;
-                                            width: 250px;
-                                            background: #ae0a46;
-                                            color: white;
-                                            border-radius: 10px;
-                                            padding: 0px 7px;">
-                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;;">
-                                                07 May, 2022</p>
-                                            <p class="p-0 m-0 text-black" style="font-size: 12px;font-weight: 600;">
-                                                To</p>
-                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;">
-                                                08 May, 2022</p>
-                                        </div>
-                                        <p class="p-0 m-0 text-center"
-                                            style="font-size: 12px;
-                                            font-weight: 600;
-                                            color: #ffffff;
-                                            background: #ae0a46;
-                                            border-radius: 10px;">
-                                            4 Hour</p>
-                                    </div>
-                                    <div class="pe-3">
-                                        <p class="p-0 m-0 text-center px-2 rounded-2"
-                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
-                                            03H:05M</p>
-                                    </div>
-                                    <div class="pe-3">
-                                        <p class="p-0 m-0 text-center px-2 rounded-2"
-                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
-                                            Some Time Left</p>
-                                    </div>
-                                    <div class="pe-0">
-                                        <a href=""><i class="fa-solid fa-check dash-icons"
-                                                title="Make Azenda"></i></a>
-                                        <a href=""><i class="fa-solid fa-angles-down dash-icons text-info"
-                                                title="priority heigh"></i></a>
-                                        <a href="javascript:void()" data-bs-toggle="modal" data-bs-target="#extendTime"><i
-                                                class="fa-solid fa-business-time dash-icons text-primary"
-                                                title="Extend Time"></i></a>
-                                    </div>
-                                </li>
-                                <li style="padding-left: 14px">|</li>
-                                <li class="d-flex justify-content-between align-items-center tasks-bar">
-                                    <div class="d-flex align-items-center">
-                                        <div class="pe-3">
-                                            <i class="fa-solid fa-check badge-icons"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                New project created : <a href="#">[NGen IT Admin]</a> </h6>
-                                        </div>
-                                    </div>
-                                    <div class="pe-3">
-                                        <div class="d-flex justify-content-between align-items-center"
-                                            style="border: 1px solid #fff;
-                                            width: 250px;
-                                            background: #ae0a46;
-                                            color: white;
-                                            border-radius: 10px;
-                                            padding: 0px 7px;">
-                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;;">
-                                                07 May, 2022</p>
-                                            <p class="p-0 m-0 text-black" style="font-size: 12px;font-weight: 600;">
-                                                To</p>
-                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;">
-                                                08 May, 2022</p>
-                                        </div>
-                                        <p class="p-0 m-0 text-center"
-                                            style="font-size: 12px;
-                                            font-weight: 600;
-                                            color: #ffffff;
-                                            background: #ae0a46;
-                                            border-radius: 10px;">
-                                            4 Hour</p>
-                                    </div>
-                                    <div class="pe-3">
-                                        <p class="p-0 m-0 text-center px-2 rounded-2"
-                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
-                                            03H:05M</p>
-                                    </div>
-                                    <div class="pe-3">
-                                        <p class="p-0 m-0 text-center px-2 rounded-2"
-                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
-                                            Some Time Left</p>
-                                    </div>
-                                    <div class="pe-0">
-                                        <a href=""><i class="fa-solid fa-check dash-icons"
-                                                title="Make Azenda"></i></a>
-                                        <a href="">
-                                            <i class="fa-solid fa-angles-down dash-icons text-info"
-                                            title="priority heigh"></i>
-                                        </a>
-                                        <a href="javascript:void()" data-bs-toggle="modal" data-bs-target="#extendTime">
-                                            <i class="fa-solid fa-business-time dash-icons text-primary"
-                                                title="Extend Time"></i>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li style="padding-left: 14px">|</li>
-                                <li class="d-flex justify-content-between align-items-center tasks-bar">
-                                    <div class="d-flex align-items-center">
-                                        <div class="pe-3">
-                                            <i class="fa-solid fa-check badge-icons"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                New project created : <a href="#">[NGen IT Admin]</a> </h6>
-                                        </div>
-                                    </div>
-                                    <div class="pe-3">
-                                        <div class="d-flex justify-content-between align-items-center"
-                                            style="border: 1px solid #fff;
-                                            width: 250px;
-                                            background: #ae0a46;
-                                            color: white;
-                                            border-radius: 10px;
-                                            padding: 0px 7px;">
-                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;;">
-                                                07 May, 2022</p>
-                                            <p class="p-0 m-0 text-black" style="font-size: 12px;font-weight: 600;">
-                                                To</p>
-                                            <p class="p-0 m-0 text-white" style="font-size: 12px;font-weight: 600;">
-                                                08 May, 2022</p>
-                                        </div>
-                                        <p class="p-0 m-0 text-center"
-                                            style="font-size: 12px;
-                                            font-weight: 600;
-                                            color: #ffffff;
-                                            background: #ae0a46;
-                                            border-radius: 10px;">
-                                            4 Hour</p>
-                                    </div>
-                                    <div class="pe-3">
-                                        <p class="p-0 m-0 text-center px-2 rounded-2"
-                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
-                                            03H:05M</p>
-                                    </div>
-                                    <div class="pe-3">
-                                        <p class="p-0 m-0 text-center px-2 rounded-2"
-                                            style="font-size: 12px;font-weight: 600;color: #ffffff;background: #ae0a46;">
-                                            Some Time Left</p>
-                                    </div>
-                                    <div class="pe-0">
-                                        <a href=""><i class="fa-solid fa-check dash-icons"
-                                                title="Make Azenda"></i></a>
-                                        <a href="">
-                                            <i class="fa-solid fa-angles-down dash-icons text-info"
-                                            title="priority heigh"></i>
-                                        </a>
-                                        <a href="javascript:void()" data-bs-toggle="modal" data-bs-target="#extendTime">
-                                            <i class="fa-solid fa-business-time dash-icons text-primary"
-                                                title="Extend Time"></i>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1068,7 +1256,7 @@
             <div class="modal-content">
                 <div class="modal-header p-0 px-3">
                     <h5 class="modal-title" id="modalTitleId">
-                        Extend Task Deadline
+                        Extend Deadline
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -1078,13 +1266,24 @@
                             <div class="col-lg-6">
                                 <div>
                                     <label for="">Extend Date</label>
-                                    <input type="date" name="" id="" class="form-control form-contorl-sm" placeholder="Increase Date">
+                                    <input type="date" name="" id=""
+                                        class="form-control form-contorl-sm" placeholder="Increase Date">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div>
                                     <label for="">Extend Time</label>
-                                    <input type="time" name="" id="" class="form-control form-contorl-sm" placeholder="Increase Time">
+                                    <input type="time" name="" id=""
+                                        class="form-control form-contorl-sm" placeholder="Increase Time">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div>
+                                    <label for="">Extend Cause</label>
+                                    <input type="time" name="" id=""
+                                        class="form-control form-contorl-sm" placeholder="Increase Time">
+                                    <textarea class="form-control form-contorl-sm" name="" id="" cols="30" rows="2"
+                                        placeholder="Enter Extend Cause"></textarea>
                                 </div>
                             </div>
                             <div class="col-lg-12">

@@ -85,7 +85,7 @@
                         <div class="d-flex justify-content-between align-items-center"
                             style="position: relative;
                         z-index: 999;">
-                            <ul class="nav nav-tabs">
+                            <ul class="nav nav-tabs border-0">
                                 <li class="nav-item ">
                                     <a href="#pending" class=" nav-link active cat-tab1 p-1" data-bs-toggle="tab">
                                         <p class="m-0 p-1">
@@ -102,7 +102,7 @@
                                 <li class="nav-item">
                                     <a href="#all" class=" nav-link cat-tab3 p-1" data-bs-toggle="tab">
                                         <p class="m-0 p-1">
-                                            Approved <span class="ms-2">|</span></p>
+                                            Approved </p>
                                     </a>
                                 </li>
 
@@ -120,49 +120,59 @@
                                     </div>
                                 </div>
                                 {{-- Pending Table --}}
-                                <table class="table pending table-bordered table-hover text-center">
-                                    <thead>
-                                        <tr class="text-center">
-                                            <th width="5%">Sl</th>
-                                            <th width="5%">Image </th>
-                                            <th width="60%">Product Name </th>
-                                            <th width="20%">Price Status</th>
-                                            <th width="10%">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if ($pending_products)
-                                            @foreach ($pending_products as $key => $product)
-                                                <tr>
-                                                    <td class=" text-center"> {{ $key + 1 }} </td>
-                                                    <td>
-                                                        @if ($product)
-                                                            <img src="{{ !file_exists($product->thumbnail) ? url('upload/no_image.jpg') : asset($product->thumbnail) }}"
-                                                                style="width: 70px; height:40px;">
-                                                        @endif
-                                                    </td>
-                                                    <td><a href="javascript:void(0);" data-tip="Details"
-                                                            data-bs-toggle="modal" data-bs-target="#productDetails{{$product->id}}"
-                                                            title="Product Quick View">{{ $product->name }}</a></td>
-                                                    <td class="text-center">{{ ucfirst($product->price_status) }}</td>
-                                                    <td class="text-center">
+                                <div class="card border-0 rounded-0">
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table pending table-bordered table-hover text-center">
+                                                <thead>
+                                                    <tr class="text-center">
+                                                        <th width="5%">Sl</th>
+                                                        <th width="5%">Image </th>
+                                                        <th width="60%">Product Name </th>
+                                                        <th width="20%">Price Status</th>
+                                                        <th width="10%">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if ($pending_products)
+                                                        @foreach ($pending_products as $key => $product)
+                                                            <tr>
+                                                                <td class=" text-center"> {{ $key + 1 }} </td>
+                                                                <td>
+                                                                    @if ($product)
+                                                                        <img src="{{ !file_exists($product->thumbnail) ? url('upload/no_image.jpg') : asset($product->thumbnail) }}"
+                                                                            style="width: 70px; height:40px;">
+                                                                    @endif
+                                                                </td>
+                                                                <td><a href="javascript:void(0);" data-tip="Details"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#productDetails{{ $product->id }}"
+                                                                        title="Product Quick View">{{ $product->name }}</a>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    {{ ucfirst($product->price_status) }}</td>
+                                                                <td class="text-center">
 
-                                                        <a href="{{ route('sourcing.sas', [$product->slug]) }}"
-                                                            class="text-info mx-2" title="SAS Create">
-                                                            <i class="icon-file-plus2"></i>
-                                                        </a>
-                                                        <a href="javascript:void(0);" data-tip="Details"
-                                                            data-bs-toggle="modal" data-bs-target="#productDetails{{$product->id}}"
-                                                            class="text-info mx-2" title="Product Quick View">
-                                                            <i class="icon-eye"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        @endif
+                                                                    <a href="{{ route('sourcing.sas', [$product->slug]) }}"
+                                                                        class="text-info mx-2" title="SAS Create">
+                                                                        <i class="icon-file-plus2"></i>
+                                                                    </a>
+                                                                    <a href="javascript:void(0);" data-tip="Details"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#productDetails{{ $product->id }}"
+                                                                        class="text-info mx-2" title="Product Quick View">
+                                                                        <i class="icon-eye"></i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
 
-                                    </tbody>
-                                </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="tab-content">
@@ -188,7 +198,10 @@
                                         @if ($pending_approvals)
                                             @foreach ($pending_approvals as $key => $product)
                                                 @php
-                                                    $sas = App\Models\Admin\Sas::where('product_id', $product->id)->first();
+                                                    $sas = App\Models\Admin\Sas::where(
+                                                        'product_id',
+                                                        $product->id,
+                                                    )->first();
                                                 @endphp
                                                 <tr>
                                                     <td class=" text-center"> {{ $key + 1 }} </td>
@@ -279,8 +292,8 @@
     </div>
 
     @foreach ($pending_products as $product)
-        <div class="modal fade" id="productDetails{{$product->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="productDetails{{ $product->id }}" data-bs-backdrop="static"
+            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header py-2" style="background: #ae0a46;">
@@ -307,7 +320,8 @@
                                     <div class="img_gallery_wrapper row pt-1">
                                         @foreach ($imgs as $data)
                                             <div class="col-3">
-                                                <img class="img-fluid" src="{{ asset($data->photo) }}" onclick="gfg(this);">
+                                                <img class="img-fluid" src="{{ asset($data->photo) }}"
+                                                    onclick="gfg(this);">
                                             </div>
                                         @endforeach
                                     </div>
@@ -321,7 +335,8 @@
                                         <p class="text-dark product_code py-1">Brand :
                                             {{ App\Models\Admin\Brand::where('id', $product->brand_id)->value('title') }} |
                                             Category :
-                                            {{ App\Models\Admin\Category::where('id', $product->cat_id)->value('title') }} |
+                                            {{ App\Models\Admin\Category::where('id', $product->cat_id)->value('title') }}
+                                            |
                                             Sub
                                             Category :
                                             {{ App\Models\Admin\SubCategory::where('id', $product->sub_cat_id)->value('title') }}
@@ -337,7 +352,8 @@
                                             <div>
                                                 <p tabindex="0" class="prod-stock"
                                                     id="product-avalialability-by-warehouse">
-                                                    <span aria-label="Stock Availability" class="js-prod-available">Unit Price
+                                                    <span aria-label="Stock Availability" class="js-prod-available">Unit
+                                                        Price
                                                     </span> <br>
                                                     @if (!empty($product->discount))
                                                         <span style="text-decoration: line-through; color:#ae0a46;">$
@@ -356,7 +372,8 @@
                                                     <span aria-label="Stock Availability" class="js-prod-available"> <i
                                                             class="fa fa-info-circle text-success"></i> Stock</span> <br>
                                                     @if ($product->qty > 0)
-                                                        <span class="text-success" style="font-size:17px">{{ $product->qty }}
+                                                        <span class="text-success"
+                                                            style="font-size:17px">{{ $product->qty }}
                                                             in stock</span>
                                                     @else
                                                         <span class="text-danger pb-2"
@@ -367,7 +384,8 @@
                                             <div>
                                                 <p tabindex="0" class="prod-stock"
                                                     id="product-avalialability-by-warehouse">
-                                                    <span aria-label="Stock Availability" class="js-prod-available"> Product
+                                                    <span aria-label="Stock Availability" class="js-prod-available">
+                                                        Product
                                                         Type :</span> <br>
                                                     <span class="text-warning"
                                                         style="font-size:17px">{{ ucfirst($product->product_type) }}</span>
@@ -379,7 +397,8 @@
                                                     <span aria-label="Stock Availability" class="js-prod-available"> Price
                                                         Notification :</span> <br>
                                                     <span class="text-info"
-                                                        style="font-size:17px">{{ $product->notification_days }} Days</span>
+                                                        style="font-size:17px">{{ $product->notification_days }}
+                                                        Days</span>
                                                 </p>
                                             </div>
 

@@ -5,13 +5,12 @@
     font-size: 35px;
     color: #ae0a46;
 }
-.devider_line{
+.devider_line {
     border-top: 1px solid #ae0a46;
     width: 1190px;
     margin: auto;
     position: relative;
     top: -15px;
-
 }
 .job-countr-title {
     font-family: "Bebas Neue", sans-serif;
@@ -57,7 +56,6 @@ body {
     background-color: #ae0a46;
     text-transform: uppercase;
 }
-
 
 .main_bg-title {
     background-color: #3d4852;
@@ -1778,31 +1776,18 @@ ul.row-sm {
     background: #fff;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 .notice-card {
     /* Styling for notice cards */
     position: relative;
-    background-image: url("https://img.freepik.com/premium-vector/abstract-style-halftone-concept-your-graphic-design_29865-2643.jpg");
+    background-image: url("https://i.ibb.co/KqvWFT6/Asset-1-5x-8.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-
-.notice-card::before {
-    /* Background filter for blur effect */
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
 }
 
 .notice-card p,
@@ -1822,6 +1807,7 @@ h4 {
     border-top-right-radius: 16px;
 }
 /*== purchase order details css end== */
+
 @media only screen and (max-width: 600px) {
     .label_style {
         width: 100% !important;
