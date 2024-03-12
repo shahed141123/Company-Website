@@ -98,12 +98,12 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header py-2" style="background: #ae0a46;">
-                    <h5 class="modal-title text-white" id="staticBackdropLabel">Your Price Form
+                    <h5 class="modal-title text-white" id="staticBackdropLabel">Your Price Forms
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="container px-0" id="sign-up-container-area" style="display: none">
+                    <div class="container px-0" id="sign-up-container-area" style="display: block">
                         <form>
                             <div class="py-2 px-2 bg-light rounded">
                                 <div class="row mb-1">
