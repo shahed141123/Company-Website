@@ -52,18 +52,18 @@ class RowController extends Controller
         }
 
         Row::create([
-            'title' => $request->title,
-            'badge' => $request->badge,
-            'short_des' => $request->short_des,
-            'btn_name' => $request->btn_name,
-            'link' => $request->link,
-            'list_title' => $request->list_title,
-            'list_one' => $request->list_one,
-            'list_two' => $request->list_two,
-            'list_three' => $request->list_three,
-            'list_four' => $request->list_four,
+            'title'       => $request->title,
+            'badge'       => $request->badge,
+            'short_des'   => $request->short_des,
+            'btn_name'    => $request->btn_name,
+            'link'        => $request->link,
+            'list_title'  => $request->list_title,
+            'list_one'    => $request->list_one,
+            'list_two'    => $request->list_two,
+            'list_three'  => $request->list_three,
+            'list_four'   => $request->list_four,
             'description' => $request->description,
-            'image' => $imageFileName,
+            'image'       => $imageFileName,
         ]);
 
         Toastr::success('Data Inserted Successfully');
@@ -87,7 +87,7 @@ class RowController extends Controller
 
     public function update(Request $request, $id)
     {
-        
+
         $row = Row::findOrFail($id);
         $validator = Validator::make($request->all(), [
             'title' => 'required',
