@@ -23,11 +23,11 @@
         }
 
         /*
-            *
-            * ==========================================
-            * CUSTOM UTIL CLASSES
-            * ==========================================
-            */
+                    *
+                    * ==========================================
+                    * CUSTOM UTIL CLASSES
+                    * ==========================================
+                    */
         .nav-pills-custom .nav-link {
             color: #aaa;
             background: #fff;
@@ -85,7 +85,7 @@
                 <div class="mx-auto d-block">
                     <img id="expand" class="geeks img-fluid rounded mx-auto d-block"
                         src="{{ !empty($sproduct->thumbnail) && file_exists(public_path($sproduct->thumbnail)) ? asset($sproduct->thumbnail) : asset('frontend/images/random-no-img.png') }}">
-                        {{-- src="{{ asset($sproduct->thumbnail) }}"> --}}
+                    {{-- src="{{ asset($sproduct->thumbnail) }}"> --}}
 
                 </div>
                 @php
@@ -96,7 +96,9 @@
                     @foreach ($imgs as $data)
                         <div class="col-3">
                             {{-- <img class="img-fluid" src="{{ asset($data->photo) }}" onclick="gfg(this);"> --}}
-                            <img class="img-fluid" src="{{ !empty($data->photo) && file_exists(public_path($data->photo)) ? asset($data->photo) : asset('frontend/images/random-no-img.png') }}" onclick="gfg(this);">
+                            <img class="img-fluid"
+                                src="{{ !empty($data->photo) && file_exists(public_path($data->photo)) ? asset($data->photo) : asset('frontend/images/random-no-img.png') }}"
+                                onclick="gfg(this);">
                         </div>
                     @endforeach
                 </div>
@@ -116,9 +118,8 @@
                     style="background-color: transparent !important;">
                     @if ($sproduct->rfq == 1)
                         <div class="bg-light d-flex justify-content-between align-items-center" style="width: 80%;">
-                            <button class="btn-color" id="modal_view_left" data-toggle="modal"
-                                data-target="#get_quote_modal" style="width: 35%;">Ask For Price</button>
-
+                            <button class="btn-color" data-bs-toggle="modal" data-bs-target="#rfqModal"
+                                style="width: 35%;">Ask For Price</button>
                             {{-- <a class="common_button" href="{{route('contact')}}">Call Ngen It for price</a> --}}
                             <div class="need_help col-lg-4 col-sm-12">
                                 <h6 class="m-2">Need Help Ordering?</h6>
@@ -149,8 +150,8 @@
                         </div>
                     @elseif ($sproduct->price_status && $sproduct->price_status == 'rfq')
                         <div class="bg-light d-flex justify-content-between align-items-center" style="width: 80%;">
-                            <button class="common_button" id="modal_view_left" data-toggle="modal"
-                                data-target="#get_quote_modal" style="width: 35%;">Ask For Price</button>
+                            <button class="common_button" id="modal_view_left" data-bs-toggle="modal"
+                                data-bs-target="#rfqModal" style="width: 35%;">Ask For Price</button>
 
                             {{-- <a class="common_button" href="{{route('contact')}}">Call Ngen It for price</a> --}}
                             <div class="need_help col-lg-4 col-sm-12">
@@ -380,127 +381,127 @@
     <!-------End-------->
 
 
-<!--=======// Popular products //======-->
-<section>
-    <div class="container p-0 my-4">
-        <div class="Container spacer">
-            <h3 class="Head main_color">Popular Products <span class="Arrows"></span></h3>
-            <!-- Carousel Container -->
-            <div class="SlickCarousel">
-                @if ($products)
-                    @foreach ($products as $item)
-                        <!-- Item -->
-                        <div class="ProductBlock mb-3 mt-3">
-                            <div class="Content">
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12">
-                                        <div class="custom-product-grid">
-                                            <div class="custom-product-image">
-                                                <a href="{{ route('product.details', $item->slug) }}" class="image">
-                                                    {{-- <img class="pic-1" src="{{ asset($item->thumbnail) }}"> --}}
-                                                    <img class="img-fluid"
-                                                        src="{{ !empty($item->thumbnail) && file_exists(public_path($item->thumbnail)) ? asset($item->thumbnail) : asset('frontend/images/random-no-img.png') }}"
-                                                        alt="NGEN IT">
-                                                </a>
-                                                <ul class="custom-product-links">
-                                                    <li><a href="#"><i class="fa fa-random text-white"></i></a>
-                                                    </li>
-                                                    <li><a href="#" data-bs-toggle="modal"
-                                                            data-bs-target="#productDetails{{ $item->id }}"><i
-                                                                class="fa fa-search text-white"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="custom-product-content">
-                                                <a href="{{ route('product.details', $item->slug) }}">
-                                                    <h3 class="custom-title"> {{ Str::words($item->name, 10) }}</h3>
-                                                </a>
+    <!--=======// Popular products //======-->
+    <section>
+        <div class="container p-0 my-4">
+            <div class="Container spacer">
+                <h3 class="Head main_color">Popular Products <span class="Arrows"></span></h3>
+                <!-- Carousel Container -->
+                <div class="SlickCarousel">
+                    @if ($products)
+                        @foreach ($products as $item)
+                            <!-- Item -->
+                            <div class="ProductBlock mb-3 mt-3">
+                                <div class="Content">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="custom-product-grid">
+                                                <div class="custom-product-image">
+                                                    <a href="{{ route('product.details', $item->slug) }}" class="image">
+                                                        {{-- <img class="pic-1" src="{{ asset($item->thumbnail) }}"> --}}
+                                                        <img class="img-fluid"
+                                                            src="{{ !empty($item->thumbnail) && file_exists(public_path($item->thumbnail)) ? asset($item->thumbnail) : asset('frontend/images/random-no-img.png') }}"
+                                                            alt="NGEN IT">
+                                                    </a>
+                                                    <ul class="custom-product-links">
+                                                        <li><a href="#"><i class="fa fa-random text-white"></i></a>
+                                                        </li>
+                                                        <li><a href="#" data-bs-toggle="modal"
+                                                                data-bs-target="#productDetails{{ $item->id }}"><i
+                                                                    class="fa fa-search text-white"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="custom-product-content">
+                                                    <a href="{{ route('product.details', $item->slug) }}">
+                                                        <h3 class="custom-title"> {{ Str::words($item->name, 10) }}</h3>
+                                                    </a>
 
-                                                @if ($item->rfq == 1)
-                                                    <div>
-                                                        <div class="price py-3">
-                                                            {{-- <small class="price-usd">USD</small>
+                                                    @if ($item->rfq == 1)
+                                                        <div>
+                                                            <div class="price py-3">
+                                                                {{-- <small class="price-usd">USD</small>
                                                             --.-- $ --}}
+                                                            </div>
+                                                            <a href=""
+                                                                class="d-flex justify-content-center align-items-center"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#rfq{{ $item->id }}">
+                                                                <button class="btn-color popular_product-button">
+                                                                    Ask For Price
+                                                                </button>
+                                                            </a>
                                                         </div>
-                                                        <a href=""
-                                                            class="d-flex justify-content-center align-items-center"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $item->id }}">
-                                                            <button class="btn-color popular_product-button">
-                                                                Ask For Price
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                @elseif ($item->price_status && $item->price_status == 'rfq')
-                                                    <div>
-                                                        <div class="price py-3">
-                                                            {{-- <small class="price-usd">USD</small>
+                                                    @elseif ($item->price_status && $item->price_status == 'rfq')
+                                                        <div>
+                                                            <div class="price py-3">
+                                                                {{-- <small class="price-usd">USD</small>
                                                         --.-- $ --}}
+                                                            </div>
+                                                            <a href=""
+                                                                class="d-flex justify-content-center align-items-center"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#rfq{{ $item->id }}">
+                                                                <button class="btn-color popular_product-button">
+                                                                    Ask For Price
+                                                                </button>
+                                                            </a>
                                                         </div>
-                                                        <a href=""
-                                                            class="d-flex justify-content-center align-items-center"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $item->id }}">
-                                                            <button class="btn-color popular_product-button">
-                                                                Ask For Price
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                @elseif ($item->price_status && $item->price_status == 'offer_price')
-                                                    <div>
-                                                        <div class="price py-3">
-                                                            <small class="price-usd">USD</small>
-                                                            $ {{ number_format($item->price, 2) }}
+                                                    @elseif ($item->price_status && $item->price_status == 'offer_price')
+                                                        <div>
+                                                            <div class="price py-3">
+                                                                <small class="price-usd">USD</small>
+                                                                $ {{ number_format($item->price, 2) }}
+                                                            </div>
+                                                            <a href=""
+                                                                class="d-flex justify-content-center align-items-center"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#rfq{{ $item->id }}">
+                                                                <button class="btn-color" data-bs-toggle="modal"
+                                                                    data-bs-target="#askProductPrice">
+                                                                    Your Price
+                                                                </button>
+                                                            </a>
                                                         </div>
-                                                        <a href=""
-                                                            class="d-flex justify-content-center align-items-center"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $item->id }}">
-                                                            <button class="btn-color" data-bs-toggle="modal"
-                                                                data-bs-target="#askProductPrice">
-                                                                Your Price
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                @else
-                                                    <div>
-                                                        <div class="price py-3">
-                                                            <small class="price-usd">USD</small>
-                                                            $ {{ number_format($item->price, 2) }}
+                                                    @else
+                                                        <div>
+                                                            <div class="price py-3">
+                                                                <small class="price-usd">USD</small>
+                                                                $ {{ number_format($item->price, 2) }}
+                                                            </div>
+                                                            <a href="" data-mdb-toggle="popover"
+                                                                title="Add To Cart Now"
+                                                                class="cart_button{{ $item->id }}"
+                                                                data-mdb-content="Add To Cart Now"
+                                                                data-mdb-trigger="hover">
+                                                                <button type="button" class="btn-color add_to_cart"
+                                                                    data-id="{{ $item->id }}"
+                                                                    data-name="{{ $item->name }}" data-quantity="1">
+                                                                    Add to Cart
+                                                                </button>
+                                                            </a>
                                                         </div>
-                                                        <a href="" data-mdb-toggle="popover"
-                                                            title="Add To Cart Now"
-                                                            class="cart_button{{ $item->id }}"
-                                                            data-mdb-content="Add To Cart Now"
-                                                            data-mdb-trigger="hover">
-                                                            <button type="button" class="btn-color add_to_cart"
-                                                                data-id="{{ $item->id }}"
-                                                                data-name="{{ $item->name }}" data-quantity="1">
-                                                                Add to Cart
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                @endif
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                @endif
+                        @endforeach
+                    @endif
+                </div>
+                <!-- Carousel Container -->
+                @include('frontend.pages.home.rfq_modal')
             </div>
-            <!-- Carousel Container -->
-            @include('frontend.pages.home.rfq_modal')
         </div>
-    </div>
-</section>
-<!---------End -------->
+    </section>
+    <!---------End -------->
 
     {{-- Ask For Price Modal Modal --}}
     <!-- Modal -->
     <div class="modal fade" id="askProductPrice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header py-2" style="background: #ae0a46;">
                     <h5 class="modal-title text-white" id="staticBackdropLabel">Your Price Form
@@ -508,7 +509,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="container px-0">
+                    <div class="container px-0" id="sign-up-container-area" style="display: block">
                         <form>
                             <div class="py-2 px-2 bg-light rounded">
                                 <div class="row mb-1">
@@ -520,8 +521,8 @@
                                             </div>
                                             <div class="col-sm-8">
                                                 <input type="text" name="name"
-                                                    class="form-control form-control-sm form-control form-control-sm-sm w-100"
-                                                    maxlength="100" placeholder="Enter Your Name" required>
+                                                    class="form-control form-control-sm rounded-0 w-100" maxlength="100"
+                                                    placeholder="Enter Your Name" required>
                                             </div>
                                         </div>
                                     </div>
@@ -532,9 +533,13 @@
                                                 <span style="font-size: 12px;"> :</span>
                                             </div>
                                             <div class="col-sm-8">
-                                                <input type="text" name="email"
-                                                    class="form-control form-control-sm form-control form-control-sm-sm w-100"
-                                                    maxlength="100" placeholder="Enter Your Email" required>
+                                                <input type="email" name="email"
+                                                    class="form-control form-control-sm rounded-0 w-100" maxlength="100"
+                                                    placeholder="Enter Your Email" required>
+
+                                                <span class="text-danger text-start p-0 m-0 email_validation"
+                                                    style="display: none;">Please input
+                                                    valid email</span>
                                             </div>
                                         </div>
                                     </div>
@@ -548,21 +553,21 @@
                                             </div>
                                             <div class="col-sm-8">
                                                 <input type="number" name="name"
-                                                    class="form-control form-control-sm form-control form-control-sm-sm w-100"
-                                                    maxlength="100" placeholder="Enter Mobile Number" required>
+                                                    class="form-control form-control-sm rounded-0 w-100" maxlength="100"
+                                                    placeholder="Enter Mobile Number" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="row">
                                             <div class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                <span style="font-size: 12px;">C Name</span>
+                                                <span style="font-size: 12px;">Company Name</span>
                                                 <span style="font-size: 12px;"> :</span>
                                             </div>
                                             <div class="col-sm-8">
                                                 <input type="text" name="comapny"
-                                                    class="form-control form-control-sm form-control form-control-sm-sm w-100"
-                                                    maxlength="100" placeholder="Enter Company Name" required>
+                                                    class="form-control form-control-sm rounded-0 w-100" maxlength="100"
+                                                    placeholder="Enter Company Name" required>
                                             </div>
                                         </div>
                                     </div>
@@ -576,8 +581,8 @@
                                             </div>
                                             <div class="col-sm-8">
                                                 <input type="number" name="qty"
-                                                    class="form-control form-control-sm form-control form-control-sm-sm w-100"
-                                                    maxlength="100" placeholder="Enter Your Quantity" required>
+                                                    class="form-control form-control-sm rounded-0 w-100" maxlength="100"
+                                                    placeholder="Enter Your Quantity" required>
                                             </div>
                                         </div>
                                     </div>
@@ -589,8 +594,8 @@
                                             </div>
                                             <div class="col-sm-8">
                                                 <input type="file" name="custom_image"
-                                                    class="form-control form-control-sm form-control form-control-sm-sm w-100"
-                                                    maxlength="100" placeholder="Enter Product Image" required>
+                                                    class="form-control form-control-sm rounded-0 w-100" maxlength="100"
+                                                    placeholder="Enter Product Image" required>
                                             </div>
                                         </div>
                                     </div>
@@ -600,8 +605,8 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <span style="font-size: 12px;">Type Message :</span>
-                                                <textarea class="form-control form-control-sm form-control form-control-sm-sm w-100" id="message" name="message"
-                                                    rows="2" placeholder="Enter Your Name"></textarea>
+                                                <textarea class="form-control form-control-sm rounded-0 w-100" id="message" name="message" rows="2"
+                                                    placeholder="Enter Your Name"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -618,6 +623,93 @@
         </div>
     </div>
     {{-- Ask For Price Modal Modal End --}}
+    <div class="modal fade" id="rfqModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header py-2" style="background: #ae0a46;">
+                    <h5 class="modal-title text-white" id="staticBackdropLabel">Get Quote
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <form action="{{ route('rfq.add') }}" enctype="multipart/form-data" method="POST">
+                            @csrf
+                            <div class="row mb-4">
+                                <div class="col-lg-9">
+                                    <label class="mb-2" for="product_name">Product Name <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="product_name" id="product_name"
+                                        value="{{ old('product_name') }}" required>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="mb-2" for="qty">Custom Quantity</label>
+                                    <input type="text" class="form-control" name="qty" id="qty"
+                                        value="{{ old('qty') }}">
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-lg-4 mb-3 pe-0">
+                                    <input type="text" class="form-control rounded-0" required id="name"
+                                        name="name" placeholder="Your Name *"
+                                        value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->name : '' }}" />
+                                </div>
+                                <div class="col-lg-4 mb-3 pe-0">
+                                    <input type="number" class="form-control rounded-0" id="phone" name="phone"
+                                        placeholder="Your Phone Number *" required
+                                        value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->phone : '' }}" />
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <input type="text" class="form-control rounded-0" id="contact"
+                                        name="company_name" placeholder="Your Company Name *" required
+                                        value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->company_name : '' }}" />
+                                </div>
+                                <div class="col-lg-5 mb-3 pe-0">
+                                    <input type="email" required class="form-control rounded-0" id="email"
+                                        name="email" placeholder="Your Email *"
+                                        value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->email : '' }}" />
+                                    <span class="text-danger text-start p-0 m-0 email_validation"
+                                        style="display: none">Please input valid email</span>
+                                </div>
+                                <div class="col-lg-7 mb-3">
+                                    <input type="file" name="image" class="form-control rounded-0" id="image"
+                                        accept="image/*" placeholder="Your Custom Image" />
+                                </div>
+                                <div class="col-lg-12 mb-3">
+                                    <textarea class="form-control rounded-0" id="message" name="message" rows="3" placeholder="Your Message"></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="row align-items-center">
+                                <div class="col-lg-3 mb-3">
+                                    <div class="form-check border-0">
+                                        <input class="form-check-input" type="checkbox" value="1"
+                                            id="flexCheckDefault" name="call" placeholder="Call Me"
+                                            style="left: 3rem;" />
+                                        <label class="form-check-label" for="flexCheckDefault"> Call Me
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="form-group px-3 mx-1 message g-recaptcha w-100"
+                                        data-sitekey="{{ config('app.recaptcha_site_key') }}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <button type="submit" class="btn rounded-0 p-2"
+                                        style="background: #ae0a46; color: white; width:150px; font-size:20px"
+                                        role="button">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- HTML !-->
+            </div>
+        </div>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -664,7 +756,7 @@
 
 
     <!-- left modal -->
-    <div class="modal modal_outer fade" id="get_quote_modal" tabindex="-1" role="dialog"
+    {{-- <div class="modal modal_outer fade" id="get_quote_modal" tabindex="-1" role="dialog"
         aria-labelledby="myModalLabel2">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
 
@@ -707,7 +799,6 @@
                         <input type="hidden" name="client_type" value="client">
                         <input type="hidden" name="name" value="{{ Auth::guard('client')->user()->name }}">
                         <input type="hidden" name="email" value="{{ Auth::guard('client')->user()->email }}">
-                        {{-- <input type="hidden" name="phone" value="{{Auth::guard('client')->user()->phone}}"> --}}
                         <div class="modal-body get_quote_view_modal_body">
 
 
@@ -780,7 +871,6 @@
                         <input type="hidden" name="name" value="{{ Auth::guard('partner')->user()->name }}">
                         <input type="hidden" name="email"
                             value="{{ Auth::guard('partner')->user()->primary_email_address }}">
-                        {{-- <input type="hidden" name="phone" value="{{Auth::guard('client')->user()->phone_number}}"> --}}
                         <div class="modal-body get_quote_view_modal_body">
 
                             <div class="form-group col-sm-12 border text-white" style="background: #f9f6f0">
@@ -839,7 +929,6 @@
                         enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="product_id" value="{{ $sproduct->id }}">
-                        {{-- <input type="hidden" name="client_type" value="random"> --}}
                         <div class="modal-body get_quote_view_modal_body">
                             <div class="form-row">
                                 <div class="form-group col-sm-12 border text-white" style="background: #f9f6f0">
@@ -903,7 +992,7 @@
                 @endif
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- modal -->
 
     <script>
