@@ -201,7 +201,7 @@
                                                 <th width="15%">Reporting On</th>
                                                 <th width="20%">Leave Applied at</th>
                                                 <th width="20%">Status</th>
-                                                {{-- <th width="15%" class="text-center">Action</th> --}}
+                                                <th width="15%" class="text-center">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody class="text-center">
