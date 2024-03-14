@@ -222,6 +222,17 @@
                                                                 {{ optional($leaveApplication)->application_status == 'approved' ? 'Approved' : (optional($leaveApplication)->application_status == 'rejected' ? 'Rejected' : 'Pending') }}
                                                             </span>
                                                         </td>
+                                                        <td class="text-center">
+                                                            <a href="javascript:void(0);" class="text-primary"
+                                                                data-bs-toggle="modal" data-bs-target="#makeleaveEdit">
+                                                                <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-white"
+                                                                    style="color: #247297 !important;"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" href=""
+                                                                class="text-danger delete">
+                                                                <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
+                                                            </a>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             @else
