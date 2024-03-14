@@ -15,15 +15,23 @@ return new class extends Migration
     {
         Schema::create('notices', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('employee_id')->nullable();
-            $table->string('title');
-            $table->text('content');
-            $table->date('publish_date');
+            $table->foreignId('employee_id')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->string('title')->nullable();
+            $table->string('slug')->unique();
+            $table->text('content')->nullable();
+            $table->date('publish_date')->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
             $table->date('expiry_date')->nullable();
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
+            $table->string('department')->nullable();
+            $table->string('notice_category')->nullable();
+            $table->string('notice_type')->nullable();
             $table->enum('achievement_status', ['achieved', 'not_achieved'])->nullable();
+            $table->enum('status', ['published', 'unpublished'])->nullable()->default('active');
             $table->string('attachment_path')->nullable();
             $table->timestamps();
-            $table->foreign('employee_id')->references('id')->on('users');
         });
     }
 

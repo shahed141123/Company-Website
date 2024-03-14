@@ -59,7 +59,7 @@ class EventController extends Controller
             $count = Event::where('slug', $slug)->count();
             if ($count > 0) {
                 $slug = $slug . '-' . date('ymdis') . '-' . rand(0, 999);
-            }
+            } 
             $data['slug'] = $slug;
 
             Event::create([
