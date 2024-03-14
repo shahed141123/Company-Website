@@ -201,7 +201,7 @@
                                                 <th width="15%">Reporting On</th>
                                                 <th width="20%">Leave Applied at</th>
                                                 <th width="20%">Status</th>
-                                                {{-- <th width="15%" class="text-center">Action</th> --}}
+                                                <th width="15%" class="text-center">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody class="text-center">
@@ -221,6 +221,17 @@
                                                                 class="badge bg-{{ optional($leaveApplication)->application_status == 'approved' ? 'success' : (optional($leaveApplication)->application_status == 'rejected' ? 'danger' : 'warning') }}">
                                                                 {{ optional($leaveApplication)->application_status == 'approved' ? 'Approved' : (optional($leaveApplication)->application_status == 'rejected' ? 'Rejected' : 'Pending') }}
                                                             </span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <a href="javascript:void(0);" class="text-primary"
+                                                                data-bs-toggle="modal" data-bs-target="#makeleaveEdit">
+                                                                <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-white"
+                                                                    style="color: #247297 !important;"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" href=""
+                                                                class="text-danger delete">
+                                                                <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
+                                                            </a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
