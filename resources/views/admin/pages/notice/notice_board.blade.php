@@ -4,8 +4,6 @@
         .notes {
             height: 15rem !important;
         }
-
-
         /* CSS */
         .nav-tabs .custom-tab-button.active {
             appearance: button;
