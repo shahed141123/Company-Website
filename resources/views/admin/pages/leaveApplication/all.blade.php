@@ -45,14 +45,14 @@
                         <a href="javascript:void(0)" class="btn navigation_btn" data-bs-toggle="modal"
                             data-bs-target="#makeleave">
                             <div class="d-flex align-items-center">
-                                <i class="fa-solid fa-envelope-open-text me-1" style="font-size: 14px;"></i>
+                                <i class="fa-solid fa-person-walking-arrow-right me-1" style="font-size: 14px;"></i>
                                 <span>Make A Leave</span>
                             </div>
                         </a>
                         <a href="javascript:void(0)" class="btn navigation_btn" data-bs-toggle="modal"
                             data-bs-target="#makeleave">
                             <div class="d-flex align-items-center">
-                                <i class="fa-solid fa-envelope-open-text me-1" style="font-size: 14px;"></i>
+                                <i class="fa-solid fa-clipboard-user me-1" style="font-size: 14px;"></i>
                                 <span>All Attendance </span>
                             </div>
                         </a>
@@ -76,7 +76,7 @@
                                 <h6 class="m-0 p-1 text-center card-main-title">Leave Info</h6>
                                 <a href="{{ route('employee.index') }}">
                                     <div class="card rounded-0">
-                                        <div class="card-body pb-0 p-2">
+                                        <div class="card-body p-2">
                                             <div class="row align-items-center">
                                                 <div class="col-lg-6">
                                                     <div class="emplpyee-card">
@@ -87,14 +87,16 @@
                                                             <h6 class="main_color m-0 ammount rounded-1">14</h6>
                                                         </div>
                                                         <div class="pt-4">
-                                                            <h6 class="text-muted m-0 text-center">Pending Monthly Leave</h6>
+                                                            <h6 class="text-muted m-0 text-center">Pending Monthly Leave
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="emplpyee-card">
                                                         <div>
-                                                            <div class="d-flex justify-content-between align-items-center pb-1">
+                                                            <div
+                                                                class="d-flex justify-content-between align-items-center pb-1">
                                                                 <p class="m-0"><i
                                                                         class="fa-solid fa-bed-pulse badge-icons me-1"></i>
                                                                 </p>
@@ -105,9 +107,11 @@
                                                             </div>
                                                         </div>
                                                         <div>
-                                                            <div class="d-flex justify-content-between align-items-center pb-1">
+                                                            <div
+                                                                class="d-flex justify-content-between align-items-center pb-1">
                                                                 <p class="m-0">
-                                                                    <i class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
+                                                                    <i
+                                                                        class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
                                                                 </p>
                                                                 <p class="text-muted m-0">Earned Leave</p>
                                                                 <p class="main_color m-0 ammount rounded-1">
@@ -136,7 +140,8 @@
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
                                             <table class="table text-center table-striped table-hover">
-                                                <thead style="background-color: #247297 !important; color: white !important;">
+                                                <thead
+                                                    style="background-color: #247297 !important; color: white !important;">
                                                     <tr>
                                                         <th width="30%">Leave Position</th>
                                                         <th width="25%">Leave Due As On</th>
@@ -148,29 +153,38 @@
                                                     <!-- Leave Information Rows -->
                                                     <tr>
                                                         <td class="p-2">Earned Leave</td>
-                                                        <td class="p-2">{{ optional($employee_leave_due)->earned_leave_due_as_on ?? '' }}
+                                                        <td class="p-2">
+                                                            {{ optional($employee_leave_due)->earned_leave_due_as_on ?? '' }}
                                                         </td>
-                                                        <td class="p-2">{{ optional($employee_leave_due)->earned_leave_availed ?? '' }}
+                                                        <td class="p-2">
+                                                            {{ optional($employee_leave_due)->earned_leave_availed ?? '' }}
                                                         </td>
-                                                        <td class="p-2">{{ optional($employee_leave_due)->earned_balance_due ?? '' }}
+                                                        <td class="p-2">
+                                                            {{ optional($employee_leave_due)->earned_balance_due ?? '' }}
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="p-2">Casual Leave</td>
-                                                        <td class="p-2">{{ optional($employee_leave_due)->casual_leave_due_as_on ?? '' }}
+                                                        <td class="p-2">
+                                                            {{ optional($employee_leave_due)->casual_leave_due_as_on ?? '' }}
                                                         </td>
-                                                        <td class="p-2">{{ optional($employee_leave_due)->casual_leave_availed ?? '' }}
+                                                        <td class="p-2">
+                                                            {{ optional($employee_leave_due)->casual_leave_availed ?? '' }}
                                                         </td>
-                                                        <td class="p-2">{{ optional($employee_leave_due)->casual_balance_due ?? '' }}
+                                                        <td class="p-2">
+                                                            {{ optional($employee_leave_due)->casual_balance_due ?? '' }}
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="p-2">Medical Leave</td>
-                                                        <td class="p-2">{{ optional($employee_leave_due)->medical_leave_due_as_on ?? '' }}
+                                                        <td class="p-2">
+                                                            {{ optional($employee_leave_due)->medical_leave_due_as_on ?? '' }}
                                                         </td>
-                                                        <td class="p-2">{{ optional($employee_leave_due)->medical_leave_availed ?? '' }}
+                                                        <td class="p-2">
+                                                            {{ optional($employee_leave_due)->medical_leave_availed ?? '' }}
                                                         </td>
-                                                        <td class="p-2">{{ optional($employee_leave_due)->medical_balance_due ?? '' }}
+                                                        <td class="p-2">
+                                                            {{ optional($employee_leave_due)->medical_balance_due ?? '' }}
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -230,7 +244,8 @@
                                                             </a>
                                                             <a href="javascript:void(0);" href=""
                                                                 class="text-danger delete">
-                                                                <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
+                                                                <i
+                                                                    class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -258,8 +273,8 @@
             @include('admin.partials.leave_modal')
 
             <!-- Modal for Checking Approval -->
-            <div class="modal fade" id="checkapproved" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="checkapprovedLabel" aria-hidden="true">
+            <div class="modal fade" id="checkapproved" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="checkapprovedLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <!-- Modal Header -->
