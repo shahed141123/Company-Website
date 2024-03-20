@@ -169,8 +169,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     // Category All Route
     Route::controller(CategoryController::class)->group(function () {
-
-
         Route::post('/store/sub_category', 'StoreSubCategory')->name('store.subcategory');
         Route::post('/store/sub_sub_category', 'StoreSubSubCategory')->name('store.subsubcategory');
         Route::post('/store/sub_sub_sub_category', 'StoreSubSubSubCategory')->name('store.subsubsubcategory');
@@ -190,7 +188,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::get('/deal/list', 'dealList')->name('deal.list');
         Route::get('/single-rfq/{id}', 'show')->name('single-rfq.show');
         Route::get('/single-rfq/{id}/quotation', 'quotationMail')->name('single-rfq.quoation_mail');
-
     });
 
     Route::put('assign_salesmanager/{id}', [RFQController::class, 'AssignSalesMan'])->name('assign.salesman');
@@ -463,7 +460,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'solutionDetails'            => SolutionDetailsController::class,
             'policy'                     => PolicyController::class,
             'job'                        => JobController::class,
-
             'feature'                    => FeatureController::class,
             'brandPage'                  => BrandPageController::class,
             'country'                    => CountryController::class,
@@ -547,12 +543,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     );
     if (in_array('admin', $userDepartment)) {
         Route::resource('employee', EmployeeController::class)->names([
-            'index' => 'employee.index',
-            'create' => 'employee.create',
-            'store' => 'employee.store',
-            'show' => 'employee.show',
-            'edit' => 'employee.edit',
-            'update' => 'employee.update',
+            'index'   => 'employee.index',
+            'create'  => 'employee.create',
+            'store'   => 'employee.store',
+            'show'    => 'employee.show',
+            'edit'    => 'employee.edit',
+            'update'  => 'employee.update',
             'destroy' => 'employee.destroy',
         ]);
     }
