@@ -124,10 +124,10 @@
                 <!--BUTTON START-->
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="m-4">
-                        <a href="{{ route('all.story') }}" class="btn-white">All Client Storys</a>
+                        <a href="{{ route('all.story') }}" class="btn-color">All Client Storys</a>
                     </div>
                     <div class="m-4">
-                        <a href="{{ route('all.techglossy') }}" class="btn-white">All Tech Glossys</a>
+                        <a href="{{ route('all.techglossy') }}" class="btn-color">All Tech Glossys</a>
                     </div>
                 </div>
             </div>
@@ -245,14 +245,12 @@
                                         {{-- Blog Button --}}
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="d-flex justify-content-center align-items-center">
-                                                <div class="bySocial col-12">
-                                                    {{-- <ul class="social-icon-links pull-right" style="font-size: 1.5rem;">
-                                                        <li>{!! Share::page(url('/blog/' . $item->id . '/details'))->facebook()->twitter()->whatsapp() !!}</li>
-                                                    </ul> --}}
-                                                </div>
+                                                <p class="mb-0 pe-2 pt-2">{!! Share::page(url('/blog/' . $item->id . '/details'))->facebook() !!}</p>
+                                                <p class="mb-0 pe-2 pt-2">{!! Share::page(url('/blog/' . $item->id . '/details'))->twitter()  !!}</p>
+                                                <p class="mb-0 pe-2 pt-2">{!! Share::page(url('/blog/' . $item->id . '/details'))->whatsapp() !!}</p>
                                             </div>
                                             <div class="d-flex justify-content-center align-items-center">
-                                                <p class="ml-2 pt-3"><strong>Created at :
+                                                <p class="ml-2"><strong>Created at :
                                                     </strong>{{ $item->created_at->format('Y-m-d') }}</p>
                                             </div>
                                         </div>
@@ -281,7 +279,6 @@
                                     </div>
                                 @endforeach
                             @endif
-
                             <div>
                                 <div>
                                     <img class="img-fluid" src="https://source.unsplash.com/random/580x420">

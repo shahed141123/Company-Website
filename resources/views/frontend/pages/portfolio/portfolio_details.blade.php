@@ -312,7 +312,7 @@
                 <!--BUTTON START-->
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="m-4">
-                        <a class="common_button2" href="{{$portfolio->banner_btn_link}}">{{$portfolio->banner_btn_name}}</a>
+                        <a class="btn-color" href="{{$portfolio->banner_btn_link}}">{{$portfolio->banner_btn_name}}</a>
                     </div>
                 </div>
             </div>
