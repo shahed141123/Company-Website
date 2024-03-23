@@ -70,7 +70,7 @@
                                         </a>
                                         {{-- Edit brand Modal Content --}}
                                         <div id="brandEdit{{ $brand->id }}" class="modal fade" tabindex="-1">
-                                            <div class="modal-dialog modal-sm">
+                                            <div class="modal-dialog modal-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h6 class="modal-title text-white">Add Brand Management</h6>
@@ -87,7 +87,7 @@
                                                                 @csrf
                                                                 @method('PUT')
                                                                 <div class="px-2 py-2 m-2 bg-light rounded">
-                                                                    <div class="row mb-1">
+                                                                    <div class="row mb-3">
                                                                         <div class="col-sm-4">
                                                                             <span>Brand Name</span>
                                                                         </div>
@@ -99,7 +99,7 @@
                                                                         </div>
                                                                     </div>
                                                                     {{--  --}}
-                                                                    <div class="row mb-1">
+                                                                    <div class="row mb-3">
                                                                         <div class="col-sm-4">
                                                                             <span>Brand Image</span>
                                                                         </div>
@@ -116,7 +116,7 @@
                                                                         </div>
                                                                     </div>
                                                                     {{--  --}}
-                                                                    <div class="row mb-1">
+                                                                    <div class="row mb-3">
                                                                         <div class="col-sm-4">
                                                                             <span>Brand Category</span>
                                                                         </div>
@@ -137,6 +137,27 @@
                                                                                     {{ $brand->category == 'Others' ? 'selected' : '' }}>
                                                                                     Others</option>
                                                                             </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mb-3">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Status</h6>
+                                                                        </div>
+                                                                        <div class="form-group col-sm-9 text-secondary">
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="status" value="active"
+                                                                                    id="active-status" {{ $brand->status == 'active' ? 'checked' : '' }}>
+                                                                                <label class="form-check-label" for="active-status">
+                                                                                    Active
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="status" value="inactive"
+                                                                                    id="inactive-status" {{ $brand->status == 'inactive' ? 'checked' : '' }}>
+                                                                                <label class="form-check-label" for="inactive-status">
+                                                                                    Inactive
+                                                                                </label>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -164,7 +185,7 @@
         </div>
         {{-- add brand Modal Content --}}
         <div id="brandAdd" class="modal fade" tabindex="-1">
-            <div class="modal-dialog modal-sm">
+            <div class="modal-dialog modal-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h6 class="modal-title text-white">Add Brand Management </h6>
@@ -177,7 +198,7 @@
                             <form method="post" action="{{ route('brand.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="px-2 py-2 m-2 bg-light rounded">
-                                    <div class="row mb-1">
+                                    <div class="row mb-3">
                                         <div class="col-sm-4">
                                             <span>Brand Name </span>
                                         </div>
@@ -187,7 +208,7 @@
                                         </div>
                                     </div>
                                     {{--  --}}
-                                    <div class="row mb-1">
+                                    <div class="row mb-3">
                                         <div class="col-sm-4">
                                             <span>Brand Image</span>
                                         </div>
@@ -202,7 +223,7 @@
                                         </div>
                                     </div>
                                     {{--  --}}
-                                    <div class="row mb-1">
+                                    <div class="row mb-3">
                                         <div class="col-sm-4">
                                             <span>Brand Category</span>
                                         </div>
@@ -215,6 +236,27 @@
                                                 <option value="Featured">Featured</option>
                                                 <option value="Others">Others</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Status</h6>
+                                        </div>
+                                        <div class="form-group col-sm-9 text-secondary">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="status" value="active"
+                                                    id="active-status">
+                                                <label class="form-check-label" for="active-status">
+                                                    Active
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="status" value="inactive"
+                                                    id="inactive-status">
+                                                <label class="form-check-label" for="inactive-status">
+                                                    Inactive
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

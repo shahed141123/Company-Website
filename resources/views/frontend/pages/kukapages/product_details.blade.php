@@ -1,35 +1,29 @@
 @extends('frontend.master')
 @section('content')
     @include('frontend.pages.kukapages.partial.page_header')
-
-
     <section>
         <div class="container my-5">
             <div class="single-product-container">
                 <div class="row g-3">
                     <div class="col-lg-6 col-sm-12 single_product_images">
                         <!-- gallery pic -->
-                        @php
-                            $imgs = App\Models\Admin\MultiImage::where('product_id', $sproduct->id)->get();
-                        @endphp
+
                         <div class="mx-auto d-block">
-                            @if (count($imgs) > 0)
-                                <img id="expand" class="geeks img-fluid mx-auto d-block w-100"
-                                    src="{{ asset($imgs->first()->photo) }}">
-                            @else
-                                <img id="expand" class="geeks img-fluid mx-auto d-block w-100"
-                                    src="{{ asset($sproduct->thumbnail) }}">
-                            @endif
+                            @php
+                                $mainImage = $multi_images->isNotEmpty() ? $multi_images->first()->photo : $sproduct->thumbnail;
+                            @endphp
+                            <img id="expand" class="geeks img-fluid mx-auto d-block w-100" src="{{ asset($sproduct->thumbnail) }}">
                         </div>
 
-
-                        <div class="img_gallery_wrapper row pt-1">
-                            @foreach ($imgs as $data)
-                                <div class="col-2 p-1">
-                                    <img class="img-fluid" src="{{ asset($data->photo) }}" onclick="gfg(this);">
-                                </div>
-                            @endforeach
-                        </div>
+                        @if ($multi_images->isNotEmpty())
+                            <div class="img_gallery_wrapper row pt-1">
+                                @foreach ($multi_images as $multi_image)
+                                    <div class="col-2 p-1">
+                                        <img class="img-fluid" src="{{ asset($multi_image->photo) }}" onclick="gfg(this);">
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
 
                     <div class="col-lg-6 col-sm-12 col-xs-12">

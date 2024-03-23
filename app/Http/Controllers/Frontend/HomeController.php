@@ -139,7 +139,7 @@ class HomeController extends Controller
 
         $brandIds = Product::where('product_status', 'product')->where('product_type', 'software')->distinct()->pluck('brand_id')->toArray();
 
-        $data['brands'] = Brand::whereIn('id', $brandIds)->limit(12)->get();
+        $data['brands'] = Brand::whereIn('id', $brandIds)->where('status', 'active')->limit(12)->get();
 
         $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
 
@@ -181,14 +181,15 @@ class HomeController extends Controller
             ->join('products', 'brands.id', '=', 'products.brand_id')
             ->where('products.product_type', '=', 'hardware')
             ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
-            ->distinct()->inRandomOrder()->limit(12)->get();
+            ->where('brands.status', 'active')->distinct()->inRandomOrder()->limit(12)->get();
         $data['industrys'] = Industry::orderBy('id', 'ASC')->limit(8)->get(['id', 'slug', 'logo', 'title']);
         $data['tech_datas'] = TechnologyData::where('category', 'hardware')->orderBy('id', 'ASC')->get();
         $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
         $data['tech_glossies'] = TechGlossy::inRandomOrder()->limit(3)->get();
         $data['tech_glossy1'] = $data['tech_glossies']->first();
         $data['tech_glossy2'] = $data['tech_glossies']->get(1);
-        $data['tech_glossy3'] = $data['tech_glossies']->get(2);$data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'slug', 'title']);
+        $data['tech_glossy3'] = $data['tech_glossies']->get(2);
+        $data['random_industries'] = Industry::orderBy('id', 'DESC')->limit(4)->get(['id', 'slug', 'title']);
         return view('frontend.pages.hardware.hardware_info', $data);
     }
 
@@ -219,7 +220,7 @@ class HomeController extends Controller
             ->get(['id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount']);
         $brandIds = Product::where('product_status', 'product')->where('product_type', 'software')->distinct()->pluck('brand_id')->toArray();
 
-        $data['brands'] = Brand::whereIn('id', $brandIds)->limit(12)->get();
+        $data['brands'] = Brand::whereIn('id', $brandIds)->where('status', 'active')->limit(12)->get();
 
         $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
 
@@ -264,7 +265,7 @@ class HomeController extends Controller
             ->get(['id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount']);
         $brandIds = Product::where('product_status', 'product')->where('product_type', 'hardware')->distinct()->pluck('brand_id')->toArray();
         $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
-        $data['brands'] = Brand::whereIn('id', $brandIds)->limit(12)->get();
+        $data['brands'] = Brand::whereIn('id', $brandIds)->where('status', 'active')->limit(12)->get();
 
         // Query 5 - SolutionDetail
         $data['solutions'] = SolutionDetail::orderBy('id', 'DESC')->limit(10)->get(['id', 'name']);
@@ -423,7 +424,7 @@ class HomeController extends Controller
         $data['client_storys'] = ClientStory::orderBy('id', 'Desc')->paginate(3);
         $data['industries'] = Industry::latest()->select('id', 'title')->limit(6)->get();
         $data['categories'] = Category::latest()->select('id', 'title', 'slug')->limit(6)->get();
-        $data['brands'] = Brand::latest()->select('id', 'title', 'slug')->limit(6)->get();
+        $data['brands'] = Brand::latest()->select('id', 'title', 'slug')->where('status', 'active')->limit(6)->get();
 
         return view('frontend.pages.story.all_story', $data);
     }
@@ -447,7 +448,7 @@ class HomeController extends Controller
         $data['client_storys'] = Blog::orderBy('id', 'Desc')->paginate(3);
         $data['industries'] = Industry::latest()->select('id', 'title')->limit(6)->get();
         $data['categories'] = Category::latest()->select('id', 'title', 'slug')->limit(6)->get();
-        $data['brands'] = Brand::latest()->select('id', 'title', 'slug')->limit(6)->get();
+        $data['brands'] = Brand::latest()->select('id', 'title', 'slug')->where('status', 'active')->limit(6)->get();
         return view('frontend.pages.blogs.blogs_all', $data);
     }
 
@@ -468,7 +469,7 @@ class HomeController extends Controller
         $data['client_storys'] = TechGlossy::orderBy('id', 'Desc')->paginate(3);
         $data['industries'] = Industry::latest()->select('id', 'title')->limit(6)->get();
         $data['categories'] = Category::latest()->select('id', 'title', 'slug')->limit(6)->get();
-        $data['brands'] = Brand::latest()->select('id', 'title', 'slug')->limit(6)->get();
+        $data['brands'] = Brand::latest()->select('id', 'title', 'slug')->where('status', 'active')->limit(6)->get();
         return view('frontend.pages.tech.techglossy_all', $data);
     }
 
@@ -514,7 +515,7 @@ class HomeController extends Controller
         $data['categories'] = Category::latest()
             ->select('categories.id', 'categories.slug', 'categories.title', 'categories.image')
             ->get();
-        $data['brands'] = Brand::top()->latest('id')->paginate(18, ['*'], 'top_brands');
+        $data['brands'] = Brand::top()->latest('id')->where('status', 'active')->paginate(18, ['*'], 'top_brands');
         $data['techglossy'] = Blog::inRandomOrder()->first();
         return view('frontend.pages.product.shop_html', $data);
     }
@@ -528,7 +529,7 @@ class HomeController extends Controller
             ->join('products', 'brands.id', '=', 'products.brand_id')
             ->whereNotNull('products.deal')
             ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
-            ->distinct()->get();
+            ->where('brands.status', 'active')->distinct()->get();
         $data['categories'] = DB::table('categories')
             ->join('products', 'categories.id', '=', 'products.cat_id')
             ->whereNotNull('products.deal')
@@ -546,7 +547,7 @@ class HomeController extends Controller
             ->join('products', 'brands.id', '=', 'products.brand_id')
             ->where('products.refurbished', '=', '1')
             ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
-            ->distinct()->get();
+            ->where('brands.status', 'active')->distinct()->get();
         $data['categories'] = DB::table('categories')
             ->join('products', 'categories.id', '=', 'products.cat_id')
             ->where('products.refurbished', '=', '1')
@@ -581,6 +582,7 @@ class HomeController extends Controller
                 ->join('categories', 'products.cat_id', '=', 'categories.id')
                 ->where('categories.id', '=', $data['category']->id)
                 ->select('brands.id', 'brands.title', 'brands.image', 'brands.slug')
+                ->where('brands.status', 'active')
                 ->distinct()
                 ->paginate(18);
             $data['condition'] = 'category';
@@ -599,7 +601,7 @@ class HomeController extends Controller
                 ->join('sub_categories', 'products.sub_cat_id', '=', 'sub_categories.id')
                 ->where('sub_categories.id', '=', $data['category']->id)
                 ->select('brands.id', 'brands.title', 'brands.image', 'brands.slug')
-                ->distinct()
+                ->where('brands.status', 'active')->distinct()
                 ->paginate(18);
             $data['condition'] = 'subcategory';
             $data['cat_title'] = Category::where('id', $data['category']->cat_id)->select('title', 'slug')->first();
@@ -617,7 +619,7 @@ class HomeController extends Controller
                 ->join('sub_sub_categories', 'products.sub_sub_cat_id', '=', 'sub_sub_categories.id')
                 ->where('sub_sub_categories.id', '=', $data['category']->id)
                 ->select('brands.id', 'brands.title', 'brands.image', 'brands.slug')
-                ->distinct()
+                ->where('brands.status', 'active')->distinct()
                 ->paginate(18);
             $data['condition'] = 'subsubcategory';
             $data['cat_title'] = Category::where('id', $data['category']->cat_id)->select('title', 'slug')->first();
@@ -684,9 +686,9 @@ class HomeController extends Controller
 
     public function AllBrand()
     {
-        $data['top_brands'] = Brand::top()->latest('id')->paginate(18, ['*'], 'top_brands');
-        $data['featured_brands'] = Brand::featured()->latest('id')->paginate(18, ['*'], 'featured_brands');
-        $data['others'] = Brand::orderBy('title', 'ASC')->select('id', 'slug', 'title')->get();
+        $data['top_brands'] = Brand::top()->latest('id')->where('status', 'active')->paginate(18, ['*'], 'top_brands');
+        $data['featured_brands'] = Brand::featured()->latest('id')->where('status', 'active')->paginate(18, ['*'], 'featured_brands');
+        $data['others'] = Brand::orderBy('title', 'ASC')->select('id', 'slug', 'title')->where('status', 'active')->get();
         return view('frontend.pages.brand.brand', $data);
     }
 
@@ -801,7 +803,7 @@ class HomeController extends Controller
             $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'brand_logo', 'header']);
             $data['related_search'] = [
                 'categories' =>  Category::where('id', '!=', $data['sproduct']->cat_id)->inRandomOrder()->limit(2)->get(),
-                'brands' =>  Brand::where('id', '!=', $data['sproduct']->brand_id)->inRandomOrder()->limit(20)->get(),
+                'brands' =>  Brand::where('id', '!=', $data['sproduct']->brand_id)->inRandomOrder()->where('status', 'active')->limit(20)->get(),
                 'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id', 'slug', 'name'),
                 'industries' =>  Industry::inRandomOrder()->limit(4)->get('id', 'slug', 'title'),
             ];
@@ -812,7 +814,7 @@ class HomeController extends Controller
             return view('frontend.pages.kukapages.product_details', $data);
         } else {
             $data['categories'] = Category::orderBy('title', 'ASC')->get();
-            $data['brands'] = Brand::orderBy('title', 'ASC')->get();
+            $data['brands'] = Brand::orderBy('title', 'ASC')->where('status', 'active')->get();
             $data['newProduct'] = Product::orderBy('id', 'DESC')->where('product_status', 'product')->limit(3)->get();
             $data['products'] = Product::where('name', 'LIKE', '%' . $item . '%')->where('product_status', 'product')->paginate(10);
             return view('frontend.pages.product.shop_page', $data);
@@ -824,14 +826,20 @@ class HomeController extends Controller
     public function globalSearch(Request $request)
     {
         $query = $request->get('term', '');
-        $data['products'] = Product::where('name', 'LIKE', '%' . $query . '%')->where('product_status', 'product')->limit(10)->get(['id', 'name', 'slug', 'thumbnail', 'price', 'discount', 'rfq', 'qty', 'stock']);
+        $data['products'] = Product::join('brands', 'products.brand_id', '=', 'brands.id')
+            ->where('products.name', 'LIKE', '%' . $query . '%')
+            ->where('products.product_status', 'product')
+            ->where('brands.status', 'active')
+            ->limit(10)
+            ->get(['products.id', 'products.name', 'products.slug', 'products.thumbnail', 'products.price', 'products.discount', 'products.rfq', 'products.qty', 'products.stock']);
+
         $data['solutions'] = SolutionDetail::where('name', 'LIKE', '%' . $query . '%')->limit(5)->get(['id', 'name']);
         $data['industries'] = Industry::where('title', 'LIKE', '%' . $query . '%')->limit(5)->get(['id', 'title']);
         $data['blogs'] = Blog::where('title', 'LIKE', '%' . $query . '%')->limit(5)->get(['id', 'title']);
         $data['categorys'] = Category::where('title', 'LIKE', '%' . $query . '%')->limit(2)->get(['id', 'title', 'slug']);
         $data['subcategorys'] = SubCategory::where('title', 'LIKE', '%' . $query . '%')->limit(2)->get(['id', 'title', 'slug']);
         $data['subsubcategorys'] = SubSubCategory::where('title', 'LIKE', '%' . $query . '%')->limit(1)->get(['id', 'title', 'slug']);
-        $data['brands'] = Brand::where('title', 'LIKE', '%' . $query . '%')->limit(5)->get(['id', 'title', 'slug']);
+        $data['brands'] = Brand::where('title', 'LIKE', '%' . $query . '%')->where('status', 'active')->limit(5)->get(['id', 'title', 'slug']);
         $data['storys'] = ClientStory::where('title', 'LIKE', '%' . $query . '%')->limit(5)->get(['id', 'title']);
         $data['tech_glossys'] = TechGlossy::where('title', 'LIKE', '%' . $query . '%')->limit(5)->get(['id', 'title']);
 
@@ -890,9 +898,9 @@ class HomeController extends Controller
     {
         $data['sales_mans'] = User::where('role', 'sales')->select('users.id', 'users.name')->get();
         $data['products'] = Product::where('product_status', 'product')->select('products.id', 'products.name')->get();
-        $data['brands'] = Brand::get(['id','title']);
-        $data['categorys'] = Category::get(['id','title']);
-        $data['industrys'] = Industry::get(['id','title']);
+        $data['brands'] = Brand::where('status', 'active')->get(['id', 'title']);
+        $data['categorys'] = Category::get(['id', 'title']);
+        $data['industrys'] = Industry::get(['id', 'title']);
         return view('frontend.pages.rfq.rfq', $data);
     }
 
@@ -914,7 +922,7 @@ class HomeController extends Controller
 
         $brandIds = Product::where('product_status', 'product')->where('product_type', 'software')->distinct()->pluck('brand_id')->toArray();
 
-        $data['brands'] = Brand::whereIn('id', $brandIds)->limit(12)->get();
+        $data['brands'] = Brand::whereIn('id', $brandIds)->where('status', 'active')->limit(12)->get();
 
         $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
 
@@ -945,7 +953,7 @@ class HomeController extends Controller
 
         $brandIds = Product::where('product_status', 'product')->where('product_type', 'software')->distinct()->pluck('brand_id')->toArray();
 
-        $data['brands'] = Brand::whereIn('id', $brandIds)->limit(12)->get();
+        $data['brands'] = Brand::whereIn('id', $brandIds)->where('status', 'active')->limit(12)->get();
 
         $data['blogs'] = Blog::inRandomOrder()->limit(4)->get();
 

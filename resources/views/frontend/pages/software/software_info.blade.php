@@ -50,14 +50,16 @@
             <div class="container">
                 <div class="row gx-3">
                     <div class="col-lg-8">
-                        <div class="p-5 blocks-content block-image-content" style="background-color:#f7f6f5!important; height: 30rem;">
+                        <div class="p-5 blocks-content block-image-content"
+                            style="background-color:#f7f6f5!important; height: 30rem;">
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="animated-image parbase section">
                                         <div id="solution_image_1">
                                             <img src="{{ isset($software_info->row_six_image) && file_exists(public_path('storage/' . $software_info->row_six_image)) ? asset('storage/' . $software_info->row_six_image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                                                alt="{{ $software_info->row_six_title }}" title="Software Information NGENIT"
-                                                class="img-fluid" style="background-color: rgb(212,208,202);">
+                                                alt="{{ $software_info->row_six_title }}"
+                                                title="Software Information NGENIT" class="img-fluid"
+                                                style="background-color: rgb(212,208,202);">
                                         </div>
                                     </div>
                                 </div>
@@ -191,7 +193,7 @@
     </section>
     <!----------End--------->
     <!--======// Our expert //======-->
-    @if (!empty($software_info->row_four_video_link ))
+    @if (!empty($software_info->row_four_video_link))
         <section>
             <div class="container mt-3 mb-5 video_row">
                 <div class="software_feature_title py-lg-5 py-3">
@@ -227,13 +229,13 @@
         <!--Tab Section-->
         <div class="container mb-5">
             <!-- home title -->
-            @if (!empty($hardware_info))
+            @if (!empty($software_info))
                 <div class="nasted_tabbar_title">
                     <div class="software_feature_title">
-                        <h1 class="text-center p-3">{{ $hardware_info->row_two_title }}</h1>
+                        <h1 class="text-center p-3">{{ $software_info->row_two_title }}</h1>
                     </div>
                     <p class="home_title_text w-75 mx-auto pb-4">
-                        {!! $hardware_info->row_two_short_description !!}
+                        {!! $software_info->row_two_short_description !!}
                     </p>
                 </div>
             @endif
@@ -297,8 +299,8 @@
                                     @php
                                         $related_brands = DB::table('brands')
                                             ->join('products', 'brands.id', '=', 'products.brand_id')
-                                            ->join('categories', 'products.cat_id', '=', 'categories.id')
-                                            ->where('categories.id', '=', $category->id)
+                                            ->join('sub_categories', 'products.sub_cat_id', '=', 'sub_categories.id')
+                                            ->where('sub_categories.id', '=', $category->id)
                                             ->select('brands.id', 'brands.title', 'brands.image', 'brands.slug')
                                             ->distinct()
                                             ->paginate(12);
@@ -449,7 +451,7 @@
                                         <p class="mb-0">{{ Str::words($blog->title, 8) }}</p>
                                     </a>
                                 </div>
-                            <hr class="my-1 mx-0">
+                                <hr class="my-1 mx-0">
                             @endforeach
                         @endif
 

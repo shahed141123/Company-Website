@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('row_nine_title')->nullable();
             $table->text('row_nine_header')->nullable();
             $table->string('added_by')->nullable();
+            $table->enum('status', ['active', 'inactive'])->nullable()->default('active');
 
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('solution_card_one_id')->references('id')->on('solution_cards')->onDelete('cascade')->onUpdate('cascade');

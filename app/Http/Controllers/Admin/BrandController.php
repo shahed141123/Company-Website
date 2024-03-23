@@ -72,9 +72,10 @@ class BrandController extends Controller
                 if ($globalFunImg['status'] == 1) {
                     Brand::create([
                         'title'    => $request->title,
-                        'slug' => $data['slug'],
+                        'slug'     => $data['slug'],
                         'image'    => $globalFunImg['file_name'],
                         'category' => $request->category,
+                        'status'   => $request->status,
                     ]);
                 } else {
                     Toastr::warning('Image upload failed! plz try again.');
@@ -140,9 +141,10 @@ class BrandController extends Controller
                 }
 
                 $brand->update([
-                    'title' => $request->title,
-                    'image' => $globalFunImg['status'] == 1 ? $globalFunImg['file_name'] : $brand->image,
+                    'title'    => $request->title,
+                    'image'    => $globalFunImg['status'] == 1 ? $globalFunImg['file_name'] : $brand->image,
                     'category' => $request->category,
+                    'status'   => $request->status,
                 ]);
             }
 

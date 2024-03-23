@@ -105,6 +105,7 @@ class BrandPageController extends Controller
                 'row_six_header'         => $request->row_six_header,
                 'row_nine_title'         => $request->row_nine_title,
                 'row_nine_header'        => $request->row_nine_header,
+                'status'                 => 'active',
 
 
             ]);
@@ -195,9 +196,9 @@ class BrandPageController extends Controller
             }
 
             $brandPage->update([
-                'banner_image'          => $globalFunImgimage_banner_image['status'] == 1 ? $globalFunImgimage_banner_image['file_name'] : $brandPage->banner_image,
-                'row_six_image'         => $globalFunrow_six_image['status']   == 1 ? $globalFunrow_six_image['file_name']  : $brandPage->row_six_image,
-                'brand_logo'            => $globalFunbrand_logo['status']   == 1 ? $globalFunbrand_logo['file_name']  : $brandPage->brand_logo,
+                'banner_image'           => $globalFunImgimage_banner_image['status'] == 1 ? $globalFunImgimage_banner_image['file_name'] : $brandPage->banner_image,
+                'row_six_image'          => $globalFunrow_six_image['status']   == 1 ? $globalFunrow_six_image['file_name']  : $brandPage->row_six_image,
+                'brand_logo'             => $globalFunbrand_logo['status']   == 1 ? $globalFunbrand_logo['file_name']  : $brandPage->brand_logo,
                 'brand_id'               => $request->brand_id,
                 'solution_card_one_id'   => $request->solution_card_one_id,
                 'solution_card_two_id'   => $request->solution_card_two_id,
@@ -213,6 +214,7 @@ class BrandPageController extends Controller
                 'row_six_header'         => $request->row_six_header,
                 'row_nine_title'         => $request->row_nine_title,
                 'row_nine_header'        => $request->row_nine_header,
+                'status'                 => $request->status,
             ]);
             Toastr::success('Data has been updated');
         }

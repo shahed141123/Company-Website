@@ -10,6 +10,7 @@ use App\Models\Admin\Product;
 use App\Models\Admin\Category;
 use App\Models\Admin\Industry;
 use App\Models\Admin\BrandPage;
+use App\Models\Admin\MultiImage;
 use App\Models\Admin\TechGlossy;
 use App\Models\Admin\ClientStory;
 use App\Models\Admin\DocumentPdf;
@@ -26,8 +27,8 @@ class PageController extends Controller
 {
     public function overview($id)
     {
-        $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title', 'image')->first();
-        $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first();
+        $data['brand'] = Brand::where('slug', $id)->where('status', '!=', 'inactive')->select('id', 'slug', 'title', 'image')->first();
+        $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->where('status', '!=', 'inactive')->first();
         if (!empty($data['brandpage'])) {
 
             if ($data['brandpage']) {
@@ -48,8 +49,8 @@ class PageController extends Controller
     }
     public function brandProducts($id, Request $request)
     {
-        $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title', 'image')->first();
-        $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'brand_logo', 'header']);
+        $data['brand'] = Brand::where('slug', $id)->where('status', '!=', 'inactive')->select('id', 'slug', 'title', 'image')->first();
+        $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->where('status', '!=', 'inactive')->first(['id', 'banner_image', 'brand_logo', 'header']);
 
         if (!empty($data['brandpage'])) {
 
@@ -122,7 +123,16 @@ class PageController extends Controller
     public function productDetails($id)
     {
         //dd($id);
-        $data['sproduct'] = Product::where('slug', $id)->where('product_status', 'product')->first();
+
+        $data['sproduct'] = Product::join('brands', 'products.brand_id', '=', 'brands.id')
+            ->where('products.slug', $id)
+            ->where('products.product_status', 'product')
+            ->where('brands.status', 'active')
+            ->select('products.id as product_id', 'products.*') // Explicitly select product ID and all other fields
+            ->firstOrFail();
+
+        $data['multi_images'] = MultiImage::where('product_id', '=', $data['sproduct']->product_id)->get();
+
         if (!empty($data['sproduct']->cat_id)) {
             $data['products'] = Product::where('cat_id', $data['sproduct']->cat_id)
                 ->where('product_status', 'product')
@@ -134,7 +144,7 @@ class PageController extends Controller
             $data['products'] = Product::inRandomOrder()->where('product_status', 'product')->limit(12)->get();
         }
 
-        $data['brand'] = Brand::where('id', $data['sproduct']->brand_id)->select('id', 'slug', 'title', 'image')->first();
+        $data['brand'] = Brand::where('id', $data['sproduct']->brand_id)->where('status', '!=', 'inactive')->select('id', 'slug', 'title', 'image')->first();
         $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'brand_logo', 'header']);
         $data['related_search'] = [
             'categories' =>  Category::where('id', '!=', $data['sproduct']->cat_id)->inRandomOrder()->limit(2)->get(),
@@ -156,7 +166,7 @@ class PageController extends Controller
     public function brandPdf($id)
     {
 
-        $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title', 'image')->firstOrFail();
+        $data['brand'] = Brand::where('slug', $id)->where('status', '!=', 'inactive')->select('id', 'slug', 'title', 'image')->firstOrFail();
         $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->firstOrFail(['id', 'banner_image', 'brand_logo', 'header']);
 
         $brandId = $data['brand']->id;
@@ -192,7 +202,7 @@ class PageController extends Controller
 
     public function content($id)
     {
-        $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title', 'image')->first();
+        $data['brand'] = Brand::where('slug', $id)->where('status', '!=', 'inactive')->select('id', 'slug', 'title', 'image')->first();
         $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'brand_logo', 'header']);
         $id = json_encode($data['brand']->id);
         $data['techglossys'] = TechGlossy::whereJsonContains('brand_id', $id)->get();
@@ -266,7 +276,7 @@ class PageController extends Controller
 
     // public function brandProducts($id)
     // {
-    //     $data['brand'] = Brand::where('slug', $id)->select('id', 'slug', 'title', 'image')->first();
+    //     $data['brand'] = Brand::where('slug', $id)->where('status', '!=', 'inactive')->select('id', 'slug', 'title', 'image')->first();
     //     $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'brand_logo', 'header']);
     //     if (!empty($data['brandpage'])) {
     //         $products = Product::where('brand_id', $data['brand']->id)
