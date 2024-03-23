@@ -1,10 +1,34 @@
 @extends('admin.master')
 @section('content')
-<style>
-    .border-bottom-link{
-        cursor: pointer;
-    }
-</style>
+    <style>
+        .border-bottom-link {
+            cursor: pointer;
+        }
+
+        .title-text {
+            font-family: 'Bebas Neue';
+            font-weight: 400;
+            font-size: 25px;
+        }
+
+        .card-main-title {
+            color: #fff;
+            border-bottom: 0px solid #247297;
+            background: #247297;
+        }
+
+        .task-calander {
+            background-color: #e2d1e3;
+            color: #ae0a46;
+        }
+
+        .time-left-count {
+            background-color: #ae0a461c;
+            color: #ae0a46;
+            font-weight: bold;
+            padding: 4px 8px;
+        }
+    </style>
     <div class="content-wrapper">
         <div class="content p-0">
             <!-- Page header -->
@@ -67,6 +91,7 @@
             </div>
             <!-- Sales Chain Page -->
             <div class="content pt-2">
+
                 <div class="container-fluid ">
                     <div class="row">
                         <div class="col-lg-6 offset-lg-3">
@@ -74,50 +99,280 @@
                         </div>
                     </div>
                     <!-- Row End -->
+
+                </div>
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-4">
-                            <h6 class="m-0 p-1 text-center card-main-title">Attendance Details</h6>
-                            <a href="{{ route('employee.index') }}">
-                                <div class="card rounded-0" style="height: 175px; overflow-x: hidden;">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-4">
-                                                <div class="emplpyee-card">
-                                                    <div class="d-flex justify-content-between align-items-center pb-3">
-                                                        <h6 class="m-0"><i
-                                                                class="fa-solid fa-user-group badge-icons me-3"></i>
-                                                        </h6>
-                                                        <h6 class="main_color m-0 ammount rounded-1">
-                                                            {{ App\Models\User::count() }}
-                                                        </h6>
-                                                    </div>
-                                                    <div class="">
-                                                        <h6 class="text-muted m-0 text-center pt-3">Total Employees</h6>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div>
+                                        <h6 class="m-0 p-1 text-center card-main-title mb-2 text-black"
+                                            style="background-color: #f3f3f3 !important;">Attendance Details</h6>
+                                    </div>
+                                    {{-- Attendance Info --}}
+                                    <div class="row gx-1">
+                                        <div class="col-lg-6">
+                                            <div class="card rounded-0" style="height: 10.6rem; background-color: #f3f3ff;">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between align-items-center px-4"
+                                                        style="height: 9rem;">
+                                                        <h1 class="title-text mb-0">Total Employees</h1>
+                                                        <h1 class="title-text mb-0 main_color">25</h1>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-8">
-                                                <div class="emplpyee-card">
-                                                    <div class="mb-4">
-                                                        <div class="d-flex justify-content-between align-items-center pb-1">
-                                                            <h6 class="m-0"><i
-                                                                    class="fa-solid fa-user-check badge-icons me-2"></i>
-                                                            </h6>
-                                                            <h6 class="text-muted m-0">Present Employees</h6>
-                                                            <h6 class="main_color m-0 ammount rounded-1">
-                                                                {{ count($attendanceData) }}
-                                                            </h6>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="card rounded-0 mb-1" style="background-color: #e7fff2;">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h1 class="title-text mb-0">Present</h1>
+                                                        <h1 class="title-text mb-0 main_color">25</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card rounded-0" style="background-color: #ffe6f1;">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h1 class="title-text mb-0">Absent</h1>
+                                                        <h1 class="title-text mb-0 main_color">25</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    {{-- Leave Info --}}
+                                    <div>
+                                        <h6 class="m-0 p-1 text-center card-main-title mb-2 text-black"
+                                            style="background-color: #f3f3f3 !important;">Leave Details</h6>
+                                    </div>
+                                    {{-- Attendance Info --}}
+                                    <div class="row gx-1">
+                                        <div class="col-lg-6">
+                                            <div class="card rounded-0" style="height: 10.6rem; background-color: #f3f3ff;">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between align-items-center px-4"
+                                                        style="height: 9rem;">
+                                                        <h1 class="title-text mb-0">Total Leave</h1>
+                                                        <h1 class="title-text mb-0">24</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="card rounded-0 mb-0 p-2 "
+                                                style="background-color: #e7fff2; padding: 20px !important;">
+                                                <div class="card-body py-0 bg-white mb-1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="mb-0">Sick Leave</p>
+                                                        <p class="mb-0 title-text main_color">25</p>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body py-0 bg-white mb-1">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="mb-0">Sick Leave</p>
+                                                        <p class="mb-0 title-text main_color">25</p>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body py-0 bg-white">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="mb-0">Sick Leave</p>
+                                                        <p class="mb-0 title-text main_color">25</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div>
+                                        <h6 class="m-0 p-1 text-center card-main-title mb-2 text-black"
+                                            style="background-color: #f3f3f3 !important;">Today's Attendance</h6>
+                                    </div>
+                                    <div class="card border-0 rounded-0"
+                                        style="height: 10.6rem; background-color: #f3f3ff;">
+                                        <div class="card-body p-0">
+                                            <div class="table-responsive">
+                                                <div class="table-responsive">
+                                                    <table class="table text-center table-border table-striped"
+                                                        style="background-color: #f2f3ff !important;">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">SL</th>
+                                                                <th scope="col">User Name</th>
+                                                                <th scope="col">Check In Time</th>
+                                                                <th scope="col">Check Out Time</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($attendanceData as $userId => $times)
+                                                                <tr class="">
+                                                                    <td scope="row">{{ $loop->iteration }}</td>
+                                                                    <td><a href="{{ route('attendance.single', $userId) }}"
+                                                                            style="text-decoration: underline;">{{ $times['user_name'] }}</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:05:00'))
+                                                                            <div
+                                                                                class="d-flex align-items-center justify-content-center">
+                                                                                <p class="text-danger me-1 m-0 p-0">
+                                                                                    {{ $times['check_in'] }}</p>
+                                                                                @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:05:00') &&
+                                                                                        Carbon\Carbon::parse($times['check_in']) < Carbon\Carbon::parse('10:05:00'))
+                                                                                    <p class="text-danger m-0 p-0">L</p>
+                                                                                @endif
+
+                                                                                @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('10:05:00'))
+                                                                                    <p class="text-danger m-0 p-0">Half Day
+                                                                                        (LL)
+                                                                                    </p>
+                                                                                @endif
+                                                                            </div>
+                                                                        @else
+                                                                            <a href="{{ route('attendance.single', $userId) }}"
+                                                                                class="border-bottom-link">{{ $times['check_in'] }}</a>
+                                                                        @endif
+                                                                    </td>
+                                                                    <td>{{ $times['check_out'] }}</td>
+                                                                </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    {{-- Leave Info --}}
+                                    <div>
+                                        <h6 class="m-0 p-1 text-center card-main-title mb-2 text-black"
+                                            style="background-color: #f3f3f3 !important;">Evulation & KPI</h6>
+                                    </div>
+                                    {{-- Attendance Info --}}
+                                    <div class="row gx-1">
+                                        <div class="col-lg-6">
+                                            <div class="card border-0 rounded-0"
+                                                style="height: 20.3rem;
+                                        background-color: #f3f3ff;
+                                        overflow: auto;">
+                                                <div class="card-header py-2 bg-white m-2 rounded-0 text-center">
+                                                    KPI Details
+                                                </div>
+                                                <div class="card-body py-1">
+                                                    <div class="d-flex justify-content-around align-items-center">
+                                                        <div>
+                                                            <img class="rounded-circle" width="60px" height="60px"
+                                                                src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg"
+                                                                alt="">
+                                                        </div>
+                                                        <div>
+                                                            <p class="mb-0">Sazeduzzaman</p>
+                                                            <div class="d-flex">
+                                                                <p class="mb-0 pe-2"><i
+                                                                        class="fa-solid fa-arrow-trend-up"></i></p>
+                                                                <p class="mb-0">42,056 BDT</p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div>
-                                                        <div class="d-flex justify-content-between align-items-center">
-                                                            <h6 class="m-0"><i
-                                                                    class="fa-solid fa-user-slash badge-icons me-2"></i>
-                                                            </h6>
-                                                            <h6 class="text-muted m-0">Absent Employees</h6>
-                                                            <h6 class="main_color m-0 ammount rounded-1">
-                                                                {{ App\Models\User::count() - count($attendanceData) - 1 }}
-                                                            </h6>
+                                                </div>
+                                                <div class="card-body py-1">
+                                                    <div class="d-flex justify-content-around align-items-center">
+                                                        <div>
+                                                            <img class="rounded-circle" width="60px" height="60px"
+                                                                src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg"
+                                                                alt="">
+                                                        </div>
+                                                        <div>
+                                                            <p class="mb-0">Sazeduzzaman</p>
+                                                            <div class="d-flex">
+                                                                <p class="mb-0 pe-2"><i
+                                                                        class="fa-solid fa-arrow-trend-up"></i></p>
+                                                                <p class="mb-0">42,056 BDT</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body py-1">
+                                                    <div class="d-flex justify-content-around align-items-center">
+                                                        <div>
+                                                            <img class="rounded-circle" width="60px" height="60px"
+                                                                src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg"
+                                                                alt="">
+                                                        </div>
+                                                        <div>
+                                                            <p class="mb-0">Sazeduzzaman</p>
+                                                            <div class="d-flex">
+                                                                <p class="mb-0 pe-2"><i
+                                                                        class="fa-solid fa-arrow-trend-up"></i></p>
+                                                                <p class="mb-0">42,056 BDT</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="card border-0 rounded-0"
+                                                style="height: 20.3rem;
+                                                background-color: #f3f3ff;
+                                                overflow: auto;">
+                                                <div class="card-header py-2 bg-white m-2 rounded-0 text-center">
+                                                    Pending Evaluation
+                                                </div>
+                                                <div class="card-body py-1">
+                                                    <div class="d-flex justify-content-around align-items-center">
+                                                        <div>
+                                                            <img class="rounded-circle" width="60px" height="60px"
+                                                                src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg"
+                                                                alt="">
+                                                        </div>
+                                                        <div>
+                                                            <p class="mb-0">Sazeduzzaman</p>
+                                                            <div class="d-flex">
+                                                                <p class="mb-0 pe-2"><i
+                                                                        class="fa-solid fa-arrow-trend-up"></i></p>
+                                                                <p class="mb-0">42,056 BDT</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body py-1">
+                                                    <div class="d-flex justify-content-around align-items-center">
+                                                        <div>
+                                                            <img class="rounded-circle" width="60px" height="60px"
+                                                                src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg"
+                                                                alt="">
+                                                        </div>
+                                                        <div>
+                                                            <p class="mb-0">Sazeduzzaman</p>
+                                                            <div class="d-flex">
+                                                                <p class="mb-0 pe-2"><i
+                                                                        class="fa-solid fa-arrow-trend-up"></i></p>
+                                                                <p class="mb-0">42,056 BDT</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body py-1">
+                                                    <div class="d-flex justify-content-around align-items-center">
+                                                        <div>
+                                                            <img class="rounded-circle" width="60px" height="60px"
+                                                                src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg"
+                                                                alt="">
+                                                        </div>
+                                                        <div>
+                                                            <p class="mb-0">Sazeduzzaman</p>
+                                                            <div class="d-flex">
+                                                                <p class="mb-0 pe-2"><i
+                                                                        class="fa-solid fa-arrow-trend-up"></i></p>
+                                                                <p class="mb-0">42,056 BDT</p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -125,74 +380,299 @@
                                         </div>
                                     </div>
                                 </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4">
-                            <h6 class="m-0 p-1 text-center card-main-title">Today's Attendance</h6>
-                            <div class="card rounded-0">
-                                <div class="card-body" style="height: 11.5em;
-                                overflow: auto;">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-12">
-                                            <div class="emplpyee-card">
-                                                <table
-                                                    class="table datatable-scroll-y data_user border text-center"
-                                                    width="100%">
-                                                    <tr>
-                                                        <th>User Name</th>
-                                                        <th>Check-In Time</th>
-                                                        <th>Check-Out Time</th>
-                                                    </tr>
-                                                    @foreach ($attendanceData as $userId => $times)
-                                                        <tr class="text-center" class="clickable-row"
-                                                            onclick="window.location='{{ route('attendance.single', $userId) }}'">
-                                                            {{-- <td><span class="border-bottom-link">{{ $userId }}</span></td> --}}
-                                                            <td>
-                                                                <a href="{{ route('attendance.single', $userId) }}" class="border-bottom-link">{{ $times['user_name'] }}</a>
-                                                            </td>
-                                                            <td onclick="window.location='{{ route('attendance.single', $userId) }}'">
-                                                                @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:05:00'))
-                                                                    <div
-                                                                        class="d-flex align-items-center justify-content-center">
-                                                                        <p class="text-danger me-1 m-0 p-0">
-                                                                            {{ $times['check_in'] }}</p>
-                                                                        @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:05:00') &&
-                                                                                Carbon\Carbon::parse($times['check_in']) < Carbon\Carbon::parse('10:05:00'))
-                                                                            <p class="text-danger m-0 p-0">L</p>
-                                                                        @endif
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div>
+                                        <h6 class="m-0 p-1 text-center card-main-title mb-2 text-black"
+                                            style="background-color: #f3f3f3 !important;">All Task</h6>
+                                    </div>
+                                    <div class="card rounded-0"
+                                        style="height: 22.2rem; overflow: auto;background: #f3f3ff;">
+                                        <div class="card-body">
+                                            <ul class="ms-0 ps-0" style="list-style-type: none">
+                                                <li class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="pe-3">
 
-                                                                        @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('10:05:00'))
-                                                                            <p class="text-danger m-0 p-0">Half Day
-                                                                                (LL)
-                                                                            </p>
-                                                                        @endif
-                                                                    </div>
-                                                                @else
-                                                                    <a href="{{ route('attendance.single', $userId) }}"
-                                                                        class="border-bottom-link">{{ $times['check_in'] }}</a>
-                                                                @endif
+                                                            <i class="fa-solid fa-check badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                New project created : <a href="#">[NGen IT Admin]</a>
+                                                            </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                        font-weight: 600;
+                                                        color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-muted ps-1 pe-1"> - </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pe-3">
+                                                        <i class="fa-solid fa-check dash-icons"></i>
+                                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                                    </div>
+                                                </li>
+                                                <li style="padding-left: 14px">|</li>
+                                                <li class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="pe-3">
 
-                                                            </td>
-                                                            <td><a href="{{ route('attendance.single', $userId) }}"
-                                                                    class="border-bottom-link">{{ $times['check_out'] }}</a>
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-                                                </table>
-                                            </div>
+                                                            <i class="fa-solid fa-check badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                New project created : <a href="#">[NGen IT Admin]</a>
+                                                            </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                        font-weight: 600;
+                                                        color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-muted ps-1 pe-1"> - </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pe-3">
+                                                        <i class="fa-solid fa-check dash-icons"></i>
+                                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                                    </div>
+                                                </li>
+                                                <li style="padding-left: 14px">|</li>
+                                                <li class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="pe-3">
+
+                                                            <i class="fa-solid fa-check badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                New project created : <a href="#">[NGen IT Admin]</a>
+                                                            </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                        font-weight: 600;
+                                                        color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-muted ps-1 pe-1"> - </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pe-3">
+                                                        <i class="fa-solid fa-check dash-icons"></i>
+                                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                                    </div>
+                                                </li>
+                                                <li style="padding-left: 14px">|</li>
+                                                <li class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="pe-3">
+
+                                                            <i class="fa-solid fa-check badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                New project created : <a href="#">[NGen IT Admin]</a>
+                                                            </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                        font-weight: 600;
+                                                        color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-muted ps-1 pe-1"> - </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pe-3">
+                                                        <i class="fa-solid fa-check dash-icons"></i>
+                                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                                    </div>
+                                                </li>
+                                                <li style="padding-left: 14px">|</li>
+                                                <li class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="pe-3">
+
+                                                            <i class="fa-solid fa-check badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                New project created : <a href="#">[NGen IT Admin]</a>
+                                                            </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                        font-weight: 600;
+                                                        color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-muted ps-1 pe-1"> - </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pe-3">
+                                                        <i class="fa-solid fa-check dash-icons"></i>
+                                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <h6 class="m-0 p-1 text-center card-main-title">All Notification
+                            <h6 class="m-0 p-1 text-center card-main-title mb-2 text-black"
+                                style="background-color: #f3f3f3 !important;">All Notification
                             </h6>
                             <div class="card rounded-0">
-                                <div class="card-body" style="height: 11.5em;
-                                overflow: auto;">
+                                <div class="card-body" style="height: 16rem; overflow: auto; background-color: #f3f3f3;">
                                     <div class="">
-
                                         @if ($leave_applications->count() > 0)
                                             @foreach ($leave_applications as $leave_application)
                                                 @if ($leave_application->status === 'pending')
@@ -214,324 +694,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-lg-3 mt-3">
-                            <h6 class="m-0 p-1 text-center card-main-title">
-                                <div class="d-flex justify-content-between align-items-center px-3">
-                                    <p class="p-0 m-0">Evulation & KPI</p>
-                                    <div class="dropdown dropstart border-0 nav nav-tabs" id="myTab" role="tablist">
-                                        <a href="javascript:void()" class="text-white" id="triggerId"
-                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fa-solid fa-ellipsis"></i>
-                                        </a>
-                                        <div class="dropdown-menu border-0" aria-labelledby="triggerId">
-                                            <button class="dropdown-item" id="home-tab" data-bs-toggle="tab"
-                                                data-bs-target="#home" type="button" role="tab"
-                                                aria-controls="home" aria-selected="true">Probation</button>
-                                            <button class="dropdown-item" id="profile-tab" data-bs-toggle="tab"
-                                                data-bs-target="#profile" type="button" role="tab"
-                                                aria-controls="profile" aria-selected="false">Permanent</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </h6>
-                            <div class="card rounded-0" style="height: 22.2rem; overflow: auto;">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div
-                                                style=" border-left: 1px !important;  border-top: 0; border-style: dashed;border-color: #247297;border-bottom: 0;">
-                                                <div class="pb-2">
-                                                    <a href="" class="btn navigation_btn w-100">KPI Details</a>
-                                                </div>
-                                                <a href="{{ route('employee.index') }}">
-                                                    <ul class="ms-0 ps-0" style="list-style-type: none">
-                                                        <li class="d-flex align-items-center">
-                                                            <div class="pe-3">
-                                                                {{-- <i class="fa-solid fa-award main_color "></i> --}}
-                                                                <i class="fa-solid fa-user-tie badge-icons"></i>
-                                                            </div>
-                                                            <div>
-                                                                <h6 class="p-0 m-0"
-                                                                    style="font-size: 14px;color: #3b3f5c">
-                                                                    Sazeduzzaman </h6>
-                                                                <p class="p-0 m-0"
-                                                                    style="font-size: 12px; font-weight: 600; color: #888ea8">
-                                                                    <i
-                                                                        class="fa-solid fa-arrow-trend-up text-success pe-2"></i>
-                                                                    4,447 <i
-                                                                        class="fa-solid fa-bangladeshi-taka-sign ps-2"></i>
-                                                                </p>
-                                                            </div>
-                                                        </li>
-                                                        <li style="padding-left: 14px">|</li>
-                                                        <li class="d-flex align-items-center">
-                                                            <div class="pe-3">
-                                                                <i class="fa-solid fa-user-tie badge-icons"></i>
-                                                            </div>
-                                                            <div>
-                                                                <h6 class="p-0 m-0"
-                                                                    style="font-size: 14px;color: #3b3f5c">
-                                                                    Sazeduzzaman </h6>
-                                                                <p class="p-0 m-0"
-                                                                    style="font-size: 12px; font-weight: 600; color: #888ea8">
-                                                                    <i
-                                                                        class="fa-solid fa-arrow-trend-down text-danger pe-2"></i>
-                                                                    4,447 <i
-                                                                        class="fa-solid fa-bangladeshi-taka-sign ps-2"></i>
-                                                                </p>
-                                                            </div>
-                                                        </li>
-                                                        <li style="padding-left: 14px">|</li>
-                                                        <li class="d-flex align-items-center">
-                                                            <div class="pe-3">
-                                                                <i class="fa-solid fa-user-tie badge-icons"></i>
-                                                            </div>
-                                                            <div>
-                                                                <h6 class="p-0 m-0"
-                                                                    style="font-size: 14px;color: #3b3f5c">
-                                                                    Nahid Molla </h6>
-                                                                <p class="p-0 m-0"
-                                                                    style="font-size: 12px; font-weight: 600; color: #888ea8">
-                                                                    <i
-                                                                        class="fa-solid fa-arrow-trend-down text-danger pe-2"></i>
-                                                                    4,447 <i
-                                                                        class="fa-solid fa-bangladeshi-taka-sign ps-2"></i>
-                                                                </p>
-                                                            </div>
-                                                        </li>
-                                                        <li style="padding-left: 14px">|</li>
-                                                        <li class="d-flex align-items-center">
-                                                            <div class="pe-3">
-                                                                <i class="fa-solid fa-user-tie badge-icons"></i>
-                                                            </div>
-                                                            <div>
-                                                                <h6 class="p-0 m-0"
-                                                                    style="font-size: 14px;color: #3b3f5c">
-                                                                    Sagor Hassan </h6>
-                                                                <p class="p-0 m-0"
-                                                                    style="font-size: 12px; font-weight: 600; color: #888ea8">
-                                                                    <i
-                                                                        class="fa-solid fa-arrow-trend-up text-success pe-2"></i>
-                                                                    4,447 <i
-                                                                        class="fa-solid fa-bangladeshi-taka-sign ps-2"></i>
-                                                                </p>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="pb-2">
-                                                <a href="" class="btn navigation_btn w-100">Pending Evulation</a>
-                                            </div>
-                                            <a href="{{ route('employee.index') }}">
-                                                <ul class="ms-0 ps-0" style="list-style-type: none">
-                                                    <li class="d-flex align-items-center">
-                                                        <div class="pe-3">
-                                                            {{-- <i class="fa-solid fa-award main_color "></i> --}}
-                                                            <img class="rounded-circle"
-                                                                src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
-                                                                width="30px" height="30px" alt="">
-                                                        </div>
-                                                        <div>
-                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                                Sazeduzzaman </h6>
-                                                            <p class="p-0 m-0"
-                                                                style="font-size: 12px;
-                                                        font-weight: 600;
-                                                        color: #888ea8">
-                                                                07 May, 2022</p>
-                                                        </div>
-                                                    </li>
-                                                    <li style="padding-left: 14px">|</li>
-                                                    <li class="d-flex align-items-center">
-                                                        <div class="pe-3">
-                                                            <img class="rounded-circle"
-                                                                src="https://a.storyblok.com/f/191576/1200x800/faa88c639f/round_profil_picture_before_.webp"
-                                                                width="30px" height="30px" alt="">
-                                                        </div>
-                                                        <div>
-                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                                Sazeduzzaman </h6>
-                                                            <p class="p-0 m-0"
-                                                                style="font-size: 12px;
-                                                        font-weight: 600;
-                                                        color: #888ea8">
-                                                                07 May, 2022</p>
-                                                        </div>
-                                                    </li>
-                                                    <li style="padding-left: 14px">|</li>
-                                                    <li class="d-flex align-items-center">
-                                                        <div class="pe-3">
-                                                            <img class="rounded-circle"
-                                                                src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
-                                                                width="30px" height="30px" alt="">
-                                                        </div>
-                                                        <div>
-                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                                Nahid Molla </h6>
-                                                            <p class="p-0 m-0"
-                                                                style="font-size: 12px;
-                                                        font-weight: 600;
-                                                        color: #888ea8">
-                                                                07 May, 2022</p>
-                                                        </div>
-                                                    </li>
-                                                    <li style="padding-left: 14px">|</li>
-                                                    <li class="d-flex align-items-center">
-                                                        <div class="pe-3">
-                                                            <img class="rounded-circle"
-                                                                src="https://a.storyblok.com/f/191576/1200x800/faa88c639f/round_profil_picture_before_.webp"
-                                                                width="30px" height="30px" alt="">
-                                                        </div>
-                                                        <div>
-                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                                Sagor Hassan </h6>
-                                                            <p class="p-0 m-0"
-                                                                style="font-size: 12px;
-                                                        font-weight: 600;
-                                                        color: #888ea8">
-                                                                07 May, 2022</p>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 mt-3">
-                            <h6 class="m-0 p-1 text-center card-main-title">All Tasks
-                            </h6>
-                            <div class="card rounded-0" style="height: 25.4rem; overflow: auto;">
-                                <div class="card-body">
-                                    <ul class="ms-0 ps-0" style="list-style-type: none">
-                                        <li class="d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <div class="pe-3">
-                                                    {{-- <i class="fa-solid fa-award main_color "></i> --}}
-                                                    <i class="fa-solid fa-check badge-icons"></i>
-                                                </div>
-                                                <div>
-                                                    <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                        New project created : <a href="#">[NGen IT Admin]</a> </h6>
-                                                    <p class="p-0 m-0"
-                                                        style="font-size: 12px;
-                                                font-weight: 600;
-                                                color: #888ea8">
-                                                        07 May, 2022</p>
-                                                </div>
-                                            </div>
-                                            <div class="pe-3">
-                                                {{-- <i class="fa-solid fa-award main_color "></i> --}}
-                                                <i class="fa-solid fa-check dash-icons"></i>
-                                                <i class="fa-solid fa-tower-observation dash-icons"></i>
-                                            </div>
-                                        </li>
-                                        <li style="padding-left: 14px">|</li>
-                                        <li class="d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <div class="pe-3">
-                                                    {{-- <i class="fa-solid fa-award main_color "></i> --}}
-                                                    <i class="fa-solid fa-check badge-icons"></i>
-                                                </div>
-                                                <div>
-                                                    <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                        Mail sent to HR and Admin</h6>
-                                                    <p class="p-0 m-0"
-                                                        style="font-size: 12px;
-                                                font-weight: 600;
-                                                color: #888ea8">
-                                                        07 May, 2022</p>
-                                                </div>
-                                            </div>
-                                            <div class="pe-3">
-                                                {{-- <i class="fa-solid fa-award main_color "></i> --}}
-                                                <i class="fa-solid fa-check dash-icons"></i>
-                                                <i class="fa-solid fa-tower-observation dash-icons"></i>
-                                            </div>
-                                        </li>
-                                        <li style="padding-left: 14px">|</li>
-                                        <li class="d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <div class="pe-3">
-                                                    {{-- <i class="fa-solid fa-award main_color "></i> --}}
-                                                    <i class="fa-solid fa-check badge-icons"></i>
-                                                </div>
-                                                <div>
-                                                    <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                        Mail sent to HR and Admin</h6>
-                                                    <p class="p-0 m-0"
-                                                        style="font-size: 12px;
-                                                font-weight: 600;
-                                                color: #888ea8">
-                                                        07 May, 2022</p>
-                                                </div>
-                                            </div>
-                                            <div class="pe-3">
-                                                {{-- <i class="fa-solid fa-award main_color "></i> --}}
-                                                <i class="fa-solid fa-check dash-icons"></i>
-                                                <i class="fa-solid fa-tower-observation dash-icons"></i>
-                                            </div>
-                                        </li>
-                                        <li style="padding-left: 14px">|</li>
-                                        <li class="d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <div class="pe-3">
-                                                    {{-- <i class="fa-solid fa-award main_color "></i> --}}
-                                                    <i class="fa-solid fa-check badge-icons"></i>
-                                                </div>
-                                                <div>
-                                                    <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                        Mail sent to HR and Admin</h6>
-                                                    <p class="p-0 m-0"
-                                                        style="font-size: 12px;
-                                                font-weight: 600;
-                                                color: #888ea8">
-                                                        07 May, 2022</p>
-                                                </div>
-                                            </div>
-                                            <div class="pe-3">
-                                                {{-- <i class="fa-solid fa-award main_color "></i> --}}
-                                                <i class="fa-solid fa-check dash-icons"></i>
-                                                <i class="fa-solid fa-tower-observation dash-icons"></i>
-                                            </div>
-                                        </li>
-                                        <li style="padding-left: 14px">|</li>
-                                        <li class="d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <div class="pe-3">
-                                                    {{-- <i class="fa-solid fa-award main_color "></i> --}}
-                                                    <i class="fa-solid fa-check badge-icons"></i>
-                                                </div>
-                                                <div>
-                                                    <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                        Mail sent to HR and Admin</h6>
-                                                    <p class="p-0 m-0"
-                                                        style="font-size: 12px;
-                                                font-weight: 600;
-                                                color: #888ea8">
-                                                        07 May, 2022</p>
-                                                </div>
-                                            </div>
-                                            <div class="pe-3">
-                                                {{-- <i class="fa-solid fa-award main_color "></i> --}}
-                                                <i class="fa-solid fa-check dash-icons"></i>
-                                                <i class="fa-solid fa-tower-observation dash-icons"></i>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 mt-3">
-                            <h6 class="m-0 p-1 text-center card-main-title">All Events Of This Month</h6>
-                            <div class="card rounded-0" style="height: 25.4rem; overflow: auto;">
+                            <h6 class="m-0 p-1 text-center card-main-title mb-2 text-black"
+                                style="background-color: #f3f3f3 !important;">All Events Of This Month</h6>
+                            <div class="card rounded-0" style="height: 17.6rem; overflow: auto;">
                                 <div class="card-body p-0">
                                     <div class="row align-items-center text-center">
                                         <div class="col-lg-6">
@@ -580,132 +745,158 @@
                                     </div>
                                 </div>
                             </div>
-                            <h6 class="m-0 p-1 text-center card-main-title">Leave Info</h6>
-                            <a href="{{ route('employee.index') }}">
-                                <div class="card rounded-0">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-6">
-                                                <div class="emplpyee-card">
-                                                    <div class="d-flex justify-content-between align-items-center pb-3">
-                                                        <h6 class="m-0"><i
-                                                                class="fa-solid fa-right-from-bracket badge-icons"></i>
+                            <div class="card" style="height: 22.2rem; overflow: auto;">
+                                <div class="card-header p-1" style="background-color: #f2f3ff">
+                                    <h4 class="m-0 text-center">Notice</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <ul class="ms-0 ps-0" style="list-style-type: none">
+                                            <li class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="pe-3">
+                                                        <i class="fa-regular fa-message badge-icons"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                            <a
+                                                                href="http://127.0.0.1:8000/admin/noticeboard">gvgdsdsvhdvds</a>
                                                         </h6>
-                                                        <h6 class="main_color m-0 ammount rounded-1">14</h6>
-                                                    </div>
-                                                    <div class="pt-4">
-                                                        <h6 class="text-muted m-0 text-center">Pending Monthly Leave</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="emplpyee-card">
-                                                    <div>
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-center pb-1">
-                                                            <p class="m-0"><i
-                                                                    class="fa-solid fa-bed-pulse badge-icons me-1"></i>
-                                                            </p>
-                                                            <p class="text-muted m-0">Sick Leave</p>
-                                                            <p class="main_color m-0 ammount rounded-1">
-                                                                {{ count($attendanceData) }}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-center pb-1">
-                                                            <p class="m-0">
-                                                                <i
-                                                                    class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
-                                                            </p>
-                                                            <p class="text-muted m-0">Earned Leave</p>
-                                                            <p class="main_color m-0 ammount rounded-1">
-                                                                {{ 11 - count($attendanceData) }}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div class="d-flex justify-content-between align-items-center ">
-                                                            <p class="m-0"><i
-                                                                    class="fa-solid fa-right-from-bracket badge-icons me-1"></i>
-                                                            </p>
-                                                            <p class="text-muted m-0">Casual Leave</p>
-                                                            <p class="main_color m-0 ammount rounded-1">
-                                                                {{ 11 - count($attendanceData) }}</p>
-                                                        </div>
+                                                        <p class="p-0 m-0"
+                                                            style="font-size: 12px; font-weight: 600; color: #888ea8">07
+                                                            May,
+                                                            2022</p>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 mt-3">
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div class="tab-pane" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                    <h6 class="m-0 p-1 text-center card-main-title">
-                                        Employee In Probation
-                                    </h6>
-                                    <div class="card rounded-0">
-                                        <div class="card-body p-1">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped table-hover text-center"
-                                                    style="width: 100%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">Name</th>
-                                                            <th scope="col">Start</th>
-                                                            <th scope="col">End</th>
-                                                            <th scope="col">Next Evulation</th>
-                                                            <th scope="col">Status</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr class="">
-                                                            <td scope="row">Sazeduzaman</td>
-                                                            <td>01 March 2023</td>
-                                                            <td>01 August 2023</td>
-                                                            <td>01 December 2023</td>
-                                                            <td>Probation</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                    <h6 class="m-0 p-1 text-center card-main-title">All
-                                        Employee In Parmanent
-                                    </h6>
-                                    <div class="card rounded-0">
-                                        <div class="card-body p-1">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped table-hover text-center"
-                                                    style="width: 100%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">Name</th>
-                                                            <th scope="col">Start</th>
-                                                            <th scope="col">End</th>
-                                                            <th scope="col">Next Evulation</th>
-                                                            <th scope="col">Status</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr class="">
-                                                            <td scope="row">Sazeduzaman</td>
-                                                            <td>01 March 2023</td>
-                                                            <td>01 August 2023</td>
-                                                            <td>01 December 2023</td>
-                                                            <td>Probation</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
+                                                <div class="pe-3 notification" id="notification0">
+                                                    <i class="fa-solid fa-envelope-open-text dash-icons envelope"
+                                                        data-id="0"></i>
+                                                    <i class="fa-regular fa-check-circle dash-icons check-circle"
+                                                        data-id="0"></i>
+                                                </div>
+                                            </li>
+                                            <li style="padding-left: 14px">|</li>
+                                            <li class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="pe-3">
+                                                        <i class="fa-regular fa-message badge-icons"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                            <a href="http://127.0.0.1:8000/admin/noticeboard">Do not
+                                                                reply</a>
+                                                        </h6>
+                                                        <p class="p-0 m-0"
+                                                            style="font-size: 12px; font-weight: 600; color: #888ea8">07
+                                                            May,
+                                                            2022</p>
+                                                    </div>
+                                                </div>
+                                                <div class="pe-3 notification" id="notification1">
+                                                    <i class="fa-solid fa-envelope-open-text dash-icons envelope"
+                                                        data-id="1"></i>
+                                                    <i class="fa-regular fa-check-circle dash-icons check-circle"
+                                                        data-id="1"></i>
+                                                </div>
+                                            </li>
+                                            <li style="padding-left: 14px">|</li>
+                                            <li class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="pe-3">
+                                                        <i class="fa-regular fa-message badge-icons"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                            <a href="http://127.0.0.1:8000/admin/noticeboard">Do not Reply
+                                                                (Testing Purpose)</a>
+                                                        </h6>
+                                                        <p class="p-0 m-0"
+                                                            style="font-size: 12px; font-weight: 600; color: #888ea8">07
+                                                            May,
+                                                            2022</p>
+                                                    </div>
+                                                </div>
+                                                <div class="pe-3 notification" id="notification2">
+                                                    <i class="fa-solid fa-envelope-open-text dash-icons envelope"
+                                                        data-id="2"></i>
+                                                    <i class="fa-regular fa-check-circle dash-icons check-circle"
+                                                        data-id="2"></i>
+                                                </div>
+                                            </li>
+                                            <li style="padding-left: 14px">|</li>
+                                            <li class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="pe-3">
+                                                        <i class="fa-regular fa-message badge-icons"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                            <a href="http://127.0.0.1:8000/admin/noticeboard">Do not Reply
+                                                                (Testing Purpose)</a>
+                                                        </h6>
+                                                        <p class="p-0 m-0"
+                                                            style="font-size: 12px; font-weight: 600; color: #888ea8">07
+                                                            May,
+                                                            2022</p>
+                                                    </div>
+                                                </div>
+                                                <div class="pe-3 notification" id="notification3">
+                                                    <i class="fa-solid fa-envelope-open-text dash-icons envelope"
+                                                        data-id="3"></i>
+                                                    <i class="fa-regular fa-check-circle dash-icons check-circle"
+                                                        data-id="3"></i>
+                                                </div>
+                                            </li>
+                                            <li style="padding-left: 14px">|</li>
+                                            <li class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="pe-3">
+                                                        <i class="fa-regular fa-message badge-icons"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                            <a href="http://127.0.0.1:8000/admin/noticeboard">Do not Reply
+                                                                (Testing Purpose)</a>
+                                                        </h6>
+                                                        <p class="p-0 m-0"
+                                                            style="font-size: 12px; font-weight: 600; color: #888ea8">07
+                                                            May,
+                                                            2022</p>
+                                                    </div>
+                                                </div>
+                                                <div class="pe-3 notification" id="notification4">
+                                                    <i class="fa-solid fa-envelope-open-text dash-icons envelope"
+                                                        data-id="4"></i>
+                                                    <i class="fa-regular fa-check-circle dash-icons check-circle"
+                                                        data-id="4"></i>
+                                                </div>
+                                            </li>
+                                            <li style="padding-left: 14px">|</li>
+                                            <li class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="pe-3">
+                                                        <i class="fa-regular fa-message badge-icons"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                            <a href="http://127.0.0.1:8000/admin/noticeboard">Meeting
+                                                                Notice</a>
+                                                        </h6>
+                                                        <p class="p-0 m-0"
+                                                            style="font-size: 12px; font-weight: 600; color: #888ea8">07
+                                                            May,
+                                                            2022</p>
+                                                    </div>
+                                                </div>
+                                                <div class="pe-3 notification" id="notification5">
+                                                    <i class="fa-solid fa-envelope-open-text dash-icons envelope"
+                                                        data-id="5"></i>
+                                                    <i class="fa-regular fa-check-circle dash-icons check-circle"
+                                                        data-id="5"></i>
+                                                </div>
+                                            </li>
+                                            <li style="padding-left: 14px">|</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
