@@ -246,14 +246,13 @@
                                                         </td>
                                                         <td class="text-center">
                                                             <a href="javascript:void(0);" class="text-primary"
-                                                                data-bs-toggle="modal" data-bs-target="#makeleaveEdit">
+                                                                data-bs-toggle="modal" data-bs-target="#makeleaveEdit-{{$leaveApplication->id}}">
                                                                 <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-white"
                                                                     style="color: #247297 !important;"></i>
                                                             </a>
-                                                            <a href="javascript:void(0);" href=""
+                                                            <a href="{{ route('leave-application.destroy',$leaveApplication->id) }}"
                                                                 class="text-danger delete">
-                                                                <i
-                                                                    class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
+                                                                <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
                                                             </a>
                                                         </td>
                                                     </tr>

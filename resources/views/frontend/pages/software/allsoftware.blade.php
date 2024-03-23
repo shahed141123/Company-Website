@@ -463,30 +463,30 @@
                                     <!-- Tabs nav -->
                                     <div class="nav flex-column nav-pills nav-pills-custom bg-white" id="v-pills-tab"
                                         role="tablist" aria-orientation="vertical">
-                                        @foreach ($solutions as $solkey => $item)
+                                        @foreach ($solutions as $solkey => $solution)
                                             @php
-                                                $solution_products = $item->solutionsoftwareProducts; // Eager load the associated products with product_status and product_type filters applied
+                                                $solution_products = $solution->solutionsoftwareProducts; // Eager load the associated products with product_status and product_type filters applied
                                                 $solution_product_count = count($solution_products);
                                             @endphp
-
-
-                                            <a class="nav-link discover_tab_sub rounded-0 {{ $solkey === 0 ? 'active' : '' }}"
-                                                id="v-pills-home-tab" data-toggle="pill"
-                                                href="#solution-{{ $item->id }}" role="tab"
-                                                aria-controls="v-pills-home" aria-selected="true">
-                                                <span
-                                                    class="font-weight-bold small text-uppercase">{{ $item->name }}</span>
-                                            </a>
+                                            @if ($solution_product_count > 0)
+                                                <a class="nav-link discover_tab_sub rounded-0 {{ $solkey === 0 ? 'active' : '' }}"
+                                                    id="v-pills-home-tab" data-toggle="pill"
+                                                    href="#solution-{{ $solution->id }}" role="tab"
+                                                    aria-controls="v-pills-home" aria-selected="true">
+                                                    <span
+                                                        class="font-weight-bold small text-uppercase">{{ $solution->name }}</span>
+                                                </a>
+                                            @endif
                                         @endforeach
                                     </div>
                                 </div>
                                 <div class="col-md-9 ps-1">
                                     <!-- Tabs content -->
                                     <div class="tab-content p-0" id="v-pills-tabContent">
-                                        @foreach ($solutions as $solkey => $item)
+                                        @foreach ($solutions as $solkey => $solution)
                                             {{-- @if ($solution_product_count > 0) --}}
                                             <div class="tab-pane fade rounded-0 p-2 bg-white {{ $solkey === 0 ? 'active show' : '' }}"
-                                                id="solution-{{ $item->id }}" role="tabpanel"
+                                                id="solution-{{ $solution->id }}" role="tabpanel"
                                                 aria-labelledby="v-pills-profile-tab">
                                                 <div class="panel">
                                                     <div class="panel">
@@ -503,22 +503,22 @@
                                                                     <tbody>
 
                                                                         @if ($solution_product_count > 0)
-                                                                            @foreach ($solution_products as $key => $item)
+                                                                            @foreach ($solution->solutionsoftwareProducts as $key => $solution_product)
                                                                                 @if ($key <= 12)
                                                                                     <tr>
                                                                                         <td>{{ ++$key }}
                                                                                         </td>
                                                                                         <td class="text-left">
                                                                                             <a
-                                                                                                href="{{ route('product.details', $item->slug) }}">
-                                                                                                {{ Str::limit($item->name, 80) }}
+                                                                                                href="{{ route('product.details', $solution_product->slug) }}">
+                                                                                                {{ Str::limit($solution_product->name, 80) }}
                                                                                             </a>
                                                                                         </td>
                                                                                         <td class="text-left">
                                                                                             <small
                                                                                                 style="font-size:8px;">USD</small>
                                                                                             <strong>$
-                                                                                                {{ number_format($item->price, 2) }}</strong>
+                                                                                                {{ number_format($solution_product->price, 2) }}</strong>
                                                                                         </td>
 
                                                                                     </tr>
@@ -586,13 +586,13 @@
         <!--Tab Section-->
         <div class="container mb-5">
             <!-- home title -->
-            @if (!empty($hardware_info))
+            @if (!empty($software_info))
                 <div class="nasted_tabbar_title">
                     <div class="software_feature_title">
-                        <h1 class="text-center p-3">{{ $hardware_info->row_two_title }}</h1>
+                        <h1 class="text-center p-3">{{ $software_info->row_two_title }}</h1>
                     </div>
                     <p class="home_title_text w-75 mx-auto pb-4">
-                        {!! $hardware_info->row_two_short_description !!}
+                        {!! $software_info->row_two_short_description !!}
                     </p>
                 </div>
             @endif
@@ -656,8 +656,8 @@
                                     @php
                                         $related_brands = DB::table('brands')
                                             ->join('products', 'brands.id', '=', 'products.brand_id')
-                                            ->join('categories', 'products.cat_id', '=', 'categories.id')
-                                            ->where('categories.id', '=', $category->id)
+                                            ->join('sub_categories', 'products.sub_cat_id', '=', 'sub_categories.id')
+                                            ->where('sub_categories.id', '=', $category->id)
                                             ->select('brands.id', 'brands.title', 'brands.image', 'brands.slug')
                                             ->distinct()
                                             ->paginate(12);

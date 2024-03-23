@@ -216,7 +216,7 @@
 
 @isset($leaveApplications)
     @foreach ($leaveApplications as $leaveApplication)
-        <div class="modal fade" id="makeleaveEdit" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
+        <div class="modal fade" id="makeleaveEdit-{{$leaveApplication->id}}" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
             aria-labelledby="checkapprovedLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content rounded-0">
@@ -228,8 +228,9 @@
                         <div class="container">
                             <div class="row my-2">
                                 <div class="col-lg-12">
-                                    <form method="POST" action="{{ route('leave-application.store') }}"
+                                    <form method="POST" action="{{ route('leave-application.update',$leaveApplication->id) }}"
                                         enctype="multipart/form-data">
+                                        @method('PATCH')
                                         @csrf
                                         <div class="card rounded-0 shadow-none border-0 mb-0">
                                             <div class="card-body p-0">
@@ -424,11 +425,10 @@
                                         </div> --}}
                                                     <div class="col-lg-12">
                                                         <div class="mb-3">
-                                                            <label class="form-label mb-0">Applicant Signature <span
-                                                                    class="text-danger">*</span></label>
+                                                            <label class="form-label mb-0">Applicant Signature</label>
                                                             <input type="file" name="applicant_signature"
                                                                 value="{{ $leaveApplication->applicant_signature }}"
-                                                                class="form-control form-control-sm" required>
+                                                                class="form-control form-control-sm">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">

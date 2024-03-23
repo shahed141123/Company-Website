@@ -106,14 +106,14 @@ class LeaveApplicationController extends Controller
 
         if ($validator->passes()) {
             $imageFiles = [
-                 'applicant_signature'
+                'applicant_signature'
             ];
             $filePath = storage_path('app/public/');
             $filePaths = [];
 
             foreach ($imageFiles as $file) {
                 $uploadedFile = $request->file($file);
-                $globalFunFile = !empty($uploadedFile) ? Helper::customUpload($uploadedFile, $filePath, 20, 20) : ['status' => 0];
+                $globalFunFile = !empty($uploadedFile) ? Helper::customUpload($uploadedFile, $filePath) : ['status' => 0];
                 $filePaths[$file] = $globalFunFile['status'] == 1 ? $uploadedFile->hashName() : null;
             }
 
@@ -148,8 +148,6 @@ class LeaveApplicationController extends Controller
                 'status'                  => 'pending',
                 'created_at'              => Carbon::now(),
             ] + $filePaths);
-
-
 
 
 
@@ -308,7 +306,7 @@ class LeaveApplicationController extends Controller
                         }
                     }
 
-                    $globalFunImage = Helper::customUpload($uploadedImage, $filePath, 20, 20);
+                    $globalFunImage = Helper::customUpload($uploadedImage, $filePath);
                     if ($globalFunImage['status'] == 1) {
                         $imagePaths[$file] = $uploadedImage->hashName();
                     }
@@ -316,10 +314,11 @@ class LeaveApplicationController extends Controller
             }
 
             $fileUpdates = $imagePaths;
+            $substitute = User::find($request->substitute_id);
 
             $leaveApplication->update(array_merge([
-                'employee_id'             => $request->employee_id,
-                'name'                    => $request->name,
+                // 'employee_id'             => $request->employee_id,
+                // 'name'                    => $request->name,
                 'type_of_leave'           => $request->type_of_leave,
                 'designation'             => $request->designation,
                 'company'                 => $request->company,
@@ -329,19 +328,24 @@ class LeaveApplicationController extends Controller
                 'job_status'              => $request->job_status,
                 'reporting_on'            => date('Y-m-d H:i:s', strtotime($request->reporting_on)),  //date
                 'leave_explanation'       => $request->leave_explanation,
-                'substitute_during_leave' => $request->substitute_during_leave,
+                'substitute_during_leave' => $substitute->name,
                 'leave_address'           => $request->leave_address,
-                'is_between_holidays'     => $request->is_between_holidays,
+                'is_between_holidays'     => $request->is_between_holidays == "yes" ?? "no",
                 'leave_contact_no'        => $request->leave_contact_no,
                 'included_open_saturday'  => $request->included_open_saturday,
                 'leave_position'          => $request->leave_position,
-                'leave_due_as_on'         => $request->leave_due_as_on,
-                'leave_availed'           => $request->leave_availed,
-                'balance_due'             => $request->balance_due,
-                'application_status'      => $request->application_status,
+                'casual_leave_due_as_on'  => $request->casual_leave_due_as_on,
+                'casual_leave_availed'    => $request->casual_leave_availed,
+                'casual_balance_due'      => $request->casual_balance_due,
+                'earned_leave_due_as_on'  => $request->earned_leave_due_as_on,
+                'earned_leave_availed'    => $request->earned_leave_availed,
+                'earned_balance_due'      => $request->earned_balance_due,
+                'medical_leave_due_as_on' => $request->medical_leave_due_as_on,
+                'medical_leave_availed'   => $request->medical_leave_availed,
+                'medical_balance_due'     => $request->medical_balance_due,
             ], $fileUpdates));
 
-            Toastr::success('Approval given.');
+            Toastr::success('Application edited successfully.');
             return redirect()->back();
         } else {
             // Validation failed, display error messages

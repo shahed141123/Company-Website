@@ -273,7 +273,7 @@
                                                         <label for="weight" class="form-label mb-0">Category
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <select class="form-control select" name="cat_id"
+                                                        <select class="form-control select" name="cat_id" data-allow-clear="true"
                                                             data-placeholder="Select Category..." required>
                                                             <option></option>
                                                             @foreach ($categories as $cat)
@@ -285,7 +285,7 @@
                                                     </div>
                                                     <div class="form-group col-md-6 basic-form">
                                                         <label for="weight" class="form-label mb-0">Sub Category</label>
-                                                        <select class="form-control select" name="sub_cat_id"
+                                                        <select class="form-control select" name="sub_cat_id" data-allow-clear="true"
                                                             data-placeholder="Select Sub Category...">
                                                             <option></option>
                                                             @foreach ($sub_cats as $item)
@@ -300,7 +300,7 @@
                                                     <div class="form-group col-md-6 basic-form">
                                                         <label for="weight" class="form-label mb-0">Sub Sub
                                                             Category</label>
-                                                        <select name="sub_sub_cat_id" class="form-control select"
+                                                        <select name="sub_sub_cat_id" class="form-control select" data-allow-clear="true"
                                                             data-placeholder="Select Sub Sub Category...">
                                                             <option></option>
                                                             @foreach ($sub_sub_cats as $item)
@@ -313,7 +313,7 @@
                                                     <div class="form-group col-md-6 basic-form">
                                                         <label for="weight" class="form-label mb-0">Sub Sub Sub
                                                             Category</label>
-                                                        <select name="sub_sub_sub_cat_id" class="form-control select"
+                                                        <select name="sub_sub_sub_cat_id" class="form-control select" data-allow-clear="true"
                                                             id="inputCollection"
                                                             data-placeholder="Select Sub Sub Sub Category...">
                                                             <option></option>
@@ -331,7 +331,7 @@
                                                         <select name="solution_id[]"
                                                             class="form-control-sm multiselect btn btn-sm" id="select6"
                                                             multiple="multiple" data-include-select-all-option="true"
-                                                            data-enable-filtering="true"
+                                                            data-enable-filtering="true" data-allow-clear="true"
                                                             data-enable-case-insensitive-filtering="true">
                                                             @foreach ($solutions as $solutionDetail)
                                                                 <option value="{{ $solutionDetail->id }}"
@@ -346,7 +346,7 @@
                                                         <select name="industry_id[]"
                                                             class="form-control-sm multiselect btn btn-sm" id="select6"
                                                             multiple="multiple" data-include-select-all-option="true"
-                                                            data-enable-filtering="true"
+                                                            data-enable-filtering="true" data-allow-clear="true"
                                                             data-enable-case-insensitive-filtering="true">
                                                             @foreach ($industrys as $industrie)
                                                                 <option value="{{ $industrie->id }}"
