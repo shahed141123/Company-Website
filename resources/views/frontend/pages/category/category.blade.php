@@ -1,5 +1,11 @@
 @extends('frontend.master')
 @section('content')
+    <style>
+        .ag-offer_item {
+            height: 140px;
+            max-height: 100%
+        }
+    </style>
 
     <!-- banner single page start -->
     <section class="banner_single_page py-3"

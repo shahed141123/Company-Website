@@ -56,6 +56,14 @@
                                 <span>All Attendance </span>
                             </div>
                         </a>
+                        <!-- Optional: Place to the bottom of scripts -->
+                        <script>
+                            const myModal = new bootstrap.Modal(
+                                document.getElementById("modalId"),
+                                options,
+                            );
+                        </script>
+
                         {{-- Example: Button for another action --}}
                         {{-- <a href="" class="btn navigation_btn" data-bs-toggle="modal" data-bs-target="#checkapproved">
                             <div class="d-flex align-items-center">
