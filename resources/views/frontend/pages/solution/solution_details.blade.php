@@ -136,7 +136,7 @@
         @endphp <div class="row d-flex justify-content-center pt-3 gx-0">
                 @foreach ($cards as $card)
                     <div class="col-lg-3 col-sm-12">
-                        <div class="card border-0 shadow-none rounded-2 solution-feature-container">
+                        <div class="card border-0 shadow-none rounded-2 solution-feature-container mx-auto">
                             <img class="card-img-top"
                                 src="{{ !empty($card->image) && file_exists(public_path('storage/' . $card->image)) ? asset('storage/' . $card->image) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}"
                                 alt="Card image cap" width="150px" height="150px">
