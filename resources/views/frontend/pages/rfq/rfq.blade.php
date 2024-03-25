@@ -23,201 +23,6 @@
             box-shadow: 0 0 0 0.25rem transparent;
         }
 
-        .dropdown-select {
-            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
-            background-repeat: repeat-x;
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#40FFFFFF', endColorstr='#00FFFFFF', GradientType=0);
-            background-color: #fff;
-            border: solid 1px #eee;
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-            box-sizing: border-box;
-            cursor: pointer;
-            display: block;
-            float: left;
-            font-size: 14px;
-            font-weight: normal;
-            height: auto;
-            line-height: 40px;
-            outline: none;
-            padding-left: 18px;
-            padding-right: 30px;
-            position: relative;
-            text-align: left !important;
-            transition: all 0.2s ease-in-out;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            white-space: nowrap;
-            width: auto;
-
-
-        }
-
-
-        .dropdown-select:focus {
-            background-color: #fff;
-            border: 1px solid #eee;
-        }
-
-
-        .dropdown-select:hover {
-            background-color: #fff;
-        }
-
-
-        .dropdown-select:active,
-        .dropdown-select.open {
-            background-color: #fff !important;
-            border-color: #bbb;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) inset;
-        }
-
-
-        .dropdown-select:after {
-            height: 0;
-            width: 0;
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-top: 4px solid #777;
-            -webkit-transform: origin(50% 20%);
-            transform: origin(50% 20%);
-            transition: all 0.125s ease-in-out;
-            content: '';
-            display: block;
-            margin-top: -2px;
-            pointer-events: none;
-            position: absolute;
-            right: 10px;
-            top: 50%;
-        }
-
-
-        .dropdown-select.open:after {
-            -webkit-transform: rotate(-180deg);
-            transform: rotate(-180deg);
-        }
-
-
-        .dropdown-select.open .list {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-
-        .dropdown-select.open .option {
-            cursor: pointer;
-        }
-
-
-        .dropdown-select.wide {
-            width: 100%;
-        }
-
-
-        .dropdown-select.wide .list {
-            left: 0 !important;
-            right: 0 !important;
-        }
-
-
-        .dropdown-select .list {
-            box-sizing: border-box;
-            transition: all 0.15s cubic-bezier(0.25, 0, 0.25, 1.75), opacity 0.1s linear;
-            -webkit-transform: scale(0.75);
-            transform: scale(0.75);
-            -webkit-transform-origin: 50% 0;
-            transform-origin: 50% 0;
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.09);
-            background-color: #fff;
-            padding: 3px 0;
-            opacity: 0;
-            overflow: hidden;
-            pointer-events: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            z-index: 999;
-            max-height: 250px;
-            overflow: auto;
-            border: 1px solid #ddd;
-        }
-
-
-        .dropdown-select .list:hover .option:not(:hover) {
-            background-color: transparent !important;
-        }
-
-
-        .dropdown-select .dd-search {
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0.5rem;
-        }
-
-
-        .dropdown-select .dd-searchbox {
-            width: 100%;
-            border: 1px solid #ae0a46;
-            border-color: #ae0a46;
-            outline: none;
-        }
-
-
-        .dropdown-select .dd-searchbox:focus {
-            border-color: #ae0a46;
-        }
-
-
-        .dropdown-select .list ul {
-            padding: 0;
-        }
-
-
-        .dropdown-select .option {
-            cursor: default;
-            font-weight: 400;
-            line-height: 40px;
-            outline: none;
-            padding-left: 18px;
-            padding-right: 29px;
-            text-align: left;
-            transition: all 0.2s;
-            list-style: none;
-        }
-
-
-        .dropdown-select .option:hover,
-        .dropdown-select .option:focus {
-            background-color: #f6f6f6 !important;
-        }
-
-
-        .dropdown-select .option.selected {
-            font-weight: 600;
-            color: #ae0a46;
-        }
-
-
-        .dropdown-select .option.selected:focus {
-            background: #f6f6f6;
-        }
-
-
-        .dropdown-select a {
-            color: #aaa;
-            text-decoration: none;
-            transition: all 0.2s ease-in-out;
-        }
-
-
-        .dropdown-select a:hover {
-            color: #666;
-        }
 
 
         #multi_step_form {
@@ -591,7 +396,9 @@
                 <div class="col-lg-10 offset-lg-1 mx-auto">
                     <div class="tab-content pt-2">
                         <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <form action="" id="repeater-form" action="" method="post" novalidate>
+                            <form id="repeater-form" action="{{ route('rfqCreate') }}" method="post" novalidate
+                                enctype="multipart/form-data">
+                                @csrf
                                 <div id="multi_step_form">
                                     <div class="container p-0 mb-5">
                                         <div id="multistep_nav">
@@ -615,10 +422,7 @@
                                                                     class="fa-solid fa-circle-question main_color"style="font-size: 35px;"></i>
                                                             </div>
                                                             <div class="">
-                                                                <p>Select right products by writing initials or full
-                                                                    product name in the below box. Also, mention the
-                                                                    quantity in right box. You can add as many as product
-                                                                    input box by clicking in the left '+' symbol
+                                                                <p>Select right products by writing initials or full product name in the below box. Also, mention the quantity in right box. You can add as many as product input box by clicking in the left '+' symbol
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -633,6 +437,7 @@
                                                                                 <div class="row">
                                                                                     <div class="col-lg-12 ps-0">
                                                                                         <input type="text"
+                                                                                            name="product_name[]"
                                                                                             class="form-control form-control-sm border-0 rounded-1"
                                                                                             placeholder="Product Title"
                                                                                             id="productSearchInput">
@@ -642,8 +447,7 @@
                                                                                     <ul class="suggestionList"
                                                                                         style="display: none;">
                                                                                         @foreach ($products as $product)
-                                                                                            <li>{{ $product->name }}
-                                                                                            </li>
+                                                                                            <li>{{ $product->name }}</li>
                                                                                         @endforeach
                                                                                         <!-- Add other list items here -->
                                                                                     </ul>
@@ -652,7 +456,7 @@
                                                                         </div>
                                                                         <div class="col-lg-4 d-flex">
                                                                             <div style="width: 90%">
-                                                                                <input type="text" name="qty"
+                                                                                <input type="number" name="qty[]"
                                                                                     value=""
                                                                                     placeholder="Enter Product Qty"
                                                                                     class="form-control form-control-sm border-0" />
@@ -710,63 +514,78 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-lg-6">
+                                                            <div class="col-lg-4">
                                                                 <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1"
-                                                                        class="form-label">Tentative Budget <span
-                                                                            class="text-danger">*</span></label>
-                                                                    <input type="number" name="email"
+                                                                    <label for="budget" class="form-label">Tentative
+                                                                        Budget</label>
+                                                                    <input type="number" name="budget"
                                                                         class="form-control form-control-sm border-0 rounded-1"
-                                                                        id="exampleFormControlInput1"
-                                                                        placeholder="Input Budget Value here" required>
+                                                                        id="budget"
+                                                                        placeholder="Your Approximate Budget">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="mb-3">
+                                                                    <label for="delivery_location"
+                                                                        class="form-label">Delivery Location <span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="text" name="delivery_location"
+                                                                        class="form-control form-control-sm border-0 rounded-1"
+                                                                        id="delivery_location"
+                                                                        placeholder="Delivery Location">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="mb-3">
+                                                                    <label for="country" class="form-label">Your Country
+                                                                        <span class="text-danger">*</span></label>
+                                                                    <input type="text" name="country"
+                                                                        class="form-control form-control-sm border-0 rounded-1"
+                                                                        id="country"
+                                                                        placeholder="Your Country(Eg:USA, UK, Canada)">
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1"
-                                                                        class="form-label">Tentative Close Date<span
-                                                                            class="text-danger">*</span></label>
-                                                                    <input type="date" name="company_name"
-                                                                        class="form-control form-control-sm border-0 rounded-1"
-                                                                        id="exampleFormControlInput1"
-                                                                        placeholder="mmm/dd/yyyy" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1"
-                                                                        class="form-label">Which stage is your project now
-                                                                        ?<span class="text-danger">*</span></label>
+                                                                    <label for="project_status" class="form-label">Which
+                                                                        stage is your project now
+                                                                        ?</label>
                                                                     <select class="form-select form-select-sm"
-                                                                        aria-label="Default select example">
+                                                                        name="project_status"
+                                                                        aria-label="Default select example"
+                                                                        id="project_status">
                                                                         <option selected>Select Project Status</option>
-                                                                        <option value="1">Budget Stage</option>
-                                                                        <option value="2">Tore Stage</option>
-                                                                        <option value="3">RFQ Stage</option>
+                                                                        <option value="budget_stage">Budget Stage</option>
+                                                                        <option value="tor_stage">Tor Stage</option>
+                                                                        <option value="rfq_stage">RFQ Stage</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1"
-                                                                        class="form-label">Do you Need Installation / Local
-                                                                        Support ?<span class="text-danger">*</span></label>
+                                                                    <label for="approximate_delivery_time"
+                                                                        class="form-label">Approximate Delivery Time
+                                                                        ?</label>
                                                                     <select class="form-select form-select-sm"
+                                                                        name="approximate_delivery_time"
                                                                         aria-label="Default select example">
                                                                         <option selected>Select Option here</option>
-                                                                        <option value="1">Quicke</option>
-                                                                        <option value="2">Slow Step</option>
-                                                                        <option value="3">Normal</option>
+                                                                        <option value="less_one_month">Less Than One Month
+                                                                        </option>
+                                                                        <option value="two_month">Two Months</option>
+                                                                        <option value="three_month">Three Months</option>
+                                                                        <option value="six_month">Six Months</option>
+                                                                        <option value="one_year">One Year</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-12">
                                                                 <div class="checkbox-wrapper-1">
                                                                     <input id="example-1" class="substituted"
-                                                                        type="checkbox" aria-hidden="true" />
-                                                                    <label for="example-1">Do you need Brochures /
-                                                                        Presentations? Do you need further
-                                                                        discussions ?</label>
+                                                                        type="checkbox" aria-hidden="true" name="call"
+                                                                        value="1" />
+                                                                    <label for="example-1">Do you expect call from Us or
+                                                                        Appointment?</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -795,7 +614,8 @@
                                                             </div>
                                                             <div class="col-lg-4">
                                                                 <div class="form-group pt-2">
-                                                                    <label for="" class="pb-1">Name</label>
+                                                                    <label for="" class="pb-1">Name <span
+                                                                            class="text-danger">*</span></label>
                                                                     <input type="text" name="name"
                                                                         class="form-control form-control-sm border-0 rounded-1"
                                                                         placeholder="Input your full name">
@@ -812,8 +632,9 @@
                                                             </div>
                                                             <div class="col-lg-4">
                                                                 <div class="form-group pt-2">
-                                                                    <label for="" class="pb-1">Email Id</label>
-                                                                    <input type="email"
+                                                                    <label for="" class="pb-1">Email Id <span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="email" name="email"
                                                                         class="form-control form-control-sm border-0 rounded-1"
                                                                         placeholder="Input your official domain/email id">
                                                                 </div>
@@ -822,7 +643,7 @@
                                                                 <div class="form-group pt-2">
                                                                     <label for="" class="pb-1">Contact
                                                                         Number</label>
-                                                                    <input type="numnber"
+                                                                    <input type="number" name="phone"
                                                                         class="form-control form-control-sm border-0 rounded-1"
                                                                         placeholder="Input your mobile number">
                                                                 </div>
@@ -831,7 +652,7 @@
                                                                 <div class="form-group pt-2">
                                                                     <label for="" class="pb-1">Company
                                                                         Name</label>
-                                                                    <input type="text"
+                                                                    <input type="text" name="company_name"
                                                                         class="form-control form-control-sm border-0 rounded-1"
                                                                         placeholder="Your company name">
                                                                 </div>
@@ -840,33 +661,9 @@
                                                                 <div class="form-group pt-2">
                                                                     <label for="" class="pb-1">Company
                                                                         Address</label>
-                                                                    <input type="text"
+                                                                    <input type="text" name="address"
                                                                         class="form-control form-control-sm border-0 rounded-1"
                                                                         placeholder="Input company address">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-4">
-                                                                <div class="form-group pt-2">
-                                                                    <label for="" class="pb-1">City</label>
-                                                                    <input type="text"
-                                                                        class="form-control form-control-sm border-0 rounded-1"
-                                                                        placeholder="Input city name">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-4">
-                                                                <div class="form-group pt-2">
-                                                                    <label for="" class="pb-1">Zip Code</label>
-                                                                    <input type="text"
-                                                                        class="form-control form-control-sm border-0 rounded-1"
-                                                                        placeholder="Input zip code">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-4">
-                                                                <div class="form-group pt-2">
-                                                                    <label for="" class="pb-1">Country</label>
-                                                                    <input type="text"
-                                                                        class="form-control form-control-sm border-0 rounded-1"
-                                                                        placeholder="input Country Name">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1197,7 +994,7 @@
         });
     </script>
     {{-- For Search --}}
-    <script>
+    {{-- <script>
         document.addEventListener('keyup', function(event) {
             if (event.target.matches('#productSearchInput')) {
                 showSuggestions(event);
@@ -1247,10 +1044,66 @@
                 suggestionsList.style.display = "none";
             });
         }
+    </script> --}}
+
+    <script>
+        document.addEventListener('keyup', function(event) {
+            if (event.target.matches('#productSearchInput')) {
+                showSuggestions(event);
+            }
+        });
+
+        function showSuggestions(event) {
+            let inputElement = event.target;
+            let parentElement = inputElement.closest('.searchInput'); // Find the parent container
+            let suggestionsList = parentElement.querySelector(".suggestionList");
+
+            if (suggestionsList) { // Check if the suggestions list exists
+                let suggestions = suggestionsList.getElementsByTagName("li");
+
+                // Iterate through suggestions and show/hide based on user input
+                for (let i = 0; i < suggestions.length; i++) {
+                    let suggestion = suggestions[i].innerText.toLowerCase();
+                    if (suggestion.startsWith(inputElement.value.toLowerCase())) {
+                        suggestions[i].style.display = "block";
+                    } else {
+                        suggestions[i].style.display = "none";
+                    }
+                }
+
+                // Show/hide the suggestion list based on user input
+                if (inputElement.value.trim() !== "") {
+                    suggestionsList.style.display = "block";
+                } else {
+                    suggestionsList.style.display = "none";
+                }
+
+                // Add click event listener to dynamically generated suggestions
+                suggestionsList.addEventListener('click', function(event) {
+                    if (event.target.tagName === 'LI') {
+                        inputElement.value = event.target.innerText;
+                        suggestionsList.style.display = "none";
+                    }
+                });
+            }
+        }
+
+        document.addEventListener('click', function(event) {
+            if (!event.target.matches('.suggestionList li') && !event.target.matches('#productSearchInput')) {
+                hideAllSuggestions();
+            }
+        });
+
+        function hideAllSuggestions() {
+            let allSuggestionLists = document.querySelectorAll('.suggestionList');
+            allSuggestionLists.forEach(function(suggestionsList) {
+                suggestionsList.style.display = "none";
+            });
+        }
     </script>
 
     {{-- Select With Search --}}
-    <script>
+    {{-- <script>
         const csSelector = document.querySelector('#myCustomSelect') // the input, svg and ul as a group
         const csInput = csSelector.querySelector('input')
         const csList = csSelector.querySelector('ul')
@@ -1491,10 +1344,6 @@
                         moveFocus(csInput, 'forward')
                         setState('opened')
                     } else {
-                        // if state = opened and focus on input, moveFocus to first
-                        // if state = opened and focus on list, moveFocus to next/first
-                        // if state = filtered and focus on input, moveFocus to first
-                        // if state = filtered and focus on list, moveFocus to next/first
                         toggleList('Open')
                         moveFocus(currentFocus, 'forward')
                     }
@@ -1507,10 +1356,6 @@
                         moveFocus(csInput, 'back')
                         setState('opened')
                     } else {
-                        // if state = opened and focus on input, moveFocus to last
-                        // if state = opened and focus on list, moveFocus to prev/last
-                        // if state = filtered and focus on input, moveFocus to last
-                        // if state = filtered and focus on list, moveFocus to prev/last
                         moveFocus(currentFocus, 'back')
                     }
                     break
@@ -1534,6 +1379,197 @@
                     break
             }
         }
+    </script> --}}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const csSelector = document.querySelector('#myCustomSelect');
+            const csInput = csSelector.querySelector('input');
+            const csList = csSelector.querySelector('ul');
+            const csOptions = Array.from(csList.querySelectorAll('li'));
+            const csStatus = document.querySelector('#custom-select-status');
+            let csState = "initial";
+
+            initialize();
+
+            function initialize() {
+                csSelector.setAttribute('role', 'combobox');
+                csSelector.setAttribute('aria-haspopup', 'listbox');
+                csSelector.setAttribute('aria-owns', 'custom-select-list');
+                csInput.setAttribute('aria-autocomplete', 'both');
+                csInput.setAttribute('aria-controls', 'custom-select-list');
+                csList.setAttribute('role', 'listbox');
+
+                csOptions.forEach(option => {
+                    option.setAttribute('role', 'option');
+                    option.setAttribute('tabindex', '-1');
+                });
+
+                csStatus.textContent =
+                    `${csOptions.length} options available. Arrow down to browse or start typing to filter.`;
+                setState('initial');
+
+                csSelector.addEventListener('click', handleClick);
+                csSelector.addEventListener('keyup', handleKeyUp);
+                document.addEventListener('click', handleOutsideClick);
+            }
+
+            function handleClick(event) {
+                const currentFocus = document.activeElement;
+                switch (csState) {
+                    case 'initial':
+                        toggleList('Open');
+                        setState('opened');
+                        break;
+                    case 'opened':
+                        if (currentFocus === csInput) {
+                            toggleList('Shut');
+                            setState('initial');
+                        } else if (currentFocus.tagName === 'LI') {
+                            makeChoice(currentFocus);
+                            toggleList('Shut');
+                            setState('closed');
+                        }
+                        break;
+                    case 'filtered':
+                        if (currentFocus.tagName === 'LI') {
+                            makeChoice(currentFocus);
+                            toggleList('Shut');
+                            setState('closed');
+                        }
+                        break;
+                    case 'closed':
+                        toggleList('Open');
+                        setState('filtered');
+                        break;
+                }
+            }
+
+            function handleKeyUp(event) {
+                doKeyAction(event.key);
+            }
+
+            function handleOutsideClick(event) {
+                if (!event.target.closest('#myCustomSelect')) {
+                    toggleList('Shut');
+                    setState('initial');
+                }
+            }
+
+            function toggleList(whichWay) {
+                if (whichWay === 'Open') {
+                    csList.classList.remove('hidden-all');
+                    csSelector.setAttribute('aria-expanded', 'true');
+                } else {
+                    csList.classList.add('hidden-all');
+                    csSelector.setAttribute('aria-expanded', 'false');
+                }
+            }
+
+            function findFocus() {
+                return document.activeElement;
+            }
+
+            function moveFocus(fromHere, toThere) {
+                const aCurrentOptions = csOptions.filter(option => option.style.display === '');
+                if (aCurrentOptions.length === 0) return;
+
+                if (toThere === 'input') {
+                    csInput.focus();
+                    return;
+                }
+
+                const currentIndex = aCurrentOptions.indexOf(fromHere);
+                let nextIndex;
+                if (toThere === 'forward') {
+                    nextIndex = currentIndex < script aCurrentOptions.length - 1 ? currentIndex + 1 : 0;
+                } else {
+                    nextIndex = currentIndex > 0 ? currentIndex - 1 : aCurrentOptions.length - 1;
+                }
+                aCurrentOptions[nextIndex].focus();
+            }
+
+            function doFilter() {
+                const terms = csInput.value.toUpperCase();
+                const aFilteredOptions = csOptions.filter(option => option.innerText.toUpperCase().startsWith(
+                    terms));
+                csOptions.forEach(option => option.style.display = "none");
+                aFilteredOptions.forEach(option => option.style.display = "");
+                setState('filtered');
+                updateStatus(aFilteredOptions.length);
+            }
+
+            function updateStatus(howMany) {
+                csStatus.textContent = `${howMany} options available.`;
+            }
+
+            function makeChoice(whichOption) {
+                csInput.value = whichOption.textContent;
+                moveFocus(document.activeElement, 'input');
+            }
+
+            function setState(newState) {
+                csState = newState;
+            }
+
+            function doKeyAction(key) {
+                const currentFocus = findFocus();
+                switch (key) {
+                    case 'Enter':
+                        if (csState === 'initial') {
+                            toggleList('Open');
+                            setState('opened');
+                        } else if ((csState === 'opened' || csState === 'filtered') && currentFocus.tagName ===
+                            'LI') {
+                            makeChoice(currentFocus);
+                            toggleList('Shut');
+                            setState('closed');
+                        } else if ((csState === 'opened' || csState === 'filtered') && currentFocus === csInput) {
+                            toggleList('Shut');
+                            setState('closed');
+                        } else {
+                            toggleList('Open');
+                            doFilter();
+                            setState('filtered');
+                        }
+                        break;
+                    case 'Escape':
+                        if (csState === 'opened' || csState === 'filtered') {
+                            toggleList('Shut');
+                            setState('initial');
+                        }
+                        break;
+                    case 'ArrowDown':
+                        if (csState === 'initial' || csState === 'closed') {
+                            toggleList('Open');
+                            moveFocus(csInput, 'forward');
+                            setState('opened');
+                        } else {
+                            toggleList('Open');
+                            moveFocus(currentFocus, 'forward');
+                        }
+                        break;
+                    case 'ArrowUp':
+                        if (csState === 'initial' || csState === 'closed') {
+                            toggleList('Open');
+                            moveFocus(csInput, 'back');
+                            setState('opened');
+                        } else {
+                            moveFocus(currentFocus, 'back');
+                        }
+                        break;
+                    default:
+                        if (csState === 'initial') {
+                            toggleList('Open');
+                            doFilter();
+                            setState('filtered');
+                        } else if (csState === 'opened' || csState === 'filtered') {
+                            doFilter();
+                        }
+                        break;
+                }
+            }
+        });
     </script>
 
     <script>

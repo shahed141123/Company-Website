@@ -195,7 +195,7 @@
                     </div>
                 </div>
 
-                <div class="owl-carousel custom-responsive-slider">
+                <div class="owl-carousel custom-responsive-slider" style="z-index: 0 !important;">
                     @foreach ($features as $key => $feature)
                         @if (!empty($feature))
                             <div class="item">
@@ -358,7 +358,7 @@
                 </div>
             </div>
 
-            <div class="owl-carousel custom-responsive-slider">
+            <div class="owl-carousel custom-responsive-slider" style="z-index: 0 !important;">
                 @foreach ($storys as $key => $story)
                     <div class="item border-0">
                         @if (!empty($story))
@@ -582,7 +582,7 @@
                     <a class="Arrows custom-responsive-slider-next"><i
                         class="fas fa-2x fa-arrow-alt-circle-right"></i></a>
             </div>
-            <div class="owl-carousel custom-responsive-slider">
+            <div class="owl-carousel custom-responsive-slider" style="z-index: 0 !important;">
                 @foreach ($successItems as $key => $successItem)
                     @if (!empty($successItem->title))
                         <div class="item border-0">

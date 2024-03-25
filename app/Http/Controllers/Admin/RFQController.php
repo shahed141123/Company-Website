@@ -79,10 +79,10 @@ class RFQController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name'  => 'required',
+                'name' => 'required',
                 'email' => 'required',
                 'phone' => 'required',
-                'qty'   => 'int',
+                'rfq_code' => 'unique:rfqs',
                 'image' => 'file|mimes:jpeg,png,jpg|max:2048',
                 'g-recaptcha-response' => ['required', new Recaptcha],
             ],
@@ -106,34 +106,34 @@ class RFQController extends Controller
 
             $data['rfq_code'] = "RFQ-$today-$newNumber";
 
-            $product = Product::find($request->product_id);
-            $product_name = $request->product_name ?? $product->name;
+            $product = Product::find($request->input('product_id'));
+            $product_name = $request->input('product_name') ?? $product->name;
 
             $mainFile = $request->file('image');
             $imgPath = storage_path('app/public/');
             $globalFunImage = $mainFile ? Helper::singleImageUpload($mainFile, $imgPath, 450, 350) : ['status' => 0];
 
             $rfq_id = Rfq::insertGetId([
-                'client_id'    => $request->client_id,
-                'partner_id'   => $request->partner_id,
-                'product_id'   => $request->product_id,
-                'solution_id'  => $request->solution_id,
-                'rfq_code'     => $data['rfq_code'],
-                'rfq_type'     => 'rfq',
-                'deal_type'    => $data['deal_type'],
-                'client_type'  => $request->client_type,
-                'name'         => $request->name,
-                'email'        => $request->email,
-                'phone'        => $request->phone,
-                'qty'          => $request->qty,
-                'company_name' => $request->company_name,
-                'designation'  => $request->designation,
-                'message'      => $request->message,
-                'address'      => $request->address,
-                'create_date'  => Carbon::now(),
-                'close_date'   => $request->close_date,
-                'image'        => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : '',
-                'status'       => 'rfq_created',
+                'client_id' => $request->input('client_id'),
+                'partner_id' => $request->input('partner_id'),
+                'product_id' => $request->input('product_id'),
+                'solution_id' => $request->input('solution_id'),
+                'rfq_code' => $data['rfq_code'],
+                'rfq_type' => 'rfq',
+                'deal_type' => $data['deal_type'],
+                'client_type' => $request->input('client_type'),
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'phone' => $request->input('phone'),
+                'qty' => $request->input('qty'),
+                'company_name' => $request->input('company_name'),
+                'designation' => $request->input('designation'),
+                'message' => $request->input('message'),
+                'address' => $request->input('address'),
+                'create_date' => now(),
+                'close_date' => $request->input('close_date'),
+                'image' => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : '',
+                'status' => 'rfq_created',
             ]);
 
             if ($product_name) {
@@ -157,31 +157,23 @@ class RFQController extends Controller
             Notification::send($users, new RfqCreate($name, $rfq_code));
 
             $data = [
-                'name'         => $name,
-                'sku_code'     => !empty($product->sku_code) ?? $product->sku_code,
+                'name' => $name,
+                'sku_code' => !empty($product->sku_code) ?? $product->sku_code,
                 'product_name' => $product_name,
-                'phone'        => $request->input('phone'),
-                'qty'          => $request->input('qty'),
+                'phone' => $request->input('phone'),
+                'qty' => $request->input('qty'),
                 'company_name' => $request->input('company_name'),
-                'address'      => $request->input('address'),
-                'message'      => $request->input('message'),
-                'rfq_code'     => $rfq_code,
-                'email'        => $request->input('email'),
-                'link'         => route('single-rfq.show', $rfq_code),
+                'address' => $request->input('address'),
+                'message' => $request->input('message'),
+                'rfq_code' => $rfq_code,
+                'email' => $request->input('email'),
+                'link' => route('single-rfq.show', $rfq_code),
             ];
 
-            // Mail::to($request->input('email'))->send(new RFQNotificationMail($data));
-            // if (!empty($user_emails)) {
-            //     Mail::to($user_emails)->send(new RFQNotificationMail($data));
-            // }
-            Mail::to('khandkershahed23@gmail.com')
-                // ->cc('cc@example.com')  // Add CC recipient(s) here
-                // ->bcc($user_emails) // Add BCC recipient(s) here
-                ->send(new RFQNotificationMail($data));
-            // Mail::to($request->input('email'))
-            //     // ->cc('cc@example.com')  // Add CC recipient(s) here
-            //     ->bcc($user_emails) // Add BCC recipient(s) here
-            //     ->send(new RFQNotificationMail($data));
+            Mail::to($request->input('email'))->send(new RFQNotificationMail($data));
+            if (!empty($user_emails)) {
+                Mail::to($user_emails)->send(new RFQNotificationMail($data));
+            }
 
             Toastr::success('Your RFQ has been submitted successfully.');
         } else {
@@ -195,153 +187,153 @@ class RFQController extends Controller
         return redirect()->back();
     }
 
-    //     public function storeBackup(Request $request)
-    //     {
-    //         //dd($request->all());
+    public function rfqCreate(Request $request)
+        {
 
-    //         Helper::imageDirectory();
+            $data['deal_type'] = 'new';
+            $today = now()->format('dmY');
+            $lastCode = RFQ::where('rfq_code', 'like', 'RFQ-' . $today . '-%')->latest('id')->first();
+            $newNumber = $lastCode ? (int) substr($lastCode->rfq_code, -3) + 1 : 1;
+            $data['rfq_code'] = 'RFQ-' . $today . '-' . $newNumber;
+            // dd($data['rfq_code']);
 
-
-    //         $data['deal_type'] = 'new';
-
-    //         $today = Carbon::today()->format('dmy');
-
-    //         // Find the last RFQ code of today from the database
-    //         $lastCode = RFQ::where('rfq_code', 'like', 'RFQ-' . $today . '-%')->orderBy('id', 'DESC')->first();
-
-    //         if ($lastCode) {
-    //             // Extract the last numeric part of the rfq_code and increment it by 1
-    //             $lastNumber = (int) explode('-', $lastCode->rfq_code)[2];
-    //             $newNumber = $lastNumber + 1;
-    //         } else {
-    //             // If there are no RFQ codes for today, start with 1
-    //             $newNumber = 1;
-    //         }
-
-    //         $data['rfq_code'] = 'RFQ-' . $today . '-' . $newNumber;
-
-    //         // dd($data['rfq_code']);
-    // if (!empty($request->product_name)) {
-    //     $product_name = $request->product_name;
-    // } else {
-    //     $product = Product::where('id', $request->product_id)->first();
-    //     $product_name = $product->name;
-    // }
+            dd($request->all());
 
 
-    //         $validator = Validator::make(
-    //             $request->all(),
-    //             [
-    //                 'name' => 'required',
-    //                 'email' => 'required',
-    //                 'phone' => 'required',
-    //                 'rfq_code' => 'unique:rfqs',
-    //                 'image' => 'file|mimes:jpeg,png,jpg|max:2048',
-    //                 'g-recaptcha-response' => ['required', new Recaptcha]
-    //             ],
-    //             [
-    //                 'required' => 'The :attribute field is required',
-    //                 'mimes' => 'The :attribute must be a file of type:PNG-JPEG-JPG'
-    //             ],
-    //         );
+            $validator = Validator::make(
+                $request->all(),
+                [
+                    'name' => 'required',
+                    'email' => 'required',
+                    'phone' => 'required',
+                    'delivery_location' => 'required',
+                    'rfq_code' => 'unique:rfqs',
+                    'image' => 'file|mimes:jpeg,png,jpg|max:2048',
+                ],
+                [
+                    'required' => 'The :attribute field is required',
+                    'mimes' => 'The :attribute must be a file of type:PNG-JPEG-JPG'
+                ],
+            );
 
 
 
-    //         if ($validator->passes()) {
-    //             $mainFile = $request->file('image');
-    //             $imgPath = storage_path('app/public/');
+            if ($validator->passes()) {
+                $mainFile = $request->file('image');
+                $imgPath = storage_path('app/public/');
+                $globalFunImage = $mainFile ? Helper::singleImageUpload($mainFile, $imgPath, 450, 350) : ['status' => 0];
 
-    //             if (isset($mainFile)) {
-    //                 $globalFunImage =  Helper::singleImageUpload($mainFile, $imgPath, 450, 350);
-    //             } else {
-    //                 $globalFunImage = ['status' => 0];
-    //             }
+                $rfq_id = Rfq::insertGetId([
+                    'rfq_code'            => $data['rfq_code'],
+                    'sales_man_id_L1'           => $request->sales_man_id_L1,
+                    'sales_man_id_T1'           => $request->sales_man_id_T1,
+                    'sales_man_id_T2'          => $request->sales_man_id_T2,
+                    'client_id'             => $request->client_id,
+                    'partner_id'             => $request->partner_id,
+                    'product_id'            => $request->product_id, 
+                    'solution_id'          => $request->client_type,
+                    'client_type'                 => $request->name,
+                    'name'                => $request->email,
+                    'email'                => $request->phone,
+                    'phone'                  => $request->qty,
+                    'company_name'         => $request->company_name,
+                    'designation'          => $request->designation,
+                    'address'              => $request->message,
+                    'country'              => $request->address,
+                    'create_date'          => Carbon::now(),
+                    'close_date'           => $request->close_date,
+                    'sale_date'                => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : '',
+                    'pq_code'            => $request->client_id,
+                    'pqr_code_one'           => $request->partner_id,
+                    'pqr_code_two'           => $request->product_id,
+                    'qty'          => $request->solution_id,
+                    'category'             => $data['rfq_code'],
+                    'brand'             => 'rfq',
+                    'image'            => $data['deal_type'],
+                    'message'          => $request->client_type,
+                    'rfq_type'                 => $request->name,
+                    'call'                => $request->email,
+                    'regular'                => $request->phone,
+                    'special'                  => $request->qty,
+                    'tax_status'         => $request->company_name,
+                    'deal_type'          => $request->designation,
+                    'status'              => $request->message,
+                    'tax'              => $request->address,
+                    'vat'          => Carbon::now(),
+                    'total_price'           => $request->close_date,
+                    'quoted_price'                => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : '',
+                    'price_text'         => $request->company_name,
+                    'currency'          => $request->designation,
+                    'rfq_department'              => $request->message,
+                    'delivery_location'              => $request->address,
+                    'budget'          => Carbon::now(),
+                    'project_status'           => $request->close_date,
+                    'approximate_delivery_time'                => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : '',
+                    'status'               => 'rfq_created',
+                    'created_at'           => Carbon::now(),
+                ]);
+                if ($request->product_name) {
+                    RfqProduct::insert([
 
-    //             $rfq_id = Rfq::insertGetId([
-    //                 'client_id'            => $request->client_id,
-    //                 'partner_id'           => $request->partner_id,
-    //                 'product_id'           => $request->product_id,
-    //                 'solution_id'          => $request->solution_id,
-    //                 'rfq_code'             => $data['rfq_code'],
-    //                 'rfq_type'             => 'rfq',
-    //                 'deal_type'            => $data['deal_type'],
-    //                 'client_type'          => $request->client_type,
-    //                 'name'                 => $request->name,
-    //                 'email'                => $request->email,
-    //                 'phone'                => $request->phone,
-    //                 'qty'                  => $request->qty,
-    //                 'company_name'         => $request->company_name,
-    //                 'designation'          => $request->designation,
-    //                 'message'              => $request->message,
-    //                 'address'              => $request->address,
-    //                 'create_date'          => Carbon::now(),
-    //                 'close_date'           => $request->close_date,
-    //                 'image'                => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : '',
-    //                 'status'               => 'rfq_created',
-    //                 'created_at'           => Carbon::now(),
-    //             ]);
-    //             if ($request->product_name) {
-    //                 RfqProduct::insert([
+                        'rfq_id'       => $rfq_id,
+                        'product_name' => $product_name,
+                        'qty'          => $request->qty,
+                        'created_at'   => Carbon::now(),
 
-    //                     'rfq_id'       => $rfq_id,
-    //                     'product_name' => $product_name,
-    //                     'qty'          => $request->qty,
-    //                     'created_at'   => Carbon::now(),
-
-    //                 ]);
-    //             }
-
-
-
-
-    //             $name = $request->name;
-    //             $rfq_code = $data['rfq_code'];
-
-    //             $users = User::where(function ($query) {
-    //                 $query->whereJsonContains('department', 'business')
-    //                     ->orwhereJsonContains('department', 'logistics');
-    //             })->where('role', 'admin')->get();
-    //             // $slug = $data['slug'];
-    //             $user_emails = User::where(function ($query) {
-    //                 $query->whereJsonContains('department', 'business')
-    //                     ->orwhereJsonContains('department', 'logistics');
-    //             })->where('role', 'admin')->pluck('email')->toArray();
-    //             // $user_emails = 'khandkershahed23@gmail.com';
-
-    //             Notification::send($users, new RfqCreate($name, $rfq_code));
-
-
-    //             $data = [
-
-    //                 'name'         => $name,
-    //                 'sku_code'     => !empty($product->sku_code) ?? $product->sku_code,
-    //                 'product_name' => $product_name,
-    //                 'phone'        => $request->phone,
-    //                 'qty'          => $request->qty,
-    //                 'company_name' => $request->company_name,
-    //                 'address'      => $request->address,
-    //                 'message'      => $request->message,
-    //                 'rfq_code'     => $rfq_code,
-    //                 'email'        => $request->email,
-    //                 'link'         => route('single-rfq.show', $rfq_code),
-
-    //             ];
-    //             Mail::to($request->email)->send(new RFQNotificationMail($data));
-    //             if (!empty($user_emails)) {
-    //                 Mail::to($user_emails)->send(new RFQNotificationMail($data));
-    //             }
+                    ]);
+                }
 
 
-    //             Toastr::success('Your RFQ has been submitted successfully.');
-    //         } else {
 
-    //             $messages = $validator->messages();
-    //             foreach ($messages->all() as $message) {
-    //                 Toastr::error($message, 'Failed', ['timeOut' => 30000]);
-    //             }
-    //         }
-    //         return redirect()->back();
-    //     }
+
+                $name = $request->name;
+                $rfq_code = $data['rfq_code'];
+
+                $users = User::where(function ($query) {
+                    $query->whereJsonContains('department', 'business')
+                        ->orwhereJsonContains('department', 'logistics');
+                })->where('role', 'admin')->get();
+                // $slug = $data['slug'];
+                $user_emails = User::where(function ($query) {
+                    $query->whereJsonContains('department', 'business')
+                        ->orwhereJsonContains('department', 'logistics');
+                })->where('role', 'admin')->pluck('email')->toArray();
+                // $user_emails = 'khandkershahed23@gmail.com';
+
+                Notification::send($users, new RfqCreate($name, $rfq_code));
+
+
+                $data = [
+
+                    'name'         => $name,
+                    'sku_code'     => !empty($product->sku_code) ?? $product->sku_code,
+                    'product_name' => $product_name,
+                    'phone'        => $request->phone,
+                    'qty'          => $request->qty,
+                    'company_name' => $request->company_name,
+                    'address'      => $request->address,
+                    'message'      => $request->message,
+                    'rfq_code'     => $rfq_code,
+                    'email'        => $request->email,
+                    'link'         => route('single-rfq.show', $rfq_code),
+
+                ];
+                Mail::to($request->email)->send(new RFQNotificationMail($data));
+                if (!empty($user_emails)) {
+                    Mail::to($user_emails)->send(new RFQNotificationMail($data));
+                }
+
+
+                Toastr::success('Your RFQ has been submitted successfully.');
+            } else {
+
+                $messages = $validator->messages();
+                foreach ($messages->all() as $message) {
+                    Toastr::error($message, 'Failed', ['timeOut' => 30000]);
+                }
+            }
+            return redirect()->back();
+        }
 
     /**
      * Display the specified resource.
@@ -590,7 +582,7 @@ class RFQController extends Controller
         $data['clients'] = Client::select('clients.id', 'clients.name')->get();
         $data['partners'] = Partner::select('partners.id', 'partners.name')->get();
         $data['rfq'] = Rfq::find($id);
-        $data['rfq_product'] = RfqProduct::where('rfq_id', $data['rfq']->id)->first();
+        $data['rfq_product'] = RfqProduct::where('rfq_id' , $data['rfq']->id)->first();
         return view('admin.pages.deal.deal_convert', $data);
     }
 
