@@ -18,7 +18,7 @@
         }
 
         .task-calander {
-            background-color: #e2d1e3;
+            /* background-color: #e2d1e3; */
             color: #ae0a46;
         }
 
@@ -27,6 +27,11 @@
             color: #ae0a46;
             font-weight: bold;
             padding: 4px 8px;
+        }
+
+        .amount-ft-size {
+            font-size: 60px;
+            color: #ae0a56;
         }
     </style>
     <div class="content-wrapper">
@@ -99,7 +104,6 @@
                         </div>
                     </div>
                     <!-- Row End -->
-
                 </div>
                 <div class="container-fluid">
                     <div class="row">
@@ -117,8 +121,8 @@
                                                 <div class="card-body">
                                                     <div class="d-flex justify-content-between align-items-center px-4"
                                                         style="height: 9rem;">
-                                                        <h1 class="title-text mb-0">Total Employees</h1>
-                                                        <h1 class="title-text mb-0 main_color">25</h1>
+                                                        <h1 class="title-text mb-0">Total <br>Employees</h1>
+                                                        <h1 class="title-text mb-0 main_color amount-ft-size">{{ App\Models\User::count() }}</h1>
                                                     </div>
                                                 </div>
                                             </div>
@@ -128,7 +132,8 @@
                                                 <div class="card-body">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <h1 class="title-text mb-0">Present</h1>
-                                                        <h1 class="title-text mb-0 main_color">25</h1>
+                                                        {{-- @dd(count($attendanceData)) --}}
+                                                        <h1 class="title-text mb-0 main_color ">{{count($attendanceData)}}</h1>
                                                     </div>
                                                 </div>
                                             </div>
@@ -136,7 +141,7 @@
                                                 <div class="card-body">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <h1 class="title-text mb-0">Absent</h1>
-                                                        <h1 class="title-text mb-0 main_color">25</h1>
+                                                        <h1 class="title-text mb-0 main_color">{{ App\Models\User::count() - count($attendanceData) - 1 }}</h1>
                                                     </div>
                                                 </div>
                                             </div>
@@ -157,30 +162,30 @@
                                                     <div class="d-flex justify-content-between align-items-center px-4"
                                                         style="height: 9rem;">
                                                         <h1 class="title-text mb-0">Total Leave</h1>
-                                                        <h1 class="title-text mb-0">24</h1>
+                                                        <h1 class="title-text mb-0 amount-ft-size">24</h1>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="card rounded-0 mb-0 p-2 "
-                                                style="background-color: #e7fff2; padding: 20px !important;">
+                                                style="background-color: #f3f3ff; padding: 20px !important;">
                                                 <div class="card-body py-0 bg-white mb-1">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <p class="mb-0">Sick Leave</p>
-                                                        <p class="mb-0 title-text main_color">25</p>
+                                                        <p class="mb-0 title-text main_color">10</p>
                                                     </div>
                                                 </div>
                                                 <div class="card-body py-0 bg-white mb-1">
                                                     <div class="d-flex justify-content-between align-items-center">
-                                                        <p class="mb-0">Sick Leave</p>
-                                                        <p class="mb-0 title-text main_color">25</p>
+                                                        <p class="mb-0">Earned Leave</p>
+                                                        <p class="mb-0 title-text main_color">6</p>
                                                     </div>
                                                 </div>
                                                 <div class="card-body py-0 bg-white">
                                                     <div class="d-flex justify-content-between align-items-center">
-                                                        <p class="mb-0">Sick Leave</p>
-                                                        <p class="mb-0 title-text main_color">25</p>
+                                                        <p class="mb-0">Casual Leave</p>
+                                                        <p class="mb-0 title-text main_color">8</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -195,7 +200,7 @@
                                             style="background-color: #f3f3f3 !important;">Today's Attendance</h6>
                                     </div>
                                     <div class="card border-0 rounded-0"
-                                        style="height: 10.6rem; background-color: #f3f3ff;">
+                                        style="height: 20.5rem; background-color: #f3f3ff; overflow: auto;">
                                         <div class="card-body p-0">
                                             <div class="table-responsive">
                                                 <div class="table-responsive">
@@ -264,7 +269,7 @@
                                                 <div class="card-header py-2 bg-white m-2 rounded-0 text-center">
                                                     KPI Details
                                                 </div>
-                                                <div class="card-body py-1">
+                                                {{-- <div class="card-body py-1">
                                                     <div class="d-flex justify-content-around align-items-center">
                                                         <div>
                                                             <img class="rounded-circle" width="60px" height="60px"
@@ -280,41 +285,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="card-body py-1">
-                                                    <div class="d-flex justify-content-around align-items-center">
-                                                        <div>
-                                                            <img class="rounded-circle" width="60px" height="60px"
-                                                                src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg"
-                                                                alt="">
-                                                        </div>
-                                                        <div>
-                                                            <p class="mb-0">Sazeduzzaman</p>
-                                                            <div class="d-flex">
-                                                                <p class="mb-0 pe-2"><i
-                                                                        class="fa-solid fa-arrow-trend-up"></i></p>
-                                                                <p class="mb-0">42,056 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body py-1">
-                                                    <div class="d-flex justify-content-around align-items-center">
-                                                        <div>
-                                                            <img class="rounded-circle" width="60px" height="60px"
-                                                                src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg"
-                                                                alt="">
-                                                        </div>
-                                                        <div>
-                                                            <p class="mb-0">Sazeduzzaman</p>
-                                                            <div class="d-flex">
-                                                                <p class="mb-0 pe-2"><i
-                                                                        class="fa-solid fa-arrow-trend-up"></i></p>
-                                                                <p class="mb-0">42,056 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </div> --}}
+                                                <p class="text-center">No Data Available</p>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -325,7 +297,7 @@
                                                 <div class="card-header py-2 bg-white m-2 rounded-0 text-center">
                                                     Pending Evaluation
                                                 </div>
-                                                <div class="card-body py-1">
+                                                {{-- <div class="card-body py-1">
                                                     <div class="d-flex justify-content-around align-items-center">
                                                         <div>
                                                             <img class="rounded-circle" width="60px" height="60px"
@@ -341,41 +313,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="card-body py-1">
-                                                    <div class="d-flex justify-content-around align-items-center">
-                                                        <div>
-                                                            <img class="rounded-circle" width="60px" height="60px"
-                                                                src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg"
-                                                                alt="">
-                                                        </div>
-                                                        <div>
-                                                            <p class="mb-0">Sazeduzzaman</p>
-                                                            <div class="d-flex">
-                                                                <p class="mb-0 pe-2"><i
-                                                                        class="fa-solid fa-arrow-trend-up"></i></p>
-                                                                <p class="mb-0">42,056 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body py-1">
-                                                    <div class="d-flex justify-content-around align-items-center">
-                                                        <div>
-                                                            <img class="rounded-circle" width="60px" height="60px"
-                                                                src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg"
-                                                                alt="">
-                                                        </div>
-                                                        <div>
-                                                            <p class="mb-0">Sazeduzzaman</p>
-                                                            <div class="d-flex">
-                                                                <p class="mb-0 pe-2"><i
-                                                                        class="fa-solid fa-arrow-trend-up"></i></p>
-                                                                <p class="mb-0">42,056 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </div> --}}
+                                                <p class="text-center">No Data Available</p>
                                             </div>
                                         </div>
                                     </div>
@@ -428,11 +367,11 @@
                                                         <div class="d-flex align-items-center justify-content-center">
                                                             <div class="d-flex align-items-center">
                                                                 <p class="mb-0 time-left-count">14</p>
-                                                                <p class="mb-0 ps-1">:</p>
+                                                                <p class="mb-0 ps-1"> : </p>
                                                             </div>
                                                             <div class="d-flex align-items-center">
                                                                 <p class="mb-0 time-left-count">10</p>
-                                                                <p class="mb-0 ps-1">:</p>
+                                                                <p class="mb-0 ps-1"> : </p>
                                                             </div>
                                                             <div class="d-flex align-items-center">
                                                                 <p class="mb-0 time-left-count">25</p>
@@ -679,8 +618,7 @@
                                                     <p class="mb-2 p-0">
                                                         <a
                                                             href="{{ route('leave-application.edit', $leave_application->id) }}">
-                                                            <i
-                                                                class="fa-solid fa-bell ammount rounded-1 pe-2 me-2"></i>{{ $leave_application->name }}
+                                                            <i class="fa-solid fa-bell ammount rounded-1 pe-2 me-2"></i>{{ $leave_application->name }}
                                                             has applied for a leave.
                                                         </a>
                                                     </p>
