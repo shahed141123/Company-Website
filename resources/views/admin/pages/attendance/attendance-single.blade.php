@@ -85,11 +85,11 @@
                                                     class="d-flex align-items-center justify-content-center">
                                                     <p class="text-danger mb-0 me-3 p-0">{{ $attendance['check_in'] }}</p>
                                                     @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('09:05:00') &&
-                                                            Carbon\Carbon::parse($attendance['check_in']) < Carbon\Carbon::parse('10:05:00'))
+                                                            Carbon\Carbon::parse($attendance['check_in']) < Carbon\Carbon::parse('10:00:00'))
                                                         <p class="text-danger mb-0 p-0 fw-bold">(L)</p>
                                                     @endif
 
-                                                    @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('10:05:00'))
+                                                    @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('10:00:00'))
                                                         <p class="text-danger mb-0 p-0 fw-bold">Half Day (LL)</p>
                                                     @endif
                                                 </div>
