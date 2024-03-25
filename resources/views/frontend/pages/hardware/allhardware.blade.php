@@ -969,7 +969,7 @@
     <section>
         <div class="container p-0">
             <div class="Container mt-5 px-0">
-                <h3 class="Head main_color">Recent Products <span class="Arrows"></span></h3>
+                <h3 class="Head main_color">Recent Products </h3>
                 <!-- Carousel Container -->
                 <div class="SlickCarousel">
                     @if ($products)

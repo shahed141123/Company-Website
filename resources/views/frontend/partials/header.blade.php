@@ -591,13 +591,13 @@
                                                             <div class="col-lg-12 px-0">
                                                                 <div class="header-bottom-link">
                                                                     <div class="row pt-3 pb-3 px-5 ms-4">
-                                                                        <div class="col-lg-3 ps-0 pe-0">
+                                                                        <div class="col-lg-4 ps-0 pe-0">
                                                                             <a href="{{ route('shop.html') }}"
                                                                                 style="border-top: 3px solid #ae0a46;">
                                                                                 NGen IT Showcase
                                                                             </a>
                                                                         </div>
-                                                                        <div class="col-lg-3 ">
+                                                                        <div class="col-lg-4">
                                                                             <a href="{{ route('all.category') }}"
                                                                                 style="border-top: 3px solid #ae0a46;margin-left: -2.3rem;">
                                                                                 View All Category
@@ -608,11 +608,6 @@
                                                                                 style="border-top: 3px solid #ae0a46;">
                                                                                 View All Brands
                                                                             </a>
-                                                                        </div>
-                                                                        <div class="col-lg-2 ps-5">
-                                                                            {{-- <a href="" style="border-top: 3px solid #ae0a46;">
-                                                                                View All Deals
-                                                                            </a> --}}
                                                                         </div>
                                                                     </div>
                                                                 </div>

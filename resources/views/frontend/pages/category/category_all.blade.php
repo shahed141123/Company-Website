@@ -53,7 +53,7 @@
                             style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
                             <div class="ag-offer_visible-item">
                                 <div class="ag-offer_img-box">
-                                    <img class="ag-offer_img" width="100px" height="100px"
+                                    <img class="ag-offer_img" width="70px" height="70px"
                                         src="{{ !empty($item->image) && file_exists(public_path('storage/' . $item->image)) ? asset('storage/' . $item->image) : asset('frontend/images/no-category-img.png') }}"
                                         alt="NGEN IT">
                                 </div>
@@ -89,7 +89,7 @@
                             style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
                             <div class="ag-offer_visible-item">
                                 <div class="ag-offer_img-box">
-                                    <img class="ag-offer_img" width="100px" height="100px"
+                                    <img class="ag-offer_img" width="70px" height="70px"
                                         src="{{ !empty($item->image) && file_exists(public_path('storage/' . $item->image)) ? asset('storage/' . $item->image) : asset('frontend/images/no-category-img.png') }}"
                                         alt="NGEN IT">
                                 </div>
@@ -116,7 +116,7 @@
                             style="border: 1px dotted rgb(179, 179, 179); margin: 0.15rem!important;">
                             <div class="ag-offer_visible-item">
                                 <div class="ag-offer_img-box">
-                                    <img class="ag-offer_img" width="100px" height="100px"
+                                    <img class="ag-offer_img" width="70px" height="70px"
                                         src="{{ !empty($item->image) && file_exists(public_path('storage/' . $item->image)) ? asset('storage/' . $item->image) : asset('frontend/images/no-category-img.png') }}"
                                         alt="NGEN IT">
                                 </div>

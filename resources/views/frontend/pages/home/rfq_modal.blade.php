@@ -54,29 +54,24 @@
                                 </div>
                                 <div class="row product_quantity_wraper justify-content-between"
                                     style="background-color: transparent !important;">
-                                    <form action="http://127.0.0.1:8000/cart_store" method="post">
-                                        <input type="hidden" name="_token"
-                                            value="eEMopK8dBUi3ynpUBOlxSWb9P4zdUl3oQ030waKb">
-                                        <input type="hidden" name="product_id" id="product_id" value="62">
-                                        <input type="hidden" name="name" id="name"
-                                            value="Jira Software Cloud Premium - subscription license (annual) - 100 users">
+                                    <form action="javascript:void(0)">
                                         <div class="row ">
                                             <div class="col-lg-12 col-sm-12 d-flex align-items-center">
                                                 <div class="pro-qty">
                                                     <input type="hidden" name="product_id" id="product_id"
-                                                        value="62">
+                                                        value="{{ $item->id }}">
                                                     <input type="hidden" name="name" id="name"
-                                                        value="Jira Software Cloud Premium - subscription license (annual) - 100 users">
+                                                        value="{{ $item->name }}">
                                                     <div class="counter">
                                                         <span class="down"
                                                             onclick="decreaseCount(event, this)">-</span>
                                                         <input type="text" name="qty" value="1"
-                                                            class="count_field">
+                                                            class="count_field input-qty">
                                                         <span class="up"
                                                             onclick="increaseCount(event, this)">+</span>
                                                     </div>
                                                 </div>
-                                                <button class="btn-color ms-3" type="submit">Add to
+                                                <button class="btn-color ms-3 add_to_cart_quantity" data-id="{{ $item->id }}" data-name="{{ $item->name }}">Add to
                                                     Basket</button>
                                             </div>
                                         </div>
