@@ -40,34 +40,20 @@ class CartController extends Controller
 
     public function AddToCart(Request $request)
     {
-        $id = $request->input('product_id');
-        $name = $request->input('name');
-        $quantity = $request->input('qty');
-        $product = Product::findOrFail($id);
-
-        if ($product->discount == NULL) {
+        $id = $request->id;
+        $name = $request->name;
+        $quantity = $request->qty;
+        $product = Product::find($id);
             Cart::add([
-                'id' => $id,
-                'name' => $name,
-                'qty' => $quantity,
-                'price' => $product->price,
-                'weight' => 1,
+                'id'      => $id,
+                'name'    => $name,
+                'qty'     => $quantity,
+                'price'   => $product->price,
+                'weight'  => 1,
                 'options' => [
                     'image' => $product->thumbnail,
                 ],
             ]);
-        } else {
-            Cart::add([
-                'id' => $id,
-                'name' => $request->name,
-                'qty' => $request->qty,
-                'price' => $product->discount,
-                'weight' => 1,
-                'options' => [
-                    'image' => $product->thumbnail,
-                ],
-            ]);
-        }
         $cart = Cart::count();
         Toastr::success('Successfully Added to Your Cart');
         return response()->json([

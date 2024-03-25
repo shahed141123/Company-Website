@@ -219,7 +219,7 @@
             };
 
             $.ajax({
-                url: "{{ route('cart.add') }}",
+                url: "{{ route('add.cart') }}",
                 type: 'POST',
                 data: formData,
                 dataType: 'json',
@@ -251,7 +251,7 @@
             };
 
             $.ajax({
-                url: "{{ route('cart.add') }}",
+                url: "{{ route('add.cart') }}",
                 type: 'POST',
                 data: formData,
                 dataType: 'json',

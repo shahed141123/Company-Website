@@ -259,7 +259,7 @@
                                         <div class="card rounded-0 brand_img_container mb-4">
                                             <div class="card-body image_box">
                                                 <div class="brand-images">
-                                                    <a href="{{ route('brandpage.html', $brand->slug) }}">
+                                                    <a href="{{ route('brand.overview', $brand->slug) }}">
                                                         <img src="{{ asset('storage/' . $brand->image) }}"
                                                             class="img-fluid" alt="{{ $brand->title }}">
                                                     </a>
@@ -273,7 +273,7 @@
                                                       font-size: 13px;
                                                       display: flex;">
                                                     <a class="text-white py-2"
-                                                        href="{{ route('brandpage.html', $brand->slug) }}">Details
+                                                        href="{{ route('brand.overview', $brand->slug) }}">Details
                                                         <i class="fa-solid fa-chevron-right ms-1"></i>
                                                     </a>
                                                     <span class="ms-3 me-3" style="background: #ffff;">||</span>
@@ -309,7 +309,7 @@
                                             <div class="card rounded-0 brand_img_container mb-4">
                                                 <div class="card-body image_box">
                                                     <div class="brand-images">
-                                                        <a href="{{ route('brandpage.html', $related_brand->slug) }}">
+                                                        <a href="{{ route('brand.overview', $brand->slug) }}slug) }}">
                                                             <img src="{{ asset('storage/' . $related_brand->image) }}"
                                                                 class="img-fluid" alt="{{ $related_brand->title }}"> </a>
                                                     </div>
@@ -322,7 +322,7 @@
                                                       font-size: 13px;
                                                       display: flex;">
                                                         <a class="text-white py-2"
-                                                            href="{{ route('brandpage.html', $related_brand->slug) }}">Details
+                                                            href="{{ route('brand.overview', $brand->slug) }}slug) }}">Details
                                                             <i class="fa-solid fa-chevron-right ms-1"></i>
                                                         </a>
                                                         <span class="ms-3 me-3" style="background: #ffff;">||</span>
