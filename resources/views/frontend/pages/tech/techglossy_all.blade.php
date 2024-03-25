@@ -266,28 +266,14 @@
                                         {{-- Blog Button --}}
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="d-flex justify-content-center align-items-center">
-                                                <div class="bySocial col-12">
-                                                    <ul class="social-icon-links pull-right" style="font-size: 1.5rem;">
-                                                        {!! Share::page(url('/blog/' . $item->id . '/details'))->facebook()->twitter()->whatsapp() !!}
-                                                    </ul>
-                                                </div>
+                                                <p class="mb-0 pe-2 pt-2">{!! Share::page(url('/blog/' . $item->id . '/details'))->facebook() !!}</p>
+                                                <p class="mb-0 pe-2 pt-2">{!! Share::page(url('/blog/' . $item->id . '/details'))->twitter() !!}</p>
+                                                <p class="mb-0 pe-2 pt-2">{!! Share::page(url('/blog/' . $item->id . '/details'))->whatsapp() !!}</p>
                                             </div>
                                             <div class="d-flex justify-content-center align-items-center">
-                                                {{-- <button class="btn btn-primary rounded-circle">
-                                                    <i class="fa fa-arrow-down"></i>
-                                                </button>
-                                                <button class="btn btn-primary rounded-circle ml-1">
-                                                    <i class="fa fa-arrow-up"></i>
-                                                </button> --}}
-                                                <p class="ms-2 pt-3"><strong>Created at :
+                                                <p class="ml-2"><strong>Created at :
                                                     </strong>{{ $item->created_at->format('Y-m-d') }}</p>
                                             </div>
-                                            {{-- <div class="d-flex justify-content-center align-items-center">
-                                                <button class="btn btn-primary rounded-circle">
-                                                    <i class="fa fa-comment"></i>
-                                                </button>
-                                                <p class="  ms-2 pt-3">15</p>
-                                            </div> --}}
                                         </div>
                                         {{-- Blog Button End --}}
                                     </div>
