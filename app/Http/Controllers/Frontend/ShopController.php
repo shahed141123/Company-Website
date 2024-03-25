@@ -262,7 +262,6 @@ class ShopController extends Controller
                     ->select('products.id', 'products.rfq', 'products.slug', 'products.name', 'products.thumbnail', 'products.price', 'products.discount')
                     ->get();
 
-
                 $categories = DB::table('categories')
                     ->join('products', 'categories.id', '=', 'products.cat_id')
                     ->join('brands', 'products.brand_id', '=', 'brands.id')
@@ -270,7 +269,7 @@ class ShopController extends Controller
                     ->distinct()
                     ->select('categories.id', 'categories.slug', 'categories.title', 'categories.image')
                     ->get();
-                //dd($categories);
+
                 $subcategories = DB::table('sub_categories')
                     ->join('products', 'sub_categories.id', '=', 'products.sub_cat_id')
                     ->join('brands', 'products.brand_id', '=', 'brands.id')
