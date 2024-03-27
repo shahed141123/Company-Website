@@ -104,7 +104,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="pb-3">
+                        <div class="mb-4">
                             <label class="form-label" for="message">Message <span class="text-danger">*</span></label>
                             <div>
                                 <textarea class="form-control form-control-sm bg-white" name="message" required id="message" cols="50"
