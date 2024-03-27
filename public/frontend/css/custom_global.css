@@ -4095,6 +4095,7 @@ select:focus-visible {
 /*----------------------sidebar-menu-------------------------*/
 .sidebar-wrapper .sidebar-menu {
     padding-bottom: 10px;
+    padding-left: 40px;
 }
 
 .sidebar-wrapper .sidebar-menu .header-menu span {
