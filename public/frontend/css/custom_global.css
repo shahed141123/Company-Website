@@ -16251,23 +16251,6 @@ thead {
     margin: 50px auto;
 }
 
-@media only screen and (min-width: 1366px) {
-    .extra-btns {
-        transform: translateY(-96%) rotate(-90deg) !important;
-    width: 305px !important;
-    }
-    .rfq-area{
-        padding-bottom: 15px !important;
-    }
-}
-
-@media only screen and (min-width: 1920px) {
-    .extra-btns {
-        transform: translateY(-50%) rotate(-90deg) !important;
-        width: 367px !important;
-    }
-}
-
 @media screen and (min-width: 992px) {
     .wedo-cards__container {
         display: -webkit-box;

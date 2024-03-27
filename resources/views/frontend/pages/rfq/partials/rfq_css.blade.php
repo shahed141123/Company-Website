@@ -409,4 +409,27 @@
             margin-bottom: 0px !important;
         }
     }
+
+    @media only screen and (min-width: 768px) and (max-width: 1440px) {
+        /* Styles for laptops */
+        /* Add your CSS rules here */
+    }
+
+    @media only screen and (min-width: 1366px) {
+        .extra-btns {
+            transform: translateY(-76%) rotate(-90deg) !important;
+            width: 332px !important;
+        }
+
+        .rfq-area {
+            padding-bottom: 15px !important;
+        }
+    }
+
+    @media only screen and (min-width: 1920px) {
+        .extra-btns {
+            transform: translateY(-50%) rotate(-90deg) !important;
+            width: 367px !important;
+        }
+    }
 </style>

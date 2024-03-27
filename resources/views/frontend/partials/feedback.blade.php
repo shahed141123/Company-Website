@@ -1,179 +1,93 @@
 <style>
-    .extra-btns {
-        font-size: 18px;
-        letter-spacing: 1px;
-        position: fixed;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%) rotate(-90deg);
-        transform-origin: left center;
-        background-color: var(--primary-color);
-        color: white;
-        padding: 46px 23px 10px;
-        border: none;
-        margin-top: 220px;
-        z-index: 950;
-        border-radius: 0;
-        width: 367px;
-        text-align: center;
-    }
-
-    .extra-btns:hover {
-        border: 1px solid #fa025df4;
-        background-color: #fa025df4;
-        color: #ffff;
-        transition: 0.5s ease-in;
-    }
-
-    .btn-check:checked+.btn,
-    .btn.active,
-    .btn.show,
-    .btn:first-child:active,
-    :not(.btn-check)+.btn:active {
-        color: var(--bs-btn-active-color);
-        background-color: #ae0a46;
-        border-color: #ae0a46;
-        border-color: #ae0a46;
-    }
-
-    .offcanvas {
-        position: fixed;
-        top: 50%;
-        width: 50%;
-        height: 50vh;
-        transform: translate(0, 50%);
-    }
-
-    /* Initial state */
-    .extra-btns .fa-arrow-up {
-        display: none;
-    }
-
-    /* Show up arrow when button is active */
-    .extra-btns.active .fa-arrow-up {
-        display: inline-block;
-    }
-
-    /* Hide down arrow when button is active */
-    .extra-btns.active .fa-arrow-down {
-        display: none;
-    }
-
-
-    .icon-container {
-        /* background-color: #ae0a46; */
-        padding: 10px;
-        border-radius: 7px;
-        /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
-    }
-
-    .custom-btn {
-        background: #ae0a46;
-        color: white;
-        padding: 15px 25px;
-        border-radius: 5px;
-        border: 1 px solid #ae0a46;
-    }
-
-    .custom-btn:hover {
-        background: white;
-        border: 1px solid #ae0a46;
-        color: #ae0a46;
-        padding: 15px 25px;
-        border-radius: 5px;
-    }
-    @media only screen and (max-width: 1400px) {
-        .icon-container img{
-            width: 60px;
-        }
-        .rfq-area{
-            padding-bottom:40px !important;
-        }
-    }
-    @media only screen and (max-width: 576px) {
-        .extra-btns{
-            display: none;
-        }
-        .offcanvas-rfq{
-            display: none;
-        }
+    #sidebar_rfq {
+        position: relative;
+        left: -47.5%;
     }
 </style>
-<section>
-    <a class="extra-btns" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"
-        id="offcanvasTrigger">
-        Request For Quote<i class="fa-solid fa-arrow-down ps-2"></i><i class="fa-solid fa-arrow-up ps-2"></i>
-    </a>
 
-    <div class="offcanvas offcanvas-start offcanvas-rfq"
-        style="width: 50%; height: 40vh; transform: translate(0, 85%); border-top-right-radius: 20px; border-bottom-right-radius: 20px; background: url('https://i.ibb.co/t204YkF/Background-quote-tray.jpg') no-repeat center center / cover;"
-        tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <a href="{{ route('rfq') }}">
-            <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-12 pb-5 pt-3 rfq-area">
-                            <h4 class="m-0 text-center main_color fw-bold">Make Request For Quote</h4>
-                            <p class="text-center p-0 m-0 pt-2">Tell us what you need, and we'll provide the best price.
-                            </p>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card shadow-sm" style="border: 1px solid #eee;">
-                                <div class="card-body">
-                                    <div class="d-flex flex-column justify-content-center align-items-center">
-                                        <div class="icon-container">
-                                            <img class="img-fluid" width="80px" src="https://i.ibb.co/NNWQ583/11.png"
-                                                alt="">
-                                        </div>
-                                        <div class="text-center pt-3">
-                                            <h6>Describe Your <br> Project Requirements</h6>
+<section>
+    <div id="sidebar_rfq">
+        <div style="position: fixed; top: 40%; z-index: 99; width: 50%;">
+            <div class="container"
+                style="background-color: white !important; background: url('https://i.ibb.co/t204YkF/Background-quote-tray.jpg') no-repeat center center / cover;">
+                <div class="row align-items-center">
+                    <div class="" style=" width: 95%;">
+                        <div class="row py-4">
+                            <div class="col-lg-12">
+                                <h4 class="m-0 text-center main_color fw-bold">Make Request For Quote</h4>
+                                <p class="text-center p-0 m-0 pt-2 pb-4">Tell us what you need, and we'll provide the
+                                    best
+                                    price.
+                                </p>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card shadow-sm" style="border: 1px solid #eee;">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-column justify-content-center align-items-center">
+                                            <div class="icon-container">
+                                                <img class="img-fluid" width="80px"
+                                                    src="https://i.ibb.co/NNWQ583/11.png" alt="">
+                                            </div>
+                                            <div class="text-center pt-3">
+                                                <h6>Describe Your <br> Project Requirements</h6>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card shadow-sm" style="border: 1px solid #eee;">
-                                <div class="card-body">
-                                    <div class="d-flex flex-column justify-content-center align-items-center">
-                                        <div class="icon-container">
-                                            <img class="img-fluid" width="80px" src="https://i.ibb.co/zbqrcXX/13.png"
-                                                alt="">
-                                        </div>
-                                        <div class="text-center pt-3">
-                                            <h6>We Check The Right <br> Products & Prices For</h6>
+                            <div class="col-lg-4">
+                                <div class="card shadow-sm" style="border: 1px solid #eee;">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-column justify-content-center align-items-center">
+                                            <div class="icon-container">
+                                                <img class="img-fluid" width="80px"
+                                                    src="https://i.ibb.co/zbqrcXX/13.png" alt="">
+                                            </div>
+                                            <div class="text-center pt-3">
+                                                <h6>We Check The Right <br> Products & Prices For</h6>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card shadow-sm" style="border: 1px solid #eee;">
-                                <div class="card-body">
-                                    <div class="d-flex flex-column justify-content-center align-items-center">
-                                        <div class="icon-container">
-                                            <img class="img-fluid" width="80px" src="https://i.ibb.co/6DgcD6F/12.png"
-                                                alt="">
-                                        </div>
-                                        <div class="text-center pt-3">
-                                            <h6>Review The Quation & <br> Complete Your Purchase</h6>
+                            <div class="col-lg-4">
+                                <div class="card shadow-sm" style="border: 1px solid #eee;">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-column justify-content-center align-items-center">
+                                            <div class="icon-container">
+                                                <img class="img-fluid" width="80px"
+                                                    src="https://i.ibb.co/6DgcD6F/12.png" alt="">
+                                            </div>
+                                            <div class="text-center pt-3">
+                                                <h6>Review The Quation & <br> Complete Your Purchase</h6>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="" style="background-color: #ae0a46; width: 5%;">
+                        <div class="button_rfq" style="height: 300px;transform: rotate(-90deg);">
+                            <p class="d-flex justify-content-center align-items-center"
+                                style="color: white;
+                                position: relative;
+                                bottom: -8rem;
+                                width: 200px;
+                                font-size: 23px;
+                                right: 88px;"
+                                onclick="">
+                                Request For Quote</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </a>
+        </div>
     </div>
 </section>
 
 <section>
     <div class="">
-        <button class="feedback_upper_modal d-lg-block d-sm-none" data-bs-toggle="modal" data-bs-target="#rfqModal">RFQ
-            <i class="fa-solid fa-question" style="font-size: 14px;"></i>
-        </button>
         <button class="feedback_upper_modal d-lg-block d-sm-none" data-bs-toggle="modal" data-bs-target="#rfqModal">RFQ
             <i class="fa-solid fa-question" style="font-size: 14px;"></i>
         </button>
@@ -201,30 +115,36 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="mb-2" for="qty">Custom Quantity</label>
-                                    <input type="number" class="form-control" name="qty" id="qty" placeholder="Example: 0,1,2..."
-                                        value="{{ old('qty') }}">
+                                    <input type="number" class="form-control" name="qty" id="qty"
+                                        placeholder="Example: 0,1,2..." value="{{ old('qty') }}">
                                 </div>
                             </div>
                             <div class="row mb-4">
                                 <div class="col-lg-4 mb-3 pe-0">
-                                    <input type="text" class="form-control rounded-0" required id="name" name="name" placeholder="Your Name *"
+                                    <input type="text" class="form-control rounded-0" required id="name"
+                                        name="name" placeholder="Your Name *"
                                         value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->name : '' }}" />
                                 </div>
                                 <div class="col-lg-4 mb-3 pe-0">
-                                    <input type="number" class="form-control rounded-0" id="phone" name="phone" placeholder="Your Phone Number *"
-                                        required value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->phone : '' }}" />
+                                    <input type="number" class="form-control rounded-0" id="phone"
+                                        name="phone" placeholder="Your Phone Number *" required
+                                        value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->phone : '' }}" />
                                 </div>
                                 <div class="col-lg-4 mb-3">
-                                    <input type="text" class="form-control rounded-0" id="contact" name="company_name" placeholder="Your Company Name *"
-                                        required value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->company_name : '' }}" />
+                                    <input type="text" class="form-control rounded-0" id="contact"
+                                        name="company_name" placeholder="Your Company Name *" required
+                                        value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->company_name : '' }}" />
                                 </div>
                                 <div class="col-lg-5 mb-3 pe-0">
-                                    <input type="email" required class="form-control rounded-0" id="email" name="email" placeholder="Your Email *"
+                                    <input type="email" required class="form-control rounded-0" id="email"
+                                        name="email" placeholder="Your Email *"
                                         value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->email : '' }}" />
-                                    <span class="text-danger text-start p-0 m-0 email_validation" style="display: none">Please input valid email</span>
+                                    <span class="text-danger text-start p-0 m-0 email_validation"
+                                        style="display: none">Please input valid email</span>
                                 </div>
                                 <div class="col-lg-7 mb-3">
-                                    <input type="file" name="image" class="form-control rounded-0" id="image" accept="image/*" placeholder="Your Custom Image" />
+                                    <input type="file" name="image" class="form-control rounded-0"
+                                        id="image" accept="image/*" placeholder="Your Custom Image" />
                                 </div>
                                 <div class="col-lg-12 mb-3">
                                     <textarea class="form-control rounded-0" id="message" name="message" rows="3" placeholder="Your Message"></textarea>
@@ -276,7 +196,7 @@
             </a>
             <a href="{{ route('rfq') }}" class="fab-info-icon-action fab-info-icon-action-1" data-title="RFQ">
                 {{-- <i class="fas fa-question"></i>
-                data-bs-toggle="modal" data-bs-target="#rfqModal"--}}
+                data-bs-toggle="modal" data-bs-target="#rfqModal" --}}
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.84 110.29"
                     style="height: 35px;
