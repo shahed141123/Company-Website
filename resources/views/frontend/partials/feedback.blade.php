@@ -82,6 +82,14 @@
         padding: 15px 25px;
         border-radius: 5px;
     }
+    @media only screen and (max-width: 1400px) {
+        .icon-container img{
+            width: 60px;
+        }
+        .rfq-area{
+            padding-bottom:40px !important;
+        }
+    }
     @media only screen and (max-width: 576px) {
         .extra-btns{
             display: none;
@@ -104,7 +112,7 @@
             <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-12 pb-5 pt-3">
+                        <div class="col-lg-12 pb-5 pt-3 rfq-area">
                             <h4 class="m-0 text-center main_color fw-bold">Make Request For Quote</h4>
                             <p class="text-center p-0 m-0 pt-2">Tell us what you need, and we'll provide the best price.
                             </p>
@@ -133,7 +141,7 @@
                                                 alt="">
                                         </div>
                                         <div class="text-center pt-3">
-                                            <h6>We Check The Right <br> Products & Prices For You</h6>
+                                            <h6>We Check The Right <br> Products & Prices For</h6>
                                         </div>
                                     </div>
                                 </div>

@@ -347,27 +347,53 @@
         }
 
         @media only screen and (max-width: 576px) {
+            .qtyInput {
+                width: 90% !important;
+            }
+
+            .rfq-triger {
+                display: none;
+            }
+
+            .nav-tabs-rfq .nav-item {
+                width: 100% !important;
+            }
+
+            .qtyBox {
+                margin-top: 10px;
+                margin-left: 0px !important;
+            }
+
+            .productInput {
+                width: 90% !important;
+                margin-left: 30px;
+            }
+
             .repeater-add {
-                top: -91px;
-                right: 18px;
+                top: -90px;
+                right: 5px;
             }
 
             .repeater-delete {
                 padding-left: 0.4rem !important;
             }
 
-            .qtyBox {
-                margin-top: 10px;
-                margin-left: 16px;
+            .another-rfq-field {
+                position: relative;
+                top: -1.5rem;
             }
 
-            .productInput {
-                width: 82%;
-                margin: auto;
+            #multi_step_form .container fieldset.step .nextStep {
+                position: absolute;
+                right: 95px;
+                font-size: 11px !important;
             }
-
-            .qtyInput {
-                width: 50% !important;
+            #multi_step_form .container #multistep_nav .activated_step {
+                background-color: #ae0a46;
+                color: white;
+            }
+            .fa-circle-question{
+                display: none;
             }
         }
     </style>
@@ -405,7 +431,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-8 col-offset-lg-2 m-auto">
-                    <div class="row gx-3 my-2">
+                    <div class="row gx-3 my-2 rfq-triger">
                         <div class="col-lg-6 pe-0">
                             <div class="p-3 rfq_box1 text-start active-background me-2">
                                 <div class="d-flex justify-content-between">
@@ -453,7 +479,7 @@
                                     <div class="container p-0 mb-5">
                                         <div id="multistep_nav">
                                             <div class="progress_holder progress_holder_custom">
-                                                PRODUCT QUERY
+                                                Product Query
                                             </div>
                                             <div class="progress_holder progress_holder_custom">
                                                 Supporting Information
@@ -538,7 +564,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-12 pb-4">
+                                                            <div class="col-lg-12 pb-4 another-rfq-field">
                                                                 <label for="message" class="control-label pb-1">Custom
                                                                     Message</label>
                                                                 <textarea class="form-control" id="message" name="message" rows="1"></textarea>
@@ -752,13 +778,13 @@
                                     <div class="container p-0 mb-5">
                                         <div id="multistep_nav">
                                             <div class="progress_holder progress_holder_custom">
-                                                CUSTOM PRODUCT QUERY
+                                                Custom Query
                                             </div>
                                             <div class="progress_holder progress_holder_custom">
-                                                QUERY DETAILS
+                                                Query Details
                                             </div>
                                             <div class="progress_holder progress_holder_custom">
-                                                COMPANY DETAILS
+                                                Company Details
                                             </div>
                                         </div>
                                         <fieldset class="step" id="step1">
