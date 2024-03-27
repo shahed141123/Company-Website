@@ -423,6 +423,7 @@ class ShopController extends Controller
                 //dd($products);
                 $brands = Brand::inRandomOrder()->paginate(7);
             }
+
         }
 
 
@@ -446,7 +447,7 @@ class ShopController extends Controller
         }
         if (!empty($_GET['brand']) && is_array($_GET['brand'])) {
             $slugs = $_GET['brand'];
-            $brandIds = Brand::select('id')->whereIn('slug', $slugs)->pluck('id')->toArray();
+            $brandIds = Brand::whereIn('slug', $slugs)->pluck('id')->toArray();
             $products = $products->whereIn('brand_id', $brandIds)->where('product_status', 'product');
             //dd($products);
         }
@@ -523,7 +524,6 @@ class ShopController extends Controller
     public function CustomProductFilter(Request $request, $slug)
     {
         $data = $request->all();
-
         $customURL = '';
         if (Category::getProductByCat($slug) || SubCategory::getProductBySubCat($slug) || SubSubCategory::getProductBySubSubCat($slug) || SubSubSubCategory::getProductBySubSubSubCat($slug)) {
             $customURL .= '&customCategory=' . $slug;
