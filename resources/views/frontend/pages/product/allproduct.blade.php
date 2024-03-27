@@ -1,9 +1,10 @@
 @extends('frontend.master')
 @section('content')
 
+
     @include('frontend.pages.product.partials.style')
     <section class="banner_single_page mb-4"
-        style="background-image:url('{{ asset('frontend/images/custom_shop.jpg') }}');
+        style="background-image:url("{{ (!empty$brand_logo->brand_logo) ? asset('storage/' . $bannerImage) : asset('storage/' . $cat->banner_image)) }}");
         background-color: black;
         background-repeat: no-repeat;
         background-size: cover;
