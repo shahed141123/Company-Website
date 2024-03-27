@@ -4,11 +4,11 @@
 
     @include('frontend.pages.product.partials.style')
     <section class="banner_single_page mb-4"
-        style="background-image:url("{{ (!empty$brand_logo->brand_logo) ? asset('storage/' . $bannerImage) : asset('storage/' . $cat->banner_image)) }}");
-        background-color: black;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height:300px;">
+            style="background-image:url('{{ (!empty($brand_logo->brand_logo)) ? asset('storage/' . $bannerImage) : asset('storage/' . $cat->banner_image) }}');
+                background-color: black;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height:300px;">
 
         <div class="container">
             <div class="single_banner_content">
