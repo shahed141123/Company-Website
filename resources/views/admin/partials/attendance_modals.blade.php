@@ -71,10 +71,10 @@
                                                 </td>
                                                 <td>
                                                     @if (isset($attendanceThisMonth['check_in']) && $attendanceThisMonth['check_in'] !== 'N/A')
-                                                        @if (Carbon\Carbon::parse($attendanceThisMonth['check_in']) > Carbon\Carbon::parse('09:05:00') &&
-                                                                Carbon\Carbon::parse($attendanceThisMonth['check_in']) < Carbon\Carbon::parse('10:00:00'))
+                                                        @if (Carbon\Carbon::parse($attendanceThisMonth['check_in']) > Carbon\Carbon::parse('09:06:00') &&
+                                                                Carbon\Carbon::parse($attendanceThisMonth['check_in']) < Carbon\Carbon::parse('10:01:00'))
                                                             <h4 class="mb-0 text-danger fw-bold">Late (L)</h4>
-                                                        @elseif (Carbon\Carbon::parse($attendanceThisMonth['check_in']) > Carbon\Carbon::parse('10:00:00'))
+                                                        @elseif (Carbon\Carbon::parse($attendanceThisMonth['check_in']) > Carbon\Carbon::parse('10:01:00'))
                                                             <h4 class="mb-0 text-danger fw-bold">Half Day (LL)</h4>
                                                         @endif
                                                     @endif
@@ -153,12 +153,12 @@
                                             <td>{{ $lateCount['check_in'] }}</td>
                                             <td>{{ $lateCount['check_out'] }}</td>
                                             <td>
-                                                @if (Carbon\Carbon::parse($lateCount['check_in']) > Carbon\Carbon::parse('09:05:00') &&
-                                                        Carbon\Carbon::parse($lateCount['check_in']) < Carbon\Carbon::parse('10:00:00'))
+                                                @if (Carbon\Carbon::parse($lateCount['check_in']) > Carbon\Carbon::parse('09:06:00') &&
+                                                        Carbon\Carbon::parse($lateCount['check_in']) < Carbon\Carbon::parse('10:01:00'))
                                                     <h4 class="mb-0 text-danger fw-bold">Late (L)</h4>
                                                 @endif
 
-                                                @if (Carbon\Carbon::parse($lateCount['check_in']) > Carbon\Carbon::parse('10:00:00'))
+                                                @if (Carbon\Carbon::parse($lateCount['check_in']) > Carbon\Carbon::parse('10:01:00'))
                                                     <h4 class="mb-0 text-danger fw-bold">Half Day (LL)</h4>
                                                 @endif
                                             </td>
@@ -234,12 +234,12 @@
                                             <td>{{ $attendanceLastMonth['check_in'] }}</td>
                                             <td>{{ $attendanceLastMonth['check_out'] }}</td>
                                             <td>
-                                                @if (Carbon\Carbon::parse($attendanceLastMonth['check_in']) > Carbon\Carbon::parse('09:05:00') &&
-                                                        Carbon\Carbon::parse($attendanceLastMonth['check_in']) < Carbon\Carbon::parse('10:00:00'))
+                                                @if (Carbon\Carbon::parse($attendanceLastMonth['check_in']) > Carbon\Carbon::parse('09:06:00') &&
+                                                        Carbon\Carbon::parse($attendanceLastMonth['check_in']) < Carbon\Carbon::parse('10:01:00'))
                                                     <h5 class="text-danger fw-bold">L</h5>
                                                 @endif
 
-                                                @if (Carbon\Carbon::parse($attendanceLastMonth['check_in']) > Carbon\Carbon::parse('10:00:00'))
+                                                @if (Carbon\Carbon::parse($attendanceLastMonth['check_in']) > Carbon\Carbon::parse('10:01:00'))
                                                     <h5 class="text-danger fw-bold">Half Day (LL)</h5>
                                                 @endif
                                             </td>

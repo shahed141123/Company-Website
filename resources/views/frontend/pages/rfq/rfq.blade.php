@@ -23,201 +23,6 @@
             box-shadow: 0 0 0 0.25rem transparent;
         }
 
-        .dropdown-select {
-            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
-            background-repeat: repeat-x;
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#40FFFFFF', endColorstr='#00FFFFFF', GradientType=0);
-            background-color: #fff;
-            border: solid 1px #eee;
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-            box-sizing: border-box;
-            cursor: pointer;
-            display: block;
-            float: left;
-            font-size: 14px;
-            font-weight: normal;
-            height: auto;
-            line-height: 40px;
-            outline: none;
-            padding-left: 18px;
-            padding-right: 30px;
-            position: relative;
-            text-align: left !important;
-            transition: all 0.2s ease-in-out;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            white-space: nowrap;
-            width: auto;
-
-
-        }
-
-
-        .dropdown-select:focus {
-            background-color: #fff;
-            border: 1px solid #eee;
-        }
-
-
-        .dropdown-select:hover {
-            background-color: #fff;
-        }
-
-
-        .dropdown-select:active,
-        .dropdown-select.open {
-            background-color: #fff !important;
-            border-color: #bbb;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) inset;
-        }
-
-
-        .dropdown-select:after {
-            height: 0;
-            width: 0;
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-top: 4px solid #777;
-            -webkit-transform: origin(50% 20%);
-            transform: origin(50% 20%);
-            transition: all 0.125s ease-in-out;
-            content: '';
-            display: block;
-            margin-top: -2px;
-            pointer-events: none;
-            position: absolute;
-            right: 10px;
-            top: 50%;
-        }
-
-
-        .dropdown-select.open:after {
-            -webkit-transform: rotate(-180deg);
-            transform: rotate(-180deg);
-        }
-
-
-        .dropdown-select.open .list {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-
-        .dropdown-select.open .option {
-            cursor: pointer;
-        }
-
-
-        .dropdown-select.wide {
-            width: 100%;
-        }
-
-
-        .dropdown-select.wide .list {
-            left: 0 !important;
-            right: 0 !important;
-        }
-
-
-        .dropdown-select .list {
-            box-sizing: border-box;
-            transition: all 0.15s cubic-bezier(0.25, 0, 0.25, 1.75), opacity 0.1s linear;
-            -webkit-transform: scale(0.75);
-            transform: scale(0.75);
-            -webkit-transform-origin: 50% 0;
-            transform-origin: 50% 0;
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.09);
-            background-color: #fff;
-            padding: 3px 0;
-            opacity: 0;
-            overflow: hidden;
-            pointer-events: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            z-index: 999;
-            max-height: 250px;
-            overflow: auto;
-            border: 1px solid #ddd;
-        }
-
-
-        .dropdown-select .list:hover .option:not(:hover) {
-            background-color: transparent !important;
-        }
-
-
-        .dropdown-select .dd-search {
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0.5rem;
-        }
-
-
-        .dropdown-select .dd-searchbox {
-            width: 100%;
-            border: 1px solid #ae0a46;
-            border-color: #ae0a46;
-            outline: none;
-        }
-
-
-        .dropdown-select .dd-searchbox:focus {
-            border-color: #ae0a46;
-        }
-
-
-        .dropdown-select .list ul {
-            padding: 0;
-        }
-
-
-        .dropdown-select .option {
-            cursor: default;
-            font-weight: 400;
-            line-height: 40px;
-            outline: none;
-            padding-left: 18px;
-            padding-right: 29px;
-            text-align: left;
-            transition: all 0.2s;
-            list-style: none;
-        }
-
-
-        .dropdown-select .option:hover,
-        .dropdown-select .option:focus {
-            background-color: #f6f6f6 !important;
-        }
-
-
-        .dropdown-select .option.selected {
-            font-weight: 600;
-            color: #ae0a46;
-        }
-
-
-        .dropdown-select .option.selected:focus {
-            background: #f6f6f6;
-        }
-
-
-        .dropdown-select a {
-            color: #aaa;
-            text-decoration: none;
-            transition: all 0.2s ease-in-out;
-        }
-
-
-        .dropdown-select a:hover {
-            color: #666;
-        }
 
 
         #multi_step_form {
@@ -281,6 +86,26 @@
             border: 1px solid #ae0a46 !important;
         }
 
+        .submitbtn {
+            position: absolute;
+            right: 25px;
+            bottom: 5px;
+            padding: 10px;
+            width: 100px;
+            color: white !important;
+            background-color: #ae0a46 !important;
+            border: 1px solid #ae0a46 !important;
+        }
+
+        .submitbtn:hover {
+            position: absolute;
+            right: 25px;
+            padding: 10px;
+            width: 100px;
+            background-color: transparent !important;
+            color: #ae0a46 !important;
+            border: 1px solid #ae0a46 !important;
+        }
 
         #multi_step_form .container fieldset.step .prevStep {
             position: absolute;
@@ -436,6 +261,7 @@
         .nav-tabs-rfq {
             display: flex !important;
             align-items: center;
+            column-gap: 7px;
         }
 
         /* Add your custom styles for radio buttons here */
@@ -475,13 +301,18 @@
         }
 
         .nav-tabs .nav-item .nav-link.active {
+            background: none;
+            border: 1px dashed #ae0a46;
+            color: #ae0a46;
             font-size: 16px;
-            font-weight: 400;
+            font-weight: 600;
             cursor: pointer;
         }
 
         .nav-tabs .nav-link,
         .nav-tabs .nav-item .nav-link {
+            border: 1px solid #adadad;
+            color: black;
             font-size: 16px;
             cursor: pointer;
             font-weight: 400;
@@ -506,14 +337,38 @@
         }
 
         .changing-class {
-            background-color: #ae0a46;
             background-image: none;
-            border: 1px solid #ae0a46;
-            color: white;
+            border: 1px dashed #ae0a46;
+            color: #ae0a46;
         }
 
         .rfq-text {
             border-bottom: 2px solid #ae0a46;
+        }
+
+        @media only screen and (max-width: 576px) {
+            .repeater-add {
+                top: -91px;
+                right: 18px;
+            }
+
+            .repeater-delete {
+                padding-left: 0.4rem !important;
+            }
+
+            .qtyBox {
+                margin-top: 10px;
+                margin-left: 16px;
+            }
+
+            .productInput {
+                width: 82%;
+                margin: auto;
+            }
+
+            .qtyInput {
+                width: 50% !important;
+            }
         }
     </style>
     <!--======// Header Title //======-->
@@ -531,7 +386,7 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs nav-tabs-rfq px-0 mt-5 d-flex justify-content-center align-items-center w-100"
                         id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation" style="width: 49%; margin-right: 8px;">
+                        <li class="nav-item mb-3" role="presentation" style="width: 49%;">
                             <label class="nav-link active rounded-0 custom-radio" id="home-tab" data-bs-toggle="tab"
                                 data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">
                                 <input type="radio" class="form-check-input me-2"
@@ -539,7 +394,7 @@
                                 RFQ by Product Selection
                             </label>
                         </li>
-                        <li class="nav-item" role="presentation" style="width: 50%">
+                        <li class="nav-item mb-3" role="presentation" style="width: 49%">
                             <label class="nav-link rounded-0 custom-radio" id="profile-tab" data-bs-toggle="tab"
                                 data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="false">
                                 <input type="radio" class="form-check-input me-2"
@@ -591,7 +446,9 @@
                 <div class="col-lg-10 offset-lg-1 mx-auto">
                     <div class="tab-content pt-2">
                         <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <form action="" id="repeater-form" action="" method="post" novalidate>
+                            <form id="repeater-form" action="{{ route('rfqCreate') }}" method="post"
+                                enctype="multipart/form-data">
+                                @csrf
                                 <div id="multi_step_form">
                                     <div class="container p-0 mb-5">
                                         <div id="multistep_nav">
@@ -609,88 +466,92 @@
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-lg-10 offset-lg-1 mx-auto">
-                                                        <div class="d-flex p-4 px-0">
+                                                        <div class="row p-4 px-0 align-items-center">
                                                             <div class="me-2">
                                                                 <i
                                                                     class="fa-solid fa-circle-question main_color"style="font-size: 35px;"></i>
                                                             </div>
-                                                            <div class="">
-                                                                <p>Select right products by writing initials or full
-                                                                    product name in the below box. Also, mention the
-                                                                    quantity in right box. You can add as many as product
-                                                                    input box by clicking in the left '+' symbol
+                                                            <div>
+                                                                <p class="mb-0">Select right products by writing initials
+                                                                    or full product
+                                                                    name in the below box. Also, mention the quantity in
+                                                                    right box. You can add as many as product input box by
+                                                                    clicking in the left '+' symbol
                                                                 </p>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-9  mx-auto">
-                                                        <div class="repeater">
-                                                            <div data-repeater-list="items">
-                                                                <div data-repeater-item class="mb-3">
-                                                                    <div class="row gx-2">
-                                                                        <div class="col-lg-8">
-                                                                            <div class="searchInput">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-12 ps-0">
+                                                        <div class="row">
+                                                            <div class="repeater">
+                                                                <div data-repeater-list="items">
+                                                                    <div data-repeater-item class="mb-3">
+                                                                        <div class="row gx-2">
+                                                                            <div class="col-lg-8 productBox me-3">
+                                                                                <div class="row searchInput">
+                                                                                    <div class="col-12">
                                                                                         <input type="text"
-                                                                                            class="form-control form-control-sm border-0 rounded-1"
+                                                                                            name="product_name"
+                                                                                            class="productInput form-control form-control-sm border-0 rounded-1"
                                                                                             placeholder="Product Title"
-                                                                                            id="productSearchInput">
+                                                                                            id="productSearchInput"
+                                                                                            style="width: 95%;">
+                                                                                    </div>
+                                                                                    <div class="col-12 resultBox">
+                                                                                        <ul class="suggestionList"
+                                                                                            style="display: none;">
+                                                                                            @foreach ($products as $product)
+                                                                                                <li>{{ $product->name }}
+                                                                                                </li>
+                                                                                            @endforeach
+                                                                                            <!-- Add other list items here -->
+                                                                                        </ul>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="resultBox">
-                                                                                    <ul class="suggestionList"
-                                                                                        style="display: none;">
-                                                                                        @foreach ($products as $product)
-                                                                                            <li>{{ $product->name }}
-                                                                                            </li>
-                                                                                        @endforeach
-                                                                                        <!-- Add other list items here -->
-                                                                                    </ul>
+                                                                            </div>
+                                                                            <div class="col-lg-3 d-flex qtyBox ms-4">
+                                                                                <div class="qtyInput" style="width: 90%">
+                                                                                    <input type="number" name="qty"
+                                                                                        value=""
+                                                                                        placeholder="Enter Product Qty"
+                                                                                        class="form-control form-control-sm border-0" />
                                                                                 </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-lg-4 d-flex">
-                                                                            <div style="width: 90%">
-                                                                                <input type="text" name="qty"
-                                                                                    value=""
-                                                                                    placeholder="Enter Product Qty"
-                                                                                    class="form-control form-control-sm border-0" />
-                                                                            </div>
-                                                                            <div style="width: 10%" class="ms-2">
-                                                                                <button data-repeater-delete type="button"
-                                                                                    class="repeater-delete ps-5">
-                                                                                    <img width="20px"
-                                                                                        src="https://i.ibb.co/qr49zm6/Asset-1-2x-8.png"
-                                                                                        alt="">
-                                                                                </button>
+                                                                                <div style="width: 10%" class="ms-2">
+                                                                                    <button data-repeater-delete
+                                                                                        type="button"
+                                                                                        class="repeater-delete ps-2">
+                                                                                        <img width="20px"
+                                                                                            src="https://i.ibb.co/qr49zm6/Asset-1-2x-8.png"
+                                                                                            alt="">
+                                                                                    </button>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-lg-12">
-                                                                    <button data-repeater-create type="button"
-                                                                        class="repeater-add">
-                                                                        <img width="15px"
-                                                                            src="https://i.ibb.co/yQgJTTh/Asset-2-2x-8.png"
-                                                                            alt="">
-                                                                    </button>
+                                                                <div class="row">
+                                                                    <div class="col-lg-12">
+                                                                        <button data-repeater-create type="button"
+                                                                            class="repeater-add">
+                                                                            <img width="15px"
+                                                                                src="https://i.ibb.co/yQgJTTh/Asset-2-2x-8.png"
+                                                                                alt="">
+                                                                        </button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-lg-12 pb-4">
+                                                                <label for="message" class="control-label pb-1">Custom
+                                                                    Message</label>
+                                                                <textarea class="form-control" id="message" name="message" rows="1"></textarea>
+                                                            </div>
                                                         </div>
-
-                                                    </div>
-                                                    <div class="col-lg-8 offset-lg-2 mx-auto">
-                                                        <div>
-                                                            <button type="button"
-                                                                class="nextStep btn-color mb-2 me-4">Next</button>
+                                                        <div class="row">
+                                                            <div class="col-lg-8 offset-lg-2 mx-auto">
+                                                                <button type="button"
+                                                                    class="nextStep btn-color mb-2 me-4">Next</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-
                                         </fieldset>
                                         <fieldset class="step" id="step2">
                                             <div class="prevStep btn-color mb-2 ms-3">Prev</div>
@@ -710,63 +571,80 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-lg-6">
+                                                            <div class="col-lg-4">
                                                                 <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1"
-                                                                        class="form-label">Tentative Budget <span
-                                                                            class="text-danger">*</span></label>
-                                                                    <input type="number" name="email"
+                                                                    <label for="budget" class="form-label">Tentative
+                                                                        Budget</label>
+                                                                    <input type="number" name="budget"
                                                                         class="form-control form-control-sm border-0 rounded-1"
-                                                                        id="exampleFormControlInput1"
-                                                                        placeholder="Input Budget Value here" required>
+                                                                        id="budget"
+                                                                        placeholder="Your Approximate Budget">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="mb-3">
+                                                                    <label for="delivery_location"
+                                                                        class="form-label">Delivery Location <span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="text" name="delivery_location"
+                                                                        class="form-control form-control-sm border-0 rounded-1"
+                                                                        id="delivery_location"
+                                                                        placeholder="Delivery Location">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="mb-3">
+                                                                    <label for="country" class="form-label">Your Country
+                                                                        <span class="text-danger">*</span></label>
+                                                                    <input type="text" name="country"
+                                                                        class="form-control form-control-sm border-0 rounded-1"
+                                                                        id="country"
+                                                                        placeholder="Your Country(Eg:USA, UK, Canada)">
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1"
-                                                                        class="form-label">Tentative Close Date<span
-                                                                            class="text-danger">*</span></label>
-                                                                    <input type="date" name="company_name"
-                                                                        class="form-control form-control-sm border-0 rounded-1"
-                                                                        id="exampleFormControlInput1"
-                                                                        placeholder="mmm/dd/yyyy" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1"
-                                                                        class="form-label">Which stage is your project now
-                                                                        ?<span class="text-danger">*</span></label>
+                                                                    <label for="project_status" class="form-label">Which
+                                                                        stage is your project now
+                                                                        ?</label>
                                                                     <select class="form-select form-select-sm"
-                                                                        aria-label="Default select example">
-                                                                        <option selected>Select Project Status</option>
-                                                                        <option value="1">Budget Stage</option>
-                                                                        <option value="2">Tore Stage</option>
-                                                                        <option value="3">RFQ Stage</option>
+                                                                        name="project_status"
+                                                                        data-placeholder="Select Project Status"
+                                                                        aria-label="Default select example"
+                                                                        id="project_status">
+                                                                        <option></option>
+                                                                        <option value="budget_stage">Budget Stage</option>
+                                                                        <option value="tor_stage">Tor Stage</option>
+                                                                        <option value="rfq_stage">RFQ Stage</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1"
-                                                                        class="form-label">Do you Need Installation / Local
-                                                                        Support ?<span class="text-danger">*</span></label>
+                                                                    <label for="approximate_delivery_time"
+                                                                        class="form-label">Approximate Delivery Time
+                                                                        ?</label>
                                                                     <select class="form-select form-select-sm"
+                                                                        name="approximate_delivery_time"
+                                                                        data-placeholder="Select Delivery Time"
                                                                         aria-label="Default select example">
-                                                                        <option selected>Select Option here</option>
-                                                                        <option value="1">Quicke</option>
-                                                                        <option value="2">Slow Step</option>
-                                                                        <option value="3">Normal</option>
+                                                                        <option></option>
+                                                                        <option value="less_one_month">Less Than One Month
+                                                                        </option>
+                                                                        <option value="two_month">Two Months</option>
+                                                                        <option value="three_month">Three Months</option>
+                                                                        <option value="six_month">Six Months</option>
+                                                                        <option value="one_year">One Year</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-12">
                                                                 <div class="checkbox-wrapper-1">
                                                                     <input id="example-1" class="substituted"
-                                                                        type="checkbox" aria-hidden="true" />
-                                                                    <label for="example-1">Do you need Brochures /
-                                                                        Presentations? Do you need further
-                                                                        discussions ?</label>
+                                                                        type="checkbox" aria-hidden="true" name="call"
+                                                                        value="1" />
+                                                                    <label for="example-1">Do you expect call from Us or
+                                                                        Appointment?</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -795,92 +673,81 @@
                                                             </div>
                                                             <div class="col-lg-4">
                                                                 <div class="form-group pt-2">
-                                                                    <label for="" class="pb-1">Name</label>
-                                                                    <input type="text" name="name"
+                                                                    <label for="name" class="pb-1">Name <span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="text" id="name" name="name"
+                                                                        value="{{ optional(Auth::guard('client')->user())->name }}"
                                                                         class="form-control form-control-sm border-0 rounded-1"
-                                                                        placeholder="Input your full name">
+                                                                        placeholder="Input your full name" required>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-4">
                                                                 <div class="form-group pt-2">
-                                                                    <label for=""
+                                                                    <label for="designation"
                                                                         class="pb-1">Designation</label>
-                                                                    <input type="text" name="designation"
+                                                                    <input type="text" id="designation"
+                                                                        name="designation"
+                                                                        value="{{ optional(Auth::guard('client')->user())->designation }}"
                                                                         class="form-control form-control-sm border-0 rounded-1"
                                                                         placeholder="Input your designation">
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-4">
                                                                 <div class="form-group pt-2">
-                                                                    <label for="" class="pb-1">Email Id</label>
-                                                                    <input type="email"
+                                                                    <label for="email" class="pb-1">Email Id <span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="email" id="email" name="email"
+                                                                        value="{{ optional(Auth::guard('client')->user())->email }}"
                                                                         class="form-control form-control-sm border-0 rounded-1"
-                                                                        placeholder="Input your official domain/email id">
+                                                                        placeholder="Input your official domain/email id"
+                                                                        required>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-4">
                                                                 <div class="form-group pt-2">
-                                                                    <label for="" class="pb-1">Contact
+                                                                    <label for="phone" class="pb-1">Contact
                                                                         Number</label>
-                                                                    <input type="numnber"
+                                                                    <input type="number" id="phone" name="phone"
+                                                                        value="{{ optional(Auth::guard('client')->user())->phone }}"
                                                                         class="form-control form-control-sm border-0 rounded-1"
                                                                         placeholder="Input your mobile number">
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-4">
                                                                 <div class="form-group pt-2">
-                                                                    <label for="" class="pb-1">Company
+                                                                    <label for="company_name" class="pb-1">Company
                                                                         Name</label>
-                                                                    <input type="text"
+                                                                    <input type="text" id="company_name"
+                                                                        name="company_name"
+                                                                        value="{{ optional(Auth::guard('client')->user())->company_name }}"
                                                                         class="form-control form-control-sm border-0 rounded-1"
                                                                         placeholder="Your company name">
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-4">
                                                                 <div class="form-group pt-2">
-                                                                    <label for="" class="pb-1">Company
+                                                                    <label for="address" class="pb-1">Company
                                                                         Address</label>
-                                                                    <input type="text"
+                                                                    <input type="text" id="address" name="address"
+                                                                        value="{{ optional(Auth::guard('client')->user())->address }}"
                                                                         class="form-control form-control-sm border-0 rounded-1"
                                                                         placeholder="Input company address">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-4">
-                                                                <div class="form-group pt-2">
-                                                                    <label for="" class="pb-1">City</label>
-                                                                    <input type="text"
-                                                                        class="form-control form-control-sm border-0 rounded-1"
-                                                                        placeholder="Input city name">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-4">
-                                                                <div class="form-group pt-2">
-                                                                    <label for="" class="pb-1">Zip Code</label>
-                                                                    <input type="text"
-                                                                        class="form-control form-control-sm border-0 rounded-1"
-                                                                        placeholder="Input zip code">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-4">
-                                                                <div class="form-group pt-2">
-                                                                    <label for="" class="pb-1">Country</label>
-                                                                    <input type="text"
-                                                                        class="form-control form-control-sm border-0 rounded-1"
-                                                                        placeholder="input Country Name">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="nextStep btn-color mb-2">Submit</button>
+                                            <button type="submit" class="submitbtn btn-color mb-2">Submit</button>
                                         </fieldset>
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <form action="" id="yourFormIdss" action="" method="post" novalidate>
+                            <form id="yourFormIdss" action="{{ route('rfqCreate') }}" method="post"
+                                enctype="multipart/form-data">
+                                @csrf
                                 <div id="multi_step_form">
                                     <div class="container p-0 mb-5">
                                         <div id="multistep_nav">
@@ -915,7 +782,7 @@
                                                                 <label class="control-label pb-1">Choose Product
                                                                     Category</label> <br>
                                                                 <select class="multiSelect" multiple="multiple"
-                                                                    style="width: 100%;">
+                                                                    name="category[]" style="width: 100%;">
                                                                     @foreach ($categorys as $category)
                                                                         <option value="{{ $category->id }}">
                                                                             {{ $category->title }}
@@ -928,10 +795,10 @@
                                                                 <label class="control-label pb-1">Choose Preferred
                                                                     Brands</label> <br>
                                                                 <select class="multiSelect" multiple="multiple"
-                                                                    style="width: 100%;">
+                                                                    name="brand[]" style="width: 100%;">
                                                                     @foreach ($brands as $brand)
                                                                         <option value="{{ $brand->id }}">
-                                                                            {{ $brand->title }}
+                                                                            {{ $brand->name }}
                                                                         </option>
                                                                     @endforeach
                                                                     <!-- Add more options as needed -->
@@ -940,8 +807,10 @@
                                                             <div class="col-lg-4">
                                                                 <label class="control-label pb-1">Select Industry</label>
                                                                 <br>
+                                                                {{-- <select class="multiSelect" multiple="multiple"
+                                                                    style="width: 100%;"> --}}
                                                                 <select class="multiSelect" multiple="multiple"
-                                                                    style="width: 100%;">
+                                                                    name="industry[]" style="width: 100%;">
                                                                     @foreach ($industrys as $industry)
                                                                         <option value="{{ $industry->id }}">
                                                                             {{ $industry->title }}
@@ -951,16 +820,10 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-lg-12 pt-4">
-                                                                {{-- <div class="checkbox-wrapper-1">
-                                                                    <input id="example-1" class="substituted"
-                                                                        type="checkbox" aria-hidden="true" />
-                                                                    <label for="example-1">Do you need Brochures /
-                                                                        Presentations? Do you need further
-                                                                        discussions ?</label>
-                                                                </div> --}}
-                                                                <label class="control-label pb-1">Write your Case Scenario
+                                                                <label for="message" class="control-label pb-1">Write
+                                                                    your Case Scenario
                                                                     / Project Requirements :</label>
-                                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                                                <textarea class="form-control" id="message" name="message" rows="1"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -986,63 +849,80 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-lg-6">
+                                                            <div class="col-lg-4">
                                                                 <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1"
-                                                                        class="form-label">Tentative Budget <span
-                                                                            class="text-danger">*</span></label>
-                                                                    <input type="number" name="email"
+                                                                    <label for="budget" class="form-label">Tentative
+                                                                        Budget</label>
+                                                                    <input type="number" name="budget"
                                                                         class="form-control form-control-sm border-0 rounded-1"
-                                                                        id="exampleFormControlInput1"
-                                                                        placeholder="Input Budget Value here" required>
+                                                                        id="budget"
+                                                                        placeholder="Your Approximate Budget">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="mb-3">
+                                                                    <label for="delivery_location"
+                                                                        class="form-label">Delivery Location <span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="text" name="delivery_location"
+                                                                        class="form-control form-control-sm border-0 rounded-1"
+                                                                        id="delivery_location"
+                                                                        placeholder="Delivery Location">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="mb-3">
+                                                                    <label for="country" class="form-label">Your Country
+                                                                        <span class="text-danger">*</span></label>
+                                                                    <input type="text" name="country"
+                                                                        class="form-control form-control-sm border-0 rounded-1"
+                                                                        id="country"
+                                                                        placeholder="Your Country(Eg:USA, UK, Canada)">
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1"
-                                                                        class="form-label">Tentative Close Date<span
-                                                                            class="text-danger">*</span></label>
-                                                                    <input type="date" name="company_name"
-                                                                        class="form-control form-control-sm border-0 rounded-1"
-                                                                        id="exampleFormControlInput1"
-                                                                        placeholder="mmm/dd/yyyy" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1"
-                                                                        class="form-label">Which stage is your project now
-                                                                        ?<span class="text-danger">*</span></label>
+                                                                    <label for="project_status" class="form-label">Which
+                                                                        stage is your project now
+                                                                        ?</label>
                                                                     <select class="form-select form-select-sm"
-                                                                        aria-label="Default select example">
-                                                                        <option selected>Select Project Status</option>
-                                                                        <option value="1">Budget Stage</option>
-                                                                        <option value="2">Tore Stage</option>
-                                                                        <option value="3">RFQ Stage</option>
+                                                                        name="project_status"
+                                                                        data-placeholder="Select Project Status"
+                                                                        aria-label="Default select example"
+                                                                        id="project_status">
+                                                                        <option></option>
+                                                                        <option value="budget_stage">Budget Stage</option>
+                                                                        <option value="tor_stage">Tor Stage</option>
+                                                                        <option value="rfq_stage">RFQ Stage</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1"
-                                                                        class="form-label">Do you Need Installation / Local
-                                                                        Support ?<span class="text-danger">*</span></label>
+                                                                    <label for="approximate_delivery_time"
+                                                                        class="form-label">Approximate Delivery Time
+                                                                        ?</label>
                                                                     <select class="form-select form-select-sm"
+                                                                        name="approximate_delivery_time"
+                                                                        data-placeholder="Select Delivery Time"
                                                                         aria-label="Default select example">
-                                                                        <option selected>Select Option here</option>
-                                                                        <option value="1">Quicke</option>
-                                                                        <option value="2">Slow Step</option>
-                                                                        <option value="3">Normal</option>
+                                                                        <option></option>
+                                                                        <option value="less_one_month">Less Than One Month
+                                                                        </option>
+                                                                        <option value="two_month">Two Months</option>
+                                                                        <option value="three_month">Three Months</option>
+                                                                        <option value="six_month">Six Months</option>
+                                                                        <option value="one_year">One Year</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-12">
                                                                 <div class="checkbox-wrapper-1">
                                                                     <input id="example-1" class="substituted"
-                                                                        type="checkbox" aria-hidden="true" />
-                                                                    <label for="example-1">Do you need Brochures /
-                                                                        Presentations? Do you need further
-                                                                        discussions ?</label>
+                                                                        type="checkbox" aria-hidden="true" name="call"
+                                                                        value="1" />
+                                                                    <label for="example-1">Do you expect call from Us or
+                                                                        Appointment?</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1070,83 +950,75 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-4">
-                                                                    <div class="form-group pt-2">
-                                                                        <label for="" class="pb-1">Name</label>
-                                                                        <input type="text" name="name"
-                                                                            class="form-control form-control-sm border-0 rounded-1"
-                                                                            placeholder="Input your full name">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        <div class="form-group pt-2">
+                                                                            <label for="name" class="pb-1">Name
+                                                                                <span class="text-danger">*</span></label>
+                                                                            <input type="text" id="name"
+                                                                                name="name"
+                                                                                value="{{ optional(Auth::guard('client')->user())->name }}"
+                                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                                placeholder="Input your full name"
+                                                                                required>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-lg-4">
-                                                                    <div class="form-group pt-2">
-                                                                        <label for=""
-                                                                            class="pb-1">Designation</label>
-                                                                        <input type="text" name="designation"
-                                                                            class="form-control form-control-sm border-0 rounded-1"
-                                                                            placeholder="Input your designation">
+                                                                    <div class="col-lg-4">
+                                                                        <div class="form-group pt-2">
+                                                                            <label for="designation"
+                                                                                class="pb-1">Designation</label>
+                                                                            <input type="text" id="designation"
+                                                                                name="designation"
+                                                                                value="{{ optional(Auth::guard('client')->user())->designation }}"
+                                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                                placeholder="Input your designation">
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-lg-4">
-                                                                    <div class="form-group pt-2">
-                                                                        <label for="" class="pb-1">Email
-                                                                            Id</label>
-                                                                        <input type="email"
-                                                                            class="form-control form-control-sm border-0 rounded-1"
-                                                                            placeholder="Input your official domain/email id">
+                                                                    <div class="col-lg-4">
+                                                                        <div class="form-group pt-2">
+                                                                            <label for="email" class="pb-1">Email Id
+                                                                                <span class="text-danger">*</span></label>
+                                                                            <input type="email" id="email"
+                                                                                name="email"
+                                                                                value="{{ optional(Auth::guard('client')->user())->email }}"
+                                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                                placeholder="Input your official domain/email id"
+                                                                                required>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-lg-4">
-                                                                    <div class="form-group pt-2">
-                                                                        <label for="" class="pb-1">Contact
-                                                                            Number</label>
-                                                                        <input type="numnber"
-                                                                            class="form-control form-control-sm border-0 rounded-1"
-                                                                            placeholder="Input your mobile number">
+                                                                    <div class="col-lg-4">
+                                                                        <div class="form-group pt-2">
+                                                                            <label for="phone" class="pb-1">Contact
+                                                                                Number</label>
+                                                                            <input type="number" id="phone"
+                                                                                name="phone"
+                                                                                value="{{ optional(Auth::guard('client')->user())->phone }}"
+                                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                                placeholder="Input your mobile number">
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-lg-4">
-                                                                    <div class="form-group pt-2">
-                                                                        <label for="" class="pb-1">Company
-                                                                            Name</label>
-                                                                        <input type="text"
-                                                                            class="form-control form-control-sm border-0 rounded-1"
-                                                                            placeholder="Your company name">
+                                                                    <div class="col-lg-4">
+                                                                        <div class="form-group pt-2">
+                                                                            <label for="company_name"
+                                                                                class="pb-1">Company
+                                                                                Name</label>
+                                                                            <input type="text" id="company_name"
+                                                                                name="company_name"
+                                                                                value="{{ optional(Auth::guard('client')->user())->company_name }}"
+                                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                                placeholder="Your company name">
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-lg-4">
-                                                                    <div class="form-group pt-2">
-                                                                        <label for="" class="pb-1">Company
-                                                                            Address</label>
-                                                                        <input type="text"
-                                                                            class="form-control form-control-sm border-0 rounded-1"
-                                                                            placeholder="Input company address">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-4">
-                                                                    <div class="form-group pt-2">
-                                                                        <label for="" class="pb-1">City</label>
-                                                                        <input type="text"
-                                                                            class="form-control form-control-sm border-0 rounded-1"
-                                                                            placeholder="Input city name">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-4">
-                                                                    <div class="form-group pt-2">
-                                                                        <label for="" class="pb-1">Zip
-                                                                            Code</label>
-                                                                        <input type="text"
-                                                                            class="form-control form-control-sm border-0 rounded-1"
-                                                                            placeholder="Input zip code">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-4">
-                                                                    <div class="form-group pt-2">
-                                                                        <label for=""
-                                                                            class="pb-1">Country</label>
-                                                                        <input type="text"
-                                                                            class="form-control form-control-sm border-0 rounded-1"
-                                                                            placeholder="input Country Name">
+                                                                    <div class="col-lg-4">
+                                                                        <div class="form-group pt-2">
+                                                                            <label for="address" class="pb-1">Company
+                                                                                Address</label>
+                                                                            <input type="text" id="address"
+                                                                                name="address"
+                                                                                value="{{ optional(Auth::guard('client')->user())->address }}"
+                                                                                class="form-control form-control-sm border-0 rounded-1"
+                                                                                placeholder="Input company address">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1154,7 +1026,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="nextStep btn-color mb-2">Submit</button>
+                                            <button type="submit" class="submitbtn btn-color mb-2">Submit</button>
                                         </fieldset>
                                     </div>
                                 </div>
@@ -1196,7 +1068,8 @@
             });
         });
     </script>
-    {{-- For Search --}}
+
+
     <script>
         document.addEventListener('keyup', function(event) {
             if (event.target.matches('#productSearchInput')) {
@@ -1206,33 +1079,37 @@
 
         function showSuggestions(event) {
             let inputElement = event.target;
-            let suggestionsList = inputElement.parentElement.querySelector(".suggestionList");
-            let suggestions = suggestionsList.getElementsByTagName("li");
+            let parentElement = inputElement.closest('.searchInput'); // Find the parent container
+            let suggestionsList = parentElement.querySelector(".suggestionList");
 
-            // Iterate through suggestions and show/hide based on user input
-            for (let i = 0; i < suggestions.length; i++) {
-                let suggestion = suggestions[i].innerText.toLowerCase();
-                if (suggestion.startsWith(inputElement.value.toLowerCase())) {
-                    suggestions[i].style.display = "block";
-                } else {
-                    suggestions[i].style.display = "none";
+            if (suggestionsList) { // Check if the suggestions list exists
+                let suggestions = suggestionsList.getElementsByTagName("li");
+
+                // Iterate through suggestions and show/hide based on user input
+                for (let i = 0; i < suggestions.length; i++) {
+                    let suggestion = suggestions[i].innerText.toLowerCase();
+                    if (suggestion.startsWith(inputElement.value.toLowerCase())) {
+                        suggestions[i].style.display = "block";
+                    } else {
+                        suggestions[i].style.display = "none";
+                    }
                 }
-            }
 
-            // Show/hide the suggestion list based on user input
-            if (inputElement.value.trim() !== "") {
-                suggestionsList.style.display = "block";
-            } else {
-                suggestionsList.style.display = "none";
-            }
-
-            // Add click event listener to dynamically generated suggestions
-            suggestionsList.addEventListener('click', function(event) {
-                if (event.target.tagName === 'LI') {
-                    inputElement.value = event.target.innerText;
+                // Show/hide the suggestion list based on user input
+                if (inputElement.value.trim() !== "") {
+                    suggestionsList.style.display = "block";
+                } else {
                     suggestionsList.style.display = "none";
                 }
-            });
+
+                // Add click event listener to dynamically generated suggestions
+                suggestionsList.addEventListener('click', function(event) {
+                    if (event.target.tagName === 'LI') {
+                        inputElement.value = event.target.innerText;
+                        suggestionsList.style.display = "none";
+                    }
+                });
+            }
         }
 
         document.addEventListener('click', function(event) {
@@ -1249,291 +1126,197 @@
         }
     </script>
 
-    {{-- Select With Search --}}
+
+
     <script>
-        const csSelector = document.querySelector('#myCustomSelect') // the input, svg and ul as a group
-        const csInput = csSelector.querySelector('input')
-        const csList = csSelector.querySelector('ul')
-        const csOptions = csList.querySelectorAll('li')
-        const csIcons = csSelector.querySelectorAll('svg')
-        const csStatus = document.querySelector('#custom-select-status')
-        const aOptions = Array.from(csOptions)
+        document.addEventListener('DOMContentLoaded', function() {
+            const csSelector = document.querySelector('#myCustomSelect');
+            const csInput = csSelector.querySelector('input');
+            const csList = csSelector.querySelector('ul');
+            const csOptions = Array.from(csList.querySelectorAll('li'));
+            const csStatus = document.querySelector('#custom-select-status');
+            let csState = "initial";
 
-        // when JS is loaded, set up our starting point
-        // if JS fails to load, the custom select remains a plain text input
-        // create and set start point for the state tracker
-        let csState = "initial"
-        // inform assistive tech (screen readers) of the names & roles of the elements in our group
-        csSelector.setAttribute('role', 'combobox')
-        csSelector.setAttribute('aria-haspopup', 'listbox')
-        csSelector.setAttribute('aria-owns', 'custom-select-list') // container owns the list...
-        csInput.setAttribute('aria-autocomplete', 'both')
-        csInput.setAttribute('aria-controls', 'custom-select-list') // ...but the input controls it
-        csList.setAttribute('role', 'listbox')
-        csOptions.forEach(function(option) {
-            option.setAttribute('role', 'option')
-            option.setAttribute('tabindex', "-1") // make li elements keyboard focusable by script only
-        })
-        // set up a message to keep screen reader users informed of what the custom input is for/doing
-        csStatus.textContent = csOptions.length + " options available. Arrow down to browse or start typing to filter.";
-        setState('initial');
+            initialize();
 
-        // EVENTS
-        // /////////////////////////////////
-        csSelector.addEventListener('click', function(e) {
-            const currentFocus = findFocus()
-            switch (csState) {
-                case 'initial': // if state = initial, toggleOpen and set state to opened
-                    toggleList('Open')
-                    setState('opened')
-                    break
-                case 'opened':
-                    // if state = opened and focus on input, toggleShut and set state to initial
-                    if (currentFocus === csInput) {
-                        toggleList('Shut')
-                        setState('initial')
-                    } else if (currentFocus.tagName === 'LI') {
-                        // if state = opened and focus on list, makeChoice, toggleShut and set state to closed
-                        makeChoice(currentFocus)
-                        toggleList('Shut')
-                        setState('closed')
-                    }
-                    break
-                case 'filtered':
-                    // if state = filtered and focus on list, makeChoice and set state to closed
-                    if (currentFocus.tagName === 'LI') {
-                        makeChoice(currentFocus)
-                        toggleList('Shut')
-                        setState('closed')
-                    } // if state = filtered and focus on input, do nothing (wait for next user input)
+            function initialize() {
+                csSelector.setAttribute('role', 'combobox');
+                csSelector.setAttribute('aria-haspopup', 'listbox');
+                csSelector.setAttribute('aria-owns', 'custom-select-list');
+                csInput.setAttribute('aria-autocomplete', 'both');
+                csInput.setAttribute('aria-controls', 'custom-select-list');
+                csList.setAttribute('role', 'listbox');
 
-                    break
-                case 'closed': // if state = closed, toggleOpen and set state to filtered? or opened?
-                    toggleList('Open')
-                    setState('filtered')
-                    break
+                csOptions.forEach(option => {
+                    option.setAttribute('role', 'option');
+                    option.setAttribute('tabindex', '-1');
+                });
+
+                csStatus.textContent =
+                    `${csOptions.length} options available. Arrow down to browse or start typing to filter.`;
+                setState('initial');
+
+                csSelector.addEventListener('click', handleClick);
+                csSelector.addEventListener('keyup', handleKeyUp);
+                document.addEventListener('click', handleOutsideClick);
             }
-        })
 
-        csSelector.addEventListener('keyup', function(e) {
-            doKeyAction(e.key)
-        })
-
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('#myCustomSelect')) {
-                // click outside of the custom group
-                toggleList('Shut')
-                setState('initial')
-            }
-        })
-
-        // FUNCTIONS
-        // /////////////////////////////////
-
-        function toggleList(whichWay) {
-            if (whichWay === 'Open') {
-                csList.classList.remove('hidden-all')
-                csSelector.setAttribute('aria-expanded', 'true')
-            } else { // === 'Shut'
-                csList.classList.add('hidden-all')
-                csSelector.setAttribute('aria-expanded', 'false')
-            }
-        }
-
-        function findFocus() {
-            const focusPoint = document.activeElement
-            return focusPoint
-        }
-
-        function moveFocus(fromHere, toThere) {
-            // grab the currently showing options, which might have been filtered
-            const aCurrentOptions = aOptions.filter(function(option) {
-                if (option.style.display === '') {
-                    return true
+            function handleClick(event) {
+                const currentFocus = document.activeElement;
+                switch (csState) {
+                    case 'initial':
+                        toggleList('Open');
+                        setState('opened');
+                        break;
+                    case 'opened':
+                        if (currentFocus === csInput) {
+                            toggleList('Shut');
+                            setState('initial');
+                        } else if (currentFocus.tagName === 'LI') {
+                            makeChoice(currentFocus);
+                            toggleList('Shut');
+                            setState('closed');
+                        }
+                        break;
+                    case 'filtered':
+                        if (currentFocus.tagName === 'LI') {
+                            makeChoice(currentFocus);
+                            toggleList('Shut');
+                            setState('closed');
+                        }
+                        break;
+                    case 'closed':
+                        toggleList('Open');
+                        setState('filtered');
+                        break;
                 }
-            })
-            // don't move if all options have been filtered out
-            if (aCurrentOptions.length === 0) {
-                return
             }
-            if (toThere === 'input') {
-                csInput.focus()
-            }
-            // possible start points
-            switch (fromHere) {
-                case csInput:
-                    if (toThere === 'forward') {
-                        aCurrentOptions[0].focus()
-                    } else if (toThere === 'back') {
-                        aCurrentOptions[aCurrentOptions.length - 1].focus()
-                    }
-                    break
-                case csOptions[0]:
-                    if (toThere === 'forward') {
-                        aCurrentOptions[1].focus()
-                    } else if (toThere === 'back') {
-                        csInput.focus()
-                    }
-                    break
-                case csOptions[csOptions.length - 1]:
-                    if (toThere === 'forward') {
-                        aCurrentOptions[0].focus()
-                    } else if (toThere === 'back') {
-                        aCurrentOptions[aCurrentOptions.length - 2].focus()
-                    }
-                    break
-                default: // middle list or filtered items
-                    const currentItem = findFocus()
-                    const whichOne = aCurrentOptions.indexOf(currentItem)
-                    if (toThere === 'forward') {
-                        const nextOne = aCurrentOptions[whichOne + 1]
-                        nextOne.focus()
-                    } else if (toThere === 'back' && whichOne > 0) {
-                        const previousOne = aCurrentOptions[whichOne - 1]
-                        previousOne.focus()
-                    } else { // if whichOne = 0
-                        csInput.focus()
-                    }
-                    break
-            }
-        }
 
-        function doFilter() {
-            const terms = csInput.value
-            const aFilteredOptions = aOptions.filter(function(option) {
-                if (option.innerText.toUpperCase().startsWith(terms.toUpperCase())) {
-                    return true
+            function handleKeyUp(event) {
+                doKeyAction(event.key);
+            }
+
+            function handleOutsideClick(event) {
+                if (!event.target.closest('#myCustomSelect')) {
+                    toggleList('Shut');
+                    setState('initial');
                 }
-            })
-            csOptions.forEach(option => option.style.display = "none")
-            aFilteredOptions.forEach(function(option) {
-                option.style.display = ""
-            })
-            setState('filtered')
-            updateStatus(aFilteredOptions.length)
-        }
-
-        function updateStatus(howMany) {
-            csStatus.textContent = howMany + " options available."
-        }
-
-        function makeChoice(whichOption) {
-            const optionTitle = whichOption.querySelector('strong')
-            csInput.value = optionTitle.textContent
-            moveFocus(document.activeElement, 'input')
-            // update aria-selected, if using
-        }
-
-        function setState(newState) {
-            switch (newState) {
-                case 'initial':
-                    csState = 'initial'
-                    break
-                case 'opened':
-                    csState = 'opened'
-                    break
-                case 'filtered':
-                    csState = 'filtered'
-                    break
-                case 'closed':
-                    csState = 'closed'
             }
-            // console.log({csState})
-        }
 
-        function doKeyAction(whichKey) {
-            const currentFocus = findFocus()
-            switch (whichKey) {
-                case 'Enter':
-                    if (csState === 'initial') {
-                        // if state = initial, toggleOpen and set state to opened
-                        toggleList('Open')
-                        setState('opened')
-                    } else if (csState === 'opened' && currentFocus.tagName === 'LI') {
-                        // if state = opened and focus on list, makeChoice and set state to closed
-                        makeChoice(currentFocus)
-                        toggleList('Shut')
-                        setState('closed')
-                    } else if (csState === 'opened' && currentFocus === csInput) {
-                        // if state = opened and focus on input, close it
-                        toggleList('Shut')
-                        setState('closed')
-                    } else if (csState === 'filtered' && currentFocus.tagName === 'LI') {
-                        // if state = filtered and focus on list, makeChoice and set state to closed
-                        makeChoice(currentFocus)
-                        toggleList('Shut')
-                        setState('closed')
-                    } else if (csState === 'filtered' && currentFocus === csInput) {
-                        // if state = filtered and focus on input, set state to opened
-                        toggleList('Open')
-                        setState('opened')
-                    } else { // i.e. csState is closed, or csState is opened/filtered but other focus point?
-                        // if state = closed, set state to filtered? i.e. open but keep existing input?
-                        toggleList('Open')
-                        setState('filtered')
-                    }
-                    break
-
-                case 'Escape':
-                    // if state = initial, do nothing
-                    // if state = opened or filtered, set state to initial
-                    // if state = closed, do nothing
-                    if (csState === 'opened' || csState === 'filtered') {
-                        toggleList('Shut')
-                        setState('initial')
-                    }
-                    break
-
-                case 'ArrowDown':
-                    if (csState === 'initial' || csState === 'closed') {
-                        // if state = initial or closed, set state to opened and moveFocus to first
-                        toggleList('Open')
-                        moveFocus(csInput, 'forward')
-                        setState('opened')
-                    } else {
-                        // if state = opened and focus on input, moveFocus to first
-                        // if state = opened and focus on list, moveFocus to next/first
-                        // if state = filtered and focus on input, moveFocus to first
-                        // if state = filtered and focus on list, moveFocus to next/first
-                        toggleList('Open')
-                        moveFocus(currentFocus, 'forward')
-                    }
-                    break
-                case 'ArrowUp':
-                    if (csState === 'initial' || csState === 'closed') {
-                        // if state = initial, set state to opened and moveFocus to last
-                        // if state = closed, set state to opened and moveFocus to last
-                        toggleList('Open')
-                        moveFocus(csInput, 'back')
-                        setState('opened')
-                    } else {
-                        // if state = opened and focus on input, moveFocus to last
-                        // if state = opened and focus on list, moveFocus to prev/last
-                        // if state = filtered and focus on input, moveFocus to last
-                        // if state = filtered and focus on list, moveFocus to prev/last
-                        moveFocus(currentFocus, 'back')
-                    }
-                    break
-                default:
-                    if (csState === 'initial') {
-                        // if state = initial, toggle open, doFilter and set state to filtered
-                        toggleList('Open')
-                        doFilter()
-                        setState('filtered')
-                    } else if (csState === 'opened') {
-                        // if state = opened, doFilter and set state to filtered
-                        doFilter()
-                        setState('filtered')
-                    } else if (csState === 'closed') {
-                        // if state = closed, doFilter and set state to filtered
-                        doFilter()
-                        setState('filtered')
-                    } else { // already filtered
-                        doFilter()
-                    }
-                    break
+            function toggleList(whichWay) {
+                if (whichWay === 'Open') {
+                    csList.classList.remove('hidden-all');
+                    csSelector.setAttribute('aria-expanded', 'true');
+                } else {
+                    csList.classList.add('hidden-all');
+                    csSelector.setAttribute('aria-expanded', 'false');
+                }
             }
-        }
+
+            function findFocus() {
+                return document.activeElement;
+            }
+
+            function moveFocus(fromHere, toThere) {
+                const aCurrentOptions = csOptions.filter(option => option.style.display === '');
+                if (aCurrentOptions.length === 0) return;
+
+                if (toThere === 'input') {
+                    csInput.focus();
+                    return;
+                }
+
+                const currentIndex = aCurrentOptions.indexOf(fromHere);
+                let nextIndex;
+                if (toThere === 'forward') {
+                    nextIndex = currentIndex < script aCurrentOptions.length - 1 ? currentIndex + 1 : 0;
+                } else {
+                    nextIndex = currentIndex > 0 ? currentIndex - 1 : aCurrentOptions.length - 1;
+                }
+                aCurrentOptions[nextIndex].focus();
+            }
+
+            function doFilter() {
+                const terms = csInput.value.toUpperCase();
+                const aFilteredOptions = csOptions.filter(option => option.innerText.toUpperCase().startsWith(
+                    terms));
+                csOptions.forEach(option => option.style.display = "none");
+                aFilteredOptions.forEach(option => option.style.display = "");
+                setState('filtered');
+                updateStatus(aFilteredOptions.length);
+            }
+
+            function updateStatus(howMany) {
+                csStatus.textContent = `${howMany} options available.`;
+            }
+
+            function makeChoice(whichOption) {
+                csInput.value = whichOption.textContent;
+                moveFocus(document.activeElement, 'input');
+            }
+
+            function setState(newState) {
+                csState = newState;
+            }
+
+            function doKeyAction(key) {
+                const currentFocus = findFocus();
+                switch (key) {
+                    case 'Enter':
+                        if (csState === 'initial') {
+                            toggleList('Open');
+                            setState('opened');
+                        } else if ((csState === 'opened' || csState === 'filtered') && currentFocus.tagName ===
+                            'LI') {
+                            makeChoice(currentFocus);
+                            toggleList('Shut');
+                            setState('closed');
+                        } else if ((csState === 'opened' || csState === 'filtered') && currentFocus === csInput) {
+                            toggleList('Shut');
+                            setState('closed');
+                        } else {
+                            toggleList('Open');
+                            doFilter();
+                            setState('filtered');
+                        }
+                        break;
+                    case 'Escape':
+                        if (csState === 'opened' || csState === 'filtered') {
+                            toggleList('Shut');
+                            setState('initial');
+                        }
+                        break;
+                    case 'ArrowDown':
+                        if (csState === 'initial' || csState === 'closed') {
+                            toggleList('Open');
+                            moveFocus(csInput, 'forward');
+                            setState('opened');
+                        } else {
+                            toggleList('Open');
+                            moveFocus(currentFocus, 'forward');
+                        }
+                        break;
+                    case 'ArrowUp':
+                        if (csState === 'initial' || csState === 'closed') {
+                            toggleList('Open');
+                            moveFocus(csInput, 'back');
+                            setState('opened');
+                        } else {
+                            moveFocus(currentFocus, 'back');
+                        }
+                        break;
+                    default:
+                        if (csState === 'initial') {
+                            toggleList('Open');
+                            doFilter();
+                            setState('filtered');
+                        } else if (csState === 'opened' || csState === 'filtered') {
+                            doFilter();
+                        }
+                        break;
+                }
+            }
+        });
     </script>
 
     <script>

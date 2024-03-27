@@ -82,6 +82,14 @@
         padding: 15px 25px;
         border-radius: 5px;
     }
+    @media only screen and (max-width: 576px) {
+        .extra-btns{
+            display: none;
+        }
+        .offcanvas-rfq{
+            display: none;
+        }
+    }
 </style>
 <section>
     <a class="extra-btns" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"
@@ -89,7 +97,7 @@
         Request For Quote<i class="fa-solid fa-arrow-down ps-2"></i><i class="fa-solid fa-arrow-up ps-2"></i>
     </a>
 
-    <div class="offcanvas offcanvas-start"
+    <div class="offcanvas offcanvas-start offcanvas-rfq"
         style="width: 50%; height: 40vh; transform: translate(0, 85%); border-top-right-radius: 20px; border-bottom-right-radius: 20px; background: url('https://i.ibb.co/t204YkF/Background-quote-tray.jpg') no-repeat center center / cover;"
         tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <a href="{{ route('rfq') }}">
@@ -258,9 +266,9 @@
             <a href="{{ route('faq') }}" class="fab-info-icon-action fab-info-icon-action-2" data-title="FAQ">
                 <i class="fas fa-book"></i>
             </a>
-            <a href="javascript:void(0);" class="fab-info-icon-action fab-info-icon-action-1" data-title="RFQ"
-                data-bs-toggle="modal" data-bs-target="#rfqModal">
-                {{-- <i class="fas fa-question"></i> --}}
+            <a href="{{ route('rfq') }}" class="fab-info-icon-action fab-info-icon-action-1" data-title="RFQ">
+                {{-- <i class="fas fa-question"></i>
+                data-bs-toggle="modal" data-bs-target="#rfqModal"--}}
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.84 110.29"
                     style="height: 35px;

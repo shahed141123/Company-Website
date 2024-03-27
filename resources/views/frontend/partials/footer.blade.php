@@ -9,7 +9,7 @@
     <div class="footer_middle pt-3">
         <div class="container pb-3">
             <div class="row">
-                <div class="row footer_middle_wrapper my-3">
+                <div class="row footer_middle_wrapper my-5">
                     <!-- item -->
                     <div class="col-lg-6 col-md-6 col-sm-12 footer_item_wrapper">
                         <!-- title -->

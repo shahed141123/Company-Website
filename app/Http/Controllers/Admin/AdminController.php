@@ -315,7 +315,7 @@ class AdminController extends Controller
                 return false; // Skip 'N/A' entries
             }
 
-            return Carbon::parse($attendance['check_in']) > Carbon::parse('09:05:00');
+            return Carbon::parse($attendance['check_in']) > Carbon::parse('09:06:00');
         });
 
         $data['attendanceToday']      = isset($attendanceToday) ? $attendanceToday : null;

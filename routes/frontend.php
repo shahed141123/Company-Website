@@ -209,7 +209,8 @@ Route::post('cart_store', [App\Http\Controllers\Frontend\CartController::class,'
 //RFQ
 Route::get('rfq', [HomeController::class, 'rfqCreate'])->name('rfq');
 Route::post('rfq/store', [RFQController::class, 'store'])->name('rfq.add');
-Route::get('rfq_common', [HomeController::class, 'RFQCommon'])->name('rfq.common');
+Route::post('rfq/add', [RFQController::class, 'rfqCreate'])->name('rfqCreate');
+Route::get('rfq/{id}/success', [HomeController::class, 'rfqSuccess'])->name('rfq.success');
 
 // Route::get('/single/product/{id}', [PageController::class, 'productDetails'])->name('product.details');
 

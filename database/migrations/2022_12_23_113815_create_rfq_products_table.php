@@ -17,6 +17,7 @@ return new class extends Migration
         Schema::create('rfq_products', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('rfq_id');
+            $table->unsignedBigInteger('product_id')->nullable();
             $table->string('product_name')->nullable();
             $table->bigInteger('qty')->nullable();
             $table->double('unit_price')->nullable();
