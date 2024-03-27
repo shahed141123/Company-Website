@@ -150,7 +150,7 @@
                                     <div class="input-group flex-nowrap">
                                         <span class="input-group-text border-0" id="addon-wrapping"
                                             style="cursor: pointer; background-color: #ae0a46;"><i
-                                                class="fa-solid fa-envelope text-white"></i></span>
+                                                class="fa-solid fa-user text-white"></i></span>
 
                                         <input type="hidden" name="user_type" value="client">
 
@@ -171,13 +171,18 @@
                                     </div>
                                 </div>
                                 <div class="pt-2">
-                                    <label for="" class="form-label">Phone</label>
+                                    <label for="phone" class="form-label">Phone</label>
                                     <div class="input-group flex-nowrap">
                                         <span class="input-group-text border-0" id="addon-wrapping"
-                                            style="cursor: pointer; background-color: #ae0a46;"><i
-                                                class="fa-solid fa-envelope text-white"></i></span>
-                                        <input type="text" class="form-control rounded-1 client-login-field"
-                                            placeholder="015****" name="phone" value="{{ old('phone') }}">
+                                            style="cursor: pointer; background-color: #ae0a46;">
+                                            <i class="fa-solid fa-phone text-white"></i>
+                                        </span>
+                                        <input type="text"
+                                            class="form-control rounded-1 client-login-field phone-number" id="phone"
+                                            placeholder="015****" name="phone" value="{{ old('phone') }}" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid phone number.
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="pt-2">
@@ -336,4 +341,6 @@
             });
         });
     </script>
+    {{-- Validation --}}
+
 @endsection
