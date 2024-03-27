@@ -16253,8 +16253,11 @@ thead {
 
 @media only screen and (min-width: 1366px) {
     .extra-btns {
-        transform: translateY(-75%) rotate(-90deg) !important;
-        width: 333px !important;
+        transform: translateY(-96%) rotate(-90deg) !important;
+    width: 305px !important;
+    }
+    .rfq-area{
+        padding-bottom: 15px !important;
     }
 }
 
