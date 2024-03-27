@@ -53,8 +53,7 @@
                                 <h1 class="main-title">Sign In</h1>
                                 <h3 class="text-center py-3">Welcome Back !</h3>
                                 <p class="subtitle pt-2">Use Your <span class="main_color">NGen It </span>Registered <br>
-                                    Email
-                                    and Password</p>
+                                    Email and Password</p>
                             </div>
                             <div class="px-5 pt-5">
                                 <div class="pt-4">
@@ -64,18 +63,19 @@
                                             style="cursor: pointer; background-color: #ae0a46;"><i
                                                 class="fa-solid fa-envelope text-white"></i></span>
                                         <input type="email" class="form-control rounded-1 client-login-field"
-                                            name="email" placeholder="your-email@mail.com"
+                                            name="email" class="loginEmailInput" placeholder="your-email@mail.com"
                                             aria-label="your-email@mail.com" aria-describedby="addon-wrapping">
+                                        <span class="email-login-message"></span>
                                     </div>
                                 </div>
                                 <div class="pt-4">
                                     <label for="" class="form-label">Password</label>
                                     <div class="input-group flex-nowrap">
-                                        <span class="input-group-text border-0 toggle-password" toggle="#password"
+                                        <span class="input-group-text border-0 toggle-passwordlogin" toggle="#passwordLogin"
                                             id="addon-wrapping" style="cursor: pointer; background-color: #ae0a46;"><i
                                                 class="fa-solid fa-eye-slash text-white"></i></span>
-                                        <input type="password" id="password" name="password"
-                                            class="form-control rounded-1 client-login-field"
+                                        <input type="password" name="password" required id="passwordLogin"
+                                            class="form-control rounded-1 client-login-field loginPasswordInput"
                                             placeholder="*******************" aria-label="Password"
                                             aria-describedby="addon-wrapping">
                                     </div>
@@ -86,8 +86,10 @@
                                     </button>
                                 </div>
                                 <div class="text-center pt-5">
-                                    <p class="subtitle m-0">Forgot Your Password? <a href="" class="main_color">
-                                            Recover It!</a></p>
+                                    {{-- <p class="subtitle m-0">Forgot Your Password?
+                                        <a href="" class="main_color">
+                                            Recover It!</a>
+                                        </p> --}}
                                     <p class="subtitle m-0 show-register">New Here? Then<a href="javascript:void()"
                                             class="main_color"> Register
                                             Now!</a>
@@ -134,7 +136,8 @@
     </div>
     <div class="container register-container" style="display: none;">
         <div class="row justify-content-center align-items-center client-login-form">
-            <form action="" method="get">
+            <form action="{{ route('clientRegister.store') }}" method="POST">
+                @csrf
                 <div class="col-lg-10 offset-lg-1 mx-auto">
                     <div class="row card-container">
                         <div class="col-lg-6 sign-in-form shadow-sm py-3">
@@ -148,9 +151,13 @@
                                         <span class="input-group-text border-0" id="addon-wrapping"
                                             style="cursor: pointer; background-color: #ae0a46;"><i
                                                 class="fa-solid fa-envelope text-white"></i></span>
-                                        <input type="email" class="form-control rounded-1 client-login-field"
-                                            placeholder="your-email@mail.com" aria-label="your-email@mail.com"
-                                            aria-describedby="addon-wrapping">
+
+                                        <input type="hidden" name="user_type" value="client">
+
+
+                                        <input type="text" name="name" placeholder="Full name"
+                                            value="{{ old('name') }}" maxlength="35" minlength="3"
+                                            class="form-control rounded-1 client-login-field" required>
                                     </div>
                                 </div>
                                 <div class="pt-2">
@@ -160,8 +167,7 @@
                                             style="cursor: pointer; background-color: #ae0a46;"><i
                                                 class="fa-solid fa-envelope text-white"></i></span>
                                         <input type="email" class="form-control rounded-1 client-login-field"
-                                            placeholder="your-email@mail.com" aria-label="your-email@mail.com"
-                                            aria-describedby="addon-wrapping">
+                                            placeholder="your-email@mail.com" name="email" value="{{ old('email') }}">
                                     </div>
                                 </div>
                                 <div class="pt-2">
@@ -170,9 +176,8 @@
                                         <span class="input-group-text border-0" id="addon-wrapping"
                                             style="cursor: pointer; background-color: #ae0a46;"><i
                                                 class="fa-solid fa-envelope text-white"></i></span>
-                                        <input type="email" class="form-control rounded-1 client-login-field"
-                                            placeholder="your-email@mail.com" aria-label="your-email@mail.com"
-                                            aria-describedby="addon-wrapping">
+                                        <input type="text" class="form-control rounded-1 client-login-field"
+                                            placeholder="015****" name="phone" value="{{ old('phone') }}">
                                     </div>
                                 </div>
                                 <div class="pt-2">
@@ -181,8 +186,8 @@
                                         <span class="input-group-text border-0 toggle-password" toggle="#password"
                                             id="addon-wrapping" style="cursor: pointer; background-color: #ae0a46;"><i
                                                 class="fa-solid fa-eye-slash text-white"></i></span>
-                                        <input type="password" id="password"
-                                            class="form-control rounded-1 client-login-field"
+                                        <input type="password" id="password" value="{{ old('password') }}"
+                                            class="form-control rounded-1 client-login-field" name="password"
                                             placeholder="*******************" aria-label="Password"
                                             aria-describedby="addon-wrapping">
                                     </div>
@@ -190,10 +195,11 @@
                                 <div class="pt-2">
                                     <label for="" class="form-label">Confirm Password</label>
                                     <div class="input-group flex-nowrap">
-                                        <span class="input-group-text border-0 toggle-password" toggle="#password"
-                                            id="addon-wrapping" style="cursor: pointer; background-color: #ae0a46;"><i
+                                        <span class="input-group-text border-0 toggle-password-2"
+                                            toggle="#passwordConfirm" id="addon-wrapping"
+                                            style="cursor: pointer; background-color: #ae0a46;"><i
                                                 class="fa-solid fa-eye-slash text-white"></i></span>
-                                        <input type="password" id="password"
+                                        <input type="password" id="passwordConfirm" name="password_confirmation"
                                             class="form-control rounded-1 client-login-field"
                                             placeholder="*******************" aria-label="Password"
                                             aria-describedby="addon-wrapping">
@@ -202,7 +208,7 @@
 
                                 <div class="mt-5">
                                     <button type="submit" class="btn-color w-100">
-                                        Login
+                                        Register
                                     </button>
                                 </div>
                                 <div class="text-center pt-4">
@@ -254,6 +260,7 @@
 @endsection
 
 @section('scripts')
+    {{-- Password Eye --}}
     <script>
         $(document).ready(function() {
             // Function to toggle password visibility
@@ -273,6 +280,47 @@
             });
         });
     </script>
+    {{-- Confirm Password Eye --}}
+    <script>
+        $(document).ready(function() {
+            // Function to toggle password visibility
+            $('.toggle-password-2').click(function() {
+                var input = $($(this).attr('toggle'));
+                var icon = $(this).find('i');
+
+                // Toggle password visibility
+                input.attr('type', input.attr('type') === 'password' ? 'text' : 'password');
+
+                // Toggle eye icon based on password visibility
+                if (input.attr('type') === 'password') {
+                    icon.removeClass('fa-eye').addClass('fa-eye-slash');
+                } else {
+                    icon.removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            });
+        });
+    </script>
+    {{-- Login Password Eye --}}
+    <script>
+        $(document).ready(function() {
+            // Function to toggle password visibility
+            $('.toggle-passwordlogin').click(function() {
+                var input = $($(this).attr('toggle'));
+                var icon = $(this).find('i');
+
+                // Toggle password visibility
+                input.attr('type', input.attr('type') === 'password' ? 'text' : 'password');
+
+                // Toggle eye icon based on password visibility
+                if (input.attr('type') === 'password') {
+                    icon.removeClass('fa-eye').addClass('fa-eye-slash');
+                } else {
+                    icon.removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            });
+        });
+    </script>
+
     <script>
         $(document).ready(function() {
             // Show register container on click
