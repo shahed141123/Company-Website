@@ -4,7 +4,7 @@
 
     @include('frontend.pages.product.partials.style')
     <section class="banner_single_page mb-4"
-            style="background-image:url('{{ (!empty($brand_logo->brand_logo)) ? asset('storage/' . $bannerImage) : asset('storage/' . $cat->banner_image) }}');
+        style="background-image:url('{{ !empty($brand_logo->brand_logo) ? asset('storage/' . $bannerImage) : asset('storage/' . $cat->banner_image) }}');
                 background-color: black;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -234,7 +234,9 @@
                                             <div class="accordion accordion-flush" id="accordionFlushSubCategory">
                                                 <div class="accordion-item">
                                                     @php
-                                                        $sub_categorys = App\Models\Admin\Category::getSubcatByCat($cat->id);
+                                                        $sub_categorys = App\Models\Admin\Category::getSubcatByCat(
+                                                            $cat->id,
+                                                        );
                                                     @endphp
                                                     @foreach ($sub_categorys as $key => $sub_category)
                                                         <h2 class="accordion-header"
@@ -259,7 +261,9 @@
                                                                 <div class="accordion accordion-flush" id="inner_sub-2">
                                                                     <div class="accordion-item">
                                                                         @php
-                                                                            $sub_sub_categorys = App\Models\Admin\SubCategory::getSubSubcatBySubCat($sub_category->id);
+                                                                            $sub_sub_categorys = App\Models\Admin\SubCategory::getSubSubcatBySubCat(
+                                                                                $sub_category->id,
+                                                                            );
                                                                         @endphp
                                                                         @if (!empty($sub_sub_categorys))
                                                                             @foreach ($sub_sub_categorys as $item)
@@ -287,9 +291,9 @@
                         </div>
                     </div>
                     <div class="py-3">
-                        @if (!empty($_GET['brand']))
+                        @if (!empty($_GET['brand']) && is_array($_GET['brand']))
                             @php
-                                $filterBrand = explode(',', implode($_GET['brand']));
+                                $filterBrand = $_GET['brand'];
                             @endphp
                         @endif
                         <form class="brand">
@@ -405,11 +409,16 @@
                                                                     id="accordionFlushSubCategory">
                                                                     <div class="accordion-item">
                                                                         @php
-                                                                            $sub_categorys = App\Models\Admin\Category::getSubcatByCat($cat->id);
+                                                                            $sub_categorys = App\Models\Admin\Category::getSubcatByCat(
+                                                                                $cat->id,
+                                                                            );
                                                                         @endphp
                                                                         @if (!empty($_GET['sub_category']))
                                                                             @php
-                                                                                $filtersubCat = explode(',', $_GET['sub_category']);
+                                                                                $filtersubCat = explode(
+                                                                                    ',',
+                                                                                    $_GET['sub_category'],
+                                                                                );
                                                                             @endphp
                                                                         @endif
                                                                         @foreach ($sub_categorys as $key => $sub_category)
@@ -443,11 +452,18 @@
                                                                                         id="inner_sub-2">
                                                                                         <div class="accordion-item">
                                                                                             @php
-                                                                                                $sub_sub_categorys = App\Models\Admin\SubCategory::getSubSubcatBySubCat($sub_category->id);
+                                                                                                $sub_sub_categorys = App\Models\Admin\SubCategory::getSubSubcatBySubCat(
+                                                                                                    $sub_category->id,
+                                                                                                );
                                                                                             @endphp
                                                                                             @if (!empty($_GET['sub_sub_category']))
                                                                                                 @php
-                                                                                                    $filtersubsubCat = explode(',', $_GET['sub_sub_category']);
+                                                                                                    $filtersubsubCat = explode(
+                                                                                                        ',',
+                                                                                                        $_GET[
+                                                                                                            'sub_sub_category'
+                                                                                                        ],
+                                                                                                    );
                                                                                                 @endphp
                                                                                             @endif
                                                                                             @if (!empty($sub_sub_categorys))
@@ -858,7 +874,8 @@
                                                                 <p class="text-muted text-center"><small>USD</small>
                                                                     {{ number_format($item->price, 2) }} $
                                                                 </p>
-                                                                <div class="d-flex justify-content-center align-items-center">
+                                                                <div
+                                                                    class="d-flex justify-content-center align-items-center">
                                                                     {{-- <form class="" action="{{ route('add.cart') }}" method="post">
                                                                         @csrf
                                                                         <input type="hidden" name="product_id" id="product_id"
@@ -900,7 +917,8 @@
                                                                     style="text-decoration: line-through;text-decoration-thickness: 2px; text-decoration-color: #ae0a46;">
                                                                     USD {{ number_format($item->price, 2) }} $
                                                                 </p>
-                                                                <div class="d-flex justify-content-center align-items-center">
+                                                                <div
+                                                                    class="d-flex justify-content-center align-items-center">
 
 
                                                                     <div data-mdb-toggle="popover" title="Your Price"
@@ -947,7 +965,8 @@
                                                 <div class="col-lg-4 col-sm-12 single_product_images">
                                                     <!-- gallery pic -->
                                                     <div class="mx-auto d-block">
-                                                        <img id="expand" class="geeks img-fluid rounded mx-auto d-block"
+                                                        <img id="expand"
+                                                            class="geeks img-fluid rounded mx-auto d-block"
                                                             src="{{ asset($item->thumbnail) }}">
                                                     </div>
 
@@ -1009,7 +1028,8 @@
                                                                     <div class="pro-qty">
                                                                         <input type="hidden" name="product_id"
                                                                             id="product_id" value="62">
-                                                                        <input type="hidden" name="name" id="name"
+                                                                        <input type="hidden" name="name"
+                                                                            id="name"
                                                                             value="Jira Software Cloud Premium - subscription license (annual) - 100 users">
                                                                         <div class="counter">
                                                                             <span class="down"
@@ -1021,7 +1041,8 @@
 
                                                                         </div>
                                                                     </div>
-                                                                    <button class="common_button2 ms-3" type="submit">Add to
+                                                                    <button class="common_button2 ms-3" type="submit">Add
+                                                                        to
                                                                         Basket</button>
                                                                 </div>
                                                             </div>

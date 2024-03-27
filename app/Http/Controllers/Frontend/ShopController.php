@@ -444,10 +444,9 @@ class ShopController extends Controller
             $catIds = SubCategory::select('id')->whereIn('slug', $slugs)->pluck('id')->toArray();
             $products = $products->whereIn('sub_cat_id', $catIds)->where('product_status', 'product');
         }
-        if (!empty($_GET['brand'])) {
-            $slugs = explode(',', $_GET['brand']);
+        if (!empty($_GET['brand']) && is_array($_GET['brand'])) {
+            $slugs = $_GET['brand'];
             $brandIds = Brand::select('id')->whereIn('slug', $slugs)->pluck('id')->toArray();
-            //dd($brandIds);
             $products = $products->whereIn('brand_id', $brandIds)->where('product_status', 'product');
             //dd($products);
         }
