@@ -104,10 +104,10 @@
                                             alt="" style="height: 200px; width:100%">
                                     </div>
                                     <div class="p-3" style="height:6.5rem;">
-                                        <h4 class="mb-1 text-center">
+                                        <h5 class="mb-1 text-center">
                                             {{ $item->badge }}
-                                        </h4>
-                                        <h3 class="mb-0 fw-bold text-center">{{ Str::limit($item->title, 55) }}</h3>
+                                        </h5>
+                                        <h4 class="mb-0 fw-bold text-center">{{ Str::limit($item->title, 55) }}</h4>
                                     </div>
                                 </a>
                             </div>

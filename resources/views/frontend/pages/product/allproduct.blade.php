@@ -106,55 +106,55 @@
                 <div class="d-sm-flex align-items-sm-center pt-2 clear">
                     <div class="text-muted filter-label">Applied Filters:</div>
                     @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'titleASC')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Ascending By Name
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'priceASC')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Ascending By Price
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'titleDESC')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Descending By Name
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'priceDESC')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Descending By Price
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['show']) && $_GET['show'] == '5')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Showing 5 Products
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['show']) && $_GET['show'] == '10')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Showing 10 Products
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['show']) && $_GET['show'] == '20')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Showing 20 Products
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['show']) && $_GET['show'] == '40')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Showing 40 Products
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['price']))
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             USD {{ $_GET['price'] }}
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
@@ -165,14 +165,14 @@
                         @endphp
                         @if (count($filterCats) > 1)
                             @foreach ($filterCats as $filterCat)
-                                <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                                <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                                     {{ App\Models\Admin\Category::where('slug', $filterCat)->value('title') }}
                                     <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                                 </div>
                             @endforeach
                         @endif
                         @if (count($filterCats) == 1)
-                            <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                            <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                                 {{ App\Models\Admin\Category::where('slug', $filterCats)->value('title') }}
                                 <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                             </div>
@@ -184,7 +184,7 @@
                         @endphp
 
                         @foreach ($filterBrands as $filterBrand)
-                            <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                            <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                                 {{ App\Models\Admin\Brand::where('slug', $filterBrand)->value('title') }}
                                 <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                             </div>

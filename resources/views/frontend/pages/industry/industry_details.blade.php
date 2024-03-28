@@ -125,52 +125,30 @@
                             <ul>
 
                                 <li class="d-flex">
-                                    <div class="me-2"><svg version="1.1" id="Layer_1"
-                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            x="0px" y="0px" width="15px" height="15px" viewBox="0 0 20 20"
-                                            enable-background="new 0 0 20 20" xml:space="preserve">
-                                            <path fill="#AE1D48"
-                                                d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
-                                        </svg></div>
-                                    <div><a href="javascript:void(0);">{{ $industry->industryPage->rowOne->list_one }}</a>
+
+                                    <div><span><i class="fa-regular fa-bookmark pe-2 main_color"></i>
+                                            {{ $industry->industryPage->rowOne->list_one }}</span>
                                     </div>
                                 </li>
 
                                 <li class="d-flex">
-                                    <div class="me-2"><svg version="1.1" id="Layer_1"
-                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            x="0px" y="0px" width="15px" height="15px" viewBox="0 0 20 20"
-                                            enable-background="new 0 0 20 20" xml:space="preserve">
-                                            <path fill="#AE1D48"
-                                                d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
-                                        </svg></div>
-                                    <div><a href="javascript:void(0);">{{ $industry->industryPage->rowOne->list_two }}</a>
+
+                                    <div><span><i class="fa-regular fa-bookmark pe-2 main_color"></i>
+                                            {{ $industry->industryPage->rowOne->list_two }}</span>
                                     </div>
                                 </li>
 
                                 <li class="d-flex">
-                                    <div class="me-2"><svg version="1.1" id="Layer_1"
-                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            x="0px" y="0px" width="15px" height="15px" viewBox="0 0 20 20"
-                                            enable-background="new 0 0 20 20" xml:space="preserve">
-                                            <path fill="#AE1D48"
-                                                d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
-                                        </svg></div>
-                                    <div><a
-                                            href="javascript:void(0);">{{ $industry->industryPage->rowOne->list_three }}</a>
+
+                                    <div><span><i class="fa-regular fa-bookmark pe-2 main_color"></i>
+                                            {{ $industry->industryPage->rowOne->list_three }}</span>
                                     </div>
                                 </li>
 
                                 <li class="d-flex">
-                                    <div class="me-2"><svg version="1.1" id="Layer_1"
-                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            x="0px" y="0px" width="15px" height="15px" viewBox="0 0 20 20"
-                                            enable-background="new 0 0 20 20" xml:space="preserve">
-                                            <path fill="#AE1D48"
-                                                d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
-                                        </svg></div>
-                                    <div><a
-                                            href="javascript:void(0);">{{ $industry->industryPage->rowOne->list_four }}</a>
+                                    <div>
+                                        <span><i class="fa-regular fa-bookmark pe-2 main_color"></i>
+                                            {{ $industry->industryPage->rowOne->list_four }}</span>
                                     </div>
                                 </li>
 
@@ -234,7 +212,12 @@
             advancements in diverse fields.</p>
         <div class="row">
             @php
-                $solutionCards = [$industry->industryPage->solutionCardOne, $industry->industryPage->solutionCardTwo, $industry->industryPage->solutionCardThree, $industry->industryPage->solutionCardFour];
+                $solutionCards = [
+                    $industry->industryPage->solutionCardOne,
+                    $industry->industryPage->solutionCardTwo,
+                    $industry->industryPage->solutionCardThree,
+                    $industry->industryPage->solutionCardFour,
+                ];
             @endphp
             @foreach ($solutionCards as $item)
                 <div class="col-lg-3">
@@ -294,15 +277,6 @@
             @endforeach
         </div>
     </section>
-    <!--=======// Building resilient IT //=====-->
-
-
-
-
-    <!-------------End--------->
-    <!--======// Solution feature //======-->
-
-    <!----------End--------->
     @if (!empty($industry->industryPage->footer_title))
         <section class="gradient_bg" style="">
             <div class="container">
@@ -333,122 +307,121 @@
     @endif
     <br>
     <!-------------End--------->
+<!--=======// Popular products //======-->
+<section>
+    <div class="container p-0 my-4">
+        <div class="Container spacer">
+            <h3 class="Head main_color">Products Related To This Industry</h3>
+            <!-- Carousel Container -->
+            <div class="SlickCarousel">
+                @if ($products)
+                    @foreach ($products as $product)
+                        <!-- Item -->
+                        <div class="ProductBlock mb-3 mt-3">
+                            <div class="Content">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="custom-product-grid">
+                                            <div class="custom-product-image">
+                                                <a href="{{ route('product.details', $product->slug) }}" class="image">
+                                                    {{-- <img class="pic-1" src="{{ asset($product->thumbnail) }}"> --}}
+                                                    <img class="img-fluid"
+                                                        src="{{ !empty($product->thumbnail) && file_exists(public_path($product->thumbnail)) ? asset($product->thumbnail) : asset('frontend/images/random-no-img.png') }}"
+                                                        alt="NGEN IT">
+                                                </a>
+                                                <ul class="custom-product-links">
+                                                    <li><a href="#"><i class="fa fa-random text-white"></i></a>
+                                                    </li>
+                                                    <li><a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#productDetails{{ $product->id }}"><i
+                                                                class="fa fa-search text-white"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="custom-product-content">
+                                                <a href="{{ route('product.details', $product->slug) }}">
+                                                    <h3 class="custom-title"> {{ Str::words($product->name, 10) }}</h3>
+                                                </a>
 
-    <!--=======// Popular products //======-->
-    <section>
-        <div class="container p-0 my-4">
-            <div class="Container spacer">
-                <h3 class="Head main_color">Products Related To This Industry <span class="Arrows"></span></h3>
-                <!-- Carousel Container -->
-                <div class="SlickCarousel">
-                    @if ($products)
-                        @foreach ($products as $item)
-                            <!-- Item -->
-                            <div class="ProductBlock mb-3 mt-3">
-                                <div class="Content">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="custom-product-grid">
-                                                <div class="custom-product-image">
-                                                    <a href="{{ route('product.details', $item->slug) }}" class="image">
-                                                        {{-- <img class="pic-1" src="{{ asset($item->thumbnail) }}"> --}}
-                                                        <img class="img-fluid"
-                                                            src="{{ !empty($item->thumbnail) && file_exists(public_path($item->thumbnail)) ? asset($item->thumbnail) : asset('frontend/images/random-no-img.png') }}"
-                                                            alt="NGEN IT">
-                                                    </a>
-                                                    <ul class="custom-product-links">
-                                                        <li><a href="#"><i class="fa fa-random text-white"></i></a>
-                                                        </li>
-                                                        <li><a href="#" data-bs-toggle="modal"
-                                                                data-bs-target="#productDetails{{ $item->id }}"><i
-                                                                    class="fa fa-search text-white"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="custom-product-content">
-                                                    <a href="{{ route('product.details', $item->slug) }}">
-                                                        <h3 class="custom-title"> {{ Str::words($item->name, 10) }}</h3>
-                                                    </a>
-
-                                                    @if ($item->rfq == 1)
-                                                        <div>
-                                                            <div class="price py-3">
-                                                                {{-- <small class="price-usd">USD</small>
+                                                @if ($product->rfq == 1)
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            {{-- <small class="price-usd">USD</small>
                                                             --.-- $ --}}
-                                                            </div>
-                                                            <a href=""
-                                                                class="d-flex justify-content-center align-items-center"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#rfq{{ $item->id }}">
-                                                                <button class="btn-color popular_product-button">
-                                                                    Ask For Price
-                                                                </button>
-                                                            </a>
                                                         </div>
-                                                    @elseif ($item->price_status && $item->price_status == 'rfq')
-                                                        <div>
-                                                            <div class="price py-3">
-                                                                {{-- <small class="price-usd">USD</small>
+                                                        <a href=""
+                                                            class="d-flex justify-content-center align-items-center"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $product->id }}">
+                                                            <button class="btn-color popular_product-button">
+                                                                Ask For Price
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                @elseif ($product->price_status && $product->price_status == 'rfq')
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            {{-- <small class="price-usd">USD</small>
                                                         --.-- $ --}}
-                                                            </div>
-                                                            <a href=""
-                                                                class="d-flex justify-content-center align-items-center"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#rfq{{ $item->id }}">
-                                                                <button class="btn-color popular_product-button">
-                                                                    Ask For Price
-                                                                </button>
-                                                            </a>
                                                         </div>
-                                                    @elseif ($item->price_status && $item->price_status == 'offer_price')
-                                                        <div>
-                                                            <div class="price py-3">
-                                                                <small class="price-usd">USD</small>
-                                                                $ {{ number_format($item->price, 2) }}
-                                                            </div>
-                                                            <a href=""
-                                                                class="d-flex justify-content-center align-items-center"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#rfq{{ $item->id }}">
-                                                                <button class="btn-color" data-bs-toggle="modal"
-                                                                    data-bs-target="#askProductPrice">
-                                                                    Your Price
-                                                                </button>
-                                                            </a>
+                                                        <a href=""
+                                                            class="d-flex justify-content-center align-items-center"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $product->id }}">
+                                                            <button class="btn-color popular_product-button">
+                                                                Ask For Price
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                @elseif ($product->price_status && $product->price_status == 'offer_price')
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            <small class="price-usd">USD</small>
+                                                            $ {{ number_format($product->price, 2) }}
                                                         </div>
-                                                    @else
-                                                        <div>
-                                                            <div class="price py-3">
-                                                                <small class="price-usd">USD</small>
-                                                                $ {{ number_format($item->price, 2) }}
-                                                            </div>
-                                                            <a href="" data-mdb-toggle="popover"
-                                                                title="Add To Cart Now"
-                                                                class="cart_button{{ $item->id }}"
-                                                                data-mdb-content="Add To Cart Now"
-                                                                data-mdb-trigger="hover">
-                                                                <button type="button" class="btn-color add_to_cart"
-                                                                    data-id="{{ $item->id }}"
-                                                                    data-name="{{ $item->name }}" data-quantity="1">
-                                                                    Add to Cart
-                                                                </button>
-                                                            </a>
+                                                        <a href=""
+                                                            class="d-flex justify-content-center align-items-center"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $product->id }}">
+                                                            <button class="btn-color" data-bs-toggle="modal"
+                                                                data-bs-target="#askProductPrice">
+                                                                Your Price
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                @else
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            <small class="price-usd">USD</small>
+                                                            $ {{ number_format($product->price, 2) }}
                                                         </div>
-                                                    @endif
-                                                </div>
+                                                        <a href="" data-mdb-toggle="popover"
+                                                            title="Add To Cart Now"
+                                                            class="cart_button{{ $product->id }}"
+                                                            data-mdb-content="Add To Cart Now"
+                                                            data-mdb-trigger="hover">
+                                                            <button type="button" class="btn-color add_to_cart"
+                                                                data-id="{{ $product->id }}"
+                                                                data-name="{{ $product->name }}" data-quantity="1">
+                                                                Add to Cart
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
-                    @endif
-                </div>
-                <!-- Carousel Container -->
-                @include('frontend.pages.home.rfq_modal')
+                        </div>
+                    @endforeach
+                @endif
             </div>
+            <!-- Carousel Container -->
+            @include('frontend.pages.home.rfq_modal')
         </div>
-    </section>
-    <!---------End -------->
+    </div>
+</section>
+<!---------End -------->
     <!--======// Featured content //======-->
     @if (count($storys) > 0)
         <section class="related_posts_wrapper">

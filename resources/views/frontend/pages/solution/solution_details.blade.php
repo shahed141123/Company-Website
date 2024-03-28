@@ -66,59 +66,23 @@
                         <h5 class="p-0">{{ $solution->rowOne->list_title }}</h5>
                         <ul class="ms-1 solution-list-area">
                             <li class="d-flex">
-                                <div class="me-2">
-                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px"
-                                        height="15px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
-                                        xml:space="preserve">
-                                        <path fill="#AE1D48"
-                                            d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
-                                    </svg>
-                                </div>
                                 <div>
-                                    <a href="javascript:void(0);">{{ $solution->rowOne->list_one }}</a>
+                                    <span><i class="fa-regular fa-bookmark main_color pe-2"></i> {{ $solution->rowOne->list_one }}</span>
                                 </div>
                             </li>
                             <li class="d-flex">
-                                <div class="me-2">
-                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px"
-                                        height="15px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
-                                        xml:space="preserve">
-                                        <path fill="#AE1D48"
-                                            d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
-                                    </svg>
-                                </div>
                                 <div>
-                                    <a href="javascript:void(0);">{{ $solution->rowOne->list_two }}</a>
+                                    <span><i class="fa-regular fa-bookmark main_color pe-2"></i> {{ $solution->rowOne->list_two }}</span>
                                 </div>
                             </li>
                             <li class="d-flex">
-                                <div class="me-2">
-                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px"
-                                        height="15px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
-                                        xml:space="preserve">
-                                        <path fill="#AE1D48"
-                                            d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
-                                    </svg>
-                                </div>
                                 <div>
-                                    <a href="javascript:void(0);">{{ $solution->rowOne->list_three }}</a>
+                                    <span><i class="fa-regular fa-bookmark main_color pe-2"></i> {{ $solution->rowOne->list_three }}</span>
                                 </div>
                             </li>
                             <li class="d-flex">
-                                <div class="me-2">
-                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px"
-                                        height="15px" viewBox="0 0 20 20" enable-background="new 0 0 20 20"
-                                        xml:space="preserve">
-                                        <path fill="#AE1D48"
-                                            d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
-                                    </svg>
-                                </div>
                                 <div>
-                                    <a href="javascript:void(0);">{{ $solution->rowOne->list_four }}</a>
+                                    <span><i class="fa-regular fa-bookmark main_color pe-2"></i> {{ $solution->rowOne->list_four }}</span>
                                 </div>
                             </li>
                         </ul>
@@ -143,7 +107,7 @@
                             <div class="card-body rounded-2 w-sm-100 solution-feature-cards">
                                 <h5 class="card-title text-center main_color">{{ $card->title }}</h5>
                                 <p class="text-muted p-2" style="font-size: 15px; font-weight: 300; text-align: center;">
-                                    {{ $card->short_des }}
+                                    {{ Str::words($card->short_des, 22, '...') }}
                                 </p>
                             </div>
                         </div>
