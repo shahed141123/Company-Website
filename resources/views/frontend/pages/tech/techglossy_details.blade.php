@@ -36,15 +36,15 @@
             <div class="col-lg-12 col-sm-12 tech_glossary_area_left">
 
                 <h5 style="font-size: var(--content-title-font-size);">{{ $techglossy->title }}</h5>
-                <div class="">
+                <div class="d-flex align-items-center py-3 pt-1">
                     @php
                         $tag = $techglossy->tags;
                         $tags = explode(',', $tag);
                     @endphp
                     @foreach ($tags as $item)
-                        <ul class="main_color me-2">
-                            <li><i class="fa-solid fa-diamond me-2"></i>{{ ucwords($item) }}</li>
-                        </ul>
+                    <div class="">
+                        <span class="main_color me-2"><i class="fa-regular fa-bookmark me-2"></i>{{ ucwords($item) }}</span>
+                    </div>
                     @endforeach
                 </div>
 

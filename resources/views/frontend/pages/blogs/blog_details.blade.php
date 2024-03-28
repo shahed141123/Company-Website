@@ -88,9 +88,9 @@
                             @if (!empty($blog->tags))
                                 Topics :
                                 @foreach ($without_last_tags as $item)
-                                    <span class="special_character">{{ $item }} , </span>
+                                    <span class="special_character"><i class="fa-regular fa-bookmark"></i> {{ $item }} , </span>
                                 @endforeach
-                                <span class="special_character">{{ $last_word }} </span>
+                                <span class="special_character"><i class="fa-regular fa-bookmark"></i> {{ $last_word }} </span>
                             @endif
                         </p>
                         <div class="bySocial col-3">
