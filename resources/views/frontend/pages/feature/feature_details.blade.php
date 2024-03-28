@@ -101,7 +101,7 @@
                                         <path fill="#AE1D48"
                                             d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
                                     </svg></div>
-                                <div class="pt-1"><a href="javascript:void(0);">{{ $row_one->list_one }}</a></div>
+                                <div class="pt-1"><span>{{ $row_one->list_one }}</span></div>
                             </li>
 
                             <li class="d-flex align-items-center">
@@ -112,7 +112,7 @@
                                         <path fill="#AE1D48"
                                             d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
                                     </svg></div>
-                                <div class="pt-1"><a href="javascript:void(0);">{{ $row_one->list_two }}</a></div>
+                                <div class="pt-1"><span>{{ $row_one->list_two }}</span></div>
                             </li>
 
                             <li class="d-flex align-items-center">
@@ -123,7 +123,7 @@
                                         <path fill="#AE1D48"
                                             d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
                                     </svg></div>
-                                <div class="pt-1"><a href="javascript:void(0);">{{ $row_one->list_three }}</a></div>
+                                <div class="pt-1"><span>{{ $row_one->list_three }}</span></div>
                             </li>
 
                             <li class="d-flex align-items-center">
@@ -134,7 +134,7 @@
                                         <path fill="#AE1D48"
                                             d="M10.673,19.721c-0.372,0.372-0.975,0.372-1.347,0l-9.048-9.048c-0.372-0.372-0.372-0.975,0-1.346 l9.048-9.048c0.372-0.372,0.975-0.372,1.347,0l9.048,9.048c0.372,0.372,0.372,0.974,0,1.346L10.673,19.721z" />
                                     </svg></div>
-                                <div class="pt-1"><a href="javascript:void(0);">{{ $row_one->list_four }}</a></div>
+                                <div class="pt-1"><span>{{ $row_one->list_four }}</span></div>
                             </li>
 
                         </ul>
