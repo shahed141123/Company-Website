@@ -231,7 +231,7 @@ class AdminController extends Controller
 
             // Iterate from the first day of the month to today
             foreach (new DatePeriod($startDate, new DateInterval('P1D'), $endDate) as $date) {
-                $currentDate = $date->format('Y-m-d');
+                $currentDate = $date->format('Y-m-d'); 
 
                 // Check if there is attendance data for the current date
                 $attendanceForDate = array_filter($attendances_all, function ($attendance) use ($id, $currentDate) {

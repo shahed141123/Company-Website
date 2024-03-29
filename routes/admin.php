@@ -601,6 +601,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/hr-admin', [BioMetricController::class, 'index'])->name('attendance.dashboard');
     // Route::get('/hr-admin', [BioMetricController::class, 'index'])->name('machine.home');
     Route::get('/attendance-data/single/{id}', [BioMetricController::class, 'attendanceDataSingle'])->name('attendance.single');
+    Route::get('/attendance-data/single/{id}/current-month', [BioMetricController::class, 'attendanceDataCurrentMonth'])->name('attendance.single.currentMonth');
     Route::post('/device-setip', [BioMetricController::class, 'device_setip'])->name('machine.devicesetip');
     // Route::post('/device-setip', [BioMetricController::class, 'device_setip'])->name('attendance.dashboard');
     Route::get('/device-information', [BioMetricController::class, 'device_information'])->name('machine.deviceinformation');
