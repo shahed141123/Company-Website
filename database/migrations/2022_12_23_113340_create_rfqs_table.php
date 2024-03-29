@@ -38,8 +38,10 @@ return new class extends Migration
             $table->string('pqr_code_one', 100)->nullable();
             $table->string('pqr_code_two', 100)->nullable();
             $table->integer('qty')->nullable();
-            $table->string('category',180)->nullable();
-            $table->string('brand',180)->nullable();
+            $table->json('category')->nullable();
+            $table->json('brand')->nullable();
+            $table->json('industry')->nullable();
+            $table->json('solution')->nullable();
             $table->string('image')->nullable();
             $table->text('message')->nullable();
             $table->enum('rfq_type', ['rfq', 'deal' , 'sales' , 'order' ,'delivery'])->default('rfq')->nullable();

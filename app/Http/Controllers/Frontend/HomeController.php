@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Site;
 use App\Models\User;
+use App\Models\Admin\Faq;
+use App\Models\Admin\Rfq;
 use App\Models\Admin\Row;
 use App\Models\Admin\Blog;
 use App\Models\Admin\Brand;
 use App\Models\Admin\Policy;
 use Illuminate\Http\Request;
+use App\Models\Admin\AboutUs;
+use App\Models\Admin\Country;
 use App\Models\Admin\Feature;
 use App\Models\Admin\Product;
 use App\Models\Admin\Setting;
@@ -17,35 +22,32 @@ use App\Models\Admin\Homepage;
 use App\Models\Admin\Industry;
 use App\Models\Admin\BrandPage;
 use App\Models\Admin\LearnMore;
+use App\Models\Admin\RfqProduct;
 use App\Models\Admin\TechGlossy;
 use App\Models\Admin\ClientStory;
+use App\Models\Admin\DocumentPdf;
 use App\Models\Admin\SubCategory;
 use App\Models\Admin\IndustryPage;
 use App\Models\Admin\SolutionCard;
 use App\Models\Admin\WhatWeDoPage;
 use Illuminate\Support\Facades\DB;
+use App\Models\Admin\MultiIndustry;
 use App\Models\Admin\PortfolioPage;
 use App\Models\Admin\PortfolioTeam;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\AboutUs;
-use App\Models\Admin\Country;
-use App\Models\Admin\DocumentPdf;
-use App\Models\Admin\Faq;
+use App\Models\Admin\OfficeLocation;
 use App\Models\Admin\SolutionDetail;
 use App\Models\Admin\SubSubCategory;
 use App\Models\Admin\TechnologyData;
+use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Admin\PortfolioClient;
 use App\Models\Admin\HardwareInfoPage;
-use App\Models\Admin\MultiIndustry;
-use App\Models\Admin\OfficeLocation;
+use App\Models\Admin\PortfolioDetails;
 use App\Models\Admin\SoftwareInfoPage;
 use App\Models\Admin\PortfolioCategory;
 use App\Models\Admin\PortfolioChooseUs;
 use App\Models\Admin\SubSubSubCategory;
 use App\Models\Admin\PortfolioClientFeedback;
-use App\Models\Admin\PortfolioDetails;
-use App\Models\Site;
-use Brian2694\Toastr\Facades\Toastr;
 
 class HomeController extends Controller
 {
@@ -406,9 +408,23 @@ class HomeController extends Controller
         return view('frontend.pages.contact.support', $data);
     }
 
-    public function RFQCommon()
+    public function rfqSuccess($id)
     {
-        $data['setting'] = Site::latest()->first();
+        $rfq = Rfq::where('rfq_code', $id)->first();
+        $data = [
+            'name'         => $rfq->name,
+            // 'product_name' => $productNames,
+            'phone'        => $rfq->phone,
+            'company_name' => $rfq->company_name,
+            'address'      => $rfq->address,
+            'message'      => $rfq->message,
+            'category'      => $rfq->category,
+            'brand'      => $rfq->brand,
+            'rfq_code'     => $id,
+            'email'        => $rfq->email,
+            'rq_products'  => RfqProduct::where('rfq_id',$rfq->id)->get(),
+
+        ];
         return view('frontend.pages.common.rfq_common', $data);
     }
 

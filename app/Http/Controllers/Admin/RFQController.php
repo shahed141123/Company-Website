@@ -192,12 +192,29 @@ class RFQController extends Controller
 
             $data['deal_type'] = 'new';
             $today = now()->format('dmY');
-            $lastCode = RFQ::where('rfq_code', 'like', 'RFQ-' . $today . '-%')->latest('id')->first();
-            $newNumber = $lastCode ? (int) substr($lastCode->rfq_code, -3) + 1 : 1;
+            $lastCode = RFQ::where('rfq_code', 'like', "RFQ-$today-%")->latest('id')->first();
+            if ($lastCode) {
+                $lastNumber = (int)explode('-', $lastCode->rfq_code)[2];
+                $newNumber = $lastNumber + 1;
+            } else {
+                $newNumber = 1;
+            }
             $data['rfq_code'] = 'RFQ-' . $today . '-' . $newNumber;
             // dd($data['rfq_code']);
+            // $productNames = [];
 
-            dd($request->all());
+            // foreach ($request->items as $item) {
+            //     $productNames[] = $item['product_name'];
+            // }
+
+            // $productNames = array_unique($productNames);
+            $productNames = '';
+            foreach ($request->items as $key => $item) {
+                $productNames .= ($key + 1) . '. ' . $item['product_name'];
+                if ($key < count($request->items) - 1) {
+                    $productNames .= ', ';
+                }
+            }
 
 
             $validator = Validator::make(
@@ -205,8 +222,8 @@ class RFQController extends Controller
                 [
                     'name' => 'required',
                     'email' => 'required',
-                    'phone' => 'required',
-                    'delivery_location' => 'required',
+                    // 'phone' => 'required',
+                    // 'delivery_location' => 'required',
                     'rfq_code' => 'unique:rfqs',
                     'image' => 'file|mimes:jpeg,png,jpg|max:2048',
                 ],
@@ -224,67 +241,65 @@ class RFQController extends Controller
                 $globalFunImage = $mainFile ? Helper::singleImageUpload($mainFile, $imgPath, 450, 350) : ['status' => 0];
 
                 $rfq_id = Rfq::insertGetId([
-                    'rfq_code'            => $data['rfq_code'],
+                    'rfq_code'                  => $data['rfq_code'],
                     'sales_man_id_L1'           => $request->sales_man_id_L1,
                     'sales_man_id_T1'           => $request->sales_man_id_T1,
-                    'sales_man_id_T2'          => $request->sales_man_id_T2,
-                    'client_id'             => $request->client_id,
-                    'partner_id'             => $request->partner_id,
-                    'product_id'            => $request->product_id, 
-                    'solution_id'          => $request->client_type,
-                    'client_type'                 => $request->name,
-                    'name'                => $request->email,
-                    'email'                => $request->phone,
-                    'phone'                  => $request->qty,
-                    'company_name'         => $request->company_name,
-                    'designation'          => $request->designation,
-                    'address'              => $request->message,
-                    'country'              => $request->address,
-                    'create_date'          => Carbon::now(),
-                    'close_date'           => $request->close_date,
-                    'sale_date'                => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : '',
-                    'pq_code'            => $request->client_id,
-                    'pqr_code_one'           => $request->partner_id,
-                    'pqr_code_two'           => $request->product_id,
-                    'qty'          => $request->solution_id,
-                    'category'             => $data['rfq_code'],
-                    'brand'             => 'rfq',
-                    'image'            => $data['deal_type'],
-                    'message'          => $request->client_type,
-                    'rfq_type'                 => $request->name,
-                    'call'                => $request->email,
-                    'regular'                => $request->phone,
-                    'special'                  => $request->qty,
-                    'tax_status'         => $request->company_name,
-                    'deal_type'          => $request->designation,
-                    'status'              => $request->message,
-                    'tax'              => $request->address,
-                    'vat'          => Carbon::now(),
-                    'total_price'           => $request->close_date,
-                    'quoted_price'                => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : '',
-                    'price_text'         => $request->company_name,
-                    'currency'          => $request->designation,
-                    'rfq_department'              => $request->message,
-                    'delivery_location'              => $request->address,
-                    'budget'          => Carbon::now(),
-                    'project_status'           => $request->close_date,
-                    'approximate_delivery_time'                => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : '',
-                    'status'               => 'rfq_created',
-                    'created_at'           => Carbon::now(),
+                    'sales_man_id_T2'           => $request->sales_man_id_T2,
+                    'client_id'                 => $request->client_id,
+                    'partner_id'                => $request->partner_id,
+                    'product_id'                => $request->product_id,
+                    'solution_id'               => $request->client_type,
+                    'client_type'               => $request->client_type,
+                    'name'                      => $request->name,
+                    'email'                     => $request->email,
+                    'phone'                     => $request->phone,
+                    'company_name'              => $request->company_name,
+                    'designation'               => $request->designation,
+                    'address'                   => $request->address,
+                    'country'                   => $request->country,
+                    'create_date'               => Carbon::now(),
+                    'close_date'                => $request->close_date,
+                    'sale_date'                 => $request->sale_date,
+                    'pq_code'                   => $request->pq_code,
+                    'pqr_code_one'              => $request->pqr_code_one,
+                    'pqr_code_two'              => $request->pqr_code_two,
+                    'qty'                       => $request->qty,
+                    'category'                  => json_encode($request->category),
+                    'brand'                     => json_encode($request->brand),
+                    'industry'                  => json_encode($request->industry),
+                    'image'                     => $globalFunImage['status'] == 1 ? $globalFunImage['file_name']: '',
+                    'message'                   => $request->message,
+                    'rfq_type'                  => 'rfq',
+                    'call'                      => $request->call,
+                    'regular'                   => $request->regular,
+                    'special'                   => $request->special,
+                    'tax_status'                => $request->tax_status,
+                    'deal_type'                 => $data['deal_type'],
+                    'tax'                       => $request->tax,
+                    'vat'                       => $request->vat,
+                    'total_price'               => $request->total_price,
+                    'quoted_price'              => $request->quoted_price,
+                    'price_text'                => $request->price_text,
+                    'currency'                  => $request->currency,
+                    'rfq_department'            => $request->rfq_department,
+                    'delivery_location'         => $request->delivery_location,
+                    'budget'                    => $request->budget,
+                    'project_status'            => $request->project_status,
+                    'approximate_delivery_time' => $request->approximate_delivery_time,
+                    'status'                    => 'rfq_created',
+                    'created_at'                => Carbon::now(),
                 ]);
-                if ($request->product_name) {
-                    RfqProduct::insert([
+                if ($request->items) {
+                    foreach($request->items as $item){
+                        RfqProduct::create([
+                            'rfq_id'       => $rfq_id,
+                            'product_name' => $item['product_name'],
+                            'qty'          => $item['qty'],
+                            'created_at'   => Carbon::now(),
 
-                        'rfq_id'       => $rfq_id,
-                        'product_name' => $product_name,
-                        'qty'          => $request->qty,
-                        'created_at'   => Carbon::now(),
-
-                    ]);
+                        ]);
+                    }
                 }
-
-
-
 
                 $name = $request->name;
                 $rfq_code = $data['rfq_code'];
@@ -306,8 +321,7 @@ class RFQController extends Controller
                 $data = [
 
                     'name'         => $name,
-                    'sku_code'     => !empty($product->sku_code) ?? $product->sku_code,
-                    'product_name' => $product_name,
+                    'product_name' => $productNames,
                     'phone'        => $request->phone,
                     'qty'          => $request->qty,
                     'company_name' => $request->company_name,
@@ -332,7 +346,7 @@ class RFQController extends Controller
                     Toastr::error($message, 'Failed', ['timeOut' => 30000]);
                 }
             }
-            return redirect()->back();
+            return redirect()->route('rfq.success',$rfq_code);
         }
 
     /**
