@@ -343,9 +343,9 @@
                                     $lateCountL = collect($lateCounts)
                                         ->where(function ($item) {
                                             return Carbon\Carbon::parse($item['check_in']) >
-                                                Carbon\Carbon::parse('09:05:00') &&
+                                                Carbon\Carbon::parse('09:06:00') &&
                                                 Carbon\Carbon::parse($item['check_in']) <
-                                                    Carbon\Carbon::parse('10:05:00');
+                                                    Carbon\Carbon::parse('10:01:00');
                                         })
                                         ->count();
 
@@ -353,7 +353,7 @@
                                     $lateCountLL = collect($lateCounts)
                                         ->where(function ($item) {
                                             return Carbon\Carbon::parse($item['check_in']) >
-                                                Carbon\Carbon::parse('10:05:00');
+                                                Carbon\Carbon::parse('10:01:00');
                                         })
                                         ->count();
                                 @endphp
@@ -361,13 +361,13 @@
                                     <div class="card-body pt-2">
                                         {{-- Icons Info --}}
                                         <div class="d-flex justify-content-between align-items-center pt-1 px-2">
-                                            <h5 class="user-counter mb-0">EL</h5>
+                                            {{-- <h5 class="user-counter mb-0">EL</h5> --}}
                                             <h5 class="user-counter mb-0">A</h5>
                                             <h5 class="user-counter mb-0">L</h5>
                                             <h5 class="user-counter mb-0">LL</h5>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center pt-2">
-                                            <h5 class="user-counter amout-count mb-0">{{ $absentCountA }}</h5>
+                                            {{-- <h5 class="user-counter amout-count mb-0">{{ $absentCountA }}</h5> --}}
                                             <h5 class="user-counter amout-count mb-0">{{ $absentCountA }}</h5>
                                             <h5 class="user-counter amout-count mb-0">{{ $lateCountL }}</h5>
                                             <h5 class="user-counter amout-count mb-0">{{ $lateCountLL }}</h5>
@@ -523,12 +523,12 @@
                                                                                     $attendance['check_in'],
                                                                                 );
                                                                             @endphp
-                                                                            @if ($checkInTime > Carbon\Carbon::parse('09:05:00') && $checkInTime < Carbon\Carbon::parse('10:05:00'))
+                                                                            @if ($checkInTime > Carbon\Carbon::parse('09:06:00') && $checkInTime < Carbon\Carbon::parse('10:01:00'))
                                                                                 <p
                                                                                     class="mb-0 fw-bold text-danger m-0 p-0">
                                                                                     Late (L)
                                                                                 </p>
-                                                                            @elseif ($checkInTime > Carbon\Carbon::parse('10:05:00'))
+                                                                            @elseif ($checkInTime > Carbon\Carbon::parse('10:01:00'))
                                                                                 <p
                                                                                     class="mb-0 fw-bold text-danger m-0 p-0">
                                                                                     Half Day (LL)</p>
@@ -567,12 +567,12 @@
                                                                 <td>{{ $attendanceLastMonth['check_in'] }}</td>
                                                                 <td>{{ $attendanceLastMonth['check_out'] }}</td>
                                                                 <td>
-                                                                    @if (Carbon\Carbon::parse($attendanceLastMonth['check_in']) > Carbon\Carbon::parse('09:05:00') &&
-                                                                            Carbon\Carbon::parse($attendanceLastMonth['check_in']) < Carbon\Carbon::parse('10:05:00'))
+                                                                    @if (Carbon\Carbon::parse($attendanceLastMonth['check_in']) > Carbon\Carbon::parse('09:06:00') &&
+                                                                            Carbon\Carbon::parse($attendanceLastMonth['check_in']) < Carbon\Carbon::parse('10:01:00'))
                                                                         <p class="text-danger fw-bold m-0 p-0">L</p>
                                                                     @endif
 
-                                                                    @if (Carbon\Carbon::parse($attendanceLastMonth['check_in']) > Carbon\Carbon::parse('10:05:00'))
+                                                                    @if (Carbon\Carbon::parse($attendanceLastMonth['check_in']) > Carbon\Carbon::parse('10:01:00'))
                                                                         <p class="text-danger fw-bold m-0 p-0">Half Day
                                                                             (LL)
                                                                         </p>
@@ -609,14 +609,14 @@
                                                                 <td>{{ $lateCount['check_in'] }}</td>
                                                                 <td>{{ $lateCount['check_out'] }}</td>
                                                                 <td>
-                                                                    @if (Carbon\Carbon::parse($lateCount['check_in']) > Carbon\Carbon::parse('09:05:00') &&
-                                                                            Carbon\Carbon::parse($lateCount['check_in']) < Carbon\Carbon::parse('10:05:00'))
+                                                                    @if (Carbon\Carbon::parse($lateCount['check_in']) > Carbon\Carbon::parse('09:06:00') &&
+                                                                            Carbon\Carbon::parse($lateCount['check_in']) < Carbon\Carbon::parse('10:01:00'))
                                                                         <p class="mb-0 text-danger fw-bold m-0 p-0">Late
                                                                             (L)
                                                                         </p>
                                                                     @endif
 
-                                                                    @if (Carbon\Carbon::parse($lateCount['check_in']) > Carbon\Carbon::parse('10:05:00'))
+                                                                    @if (Carbon\Carbon::parse($lateCount['check_in']) > Carbon\Carbon::parse('10:01:00'))
                                                                         <p class="mb-0 text-danger fw-bold m-0 p-0">Half
                                                                             Day (LL)
                                                                         </p>

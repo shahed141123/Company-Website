@@ -153,11 +153,11 @@
                         {{-- YOUR INTERESTS --}}
                         <div>
                             <h6 class="pt-2">By Industries</h6>
-                            <ul class="interests_list">
+                            <ul class="interests_list ps-3">
                                 @foreach ($industries as $item)
                                     <li>
                                         <a href="#">
-                                            <i class="ion-android-radio-button-off"></i>{{$item->title}}
+                                             <i class="fa-solid fa-arrow-right-long pe-1"></i>{{$item->title}}
                                         </a>
                                     </li>
                                 @endforeach
@@ -166,11 +166,11 @@
                         </div>
                         <div>
                             <h6 class="pt-2">By Categories</h6>
-                            <ul class="interests_list">
+                            <ul class="interests_list ps-3">
                                 @foreach ($categories as $item)
                                     <li>
                                         <a href="#">
-                                            <i class="ion-android-radio-button-off"></i>{{$item->title}}
+                                             <i class="fa-solid fa-arrow-right-long pe-1"></i>{{$item->title}}
                                         </a>
                                     </li>
                                 @endforeach
@@ -179,11 +179,11 @@
                         </div>
                         <div>
                             <h6 class="pt-2">By Brands</h6>
-                            <ul class="interests_list">
+                            <ul class="interests_list ps-3">
                                 @foreach ($brands as $item)
                                     <li>
                                         <a href="#">
-                                            <i class="ion-android-radio-button-off"></i>{{$item->title}}
+                                             <i class="fa-solid fa-arrow-right-long pe-1"></i>{{$item->title}}
                                         </a>
                                     </li>
                                 @endforeach

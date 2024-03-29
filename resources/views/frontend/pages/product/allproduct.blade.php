@@ -1,13 +1,14 @@
 @extends('frontend.master')
 @section('content')
 
+
     @include('frontend.pages.product.partials.style')
     <section class="banner_single_page mb-4"
-        style="background-image:url('{{ asset('frontend/images/custom_shop.jpg') }}');
-        background-color: black;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height:300px;">
+        style="background-image:url('{{ !empty($brand_logo->brand_logo) ? asset('storage/' . $bannerImage) : asset('storage/' . $cat->banner_image) }}');
+                background-color: black;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height:300px;">
 
         <div class="container">
             <div class="single_banner_content">
@@ -105,55 +106,55 @@
                 <div class="d-sm-flex align-items-sm-center pt-2 clear">
                     <div class="text-muted filter-label">Applied Filters:</div>
                     @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'titleASC')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Ascending By Name
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'priceASC')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Ascending By Price
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'titleDESC')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Descending By Name
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'priceDESC')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Descending By Price
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['show']) && $_GET['show'] == '5')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Showing 5 Products
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['show']) && $_GET['show'] == '10')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Showing 10 Products
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['show']) && $_GET['show'] == '20')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Showing 20 Products
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['show']) && $_GET['show'] == '40')
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             Showing 40 Products
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
                     @endif
                     @if (!empty($_GET['price']))
-                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                        <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                             USD {{ $_GET['price'] }}
                             <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                         </div>
@@ -164,14 +165,14 @@
                         @endphp
                         @if (count($filterCats) > 1)
                             @foreach ($filterCats as $filterCat)
-                                <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                                <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                                     {{ App\Models\Admin\Category::where('slug', $filterCat)->value('title') }}
                                     <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                                 </div>
                             @endforeach
                         @endif
                         @if (count($filterCats) == 1)
-                            <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
+                            <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
                                 {{ App\Models\Admin\Category::where('slug', $filterCats)->value('title') }}
                                 <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                             </div>
@@ -179,22 +180,15 @@
                     @endif
                     @if (!empty($_GET['brand']))
                         @php
-                            $filterBrands = explode(',', implode($_GET['brand']));
+                            $filterBrands = explode(',', $_GET['brand']);
                         @endphp
-                        @if (count($filterBrands) > 1)
-                            @foreach ($filterBrands as $filterBrand)
-                                <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
-                                    {{ App\Models\Admin\Brand::where('slug', $filterBrand)->value('title') }}
-                                    <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
-                                </div>
-                            @endforeach
-                        @elseif (count($filterBrands) == 1)
-                            <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2">
-                                {{ App\Models\Admin\Brand::where('slug', $filterBrands)->value('title') }}
+
+                        @foreach ($filterBrands as $filterBrand)
+                            <div class="green-label font-weight-bold p-1 px-1 mx-sm-1 mx-0 my-sm-0 my-2" style="cursor: pointer;">
+                                {{ App\Models\Admin\Brand::where('slug', $filterBrand)->value('title') }}
                                 <span class="px-1 close" onclick="parentNode.remove()">&times;</span>
                             </div>
-                        @else
-                        @endif
+                        @endforeach
                     @endif
                 </div>
                 <div class="filters">
@@ -233,7 +227,9 @@
                                             <div class="accordion accordion-flush" id="accordionFlushSubCategory">
                                                 <div class="accordion-item">
                                                     @php
-                                                        $sub_categorys = App\Models\Admin\Category::getSubcatByCat($cat->id);
+                                                        $sub_categorys = App\Models\Admin\Category::getSubcatByCat(
+                                                            $cat->id,
+                                                        );
                                                     @endphp
                                                     @foreach ($sub_categorys as $key => $sub_category)
                                                         <h2 class="accordion-header"
@@ -258,7 +254,9 @@
                                                                 <div class="accordion accordion-flush" id="inner_sub-2">
                                                                     <div class="accordion-item">
                                                                         @php
-                                                                            $sub_sub_categorys = App\Models\Admin\SubCategory::getSubSubcatBySubCat($sub_category->id);
+                                                                            $sub_sub_categorys = App\Models\Admin\SubCategory::getSubSubcatBySubCat(
+                                                                                $sub_category->id,
+                                                                            );
                                                                         @endphp
                                                                         @if (!empty($sub_sub_categorys))
                                                                             @foreach ($sub_sub_categorys as $item)
@@ -288,53 +286,51 @@
                     <div class="py-3">
                         @if (!empty($_GET['brand']))
                             @php
-                                $filterBrand = explode(',', implode($_GET['brand']));
+                                $filterBrand = explode(',', $_GET['brand']);
                             @endphp
                         @endif
-                        <form class="brand">
-                            @foreach ($brands as $brand)
-                                <div class="form-inline d-flex align-items-center py-2 px-2"
-                                    style="border-bottom: 1px solid #00000026;"> <label
-                                        class="tick">{{ $brand->title }}
-                                        <input type="checkbox" name="brand[]" value="{{ $brand->slug }}"
-                                            @if (!empty($filterBrand) && in_array($brand->slug, $filterBrand)) checked @endif
-                                            onchange="this.form.submit()">
-                                        <span class="check"></span> </label>
-                                </div>
-                            @endforeach
-                        </form>
+
+                        @foreach ($brands as $brand)
+                            <div class="form-inline d-flex align-items-center py-2 px-2"
+                                style="border-bottom: 1px solid #00000026;"> <label class="tick">{{ $brand->title }}
+                                    <input type="checkbox" name="brand[]" value="{{ $brand->slug }}"
+                                        @if (!empty($filterBrand) && in_array($brand->slug, $filterBrand)) checked @endif onchange="this.form.submit()">
+                                    <span class="check"></span> </label>
+                            </div>
+                        @endforeach
+
                     </div>
                     <div class="py-3">
                         <h5 class="font-weight-bold">Rating</h5>
-                        <form class="rating">
-                            <div class="form-inline d-flex align-items-center py-2"> <label class="tick"><span
-                                        class="fas fa-star"></span> <span class="fas fa-star"></span> <span
-                                        class="fas fa-star"></span> <span class="fas fa-star"></span> <span
-                                        class="fas fa-star"></span> <input type="checkbox"> <span class="check"></span>
-                                </label> </div>
-                            <div class="form-inline d-flex align-items-center py-2"> <label class="tick"> <span
-                                        class="fas fa-star"></span> <span class="fas fa-star"></span> <span
-                                        class="fas fa-star"></span> <span class="fas fa-star"></span> <span
-                                        class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span
-                                        class="check"></span> </label> </div>
-                            <div class="form-inline d-flex align-items-center py-2"> <label class="tick"><span
-                                        class="fas fa-star"></span> <span class="fas fa-star"></span> <span
-                                        class="fas fa-star"></span> <span class="far fa-star px-1 text-muted"></span>
-                                    <span class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span
-                                        class="check"></span> </label> </div>
-                            <div class="form-inline d-flex align-items-center py-2"> <label class="tick"><span
-                                        class="fas fa-star"></span> <span class="fas fa-star"></span> <span
-                                        class="far fa-star px-1 text-muted"></span> <span
-                                        class="far fa-star px-1 text-muted"></span> <span
-                                        class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span
-                                        class="check"></span> </label> </div>
-                            <div class="form-inline d-flex align-items-center py-2"> <label class="tick"> <span
-                                        class="fas fa-star"></span> <span class="far fa-star px-1 text-muted"></span>
-                                    <span class="far fa-star px-1 text-muted"></span> <span
-                                        class="far fa-star px-1 text-muted"></span> <span
-                                        class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span
-                                        class="check"></span> </label> </div>
-                        </form>
+
+                        <div class="form-inline d-flex align-items-center py-2"> <label class="tick"><span
+                                    class="fas fa-star"></span> <span class="fas fa-star"></span> <span
+                                    class="fas fa-star"></span> <span class="fas fa-star"></span> <span
+                                    class="fas fa-star"></span> <input type="checkbox"> <span class="check"></span>
+                            </label> </div>
+                        <div class="form-inline d-flex align-items-center py-2"> <label class="tick"> <span
+                                    class="fas fa-star"></span> <span class="fas fa-star"></span> <span
+                                    class="fas fa-star"></span> <span class="fas fa-star"></span> <span
+                                    class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span
+                                    class="check"></span> </label> </div>
+                        <div class="form-inline d-flex align-items-center py-2"> <label class="tick"><span
+                                    class="fas fa-star"></span> <span class="fas fa-star"></span> <span
+                                    class="fas fa-star"></span> <span class="far fa-star px-1 text-muted"></span>
+                                <span class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span
+                                    class="check"></span> </label> </div>
+                        <div class="form-inline d-flex align-items-center py-2"> <label class="tick"><span
+                                    class="fas fa-star"></span> <span class="fas fa-star"></span> <span
+                                    class="far fa-star px-1 text-muted"></span> <span
+                                    class="far fa-star px-1 text-muted"></span> <span
+                                    class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span
+                                    class="check"></span> </label> </div>
+                        <div class="form-inline d-flex align-items-center py-2"> <label class="tick"> <span
+                                    class="fas fa-star"></span> <span class="far fa-star px-1 text-muted"></span>
+                                <span class="far fa-star px-1 text-muted"></span> <span
+                                    class="far fa-star px-1 text-muted"></span> <span
+                                    class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span
+                                    class="check"></span> </label> </div>
+
                     </div>
                 </div>
                 <div class="row gx-0 py-md-0 py-3">
@@ -346,10 +342,9 @@
                             @else
                                 <div class="input-group">
                                     <input type="text" name="keyword" class="form-control  rounded-0"
-                                        placeholder="Search BY KEYWORD..." onchange="this.form.submit()"
-                                        style="padding: 27px">
+                                        placeholder="Search BY KEYWORD..." onchange="this.form.submit()">
                                     <div class="input-group-append">
-                                        <button class="btn btn-secondary rounded-0 p-3 py-0" type="button">
+                                        <button class="btn btn-secondary rounded-0 p-3 py-2" type="button">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </div>
@@ -365,7 +360,7 @@
                                         Categories
                                     </button>
                                 </h2>
-                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show shadow"
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="panelsStayOpen-headingOne">
                                     <div class="accordion-body p-3 py-0">
                                         <div class="py-3">
@@ -404,11 +399,16 @@
                                                                     id="accordionFlushSubCategory">
                                                                     <div class="accordion-item">
                                                                         @php
-                                                                            $sub_categorys = App\Models\Admin\Category::getSubcatByCat($cat->id);
+                                                                            $sub_categorys = App\Models\Admin\Category::getSubcatByCat(
+                                                                                $cat->id,
+                                                                            );
                                                                         @endphp
                                                                         @if (!empty($_GET['sub_category']))
                                                                             @php
-                                                                                $filtersubCat = explode(',', $_GET['sub_category']);
+                                                                                $filtersubCat = explode(
+                                                                                    ',',
+                                                                                    $_GET['sub_category'],
+                                                                                );
                                                                             @endphp
                                                                         @endif
                                                                         @foreach ($sub_categorys as $key => $sub_category)
@@ -442,11 +442,18 @@
                                                                                         id="inner_sub-2">
                                                                                         <div class="accordion-item">
                                                                                             @php
-                                                                                                $sub_sub_categorys = App\Models\Admin\SubCategory::getSubSubcatBySubCat($sub_category->id);
+                                                                                                $sub_sub_categorys = App\Models\Admin\SubCategory::getSubSubcatBySubCat(
+                                                                                                    $sub_category->id,
+                                                                                                );
                                                                                             @endphp
                                                                                             @if (!empty($_GET['sub_sub_category']))
                                                                                                 @php
-                                                                                                    $filtersubsubCat = explode(',', $_GET['sub_sub_category']);
+                                                                                                    $filtersubsubCat = explode(
+                                                                                                        ',',
+                                                                                                        $_GET[
+                                                                                                            'sub_sub_category'
+                                                                                                        ],
+                                                                                                    );
                                                                                                 @endphp
                                                                                             @endif
                                                                                             @if (!empty($sub_sub_categorys))
@@ -488,24 +495,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item rounded-0">
-                                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                                    <button class="accordion-button collapsed main_color" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo"
-                                        aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                        Manufacturers
-                                    </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse shadow"
-                                    aria-labelledby="panelsStayOpen-headingTwo">
-                                    <div class="accordion-body p-3 py-0">
-                                        <div class="py-3">
-                                            @if (!empty($_GET['brand']))
-                                                @php
-                                                    $filterBrand = explode(',', implode($_GET['brand']));
-                                                @endphp
-                                            @endif
-                                            <form class="brand">
+                            @if (!empty($brand_logo))
+                                <div class="accordion-item rounded-0">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                        <button class="accordion-button collapsed main_color" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo"
+                                            aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                            Manufacturers
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse shadow"
+                                        aria-labelledby="panelsStayOpen-headingTwo">
+                                        <div class="accordion-body p-3 py-0">
+                                            <div class="py-3">
+                                                @if (!empty($_GET['brand']))
+                                                    @php
+                                                        $filterBrand = explode(',', $_GET['brand']);
+                                                    @endphp
+                                                @endif
+
                                                 @foreach ($brands as $brand)
                                                     <div class="form-inline d-flex align-items-center py-2 px-2"
                                                         style="border-bottom: 1px solid #00000026;"> <label
@@ -518,11 +526,11 @@
                                                     </div>
                                                 @endforeach
 
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                             <div class="accordion-item rounded-0">
                                 <h2 class="accordion-header" id="panelsStayOpen-headingThree">
                                     <button class="accordion-button collapsed main_color" type="button"
@@ -563,7 +571,7 @@
                     <!-- Products Section -->
                     <section id="products">
                         <div class="container py-3">
-                            <header class="product_showing shadow-lg px-2 py-2 mb-2">
+                            <header class="product_showing px-2 py-2 mb-2">
                                 <div class="form-inline d-flex justify-content-between align-items-center">
                                     <span class="mr-md-auto">
                                         @if ($products)
@@ -703,7 +711,7 @@
                                                                                     Cart</span>
                                                                             </div>
                                                                         @else
-                                                                            <form action="{{ route('add.cart') }}"
+                                                                            {{-- <form action="{{ route('add.cart') }}"
                                                                                 method="post">
                                                                                 @csrf
                                                                                 <input type="hidden" name="product_id"
@@ -749,7 +757,7 @@
                                                                                     </div>
                                                                                 </div>
 
-                                                                            </form>
+                                                                            </form> --}}
                                                                         @endif
                                                                     @else
                                                                         <div class="text-end">
@@ -794,533 +802,122 @@
 
     <!-------- End--------->
 
-    <!--=======// Related products //======-->
-    @if (is_countable($related_products) && count($related_products) > 0)
-        <section>
-            <div class="container">
-                <div class="Container mt-5 px-0">
-                    <h3 class="Head" style="font-size:30px;">Related Products <span class="Arrows"></span></h3>
-                    <!-- Carousel Container -->
-                    <div class="SlickCarousel">
-                        @if ($related_products)
-                            @foreach ($related_products as $item)
-                                <!-- Item -->
-                                <div class="ProductBlock mb-3 mt-3">
-                                    <div class="Content">
-                                        <div class="row">
-                                            <div class="col-md-12 col-sm-12">
-                                                <div class="product-grid">
-                                                    <div class="product-image">
-                                                        <a href="{{ route('product.details', $item->slug) }}"
-                                                            class="image d-flex justify-content-center align-items-center">
-                                                            <img class="pic-1" src="{{ asset($item->thumbnail) }}"
-                                                                style="width: 180px;height: 180px;"
-                                                                alt="{{ $item->name }}">
-                                                            <img class="pic-2" src="{{ asset($item->thumbnail) }}"
-                                                                style="height: 180px;" alt="{{ $item->name }}">
+
+    <!--=======// Popular products //======-->
+<section>
+    <div class="container p-0 my-4">
+        <div class="Container spacer">
+            <h3 class="Head main_color">Related Products <span class="Arrows"></span></h3>
+            <!-- Carousel Container -->
+            <div class="SlickCarousel">
+                @if ($related_products)
+                    @foreach ($related_products as $item)
+                        <!-- Item -->
+                        <div class="ProductBlock mb-3 mt-3">
+                            <div class="Content">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="custom-product-grid">
+                                            <div class="custom-product-image">
+                                                <a href="{{ route('product.details', $item->slug) }}" class="image">
+                                                    {{-- <img class="pic-1" src="{{ asset($item->thumbnail) }}"> --}}
+                                                    <img class="img-fluid"
+                                                        src="{{ !empty($item->thumbnail) && file_exists(public_path($item->thumbnail)) ? asset($item->thumbnail) : asset('frontend/images/random-no-img.png') }}"
+                                                        alt="NGEN IT">
+                                                </a>
+                                                <ul class="custom-product-links">
+                                                    <li><a href="#"><i class="fa fa-random text-white"></i></a>
+                                                    </li>
+                                                    <li><a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#productDetails{{ $item->id }}"><i
+                                                                class="fa fa-search text-white"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="custom-product-content">
+                                                <a href="{{ route('product.details', $item->slug) }}">
+                                                    <h3 class="custom-title"> {{ Str::words($item->name, 10) }}</h3>
+                                                </a>
+
+                                                @if ($item->rfq == 1)
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            {{-- <small class="price-usd">USD</small>
+                                                            --.-- $ --}}
+                                                        </div>
+                                                        <a href=""
+                                                            class="d-flex justify-content-center align-items-center"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $item->id }}">
+                                                            <button class="btn-color popular_product-button">
+                                                                Ask For Price
+                                                            </button>
                                                         </a>
-
-                                                        <ul class="product-links">
-                                                            <li><a href="#" data-tip="Quick View"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#productDetails{{ $item->id }}"><i
-                                                                        class="fa fa-eye text-white"></i></a>
-                                                            </li>
-                                                            <li><a href="#" data-tip="View Product"><i
-                                                                        class="fa fa-random text-white"></i></a></li>
-                                                        </ul>
-
-
                                                     </div>
-                                                    <div class="product-content">
-                                                        <h3 class="titles mb-2 ask_for_price website-color text-center"
-                                                            style="height: 4.5rem;"><a
-                                                                href="{{ route('product.details', $item->slug) }}">{{ Str::limit($item->name, 85) }}</a>
-                                                        </h3>
-                                                        @if ($item->rfq == 1)
-                                                            <div class="price">
-                                                                <p class="text-muted text-center">
-                                                                    <small>USD</small>
-                                                                    --.-- $
-                                                                </p>
-                                                                <a href=""
-                                                                    class="d-flex justify-content-center align-items-center"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#rfq{{ $item->id }}">
-                                                                    <button class="common_button effect01">
-                                                                        Ask For Price
-                                                                    </button>
-                                                                </a>
-                                                            </div>
-                                                        @elseif ($item->price_status && $item->price_status == 'price')
-                                                            <div class="price">
-                                                                <p class="text-muted text-center"><small>USD</small>
-                                                                    {{ number_format($item->price, 2) }} $
-                                                                </p>
-                                                                <div class="d-flex justify-content-center align-items-center">
-                                                                    {{-- <form class="" action="{{ route('add.cart') }}" method="post">
-                                                                        @csrf
-                                                                        <input type="hidden" name="product_id" id="product_id"
-                                                                            value="{{ $item->id }}">
-                                                                        <input type="hidden" name="name" id="name"
-                                                                            value="{{ $item->name }}">
-                                                                        <input type="hidden" name="qty" id="qty"
-                                                                            value="1">
-                                                                        <div data-mdb-toggle="popover" title="Add To Cart Now"
-                                                                            data-mdb-content="Add To Cart Now"
-                                                                            data-mdb-trigger="hover">
-                                                                            <button type="button"
-                                                                                class="common_button effect01 add_to_cart">
-                                                                                Add to Cart
-                                                                            </button>
-                                                                        </div>
-                                                                    </form> --}}
-
-                                                                    {{-- <input type="hidden" name="product_id" id="product_id" value="{{ $item->id }}">
-                                                                        <input type="hidden" name="name" id="name" value="{{ $item->name }}">
-                                                                        <input type="hidden" name="qty" id="qty" value="1"> --}}
-                                                                    <div data-mdb-toggle="popover" title="Add To Cart Now"
-                                                                        class="cart_button{{ $item->id }}"
-                                                                        data-mdb-content="Add To Cart Now"
-                                                                        data-mdb-trigger="hover">
-                                                                        <button type="button"
-                                                                            class="common_button effect01 add_to_cart"
-                                                                            data-id="{{ $item->id }}"
-                                                                            data-name="{{ $item->name }}"
-                                                                            data-quantity="1">
-                                                                            Add to Cart</button>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                        @else
-                                                            <div class="price">
-                                                                <p class="text-muted text-center"
-                                                                    style="text-decoration: line-through;text-decoration-thickness: 2px; text-decoration-color: #ae0a46;">
-                                                                    USD {{ number_format($item->price, 2) }} $
-                                                                </p>
-                                                                <div class="d-flex justify-content-center align-items-center">
-
-
-                                                                    <div data-mdb-toggle="popover" title="Your Price"
-                                                                        data-mdb-content="Your Price"
-                                                                        data-mdb-trigger="hover">
-                                                                        <button class="common_button effect01"
-                                                                            data-bs-toggle="modal"
-                                                                            data-bs-target="#askProductPrice">
-                                                                            Your Price
-                                                                        </button>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                        @endif
-
+                                                @elseif ($item->price_status && $item->price_status == 'rfq')
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            {{-- <small class="price-usd">USD</small>
+                                                        --.-- $ --}}
+                                                        </div>
+                                                        <a href=""
+                                                            class="d-flex justify-content-center align-items-center"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $item->id }}">
+                                                            <button class="btn-color popular_product-button">
+                                                                Ask For Price
+                                                            </button>
+                                                        </a>
                                                     </div>
-                                                </div>
+                                                @elseif ($item->price_status && $item->price_status == 'offer_price')
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            <small class="price-usd">USD</small>
+                                                            $ {{ number_format($item->price, 2) }}
+                                                        </div>
+                                                        <a href=""
+                                                            class="d-flex justify-content-center align-items-center"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $item->id }}">
+                                                            <button class="btn-color" data-bs-toggle="modal"
+                                                                data-bs-target="#askProductPrice">
+                                                                Your Price
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                @else
+                                                    <div>
+                                                        <div class="price py-3">
+                                                            <small class="price-usd">USD</small>
+                                                            $ {{ number_format($item->price, 2) }}
+                                                        </div>
+                                                        <a href="" data-mdb-toggle="popover"
+                                                            title="Add To Cart Now"
+                                                            class="cart_button{{ $item->id }}"
+                                                            data-mdb-content="Add To Cart Now"
+                                                            data-mdb-trigger="hover">
+                                                            <button type="button" class="btn-color add_to_cart"
+                                                                data-id="{{ $item->id }}"
+                                                                data-name="{{ $item->name }}" data-quantity="1">
+                                                                Add to Cart
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
-                        @endif
-                    </div>
-                    <!-- Carousel Container -->
-                    @foreach ($products as $item)
-                        <!-- Modal -->
-                        <div class="modal fade" id="productDetails{{ $item->id }}" data-bs-backdrop="static"
-                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header py-2" style="background: #ae0a46;">
-                                        <h5 class="modal-title text-white" id="staticBackdropLabel">Product Details
-                                        </h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <section class="container py-5">
-                                            <div class="row">
-                                                <!-- images -->
-                                                <div class="col-lg-4 col-sm-12 single_product_images">
-                                                    <!-- gallery pic -->
-                                                    <div class="mx-auto d-block">
-                                                        <img id="expand" class="geeks img-fluid rounded mx-auto d-block"
-                                                            src="{{ asset($item->thumbnail) }}">
-                                                    </div>
-
-                                                    {{-- <div class="img_gallery_wrapper row pt-1">
-                                                                <div class="col-3">
-                                                                    <img class="img-fluid"
-                                                                        src="{{ asset($item->thumbnail) }}"
-                                                                        onclick="gfg(this);">
-                                                                </div>
-                                                            </div> --}}
-                                                </div>
-                                                <!-- content -->
-                                                <div class="col-lg-8 col-sm-12 pl-4">
-                                                    <h3>{{ $item->name }}</h3>
-                                                    {{-- <h6 class="text-dark product_code">SKU #00017-SW-JIR-002 | MF #00017-SW-JIR-002
-                                                                | NG #00017-SW-JIR-002
-                                                            </h6> --}}
-                                                    <div class="row pt-3">
-                                                        <div class="col-lg-8">
-                                                            <p class="list_price mb-0">List
-                                                                Price</p>
-                                                            <div class="product__details__price ">
-                                                                <p class="mb-0">US $
-                                                                    {{ $item->price }}</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4">
-                                                            <div class="stock-info">
-                                                                <p tabindex="0" class="prod-stock"
-                                                                    id="product-avalialability-by-warehouse">
-                                                                    <span aria-label="Stock Availability"
-                                                                        class="js-prod-available">
-                                                                        <i class="fa fa-info-circle text-success"></i>
-                                                                        Stock</span>
-                                                                    <br>
-                                                                    <span class="badge rounded-pill badge-danger"
-                                                                        style="font-size:17px">Unlimited</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-10">
-                                                            <div>Tech overview</div>
-                                                            <div></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row product_quantity_wraper justify-content-between"
-                                                        style="background-color: transparent !important;">
-                                                        <form action="http://127.0.0.1:8000/cart_store" method="post">
-                                                            <input type="hidden" name="_token"
-                                                                value="eEMopK8dBUi3ynpUBOlxSWb9P4zdUl3oQ030waKb">
-                                                            <input type="hidden" name="product_id" id="product_id"
-                                                                value="62">
-                                                            <input type="hidden" name="name" id="name"
-                                                                value="Jira Software Cloud Premium - subscription license (annual) - 100 users">
-                                                            <div class="row ">
-                                                                <div class="col-lg-12 col-sm-12 d-flex align-items-center">
-                                                                    <div class="pro-qty">
-                                                                        <input type="hidden" name="product_id"
-                                                                            id="product_id" value="62">
-                                                                        <input type="hidden" name="name" id="name"
-                                                                            value="Jira Software Cloud Premium - subscription license (annual) - 100 users">
-                                                                        <div class="counter">
-                                                                            <span class="down"
-                                                                                onclick="decreaseCount(event, this)">-</span>
-                                                                            <input type="text" name="qty"
-                                                                                value="1" class="count_field">
-                                                                            <span class="up"
-                                                                                onclick="increaseCount(event, this)">+</span>
-
-                                                                        </div>
-                                                                    </div>
-                                                                    <button class="common_button2 ms-3" type="submit">Add to
-                                                                        Basket</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                        {{-- Quick View Modal End --}}
-                        {{-- Ask For Price Modal Modal --}}
-                        <!-- Modal -->
-                        <div class="modal fade" id="askProductPrice" data-bs-backdrop="static" data-bs-keyboard="false"
-                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header py-2" style="background: #ae0a46;">
-                                        <h5 class="modal-title text-white" id="staticBackdropLabel">Your Price Form
-                                        </h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="container px-0">
-                                            <form>
-                                                <div class="py-2 px-2 bg-light rounded">
-                                                    <div class="row mb-1">
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div
-                                                                    class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                    <span style="font-size: 12px;">Name</span>
-                                                                    <span style="font-size: 12px;"> :</span>
-                                                                </div>
-                                                                <div class="col-sm-8">
-                                                                    <input type="text" name="name"
-                                                                        class="form-control form-control-sm w-100"
-                                                                        maxlength="100" placeholder="Enter Your Name"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div
-                                                                    class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                    <span style="font-size: 12px;">Email</span>
-                                                                    <span style="font-size: 12px;"> :</span>
-                                                                </div>
-                                                                <div class="col-sm-8">
-                                                                    <input type="text" name="email"
-                                                                        class="form-control form-control-sm w-100"
-                                                                        maxlength="100" placeholder="Enter Your Email"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-1">
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div
-                                                                    class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                    <span style="font-size: 12px;">Mobile</span>
-                                                                    <span style="font-size: 12px;"> :</span>
-                                                                </div>
-                                                                <div class="col-sm-8">
-                                                                    <input type="number" name="name"
-                                                                        class="form-control form-control-sm w-100"
-                                                                        maxlength="100" placeholder="Enter Mobile Number"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div
-                                                                    class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                    <span style="font-size: 12px;">C Name</span>
-                                                                    <span style="font-size: 12px;"> :</span>
-                                                                </div>
-                                                                <div class="col-sm-8">
-                                                                    <input type="text" name="comapny"
-                                                                        class="form-control form-control-sm w-100"
-                                                                        maxlength="100" placeholder="Enter Company Name"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-1">
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div
-                                                                    class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                    <span style="font-size: 12px;">Quantity </span>
-                                                                    <span style="font-size: 12px;"> :</span>
-                                                                </div>
-                                                                <div class="col-sm-8">
-                                                                    <input type="number" name="qty"
-                                                                        class="form-control form-control-sm w-100"
-                                                                        maxlength="100" placeholder="Enter Your Quantity"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div
-                                                                    class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                    <span style="font-size: 12px;">Product</span>
-                                                                    <span style="font-size: 12px;"> :</span>
-                                                                </div>
-                                                                <div class="col-sm-8">
-                                                                    <input type="file" name="custom_image"
-                                                                        class="form-control form-control-sm w-100"
-                                                                        maxlength="100" placeholder="Enter Product Image"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div class="col-sm-12">
-                                                                    <span style="font-size: 12px;">Type Message :</span>
-                                                                    <textarea class="form-control form-control-sm w-100" id="message" name="message" rows="2"
-                                                                        placeholder="Enter Your Name"></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer me-2" style="padding: 0px;border: 0px;">
-                                        <button class="btn btn-sm" style="background: #ae0a46; color: white;"
-                                            role="button">Submit</button>
-                                        <!-- HTML !-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {{-- Ask For Price Modal Modal End --}}
-
-                        {{-- Ask For Price Modal --}}
-                        <!-- Modal -->
-                        <div class="modal fade" id="rfq{{ $item->id }}" data-bs-backdrop="static"
-                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header py-2" style="background: #ae0a46;">
-                                        <h5 class="modal-title text-white" id="staticBackdropLabel">Ask For Price Form
-                                        </h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="container px-0">
-                                            <form>
-                                                <div class="py-2 px-2 rounded">
-                                                    <div class="row mb-1">
-                                                        <h6 class="mb-0"> {{ $item->name }}</h6>
-                                                    </div>
-                                                </div>
-                                                <div class="py-2 px-2 bg-light rounded">
-
-                                                    <div class="row mb-1">
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div
-                                                                    class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                    <span style="font-size: 12px;">Name</span>
-                                                                    <span style="font-size: 12px;"> :</span>
-                                                                </div>
-                                                                <div class="col-sm-8">
-                                                                    <input type="text" name="name"
-                                                                        class="form-control form-control-sm w-100"
-                                                                        maxlength="100" placeholder="Enter Your Name"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div
-                                                                    class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                    <span style="font-size: 12px;">Email</span>
-                                                                    <span style="font-size: 12px;"> :</span>
-                                                                </div>
-                                                                <div class="col-sm-8">
-                                                                    <input type="text" name="email"
-                                                                        class="form-control form-control-sm w-100"
-                                                                        maxlength="100" placeholder="Enter Your Email"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-1">
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div
-                                                                    class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                    <span style="font-size: 12px;">Mobile</span>
-                                                                    <span style="font-size: 12px;"> :</span>
-                                                                </div>
-                                                                <div class="col-sm-8">
-                                                                    <input type="number" name="name"
-                                                                        class="form-control form-control-sm w-100"
-                                                                        maxlength="100" placeholder="Enter Mobile Number"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div
-                                                                    class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                    <span style="font-size: 12px;">C Name</span>
-                                                                    <span style="font-size: 12px;"> :</span>
-                                                                </div>
-                                                                <div class="col-sm-8">
-                                                                    <input type="text" name="comapny"
-                                                                        class="form-control form-control-sm w-100"
-                                                                        maxlength="100" placeholder="Enter Company Name"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-1">
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div
-                                                                    class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                    <span style="font-size: 12px;">Quantity </span>
-                                                                    <span style="font-size: 12px;"> :</span>
-                                                                </div>
-                                                                <div class="col-sm-8">
-                                                                    <input type="number" name="qty"
-                                                                        class="form-control form-control-sm w-100"
-                                                                        maxlength="100" placeholder="Enter Your Quantity"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div
-                                                                    class="col-sm-4 d-flex justify-content-between align-items-center">
-                                                                    <span style="font-size: 12px;">Product</span>
-                                                                    <span style="font-size: 12px;"> :</span>
-                                                                </div>
-                                                                <div class="col-sm-8">
-                                                                    <input type="file" name="custom_image"
-                                                                        class="form-control form-control-sm w-100"
-                                                                        maxlength="100" placeholder="Enter Product Image"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div class="col-sm-12">
-                                                                    <span style="font-size: 12px;">Type Message :</span>
-                                                                    <textarea class="form-control form-control-sm w-100" id="message" name="message" rows="2"
-                                                                        placeholder="Enter Your Name"></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer me-2" style="padding: 0px;border: 0px;">
-                                        <button class="btn btn-sm" style="background: #ae0a46; color: white;"
-                                            role="button">Submit</button>
-                                        <!-- HTML !-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {{-- Ask For Price Modal End --}}
                     @endforeach
-
-                </div>
+                @endif
             </div>
-        </section>
-    @endif
-    <!---------End -------->
+            <!-- Carousel Container -->
+            @include('frontend.pages.home.rfq_modal')
+        </div>
+    </div>
+</section>
+<!---------End -------->
 
 
 

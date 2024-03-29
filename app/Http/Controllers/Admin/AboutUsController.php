@@ -63,7 +63,7 @@ class AboutUsController extends Controller
             $uploadPath = storage_path('app/public/');
 
             if (!empty($banner_image)) {
-                $globalFunbanner_image = Helper::customUpload($banner_image, $uploadPath);
+                $globalFunbanner_image = Helper::Upload($banner_image, $uploadPath);
             } else {
                 $globalFunbanner_image = ['status' => 0];
             }
@@ -72,7 +72,7 @@ class AboutUsController extends Controller
             $uploadPath = storage_path('app/public/');
 
             if (!empty($ceo_image)) {
-                $globalFunceo_image = Helper::customUpload($ceo_image, $uploadPath);
+                $globalFunceo_image = Helper::Upload($ceo_image, $uploadPath);
             } else {
                 $globalFunceo_image = ['status' => 0];
             }
@@ -143,7 +143,7 @@ class AboutUsController extends Controller
             $uploadPath = storage_path('app/public/');
 
             if (!empty($banner_image)) {
-                $globalFunbanner_image = Helper::customUpload($banner_image, $uploadPath);
+                $globalFunbanner_image = Helper::Upload($banner_image, $uploadPath);
                 $paths = [
                     storage_path("app/public/{$aboutUs->banner_image}"),
                     storage_path("app/public/requestImg/{$aboutUs->banner_image}")
@@ -158,7 +158,7 @@ class AboutUsController extends Controller
             }
 
             if (!empty($ceo_image)) {
-                $globalFunceo_image = Helper::customUpload($ceo_image, $uploadPath);
+                $globalFunceo_image = Helper::Upload($ceo_image, $uploadPath);
                 $paths = [
                     storage_path("app/public/{$aboutUs->ceo_image}"),
                     storage_path("app/public/requestImg/{$aboutUs->ceo_image}")
