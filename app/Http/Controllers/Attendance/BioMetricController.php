@@ -8,6 +8,10 @@ use App\Models\Admin\Attendance;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Event;
 use App\Models\User;
+use DateTime;
+use DatePeriod;
+use DateInterval;
+use Carbon\Carbon;
 use Brian2694\Toastr\Facades\Toastr;
 
 class BioMetricController extends Controller
@@ -376,69 +380,137 @@ class BioMetricController extends Controller
 
 
     public function attendanceDataSingle($id)
-{
-    // Connect to the ZKtecho device
-    $deviceip = $this->device_ip();
-    $zk = new ZKTeco($deviceip, 4370);
-    $zk->connect();
-    $zk->enableDevice();
+    {
+        // Connect to the ZKtecho device
+        $deviceip = $this->device_ip();
+        $zk = new ZKTeco($deviceip, 4370);
+        $zk->connect();
+        $zk->enableDevice();
 
-    // Retrieve attendances and user data from the device
-    $attendances_all = $zk->getAttendance(2);
-    $users = $zk->getUser();
-    $user = null;
+        // Retrieve attendances and user data from the device
+        $attendances_all = $zk->getAttendance(2);
+        $users = $zk->getUser();
+        $user = null;
 
-    foreach ($users as $userData) {
-        if ($userData['userid'] === $id) {
-            $user = $userData;
-            break; // Exit the loop once a match is found
+        foreach ($users as $userData) {
+            if ($userData['userid'] === $id) {
+                $user = $userData;
+                break; // Exit the loop once a match is found
+            }
         }
-    }
 
-    // Initialize an array to store the user's attendance data
-    $attendanceData = [];
+        // Initialize an array to store the user's attendance data
+        $attendanceData = [];
 
-    if ($user) {
-        $user_name = $user['name'];
+        if ($user) {
+            $user_name = $user['name'];
 
-        // Get the first day and last day of the previous month
-        $firstDayLastMonth = date('Y-m-01', strtotime('last month'));
-        $lastDayLastMonth = date('Y-m-t', strtotime('last month'));
+            // Get the first day and last day of the previous month
+            $firstDayLastMonth = date('Y-m-01', strtotime('last month'));
+            $lastDayLastMonth = date('Y-m-t', strtotime('last month'));
 
-        // Filter attendances for the previous month
-        $lastMonthAttendances = array_filter($attendances_all, function ($attendance) use ($id, $firstDayLastMonth, $lastDayLastMonth) {
-            $attendanceDate = date('Y-m-d', strtotime($attendance['timestamp']));
-            return ($attendanceDate >= $firstDayLastMonth) && ($attendanceDate <= $lastDayLastMonth) && ($attendance['id'] === $id);
-        });
+            // Filter attendances for the previous month
+            $lastMonthAttendances = array_filter($attendances_all, function ($attendance) use ($id, $firstDayLastMonth, $lastDayLastMonth) {
+                $attendanceDate = date('Y-m-d', strtotime($attendance['timestamp']));
+                return ($attendanceDate >= $firstDayLastMonth) && ($attendanceDate <= $lastDayLastMonth) && ($attendance['id'] === $id);
+            });
 
-        // Loop through the filtered attendances
-        foreach ($lastMonthAttendances as $attendance) {
-            $attendanceDate = date('Y-m-d', strtotime($attendance['timestamp']));
-            $checkTime = date('H:i:s', strtotime($attendance['timestamp']));
+            // Loop through the filtered attendances
+            foreach ($lastMonthAttendances as $attendance) {
+                $attendanceDate = date('Y-m-d', strtotime($attendance['timestamp']));
+                $checkTime = date('H:i:s', strtotime($attendance['timestamp']));
 
-            // Create a unique key for each day
-            $key = $attendanceDate;
+                // Create a unique key for each day
+                $key = $attendanceDate;
 
-            if (!isset($attendanceData[$key])) {
-                $attendanceData[$key] = [
-                    'user_id' => $id,
-                    'user_name' => $user_name,
-                    'date' => $attendanceDate,
-                    'check_in' => $checkTime,
-                    'check_out' => $checkTime,
-                ];
-            } else {
-                if (strtotime($checkTime) > strtotime($attendanceData[$key]['check_out'])) {
-                    $attendanceData[$key]['check_out'] = $checkTime;
+                if (!isset($attendanceData[$key])) {
+                    $attendanceData[$key] = [
+                        'user_id' => $id,
+                        'user_name' => $user_name,
+                        'date' => $attendanceDate,
+                        'check_in' => $checkTime,
+                        'check_out' => $checkTime,
+                    ];
+                } else {
+                    if (strtotime($checkTime) > strtotime($attendanceData[$key]['check_out'])) {
+                        $attendanceData[$key]['check_out'] = $checkTime;
+                    }
                 }
             }
         }
+
+        return view('admin.pages.attendance.attendance-single', ['attendanceData' => $attendanceData, 'user_name' => $user_name]);
     }
 
-    return view('admin.pages.attendance.attendance-single', ['attendanceData' => $attendanceData, 'user_name' => $user_name]);
-}
+    public function attendanceDataCurrentMonth($id)
+    {
+        // Connect to the ZKtecho device
+        $deviceip = $this->device_ip();
+        $zk = new ZKTeco($deviceip, 4370);
+        $zk->connect();
+        $zk->enableDevice();
 
+        $startDate = new DateTime('first day of this month');
+        $endDate = new DateTime('today +1 day');
 
+        $attendances_all = $zk->getAttendance(2);
+        $users = $zk->getUser();
+        $user = null;
+
+        foreach ($users as $userData) {
+            if ($userData['userid'] === $id) {
+                $user = $userData;
+                break; // Exit the loop once a match is found
+            }
+        }
+
+        // Initialize an array to store the user's attendance data
+        $attendanceThisMonth = [];
+
+        if ($user) {
+            $user_name = $user['name'];
+
+            // Iterate from the first day of the month to today
+            foreach (new DatePeriod($startDate, new DateInterval('P1D'), $endDate) as $date) {
+                $currentDate = $date->format('Y-m-d');
+
+                // Filter attendances for the current date
+                $dailyAttendances = array_filter($attendances_all, function ($attendance) use ($id, $currentDate) {
+                    $attendanceDate = date('Y-m-d', strtotime($attendance['timestamp']));
+                    return ($attendanceDate === $currentDate) && ($attendance['id'] === $id);
+                });
+
+                // Initialize the attendance data for the current date
+                $attendanceData = [
+                    'user_id' => $id,
+                    'user_name' => $user_name,
+                    'date' => $currentDate,
+                    'check_in' => null,
+                    'check_out' => null,
+                ];
+
+                // If there are attendances for the current date, update attendance data
+                if (!empty($dailyAttendances)) {
+                    foreach ($dailyAttendances as $attendance) {
+                        $checkTime = date('H:i:s', strtotime($attendance['timestamp']));
+
+                        if (!$attendanceData['check_in'] || strtotime($checkTime) < strtotime($attendanceData['check_in'])) {
+                            $attendanceData['check_in'] = $checkTime;
+                        }
+
+                        if (!$attendanceData['check_out'] || strtotime($checkTime) > strtotime($attendanceData['check_out'])) {
+                            $attendanceData['check_out'] = $checkTime;
+                        }
+                    }
+                }
+
+                // Add attendance data for the current date to the array
+                $attendanceThisMonth[] = $attendanceData;
+            }
+        }
+
+        return view('admin.pages.attendance.attendanceCurrentMonth', ['attendanceData' => $attendanceThisMonth, 'user_name' => $user_name]);
+    }
 
 
     public function device_information()

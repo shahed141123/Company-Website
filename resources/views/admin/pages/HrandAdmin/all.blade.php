@@ -239,7 +239,7 @@
                                                                                 @endif
                                                                             </div>
                                                                         @else
-                                                                            <a href="{{ route('attendance.single', $userId) }}"
+                                                                            <a href="{{ route('attendance.single.currentMonth', $userId) }}"
                                                                                 class="border-bottom-link">{{ $times['check_in'] }}</a>
                                                                         @endif
                                                                     </td>

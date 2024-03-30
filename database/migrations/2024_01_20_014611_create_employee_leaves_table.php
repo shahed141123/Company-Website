@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('employee_id')->nullable()->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('month')->nullable();
             $table->year('year')->nullable();
+            $table->integer('total_leave')->default('0')->nullable();  //New
+            $table->integer('total_leave_due_as_on')->default('0')->nullable();  //New
             $table->integer('casual_leave_due_as_on')->default('0')->nullable();  //New
             $table->integer('casual_leave_availed')->default('0')->nullable();  //New
             $table->integer('casual_balance_due')->default('0')->nullable();  //New
