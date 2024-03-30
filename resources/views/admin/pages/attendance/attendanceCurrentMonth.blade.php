@@ -74,27 +74,35 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {{-- @dd($attendanceData) --}}
                                 @foreach ($attendanceData as $attendance)
                                     <tr>
                                         <td>{{ $attendance['user_id'] }}</td>
                                         <td>{{ $attendance['user_name'] }}</td>
                                         <td>{{ $attendance['date'] }}</td>
                                         <td>
-                                            @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('09:06:00'))
-                                                <div
-                                                    class="d-flex align-items-center justify-content-center">
-                                                    <p class="text-danger mb-0 me-3 p-0">{{ $attendance['check_in'] }}</p>
-                                                    @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('09:06:00') &&
-                                                            Carbon\Carbon::parse($attendance['check_in']) < Carbon\Carbon::parse('10:01:00'))
-                                                        <p class="text-danger mb-0 p-0 fw-bold">(L)</p>
-                                                    @endif
+                                            @if ($attendance['check_in'] !== 'N/A')
+                                                @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('09:06:00'))
+                                                    <div class="d-flex align-items-center justify-content-center">
+                                                        <p class="text-danger mb-0 me-3 p-0">{{ $attendance['check_in'] }}
+                                                        </p>
+                                                        @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('09:06:00') &&
+                                                                Carbon\Carbon::parse($attendance['check_in']) < Carbon\Carbon::parse('10:01:00'))
+                                                            <p class="text-danger mb-0 p-0 fw-bold">(L)</p>
+                                                        @endif
 
-                                                    @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('10:01:00'))
-                                                        <p class="text-danger mb-0 p-0 fw-bold">Half Day (LL)</p>
-                                                    @endif
-                                                </div>
+                                                        @if (Carbon\Carbon::parse($attendance['check_in']) > Carbon\Carbon::parse('10:01:00') &&
+                                                                Carbon\Carbon::parse($attendance['check_in']) < Carbon\Carbon::parse('15:00:00'))
+                                                            <p class="text-danger mb-0 p-0 fw-bold">Half Day (LL)</p>
+                                                        @endif
+                                                    </div>
+                                                @else
+                                                    <p class="mb-0 p-0">{{ $attendance['check_in'] }}</p>
+                                                @endif
                                             @else
-                                                <span class="border-bottom-link">{{ $attendance['check_in'] }}</span>
+                                                {{-- Handle 'N/A' case --}}
+                                                <p class="text-danger mb-0 p-0 fw-bold">{{ $attendance['absent_note'] }}
+                                                </p>
                                             @endif
                                         </td>
                                         <td>{{ $attendance['check_out'] }}</td>

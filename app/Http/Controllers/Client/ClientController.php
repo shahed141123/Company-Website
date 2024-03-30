@@ -175,11 +175,11 @@ class ClientController extends Controller
             'name' => 'required',
             'username' => 'required',
             'phone' => 'nullable',
-            'email' => [
-                'required',
-                'email',
-                Rule::unique('users', 'email')->ignore($profile->id),
-            ],
+            // 'email' => [
+            //     'required',
+            //     'email',
+            //     Rule::unique('users', 'email')->ignore($profile->id),
+            // ],
             'image' => 'nullable|image|mimes:png,jpg,jpeg|max:5000',
         ], [
             'name.required' => 'The name field is required.',
