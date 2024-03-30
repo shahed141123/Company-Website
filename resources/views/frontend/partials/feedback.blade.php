@@ -1,83 +1,85 @@
 <style>
-    #sidebar_rfq {
+    .sidebar_rfq {
         position: relative;
         left: -47.5%;
+        transition: left 0.5s ease;
+    }
+
+    .sidebar_rfq-none {
+        position: relative;
+        left: 0%;
+        transition: left 0.5s ease;
     }
 </style>
 
 <section>
-    <div id="sidebar_rfq">
+    <div class="sidebar_rfq">
         <div style="position: fixed; top: 40%; z-index: 99; width: 50%;">
-            <div class="container"
-                style="background-color: white !important; background: url('https://i.ibb.co/t204YkF/Background-quote-tray.jpg') no-repeat center center / cover;">
+            <div class="container" style="background-color: white !important; background: url('https://i.ibb.co/t204YkF/Background-quote-tray.jpg') no-repeat center center / cover;">
                 <div class="row align-items-center">
                     <div class="" style=" width: 95%;">
-                        <div class="row py-4">
-                            <div class="col-lg-12">
-                                <h4 class="m-0 text-center main_color fw-bold">Make Request For Quote</h4>
-                                <p class="text-center p-0 m-0 pt-2 pb-4">Tell us what you need, and we'll provide the
-                                    best
-                                    price.
-                                </p>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="card shadow-sm" style="border: 1px solid #eee;">
-                                    <div class="card-body">
-                                        <div class="d-flex flex-column justify-content-center align-items-center">
-                                            <div class="icon-container">
-                                                <img class="img-fluid" width="80px"
-                                                    src="https://i.ibb.co/NNWQ583/11.png" alt="">
+                        <a href="">
+                            <div class="row py-4">
+                                <div class="col-lg-12">
+                                    <h4 class="m-0 text-center main_color fw-bold">Make Request For Quote</h4>
+                                    <p class="text-center p-0 m-0 pt-2 pb-4">Tell us what you need, and we'll provide the best price.</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card shadow-sm" style="border: 1px solid #eee;">
+                                        <div class="card-body">
+                                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                                <div class="icon-container">
+                                                    <img class="img-fluid" width="80px"
+                                                        src="https://i.ibb.co/NNWQ583/11.png" alt="">
+                                                </div>
+                                                <div class="text-center pt-3">
+                                                    <h6>Describe Your <br> Project Requirements</h6>
+                                                </div>
                                             </div>
-                                            <div class="text-center pt-3">
-                                                <h6>Describe Your <br> Project Requirements</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card shadow-sm" style="border: 1px solid #eee;">
+                                        <div class="card-body">
+                                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                                <div class="icon-container">
+                                                    <img class="img-fluid" width="80px"
+                                                        src="https://i.ibb.co/zbqrcXX/13.png" alt="">
+                                                </div>
+                                                <div class="text-center pt-3">
+                                                    <h6>We Check The Right <br> Products & Prices For</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card shadow-sm" style="border: 1px solid #eee;">
+                                        <div class="card-body">
+                                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                                <div class="icon-container">
+                                                    <img class="img-fluid" width="80px"
+                                                        src="https://i.ibb.co/6DgcD6F/12.png" alt="">
+                                                </div>
+                                                <div class="text-center pt-3">
+                                                    <h6>Review The Quation & <br> Complete Your Purchase</h6>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="card shadow-sm" style="border: 1px solid #eee;">
-                                    <div class="card-body">
-                                        <div class="d-flex flex-column justify-content-center align-items-center">
-                                            <div class="icon-container">
-                                                <img class="img-fluid" width="80px"
-                                                    src="https://i.ibb.co/zbqrcXX/13.png" alt="">
-                                            </div>
-                                            <div class="text-center pt-3">
-                                                <h6>We Check The Right <br> Products & Prices For</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="card shadow-sm" style="border: 1px solid #eee;">
-                                    <div class="card-body">
-                                        <div class="d-flex flex-column justify-content-center align-items-center">
-                                            <div class="icon-container">
-                                                <img class="img-fluid" width="80px"
-                                                    src="https://i.ibb.co/6DgcD6F/12.png" alt="">
-                                            </div>
-                                            <div class="text-center pt-3">
-                                                <h6>Review The Quation & <br> Complete Your Purchase</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </a>
                     </div>
-                    <div class="" style="background-color: #ae0a46; width: 5%;">
-                        <div class="button_rfq" style="height: 300px;transform: rotate(-90deg);">
+                    <div class="" style="background-color: #ae0a46; width: 5%;" >
+                        <div class="button_rfq" style="height: 300px;transform: rotate(-90deg);" onclick="toggleSidebar()">
                             <p class="d-flex justify-content-center align-items-center"
                                 style="color: white;
-                                position: relative;
-                                bottom: -8rem;
-                                width: 200px;
-                                font-size: 23px;
-                                right: 88px;"
-                                onclick="">
-                                Request For Quote</p>
+                                    position: absolute;bottom: 0;width: 200px;font-size: 20px;right: 0;cursor: pointer;top: 10px;left: -90px;">
+                                Request For Quote <i class="fa-solid fa-arrow-down-long ps-2 pt-2"></i>
+                                <i class="fa-solid fa-arrow-up-long d-none ps-2 pt-2"></i>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -275,21 +277,11 @@
     });
 </script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var offcanvasTrigger = document.getElementById('offcanvasTrigger');
-        var offcanvasElement = document.getElementById('offcanvasExample');
-
-        offcanvasTrigger.addEventListener('click', function() {
-            offcanvasElement.classList.toggle('active');
-        });
-
-        offcanvasElement.addEventListener('hidden.bs.offcanvas', function() {
-            offcanvasTrigger.classList.remove('active');
-        });
-
-        offcanvasElement.addEventListener('shown.bs.offcanvas', function() {
-            offcanvasTrigger.classList.add('active');
-        });
-    });
+    function toggleSidebar() {
+        $('.sidebar_rfq').toggleClass('sidebar_rfq-none');
+        $('.fa-arrow-down-long').toggleClass('d-none');
+        $('.fa-arrow-up-long').toggleClass('d-none');
+    }
 </script>
+
 {{-- Feed Back Button --}}

@@ -86,10 +86,10 @@
                                     </button>
                                 </div>
                                 <div class="text-center pt-5">
-                                    {{-- <p class="subtitle m-0">Forgot Your Password?
-                                        <a href="" class="main_color">
+                                    <p class="subtitle m-0">Forgot Your Password?
+                                        <a href="{{route('forget.password.get')}}" class="main_color">
                                             Recover It!</a>
-                                        </p> --}}
+                                        </p>
                                     <p class="subtitle m-0 show-register">New Here? Then<a href="javascript:void()"
                                             class="main_color"> Register
                                             Now!</a>

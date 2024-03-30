@@ -567,11 +567,11 @@ ul {
     border-radius: 0;
     margin: 0;
     margin-top: 3px;
-    margin-right: 3.8rem;
-    margin-left: 17rem;
+    /* margin-right: 3.8rem;
+    margin-left: 17rem; */
     border: 1px solid #dddddd;
     padding: 0px 1px;
-    box-shadow: var(--custom-shadow);
+    /* box-shadow: var(--custom-shadow); */
 }
 
 .account li {
@@ -17106,6 +17106,56 @@ nav > div a.nav-item.nav-link.active {
 .rc-anchor {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
 }
+/* Refurbished Product Start */
+.refurbished_tabs {
+
+}
+
+.refurbished_tabs li {
+}
+.refurbished_tabs li .nav-link {
+    border-radius: 0px !important;
+    padding: 10px 10px !important;
+    border: 2px dashed black !important;
+    color: black !important;
+}
+.refurbished_tabs li .nav-link.active {
+    border-radius: 0px !important;
+    padding: 10px 10px !important;
+    border: 2px solid #ae0a46 !important;
+    color: #ae0a46 !important;
+    background-color: transparent !important;
+}
+.nested-brand-link {
+}
+.nested-brand-link li .nested-nav-link {
+    padding: 1px 5px !important;
+    border-radius: 0px !important;
+    border: 0px !important;
+    border: 2px dashed transparent !important;
+}
+
+.nested-brand-link li .nested-nav-link.active {
+    background: transparent !important;
+    padding: 1px 5px !important;
+    border-radius: 0px !important;
+    border: 2px dashed purple !important;
+}
+.nested-refurbished-brand img {
+    width: 230px;
+    height: 160px;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+.refurbished_tabs-img {
+    width: 50px;
+    height: 50px;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+/* Refurbished Product End*/
 
 @media screen and (max-width: 767px) {
     .solution-feature-cards {
