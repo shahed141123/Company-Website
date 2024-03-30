@@ -18,7 +18,7 @@
             <div class="container" style="background-color: white !important; background: url('https://i.ibb.co/t204YkF/Background-quote-tray.jpg') no-repeat center center / cover;">
                 <div class="row align-items-center">
                     <div class="" style=" width: 95%;">
-                        <a href="">
+                        <a href="{{route('rfq')}}">
                             <div class="row py-4">
                                 <div class="col-lg-12">
                                     <h4 class="m-0 text-center main_color fw-bold">Make Request For Quote</h4>
