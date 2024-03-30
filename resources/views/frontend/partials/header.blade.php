@@ -651,7 +651,7 @@
                                             CONNECT US
                                         </a>
                                         <ul class="dropdown-menu full-container-dropdown"
-                                            style="border-top: 1px solid #ae0a460f !important; width:83%; ">
+                                            style="border-top: 1px solid #ae0a460f !important; width:100%; ">
                                             <div class="container-fluid px-0">
                                                 <div class="row header-menu-content">
                                                     <div class="col-lg-4 pt-5"style="background: #f7f6f5;">
