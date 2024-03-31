@@ -34,7 +34,7 @@
                             <p>{{ $job->vacancy }}</p>
                         </div>
                         <div>
-                            <p>{!! nl2br($job->description) !!}</p>
+                            <p>{!! $job->description !!}</p>
                         </div>
 
 
