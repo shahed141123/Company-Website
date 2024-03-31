@@ -178,7 +178,7 @@
     </style>
 </head>
 
-<body> 
+<body>
     <div class="container px-0">
         <!-- Quotation Header Table -->
         <table width="100%" class="table-responsive border-0 quotation-header-table">
@@ -302,13 +302,15 @@
                 </tr>
             </thead>
             <tbody class="terms-condition">
-                @if (!empty($rfq->validity))
-                    <tr>
-                        <td>Validity :</td>
-                        <td>{{ $rfq->validity }}</td>
-                    </tr>
+                @if (!empty($rfq_terms))
+                    @foreach ($rfq_terms as $rfq_term)
+                        <tr>
+                            <td>{{$rfq_term->title}}</td>
+                            <td>{{ $rfq_term->description }}</td>
+                        </tr>
+                    @endforeach
                 @endif
-                @if (!empty($rfq->payment))
+                {{-- @if (!empty($rfq->payment))
                     <tr>
                         <td>Payment :</td>
                         <td>{{ $rfq->payment }}</td>
@@ -349,7 +351,7 @@
                         <td>Pmt Condition :</td>
                         <td>{{ $rfq->pmt_condition }}</td>
                     </tr>
-                @endif
+                @endif --}}
             </tbody>
         </table>
         {{-- Qutation Footer --}}

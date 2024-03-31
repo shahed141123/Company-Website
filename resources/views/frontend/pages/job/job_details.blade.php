@@ -1,6 +1,12 @@
 @extends('frontend.master')
 @section('content')
     <style>
+        ul li {
+            list-style-type: disc;
+        }
+        ul{
+            margin-left: 3rem;
+        }
         .job_details {
             border: 1px solid #eee;
             background-color: #f7f7f7;
@@ -34,7 +40,7 @@
                             <p>{{ $job->vacancy }}</p>
                         </div>
                         <div>
-                            <p>{!! $job->description !!}</p>
+                            <p>{!! nl2br($job->description) !!}</p>
                         </div>
 
 

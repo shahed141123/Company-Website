@@ -312,77 +312,99 @@
                                         <table class="table table-bordered table-striped">
                                             <thead style="background-color: #eee !important; color: #000 !important;">
                                                 <tr>
-                                                    <th width="15%">Validity </th>
-                                                    <td width="22%">
-                                                        <input type="text" name="validity"
+                                                    <th width="15%"><input type="text" name="title[]"
+                                                        class="form-control maxlength" maxlength="200"
+                                                        value="Validity" placeholder="Title"/> </th>
+                                                    <td width="35%">
+                                                        <input type="text" name="description[]"
                                                             class="form-control maxlength" maxlength="200"
-                                                            value="7 Days from the PQ date.Offer may change on the bank forex rate or stock availability" />
+                                                            value="7 Days from the PQ date.Offer may change on the bank forex rate or stock availability" placeholder="Description" />
                                                     </td>
-                                                    <th width="15%">Payment </th>
-                                                    <td width="22%">
-                                                        <input type="text" name="payment"
+                                                    <th width="15%">
+                                                        <input type="text" name="title[]"
+                                                        class="form-control maxlength" maxlength="200"
+                                                        value="Payment" placeholder="Title"/> </th>
+                                                    <td width="35%">
+                                                        <input type="text" name="description[]"
                                                             class="form-control maxlength" maxlength="200"
-                                                            value="100% advanced payment with Work Order for Renewal order Excuation" />
-                                                    </td>
-                                                    <th width="15%">Payment Mode </th>
-                                                    <td width="22%">
-                                                        <input type="text" name="payment_mode"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="Payment must be through Cheque/EFTN/WT & hit in the NGen IT account" />
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th width="15%">Delivery </th>
-                                                    <td width="22%">
-                                                        <input type="text" name="delivery"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="3 business wks upon receiving of WO & Payment.Extended time may require for disaster issues" />
-                                                    </td>
-                                                    <th width="15%">Delivery Location </th>
-                                                    <td width="22%">
-                                                        <input type="text" name="delivery_location"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="Automatic Renewal Activation to the Licenses & Client's Console Panel" />
-                                                    </td>
-                                                    <th width="15%">Product & Order </th>
-                                                    <td width="22%">
-                                                        <input type="text" name="product_order"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="May reject/modify order on any dispute in pr. price or product non-availability during execuation" />
+                                                            value="100% advanced payment with Work Order for Renewal order Excuation" placeholder="Description" />
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <th width="15%">Installation Support </th>
-                                                    <td width="22%">
-                                                        <input type="text" name="installation_support"
+                                                    <th width="15%"><input type="text" name="title[]"
+                                                        class="form-control maxlength" maxlength="200"
+                                                        value="Payment Mode" placeholder="Title"/> </th>
+                                                    <td width="35%">
+                                                        <input type="text" name="description[]"
                                                             class="form-control maxlength" maxlength="200"
-                                                            value="Not Applicable. Local Support is Not Included with this Cost as per requirements" />
+                                                            value="May reject/modify order on any dispute in pr. price or product non-availability during execuation" placeholder="Description" />
                                                     </td>
-                                                    <th width="15%">Pmt Condition </th>
-                                                    <td width="22%">
-                                                        <input type="text" name="pmt_condition"
+                                                    <th width="15%">
+                                                        <input type="text" name="title[]"
+                                                        class="form-control maxlength" maxlength="200"
+                                                        value="Delivery" placeholder="Title"/> </th>
+                                                    <td width="35%">
+                                                        <input type="text" name="description[]"
                                                             class="form-control maxlength" maxlength="200"
-                                                            value="1.5% penalty per week on late from 7 days of / Payment Date" />
-                                                    </td>
-                                                    <th width="15%">Terms Nine </th>
-                                                    <td width="22%">
-                                                        <input type="text" name="terms_nine"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="" />
+                                                            value="3 business wks upon receiving of WO & Payment.Extended time may require for disaster issues" placeholder="Description" />
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <th width="15%">Terms Ten </th>
-                                                    <td width="22%">
-                                                        <input type="text" name="terms_ten"
+                                                    <th width="15%"><input type="text" name="title[]"
+                                                        class="form-control maxlength" maxlength="200"
+                                                        value="Delivery Location" placeholder="Title"/> </th>
+                                                    <td width="35%">
+                                                        <input type="text" name="description[]"
                                                             class="form-control maxlength" maxlength="200"
-                                                            value="" />
+                                                            value="Automatic Renewal Activation to the Licenses & Client's Console Panel" placeholder="Description" />
                                                     </td>
-                                                    <th width="15%">Terms Eleven </th>
-                                                    <td width="22%">
-                                                        <input type="text" name="terms_eleven"
+                                                    <th width="15%"><input type="text" name="title[]"
+                                                        class="form-control maxlength" maxlength="200"
+                                                        value="Product & Order" placeholder="Title"/> </th>
+                                                    <td width="35%">
+                                                        <input type="text" name="description[]"
                                                             class="form-control maxlength" maxlength="200"
-                                                            value="" />
+                                                            value="May reject/modify order on any dispute in pr. price or product non-availability during execuation" placeholder="Description" />
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th width="15%"><input type="text" name="title[]"
+                                                        class="form-control maxlength" maxlength="200"
+                                                        value="Installation Support" placeholder="Title"/> </th>
+                                                    <td width="35%">
+                                                        <input type="text" name="description[]"
+                                                            class="form-control maxlength" maxlength="200"
+                                                            value="Not Applicable. Local Support is Not Included with this Cost as per requirements" placeholder="Description" />
+                                                    </td>
+                                                    <th width="15%"><input type="text" name="title[]"
+                                                        class="form-control maxlength" maxlength="200"
+                                                        value="Pmt Condition" placeholder="Title"/> </th>
+                                                    <td width="35%">
+                                                        <input type="text" name="description[]"
+                                                            class="form-control maxlength" maxlength="200"
+                                                            value="1.5% penalty per week on late from 7 days of / Payment Date" placeholder="Description" />
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th width="15%"><input type="text" name="title[]"
+                                                        class="form-control maxlength" maxlength="200"
+                                                        value="" placeholder="Title"/> </th>
+                                                    <td width="35%">
+                                                        <input type="text" name="description[]"
+                                                            class="form-control maxlength" maxlength="200"
+                                                            value="" placeholder="Description" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="15%"><input type="text" name="title[]"
+                                                        class="form-control maxlength" maxlength="200"
+                                                        value="" placeholder="Title"/> </th>
+                                                    <td width="35%">
+                                                        <input type="text" name="description[]"
+                                                            class="form-control maxlength" maxlength="200"
+                                                            value="" placeholder="Description" />
                                                     </td>
                                                 </tr>
                                             </thead>

@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Admin\CommercialDocument;
+use App\Models\Admin\RfqTerms;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Notification;
 
@@ -445,6 +446,9 @@ class DealController extends Controller
         $data['pqr_code_one'] = $request->pqr_code_one;
         $data['email'] = $request->email;
         $data['rfq'] = Rfq::where('rfq_code', $id)->where('rfq_type', 'deal')->first();
+
+        $data['rfq_terms'] = RfqTerms::where('rfq_id', $data['rfq']->id)->get();
+        // dd($data['rfq_terms']);
         $data['products'] = DealSas::where('rfq_id',  $data['rfq']->id)->get();
         $data['deal_sas'] = DealSas::where('rfq_id',  $data['rfq']->id)->first();
 

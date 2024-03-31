@@ -16032,7 +16032,7 @@ thead {
     align-items: center;
     height: 100%;
     width: 100%;
-    padding: 35px 40px;
+    padding: 0px !important;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -16043,7 +16043,7 @@ thead {
 }
 
 .ag-offer_img {
-    /* height: auto; */
+    height: auto !important;
     margin: 0 15px 0 0;
 }
 
