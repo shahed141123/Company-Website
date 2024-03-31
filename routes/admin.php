@@ -151,8 +151,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/dashboard',        [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
     Route::get('/logout',           [AdminController::class, 'AdminDestroy'])->name('admin.logout');
     Route::get('/profile',          [AdminController::class, 'AdminProfile'])->name('admin.profile');
-    Route::post('/profile/store',   [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
-    Route::get('/change/password',  [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
+    // Route::post('/profile/store',   [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
+    // Route::get('/change/password',  [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
     Route::post('/update/password', [AdminController::class, 'AdminUpdatePassword'])->name('update.password');
 
     //All Admin

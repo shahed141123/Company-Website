@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('rfq_terms', function (Blueprint $table) {
             $table->id();
             $table->foreignId('rfq_id')->nullable()->constrained('rfqs')->cascadeOnDelete();
-            $table->foreignId('order_id')->nullable()->constrained('orders')->cascadeOnDelete();
+            $table->unsignedBigInteger('order_id');
             $table->string('title',250)->nullable();
             $table->text('description')->nullable();
             $table->timestamps();

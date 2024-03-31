@@ -76,7 +76,7 @@ return new class extends Migration
             $table->string('return_reason')->nullable();
             $table->string('status')->nullable();
             $table->foreign('client_id')->references('id')->on('clients')->onUpdate('cascade');
-            $table->foreign('partner_id')->references('id')->on('partners')->onUpdate('cascade');
+            $table->foreign('partner_id')->references('id')->on('clients')->onUpdate('cascade');
             $table->foreign('rfq_id')->references('id')->on('rfqs')->onUpdate('cascade');
             $table->timestamps();
         });

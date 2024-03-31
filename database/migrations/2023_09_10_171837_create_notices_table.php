@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('notice_category')->nullable();
             $table->string('notice_type')->nullable();
             $table->enum('achievement_status', ['achieved', 'not_achieved'])->nullable();
-            $table->enum('status', ['published', 'unpublished'])->nullable()->default('active');
+            $table->enum('status', ['published', 'unpublished'])->nullable()->default('published');
             $table->string('attachment_path')->nullable();
             $table->timestamps();
         });
