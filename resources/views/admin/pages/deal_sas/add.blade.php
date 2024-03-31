@@ -132,22 +132,22 @@
                             <tbody class="border-bottom">
                                 @foreach ($products as $item)
                                     <tr class="thd">
-                                        <td class="border-none">
+                                        <td class="border-none ps-2">
                                             {{ $item->item_name }}
                                             <input type="hidden" name="id[]" value="{{ $item->id }}">
                                             <input type="hidden" name="item_name[]" value="{{ $item->item_name }}">
                                         </td>
 
-                                        <td class="border-none">
+                                        <td class="border-none ps-2">
                                             <input type="hidden" name="qty[]" value="{{ $item->qty }}"
                                                 id="qty">
                                             {{ $item->qty }}
                                         </td>
-                                        <td class="border-none">
+                                        <td class="border-none ps-2">
                                             <input class="form-control form-control-sm" type="text" name="unit_price[]"
                                                 id="unit_price" value="{{ $item->unit_price }}">
                                         </td>
-                                        <td class="border-none">
+                                        <td class="border-none ps-2">
                                             <input class="cog_price form-control form-control-sm" type="text"
                                                 name="cog_price[]">
                                         </td>
@@ -156,27 +156,27 @@
                                                 name="regular_discount[]">
                                         </td>
 
-                                        <td class="border-none"><input class="discounted_sales form-control form-control-sm"
+                                        <td class="border-none ps-2"><input class="discounted_sales form-control form-control-sm"
                                                 type="text" name="discounted_sales[]" readonly>
                                         </td>
-                                        <td class="border-none">
+                                        <td class="border-none ps-2">
                                             <input class="sales_price form-control form-control-sm" type="text"
                                                 name="sales_price[]" readonly>
                                         </td>
                                     </tr>
                                 @endforeach
                                 <tr>
-                                    <td class="border-none"></td>
+                                    <td class="border-none ps-2"></td>
 
-                                    <td class="border-none" colspan="2">Sub Total</td>
+                                    <td class="border-none ps-2" colspan="2">Sub Total</td>
 
-                                    <td class="border-none"><input class="form-control form-control-sm" type="text"
+                                    <td class="border-none ps-2"><input class="form-control form-control-sm" type="text"
                                             name="sub_total_cost" readonly></td>
                                     <td class="rg_discount d-none border-none"></td>
-                                    <td class="border-none"><input class="form-control form-control-sm" type="text"
+                                    <td class="border-none ps-2"><input class="form-control form-control-sm" type="text"
                                             name="sub_total_discounted_sales" readonly></td>
 
-                                    <td class="border-none"><input class="form-control form-control-sm" type="text"
+                                    <td class="border-none ps-2"><input class="form-control form-control-sm" type="text"
                                             name="sub_total_sales" readonly></td>
                                 </tr>
                             </tbody>
@@ -229,65 +229,65 @@
                                     <tbody class="tb rounded-0 shadow">
                                         <tr class=" text-white rounded-0" style="background-color: #24729759;">
                                             <td class="text-white" colspan="3">
-                                                <h6 class="mb-0" style="font-size: 13px; color:#11445c;">Expenses</h6>
+                                                <h6 class="mb-0 ps-2" style="font-size: 13px; color:#11445c;">Expenses</h6>
                                             </td>
                                         </tr>
-                                        <tr class="body_expense">
-                                            <td class="border-none">Bank & Remittance Charge - (1.5%)</td>
-                                            <td class="border-none"><input
+                                        <tr class="body_expense ps-2">
+                                            <td class="border-none ps-2">Bank & Remittance Charge - (1.5%)</td>
+                                            <td class="border-none ps-2"><input
                                                     class="multiplyValue form-control form-control-sm" type="text"
                                                     name="bank_charge"></td>
-                                            <td class="border-none"><input type="text"
+                                            <td class="border-none ps-2"><input type="text"
                                                     class="result form-control form-control-sm" readonly value="">
                                             </td>
                                         </tr>
-                                        <tr class="body_expense">
-                                            <td class="border-none">Customs & Duty - (5.0%)</td>
-                                            <td class="border-none"><input
+                                        <tr class="body_expense ps-2">
+                                            <td class="border-none ps-2">Customs & Duty - (5.0%)</td>
+                                            <td class="border-none ps-2"><input
                                                     class="multiplyValue form-control form-control-sm" type="text"
                                                     name="customs">
                                             </td>
-                                            <td class="border-none"><input type="text"
+                                            <td class="border-none ps-2"><input type="text"
                                                     class="result form-control form-control-sm" readonly value="">
                                             </td>
                                         </tr>
-                                        <tr class="body_expense">
-                                            <td class="border-none">HR , Office & Utility Cost- (5.0%)</td>
-                                            <td class="border-none"><input
+                                        <tr class="body_expense ps-2">
+                                            <td class="border-none ps-2">HR , Office & Utility Cost- (5.0%)</td>
+                                            <td class="border-none ps-2"><input
                                                     class="multiplyValue form-control form-control-sm" type="text"
                                                     name="utility_cost">
                                             </td>
-                                            <td class="border-none"><input class="result form-control form-control-sm"
+                                            <td class="border-none ps-2"><input class="result form-control form-control-sm"
                                                     type="text" readonly value="">
                                             </td>
                                         </tr>
-                                        <tr class="body_expense">
-                                            <td class="border-none">Shipping & Handling Cost- (5.0%)</td>
-                                            <td class="border-none"><input
+                                        <tr class="body_expense ps-2">
+                                            <td class="border-none ps-2">Shipping & Handling Cost- (5.0%)</td>
+                                            <td class="border-none ps-2"><input
                                                     class="multiplyValue form-control form-control-sm" type="text"
                                                     name="shiping_cost">
                                             </td>
-                                            <td class="border-none"><input class="result form-control form-control-sm"
+                                            <td class="border-none ps-2"><input class="result form-control form-control-sm"
                                                     type="text" readonly value="">
                                             </td>
                                         </tr>
-                                        <tr class="body_expense">
-                                            <td class="border-none">Sales / Consultancy Comission - (5.0%)</td>
-                                            <td class="border-none"><input
+                                        <tr class="body_expense ps-2">
+                                            <td class="border-none ps-2">Sales / Consultancy Comission - (5.0%)</td>
+                                            <td class="border-none ps-2"><input
                                                     class="multiplyValue form-control form-control-sm" type="text"
                                                     name="sales_comission">
                                             </td>
-                                            <td class="border-none"><input class="result form-control form-control-sm"
+                                            <td class="border-none ps-2"><input class="result form-control form-control-sm"
                                                     type="text" readonly value="">
                                             </td>
                                         </tr>
-                                        <tr class="body_expense">
-                                            <td class="border-none">Bank Loan / Liability / Debt - (5.0%)</td>
-                                            <td class="border-none"><input
+                                        <tr class="body_expense ps-2">
+                                            <td class="border-none ps-2">Bank Loan / Liability / Debt - (5.0%)</td>
+                                            <td class="border-none ps-2"><input
                                                     class="multiplyValue form-control form-control-sm" type="text"
                                                     name="liability">
                                             </td>
-                                            <td class="border-none"><input class="result form-control form-control-sm"
+                                            <td class="border-none ps-2"><input class="result form-control form-control-sm"
                                                     type="text" readonly value="">
                                             </td>
                                         </tr>
@@ -299,16 +299,16 @@
                                     <tbody class="tb rounded-0 shadow">
                                         <tr class="accordion_offer text-white rounded-0" style="background-color: #24729759;">
                                             <td class="text-white" colspan="3">
-                                                <h6 class="mb-0" style="font-size: 13px; color:#11445c;">Offering Value
+                                                <h6 class="mb-0 ps-2" style="font-size: 13px; color:#11445c;">Offering Value
                                                     Adding</h6>
                                             </td>
                                         </tr>
 
-                                        <tr class="body_other">
-                                            <td width="60%">Deal Closing / Rebates</td>
-                                            <td width="20%"><input class="multiplyValue form-control form-control-sm"
+                                        <tr class="body_other ps-2">
+                                            <td class="ps-2" width="60%">Deal Closing / Rebates</td>
+                                            <td class="ps-2" width="20%"><input class="multiplyValue form-control form-control-sm"
                                                     type="text" name="rebates"></td>
-                                            <td width="20%"><input class="result form-control form-control-sm"
+                                            <td class="ps-2" width="20%"><input class="result form-control form-control-sm"
                                                     type="text" disabled="" value=""></td>
                                         </tr>
                                     </tbody>
@@ -317,45 +317,45 @@
                                     <tbody class="tb rounded-0 shadow">
                                         <tr class="accordion_other text-white rounded-0" style="background-color: #24729759;">
                                             <td class="text-white" colspan="3">
-                                                <h6 class="mb-0" style="font-size: 13px; color:#11445c;">Other Income
+                                                <h6 class="mb-0 ps-2" style="font-size: 13px; color:#11445c;">Other Income
                                                 </h6>
                                             </td>
                                         </tr>
                                         <tr class="body_other">
-                                            <td class="border-none">Loan / Capital / Partner Share - (5%)</td>
-                                            <td class="border-none"><input
+                                            <td class="border-none ps-2">Loan / Capital / Partner Share - (5%)</td>
+                                            <td class="border-none ps-2"><input
                                                     class="multiplyValue form-control form-control-sm" type="text"
                                                     name="capital_share"></td>
-                                            <td class="border-none"><input class="result form-control form-control-sm"
+                                            <td class="border-none ps-2"><input class="result form-control form-control-sm"
                                                     type="text" readonly value=""></td>
                                         </tr>
                                         <tr class="body_other">
-                                            <td class="border-none">Management Cost - (5%)</td>
-                                            <td class="border-none"><input
+                                            <td class="border-none ps-2">Management Cost - (5%)</td>
+                                            <td class="border-none ps-2"><input
                                                     class="multiplyValue form-control form-control-sm" type="text"
                                                     name="management_cost"></td>
-                                            <td class="border-none"><input class="result form-control form-control-sm"
+                                            <td class="border-none ps-2"><input class="result form-control form-control-sm"
                                                     type="text" readonly value=""></td>
                                         </tr>
 
                                         <tr>
-                                            <td class="border-none">Gross Profit (%) between Sales and Cost</td>
-                                            <td class="border-none"><input
+                                            <td class="border-none ps-2">Gross Profit (%) between Sales and Cost</td>
+                                            <td class="border-none ps-2"><input
                                                     class="gross_profit_subtotal form-control form-control-sm"
                                                     type="text" name="gross_profit_subtotal" readonly value="">
                                             </td>
-                                            <td class="border-none">
+                                            <td class="border-none ps-2">
                                                 <input type="text"
                                                     class="additional_subtot form-control form-control-sm"
                                                     name="gross_profit_amount" readonly value="">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-none">Net Profit - (5%)</td>
-                                            <td class="border-none"><input
+                                            <td class="border-none ps-2">Net Profit - (5%)</td>
+                                            <td class="border-none ps-2"><input
                                                     class="multiplyValue form-control form-control-sm" type="text"
                                                     name="net_profit_percentage"></td>
-                                            <td class="border-none"><input class="result form-control form-control-sm"
+                                            <td class="border-none ps-2"><input class="result form-control form-control-sm"
                                                     type="text" name="net_profit_amount" readonly value=""></td>
                                         </tr>
                                     </tbody>
