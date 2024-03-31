@@ -48,10 +48,10 @@
                             <thead>
                                 <tr>
                                     <th width="5%">Id</th>
-                                    <th width="15%">Logo</th>
-                                    <th width="20%">Parent Industry Name</th>
-                                    <th width="20%">Name</th>
-                                    <th width="15%">Action</th>
+                                    <th width="10%">Logo</th>
+                                    <th width="25%">Parent Industry Name</th>
+                                    <th width="50%">Name</th>
+                                    <th width="10%">Action</th>
                                 </tr>
                             </thead>
                             <tbody>

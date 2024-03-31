@@ -262,7 +262,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
+                            {{-- <div class="col-lg-3">
                                 <h6 style="color: #fff; border-bottom: 1px solid #247297; background-color: #247297;"
                                     class=" mb-0 text-center">Quick Link</h6>
                                 <div class="card card-body border-0 shadow-sm mb-0"
@@ -308,7 +308,7 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
