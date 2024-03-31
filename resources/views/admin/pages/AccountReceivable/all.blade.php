@@ -257,73 +257,73 @@
         <!-- tab menu start-->
         <ul class="nav nav-tabs w-75 mx-auto d-flex justify-content-center" role="tablist"
             style="border-bottom: 1px solid #247297">
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-January-tab" class="nav-link active" data-bs-toggle="tab" aria-selected="true"
                     role="tab" tabindex="-1">
                     January
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-February-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     February
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-March-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="March"
                     tabindex="-1">
                     March
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-April-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     April
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-May-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     May
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-June-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     June
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-July-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     July
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-August-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     August
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-September-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     September
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-October-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     October
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-November-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     November
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-December-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     December
@@ -337,18 +337,7 @@
                 <div class="tab-content table-responsive">
                     <div class="tab-pane fade active show" id="js-January-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center py-2">
-                                {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3"
-                                    style="position: relative;
-                                    z-index: 999;
-                                    margin-bottom: -40px;">
-                                    <div class="text-center" style="margin-left: 505px">
-                                        <h5 class="ms-1" style="color: #247297;">January</h5>
-                                    </div>
-                                </div>
-                                {{-- Add Details End --}}
-                            </div>
+                            <h5 class="ms-1" style="color: #247297;">January</h5>
                             <div>
                                 <table class="table newsLetterDt table-bordered table-hover text-center">
                                     <thead>

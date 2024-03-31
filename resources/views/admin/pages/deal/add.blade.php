@@ -33,7 +33,7 @@
                 @include('admin.pages.rfq-manage.partial.rfq_sidebar')
             </div>
             <div class="row">
-                <div class="card">
+                <div class="card px-0">
                     <div class="text-start">
                         <div class="row main_bg py-1 rounded-1 d-flex align-items-center justify-content-center gx-0 px-2">
                             <div class="col-lg-5 col-sm-12 d-flex justify-content-center">
@@ -41,10 +41,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body p-1">
+                    <div class="card-body p-1 px-0">
                         <div class="row gx-0">
                             <div class="col-lg-2">
-                                <ul class="nav nav-tabs flex-column" id="myTabs" role="tablist">
+                                <ul class="nav nav-tabs flex-column" id="myTabs" role="tablist" style="border-bottom: 0px;">
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab"
                                             data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1"

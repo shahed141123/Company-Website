@@ -40,7 +40,7 @@
         .amout-count {
             background-color: #ae0a46;
             color: white;
-            padding: 2px 7px;
+            padding: 1px 9px;
             border-radius: 50%;
         }
 

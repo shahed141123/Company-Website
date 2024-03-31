@@ -85,13 +85,13 @@
                             Accounts Finance</h3>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-4">
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-lg-3">
-                                <h6 style="color: #247297; border-bottom: 1px solid #247297;"
-                                    class=" mb-0 pt-2 text-center">Payable</h6>
-                                <div class="card card-body border-0 shadow-none mb-0"
+                                <h6 style="color: #fff; border-bottom: 1px solid #247297; background-color: #247297;"
+                                    class=" mb-0 text-center">Payable</h6>
+                                <div class="card card-body border-0 shadow-sm mb-0"
                                     style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-fill title_text_link">
@@ -117,9 +117,9 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <h6 style="color: #247297; border-bottom: 1px solid #247297;"
-                                    class=" mb-0 pt-2 text-center">Receivable</h6>
-                                <div class="card card-body border-0 shadow-none mb-0"
+                                <h6 style="color: #fff; border-bottom: 1px solid #247297; background-color: #247297;"
+                                    class=" mb-0 text-center">Receivable</h6>
+                                <div class="card card-body border-0 shadow-sm mb-0"
                                     style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-fill title_text_link">
@@ -145,9 +145,9 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <h6 style="color: #247297; border-bottom: 1px solid #247297;"
-                                    class=" mb-0 pt-2 text-center">Accounts Profit Loss</h6>
-                                <div class="card card-body border-0 shadow-none mb-0"
+                                <h6 style="color: #fff; border-bottom: 1px solid #247297; background-color: #247297;"
+                                    class=" mb-0 text-center">Accounts Profit Loss</h6>
+                                <div class="card card-body border-0 shadow-sm mb-0"
                                     style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-fill title_text_link">
@@ -174,9 +174,9 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <h6 style="color: #247297; border-bottom: 1px solid #247297;"
-                                    class=" mb-0 pt-2 text-center">Expense</h6>
-                                <div class="card card-body border-0 shadow-none mb-0 "
+                                <h6 style="color: #fff; border-bottom: 1px solid #247297; background-color: #247297;"
+                                    class=" mb-0 text-center">Expense</h6>
+                                <div class="card card-body border-0 shadow-sm mb-0 "
                                     style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-fill title_text_link">
@@ -203,11 +203,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mt-1">
+                        <div class="row mt-3">
                             <div class="col-lg-3">
-                                <h6 style="color: #247297; border-bottom: 1px solid #247297;"
-                                    class=" mb-0 pt-2 text-center">Income</h6>
-                                <div class="card card-body border-0 shadow-none mb-0"
+                                <h6 style="color: #fff; border-bottom: 1px solid #247297; background-color: #247297;"
+                                    class=" mb-0 text-center">Income</h6>
+                                <div class="card card-body border-0 shadow-sm mb-0"
                                     style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-fill title_text_link">
@@ -234,9 +234,9 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <h6 style="color: #247297; border-bottom: 1px solid #247297;"
-                                    class=" mb-0 pt-2 text-center">Balance</h6>
-                                <div class="card card-body border-0 shadow-none mb-0 "
+                                <h6 style="color: #fff; border-bottom: 1px solid #247297; background-color: #247297;"
+                                    class=" mb-0 text-center">Balance</h6>
+                                <div class="card card-body border-0 shadow-sm mb-0 "
                                     style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-fill title_text_link">
@@ -263,9 +263,9 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <h6 style="color: #247297; border-bottom: 1px solid #247297;"
-                                    class=" mb-0 pt-2 text-center">Quick Link</h6>
-                                <div class="card card-body border-0 shadow-none mb-0"
+                                <h6 style="color: #fff; border-bottom: 1px solid #247297; background-color: #247297;"
+                                    class=" mb-0 text-center">Quick Link</h6>
+                                <div class="card card-body border-0 shadow-sm mb-0"
                                     style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
                                     <div class="box_details d-flex justify-content-between">
                                         <a href="" style="color: #247297; font-size: 12px;">
