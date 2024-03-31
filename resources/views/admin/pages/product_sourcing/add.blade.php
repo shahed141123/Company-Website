@@ -307,10 +307,9 @@
                                                             placeholder="Notification Day" required>
                                                     </div>
                                                     <div class="form-group col-md-6 basic-form">
-                                                        <label for="weight" class="form-label mb-0">Brand <span
-                                                                class="text-danger">*</span></label>
+                                                        <label for="weight" class="form-label mb-0">Brand</label>
                                                         <select class="form-control select" name="brand_id"
-                                                            data-placeholder="Select Brand..." required>
+                                                            data-placeholder="Select Brand...">
                                                             <option></option>
                                                             @foreach ($brands as $brand)
                                                                 <option class="form-control select"
@@ -905,7 +904,7 @@
                 var product_typeField = $('select[name="product_type"]');
                 var stockField = $('.stock_select');
                 var thumbnailField = $('input[name="thumbnail"]');
-                var brandField = $('[name="brand_id"]');
+                // var brandField = $('[name="brand_id"]');
                 var cat_idField = $('[name="cat_id"]');
                 var solution_idField = $('.solution_multiselect');
                 var industry_idField = $('.industry_multiselect');
@@ -941,10 +940,10 @@
                     $('.thumbnail').css("border", "1px solid red");
                 }
 
-                if (brandField.val() === '') {
-                    isValid = false;
-                    brandField.next('.select2-container').css("border", "1px solid red");
-                }
+                // if (brandField.val() === '') {
+                //     isValid = false;
+                //     brandField.next('.select2-container').css("border", "1px solid red");
+                // }
 
                 if (cat_idField.val() === '') {
                     isValid = false;

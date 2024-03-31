@@ -450,8 +450,8 @@ class BioMetricController extends Controller
         $zk->connect();
         $zk->enableDevice();
 
-        $startDate = new DateTime('first day of this month');
-        $endDate = new DateTime('today +1 day');
+        // $startDate = new DateTime('first day of this month');
+        // $endDate = new DateTime('today +1 day');
 
         $attendances_all = $zk->getAttendance(2);
         $users = $zk->getUser();
@@ -470,47 +470,137 @@ class BioMetricController extends Controller
         if ($user) {
             $user_name = $user['name'];
 
+            $startDate = new DateTime('first day of this month');
+
+            // Get today's date
+            $endDate = new DateTime('today +1 day');
+
+            // Initialize the array to store attendance data for this month
+            $attendanceThisMonth = [];
+
             // Iterate from the first day of the month to today
             foreach (new DatePeriod($startDate, new DateInterval('P1D'), $endDate) as $date) {
                 $currentDate = $date->format('Y-m-d');
 
-                // Filter attendances for the current date
-                $dailyAttendances = array_filter($attendances_all, function ($attendance) use ($id, $currentDate) {
-                    $attendanceDate = date('Y-m-d', strtotime($attendance['timestamp']));
-                    return ($attendanceDate === $currentDate) && ($attendance['id'] === $id);
+                // Check if there is attendance data for the current date
+                $attendanceForDate = array_filter($attendances_all, function ($attendance) use ($id, $currentDate) {
+                    return (new DateTime($attendance['timestamp']))->format('Y-m-d') === $currentDate && $attendance['id'] === $id;
                 });
 
-                // Initialize the attendance data for the current date
-                $attendanceData = [
+                // If attendance data is found for the current date
+                if (count($attendanceForDate) > 0) {
+                    $earliestCheckIn = min(array_column($attendanceForDate, 'timestamp'));
+                    $latestCheckOut = max(array_column($attendanceForDate, 'timestamp'));
+                    $absentNote = null; // Reset the absent note
+                } else {
+                    // If there is no attendance data for the current date, set default values
+                    $earliestCheckIn = 'N/A';
+                    $latestCheckOut = 'N/A';
+                    // Check if it's a Friday, mark it accordingly
+                    $absentNote = $date->format('N') === '5' ? 'Friday' : 'Absent';
+                }
+
+                // Format check-in and check-out times if they are not 'N/A'
+                $formattedCheckIn = $earliestCheckIn === 'N/A' ? 'N/A' : (new DateTime($earliestCheckIn))->format('H:i:s');
+                $formattedCheckOut = $latestCheckOut === 'N/A' ? 'N/A' : (new DateTime($latestCheckOut))->format('H:i:s');
+
+                // Add attendance data for the current date to the array
+                $attendanceThisMonth[] = [
                     'user_id' => $id,
                     'user_name' => $user_name,
                     'date' => $currentDate,
-                    'check_in' => null,
-                    'check_out' => null,
+                    'check_in' => $formattedCheckIn,
+                    'check_out' => $formattedCheckOut,
+                    'absent_note' => $absentNote,
                 ];
-
-                // If there are attendances for the current date, update attendance data
-                if (!empty($dailyAttendances)) {
-                    foreach ($dailyAttendances as $attendance) {
-                        $checkTime = date('H:i:s', strtotime($attendance['timestamp']));
-
-                        if (!$attendanceData['check_in'] || strtotime($checkTime) < strtotime($attendanceData['check_in'])) {
-                            $attendanceData['check_in'] = $checkTime;
-                        }
-
-                        if (!$attendanceData['check_out'] || strtotime($checkTime) > strtotime($attendanceData['check_out'])) {
-                            $attendanceData['check_out'] = $checkTime;
-                        }
-                    }
-                }
-
-                // Add attendance data for the current date to the array
-                $attendanceThisMonth[] = $attendanceData;
             }
         }
 
         return view('admin.pages.attendance.attendanceCurrentMonth', ['attendanceData' => $attendanceThisMonth, 'user_name' => $user_name]);
     }
+    // public function attendanceDataCurrentMonth($id)
+    // {
+    //     // Connect to the ZKtecho device
+    //     $deviceip = $this->device_ip();
+    //     $zk = new ZKTeco($deviceip, 4370);
+    //     $zk->connect();
+    //     $zk->enableDevice();
+
+    //     $startDate = new DateTime('first day of this month');
+    //     $endDate = new DateTime('today +1 day');
+
+    //     $attendances_all = $zk->getAttendance(2);
+    //     $users = $zk->getUser();
+    //     $user = null;
+
+    //     foreach ($users as $userData) {
+    //         if ($userData['userid'] === $id) {
+    //             $user = $userData;
+    //             break; // Exit the loop once a match is found
+    //         }
+    //     }
+
+    //     // Initialize an array to store the user's attendance data
+    //     $attendanceThisMonth = [];
+
+    //     if ($user) {
+    //         $user_name = $user['name'];
+
+    //         // Iterate from the first day of the month to today
+    //         foreach (new DatePeriod($startDate, new DateInterval('P1D'), $endDate) as $date) {
+    //             $currentDate = $date->format('Y-m-d');
+
+    //             // Filter attendances for the current date
+    //             $dailyAttendances = array_filter($attendances_all, function ($attendance) use ($id, $currentDate) {
+    //                 $attendanceDate = date('Y-m-d', strtotime($attendance['timestamp']));
+    //                 return ($attendanceDate === $currentDate) && ($attendance['id'] === $id);
+    //             });
+
+    //             // Initialize the attendance data for the current date
+    //             $attendanceData = [
+    //                 'user_id'     => $id,
+    //                 'user_name'   => $user_name,
+    //                 'date'        => $currentDate,
+    //                 'check_in'    => null,
+    //                 'check_out'   => null,
+    //                 'absent_note' => null,
+    //             ];
+
+    //             // If there are attendances for the current date, update attendance data
+    //             if (!empty($dailyAttendances)) {
+    //                 foreach ($dailyAttendances as $attendance) {
+    //                     $checkTime = date('H:i:s', strtotime($attendance['timestamp']));
+
+    //                     if (!$attendanceData['check_in'] || strtotime($checkTime) < strtotime($attendanceData['check_in'])) {
+    //                         $attendanceData['check_in'] = $checkTime;
+    //                     };
+
+    //                     if (!$attendanceData['check_out'] || strtotime($checkTime) > strtotime($attendanceData['check_out'])) {
+    //                         $attendanceData['check_out'] = $checkTime;
+    //                     };
+    //                     if ($attendanceData['check_in'] === null) {
+
+    //                         if ($date->format('N') == 5) {
+    //                             echo "It's Friday!" . PHP_EOL;
+    //                             $attendanceData['absent_note'] = 'Friday';
+    //                         } else {
+    //                             echo "It's not Friday!" . PHP_EOL;
+    //                             $attendanceData['absent_note'] = 'Absent';
+    //                         }
+    //                     } else {
+    //                         $attendanceData['absent_note'] = null;
+    //                     }
+
+    //                 }
+    //             }
+
+    //             // Add attendance data for the current date to the array
+    //             $attendanceThisMonth[] = $attendanceData;
+    //         }
+    //     }
+
+    //     return view('admin.pages.attendance.attendanceCurrentMonth', ['attendanceData' => $attendanceThisMonth, 'user_name' => $user_name]);
+    // }
 
 
     public function device_information()

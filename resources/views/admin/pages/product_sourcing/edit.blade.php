@@ -254,10 +254,9 @@
                                                     </div>
                                                     <div class="form-group col-md-6 basic-form">
                                                         <label for="weight" class="form-label mb-0">Brand
-                                                            <span class="text-danger">*</span>
                                                         </label>
                                                         <select class="form-control select" name="brand_id"
-                                                            data-placeholder="Select Brand..." required>
+                                                            data-placeholder="Select Brand...">
                                                             <option></option>
                                                             @foreach ($brands as $brand)
                                                                 <option class="form-control select"
