@@ -1790,13 +1790,6 @@ ul.row-sm {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.notice-card p,
-.notice-card h2,
-h4 {
-    /* Counteract the blur effect on text elements */
-    filter: blur(0);
-    font-size: 12px;
-}
 
 .notice-card-header {
     /* Styles for card header */

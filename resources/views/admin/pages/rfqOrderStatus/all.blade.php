@@ -20,65 +20,69 @@
             </div>
         </div>
         <!-- /page header -->
-        <div class="content pt-0 mx-auto" style="width: 85%;">
-            <div class="d-flex align-items-center py-2">
-                {{-- Add Details Start --}}
-                <div class="text-success nav-link cat-tab3"
-                    style="position: relative;
-                    z-index: 999;
-                    margin-bottom: -40px;">
-                    <a href="{{ route('rfqOrderStatus.create') }}">
-                        <div class="d-flex align-items-center">
-                            <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                data-bs-placement="top" title="Add Solution Details">
-                                <i class="ph-plus icons_design"></i> </span>
-                            <span class="ms-1" style="color: #247297;">Add</span>
+        <div class="content pt-0 mx-auto w-100">
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-center py-2">
+                        {{-- Add Details Start --}}
+                        <div class="text-success nav-link cat-tab3"
+                            style="position: relative;
+                            z-index: 999;
+                            margin-bottom: -40px;">
+                            <a href="{{ route('rfqOrderStatus.create') }}">
+                                <div class="d-flex align-items-center">
+                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Add Solution Details">
+                                        <i class="ph-plus icons_design"></i> </span>
+                                    <span class="ms-1" style="color: #247297;">Add</span>
+                                </div>
+                            </a>
+                            <div class="text-center" style="margin-left: 300px">
+                                <h5 class="ms-1 mb-0" style="color: #247297;">All Sales Order</h5>
+                            </div>
                         </div>
-                    </a>
-                    <div class="text-center" style="margin-left: 300px">
-                        <h5 class="ms-1" style="color: #247297;">All Sales Order</h5>
+                        {{-- Add Details End --}}
+                    </div>
+                    <div>
+                        <table class="table rfqOrderStatusDT table-bordered table-hover text-center">
+                            <thead>
+                                <tr>
+                                    <th width="5%">Id</th>
+                                    <th width="15%">Order Status</th>
+                                    <th width="15%">Processing Status</th>
+                                    <th width="15%">Delivery Status</th>
+                                    <th width="20%">Client Payment Status</th>
+                                    <th width="20%">Principles Payment Status</th>
+                                    <th width="10%" class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if ($rfqOrderStatuss)
+                                    @foreach ($rfqOrderStatuss as $key => $rfqOrderStatus)
+                                        <tr>
+                                            <td>{{ ++$key }}</td>
+                                            <td>{{ $rfqOrderStatus->order_status }}</td>
+                                            <td>{{ $rfqOrderStatus->processing_status }}</td>
+                                            <td>{{ $rfqOrderStatus->delivery_status }}</td>
+                                            <td>{{ $rfqOrderStatus->client_price_status }}</td>
+                                            <td>{{ $rfqOrderStatus->principles_payment_status }}</td>
+                                            <td>
+                                                <a href="{{ route('rfqOrderStatus.edit', [$rfqOrderStatus->id]) }}" class="text-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#editNewsLetter">
+                                                    <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
+                                                </a>
+                                                <a href="{{ route('rfqOrderStatus.destroy', [$rfqOrderStatus->id]) }}"
+                                                    class="text-danger delete">
+                                                    <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                {{-- Add Details End --}}
-            </div>
-            <div>
-                <table class="table rfqOrderStatusDT table-bordered table-hover text-center">
-                    <thead>
-                        <tr>
-                            <th width="5%">Id</th>
-                            <th width="15%">Order Status</th>
-                            <th width="10%">Processing Status</th>
-                            <th width="10%">Delivery Status</th>
-                            <th width="30%">Client Payment Status</th>
-                            <th width="20%">Principles Payment Status</th>
-                            <th width="10%" class="text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if ($rfqOrderStatuss)
-                            @foreach ($rfqOrderStatuss as $key => $rfqOrderStatus)
-                                <tr>
-                                    <td>{{ ++$key }}</td>
-                                    <td>{{ $rfqOrderStatus->order_status }}</td>
-                                    <td>{{ $rfqOrderStatus->processing_status }}</td>
-                                    <td>{{ $rfqOrderStatus->delivery_status }}</td>
-                                    <td>{{ $rfqOrderStatus->client_price_status }}</td>
-                                    <td>{{ $rfqOrderStatus->principles_payment_status }}</td>
-                                    <td>
-                                        <a href="{{ route('rfqOrderStatus.edit', [$rfqOrderStatus->id]) }}" class="text-primary" data-bs-toggle="modal"
-                                            data-bs-target="#editNewsLetter">
-                                            <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
-                                        </a>
-                                        <a href="{{ route('rfqOrderStatus.destroy', [$rfqOrderStatus->id]) }}"
-                                            class="text-danger delete">
-                                            <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

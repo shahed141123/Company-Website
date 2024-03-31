@@ -257,73 +257,73 @@
         <!-- tab menu start-->
         <ul class="nav nav-tabs w-75 mx-auto d-flex justify-content-center" role="tablist"
             style="border-bottom: 1px solid #247297">
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-January-tab" class="nav-link active" data-bs-toggle="tab" aria-selected="true"
                     role="tab" tabindex="-1">
                     January
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-February-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     February
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-March-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="March"
                     tabindex="-1">
                     March
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-April-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     April
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-May-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     May
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-June-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     June
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-July-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     July
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-August-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     August
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-September-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     September
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-October-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     October
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-November-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     November
                 </a>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-0" role="presentation">
                 <a href="#js-December-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab"
                     tabindex="-1">
                     December
@@ -337,13 +337,10 @@
                 <div class="tab-content table-responsive">
                     <div class="tab-pane fade active show" id="js-January-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center py-2">
+                            <div class="d-flex align-items-center justify-content-center py-2">
                                 {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3"
-                                    style="position: relative;
-                                    z-index: 999;
-                                    margin-bottom: -40px;">
-                                    <div class="text-center" style="margin-left: 505px">
+                                <div class="text-success nav-link cat-tab3">
+                                    <div class="text-center">
                                         <h5 class="ms-1" style="color: #247297;">January</h5>
                                     </div>
                                 </div>
@@ -409,13 +406,10 @@
                     </div>
                     <div class="tab-pane fade" id="js-February-tab" role="tabpanel">
                         <div class="content pt-0">
-                            <div class="d-flex align-items-center py-2">
+                            <div class="d-flex align-items-center justify-content-center py-2">
                                 {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3"
-                                    style="position: relative;
-                                    z-index: 999;
-                                    margin-bottom: -40px;">
-                                    <div class="text-center" style="margin-left: 505px">
+                                <div class="text-success nav-link cat-tab3">
+                                    <div class="text-center">
                                         <h5 class="ms-1" style="color: #247297;">February</h5>
                                     </div>
                                 </div>
@@ -481,13 +475,10 @@
                     </div>
                     <div class="tab-pane fade" id="js-March-tab" role="tabpanel">
                         <div class="content pt-0">
-                            <div class="d-flex align-items-center py-2">
+                            <div class="d-flex align-items-center justify-content-center py-2">
                                 {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3"
-                                    style="position: relative;
-                                    z-index: 999;
-                                    margin-bottom: -40px;">
-                                    <div class="text-center" style="margin-left: 505px">
+                                <div class="text-success nav-link cat-tab3">
+                                    <div class="text-center">
                                         <h5 class="ms-1" style="color: #247297;">March</h5>
                                     </div>
                                 </div>
@@ -553,13 +544,10 @@
                     </div>
                     <div class="tab-pane fade" id="js-April-tab" role="tabpanel">
                         <div class="content pt-0">
-                            <div class="d-flex align-items-center py-2">
+                            <div class="d-flex align-items-center justify-content-center py-2">
                                 {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3"
-                                    style="position: relative;
-                                    z-index: 999;
-                                    margin-bottom: -40px;">
-                                    <div class="text-center" style="margin-left: 505px">
+                                <div class="text-success nav-link cat-tab3">
+                                    <div class="text-center">
                                         <h5 class="ms-1" style="color: #247297;">April</h5>
                                     </div>
                                 </div>
@@ -625,13 +613,10 @@
                     </div>
                     <div class="tab-pane fade" id="js-May-tab" role="tabpanel">
                         <div class="content pt-0">
-                            <div class="d-flex align-items-center py-2">
+                            <div class="d-flex align-items-center justify-content-center py-2">
                                 {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3"
-                                    style="position: relative;
-                                    z-index: 999;
-                                    margin-bottom: -40px;">
-                                    <div class="text-center" style="margin-left: 505px">
+                                <div class="text-success nav-link cat-tab3">
+                                    <div class="text-center">
                                         <h5 class="ms-1" style="color: #247297;">May</h5>
                                     </div>
                                 </div>
@@ -697,13 +682,10 @@
                     </div>
                     <div class="tab-pane fade" id="js-June-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center py-2">
+                            <div class="d-flex align-items-center justify-content-center py-2">
                                 {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3"
-                                    style="position: relative;
-                                    z-index: 999;
-                                    margin-bottom: -40px;">
-                                    <div class="text-center" style="margin-left: 505px">
+                                <div class="text-success nav-link cat-tab3">
+                                    <div class="text-center">
                                         <h5 class="ms-1" style="color: #247297;">June</h5>
                                     </div>
                                 </div>
@@ -769,13 +751,10 @@
                     </div>
                     <div class="tab-pane fade" id="js-July-tab" role="tabpanel">
                         <div class="content pt-0">
-                            <div class="d-flex align-items-center py-2">
+                            <div class="d-flex align-items-center justify-content-center py-2">
                                 {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3"
-                                    style="position: relative;
-                                    z-index: 999;
-                                    margin-bottom: -40px;">
-                                    <div class="text-center" style="margin-left: 505px">
+                                <div class="text-success nav-link cat-tab3">
+                                    <div class="text-center">
                                         <h5 class="ms-1" style="color: #247297;">July</h5>
                                     </div>
                                 </div>
@@ -841,13 +820,10 @@
                     </div>
                     <div class="tab-pane fade" id="js-August-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center py-2">
+                            <div class="d-flex align-items-center justify-content-center py-2">
                                 {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3"
-                                    style="position: relative;
-                                    z-index: 999;
-                                    margin-bottom: -40px;">
-                                    <div class="text-center" style="margin-left: 505px">
+                                <div class="text-success nav-link cat-tab3">
+                                    <div class="text-center">
                                         <h5 class="ms-1" style="color: #247297;">August</h5>
                                     </div>
                                 </div>
@@ -913,13 +889,10 @@
                     </div>
                     <div class="tab-pane fade" id="js-September-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center py-2">
+                            <div class="d-flex align-items-center justify-content-center py-2">
                                 {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3"
-                                    style="position: relative;
-                                    z-index: 999;
-                                    margin-bottom: -40px;">
-                                    <div class="text-center" style="margin-left: 505px">
+                                <div class="text-success nav-link cat-tab3">
+                                    <div class="text-center">
                                         <h5 class="ms-1" style="color: #247297;">September</h5>
                                     </div>
                                 </div>
@@ -985,13 +958,10 @@
                     </div>
                     <div class="tab-pane fade" id="js-October-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center py-2">
+                            <div class="d-flex align-items-center justify-content-center py-2">
                                 {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3"
-                                    style="position: relative;
-                                    z-index: 999;
-                                    margin-bottom: -40px;">
-                                    <div class="text-center" style="margin-left: 505px">
+                                <div class="text-success nav-link cat-tab3">
+                                    <div class="text-center">
                                         <h5 class="ms-1" style="color: #247297;">October</h5>
                                     </div>
                                 </div>
@@ -1057,13 +1027,10 @@
                     </div>
                     <div class="tab-pane fade" id="js-November-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center py-2">
+                            <div class="d-flex align-items-center justify-content-center py-2">
                                 {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3"
-                                    style="position: relative;
-                                    z-index: 999;
-                                    margin-bottom: -40px;">
-                                    <div class="text-center" style="margin-left: 505px">
+                                <div class="text-success nav-link cat-tab3">
+                                    <div class="text-center">
                                         <h5 class="ms-1" style="color: #247297;">November</h5>
                                     </div>
                                 </div>
@@ -1129,13 +1096,10 @@
                     </div>
                     <div class="tab-pane fade" id="js-December-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center py-2">
+                            <div class="d-flex align-items-center justify-content-center py-2">
                                 {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3"
-                                    style="position: relative;
-                                    z-index: 999;
-                                    margin-bottom: -40px;">
-                                    <div class="text-center" style="margin-left: 505px">
+                                <div class="text-success nav-link cat-tab3">
+                                    <div class="text-center">
                                         <h5 class="ms-1" style="color: #247297;">December</h5>
                                     </div>
                                 </div>

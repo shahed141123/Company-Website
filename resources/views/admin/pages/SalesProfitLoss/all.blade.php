@@ -70,10 +70,11 @@
             <!-- Content area -->
             <div class="content">
                 <!-- Table components -->
-                <div class="card m-auto w-50 mb-3 p-2">
+                <div class="card m-auto w-50 mb-3 rounded-0">
                     <table class="table  table-bordered table-xs table-responsive">
                         <tr>
-                            <th colspan="7">
+                            <th colspan="7" style="    background: #237299;
+                            color: white;">
                                 <h5 class="mb-0 text-center"> Sales Profit & Loss
                                     {{-- <button type="button" class="bg-teal float-end text-white" data-bs-toggle="modal"
                                         data-bs-target="#modal_sale_profit_loss"> <i
@@ -82,14 +83,14 @@
                             </th>
                         </tr>
                         <tr class="text-center">
-                            <th class="bg-primary text-white">Total Sales </th>
-                            <th class="bg-success text-white"> Profit </th>
-                            <th class="bg-secondary text-white"> % </th>
+                            <th class="">Total Sales </th>
+                            <th class=""> Profit </th>
+                            <th class=""> % </th>
                         </tr>
                         <tr class="text-center">
-                            <td class="bg-primary text-white"> {{ $grandTotalSum }}</td>
-                            <td class="bg-success text-white"> {{ $netProfitSum }}</td>
-                            <td class="bg-secondary text-white"> {{ $netProfitPercentageSum }} %</td>
+                            <td class=""> {{ $grandTotalSum }}</td>
+                            <td class=""> {{ $netProfitSum }}</td>
+                            <td class=""> {{ $netProfitPercentageSum }} %</td>
                         </tr>
                     </table>
                 </div>
@@ -359,76 +360,76 @@
                     </div>
                 </form> --}}
                 <!-- model-Update end -->
-                <div class="card">
+                <div class="card border-0 shadow-sm">
                     <!-- tab menu start-->
-                    <ul class="nav nav-tabs mb-3" role="tablist">
-                        <li class="nav-item" role="presentation">
+                    <ul class="nav nav-tabs mb-3 d-flex justify-content-center" role="tablist">
+                        <li class="nav-item mb-0" role="presentation">
                             <a href="#js-January-tab" class="nav-link active" data-bs-toggle="tab" aria-selected="true"
                                 role="tab" tabindex="-1">
                                 January
                             </a>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item mb-0" role="presentation">
                             <a href="#js-February-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false"
                                 role="tab" tabindex="-1">
                                 February
                             </a>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item mb-0" role="presentation">
                             <a href="#js-March-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false"
                                 role="March" tabindex="-1">
                                 March
                             </a>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item mb-0" role="presentation">
                             <a href="#js-April-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false"
                                 role="tab" tabindex="-1">
                                 April
                             </a>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item mb-0" role="presentation">
                             <a href="#js-May-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false"
                                 role="tab" tabindex="-1">
                                 May
                             </a>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item mb-0" role="presentation">
                             <a href="#js-June-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false"
                                 role="tab" tabindex="-1">
                                 June
                             </a>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item mb-0" role="presentation">
                             <a href="#js-July-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false"
                                 role="tab" tabindex="-1">
                                 July
                             </a>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item mb-0" role="presentation">
                             <a href="#js-August-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false"
                                 role="tab" tabindex="-1">
                                 August
                             </a>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item mb-0" role="presentation">
                             <a href="#js-September-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false"
                                 role="tab" tabindex="-1">
                                 September
                             </a>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item mb-0" role="presentation">
                             <a href="#js-October-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false"
                                 role="tab" tabindex="-1">
                                 October
                             </a>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item mb-0" role="presentation">
                             <a href="#js-November-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false"
                                 role="tab" tabindex="-1">
                                 November
                             </a>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item mb-0" role="presentation">
                             <a href="#js-December-tab" class="nav-link" data-bs-toggle="tab" aria-selected="false"
                                 role="tab" tabindex="-1">
                                 December
