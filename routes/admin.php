@@ -215,7 +215,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resources(
         [
             'rfq'             => RFQController::class,
-            // 'rfq-manage'      => RFQManageController::class,
+            'rfq-manage'      => RFQManageController::class,
             'deal'            => DealController::class,
             'rfqOrderStatus'  => RfqOrderStatusController::class,
         ]
