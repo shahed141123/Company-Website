@@ -615,10 +615,10 @@ label {
 }
 
 .select2-selection--single .select2-selection__placeholder {
-    color: #000000;
+    color: #777e83;
     font-weight: 500;
     text-shadow: none;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .multiselect {
