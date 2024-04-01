@@ -93,13 +93,14 @@
                                         <div class="row p-5 gx-5 pt-3">
                                             <div class="col-lg-6 pt-1">
                                                 <div class="mb-1 me-3 pt-3">
-                                                    <label class="p-0 text-start text-black">Sales Manager Name (Leader -
+                                                    <label class="p-0 text-start text-muted">Sales Manager Name (Leader -
                                                         L1)
                                                         <span class="text-danger">*</span></label>
                                                     <select name="sales_man_id_L1" class="form-select w-100 select-wizard"
                                                         style="height: 42px !important;"
                                                         data-placeholder="Select Team Member (L1)" data-allow-clear="true"
                                                         required>
+                                                        <option></option>
                                                         @foreach ($users as $user)
                                                             <option value="{{ $user->id }}"
                                                                 {{ $rfq->sales_man_id_L1 == $user->id ? 'selected' : '' }}>
@@ -110,11 +111,12 @@
                                             </div>
                                             <div class="col-lg-6 pt-1">
                                                 <div class="mb-1 me-3 pt-3">
-                                                    <label class="p-0 text-start text-black">Sales Manager Name (Team -
+                                                    <label class="p-0 text-start text-muted">Sales Manager Name (Team -
                                                         T1)</label>
                                                     <select name="sales_man_id_T1" class="form-select w-100 select-wizard"
                                                         style="height: 42px !important;"
                                                         data-placeholder="Select Team Member (T1)" data-allow-clear="true">
+                                                        <option></option>
                                                         @foreach ($users as $user)
                                                             <option value="{{ $user->id }}"
                                                                 {{ $rfq->sales_man_id_T1 == $user->id ? 'selected' : '' }}>
@@ -125,11 +127,12 @@
                                             </div>
                                             <div class="col-lg-6 pt-1">
                                                 <div class="mb-1 me-3 pt-3">
-                                                    <label class="p-0 text-start text-black">Sales Manager Name (Team -
+                                                    <label class="p-0 text-start text-muted">Sales Manager Name (Team -
                                                         T2)</label>
                                                     <select name="sales_man_id_T2" class="form-select w-100 select-wizard"
                                                         style="height: 42px !important;"
                                                         data-placeholder="Select Team Member (T2)" data-allow-clear="true">
+                                                        <option></option>
                                                         @foreach ($users as $user)
                                                             <option value="{{ $user->id }}"
                                                                 {{ $rfq->sales_man_id_T2 == $user->id ? 'selected' : '' }}>
@@ -140,7 +143,7 @@
                                             </div>
                                             <div class="col-lg-6 pt-1">
                                                 <div class="mb-1 me-3 pt-3">
-                                                    <label class="p-0 text-start text-black">Deal Closing Date</label>
+                                                    <label class="p-0 text-start text-muted">Deal Closing Date</label>
                                                     <input type="date" name="close_date" class="form-control"
                                                         value="{{ $rfq->close_date }}" />
                                                 </div>
@@ -156,12 +159,13 @@
                                         <div class="row mb-0 align-items-center">
                                             <div class="col-lg-4 mb-3">
                                                 <div class="mb-1">
-                                                    <label class="p-0 text-start text-black">Client Type</label>
+                                                    <label class="p-0 text-start text-muted">Client Type</label>
                                                     <select name="client_type"
                                                         class="form-select w-100 select-wizard client_select"
                                                         style="height: 42px !important;"
                                                         data-placeholder="Chose client Type" data-allow-clear="true"
                                                         required>
+                                                        <option></option>
                                                         <option class="form-select" value="client"
                                                             {{ $rfq->client_type == 'client' ? 'selected' : '' }}> Client
                                                         </option>
@@ -173,7 +177,7 @@
                                             </div>
                                             <div class="col-lg-4 mb-3 client_display d-none">
                                                 <div class="mb-1 basic-form">
-                                                    <label class="p-0 text-start text-black">Select Client</label>
+                                                    <label class="p-0 text-start text-muted">Select Client</label>
                                                     <select name="client_id"
                                                         class="form-select w-100 select-wizard clientID"
                                                         data-placeholder="Choose Client" data-allow-clear="true">
@@ -190,7 +194,7 @@
                                             </div>
                                             <div class="col-lg-4 mb-3 partner_display d-none">
                                                 <div class="mb-1">
-                                                    <label class="p-0 text-start text-black">Select Partner</label>
+                                                    <label class="p-0 text-start text-muted">Select Partner</label>
                                                     <select name="partner_id"
                                                         class="form-select w-100 select-wizard partnerID"
                                                         style="height: 42px !important;" data-placeholder="Choose Partner"
@@ -210,14 +214,14 @@
                                                 <div class="mb-1">
                                                     <input class="form-check-input account" type="checkbox"
                                                         value="partner" name="account" id="flexCheckDefault">
-                                                    <label class="p-0 text-start text-black">Create Partner Account</label>
+                                                    <label class="p-0 text-start text-muted">Create Partner Account</label>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 mb-3 client_account d-none text-warning">
                                                 <div class="mb-1 mt-3">
                                                     <input class="form-check-input account" type="checkbox"
                                                         value="client" name="account" id="flexCheckDefault">
-                                                    <label class="p-0 text-start text-black">Create Client Account</label>
+                                                    <label class="p-0 text-start text-muted">Create Client Account</label>
                                                 </div>
                                             </div>
                                         </div>
