@@ -163,7 +163,7 @@ class ClientController extends Controller
             foreach ($messages->all() as $message) {
                 Toastr::error($message, 'Failed', ['timeOut' => 30000]);
             }
-            return redirect('client/login');
+            return redirect()->back();
         }
     }
 
@@ -367,13 +367,20 @@ class ClientController extends Controller
 
     public function ClientDestroy(Request $request)
     {
-        Auth::guard('web')->logout();
 
+        $user_type = Auth::guard('client')->user()->user_type;
+        Auth::guard('client')->logout();
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
+        if ( $user_type == 'partner') {
+            return redirect()->route('partner.login');
+        } elseif ( $user_type == 'job_seeker') {
+            return redirect()->route('job-applicant.login');
+        }else {
+            return redirect('/client/login');
+        }
 
-        return redirect('/client/login');
+
     } // End Mehtod
 
     public function clientDashboard()

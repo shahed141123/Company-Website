@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('path/to/your/external/style.css') }}">
+  
     <style>
         .sign-in-form {
             background-color: #ffff;

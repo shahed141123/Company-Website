@@ -16,14 +16,14 @@ class RFQManageController extends Controller
     public function index()
     {
         $data['users'] = User::whereJsonContains('department', 'business')->where('role', 'manager')->get(['id','name']);
-        $data['rfqs'] = Rfq::where('rfq_type' , 'rfq')->orderBy('id', 'ASC')->get();
+        $data['rfqs'] = Rfq::with('rfqProducts')->where('rfq_type' , 'rfq')->orderBy('id', 'ASC')->get();
         return view('admin.pages.rfq-manage.rfq_index',$data);
     }
 
     public function dealList()
     {
         $data['users'] = User::whereJsonContains('department', 'business')->where('role', 'manager')->get(['id','name']);
-        $data['deals'] = Rfq::where('rfq_type', '!=', 'rfq')->orderBy('rfqs.updated_at', 'desc')->get();
+        $data['deals'] = Rfq::with('rfqProducts')->where('rfq_type', '!=', 'rfq')->orderBy('rfqs.updated_at', 'desc')->get();
         return view('admin.pages.rfq-manage.deal_index',$data);
     }
 

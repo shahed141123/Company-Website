@@ -23,10 +23,10 @@ Route::group(['prefix' => $client], function () {
 });
 
 
-Route::get('/job-applicant/login',     [ClientController::class, 'jobApplicantLogin'])->name('job-applicant.login');
-Route::get('/client/login',     [ClientController::class, 'clientLogin'])->name('client.login');
-Route::post('client/register',  [ClientController::class, 'clientRegisterStore'])->name('clientRegister.store');
-Route::post('client/login',     [ClientController::class, 'clientLoginStore'])->name('client.loginstore');
+Route::get('/job-applicant/login',  [ClientController::class, 'jobApplicantLogin'])->name('job-applicant.login');
+Route::get('/client/login',         [ClientController::class, 'clientLogin'])->name('client.login');
+Route::post('client/register',      [ClientController::class, 'clientRegisterStore'])->name('clientRegister.store');
+Route::post('client/login',         [ClientController::class, 'clientLoginStore'])->name('client.loginstore');
 
 
 

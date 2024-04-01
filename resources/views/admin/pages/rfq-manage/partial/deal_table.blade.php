@@ -16,17 +16,13 @@
 <table class="rfqDT2 table table-bordered table-hover text-center">
     <thead>
         <tr>
-            <!-- RFQ Code Column -->
-            <th width="20%">RFQ Code</th>
-            <!-- Create Date Column -->
-            <th width="20%">Create Date</th>
-            <!-- Status Column -->
-            <th width="25">Status</th>
-            <!-- Details Column -->
-            <th width="10%">Details</th>
-            <th width="15%">Status</th>
-            <!-- Actions Column -->
-            <th width="10%" class="text-center">Actions</th>
+            <th width="10%">RFQ Code</th>
+            <th width="12%">Created At</th>
+            <th width="18%">Client Name</th>
+            <th width="20%">Client Email</th>
+            <th width="8%">Status</th>
+            <th width="5%">Details</th>
+            <th width="15%" class="text-center">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +31,8 @@
                 <tr class="text-center">
                     <td>{{ ucfirst($deal->rfq_code) }}</td>
                     <td>{{ ucfirst($deal->create_date) }}</td>
+                    <td>{{ ucfirst($deal->name) }}</td>
+                    <td style="text-transform: lowercase;">{{ ucfirst($deal->email) }}</td>
                     <td>
                         <span class="text-primary" style="text-transform: capitalize">{{ ucfirst($deal->status) }}</span>
                     </td>
@@ -46,7 +44,7 @@
                         <!---Category Update modal--->
                         <div id="show-deals-{{ $deal->rfq_code }}" class="modal fade" tabindex="-1"
                             style="display: none;" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable modal-lg rounded-0 modal-dialog-centered">
+                            <div class="modal-dialog modal-dialog-scrollable modal-lg rounded-0">
                                 <div class="modal-content rounded-0">
                                     <div class="modal-header rounded-0">
                                         @php

@@ -14,4 +14,9 @@ class Rfq extends Model
      * @var array
      */
     protected $guarded = [];
+    
+    public function rfqProducts()
+    {
+        return $this->hasMany(RfqProduct::class, 'rfq_id');
+    }
 }

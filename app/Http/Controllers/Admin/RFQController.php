@@ -80,11 +80,11 @@ class RFQController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required',
-                'email' => 'required',
-                'phone' => 'required',
+                'name'     => 'required',
+                'email'    => 'required',
+                'phone'    => 'required',
                 'rfq_code' => 'unique:rfqs',
-                'image' => 'file|mimes:jpeg,png,jpg|max:2048',
+                'image'    => 'file|mimes:jpeg,png,jpg|max:2048',
                 'g-recaptcha-response' => ['required', new Recaptcha],
             ],
             [
@@ -478,7 +478,6 @@ class RFQController extends Controller
                 Toastr::error($message, 'Failed', ['timeOut' => 30000]);
             }
         }
-        // return redirect()->route('rfq.index');
         return redirect()->route('rfq-manage.index');
     }
 

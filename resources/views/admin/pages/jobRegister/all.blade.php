@@ -26,12 +26,12 @@
         <!-- Content area -->
         <div class="content">
             <div class="row">
-                <div class="col-lg-8 offset-lg-2 mx-auto">
+                <div class="col-lg-10 offset-lg-1 mx-auto">
                     <h4 class="text-center">Job Reg. Users</h4>
                     <div class="card rounded-0">
                         <div class="card-body p-0">
                             <div class="table-responsive">
-                                <table class="datatable jobregister table table-bordered table-hover">
+                                <table class="table table-hover jobregister table-bordered text-center">
                                     <thead>
                                         <tr>
                                             <th width="5%">Sl No:</th>

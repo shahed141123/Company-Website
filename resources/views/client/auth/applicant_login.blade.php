@@ -63,7 +63,7 @@
 
                                     <div class="col-lg-7 mb-3">
                                         <label for="">Email <span class="text-danger">*</span></label>
-                                        <input class="input_login" type="email" name="name" placeholder="Email"
+                                        <input class="input_login" type="email" name="email" placeholder="Email"
                                             required value="{{ old('email') }}" maxlength="35" minlength="3">
                                         <span class="text-danger text-start p-0 m-0 email_validation"
                                             style="display: none;">
