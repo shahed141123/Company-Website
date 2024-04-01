@@ -5,7 +5,7 @@
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header py-1">
                 @php
                     $rfq_details = App\Models\Admin\Rfq::where('rfq_code', $rfq_details->rfq_code)->first();
                     $deal_products = App\Models\Admin\DealSas::where('rfq_code', $rfq_details->rfq_code)->get();
@@ -115,11 +115,11 @@
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header py-1">
                 @php
                     $rfq_details = App\Models\Admin\Rfq::where('rfq_code', $rfq_details->rfq_code)->first();
                 @endphp
-                <h5 class="modal-title">Assign Sales Manager For RFQ No : {{ $rfq_details->rfq_code }}</h5>
+                <h5 class="modal-title">Assign Sales Manager new-3 For RFQ No : {{ $rfq_details->rfq_code }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
@@ -244,10 +244,10 @@
                                 <div class="row  p-2 ">
                                     <div class="col-lg-4">
                                         <div class="row d-flex align-items-center">
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-6">
                                                 <span>Leader - L1</span>
                                             </div>
-                                            <div class="form-group text-secondary col-sm-8">
+                                            <div class="form-group text-secondary col-sm-6">
                                                 <select name="sales_man_id_L1" class="form-control select"
                                                     data-placeholder="Choose  ">
                                                     <option></option>
@@ -261,10 +261,10 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="row d-flex align-items-center">
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-6">
                                                 <span>Team - T1</span>
                                             </div>
-                                            <div class="form-group text-secondary col-sm-8">
+                                            <div class="form-group text-secondary col-sm-6">
                                                 <select name="sales_man_id_T1" class="form-control select"
                                                     data-placeholder="Choose  ">
                                                     <option></option>
@@ -279,14 +279,15 @@
 
                                     <div class="col-lg-4">
                                         <div class="row d-flex align-items-center">
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-6">
                                                 <span>Team - T2</span>
                                             </div>
-                                            <div class="form-group text-secondary col-sm-8">
+                                            <div class="form-group text-secondary col-sm-6">
                                                 <select name="sales_man_id_T2"
                                                     class="form-control form-select-sm select"
                                                     data-container-css-class="select-sm" data-placeholder="Chose Type"
                                                     required>
+                                                    <option></option>
                                                     @foreach ($users as $user)
                                                         <option value="{{ $user->id }}">{{ $user->name }}
                                                         </option>
@@ -318,7 +319,7 @@
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header py-1">
                 @php
                     $rfq_details = App\Models\Admin\Rfq::where('rfq_code', $rfq_details->rfq_code)->first();
                     $deal_products = App\Models\Admin\DealSas::where('rfq_code', $rfq_details->rfq_code)->get();
@@ -482,7 +483,7 @@
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header py-1">
                 @php
                     $rfq_details = App\Models\Admin\Rfq::where('rfq_code', $rfq_details->rfq_code)->first();
                     $deal_products = App\Models\Admin\DealSas::where('rfq_code', $rfq_details->rfq_code)->get();
@@ -663,7 +664,7 @@
     <div id="show-sas" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header py-1">
 
                     <h5 class="modal-title">SAS Details : {{ $rfq_details->rfq_code }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -945,7 +946,7 @@
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header py-1">
                     @php
                         $rfq = App\Models\Admin\Rfq::where('rfq_code', $rfq_details->rfq_code)->first();
                         $deal_products = App\Models\Admin\DealSas::where('rfq_code', $rfq_details->rfq_code)->get();
@@ -1135,7 +1136,7 @@
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header py-1">
                 @php
                     $rfq_details = App\Models\Admin\Rfq::where('rfq_code', $rfq_details->rfq_code)->first();
                     $deal_products = App\Models\Admin\DealSas::where('rfq_code', $rfq_details->rfq_code)->get();

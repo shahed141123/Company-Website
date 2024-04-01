@@ -11,6 +11,40 @@
             background: #f1f4f9;
             margin-bottom: 1rem;
         }
+
+        .wizard>.actions>ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            left: -80px;
+            /* bottom: 21px; */
+            margin-bottom: 2rem;
+        }
+
+        .wizard>.steps>ul>li.current>a {
+            color: #247297 !important;
+            cursor: default;
+        }
+
+        .select2-selection--single .select2-selection__rendered {
+            font-size: 12px;
+        }
+
+        .select2-selection--single .select2-selection__placeholder {
+            font-size: 12px;
+        }
+
+        .table>:not(caption)>*>* {
+            padding: 5px;
+            background-color: transparent;
+            border-bottom-width: var(--table-border-width);
+            box-shadow: inset 0 0 0 9999px var(--table-accent-bg);
+        }
+
+        .actions>ul>li:last-child {
+            display: none;
+        }
     </style>
     {{-- Content Start --}}
     <div class="content-wrapper">
@@ -35,8 +69,8 @@
         </div>
         {{-- Page Header End --}}
         <div class="fluid-container">
-            <div class="row mt-1">
-                <div class="col-lg-10 offset-lg-1">
+            <div class="row mt-5">
+                <div class="col-lg-8 offset-lg-2">
                     <!--Employeement Form with validation -->
                     <div class="card">
                         <div class="card-header rounded-0 bg-secondary p-0 m-0">
@@ -45,7 +79,7 @@
                                 <span class="btn-labeled-icon bg-black bg-opacity-20">
                                     <i class="icon-arrow-left13"></i>
                                 </span> Back </a> --}}
-                            <h6 class="text-white p-0 mb-0 text-center me-2 pt-1">Convert To Deal - ({{ $rfq->rfq_code }})
+                            <h6 class="text-white mb-0 text-center me-2 p-3">Convert To Deal - ({{ $rfq->rfq_code }})
                             </h6>
                         </div>
                         <form method="post" action="{{ route('convert.deal', $rfq->id) }}"
@@ -54,213 +88,233 @@
                             @method('PUT')
                             <h6>Assigned Sales Persons</h6>
                             <fieldset>
-                                <div class="row mb-3">
-                                    <div class="col-lg-6 pt-1">
-                                        <div class="mb-1">
-                                            <label class="p-0 text-start text-black">Sales Manager Name (Leader - L1)
-                                                <span class="text-danger">*</span></label>
-                                            <select name="sales_man_id_L1" class="form-select w-100 select-wizard"
-                                                style="height: 42px !important;" data-placeholder="Select Category Name..."
-                                                data-allow-clear="true" required>
-                                                @foreach ($users as $user)
-                                                    <option value="{{ $user->id }}"
-                                                        {{ $rfq->sales_man_id_L1 == $user->id ? 'selected' : '' }}>
-                                                        {{ $user->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 pt-1">
-                                        <div class="mb-1">
-                                            <label class="p-0 text-start text-black">Sales Manager Name (Team - T1)</label>
-                                            <select name="sales_man_id_T1" class="form-select w-100 select-wizard"
-                                                style="height: 42px !important;" data-placeholder="Select Category Name..."
-                                                data-allow-clear="true">
-                                                @foreach ($users as $user)
-                                                    <option value="{{ $user->id }}"
-                                                        {{ $rfq->sales_man_id_T1 == $user->id ? 'selected' : '' }}>
-                                                        {{ $user->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 pt-1">
-                                        <div class="mb-1">
-                                            <label class="p-0 text-start text-black">Sales Manager Name (Team - T2)</label>
-                                            <select name="sales_man_id_T2" class="form-select w-100 select-wizard"
-                                                style="height: 42px !important;" data-placeholder="Select Category Name..."
-                                                data-allow-clear="true">
-                                                @foreach ($users as $user)
-                                                    <option value="{{ $user->id }}"
-                                                        {{ $rfq->sales_man_id_T2 == $user->id ? 'selected' : '' }}>
-                                                        {{ $user->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 pt-1">
-                                        <div class="mb-1">
-                                            <label class="p-0 text-start text-black">Closed date</label>
-                                            <input type="date" name="close_date" class="form-control"
-                                                value="{{ $rfq->close_date }}" />
+                                <div class="row">
+                                    <div class="col-lg-12 mx-auto">
+                                        <div class="row p-5 gx-5 pt-3">
+                                            <div class="col-lg-6 pt-1">
+                                                <div class="mb-1 me-3 pt-3">
+                                                    <label class="p-0 text-start text-black">Sales Manager Name (Leader -
+                                                        L1)
+                                                        <span class="text-danger">*</span></label>
+                                                    <select name="sales_man_id_L1" class="form-select w-100 select-wizard"
+                                                        style="height: 42px !important;"
+                                                        data-placeholder="Select Team Member (L1)" data-allow-clear="true"
+                                                        required>
+                                                        @foreach ($users as $user)
+                                                            <option value="{{ $user->id }}"
+                                                                {{ $rfq->sales_man_id_L1 == $user->id ? 'selected' : '' }}>
+                                                                {{ $user->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 pt-1">
+                                                <div class="mb-1 me-3 pt-3">
+                                                    <label class="p-0 text-start text-black">Sales Manager Name (Team -
+                                                        T1)</label>
+                                                    <select name="sales_man_id_T1" class="form-select w-100 select-wizard"
+                                                        style="height: 42px !important;"
+                                                        data-placeholder="Select Team Member (T1)" data-allow-clear="true">
+                                                        @foreach ($users as $user)
+                                                            <option value="{{ $user->id }}"
+                                                                {{ $rfq->sales_man_id_T1 == $user->id ? 'selected' : '' }}>
+                                                                {{ $user->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 pt-1">
+                                                <div class="mb-1 me-3 pt-3">
+                                                    <label class="p-0 text-start text-black">Sales Manager Name (Team -
+                                                        T2)</label>
+                                                    <select name="sales_man_id_T2" class="form-select w-100 select-wizard"
+                                                        style="height: 42px !important;"
+                                                        data-placeholder="Select Team Member (T2)" data-allow-clear="true">
+                                                        @foreach ($users as $user)
+                                                            <option value="{{ $user->id }}"
+                                                                {{ $rfq->sales_man_id_T2 == $user->id ? 'selected' : '' }}>
+                                                                {{ $user->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 pt-1">
+                                                <div class="mb-1 me-3 pt-3">
+                                                    <label class="p-0 text-start text-black">Deal Closing Date</label>
+                                                    <input type="date" name="close_date" class="form-control"
+                                                        value="{{ $rfq->close_date }}" />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </fieldset>
                             <h6>Client Details</h6>
                             <fieldset>
-                                <div class="row mb-0">
-                                    <div class="col-lg-12">
-                                        <div class="col-lg-4 mb-3">
-                                            <div class="mb-1">
-                                                <label class="p-0 text-start text-black">Client Type</label>
-                                                <select name="client_type"
-                                                    class="form-select w-100 select-wizard client_select"
-                                                    style="height: 42px !important;" data-placeholder="Chose client Type"
-                                                    data-allow-clear="true" required>
-                                                    <option class="form-select" value="client"
-                                                        {{ $rfq->client_type == 'client' ? 'selected' : '' }}> Client
-                                                    </option>
-                                                    <option class="form-select" value="partner"
-                                                        {{ $rfq->client_type == 'partner' ? 'selected' : '' }}> Partner
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mb-3 client_display d-none">
-                                            <div class="mb-1 basic-form">
-                                                <label class="p-0 text-start text-black">Select Client</label>
-                                                <select name="client_id" class="form-select w-100 select-wizard clientID"
-                                                    data-placeholder="Choose Client" data-allow-clear="true">
-                                                    <option class="common_client"></option>
-                                                    @foreach ($clients as $client)
-                                                        <option value="{{ $client->id }}"
-                                                            {{ $rfq->client_id == $client->id ? 'selected' : '' }}>
-                                                            Name : {{ $client->name }}; Company Name :
-                                                            {{ $client->company_name }}
+                                <div class="row">
+                                    <div class="col-lg-10 offset-lg-2 mx-auto px-0">
+                                        <div class="row mb-0 align-items-center">
+                                            <div class="col-lg-4 mb-3">
+                                                <div class="mb-1">
+                                                    <label class="p-0 text-start text-black">Client Type</label>
+                                                    <select name="client_type"
+                                                        class="form-select w-100 select-wizard client_select"
+                                                        style="height: 42px !important;"
+                                                        data-placeholder="Chose client Type" data-allow-clear="true"
+                                                        required>
+                                                        <option class="form-select" value="client"
+                                                            {{ $rfq->client_type == 'client' ? 'selected' : '' }}> Client
                                                         </option>
-                                                    @endforeach
-                                                </select>
+                                                        <option class="form-select" value="partner"
+                                                            {{ $rfq->client_type == 'partner' ? 'selected' : '' }}> Partner
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 mb-3 client_display d-none">
+                                                <div class="mb-1 basic-form">
+                                                    <label class="p-0 text-start text-black">Select Client</label>
+                                                    <select name="client_id"
+                                                        class="form-select w-100 select-wizard clientID"
+                                                        data-placeholder="Choose Client" data-allow-clear="true">
+                                                        <option class="common_client"></option>
+                                                        @foreach ($clients as $client)
+                                                            <option value="{{ $client->id }}"
+                                                                {{ $rfq->client_id == $client->id ? 'selected' : '' }}>
+                                                                Name : {{ $client->name }}; Company Name :
+                                                                {{ $client->company_name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 mb-3 partner_display d-none">
+                                                <div class="mb-1">
+                                                    <label class="p-0 text-start text-black">Select Partner</label>
+                                                    <select name="partner_id"
+                                                        class="form-select w-100 select-wizard partnerID"
+                                                        style="height: 42px !important;" data-placeholder="Choose Partner"
+                                                        data-allow-clear="true">
+                                                        <option class="common_partner"></option>
+                                                        @foreach ($partners as $partner)
+                                                            <option value="{{ $partner->id }}"
+                                                                {{ $rfq->partner_id == $partner->id ? 'selected' : '' }}>
+                                                                Name
+                                                                : {{ $partner->name }}; Company Name :
+                                                                {{ $partner->company_name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 mb-3 partner_account d-none text-warning">
+                                                <div class="mb-1">
+                                                    <input class="form-check-input account" type="checkbox"
+                                                        value="partner" name="account" id="flexCheckDefault">
+                                                    <label class="p-0 text-start text-black">Create Partner Account</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 mb-3 client_account d-none text-warning">
+                                                <div class="mb-1 mt-3">
+                                                    <input class="form-check-input account" type="checkbox"
+                                                        value="client" name="account" id="flexCheckDefault">
+                                                    <label class="p-0 text-start text-black">Create Client Account</label>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 mb-3 partner_display d-none">
-                                            <div class="mb-1">
-                                                <label class="p-0 text-start text-black">Select Partner</label>
-                                                <select name="partner_id" class="form-select w-100 select-wizard partnerID"
-                                                    style="height: 42px !important;" data-placeholder="Choose Partner"
-                                                    data-allow-clear="true">
-                                                    <option class="common_partner"></option>
-                                                    @foreach ($partners as $partner)
-                                                        <option value="{{ $partner->id }}"
-                                                            {{ $rfq->partner_id == $partner->id ? 'selected' : '' }}> Name
-                                                            : {{ $partner->name }}; Company Name :
-                                                            {{ $partner->company_name }}</option>
-                                                    @endforeach
-                                                </select>
+                                        <div class="row mb-3">
+                                            <div class="col-lg-12">
+                                                <div class="center bg-gray p-1 text-center">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox" value="1"
+                                                            name="regular" id="flexRadioDefault1"
+                                                            {{ $rfq->regular == '1' ? 'checked' : '' }}>
+                                                        <label class="form-check-label" for="flexRadioDefault1"> Regular
+                                                            Discount
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox" value="1"
+                                                            name="special" id="flexRadioDefault2"
+                                                            {{ $rfq->special == '1' ? 'checked' : '' }}>
+                                                        <label class="form-check-label" for="flexRadioDefault2"> Special
+                                                            Discount
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox" value="1"
+                                                            name="tax_status" id="flexRadioDefault3"
+                                                            {{ $rfq->tax_status == '1' ? 'checked' : '' }}>
+                                                        <label class="form-check-label" for="flexRadioDefault3"> Tax / VAT
+                                                        </label>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 mb-3 partner_account d-none text-warning">
-                                            <div class="mb-1">
-                                                <input class="form-check-input account" type="checkbox" value="partner"
-                                                    name="account" id="flexCheckDefault">
-                                                <label class="p-0 text-start text-black">Create Partner Account</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mb-3 client_account d-none text-warning">
-                                            <div class="mb-1">
-                                                <input class="form-check-input account" type="checkbox" value="client"
-                                                    name="account" id="flexCheckDefault">
-                                                <label class="p-0 text-start text-black">Create Client Account</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-lg-12">
-                                        <div class="center bg-gray p-1 text-center">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" value="1"
-                                                    name="regular" id="flexRadioDefault1"
-                                                    {{ $rfq->regular == '1' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="flexRadioDefault1"> Regular Discount
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" value="1"
-                                                    name="special" id="flexRadioDefault2"
-                                                    {{ $rfq->special == '1' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="flexRadioDefault2"> Special Discount
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" value="1"
-                                                    name="tax_status" id="flexRadioDefault3"
-                                                    {{ $rfq->tax_status == '1' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="flexRadioDefault3"> Tax / VAT
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-1">
-                                    <div class="col-lg-12">
-                                        <div class="card rounded-0">
-                                            <div class="card-header text-center rounded-0 bg-secondary text-white">User
-                                                Details</div>
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-lg-4 mb-3">
-                                                        <div class="mb-1">
-                                                            <label for="">Name <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input type="text" name="name"
-                                                                class="form-control maxlength" maxlength="100"
-                                                                value="{{ $rfq->name }}" required />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 mb-3">
-                                                        <div class="mb-1">
-                                                            <label for="">Email <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input type="email" name="email"
-                                                                class="form-control maxlength" maxlength="100"
-                                                                value="{{ $rfq->email }}" required />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 mb-3">
-                                                        <div class="mb-1">
-                                                            <label for="">Phone <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input type="text" name="phone"
-                                                                class="form-control maxlength" maxlength="100" required
-                                                                value="{{ $rfq->phone }}" required />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 mb-3">
-                                                        <div class="mb-1">
-                                                            <label for="">Company Name
-                                                            </label>
-                                                            <input type="text" name="company_name"
-                                                                class="form-control maxlength" maxlength="200" required
-                                                                value="{{ $rfq->phone }}" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 mb-3">
-                                                        <div class="mb-1">
-                                                            <label for="">Designation
-                                                            </label>
-                                                            <input type="text" name="designation"
-                                                                class="form-control maxlength" maxlength="100"
-                                                                value="{{ $rfq->designation }}" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 mb-3">
-                                                        <div class="mb-1">
-                                                            <label for="">Address
-                                                            </label>
-                                                            <input type="text" name="address"
-                                                                class="form-control maxlength" maxlength="100"
-                                                                value="{{ $rfq->address }}" />
+                                        <div class="row mb-1">
+                                            <div class="col-lg-12 px-0 mb-3">
+                                                <div class="card rounded-0">
+                                                    <div
+                                                        class="card-header text-center rounded-0 bg-secondary text-white py-1">
+                                                        User Details</div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 mb-3">
+                                                                <div class="mb-1">
+                                                                    <label for="">Name <span
+                                                                            class="text-danger">*</span>
+                                                                    </label>
+                                                                    <input type="text" name="name"
+                                                                        class="form-control maxlength" maxlength="100"
+                                                                        value="{{ $rfq->name }}" required />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 mb-3">
+                                                                <div class="mb-1">
+                                                                    <label for="">Email <span
+                                                                            class="text-danger">*</span>
+                                                                    </label>
+                                                                    <input type="email" name="email"
+                                                                        class="form-control maxlength" maxlength="100"
+                                                                        value="{{ $rfq->email }}" required />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 mb-3">
+                                                                <div class="mb-1">
+                                                                    <label for="">Phone <span
+                                                                            class="text-danger">*</span>
+                                                                    </label>
+                                                                    <input type="text" name="phone"
+                                                                        class="form-control maxlength" maxlength="100"
+                                                                        required value="{{ $rfq->phone }}" required />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 mb-3">
+                                                                <div class="mb-1">
+                                                                    <label for="">Company Name
+                                                                    </label>
+                                                                    <input type="text" name="company_name"
+                                                                        class="form-control maxlength" maxlength="200"
+                                                                        required value="{{ $rfq->phone }}" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 mb-3">
+                                                                <div class="mb-1">
+                                                                    <label for="">Designation
+                                                                    </label>
+                                                                    <input type="text" name="designation"
+                                                                        class="form-control maxlength" maxlength="100"
+                                                                        value="{{ $rfq->designation }}" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 mb-3">
+                                                                <div class="mb-1">
+                                                                    <label for="">Address
+                                                                    </label>
+                                                                    <input type="text" name="address"
+                                                                        class="form-control maxlength" maxlength="100"
+                                                                        value="{{ $rfq->address }}" />
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -271,144 +325,180 @@
                             </fieldset>
                             <h6>Product Details</h6>
                             <fieldset>
-                                <div class="row mb-3">
-                                    <div class="col-lg-12">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered text-center">
-                                                <thead>
-                                                    <tr>
-                                                        <th style="padding:7px !important;"> Product Name </th>
-                                                        <th style="padding:7px !important;"> Qty <span
-                                                                class="text-danger">*</span></th>
-                                                        <th style="padding:7px !important;"> Unit Price</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="repeater">
-                                                    <tr>
-                                                        <td style="background: #eee; color: black;">
-                                                            {{ $rfq_product->product_name }}
-                                                            <input type="hidden" class="form-control" name="item_name[]"
-                                                                value="{{ $rfq_product->product_name }}" required>
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" name="qty[]"
-                                                                required value="{{ $rfq_product->qty }}">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control"
-                                                                name="unit_price[]">
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                <div class="row">
+                                    <div class="col-lg-10 offset-lg-2 mx-auto px-0">
+                                        <div class="row mb-3 px-0">
+                                            <div class="col-lg-12">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered text-center">
+                                                        <thead>
+                                                            <tr>
+                                                                <th width="75%"> Product Name </th>
+                                                                <th width="10%%"> Qty <span class="text-danger">*</span>
+                                                                </th>
+                                                                <th width="15%"> Unit Price</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="repeater">
+                                                            <tr>
+                                                                <td>
+                                                                    {{ $rfq_product->product_name }}
+                                                                    <input type="hidden" class="form-control"
+                                                                        name="item_name[]"
+                                                                        value="{{ $rfq_product->product_name }}" required>
+                                                                </td>
+                                                                <td class="py-0">
+                                                                    <input type="text" class="form-control"
+                                                                        name="qty[]" required
+                                                                        value="{{ $rfq_product->qty }}">
+                                                                </td>
+                                                                <td class="py-0">
+                                                                    <input type="text" class="form-control"
+                                                                        name="unit_price[]">
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </fieldset>
                             <h6>Terms & Condition</h6>
                             <fieldset>
-                                <div class="row mb-3">
-                                    <div class="col-lg-12">
-                                        <table class="table table-bordered table-striped">
-                                            <thead style="background-color: #eee !important; color: #000 !important;">
-                                                <tr>
-                                                    <th width="15%"><input type="text" name="title[]"
-                                                        class="form-control maxlength" maxlength="200"
-                                                        value="Validity" placeholder="Title"/> </th>
-                                                    <td width="35%">
-                                                        <input type="text" name="description[]"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="7 Days from the PQ date.Offer may change on the bank forex rate or stock availability" placeholder="Description" />
-                                                    </td>
-                                                    <th width="15%">
-                                                        <input type="text" name="title[]"
-                                                        class="form-control maxlength" maxlength="200"
-                                                        value="Payment" placeholder="Title"/> </th>
-                                                    <td width="35%">
-                                                        <input type="text" name="description[]"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="100% advanced payment with Work Order for Renewal order Excuation" placeholder="Description" />
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th width="15%"><input type="text" name="title[]"
-                                                        class="form-control maxlength" maxlength="200"
-                                                        value="Payment Mode" placeholder="Title"/> </th>
-                                                    <td width="35%">
-                                                        <input type="text" name="description[]"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="May reject/modify order on any dispute in pr. price or product non-availability during execuation" placeholder="Description" />
-                                                    </td>
-                                                    <th width="15%">
-                                                        <input type="text" name="title[]"
-                                                        class="form-control maxlength" maxlength="200"
-                                                        value="Delivery" placeholder="Title"/> </th>
-                                                    <td width="35%">
-                                                        <input type="text" name="description[]"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="3 business wks upon receiving of WO & Payment.Extended time may require for disaster issues" placeholder="Description" />
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th width="15%"><input type="text" name="title[]"
-                                                        class="form-control maxlength" maxlength="200"
-                                                        value="Delivery Location" placeholder="Title"/> </th>
-                                                    <td width="35%">
-                                                        <input type="text" name="description[]"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="Automatic Renewal Activation to the Licenses & Client's Console Panel" placeholder="Description" />
-                                                    </td>
-                                                    <th width="15%"><input type="text" name="title[]"
-                                                        class="form-control maxlength" maxlength="200"
-                                                        value="Product & Order" placeholder="Title"/> </th>
-                                                    <td width="35%">
-                                                        <input type="text" name="description[]"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="May reject/modify order on any dispute in pr. price or product non-availability during execuation" placeholder="Description" />
-                                                    </td>
+                                <div class="row">
+                                    <div class="col-lg-10 offset-lg-2 mx-auto px-0">
+                                        <div class="row mb-3">
+                                            <div class="col-lg-12">
+                                                <div class="table-responsive">
+                                                    .<div class="table-responsive">
+                                                        <table class="table table-bordered table-striped mt-4">
+                                                            <thead>
+                                                                <tr>
+                                                                    <td class="py-0" width="15%"><input
+                                                                            type="text" name="title[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="Validity" placeholder="Title" /> </td>
+                                                                    <td class="py-0" width="85%">
+                                                                        <input type="text" name="description[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="7 Days from the PQ date.Offer may change on the bank forex rate or stock availability"
+                                                                            placeholder="Description" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="py-0" width="15%">
+                                                                        <input type="text" name="title[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="Payment" placeholder="Title" />
+                                                                    </td>
+                                                                    <td class="py-0" width="85%">
+                                                                        <input type="text" name="description[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="100% advanced payment with Work Order for Renewal order Excuation"
+                                                                            placeholder="Description" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="py-0" width="15%"><input
+                                                                            type="text" name="title[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="Payment Mode" placeholder="Title" />
+                                                                    </td>
+                                                                    <td class="py-0" width="85%">
+                                                                        <input type="text" name="description[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="May reject/modify order on any dispute in pr. price or product non-availability during execuation"
+                                                                            placeholder="Description" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="py-0" width="15%">
+                                                                        <input type="text" name="title[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="Delivery" placeholder="Title" />
+                                                                    </td>
+                                                                    <td class="py-0" width="85%">
+                                                                        <input type="text" name="description[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="3 business wks upon receiving of WO & Payment.Extended time may require for disaster issues"
+                                                                            placeholder="Description" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="py-0" width="15%"><input
+                                                                            type="text" name="title[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="Delivery Location"
+                                                                            placeholder="Title" /> </td>
+                                                                    <td class="py-0" width="85%">
+                                                                        <input type="text" name="description[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="Automatic Renewal Activation to the Licenses & Client's Console Panel"
+                                                                            placeholder="Description" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="py-0" width="15%"><input
+                                                                            type="text" name="title[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="Product & Order" placeholder="Title" />
+                                                                    </td>
+                                                                    <td class="py-0" width="85%">
+                                                                        <input type="text" name="description[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="May reject/modify order on any dispute in pr. price or product non-availability during execuation"
+                                                                            placeholder="Description" />
+                                                                    </td>
 
-                                                </tr>
-                                                <tr>
-                                                    <th width="15%"><input type="text" name="title[]"
-                                                        class="form-control maxlength" maxlength="200"
-                                                        value="Installation Support" placeholder="Title"/> </th>
-                                                    <td width="35%">
-                                                        <input type="text" name="description[]"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="Not Applicable. Local Support is Not Included with this Cost as per requirements" placeholder="Description" />
-                                                    </td>
-                                                    <th width="15%"><input type="text" name="title[]"
-                                                        class="form-control maxlength" maxlength="200"
-                                                        value="Pmt Condition" placeholder="Title"/> </th>
-                                                    <td width="35%">
-                                                        <input type="text" name="description[]"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="1.5% penalty per week on late from 7 days of / Payment Date" placeholder="Description" />
-                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="py-0" width="15%"><input
+                                                                            type="text" name="title[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="Installation Support"
+                                                                            placeholder="Title" />
+                                                                    </td>
+                                                                    <td class="py-0" width="85%">
+                                                                        <input type="text" name="description[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="Not Applicable. Local Support is Not Included with this Cost as per requirements"
+                                                                            placeholder="Description" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="py-0" width="15%"><input
+                                                                            type="text" name="title[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="Pmt Condition" placeholder="Title" />
+                                                                    </td>
+                                                                    <td class="py-0" width="85%">
+                                                                        <input type="text" name="description[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="1.5% penalty per week on late from 7 days of / Payment Date"
+                                                                            placeholder="Description" />
+                                                                    </td>
 
-                                                </tr>
-                                                <tr>
-                                                    <th width="15%"><input type="text" name="title[]"
-                                                        class="form-control maxlength" maxlength="200"
-                                                        value="" placeholder="Title"/> </th>
-                                                    <td width="35%">
-                                                        <input type="text" name="description[]"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="" placeholder="Description" />
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th width="15%"><input type="text" name="title[]"
-                                                        class="form-control maxlength" maxlength="200"
-                                                        value="" placeholder="Title"/> </th>
-                                                    <td width="35%">
-                                                        <input type="text" name="description[]"
-                                                            class="form-control maxlength" maxlength="200"
-                                                            value="" placeholder="Description" />
-                                                    </td>
-                                                </tr>
-                                            </thead>
-                                        </table>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="py-0" width="15%"><input
+                                                                            type="text" name="title[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="" placeholder="Title" /> </td>
+                                                                    <td class="py-0" width="85%">
+                                                                        <input type="text" name="description[]"
+                                                                            class="form-control maxlength" maxlength="200"
+                                                                            value="" placeholder="Description" />
+                                                                    </td>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="mt-5"
