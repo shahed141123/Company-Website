@@ -290,7 +290,7 @@
                                                                     </label>
                                                                     <input type="text" name="company_name"
                                                                         class="form-control maxlength" maxlength="200"
-                                                                        required value="{{ $rfq->phone }}" />
+                                                                        required value="{{ $rfq->company_name }}" />
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-4 mb-3">
@@ -505,6 +505,7 @@
         <script>
             $(document).ready(function() {
                 $('.select-wizard').select2();
+                $('a[href*="#finish"]').hide();
             });
         </script>
 
