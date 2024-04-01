@@ -33,7 +33,7 @@ class RFQManageController extends Controller
         $data['users'] = User::where(function ($query) {
             $query->whereJsonContains('department', 'business');
         })->select('id', 'name')->orderBy('id', 'DESC')->get();
-        $data['rfq_details'] = Rfq::where('rfq_code',$id)->first();
+        $data['rfq_details'] = Rfq::with('rfqProducts')->where('rfq_code',$id)->first();
         $data['deal_products'] = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->get();
         $data['commercial_document'] = CommercialDocument::where('rfq_id', $data['rfq_details']->id)->first();
         //dd($data['rfq_details']->rfq_code);
@@ -46,7 +46,7 @@ class RFQManageController extends Controller
         $data['users'] = User::where(function ($query) {
             $query->whereJsonContains('department', 'business');
         })->select('id', 'name')->orderBy('id', 'DESC')->get();
-        $data['rfq_details'] = Rfq::where('rfq_code',$id)->first();
+        $data['rfq_details'] = Rfq::with('rfqProducts')->where('rfq_code',$id)->first();
         $data['deal_products'] = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->get();
         $data['commercial_document'] = CommercialDocument::where('rfq_id', $data['rfq_details']->id)->first();
         //dd($data['rfq_details']->rfq_code);

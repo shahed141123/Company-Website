@@ -452,11 +452,9 @@
                                                         <tr>
                                                             <th width="10%">Client Type</th>
                                                             <th width="20%">Name</th>
-                                                            <th width="15%">Company Name</th>
-                                                            <th width="10%">Asking Quantity </th>
+                                                            <th width="20%">Company Name</th>
                                                             <th width="15%">Phone Number</th>
-                                                            <th width="10%">Total Price</th>
-                                                            <th width="10%" class="text-center">Assigned Sales Manager
+                                                            <th width="25%" class="text-center">Assigned Sales Manager
                                                                 (L1) </th>
                                                             <th width="10%" class="text-center">Status</th>
                                                         </tr>
@@ -467,17 +465,14 @@
                                                                 {{ ucfirst($rfq_details->client_type) }}</td>
                                                             <td> {{ ucfirst($rfq_details->name) }}</td>
                                                             <td> {{ ucfirst($rfq_details->company_name) }}</td>
-                                                            <td>
-                                                                @if (App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->sum('qty') > 0)
-                                                                    {{ App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->sum('qty') }}
+                                                            {{-- <td>
+                                                                @if ($rfq_details->rfqProducts->sum('qty') > 0)
+                                                                    {{ $rfq_details->rfqProducts->sum('qty') }}
                                                                 @else
                                                                     {{ $rfq_details->qty }}
                                                                 @endif
-                                                            </td>
+                                                            </td> --}}
                                                             <td>{{ $rfq_details->phone }}</td>
-                                                            <td>
-                                                                {{ App\Models\Admin\DealSas::where('rfq_id', $rfq_details->id)->value('grand_total') }}
-                                                            </td>
                                                             <td>{{ App\Models\User::where('id', $rfq_details->sales_man_id_L1)->value('name') }}
                                                                 <br>
                                                                 @if ($rfq_details->sales_man_id_T1)
@@ -499,8 +494,28 @@
                                         <div class="tab-content">
                                             <div class="tab-pane fade show" id="product_details">
                                                 <div class="table-responsive text-center">
+                                                    <table class="table table-bordered table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th> Product Name</th>
+                                                                <th> Quantity </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @if ($rfq_details->rfqProducts->count() > 0)
+                                                                @foreach ($rfq_details->rfqProducts as $product)
+                                                                    <tr class="text-black bg-white">
+                                                                        <td>{{ $product->product_name }}</td>
+                                                                        <td>{{ $product->qty }}</td>
+                                                                    </tr>
+                                                                @endforeach
+                                                                @else
+                                                                <tr> No Data Available</tr>
+                                                            @endif
+                                                        </tbody>
+                                                    </table>
                                                     <!-- Product Details Table -->
-                                                    @if (!empty($sourcing->grand_total))
+                                                    {{-- @if (!empty($sourcing->grand_total))
                                                         <table class="table table-bordered"
                                                             style="width: 100%;height: auto;">
                                                             <thead>
@@ -679,7 +694,7 @@
                                                                 </tr>
                                                             </tbody>
                                                         </table>
-                                                    @endif
+                                                    @endif --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -786,9 +801,9 @@
                                                                 @elseif ($rfq_details->status == 'sas_approved')
                                                                     Send
                                                                 @elseif ($rfq_details->status == 'quoted')
-                                                                Send
+                                                                    Send
                                                                 @elseif ($rfq_details->status == 'workorder_uploaded')
-                                                                Send
+                                                                    Send
                                                                 @elseif ($rfq_details->status == 'invoice_sent')
                                                                     Resend
                                                                 @elseif ($rfq_details->status == 'proof_of_payment_uploaded')

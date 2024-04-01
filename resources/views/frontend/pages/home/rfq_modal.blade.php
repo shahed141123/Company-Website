@@ -384,7 +384,7 @@
                                             <label for="contact">Company Name </label>
                                             <input type="text" class="form-control form-control-sm rounded-0"
                                                 id="contact" name="company_name" required
-                                                value="{{ Auth::guard('partner')->user()->company_name }}">
+                                                value="{{ Auth::guard('client')->user()->company_name }}">
                                         </div>
                                     </div>
                                     <div class="form-row">

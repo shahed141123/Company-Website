@@ -125,22 +125,22 @@
                                 <div class="col-lg-4 mb-3 pe-0">
                                     <input type="text" class="form-control rounded-0" required id="name"
                                         name="name" placeholder="Your Name *"
-                                        value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->name : '' }}" />
+                                        value="{{ optional(Auth::guard('client')->user())->name }}" />
                                 </div>
                                 <div class="col-lg-4 mb-3 pe-0">
                                     <input type="number" class="form-control rounded-0" id="phone"
                                         name="phone" placeholder="Your Phone Number *" required
-                                        value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->phone : '' }}" />
+                                        value="{{ optional(Auth::guard('client')->user())->phone }}" />
                                 </div>
                                 <div class="col-lg-4 mb-3">
                                     <input type="text" class="form-control rounded-0" id="contact"
                                         name="company_name" placeholder="Your Company Name *" required
-                                        value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->company_name : '' }}" />
+                                        value="{{ optional(Auth::guard('client')->user())->company_name }}" />
                                 </div>
                                 <div class="col-lg-5 mb-3 pe-0">
                                     <input type="email" required class="form-control rounded-0" id="email"
                                         name="email" placeholder="Your Email *"
-                                        value="{{ Auth::guard('client')->check() ? Auth::guard('client')->user()->email : '' }}" />
+                                        value="{{ optional(Auth::guard('client')->user())->email }}" />
                                     <span class="text-danger text-start p-0 m-0 email_validation"
                                         style="display: none">Please input valid email</span>
                                 </div>

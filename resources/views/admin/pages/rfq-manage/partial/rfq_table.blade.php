@@ -1,13 +1,13 @@
 <table class="rfqDT1 table table-bordered table-hover">
     <thead>
         <tr class="text-center">
-            <th width="10%">RFQ Code</th>
-            <th width="12%">Created At</th>
-            <th width="18%">Client Name</th>
-            <th width="20%">Client Email</th>
+            <th width="19%">RFQ Code</th>
+            <th width="15%">Created At</th>
+            <th width="30%">Client Name (Company)</th>
+            {{-- <th width="20%">Client Email</th> --}}
+            <th width="3%">Details</th>
             <th width="8%">Status</th>
-            <th width="5%">Details</th>
-            <th width="15%" class="text-center">Actions</th>
+            <th width="25%" class="text-center">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -16,8 +16,8 @@
                 <tr class="text-center">
                     <td>{{ ucfirst($rfq->rfq_code) }}</td>
                     <td>{{ ucfirst($rfq->create_date) }}</td>
-                    <td>{{ ucfirst($rfq->name) }}</td>
-                    <td style="text-transform: lowercase;">{{ ucfirst($rfq->email) }}</td>
+                    <td>{{ ucfirst($rfq->name) }} ({{ ucfirst($rfq->company_name) }})</td>
+                    {{-- <td style="text-transform: lowercase;">{{ ucfirst($rfq->email) }}</td> --}}
                     <td><span class="text-muted p-1">{{ ucfirst($rfq->status) }}</span></td>
                     <td>
                         <!-- Show RFQ Details Modal Trigger -->
@@ -51,8 +51,8 @@
                         @endif
 
                         <!-- Delete Deal Link -->
-                        <a href="{{ route('rfq.destroy', [$rfq->id]) }}" class="text-danger delete" title="Delete Deal">
-                            <i class="delete fa-solid fa-trash dash-icons me-3"></i>
+                        <a href="{{ route('rfq.destroy', [$rfq->id]) }}" class="text-danger delete" title="Delete RFQ">
+                            <i class="delete fa-solid fa-trash dash-icons me-2"></i>
                         </a>
                     </td>
                 </tr>
@@ -63,7 +63,6 @@
 
 {{-- Modals --}}
 @foreach ($rfqs as $rfq)
-
     <div id="assign-manager-{{ $rfq->rfq_code }}" class="modal fade" tabindex="-1" style="display: none;"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
@@ -73,154 +72,131 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
-                <div class="modal-body border br-7">
-                    <form method="post" action="{{ route('assign.salesman', $rfq->rfq_code) }}"
-                        enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
+                <form method="post" action="{{ route('assign.salesman', $rfq->rfq_code) }}"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-body border br-7">
                         <div class="row mb-1">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="col-lg-12">
-                                        <p class="devider-text mb-0 p-1">Client Detils</p>
-                                        <div class="border card rounded-0">
-                                            <div class="row mt-1">
-                                                <div class="col-lg-12 d-flex justify-content-between">
-                                                    <p class="p-2 m-0 text-start">
-                                                        <span class="text-secondary">Client Type :</span> <br>
-                                                        {{ !empty($rfq->client_type) ? ucfirst($rfq->client_type) : 'Anonymous' }}
-                                                    </p>
-                                                    <p class="p-2 m-0 text-start">
-                                                        <span class="text-secondary">Name :</span> <br>
-                                                        {{ ucfirst($rfq->name) }}
-                                                    </p>
-                                                    <p class="p-2 m-0 text-start">
-                                                        <span class="text-secondary">Company Name :</span> <br>
-                                                        {{ ucfirst($rfq->company_name) }}
-                                                    </p>
-                                                    <p class="p-2 m-0 text-start">
-                                                        <span class="text-secondary">Phone Number : </span> <br>
-                                                        {{ $rfq->phone }}
-                                                    </p>
-                                                    @if ($rfq->call == 1)
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <p class="devider-text mb-0 p-1">Client Detils</p>
+                                            <div class="border card rounded-0">
+                                                <div class="row mt-1">
+                                                    <div class="col-lg-12 d-flex justify-content-between">
                                                         <p class="p-2 m-0 text-start">
-                                                            <span class="badge bg-success">Call Required</span>
+                                                            <span class="text-secondary">Client Type :</span> <br>
+                                                            {{ !empty($rfq->client_type) ? ucfirst($rfq->client_type) : 'Anonymous' }}
                                                         </p>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="devider-text mb-0 p-1">RFQ Details</p>
-                                        <div class="border card rounded-0">
-                                            <div class="row mt-1 px-0 pt-2">
-                                                <div class="col-lg-12">
-                                                    <div class="table-responsive p-2">
-                                                        <table class="table table-bordered table-striped p-1">
-                                                            <thead
-                                                                style="background-color: #2472979e !important;color: white !important;">
-                                                                @if ($rfq->rfqProducts->count() > 0)
-                                                                    <tr>
-                                                                        <th class="p-1"> Product Name</th>
-                                                                        <th class="p-1"> Quantity </th>
-                                                                    </tr>
-
-                                                                    @foreach ($rfq->rfqProducts as $product)
-                                                                        <tr class="text-black bg-white">
-                                                                            <td>{{ $product->product_name }}</td>
-                                                                            <td>{{ $product->qty }}</td>
-                                                                        </tr>
-                                                                    @endforeach
-                                                                @else
-                                                                @endif
-                                                            </thead>
-                                                        </table>
+                                                        <p class="p-2 m-0 text-start">
+                                                            <span class="text-secondary">Name :</span> <br>
+                                                            {{ ucfirst($rfq->name) }}
+                                                        </p>
+                                                        <p class="p-2 m-0 text-start">
+                                                            <span class="text-secondary">Company Name :</span> <br>
+                                                            {{ ucfirst($rfq->company_name) }}
+                                                        </p>
+                                                        <p class="p-2 m-0 text-start">
+                                                            <span class="text-secondary">Phone Number : </span> <br>
+                                                            {{ $rfq->phone }}
+                                                        </p>
+                                                        @if ($rfq->call == 1)
+                                                            <p class="p-2 m-0 text-start">
+                                                                <span class="badge bg-success">Call Required</span>
+                                                            </p>
+                                                        @endif
                                                     </div>
-                                                    {{-- <div class="row pb-3 px-3">
-                                                        <div class="col-lg-4 text-start">
-                                                            <p class="p-0 m-0 text-secondary">Assigned Sales Manager
-                                                                (L1) :</p>
-                                                            {{ App\Models\User::where('id', $rfq->sales_man_id_L1)->value('name') }}
+                                                </div>
+                                            </div>
+                                            <p class="devider-text mb-0 p-1">RFQ Details</p>
+                                            <div class="border card rounded-0">
+                                                <div class="row mt-1 px-0 pt-2">
+                                                    <div class="col-lg-12">
+                                                        <div class="table-responsive p-2">
+                                                            <table class="table table-bordered table-striped p-1">
+                                                                <thead
+                                                                    style="background-color: #2472979e !important;color: white !important;">
+                                                                    @if ($rfq->rfqProducts->count() > 0)
+                                                                        <tr>
+                                                                            <th class="p-1"> Product Name</th>
+                                                                            <th class="p-1"> Quantity </th>
+                                                                        </tr>
 
+                                                                        @foreach ($rfq->rfqProducts as $product)
+                                                                            <tr class="text-black bg-white">
+                                                                                <td>{{ $product->product_name }}</td>
+                                                                                <td>{{ $product->qty }}</td>
+                                                                            </tr>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </thead>
+                                                            </table>
+                                                        </div>
 
-                                                        </div>
-                                                        <div class="col-lg-4 text-start">
-                                                            @if ($rfq->sales_man_id_T1)
-                                                                <p class="p-0 m-0 text-secondary">Assigned Sales
-                                                                    Manager (T1) :</p>
-                                                                {{ App\Models\User::where('id', $rfq->sales_man_id_T1)->value('name') }}
-                                                            @endif
-                                                        </div>
-                                                        <div class="col-lg-4 text-start">
-                                                            @if ($rfq->sales_man_id_T2)
-                                                                <p class="p-0 m-0 text-secondary"> Assigned Sales
-                                                                    Manager (T2) :</p>
-                                                                {{ App\Models\User::where('id', $rfq->sales_man_id_T2)->value('name') }}
-                                                            @endif
-                                                        </div>
-                                                    </div> --}}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="row p-2">
-                                    <div class="col-12 text-center">
-                                        <strong>Assign Sales Manager :</strong>
-                                        <a class="p-1 editRfquser" href="javascript:void(0);">
-                                            <i class="ph-note-pencil text-success" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 Rfquser" style="display:none">
-                                        <div class="row mb-1 p-2 border">
-                                            <div class="col-lg-4">
-                                                <div class="col-sm-12">
-                                                    <p class="mb-0">Sales Manager Name (Leader - L1)
-                                                        <span class="text-danger">*</span>
-                                                    </p>
+                                    <div class="row p-2">
+                                        <div class="col-12 text-center mb-3">
+                                            <strong>Assign Sales Manager :</strong>
+                                            <a class="p-1 editRfquser" href="javascript:void(0);">
+                                                <i class="ph-note-pencil text-success" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col-12 Rfquser" style="display:none">
+                                            <div class="row mb-1 p-2 border">
+                                                <div class="col-lg-4">
+                                                    <div class="col-sm-12">
+                                                        <p class="mb-0">Leader - L1 <span class="text-danger">*</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="form-group text-secondary col-sm-12">
+                                                        <select name="sales_man_id_L1" class="form-control select"
+                                                            data-minimum-results-for-search="Infinity"
+                                                            data-placeholder="Choose Sales Manager">
+                                                            <option></option>
+                                                            @foreach ($users as $user)
+                                                                <option value="{{ $user->id }}">
+                                                                    {{ $user->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                                <div class="form-group text-secondary col-sm-12">
-                                                    <select name="sales_man_id_L1" class="form-control select"
-                                                        data-minimum-results-for-search="Infinity"
-                                                        data-placeholder="Choose Sales Manager">
-                                                        <option></option>
-                                                        @foreach ($users as $user)
-                                                            <option value="{{ $user->id }}">
-                                                                {{ $user->name }}</option>
-                                                        @endforeach
-                                                    </select>
+                                                <div class="col-lg-4">
+                                                    <div class="col-sm-12">
+                                                        <p class="mb-0">Team - T1</p>
+                                                    </div>
+                                                    <div class="form-group text-secondary col-sm-12">
+                                                        <select name="sales_man_id_T1" class="form-control select"
+                                                            data-minimum-results-for-search="Infinity"
+                                                            data-placeholder="Choose Sales Manager">
+                                                            <option></option>
+                                                            @foreach ($users as $user)
+                                                                <option value="{{ $user->id }}">
+                                                                    {{ $user->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="col-sm-12">
-                                                    <p class="mb-0">Sales Manager Name (Team - T1)</p>
-                                                </div>
-                                                <div class="form-group text-secondary col-sm-12">
-                                                    <select name="sales_man_id_T1" class="form-control select"
-                                                        data-minimum-results-for-search="Infinity"
-                                                        data-placeholder="Choose Sales Manager">
-                                                        <option></option>
-                                                        @foreach ($users as $user)
-                                                            <option value="{{ $user->id }}">
-                                                                {{ $user->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="col-sm-12">
-                                                    <p class="mb-0">Sales Manager Name (Team - T2)</p>
-                                                </div>
-                                                <div class="form-group text-secondary col-sm-12">
-                                                    <select name="sales_man_id_T2" class="form-control select"
-                                                        data-minimum-results-for-search="Infinity"
-                                                        data-placeholder="Choose Sales Manager">
-                                                        <option></option>
-                                                        @foreach ($users as $user)
-                                                            <option value="{{ $user->id }}">
-                                                                {{ $user->name }}</option>
-                                                        @endforeach
-                                                    </select>
+                                                <div class="col-lg-4">
+                                                    <div class="col-sm-12">
+                                                        <p class="mb-0">Team - T2</p>
+                                                    </div>
+                                                    <div class="form-group text-secondary col-sm-12">
+                                                        <select name="sales_man_id_T2" class="form-control select"
+                                                            data-minimum-results-for-search="Infinity"
+                                                            data-placeholder="Choose Sales Manager">
+                                                            <option></option>
+                                                            @foreach ($users as $user)
+                                                                <option value="{{ $user->id }}">
+                                                                    {{ $user->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -228,14 +204,14 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-                <div class="modal-footer border p-1 Rfquser" style="display:none">
-                    <div class="row">
-                        <div class="col-3">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <div class="modal-footer border p-1 Rfquser" style="display:none">
+                        <div class="row">
+                            <div class="col-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </form>
             </div>
         </div>
