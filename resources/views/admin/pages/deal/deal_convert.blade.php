@@ -42,8 +42,8 @@
             box-shadow: inset 0 0 0 9999px var(--table-accent-bg);
         }
 
-        .actions>ul>li:last-child {
-            display: none;
+        .actions ul li a[href="#finish"][role="menuitem"] {
+            display: none !important;
         }
     </style>
     {{-- Content Start --}}
