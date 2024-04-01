@@ -41,10 +41,6 @@
             border-bottom-width: var(--table-border-width);
             box-shadow: inset 0 0 0 9999px var(--table-accent-bg);
         }
-
-        .actions ul li a[href="#finish"][role="menuitem"] {
-            display: none !important;
-        }
     </style>
     {{-- Content Start --}}
     <div class="content-wrapper">
@@ -372,16 +368,15 @@
                             <h6>Terms & Condition</h6>
                             <fieldset>
                                 <div class="row">
-                                    <div class="col-lg-10 offset-lg-2 mx-auto px-0">
+                                    <div class="col-lg-10 offset-lg-1 mx-auto px-0">
                                         <div class="row mb-3">
                                             <div class="col-lg-12">
                                                 <div class="table-responsive">
                                                     .<div class="table-responsive">
-                                                        <table class="table table-bordered table-striped mt-4">
+                                                        <table class="table table-bordered table-striped">
                                                             <thead>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%"><input
-                                                                            type="text" name="title[]"
+                                                                    <td class="py-0" width="15%"><input type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="Validity" placeholder="Title" /> </td>
                                                                     <td class="py-0" width="85%">
@@ -405,11 +400,9 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%"><input
-                                                                            type="text" name="title[]"
+                                                                    <td class="py-0" width="15%"><input type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
-                                                                            value="Payment Mode" placeholder="Title" />
-                                                                    </td>
+                                                                            value="Payment Mode" placeholder="Title" /> </td>
                                                                     <td class="py-0" width="85%">
                                                                         <input type="text" name="description[]"
                                                                             class="form-control maxlength" maxlength="200"
@@ -431,11 +424,9 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%"><input
-                                                                            type="text" name="title[]"
+                                                                    <td class="py-0" width="15%"><input type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
-                                                                            value="Delivery Location"
-                                                                            placeholder="Title" /> </td>
+                                                                            value="Delivery Location" placeholder="Title" /> </td>
                                                                     <td class="py-0" width="85%">
                                                                         <input type="text" name="description[]"
                                                                             class="form-control maxlength" maxlength="200"
@@ -444,11 +435,9 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%"><input
-                                                                            type="text" name="title[]"
+                                                                    <td class="py-0" width="15%"><input type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
-                                                                            value="Product & Order" placeholder="Title" />
-                                                                    </td>
+                                                                            value="Product & Order" placeholder="Title" /> </td>
                                                                     <td class="py-0" width="85%">
                                                                         <input type="text" name="description[]"
                                                                             class="form-control maxlength" maxlength="200"
@@ -458,11 +447,9 @@
 
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%"><input
-                                                                            type="text" name="title[]"
+                                                                    <td class="py-0" width="15%"><input type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
-                                                                            value="Installation Support"
-                                                                            placeholder="Title" />
+                                                                            value="Installation Support" placeholder="Title" />
                                                                     </td>
                                                                     <td class="py-0" width="85%">
                                                                         <input type="text" name="description[]"
@@ -472,11 +459,9 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%"><input
-                                                                            type="text" name="title[]"
+                                                                    <td class="py-0" width="15%"><input type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
-                                                                            value="Pmt Condition" placeholder="Title" />
-                                                                    </td>
+                                                                            value="Pmt Condition" placeholder="Title" /> </td>
                                                                     <td class="py-0" width="85%">
                                                                         <input type="text" name="description[]"
                                                                             class="form-control maxlength" maxlength="200"
@@ -486,8 +471,7 @@
 
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%"><input
-                                                                            type="text" name="title[]"
+                                                                    <td class="py-0" width="15%"><input type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="" placeholder="Title" /> </td>
                                                                     <td class="py-0" width="85%">
@@ -505,8 +489,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mt-5"
-                                    style="display: flex;justify-content: end;margin-bottom: -39px;z-index: 999;position: relative;width: 80px;">
+                                <div class="mt-5" style="display: flex;justify-content: end;margin-bottom: -39px;z-index: 999;position: relative;">
                                     <button class="btn btn-primary" id="custom-submit" type="submit">Submit</button>
                                 </div>
                             </fieldset>
@@ -638,6 +621,27 @@
                 });
                 var password = $("input[name='phone']").val();
                 $("input[name='password']").val(password);
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Select the anchor tag
+                var anchorElement = document.querySelector('.actions a[href="#finish"][role="menuitem"]');
+
+                // Check if the anchor tag exists
+                if (anchorElement) {
+                    // Create a new button element
+                    var buttonElement = document.createElement('button');
+                    buttonElement.classList.add('btn', 'btn-primary');
+                    buttonElement.setAttribute('type', 'submit');
+                    buttonElement.textContent = 'Submit';
+
+                    // Append the button element after the anchor tag
+                    anchorElement.parentNode.appendChild(buttonElement);
+
+                    // Remove the anchor tag
+                    anchorElement.parentNode.removeChild(anchorElement);
+                }
             });
         </script>
     @endpush
