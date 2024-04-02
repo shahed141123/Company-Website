@@ -34,13 +34,18 @@
                                                 <i class="fa-brands fa-whatsapp"></i> <span>Whats App</span>
                                             </a>
                                             <a href="skype:<ngenit>?chat"
-                                                class="mx-auto py-2 btn-color mb-2 top-info-text w-100"
+                                                class="mx-auto py-2 btn-color top-info-text w-100"
                                                 style="font-size: 13px">
                                                 <i class="fa-brands fa-skype"></i> <span>Skype</span>
                                             </a>
                                         </div>
                                         <hr class="text-muted" />
-                                        <ul class="account p-0 text-muted text-start">
+                                        <div class="text-center">
+                                            <small class="main_color">Hotline:</small> <br>
+                                            <small><a href="">+8801714243446</a></small>
+                                            <small><a href="">sales@ngenitltd.com</a></small>
+                                        </div>
+                                        {{-- <ul class="account p-0 text-muted text-start">
                                             <li>
                                                 Check Our
                                                 <a href="{{ route('shop') }}" target="_blank" class="main_color">Shop
@@ -51,7 +56,7 @@
                                                 <a href="{{ route('all.solution') }}" target="_blank"
                                                     class="main_color">Solution</a>
                                             </li>
-                                        </ul>
+                                        </ul> --}}
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +104,7 @@
                                                 <hr class="text-muted" />
                                             @else
                                                 <a href="{{ route('client.login') }}"
-                                                    class="mx-auto py-2 btn-color mb-2 top-info-text w-100"
+                                                    class="mx-auto py-2 btn-color top-info-text w-100"
                                                     style="font-size: 13px">
                                                     Sign In
                                                 </a>

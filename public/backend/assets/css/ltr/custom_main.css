@@ -167,16 +167,7 @@ thead {
 } */
 
 /*Custom icon Btn */
-.btn-close {
-    color: #247297 !important;
-    padding: 5px !important;
-    border-radius: 30px;
-    width: 10px;
-    transition: 0.5s;
-    display: flex;
-    height: 10px;
-    text-align: center;
-}
+
 
 .icon_btn {
     /* background: #247297; */
@@ -648,6 +639,7 @@ input.invalid {
 
 .modal-header {
     border-radius: 0px;
+    padding: 15px 20px;
 }
 
 .custom_btn {
