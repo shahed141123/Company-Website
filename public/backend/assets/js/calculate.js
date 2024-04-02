@@ -4,11 +4,11 @@
 //     }
 // });
 
-// document.querySelector('.calculate').addEventListener('keydown', function(event) {
-//     if (event.keyCode === 13) {
-//         event.preventDefault();
-//     }
-// });
+document.querySelector('.calculate').addEventListener('keydown', function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+    }
+});
 
 
 

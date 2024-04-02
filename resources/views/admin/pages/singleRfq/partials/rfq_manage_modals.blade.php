@@ -372,13 +372,13 @@
                                                     <td style="background: #7e7d7c">
                                                         <p class="text-center pt-1 text-white">PQ NO:
                                                             <input class="form-control form-control-sm" type="text"
-                                                                name="pq_code" placeholder="NG-BD/Genexis/RV/231021">
+                                                                name="pq_code" placeholder="NG-BD/Genexis/RV/231021" value="NG-BD/Genexis/RV/231021">
                                                         </p>
                                                     </td>
                                                     <td style="background: #7e7d7c">
                                                         <p class="text-center pt-1 text-white">PQR NO:
                                                             <input class="form-control form-control-sm" type="text"
-                                                                name="pqr_code_one" placeholder="MEO-P021(T10)-W(L1)">
+                                                                name="pqr_code_one" placeholder="MEO-P021(T10)-W(L1)" value="MEO-P021(T10)-W(L1)">
                                                         </p>
                                                     </td>
                                                     <td style="background: #7e7d7c">

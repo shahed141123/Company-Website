@@ -5,7 +5,7 @@
     <div class="content-wrapper">
         <!-- Page header -->
         <div class="page-header page-header-light">
-            <div class="page-header-content d-lg-flex border-top">
+            <div class="page-header-content d-lg-flex border-top justify-content-between align-items-center">
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
                         <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
@@ -17,6 +17,20 @@
                         class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
                         data-bs-toggle="collapse">
                         <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
+                    </a>
+                </div>
+                <div>
+                    <a href="{{ route('rfq.list') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-business-time me-1" style="font-size: 12px;"></i>
+                            <span>RFQ List</span>
+                        </div>
+                    </a>
+                    <a href="{{ route('deal.list') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-business-time me-1" style="font-size: 12px;"></i>
+                            <span>Deal List</span>
+                        </div>
                     </a>
                 </div>
             </div>
