@@ -330,30 +330,33 @@
                                         <div class="row mb-3 px-0">
                                             <div class="col-lg-12">
                                                 <div class="table-responsive">
-                                                    <table class="table table-bordered text-center">
+                                                    <table class="table table-bordered text-center my-4">
                                                         <thead>
                                                             <tr>
+                                                                <th width="5%"> SL </th>
                                                                 <th width="75%"> Product Name </th>
-                                                                <th width="10%%"> Qty <span class="text-danger">*</span>
-                                                                </th>
+                                                                <th width="5%"> Qty <span class="text-danger">*</span></th>
                                                                 <th width="15%"> Unit Price</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="repeater">
                                                             <tr>
                                                                 <td>
-                                                                    {{ $rfq_product->product_name }}
-                                                                    <input type="hidden" class="form-control"
+                                                                   {{$loop->iteration()}}
+                                                                </td>
+                                                                <td>
+                                                                    {{-- {{ $rfq_product->product_name }} --}}
+                                                                    <input type="text" class="form-control"
                                                                         name="item_name[]"
                                                                         value="{{ $rfq_product->product_name }}" required>
                                                                 </td>
-                                                                <td class="py-0">
+                                                                <td class="py-0 px-0 text-center">
                                                                     <input type="text" class="form-control"
                                                                         name="qty[]" required
                                                                         value="{{ $rfq_product->qty }}">
                                                                 </td>
-                                                                <td class="py-0">
-                                                                    <input type="text" class="form-control"
+                                                                <td class="py-0 px-0 text-center">
+                                                                    <input type="text" class="form-control text-center"
                                                                         name="unit_price[]">
                                                                 </td>
                                                             </tr>
@@ -372,14 +375,15 @@
                                         <div class="row mb-3">
                                             <div class="col-lg-12">
                                                 <div class="table-responsive">
-                                                    .<div class="table-responsive">
+                                                    <div class="table-responsive">
                                                         <table class="table table-bordered table-striped">
                                                             <thead>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%"><input type="text" name="title[]"
+                                                                    <td class="py-0 px-0" width="15%"><input
+                                                                            type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="Validity" placeholder="Title" /> </td>
-                                                                    <td class="py-0" width="85%">
+                                                                    <td class="py-0 px-0" width="85%">
                                                                         <input type="text" name="description[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="7 Days from the PQ date.Offer may change on the bank forex rate or stock availability"
@@ -387,12 +391,12 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%">
+                                                                    <td class="py-0 px-0" width="15%">
                                                                         <input type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="Payment" placeholder="Title" />
                                                                     </td>
-                                                                    <td class="py-0" width="85%">
+                                                                    <td class="py-0 px-0" width="85%">
                                                                         <input type="text" name="description[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="100% advanced payment with Work Order for Renewal order Excuation"
@@ -400,10 +404,12 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%"><input type="text" name="title[]"
+                                                                    <td class="py-0 px-0" width="15%"><input
+                                                                            type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
-                                                                            value="Payment Mode" placeholder="Title" /> </td>
-                                                                    <td class="py-0" width="85%">
+                                                                            value="Payment Mode" placeholder="Title" />
+                                                                    </td>
+                                                                    <td class="py-0 px-0" width="85%">
                                                                         <input type="text" name="description[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="May reject/modify order on any dispute in pr. price or product non-availability during execuation"
@@ -411,12 +417,12 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%">
+                                                                    <td class="py-0 px-0" width="15%">
                                                                         <input type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="Delivery" placeholder="Title" />
                                                                     </td>
-                                                                    <td class="py-0" width="85%">
+                                                                    <td class="py-0 px-0" width="85%">
                                                                         <input type="text" name="description[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="3 business wks upon receiving of WO & Payment.Extended time may require for disaster issues"
@@ -424,10 +430,12 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%"><input type="text" name="title[]"
+                                                                    <td class="py-0 px-0" width="15%"><input
+                                                                            type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
-                                                                            value="Delivery Location" placeholder="Title" /> </td>
-                                                                    <td class="py-0" width="85%">
+                                                                            value="Delivery Location"
+                                                                            placeholder="Title" /> </td>
+                                                                    <td class="py-0 px-0" width="85%">
                                                                         <input type="text" name="description[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="Automatic Renewal Activation to the Licenses & Client's Console Panel"
@@ -435,10 +443,12 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%"><input type="text" name="title[]"
+                                                                    <td class="py-0 px-0" width="15%"><input
+                                                                            type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
-                                                                            value="Product & Order" placeholder="Title" /> </td>
-                                                                    <td class="py-0" width="85%">
+                                                                            value="Product & Order" placeholder="Title" />
+                                                                    </td>
+                                                                    <td class="py-0 px-0" width="85%">
                                                                         <input type="text" name="description[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="May reject/modify order on any dispute in pr. price or product non-availability during execuation"
@@ -447,11 +457,13 @@
 
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%"><input type="text" name="title[]"
+                                                                    <td class="py-0 px-0" width="15%"><input
+                                                                            type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
-                                                                            value="Installation Support" placeholder="Title" />
+                                                                            value="Installation Support"
+                                                                            placeholder="Title" />
                                                                     </td>
-                                                                    <td class="py-0" width="85%">
+                                                                    <td class="py-0 px-0" width="85%">
                                                                         <input type="text" name="description[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="Not Applicable. Local Support is Not Included with this Cost as per requirements"
@@ -459,10 +471,12 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%"><input type="text" name="title[]"
+                                                                    <td class="py-0 px-0" width="15%"><input
+                                                                            type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
-                                                                            value="Pmt Condition" placeholder="Title" /> </td>
-                                                                    <td class="py-0" width="85%">
+                                                                            value="Pmt Condition" placeholder="Title" />
+                                                                    </td>
+                                                                    <td class="py-0 px-0" width="85%">
                                                                         <input type="text" name="description[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="1.5% penalty per week on late from 7 days of / Payment Date"
@@ -471,10 +485,11 @@
 
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="py-0" width="15%"><input type="text" name="title[]"
+                                                                    <td class="py-0 px-0" width="15%"><input
+                                                                            type="text" name="title[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="" placeholder="Title" /> </td>
-                                                                    <td class="py-0" width="85%">
+                                                                    <td class="py-0 px-0" width="85%">
                                                                         <input type="text" name="description[]"
                                                                             class="form-control maxlength" maxlength="200"
                                                                             value="" placeholder="Description" />
@@ -489,7 +504,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mt-5" style="display: flex;justify-content: end;margin-bottom: -39px;z-index: 999;position: relative;">
+                                <div class="mt-5"
+                                    style="display: flex;justify-content: end;margin-bottom: -39px;z-index: 999;position: relative;">
                                     <button class="btn btn-primary" id="custom-submit" type="submit">Submit</button>
                                 </div>
                             </fieldset>

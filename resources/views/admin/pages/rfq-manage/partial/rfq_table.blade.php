@@ -1,3 +1,8 @@
+<style>
+    thead {
+        background-color: #f9f9f9 !important;
+    }
+</style>
 <table class="rfqDT1 table table-bordered table-hover">
     <thead>
         <tr class="text-center">
