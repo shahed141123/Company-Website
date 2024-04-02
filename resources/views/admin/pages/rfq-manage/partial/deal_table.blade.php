@@ -113,7 +113,7 @@
                 <div class="modal-body border br-7">
                     <div class="row">
                         <div class="col-lg-12">
-                            <p class="devider-text mb-0 p-1">Client Detils</p>
+                            <p class="devider-text mb-0 p-2 pt-0">Client Detils</p>
                             <div class="border card rounded-0">
                                 <div class="row mt-1">
                                     <div class="col-lg-12 d-flex justify-content-between">
@@ -136,7 +136,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="devider-text mb-0 p-1">RFQ Details</p>
+                            <p class="devider-text mb-0 p-2 pt-0">RFQ Details</p>
                             <div class="border card rounded-0">
                                 <div class="row mt-1 px-0 pt-2">
                                     <div class="col-lg-12">
