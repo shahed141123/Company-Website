@@ -340,23 +340,25 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody class="repeater">
-                                                            <tr>
-                                                                <td>
-                                                                    {{ $rfq_product->product_name }}
-                                                                    <input type="hidden" class="form-control"
-                                                                        name="item_name[]"
-                                                                        value="{{ $rfq_product->product_name }}" required>
-                                                                </td>
-                                                                <td class="py-0">
-                                                                    <input type="text" class="form-control"
-                                                                        name="qty[]" required
-                                                                        value="{{ $rfq_product->qty }}">
-                                                                </td>
-                                                                <td class="py-0">
-                                                                    <input type="text" class="form-control"
-                                                                        name="unit_price[]">
-                                                                </td>
-                                                            </tr>
+                                                            @foreach ($rfq_products as $rfq_product)
+                                                                <tr>
+                                                                    <td>
+                                                                        {{ $rfq_product->product_name }}
+                                                                        <input type="hidden" class="form-control"
+                                                                            name="item_name[]"
+                                                                            value="{{ $rfq_product->product_name }}" required>
+                                                                    </td>
+                                                                    <td class="py-0">
+                                                                        <input type="text" class="form-control"
+                                                                            name="qty[]" required
+                                                                            value="{{ $rfq_product->qty }}">
+                                                                    </td>
+                                                                    <td class="py-0">
+                                                                        <input type="text" class="form-control"
+                                                                            name="unit_price[]">
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>
