@@ -10,9 +10,12 @@
 
                         <div class="mx-auto d-block">
                             @php
-                                $mainImage = $multi_images->isNotEmpty() ? $multi_images->first()->photo : $sproduct->thumbnail;
+                                $mainImage = $multi_images->isNotEmpty()
+                                    ? $multi_images->first()->photo
+                                    : $sproduct->thumbnail;
                             @endphp
-                            <img id="expand" class="geeks img-fluid mx-auto d-block w-100" src="{{ asset($sproduct->thumbnail) }}">
+                            <img id="expand" class="geeks img-fluid mx-auto d-block w-100"
+                                src="{{ asset($sproduct->thumbnail) }}">
                         </div>
 
                         @if ($multi_images->isNotEmpty())
@@ -85,10 +88,19 @@
                                                     id="product-avalialability-by-warehouse">
                                                     <span aria-label="Stock Availability" class="js-prod-available"> <i
                                                             class="fa fa-info-circle text-success"></i> Stock</span> <br>
-                                                    @if ($sproduct->qty > 0)
+                                                    @if ($sproduct->stock == 'available')
                                                         <span class="text-success"
                                                             style="font-size:17px">{{ $sproduct->qty }}
                                                             in stock</span>
+                                                    @elseif ($sproduct->stock == 'limited')
+                                                        <span class="text-success"
+                                                            style="font-size:17px; font-weight:500;">Limited</span>
+                                                    @elseif ($sproduct->stock == 'unlimited')
+                                                        <span class="text-success"
+                                                            style="font-size:17px; font-weight:500;">Unlimited</span>
+                                                    @elseif ($sproduct->stock == 'stock_out')
+                                                        <span class="text-danger"
+                                                            style="font-size:17px; font-weight:500;">Stock Out</span>
                                                     @else
                                                         <span class="text-danger pb-2"
                                                             style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>
@@ -128,10 +140,19 @@
                                                         <span aria-label="Stock Availability" class="js-prod-available"> <i
                                                                 class="fa fa-info-circle text-success"></i> Stock</span>
                                                         <br>
-                                                        @if ($sproduct->qty > 0)
+                                                        @if ($sproduct->stock == 'available')
                                                             <span class="text-success"
                                                                 style="font-size:17px">{{ $sproduct->qty }}
                                                                 in stock</span>
+                                                        @elseif ($sproduct->stock == 'limited')
+                                                            <span class="text-success"
+                                                                style="font-size:17px; font-weight:500;">Limited</span>
+                                                        @elseif ($sproduct->stock == 'unlimited')
+                                                            <span class="text-success"
+                                                                style="font-size:17px; font-weight:500;">Unlimited</span>
+                                                        @elseif ($sproduct->stock == 'stock_out')
+                                                            <span class="text-danger"
+                                                                style="font-size:17px; font-weight:500;">Stock Out</span>
                                                         @else
                                                             <span class="text-danger pb-2"
                                                                 style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>
@@ -169,10 +190,19 @@
                                                 id="product-avalialability-by-warehouse">
                                                 <span aria-label="Stock Availability" class="js-prod-available"> <i
                                                         class="fa fa-info-circle text-success"></i> Stock</span> <br>
-                                                @if ($sproduct->qty > 0)
+                                                @if ($sproduct->stock == 'available')
                                                     <span class="text-success"
                                                         style="font-size:17px">{{ $sproduct->qty }}
                                                         in stock</span>
+                                                @elseif ($sproduct->stock == 'limited')
+                                                    <span class="text-success"
+                                                        style="font-size:17px; font-weight:500;">Limited</span>
+                                                @elseif ($sproduct->stock == 'unlimited')
+                                                    <span class="text-success"
+                                                        style="font-size:17px; font-weight:500;">Unlimited</span>
+                                                @elseif ($sproduct->stock == 'stock_out')
+                                                    <span class="text-danger"
+                                                        style="font-size:17px; font-weight:500;">Stock Out</span>
                                                 @else
                                                     <span class="text-danger pb-2"
                                                         style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>
@@ -279,10 +309,19 @@
                                                 id="product-avalialability-by-warehouse">
                                                 <span aria-label="Stock Availability" class="js-prod-available"> <i
                                                         class="fa fa-info-circle text-success"></i> Stock</span> <br>
-                                                @if ($sproduct->qty > 0)
+                                                @if ($sproduct->stock == 'available')
                                                     <span class="text-success"
                                                         style="font-size:17px">{{ $sproduct->qty }}
                                                         in stock</span>
+                                                @elseif ($sproduct->stock == 'limited')
+                                                    <span class="text-success"
+                                                        style="font-size:17px; font-weight:500;">Limited</span>
+                                                @elseif ($sproduct->stock == 'unlimited')
+                                                    <span class="text-success"
+                                                        style="font-size:17px; font-weight:500;">Unlimited</span>
+                                                @elseif ($sproduct->stock == 'stock_out')
+                                                    <span class="text-danger"
+                                                        style="font-size:17px; font-weight:500;">Stock Out</span>
                                                 @else
                                                     <span class="text-danger pb-2"
                                                         style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>

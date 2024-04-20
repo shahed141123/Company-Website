@@ -588,15 +588,13 @@ class RFQController extends Controller
 
     public function DealConvert($id)
     {
-        $data['users'] = User::where(function ($query) {
-            $query->whereJsonContains('department', 'business');
-        })->select('id', 'name')->orderBy('id', 'DESC')->get();
+        $data['users']        = User::where(function ($query) {$query->whereJsonContains('department', 'business');})->select('id', 'name')->orderBy('id', 'DESC')->get();
         // $data['products'] = Product::select('products.id', 'products.name')->where('product_status','product')->get();
         // $data['solution_details'] = SolutionDetail::select('solution_details.id', 'solution_details.name')->get();
-        $data['clients'] = Client::where('user_type', 'client')->select('clients.id', 'clients.name')->get();
-        $data['partners'] = Client::where('user_type', 'partner')->select('clients.id', 'clients.name')->get();
-        $data['rfq'] = Rfq::find($id);
-        $data['rfq_product'] = RfqProduct::where('rfq_id', $data['rfq']->id)->first();
+        $data['clients']      = Client::where('user_type', 'client')->select('clients.id', 'clients.name')->get();
+        $data['partners']     = Client::where('user_type', 'partner')->select('clients.id', 'clients.name')->get();
+        $data['rfq']          = Rfq::find($id);
+        $data['rfq_products'] = RfqProduct::where('rfq_id', $data['rfq']->id)->get();
         return view('admin.pages.deal.deal_convert', $data);
     }
 

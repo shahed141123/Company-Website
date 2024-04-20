@@ -401,7 +401,7 @@
                                         <div class="mb-1 col-md-6">
                                             <label for="academic_result_one" class="fw-light">Result-One <span
                                                     class="text-danger">*</span></label>
-                                            <input type="number"
+                                            <input type="text"
                                                 class="form-control form-control-sm border-0 bg-light"
                                                 id="academic_result_one" name="academic_result_one"
                                                 placeholder="E.g: 3.70" required>
@@ -431,7 +431,7 @@
                                         <div class="mb-1 col-md-6">
                                             <label for="academic_passing_two" class="fw-light">Passing
                                                 Year-Two</label>
-                                            <input type="number"
+                                            <input type="date"
                                                 class="form-control form-control-sm border-0 bg-light"
                                                 id="academic_passing_two" name="academic_passing_two"
                                                 placeholder="E.g: 10/05/2023">

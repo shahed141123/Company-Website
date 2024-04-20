@@ -344,6 +344,7 @@
                                                             @foreach ($rfq_products as $rfq_product)
                                                                 <tr>
                                                                     <td>
+<<<<<<< HEAD
                                                                         {{ $loop->iteration() }}
                                                                     </td>
                                                                     <td>
@@ -352,6 +353,15 @@
                                                                             name="item_name[]"
                                                                             value="{{ $rfq_product->product_name }}"
                                                                             required>
+=======
+                                                                       {{$loop->iteration()}}
+                                                                </td>
+                                                                <td>
+                                                                    {{-- {{ $rfq_product->product_name }} --}}
+                                                                        <input type="text" class="form-control"
+                                                                            name="item_name[]"
+                                                                            value="{{ $rfq_product->product_name }}" required>
+>>>>>>> 94e1302fce0fef8eb48673c510bab6578e54ae91
                                                                     </td>
                                                                     <td class="py-0 px-0 text-center">
                                                                         <input type="text" class="form-control"
@@ -359,8 +369,12 @@
                                                                             value="{{ $rfq_product->qty }}">
                                                                     </td>
                                                                     <td class="py-0 px-0 text-center">
+<<<<<<< HEAD
                                                                         <input type="text"
                                                                             class="form-control text-center"
+=======
+                                                                        <input type="text" class="form-control text-center"
+>>>>>>> 94e1302fce0fef8eb48673c510bab6578e54ae91
                                                                             name="unit_price[]">
                                                                     </td>
                                                                 </tr>
