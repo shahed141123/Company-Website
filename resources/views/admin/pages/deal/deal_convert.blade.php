@@ -335,31 +335,36 @@
                                                             <tr>
                                                                 <th width="5%"> SL </th>
                                                                 <th width="75%"> Product Name </th>
-                                                                <th width="5%"> Qty <span class="text-danger">*</span></th>
+                                                                <th width="5%"> Qty <span class="text-danger">*</span>
+                                                                </th>
                                                                 <th width="15%"> Unit Price</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="repeater">
-                                                            <tr>
-                                                                <td>
-                                                                   {{$loop->iteration()}}
-                                                                </td>
-                                                                <td>
-                                                                    {{-- {{ $rfq_product->product_name }} --}}
-                                                                    <input type="text" class="form-control"
-                                                                        name="item_name[]"
-                                                                        value="{{ $rfq_product->product_name }}" required>
-                                                                </td>
-                                                                <td class="py-0 px-0 text-center">
-                                                                    <input type="text" class="form-control"
-                                                                        name="qty[]" required
-                                                                        value="{{ $rfq_product->qty }}">
-                                                                </td>
-                                                                <td class="py-0 px-0 text-center">
-                                                                    <input type="text" class="form-control text-center"
-                                                                        name="unit_price[]">
-                                                                </td>
-                                                            </tr>
+                                                            @foreach ($rfq_products as $rfq_product)
+                                                                <tr>
+                                                                    <td>
+                                                                        {{ $loop->iteration() }}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{-- {{ $rfq_product->product_name }} --}}
+                                                                        <input type="text" class="form-control"
+                                                                            name="item_name[]"
+                                                                            value="{{ $rfq_product->product_name }}"
+                                                                            required>
+                                                                    </td>
+                                                                    <td class="py-0 px-0 text-center">
+                                                                        <input type="text" class="form-control"
+                                                                            name="qty[]" required
+                                                                            value="{{ $rfq_product->qty }}">
+                                                                    </td>
+                                                                    <td class="py-0 px-0 text-center">
+                                                                        <input type="text"
+                                                                            class="form-control text-center"
+                                                                            name="unit_price[]">
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>
