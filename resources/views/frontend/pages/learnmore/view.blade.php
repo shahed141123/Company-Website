@@ -62,13 +62,11 @@
                         <span class="word wisteria ml-2 normal_text fw-bold"> {{ $last_word }}</span>
                         <span class="word belize ml-2 normal_text fw-bold"> {{ $last_word }}</span>
                         <span class="word pomegranate ml-2 normal_text fw-bold"> {{ $last_word }}</span>
-
-
                     </h2>
                     <div class="row ">
                         <!--BUTTON START-->
                         <div class="d-flex justify-content-center align-items-center">
-                            <div class="m-4">
+                            <div class="mt-5">
                                 <a class="btn-white" href="{{ route('contact') }}">Hear from our team</a>
                             </div>
                         </div>
@@ -173,8 +171,8 @@
                                 </li>
                             @endif
                         </ul>
-    
-    
+
+
                         <div class="tab-content mt-5 mb-3" id="myTabContent">
                             @if (!empty($story1->badge))
                                 <div class="tab-pane fade show active" id="home" role="tabpanel"
@@ -313,10 +311,9 @@
             </div>
             <!-- sidebar -->
             <div class="col-lg-3 col-sm-12">
-                <p class="fw-bold top-line-title pt-2"><span style="border-top: 4px solid #ae0a46;">Exp</span>lore
-                </p>
+                <p class="fw-bold top-line-title pt-2"><span style="border-top: 4px solid #ae0a46;">Exp</span>lore</p>
                 <!-- sidebar list -->
-                <div>
+                <div class="some-menu-area">
                     @if ($random_industries)
                         @foreach ($random_industries as $item)
                             <div class="pt-2">
@@ -330,8 +327,6 @@
                             </div>
                         @endforeach
                     @endif
-
-
                 </div>
             </div>
         </div>

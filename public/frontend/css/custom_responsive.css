@@ -1,7 +1,7 @@
 /* Extra Small Devices (e.g., Smartphones) */
 
 @media only screen and (max-width: 576px) {
-    .custom-form button{
+    .custom-form button {
         width: 100%;
         padding: 10px 20px;
     }
@@ -351,6 +351,15 @@
 
     .top-line-title {
         margin-top: 2rem;
+        text-align: center;
+    }
+    .some-menu-area {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        margin: auto;
+        width: 75%;
     }
 
     .story-title {
@@ -442,6 +451,9 @@
         background-color: #fff;
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
         padding-top: 0px;
+    }
+    .word, .normal_text{
+        font-size: 38px !important;
     }
 
     .brand-p-title {

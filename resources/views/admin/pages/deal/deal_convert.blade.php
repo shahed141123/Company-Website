@@ -344,16 +344,6 @@
                                                             @foreach ($rfq_products as $rfq_product)
                                                                 <tr>
                                                                     <td>
-<<<<<<< HEAD
-                                                                        {{ $loop->iteration() }}
-                                                                    </td>
-                                                                    <td>
-                                                                        {{-- {{ $rfq_product->product_name }} --}}
-                                                                        <input type="text" class="form-control"
-                                                                            name="item_name[]"
-                                                                            value="{{ $rfq_product->product_name }}"
-                                                                            required>
-=======
                                                                        {{$loop->iteration()}}
                                                                 </td>
                                                                 <td>
@@ -361,7 +351,6 @@
                                                                         <input type="text" class="form-control"
                                                                             name="item_name[]"
                                                                             value="{{ $rfq_product->product_name }}" required>
->>>>>>> 94e1302fce0fef8eb48673c510bab6578e54ae91
                                                                     </td>
                                                                     <td class="py-0 px-0 text-center">
                                                                         <input type="text" class="form-control"

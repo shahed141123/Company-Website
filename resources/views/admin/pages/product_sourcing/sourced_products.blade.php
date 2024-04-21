@@ -18,16 +18,16 @@
                             <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
                         </a>
                     </div>
-                    <div class="collapse show d-lg-block ms-lg-auto" id="breadcrumb_elements">
+                    <div class="collapse show d-lg-block ms-lg-auto d-sm-none d-lg-block" id="breadcrumb_elements">
                         <div class="d-lg-flex mb-2 mb-lg-0">
                             <a href="{{ route('product-sourcing.index') }}" class="btn navigation_btn mt-1">
-                                <i class="ph-list-plus me-2"></i> Sourcing
+                                <i class="ph-list-plus me-2 me-sm-0"></i> Sourcing
                             </a>
                             <a href="{{ route('sas.index') }}" class="btn navigation_btn mt-1">
-                                <i class="ph-currency-circle-dollar me-2"></i> SAS
+                                <i class="ph-currency-circle-dollar me-2 me-sm-0"></i> SAS
                             </a>
                             <a href="{{ route('purchase.index') }}" class="btn navigation_btn mt-1">
-                                <i class="ph-shopping-cart me-2"></i> Purchase
+                                <i class="ph-shopping-cart me-2 me-sm-0"></i> Purchase
                             </a>
                             <a href="{{ route('delivery.index') }}" class="btn navigation_btn mt-1">
                                 <i class="ph-truck me-2"></i> Delivery

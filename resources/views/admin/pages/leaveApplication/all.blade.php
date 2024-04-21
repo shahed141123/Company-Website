@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     {{-- Inner Page Actions --}}
-                    <div>
+                    <div class="d-lg-block d-sm-none">
                         {{-- Button to trigger the "Make Leave" modal --}}
                         <a href="javascript:void(0)" class="btn navigation_btn" data-bs-toggle="modal"
                             data-bs-target="#makeleave">
@@ -56,14 +56,6 @@
                                 <span>All Attendance </span>
                             </div>
                         </a>
-                        <!-- Optional: Place to the bottom of scripts -->
-                        <script>
-                            const myModal = new bootstrap.Modal(
-                                document.getElementById("modalId"),
-                                options,
-                            );
-                        </script>
-
                         {{-- Example: Button for another action --}}
                         {{-- <a href="" class="btn navigation_btn" data-bs-toggle="modal" data-bs-target="#checkapproved">
                             <div class="d-flex align-items-center">
@@ -206,7 +198,7 @@
                 </div>
 
                 <div class="row mt-4">
-                    <div class="col-10 offset-1">
+                    <div class="col-lg-10 offset-lg-1 mx-auto">
                         <!-- Leave Applications Table -->
                         <h6 class="m-0 p-1 text-center"
                             style="color: #fff; border-bottom: 1px solid #247297;background: #247297;">Leave Details Table

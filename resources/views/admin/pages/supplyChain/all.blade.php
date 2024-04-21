@@ -5,7 +5,7 @@
         <section class="shadow-sm">
             <div class="d-flex justify-content-between align-items-center">
                 {{-- Page Destination/ BreadCrumb --}}
-                <div class="page-header-content d-lg-flex ">
+                <div class="page-header-content d-lg-flex">
                     <div class="d-flex px-2">
                         <div class="breadcrumb py-2">
                             <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
@@ -21,7 +21,7 @@
                 </div>
                 {{-- Inner Page Tab --}}
                 <!-- Basic tabs -->
-                <div>
+                <div class="d-lg-block d-sm-none">
                     <a href="{{ route('product-sourcing.index') }}" class="btn navigation_btn">
                         <div class="d-flex align-items-center ">
                             <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
@@ -43,7 +43,7 @@
                     <a href="{{ route('delivery.index') }}" class="btn navigation_btn">
                         <div class="d-flex align-items-center ">
                             <i class="fa-solid fa-truck-bolt me-1" style="font-size: 10px;"></i>
-                            <span>delivery</span>
+                            <span>Delivery</span>
                         </div>
                     </a>
                 </div>
@@ -69,15 +69,15 @@
                                             {{-- Content Area --}}
                                             <div class="box_details pb-1  p-1">
                                                 <div class="row align-items-center">
-                                                    <div class="col-lg-4">
+                                                    <div class="col-lg-4 col-sm-4">
                                                         <span>Today</span>
                                                     </div>
-                                                    <div class="col-lg-4">
+                                                    <div class="col-lg-4 col-sm-4">
                                                         <p class="text-center p-0 m-0"><i
                                                                 class="ph-trend-down me-2 text-danger"></i></p>
                                                     </div>
-                                                    <div class="col-lg-4">
-                                                        <p class="p-0 m-0 text-warning text-end">10</p>
+                                                    <div class="col-lg-4 col-sm-4">
+                                                        <p class="p-0 m-0 text-warning text-end box_details-count">10</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -92,7 +92,7 @@
                                                                 class="ph-trend-up me-2 text-success"></i></p>
                                                     </div>
                                                     <div class="col-lg-4">
-                                                        <p class="p-0 m-0 text-warning text-end">15</p>
+                                                        <p class="p-0 m-0 text-warning text-end box_details-count">15</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -113,7 +113,7 @@
                                                                class="ph-trend-up me-2 text-success"></i></p>
                                                    </div>
                                                     <div class="col-lg-4">
-                                                        <p class="p-0 m-0 text-warning text-end">20</p>
+                                                        <p class="p-0 m-0 text-warning text-end box_details-count">20</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -128,7 +128,7 @@
                                                                class="ph-trend-up me-2 text-success"></i></p>
                                                    </div>
                                                     <div class="col-lg-4">
-                                                        <p class="p-0 m-0 text-warning text-end">25</p>
+                                                        <p class="p-0 m-0 text-warning text-end box_details-count">25</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -149,7 +149,7 @@
                                                                class="ph ph-x-circle me-2 text-danger"></i></p>
                                                    </div>
                                                     <div class="col-lg-4">
-                                                        <p class="p-0 m-0 text-warning text-end">30</p>
+                                                        <p class="p-0 m-0 text-warning text-end box_details-count">30</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -164,7 +164,7 @@
                                                                class="ph ph-x-circle me-2 text-danger"></i></p>
                                                    </div>
                                                     <div class="col-lg-4">
-                                                        <p class="p-0 m-0 text-warning text-end">05</p>
+                                                        <p class="p-0 m-0 text-warning text-end box_details-count">05</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -495,10 +495,10 @@
                                                 <span>Learnmore</span>
                                             </div>
                                         </a>
-                                        <a href="{{ route('category.index') }}" class="btn navigation_btn" style="width: 120px;">
+                                        <a href="{{ route('business.index') }}" class="btn navigation_btn" style="width: 120px;">
                                             <div class="d-flex align-items-center">
                                                 <i class="fa fa-plus me-1" style="font-size: 10px;"></i>
-                                                <span>Category</span>
+                                                <span>Business</span>
                                             </div>
                                         </a>
                                         <a href="{{ route('brand.index') }}" class="btn navigation_btn" style="width: 120px;">
