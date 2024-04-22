@@ -22,7 +22,7 @@
         <table class="table sub_sub_sub_category table-bordered table-hover datatable-highlight text-center ">
             <thead>
                 <tr>
-                    <th width="5%">Sl No:</th>
+                    <th width="5%">Sl</th>
                     <th width="15%">Category Name</th>
                     <th width="15%">Sub Category Name</th>
                     <th width="15%">Sub Sub Category Name</th>

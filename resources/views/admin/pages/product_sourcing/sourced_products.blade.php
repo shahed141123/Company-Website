@@ -71,7 +71,7 @@
                                                             <img src="{{ !file_exists($product->thumbnail) ? url('upload/no_image.jpg') : asset($product->thumbnail) }}" width="40px" height="40px" style="border-radius: 50%;">
                                                         </span>
                                                     </td>
-                                                    <td>{{ $product->name }}</td>
+                                                    <td class="text-start">{{ $product->name }}</td>
                                                     <td>{{ $product->added_by }}</td>
                                                     <td>
                                                         @if ($product->price_status === 'rfq')

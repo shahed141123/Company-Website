@@ -21,7 +21,7 @@
         <table class="table category  table-bordered table-hover datatable-highlight text-center ">
             <thead>
                 <tr>
-                    <th width="5%">Sl No:</th>
+                    <th width="5%">Sl</th>
                     <th width="15%">Image</th>
                     <th width="15%">Banner Image</th>
                     <th width="35%">Name</th>
@@ -83,18 +83,17 @@
                                                                 required />
                                                         </div>
                                                     </div>
-
                                                     <div class="row mb-1">
                                                         <div class="col-sm-4 text-start">
                                                             <span>Category Image</span>
                                                         </div>
                                                         <div class="col-sm-6 text-start">
-                                                            <input type="file" name="image"
+
+                                                            <input type="file" name="banner_image"
                                                                 class="form-control form-control-sm" id="image"
                                                                 accept="image/*" />
-
                                                         </div>
-                                                        <div class="col-sm-3 text-end">
+                                                        <div class="col-sm-2 text-end">
                                                             <img class="rounded-circle"
                                                                 src="{{ asset('storage/' . $category->image) }}"
                                                                 width="40" height="40" alt=""
@@ -123,7 +122,7 @@
                                                         <div class="col-sm-4 text-start">
                                                             <span>Category Status</span>
                                                         </div>
-                                                        <div class="col-sm-8 text-start">
+                                                        <div class="col-sm-8 text-start d-flex">
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="radio"
                                                                     name="status" value="active"

@@ -616,7 +616,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-md-8 col-offset-2 mx-auto my-4">
+                    <div class="col-md-8 col-offset-2 mx-auto my-4 d-lg-none ">
                         <div
                             style="border: 2px;
                         border-style: dashed;

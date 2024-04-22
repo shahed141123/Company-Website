@@ -20,7 +20,7 @@
         <table class="table sub_sub_category table-bordered table-hover text-center ">
             <thead>
                 <tr>
-                    <th width="10%">Sl No:</th>
+                    <th width="10%">Sl</th>
                     <th width="18%">Category Name</th>
                     <th width="18%">Sub Category Name</th>
                     <th width="10%">Image</th>
@@ -60,7 +60,7 @@
                                     style="display: none;" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable">
                                         <div class="modal-content">
-                                            <div class="modal-header">
+                                            <div class="modal-header p-1 px-3">
                                                 <h5 class="modal-title">Sub Sub Category Update Form</h5>
                                                 <button type="button" class="btn-close"
                                                     data-bs-dismiss="modal"></button>

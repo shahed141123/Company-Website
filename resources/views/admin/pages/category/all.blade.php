@@ -63,27 +63,27 @@
                 <div>
                     <ul class="nav nav-tabs border-bottom-0">
                         <li class="nav-item d-flex align-items-center">
-                            <a href="#category" class="navigation_btn p-0 me-2 btn nav-link active cat-tab1" data-bs-toggle="tab">
+                            <a href="#category" class="btn navigation_btn" data-bs-toggle="tab">
                                 <p class="p-1 mb-0" >
                                     Category</p>
                             </a>
                         </li>
 
                         <li class="nav-item d-flex align-items-center">
-                            <a href="#sub_category" class="navigation_btn p-0 me-2 btn nav-link cat-tab2" data-bs-toggle="tab">
+                            <a href="#sub_category" class="btn navigation_btn" data-bs-toggle="tab">
                                 <p class="p-1 mb-0">
                                     Sub Category</p>
                             </a>
                         </li>
 
                         <li class="nav-item d-flex align-items-center">
-                            <a href="#sub_sub_category" class="navigation_btn p-0 me-2 btn nav-link cat-tab3" data-bs-toggle="tab">
+                            <a href="#sub_sub_category" class="btn navigation_btn" data-bs-toggle="tab">
                                 <p class="p-1 mb-0">
                                    Sub Sub Category</p>
                             </a>
                         </li>
                         <li class="nav-item d-flex align-items-center">
-                            <a href="#sub_sub_sub_category" class="navigation_btn p-0 me-2 btn nav-link cat-tab3" data-bs-toggle="tab">
+                            <a href="#sub_sub_sub_category" class="btn navigation_btn" data-bs-toggle="tab">
                                 <p class="p-1 mb-0">
                                     Sub Sub Sub Category</p>
                             </a>
@@ -149,7 +149,7 @@
                 {{-- Add Modal Content Start --}}
                 @include('admin.pages.category.partials.add_modals')
 
-                
+
 
             </div>
         </section>

@@ -87,7 +87,7 @@
                                                             <h6 class="main_color m-0 ammount rounded-1">14</h6>
                                                         </div>
                                                         <div class="pt-4">
-                                                            <h6 class="text-muted m-0 text-center">Pending Monthly Leave
+                                                            <h6 class="text-muted m-0 text-center">Total Leaves Available
                                                             </h6>
                                                         </div>
                                                     </div>
@@ -135,7 +135,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-8">
+                            <div class="col-lg-4">
                                 <div class="card rounded-0">
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
@@ -143,16 +143,16 @@
                                                 <thead
                                                     style="background-color: #247297 !important; color: white !important;">
                                                     <tr>
-                                                        <th width="30%">Leave Position</th>
-                                                        <th width="25%">Leave Due As On</th>
-                                                        <th width="25%">Leave Availed</th>
-                                                        <th width="20%">Balance Due</th>
+                                                        <th class="p-1" width="30%">Type</th>
+                                                        <th class="p-1" width="25%">Due As On</th>
+                                                        <th class="p-1" width="25%">Availed</th>
+                                                        <th class="p-1" width="20%">Balance</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="text-center">
                                                     <!-- Leave Information Rows -->
                                                     <tr>
-                                                        <td class="p-2">Earned Leave</td>
+                                                        <td class="p-2 bg-light">Earned Leave</td>
                                                         <td class="p-2">
                                                             {{ optional($employee_leave_due)->earned_leave_due_as_on ?? '' }}
                                                         </td>
@@ -164,7 +164,7 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="p-2">Casual Leave</td>
+                                                        <td class="p-2 bg-light">Casual Leave</td>
                                                         <td class="p-2">
                                                             {{ optional($employee_leave_due)->casual_leave_due_as_on ?? '' }}
                                                         </td>
@@ -176,7 +176,7 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="p-2">Medical Leave</td>
+                                                        <td class="p-2 bg-light">Medical Leave</td>
                                                         <td class="p-2">
                                                             {{ optional($employee_leave_due)->medical_leave_due_as_on ?? '' }}
                                                         </td>
@@ -189,6 +189,27 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h6 class="m-0 p-1 text-center card-main-title">Leave Performance Meter</h6>
+                                <div class="card rounded-0">
+                                    <div class="card-body p-2">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6">
+                                                <p class="text-muted text-center">Monthly Report</p>
+                                                <div class="text-center">
+                                                    <img width="140px" src="https://i.ibb.co/xMmvsYq/Screenshot-1.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="text-muted text-center">Yearly Report</p>
+                                                <div class="text-center">
+                                                    <img width="140px" src="https://i.ibb.co/xMmvsYq/Screenshot-1.png" alt="">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -293,9 +314,9 @@
                                             <thead
                                                 style="background-color: #ae0a468f !important; color: white !important;">
                                                 <tr>
-                                                    <th scope="col">Leave Position</th>
-                                                    <th scope="col">Leave Due As On</th>
-                                                    <th scope="col">Leave Availed</th>
+                                                    <th scope="col">Position</th>
+                                                    <th scope="col">Due As On</th>
+                                                    <th scope="col">Availed</th>
                                                     <th scope="col">Balance Due</th>
                                                 </tr>
                                             </thead>

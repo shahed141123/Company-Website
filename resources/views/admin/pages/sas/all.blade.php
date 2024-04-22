@@ -44,7 +44,7 @@
                             <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
                             <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item">Home</a>
                             <a href="{{ route('supplychain') }}" class="breadcrumb-item">Supply Chain</a>
-                            <span class="breadcrumb-item active">SAS of Sourcing Products</span>
+                            <span class="breadcrumb-item active">SAS Products</span>
                         </div>
                         <a href="#breadcrumb_elements"
                             class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
@@ -55,7 +55,7 @@
                 </div>
                 {{-- Inner Page Tab --}}
                 <!-- Basic tabs -->
-                <div>
+                <div class="d-sm-none d-lg-block">
                     <a href="{{ route('product-sourcing.index') }}" class="btn navigation_btn">
                         <div class="d-flex align-items-center ">
                             <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
@@ -86,20 +86,20 @@
                             style="position: relative;
                         z-index: 999;">
                             <ul class="nav nav-tabs border-0">
-                                <li class="nav-item ">
+                                <li class="nav-item w-lg-auto w-100 ">
                                     <a href="#pending" class=" nav-link active cat-tab1 p-1" data-bs-toggle="tab">
                                         <p class="m-0 p-1">
                                             Pending for SAS<span class="ms-2">|</span></p>
                                     </a>
                                 </li>
 
-                                <li class="nav-item">
+                                <li class="nav-item w-lg-auto w-100">
                                     <a href="#approved" class=" nav-link cat-tab2 p-1 " data-bs-toggle="tab">
                                         <p class="m-0 p-1">
                                             Seek Approval <span class="ms-2">|</span></p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item w-lg-auto w-100">
                                     <a href="#all" class=" nav-link cat-tab3 p-1" data-bs-toggle="tab">
                                         <p class="m-0 p-1">
                                             Approved </p>
@@ -107,18 +107,16 @@
                                 </li>
 
                             </ul>
+                            <div>
+                                <h6 class="text-center"> All Pending Products for SAS</h6>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row mx-3 mt-1">
+                <div class="row mx-3 mt-5">
                     <div class="col-lg-12">
                         <div class="tab-content" style="margin-top: -3.5rem;">
                             <div class="tab-pane fade show active" id="pending">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <h5 class="text-center"> All Pending Products for SAS</h5>
-                                    </div>
-                                </div>
                                 {{-- Pending Table --}}
                                 <div class="card border-0 rounded-0">
                                     <div class="card-body p-0">
@@ -144,7 +142,7 @@
                                                                             style="width: 70px; height:40px;">
                                                                     @endif
                                                                 </td>
-                                                                <td><a href="javascript:void(0);" data-tip="Details"
+                                                                <td class="text-start"><a href="javascript:void(0);" data-tip="Details"
                                                                         data-bs-toggle="modal"
                                                                         data-bs-target="#productDetails{{ $product->id }}"
                                                                         title="Product Quick View">{{ $product->name }}</a>

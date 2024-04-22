@@ -21,7 +21,7 @@
             class="table sub_category table-bordered table-hover datatable-highlight text-center ">
             <thead>
                 <tr>
-                    <th width="10%">Sl No:</th>
+                    <th width="10%">Sl</th>
                     <th width="20%">Category Name</th>
                     <th width="10%">Image</th>
                     <th width="45%">Name</th>
