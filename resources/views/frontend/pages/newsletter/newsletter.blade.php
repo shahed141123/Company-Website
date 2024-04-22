@@ -8,7 +8,6 @@
     {{-- content --}}
     <div class="popup_modal_content" style="max-width: 570px; border: unset; background: linear-gradient(90deg, #af4286, #dd7fcd 100%, transparent 0);">
         <div class="popup_modal_content_wrapper">
-
             <!-- image -->
             <div class="neweLetter_image">
                 <img src="assets/frontend/image/title-shape.png" alt="">
@@ -29,11 +28,6 @@
                     <p>We are going to send to mail </p>
                 </div>
             </div>
-
-            {{-- crose button --}}
-            <!-- <div class="cross_btn">
-                <span><i class="fa-solid fa-xmark"></i></span>
-            </div> -->
 
         </div>
     </div>
