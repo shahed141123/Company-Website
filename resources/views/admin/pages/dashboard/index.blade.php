@@ -449,13 +449,13 @@
                                     </div>
                                 </div>
                                 <div class="card me-2" style="height: 12rem; width: 60%">
-                                    <div class="card-body user-inner-card">
+                                    <div class="card-body user-inner-card pt-1">
                                         <p class="para-text m-0">Your Access</p>
-                                        <div>
-                                            <button class="btn navigation">HR & ADMIN</button>
-                                            <button class="btn navigation">SITE SETTING</button>
-                                            <button class="btn navigation">SUPPLY CHAIN</button>
-                                            <button class="btn navigation">CRM</button>
+                                        <div class="">
+                                            <button class="btn navigation_btn w-100 mb-1">HR & ADMIN</button>
+                                            <button class="btn navigation_btn w-100 mb-1">SITE SETTING</button>
+                                            <button class="btn navigation_btn w-100 mb-1">SUPPLY CHAIN</button>
+                                            <button class="btn navigation_btn w-100 mb-1">CRM</button>
                                         </div>
                                     </div>
                                 </div>

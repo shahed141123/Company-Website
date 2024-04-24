@@ -18,7 +18,7 @@
         }
 
         .site_content_main_card {
-            height: 19.5rem;
+            height: 16rem;
         }
 
         .border-right {
@@ -108,46 +108,42 @@
                                                 <div class="mb-1">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="d-flex align-items-center">
-                                                            <h6 class="m-0"><i class="fa-solid fa-list badge-icons me-2"></i>
-                                                            </h6>
-                                                            <h6 class="text-muted m-0">Total Category</h6>
+
+                                                            <small class="text-muted m-0">Total Category</small>
                                                         </div>
-                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                        <small class="main_color m-0 ammount rounded-1">
                                                             8
-                                                        </h6>
+                                                        </small>
                                                     </div>
                                                 </div>
                                                 <div class="mb-1">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="d-flex align-items-center">
-                                                            <h6 class="m-0"><i class="fa-solid fa-list-check badge-icons me-2"></i>
-                                                            </h6>
-                                                            <h6 class="text-muted m-0">Sub Category</h6>
+
+                                                            <small class="text-muted m-0">Sub Category</small>
                                                         </div>
-                                                        <h6 class="main_color m-0 ammount rounded-1">
-                                                            40</h6>
+                                                        <small class="main_color m-0 ammount rounded-1">
+                                                            40</small>
                                                     </div>
                                                 </div>
                                                 <div class="mb-1">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="d-flex align-items-center">
-                                                            <h6 class="m-0"><i class="fa-solid fa-table-list badge-icons me-2"></i>
-                                                            </h6>
-                                                            <h6 class="text-muted m-0">Sub Sub Category</h6>
+
+                                                            <small class="text-muted m-0">Sub Sub Category</small>
                                                         </div>
-                                                        <h6 class="main_color m-0 ammount rounded-1">
-                                                            20</h6>
+                                                        <small class="main_color m-0 ammount rounded-1">
+                                                            20</small>
                                                     </div>
                                                 </div>
                                                 <div class="mb-1">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="d-flex align-items-center">
-                                                            <h6 class="m-0"><i class="fa-solid fa-box badge-icons me-2"></i>
-                                                            </h6>
-                                                            <h6 class="text-muted m-0">Total Product</h6>
+
+                                                            <small class="text-muted m-0">Total Product</small>
                                                         </div>
-                                                        <h6 class="main_color m-0 ammount rounded-1">
-                                                            1,800</h6>
+                                                        <small class="main_color m-0 ammount rounded-1">
+                                                            1,800</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -162,38 +158,38 @@
                                                 <div class="mb-1">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="d-flex align-items-center">
-                                                            <h6 class="text-muted m-0">Brand</h6>
+                                                            <small class="text-muted m-0">Brand</small>
                                                         </div>
-                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                        <small class="main_color m-0 ammount rounded-1">
                                                             16
-                                                        </h6>
+                                                        </small>
                                                     </div>
                                                 </div>
                                                 <div class="mb-1">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="d-flex align-items-center">
-                                                            <h6 class="text-muted m-0">Solution</h6>
+                                                            <small class="text-muted m-0">Solution</small>
                                                         </div>
-                                                        <h6 class="main_color m-0 ammount rounded-1">
-                                                            40</h6>
+                                                        <small class="main_color m-0 ammount rounded-1">
+                                                            40</small>
                                                     </div>
                                                 </div>
                                                 <div class="mb-1">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="d-flex align-items-center">
-                                                            <h6 class="text-muted m-0">Project</h6>
+                                                            <small class="text-muted m-0">Project</small>
                                                         </div>
-                                                        <h6 class="main_color m-0 ammount rounded-1">
-                                                            20</h6>
+                                                        <small class="main_color m-0 ammount rounded-1">
+                                                            20</small>
                                                     </div>
                                                 </div>
                                                 <div class="mb-1">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="d-flex align-items-center">
-                                                            <h6 class="text-muted m-0">Feature</h6>
+                                                            <small class="text-muted m-0">Feature</small>
                                                         </div>
-                                                        <h6 class="main_color m-0 ammount rounded-1">
-                                                            50</h6>
+                                                        <small class="main_color m-0 ammount rounded-1">
+                                                            50</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -208,41 +204,109 @@
                                                 <div class="mb-1">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="d-flex align-items-center">
-                                                            <h6 class="text-muted m-0">Common</h6>
+                                                            <small class="text-muted m-0">Common</small>
                                                         </div>
-                                                        <h6 class="main_color m-0 ammount rounded-1">
+                                                        <small class="main_color m-0 ammount rounded-1">
                                                             16
-                                                        </h6>
+                                                        </small>
                                                     </div>
                                                 </div>
                                                 <div class="mb-1">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="d-flex align-items-center">
-                                                            <h6 class="text-muted m-0">Single</h6>
+                                                            <small class="text-muted m-0">Single</small>
                                                         </div>
-                                                        <h6 class="main_color m-0 ammount rounded-1">
-                                                            40</h6>
+                                                        <small class="main_color m-0 ammount rounded-1">
+                                                            40</small>
                                                     </div>
                                                 </div>
                                                 <div class="mb-1">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="d-flex align-items-center">
-                                                            <h6 class="text-muted m-0">Blogs</h6>
+                                                            <small class="text-muted m-0">Blogs</small>
                                                         </div>
-                                                        <h6 class="main_color m-0 ammount rounded-1">
-                                                            20</h6>
+                                                        <small class="main_color m-0 ammount rounded-1">
+                                                            20</small>
                                                     </div>
                                                 </div>
                                                 <div class="mb-1">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="d-flex align-items-center">
-                                                            <h6 class="text-muted m-0">Techglossy</h6>
+                                                            <small class="text-muted m-0">Techglossy</small>
                                                         </div>
-                                                        <h6 class="main_color m-0 ammount rounded-1">
-                                                            50</h6>
+                                                        <small class="main_color m-0 ammount rounded-1">
+                                                            50</small>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-lg-12">
+                                    <div class="py-4 d-flex justify-content-center align-items-center"
+                                        style="
+                                        border: 2px;
+                                        border-style: dashed;
+                                        border-color: #247297;">
+                                        <div>
+                                            <a href="ngenitltd.com/admin/brand" class="btn navigation_btn"
+                                                style="width: 120px;">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa fa-plus me-1" style="font-size: 10px;"></i>
+                                                    <span>Brand</span>
+                                                </div>
+                                            </a>
+                                            <a href="ngenitltd.com/admin/category" class="btn navigation_btn"
+                                                style="width: 120px;">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa fa-plus me-1" style="font-size: 10px;"></i>
+                                                    <span>Category</span>
+                                                </div>
+                                            </a>
+                                            <a href="ngenitltd.com/admin/learnMore" class="btn navigation_btn"
+                                                style="width: 120px;">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa fa-plus me-1" style="font-size: 10px;"></i>
+                                                    <span>Learnmore</span>
+                                                </div>
+                                            </a>
+                                            <a href="ngenitltd.com/admin/business" class="btn navigation_btn"
+                                                style="width: 120px;">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa fa-plus me-1" style="font-size: 10px;"></i>
+                                                    <span>Business</span>
+                                                </div>
+                                            </a>
+                                            <a href="ngenitltd.com/admin/product-sourcing" class="btn navigation_btn"
+                                                style="width: 120px;">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa fa-plus me-1" style="font-size: 10px;"></i>
+                                                    <span>Sourcing</span>
+                                                </div>
+                                            </a>
+                                            <a href="ngenitltd.com/admin/sas" class="btn navigation_btn"
+                                                style="width: 120px;">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa fa-plus me-1" style="font-size: 10px;"></i>
+                                                    <span>SAS</span>
+                                                </div>
+                                            </a>
+                                            <a href="ngenitltd.com/admin/purchase" class="btn navigation_btn"
+                                                style="width: 120px;">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa fa-plus me-1" style="font-size: 10px;"></i>
+                                                    <span>Purchase</span>
+                                                </div>
+                                            </a>
+                                            <a href="ngenitltd.com/admin/delivery" class="btn navigation_btn"
+                                                style="width: 120px;">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa fa-plus me-1" style="font-size: 10px;"></i>
+                                                    <span>Delivery</span>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -251,14 +315,14 @@
                     </div>
                     <div class="col-lg-8 offset-lg-2 mx-auto">
                         <div class="row mt-1 mx-auto">
-                            <div class="col-lg-6 ps-0">
-                                <h6 class="m-0 p-0 card-main-title text-center">Page Builder</h6>
+                            <div class="col-lg-3 ps-0">
+                                <h6 class="m-0 p-0 card-main-title text-center">Common Page Builder</h6>
                                 <div class="card rounded-0 site_content_main_card">
-                                    <div class="card-body"
+                                    <div class="card-body px-0 pt-2"
                                         style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
                                         {{-- Link Start --}}
                                         <div class="row gx-1">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12 mb-1">
                                                 <a href="{{ route('row.index') }}">
                                                     <div
                                                         class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
@@ -273,7 +337,7 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12 mb-1">
                                                 <a href="{{ route('solutionCard.index') }}">
                                                     <div
                                                         class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
@@ -288,10 +352,7 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                        </div>
-
-                                        <div class="row gx-1 mt-1">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12 mb-1">
                                                 <a href="{{ route('homepage.index') }}">
                                                     <div
                                                         class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
@@ -306,7 +367,7 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12 mb-1">
                                                 <a href="{{ route('learnMore.index') }}">
                                                     <div
                                                         class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
@@ -321,141 +382,7 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                        </div>
-
-                                        <div class="row gx-1 mt-1">
-                                            <div class="col-lg-6">
-                                                <a href="{{ route('software-info-page.index') }}">
-                                                    <div
-                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
-                                                        <div>
-                                                            <span class="link_title_admin text-muted">Software Info</span>
-                                                        </div>
-                                                        <a href="{{ route('software-info-page.create') }}">
-                                                            <button type="button" class="btn btn-default btn-circle"><i
-                                                                    class="ph ph-plus"></i>
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <a href="{{ route('software-common-page.index') }}">
-                                                    <div
-                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
-                                                        <div>
-                                                            <span class="link_title_admin text-muted">Software Common</span>
-                                                        </div>
-                                                        <a href="{{ route('software-common-page.create') }}">
-                                                            <button type="button" class="btn btn-default btn-circle"><i
-                                                                    class="ph ph-plus"></i>
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="row gx-1 mt-1">
-                                            <div class="col-lg-6">
-                                                <a href="{{ route('hardware-info-page.index') }}">
-                                                    <div
-                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
-                                                        <div>
-                                                            <span class="link_title_admin text-muted">Hardware Info</span>
-                                                        </div>
-                                                        <a href="{{ route('hardware-info-page.create') }}">
-                                                            <button type="button" class="btn btn-default btn-circle"><i
-                                                                    class="ph ph-plus"></i>
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <a href="{{ route('hardware-common-page.index') }}">
-                                                    <div
-                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
-                                                        <div>
-                                                            <span class="link_title_admin text-muted">Hardware Common</span>
-                                                        </div>
-                                                        <a href="{{ route('hardware-common-page.create') }}">
-                                                            <button type="button" class="btn btn-default btn-circle"><i
-                                                                    class="ph ph-plus"></i>
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="row gx-1 mt-1">
-                                            <div class="col-lg-6">
-                                                <a href="{{ route('industry.index') }}">
-                                                    <div
-                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
-                                                        <div>
-                                                            <span class="link_title_admin text-muted">Industry</span>
-                                                        </div>
-                                                        <a href="{{ route('industry.index') }}">
-                                                            <button type="button" class="btn btn-default btn-circle"><i
-                                                                    class="ph ph-plus"></i>
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <a href="{{ route('industryPage.index') }}">
-                                                    <div
-                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
-                                                        <div>
-                                                            <span class="link_title_admin text-muted">Industry Details</span>
-                                                        </div>
-                                                        <a href="{{ route('industryPage.create') }}">
-                                                            <button type="button" class="btn btn-default btn-circle"><i
-                                                                    class="ph ph-plus"></i>
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="row gx-1 mt-1">
-                                            <div class="col-lg-6">
-                                                <a href="{{ route('brandPage.index') }}">
-                                                    <div
-                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
-                                                        <div>
-                                                            <span class="link_title_admin text-muted">Brand Page</span>
-                                                        </div>
-                                                        <a href="{{ route('brandPage.create') }}">
-                                                            <button type="button" class="btn btn-default btn-circle"><i
-                                                                    class="ph ph-plus"></i>
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <a href="{{ route('solutionDetails.index') }}">
-                                                    <div
-                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
-                                                        <div>
-                                                            <span class="link_title_admin text-muted">Solution Details</span>
-                                                        </div>
-                                                        <a href="{{ route('solutionDetails.create') }}">
-                                                            <button type="button" class="btn btn-default btn-circle"><i
-                                                                    class="ph ph-plus"></i>
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="row gx-1 mt-1">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12 mb-1">
                                                 <a href="{{ route('what-we-do-page.index') }}">
                                                     <div
                                                         class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
@@ -470,7 +397,7 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12">
                                                 <a href="{{ route('about-us.index') }}">
                                                     <div
                                                         class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
@@ -489,18 +416,182 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 pe-0">
-                                <h6 class="m-0 p-0 card-main-title text-center">Portfolio</h6>
+                            <div class="col-lg-3 ps-0">
+                                <h6 class="m-0 p-0 card-main-title text-center">Software & Hardware Builder</h6>
                                 <div class="card rounded-0 site_content_main_card">
-                                    <div class="card-body">
+                                    <div class="card-body px-0 pt-2"
+                                        style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
                                         {{-- Link Start --}}
                                         <div class="row gx-1 mt-1">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12 mb-1">
+                                                <a href="{{ route('software-info-page.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Software Info</span>
+                                                        </div>
+                                                        <a href="{{ route('software-info-page.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-12 mb-1">
+                                                <a href="{{ route('software-common-page.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Software
+                                                                Common</span>
+                                                        </div>
+                                                        <a href="{{ route('software-common-page.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-12 mb-1">
+                                                <a href="{{ route('hardware-info-page.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Hardware Info</span>
+                                                        </div>
+                                                        <a href="{{ route('hardware-info-page.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-12 mb-1">
+                                                <a href="{{ route('hardware-common-page.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Hardware
+                                                                Common</span>
+                                                        </div>
+                                                        <a href="{{ route('hardware-common-page.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-12 mb-1">
+                                                <a href="{{ route('industry.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Industry</span>
+                                                        </div>
+                                                        <a href="{{ route('industry.index') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-12 mb-1">
+                                                <a href="{{ route('industryPage.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Industry
+                                                                Details</span>
+                                                        </div>
+                                                        <a href="{{ route('industryPage.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 ps-0">
+                                <h6 class="m-0 p-0 card-main-title text-center">Others Page Builder</h6>
+                                <div class="card rounded-0 site_content_main_card">
+                                    <div class="card-body px-0 pt-2"
+                                        style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
+                                        {{-- Link Start --}}
+
+                                        <div class="row gx-1 mt-1">
+                                            <div class="col-lg-12 mt-1">
+                                                <a href="{{ route('brandPage.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Brand Page</span>
+                                                        </div>
+                                                        <a href="{{ route('brandPage.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-12 mt-1">
+                                                <a href="{{ route('solutionDetails.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Solution
+                                                                Details</span>
+                                                        </div>
+                                                        <a href="{{ route('solutionDetails.create') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-12 mt-1">
+                                                <a href="{{ route('portfolio-client-feedback.index') }}">
+                                                    <div
+                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                        <div>
+                                                            <span class="link_title_admin text-muted">Client
+                                                                Feedback</span>
+                                                        </div>
+                                                        <a href="{{ route('portfolio-page.index') }}">
+                                                            <button type="button" class="btn btn-default btn-circle"><i
+                                                                    class="ph ph-plus"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 pe-0">
+                                <h6 class="m-0 p-0 card-main-title text-center">Portfolio</h6>
+                                <div class="card rounded-0 site_content_main_card">
+                                    <div class="card-body px-0 pt-2">
+                                        {{-- Link Start --}}
+                                        <div class="row gx-1 mt-1">
+                                            <div class="col-lg-12 mt-1">
                                                 <a href="{{ route('portfolio-category.index') }}">
                                                     <div
                                                         class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
                                                         <div>
-                                                            <span class="link_title_admin text-muted">Portfolio Category</span>
+                                                            <span class="link_title_admin text-muted">Portfolio
+                                                                Category</span>
                                                         </div>
                                                         <a href="{{ route('portfolio-category.index') }}">
                                                             <button type="button" class="btn btn-default btn-circle"><i
@@ -510,12 +601,13 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12 mt-1">
                                                 <a href="{{ route('portfolio-client.index') }}">
                                                     <div
                                                         class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
                                                         <div>
-                                                            <span class="link_title_admin text-muted">Portfolio Clients</span>
+                                                            <span class="link_title_admin text-muted">Portfolio
+                                                                Clients</span>
                                                         </div>
                                                         <a href="{{ route('portfolio-client.index') }}">
                                                             <button type="button" class="btn btn-default btn-circle"><i
@@ -525,9 +617,7 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                        </div>
-                                        <div class="row gx-1 mt-1">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12 mt-1">
                                                 <a href="{{ route('portfolio-team.index') }}">
                                                     <div
                                                         class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
@@ -542,12 +632,13 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12 mt-1">
                                                 <a href="{{ route('portfolio-choose-us.index') }}">
                                                     <div
                                                         class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
                                                         <div>
-                                                            <span class="link_title_admin text-muted">Portfolio Choose</span>
+                                                            <span class="link_title_admin text-muted">Portfolio
+                                                                Choose</span>
                                                         </div>
                                                         <a href="{{ route('portfolio-choose-us.index') }}">
                                                             <button type="button" class="btn btn-default btn-circle"><i
@@ -557,9 +648,7 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                        </div>
-                                        <div class="row gx-1 mt-1">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12 mt-1">
                                                 <a href="{{ route('portfolio-page.index') }}">
                                                     <div
                                                         class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
@@ -574,12 +663,13 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12 mt-1">
                                                 <a href="{{ route('portfolio-detail.index') }}">
                                                     <div
                                                         class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
                                                         <div>
-                                                            <span class="link_title_admin text-muted">Portfolio Details</span>
+                                                            <span class="link_title_admin text-muted">Portfolio
+                                                                Details</span>
                                                         </div>
                                                         <a href="{{ route('portfolio-detail.index') }}">
                                                             <button type="button" class="btn btn-default btn-circle"><i
@@ -589,23 +679,7 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="col-lg-6 mt-1">
-                                                <a href="{{ route('portfolio-client-feedback.index') }}">
-                                                    <div
-                                                        class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
-                                                        <div>
-                                                            <span class="link_title_admin text-muted">Client Feedback</span>
-                                                        </div>
-                                                        <a href="{{ route('portfolio-page.index') }}">
-                                                            <button type="button" class="btn btn-default btn-circle"><i
-                                                                    class="ph ph-plus"></i>
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                </a>
-                                            </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>

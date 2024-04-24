@@ -235,27 +235,7 @@
                                         <img src="{{asset('storage/'.$item->image)}}" class="img-fluid" alt="">
                                         <div class="row d-flex justify-content-between">
                                             <div class="col mt-3">
-                                                {{-- Writer --}}
-                                                {{-- <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex justify-content-start">
-                                                        <img class="blog_writer"
-                                                            src="https://openlisthtml.themever.net/images/author-1.jpg"
-                                                            alt="">
-                                                        <div class="ml-3">
-                                                            <h6>Harry Ramos</h6>
-                                                            <p>5 Minute ago</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex justify-content-start">
-                                                        <div class="">
-                                                            <button class="btn btn-primary rounded-circle">
-                                                                <i class="fa fa-bars"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
-                                                {{-- Writer End --}}
-                                                {{-- Blog Descrition --}}
+
                                                 <div>
                                                     <h5 class="fw-semibold">{{$item->title}}</h5>
                                                     <p>{{$item->header}}</p>

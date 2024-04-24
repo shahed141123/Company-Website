@@ -34,12 +34,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
 @extends('admin.master')
 @section('content')
 
