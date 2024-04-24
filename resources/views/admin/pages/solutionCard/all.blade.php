@@ -20,62 +20,64 @@
             </div>
         </div>
         <!-- /page header -->
-        <div class="content pt-0 w-75 mx-auto">
-            <div class="d-flex align-items-center py-2">
-                {{-- Add Details Start --}}
-                <div class="text-success nav-link cat-tab3"
-                    style="position: relative;
-                    z-index: 999;
-                    margin-bottom: -39px;">
-                    <a href="{{ route('solutionCard.create') }}" type="button"
-                        class="mx-3 btn btn-sm btn-info custom_btn btn-labeled btn-labeled-start float-start">
-                        <span class="btn-labeled-icon bg-black bg-opacity-20">
-                            <i class="icon-plus2"></i>
-                        </span>
-                        Add
-                    </a>
-
-                    <div class="text-center">
-                        <h5 class="ms-1 mb-0" style="color: #247297; margin-left: 17rem !important;">Solution Card</h5>
+        <div class="content">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="d-flex justify-content-between align-items-center py-1 px-4 mt-3 rounded-1"
+                    style="background-color: #247297">
+                    <div>
+                        <h5 class="mb-0 text-white">Solution Card</h5>
+                    </div>
+                    <div>
+                        <a href="{{ route('solutionCard.create') }}">
+                            <div class="d-flex align-items-center">
+                                <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Add Rows">
+                                    <i class="ph-plus text-white"></i> </span>
+                                <span class="ms-1 text-white">Add</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                {{-- Add Details End --}}
             </div>
-            <div>
-                <table class="table rowAdd table-bordered table-hover text-center">
-                    <thead>
-                        <tr>
-                            <th width="5%">SL</th>
-                            <th width="15%">Image</th>
-                            <th width="70%">Title</th>
-                            <th width="10%" class="text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if ($solutionCards)
-                            @foreach ($solutionCards as $key => $solutionCard)
-                                <tr>
-                                    <td class="text-center">{{ ++$key }}</td>
-                                    <td>
-                                        <img class="rounded-circle img-fluid"
-                                            src="{{ asset('storage/requestImg/' . $solutionCard->image) }}" alt=""
-                                            width="25" height="25">
-                                    </td>
-                                    <td>{{ $solutionCard->title }}</td>
-                                    <td>
-                                        <a href="{{ route('solutionCard.edit', $solutionCard->id) }}" class="text-primary">
-                                            <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
-                                        </a>
-                                        <a href="{{ route('solutionCard.destroy', [$solutionCard->id]) }}"
-                                            class="text-danger delete">
-                                            <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
-                    </tbody>
-                </table>
+            <div class="col-lg-8 offset-lg-2">
+                <div>
+                    <table class="table rowAdd table-bordered table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th width="5%">SL</th>
+                                <th width="15%">Image</th>
+                                <th width="60%">Title</th>
+                                <th width="20%" class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if ($solutionCards)
+                                @foreach ($solutionCards as $key => $solutionCard)
+                                    <tr>
+                                        <td class="text-center">{{ ++$key }}</td>
+                                        <td>
+                                            <img class="rounded-circle img-fluid"
+                                                src="{{ asset('storage/requestImg/' . $solutionCard->image) }}"
+                                                alt="" width="25" height="25">
+                                        </td>
+                                        <td>{{ $solutionCard->title }}</td>
+                                        <td>
+                                            <a href="{{ route('solutionCard.edit', $solutionCard->id) }}"
+                                                class="text-primary">
+                                                <i
+                                                    class="fa-solid fa-pen-to-square me-2 dash-icons text-primary"></i>
+                                            </a>
+                                            <a href="{{ route('solutionCard.destroy', [$solutionCard->id]) }}"
+                                                class="text-danger delete">
+                                                <i class="fa-solid fa-trash dash-icons text-danger"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

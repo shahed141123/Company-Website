@@ -19,8 +19,7 @@
                 </div>
                 <div>
                     <a href="javascript:void()" class="btn navigation_btn">
-                        <div class="d-flex align-items-center " data-bs-toggle="modal"
-                        data-bs-target="#expenceCategoryAdd">
+                        <div class="d-flex align-items-center " data-bs-toggle="modal" data-bs-target="#expenceCategoryAdd">
                             <i class="ph-plus me-1" style="font-size: 10px;"></i>
                             <span>Add Expence Category</span>
                         </div>
@@ -31,20 +30,23 @@
         <!-- /page header -->
         <!-- Content area -->
         <div class="content">
-            <div class="text-center">
-                <h4 class="m-0" style="color: #247297;">Expence Category List</h4>
-            </div>
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 mx-auto">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="d-flex justify-content-center align-items-center py-1 px-4 mt-3 rounded-1"
+                        style="background-color: #247297">
+                        <div>
+                            <h5 class="mb-0 text-white">Expence Category List</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-2">
                     <table class="table expCategoryDT table-bordered table-hover datatable-highlight text-center ">
                         <thead>
                             <tr>
                                 <th width="5%">Id</th>
                                 <th width="15%">Name</th>
                                 <th width="10%">Status</th>
-                                {{-- <th width="30%">Comments</th> --}}
                                 <th width="30%">Notes</th>
-                                {{-- <th width="20%">custom</th> --}}
                                 <th width="10%" class="text-center">Actions</th>
                             </tr>
                         </thead>
@@ -71,7 +73,8 @@
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h6 class="modal-title text-white">Edit Expense Category</h6>
+                                                                <h6 class="modal-title text-white">Edit Expense Category
+                                                                </h6>
                                                                 <a type="button" data-bs-dismiss="modal">
                                                                     <i class="ph ph-x text-white"
                                                                         style="font-weight: 800;font-size: 10px;"></i>
@@ -80,7 +83,8 @@
                                                             <div class="modal-body p-0 px-2">
                                                                 <form
                                                                     action="{{ route('expense-category.update', $expenseCategorie->id) }}"
-                                                                    method="post" class="from-prevent-multiple-submits pt-2">
+                                                                    method="post"
+                                                                    class="from-prevent-multiple-submits pt-2">
                                                                     @csrf
                                                                     @method('PUT')
                                                                     <div class="row">
@@ -154,10 +158,10 @@
         <div id="expenceCategoryAdd" class="modal fade" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h6 class="modal-title text-white">Add Expense Category</h6>
+                    <div class="modal-header p-1 px-3">
+                        <h6 class="modal-title text-white mb-0">Add Expense Category</h6>
                         <a type="button" data-bs-dismiss="modal">
-                            <i class="ph ph-x text-white" style="font-weight: 800;font-size: 10px;"></i>
+                            <i class="ph ph-x text-white"></i>
                         </a>
                     </div>
                     <div class="modal-body p-0 px-2">
@@ -189,7 +193,6 @@
                                 </div>
                             </div>
                             <div class="modal-footer border-0 pt-3 pb-0 pe-0">
-                                <button type="button" class="submit_close_btn " data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="submit_btn from-prevent-multiple-submits"
                                     style="padding: 5px;">Submit</button>
                             </div>

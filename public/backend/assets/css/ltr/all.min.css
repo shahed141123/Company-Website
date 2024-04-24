@@ -5607,8 +5607,8 @@ textarea.form-control-lg {
 .active>.page-link, .page-link.active {
     z-index: 3;
     color: var(--pagination-active-color);
-    background-color: var(--pagination-active-bg);
-    border-color: var(--pagination-active-border-color)
+    background-color: #247297;
+    border-color: #247297;
 }
 
 .disabled>.page-link, .page-link.disabled {

@@ -20,64 +20,68 @@
             </div>
         </div>
         <!-- /page header -->
-        <div class="content pt-0 w-50 mx-auto mt-2">
-            <div class="d-flex align-items-center py-1 bg-white">
-                {{-- Add Details Start --}}
-                <div class="text-success nav-link cat-tab3">
-                    <a href="{{ route('learnMore.create') }}" data-bs-toggle="tooltip" data-bs-placement="top"
-                        title="Add Solution Details"
-                        class="mx-3 btn btn-sm btn-info btn-labeled custom_btn btn-labeled-start float-start">
-                        <span class="btn-labeled-icon bg-black bg-opacity-20">
-                            <i class="icon-plus2"></i>
-                        </span>
-                        Add
-                    </a>
-
-                    <div class="text-center" style="margin-left: 6rem;">
-                        <h5 class="mb-0" style="color: #247297;">Learn More Page</h5>
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="d-flex justify-content-between align-items-center py-1 px-4 mt-3 rounded-1"
+                        style="background-color: #247297">
+                        <div>
+                            <h5 class="mb-0 text-white">Learn More Page</h5>
+                        </div>
+                        <div>
+                            <a href="{{ route('learnMore.create') }}" >
+                                <div class="d-flex align-items-center">
+                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Add Category">
+                                        <i class="ph-plus text-white"></i> </span>
+                                    <span class="ms-1 text-white">Add</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                {{-- Add Details End --}}
-            </div>
-            <div>
-                <table class="table table-bordered table-hover text-center">
-                    <thead>
-                        <tr>
-                            <th>SL No.</th>
-                            <th>Template Number</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                        @php
-                            $words = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
-                        @endphp
-                    <tbody>
-                        @if (count($learnMores)>0)
-                            @foreach ($learnMores as $key => $learnMore)
+                <div class="col-lg-6 offset-lg-3">
+                    <div>
+                        <table class="table table-bordered table-hover text-center">
+                            <thead>
                                 <tr>
-                                    <td class="text-center">{{ ++$key }}</td>
-                                    <td>
-                                        {{ isset($words[$key]) ? 'Tamplate' . ' ' .Str::ucfirst($words[$key]) : 'Number out of range' }}
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('learnMore.edit', [$learnMore->id]) }}" class="text-primary">
-                                            <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
-                                        </a>
-                                        <a href="{{ route('learnMore.destroy', [$learnMore->id]) }}"
-                                            class="text-danger delete">
-                                            <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
-                                        </a>
-                                    </td>
+                                    <th>SL No.</th>
+                                    <th>Template Number</th>
+                                    <th>Action</th>
                                 </tr>
-                            @endforeach
-                        @else
-                            <tr>
-                                <td colspan="3">No Data Found</td>
-                            </tr>
-
-                        @endif
-                    </tbody>
-                </table>
+                            </thead>
+                            @php
+                                $words = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+                            @endphp
+                            <tbody>
+                                @if (count($learnMores) > 0)
+                                    @foreach ($learnMores as $key => $learnMore)
+                                        <tr>
+                                            <td class="text-center">{{ ++$key }}</td>
+                                            <td>
+                                                {{ isset($words[$key]) ? 'Tamplate' . ' ' . Str::ucfirst($words[$key]) : 'Number out of range' }}
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('learnMore.edit', [$learnMore->id]) }}"
+                                                    class="text-primary">
+                                                    <i class="fa-solid fa-pen-to-square me-2 dash-icons text-primary"></i>
+                                                </a>
+                                                <a href="{{ route('learnMore.destroy', [$learnMore->id]) }}"
+                                                    class="text-danger delete">
+                                                    <i class="fa-solid fa-trash dash-icons text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="3">No Data Found</td>
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

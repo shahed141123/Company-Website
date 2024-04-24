@@ -81,40 +81,36 @@
         <section>
             <div class="container-fluid mt-2">
                 <div class="row mx-3 mb-3">
-                    <div class="col-lg-12">
-                        <div class="d-flex justify-content-between align-items-center"
-                            style="position: relative;
-                        z-index: 999;">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="d-flex justify-content-between align-items-center" style="position: relative; z-index: 999;">
                             <ul class="nav nav-tabs border-0">
-                                <li class="nav-item w-lg-auto w-100 ">
+                                <li class="nav-item w-lg-auto w-100 mb-0">
                                     <a href="#pending" class=" nav-link active cat-tab1 p-1" data-bs-toggle="tab">
                                         <p class="m-0 p-1">
                                             Pending for SAS<span class="ms-2">|</span></p>
                                     </a>
                                 </li>
-
-                                <li class="nav-item w-lg-auto w-100">
+                                <li class="nav-item w-lg-auto w-100 mb-0">
                                     <a href="#approved" class=" nav-link cat-tab2 p-1 " data-bs-toggle="tab">
                                         <p class="m-0 p-1">
                                             Seek Approval <span class="ms-2">|</span></p>
                                     </a>
                                 </li>
-                                <li class="nav-item w-lg-auto w-100">
+                                <li class="nav-item w-lg-auto w-100 mb-0">
                                     <a href="#all" class=" nav-link cat-tab3 p-1" data-bs-toggle="tab">
                                         <p class="m-0 p-1">
                                             Approved </p>
                                     </a>
                                 </li>
-
                             </ul>
                             <div>
-                                <h6 class="text-center"> All Pending Products for SAS</h6>
+                                <h6 class="text-center mb-0 pe-3"> All Pending Products for SAS</h6>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row mx-3 mt-5">
-                    <div class="col-lg-12">
+                    <div class="col-lg-8 offset-lg-2">
                         <div class="tab-content" style="margin-top: -3.5rem;">
                             <div class="tab-pane fade show active" id="pending">
                                 {{-- Pending Table --}}
@@ -127,8 +123,8 @@
                                                         <th width="5%">Sl</th>
                                                         <th width="5%">Image </th>
                                                         <th width="60%">Product Name </th>
-                                                        <th width="20%">Price Status</th>
-                                                        <th width="10%">Action</th>
+                                                        <th width="15%">Price Status</th>
+                                                        <th width="15%">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -142,7 +138,7 @@
                                                                             style="width: 70px; height:40px;">
                                                                     @endif
                                                                 </td>
-                                                                <td class="text-start"><a href="javascript:void(0);" data-tip="Details"
+                                                                <td class="text-start text-muted"><a class="text-muted" href="javascript:void(0);" data-tip="Details"
                                                                         data-bs-toggle="modal"
                                                                         data-bs-target="#productDetails{{ $product->id }}"
                                                                         title="Product Quick View">{{ $product->name }}</a>
@@ -150,15 +146,14 @@
                                                                 <td class="text-center">
                                                                     {{ ucfirst($product->price_status) }}</td>
                                                                 <td class="text-center">
-
                                                                     <a href="{{ route('sourcing.sas', [$product->slug]) }}"
-                                                                        class="text-info mx-2" title="SAS Create">
+                                                                        class="text-info dash-icons me-2" title="SAS Create">
                                                                         <i class="icon-file-plus2"></i>
                                                                     </a>
                                                                     <a href="javascript:void(0);" data-tip="Details"
                                                                         data-bs-toggle="modal"
                                                                         data-bs-target="#productDetails{{ $product->id }}"
-                                                                        class="text-info mx-2" title="Product Quick View">
+                                                                        class="text-info dash-icons" title="Product Quick View">
                                                                         <i class="icon-eye"></i>
                                                                     </a>
                                                                 </td>

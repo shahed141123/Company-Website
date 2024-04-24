@@ -91,10 +91,10 @@
                                                     </td>
                                                     <td>
                                                         <a href="{{ route('product-sourcing.edit', $product->id) }}" class="text-primary">
-                                                            <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
+                                                            <i class="fa-solid fa-pen-to-square me-2 dash-icons"></i>
                                                         </a>
                                                         <a href="{{ route('product-sourcing.destroy', [$product->id]) }}" class="text-danger delete">
-                                                            <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
+                                                            <i class="fa-solid fa-trash dash-icons text-danger"></i>
                                                         </a>
                                                     </td>
                                                 </tr>
