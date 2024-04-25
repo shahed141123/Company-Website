@@ -20,6 +20,13 @@
                 </div>
             </div>
             <div class="px-3">
+                <a href="{{ route('hr-and-admin.index') }}" class="btn navigation_btn">
+                    <div class="d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Add Solution Details">
+                        <i class="fa-solid fa-users me-1" style="font-size: 12px;"></i>
+                        <span>HR & Admin</span>
+                    </div>
+                </a>
                 <a href="{{ route('job.create') }}" class="btn navigation_btn">
                     <div class="d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="top"
                         title="Add Solution Details">
@@ -31,11 +38,7 @@
         </div>
         <!-- /page header -->
         <div class="content">
-            <h4 class="text-center main_color" style="    width: 250px;
-            margin: auto;
-            background: white;
-            position: relative;
-            z-index: 5;">Company Job Details</h4>
+            <h4 class="text-center main_color" style="width: 250px; margin: auto; background: white; position: relative; z-index: 5;">Company Job Details</h4>
             <p class="devider_line"></p>
             <div class="row pt-3">
                 <div class="col-lg-8 offset-lg-2 mx-auto">
@@ -112,23 +115,17 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-lg-12">
                     <div class="card rounded-0 border-0">
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <table class="datatable table jobDT table-striped table-bordered table-hover text-center">
-                                    <thead style="background-color: #ae0a46 !important;
-                                    color: white;">
+                                    <thead style="background-color: #ae0a46 !important; color: white;">
                                         <tr>
                                             <th width="5%">Id</th>
                                             <th width="30%">Name</th>
                                             <th width="15%">Deadline</th>
                                             <th width="10%">Post Link</th>
                                             <th width="30%">Category</th>
-                                            {{-- <th width="14%">Experience</th> --}}
                                             <th width="10%" class="text-center">Actions</th>
                                         </tr>
                                     </thead>

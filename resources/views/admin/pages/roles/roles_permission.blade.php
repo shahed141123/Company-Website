@@ -9,9 +9,6 @@
         .section-border {
             border-bottom: 0.5px solid #24739763;
         }
-        .nav-tabs .nav-link.active {
-            color: #ff0000 !important;
-        }
     </style>
     <div class="content-wrapper">
         <!-- Page header -->
@@ -23,7 +20,8 @@
                         <div class="breadcrumb py-2">
                             <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
                             <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item">Home</a>
-                            <a href="{{route('site-setting.index')}}" class="breadcrumb-item"><span class="breadcrumb-item active">Site
+                            <a href="{{ route('site-setting.index') }}" class="breadcrumb-item"><span
+                                    class="breadcrumb-item active">Site
                                     Settings</span></a>
                         </div>
                         <a href="#breadcrumb_elements"
@@ -38,26 +36,35 @@
                 <!-- Basic tabs -->
                 <div class="d-flex justify-content-between align-items-center p-0">
                     <ul class="nav nav-tabs border-0">
-                        <li class="nav-item ">
-                            <a href="#permission" class=" nav-link btn navigation_btn {{($class == 'permission') ? 'active' : '' }} cat-tab1 p-1"
+                        <li class="nav-item me-1">
+                            <a href="#permission"
+                                class=" nav-link btn navigation_btn {{ $class == 'permission' ? 'active' : '' }} cat-tab1 p-1"
                                 data-bs-toggle="tab">
                                 <p class="m-0 p-1">
-                                    Permission <span class="ms-2">|</span></p>
+                                    Permission</p>
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="#roles" class="nav-link btn {{($class == 'roles') ? 'active' : '' }} navigation_btn cat-tab2 p-1 "
+                        <li class="nav-item me-1">
+                            <a href="#roles"
+                                class="nav-link btn {{ $class == 'roles' ? 'active' : '' }} navigation_btn cat-tab2 p-1 "
                                 data-bs-toggle="tab">
                                 <p class="m-0 p-1">
-                                    Roles <span class="ms-2">|</span></p>
+                                    Roles</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#rolesinpermission" class="nav-link btn {{($class == 'rolesinpermission') ? 'active' : '' }} navigation_btn cat-tab3 p-1"
+                        <li class="nav-item me-1">
+                            <a href="#rolesinpermission"
+                                class="nav-link btn {{ $class == 'rolesinpermission' ? 'active' : '' }} navigation_btn cat-tab3 p-1"
                                 data-bs-toggle="tab">
                                 <p class="m-0 p-1">
                                     Roles in Permission</p>
+                            </a>
+                        </li>
+                        <li class="nav-item me-1">
+                            <a href="#" class="nav-link btn navigation_btn cat-tab3 p-1" data-bs-toggle="tab">
+                                <p class="m-0 p-1">
+                                    Site Setting</p>
                             </a>
                         </li>
 
@@ -68,27 +75,25 @@
         <!-- /page header -->
 
         <!-- Sales Chain Page -->
-        <div class="content pt-0 w-75 mx-auto">
-            <div class="container-fluid ">
-                <div class="row rounded mx-2 mt-1">
-
+        <div class="content">
+            <div class="row mt-2">
+                <div class="col-lg-8 offset-lg-2">
                     <div class="tab-content">
-                        <div class="tab-pane fade show {{($class == 'permission') ? 'active' : '' }}" id="permission">
-                            <div class="d-flex align-items-center py-2">
+                        <div class="tab-pane fade show {{ $class == 'permission' ? 'active' : '' }}" id="permission">
+                            <div class="d-flex justify-content-between align-items-center py-2 main_bg rounded-1">
                                 {{-- Add Tax Vat Modal --}}
                                 <a href="" class="text-success nav-link cat-tab3" data-bs-toggle="modal"
-                                    data-bs-target="#permissionAdd" style="position: relative; z-index: 999; margin-bottom: -40px;">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Add Expense">
-                                        <i class="ph-plus icons_design"></i>
+                                    data-bs-target="#permissionAdd">
+                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Add Expense">
+                                        <i class="ph-plus icons_design text-white"></i>
+                                        <span class="ms-1 text-white">Add</span>
                                     </span>
-                                    <div class="d-flex justify-content-between">
-                                        <span class="ms-1">Add</span>
-                                    </div>
-                                    <div class="d-flex justify-content-between hide_mobile">
-                                        <h6 class="mb-0 text-black text-center" style="margin-left: 15rem !important;">All Permission</h6>
-                                    </div>
                                 </a>
+                                <div>
+                                    <h6 class="mb-0 text-white text-center pe-2" style="margin-left: 15rem !important;">All
+                                        Permission</h6>
+                                </div>
                             </div>
                             <div>
                                 <table class="table permissionDT table-bordered table-hover text-center ">
@@ -117,8 +122,7 @@
                                                     </a>
                                                     <a href="{{ route('delete.permission', $item->id) }}"
                                                         class="text-danger delete mx-2">
-                                                        <i
-                                                            class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
+                                                        <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
                                                     </a>
 
                                                     {{-- Edit Expense Modal --}}
@@ -150,8 +154,7 @@
                                                                                     class="col-form-label col-lg-4 p-0 text-start text-black">Permission
                                                                                     Name</label>
                                                                                 <div class="input-group">
-                                                                                    <input name="name"
-                                                                                        type="text"
+                                                                                    <input name="name" type="text"
                                                                                         class="form-control form-control-sm"
                                                                                         placeholder="Enter Permission Name"
                                                                                         value="{{ $item->name }}"
@@ -172,8 +175,7 @@
                                                                                     data-placeholder="Choose Group"
                                                                                     required>
                                                                                     <option></option>
-                                                                                    <option
-                                                                                        value="product-management"
+                                                                                    <option value="product-management"
                                                                                         {{ $item->group_name == 'product-management' ? 'selected' : '' }}>
                                                                                         Product Management</option>
 
@@ -242,8 +244,7 @@
 
 
                                                                         </div>
-                                                                        <div
-                                                                            class="modal-footer border-0 pt-3 pb-0 pe-0">
+                                                                        <div class="modal-footer border-0 pt-3 pb-0 pe-0">
                                                                             <button type="button"
                                                                                 class="submit_close_btn "
                                                                                 data-bs-dismiss="modal">Close</button>
@@ -268,22 +269,21 @@
                         </div>
                     </div>
                     <div class="tab-content">
-                        <div class="tab-pane fade show {{($class == 'roles') ? 'active' : '' }}" id="roles">
-                            <div class="d-flex align-items-center py-2 mt-1">
+                        <div class="tab-pane fade show {{ $class == 'roles' ? 'active' : '' }}" id="roles">
+                            <div class="d-flex justify-content-between align-items-center py-2 main_bg rounded-1">
                                 {{-- Add Tax Vat Modal --}}
                                 <a href="" class="text-success nav-link cat-tab3" data-bs-toggle="modal"
-                                    data-bs-target="#rolesAdd" style="position: relative; z-index: 999; margin-bottom: -40px;">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Add Expense">
-                                        <i class="ph-plus icons_design"></i>
+                                    data-bs-target="#rolesAdd">
+                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Add Expense">
+                                        <i class="ph-plus icons_design text-white"></i>
+                                        <span class="ms-1 text-white">Add</span>
                                     </span>
-                                    <div class="d-flex justify-content-between">
-                                        <span class="ms-1">Add</span>
-                                    </div>
-                                    <div class="d-flex justify-content-between hide_mobile">
-                                        <h6 class="mb-0 text-black text-center" style="margin-left: 15rem !important;">All Roles</h6>
-                                    </div>
                                 </a>
+                                <div>
+                                    <h6 class="mb-0 text-white text-center pe-2" style="margin-left: 15rem !important;">
+                                        All Roles</h6>
+                                </div>
                             </div>
                             <div>
                                 <table class="table rolesDT table-bordered table-hover text-center ">
@@ -302,10 +302,12 @@
                                                     <td>{{ $item->name }}</td>
 
                                                     <td>
-                                                        <a href="{{ route('edit.roles', $item->id) }}" class="text-primary">
+                                                        <a href="{{ route('edit.roles', $item->id) }}"
+                                                            class="text-primary">
                                                             <i class="icon-pencil"></i>
                                                         </a>
-                                                        <a href="{{ route('delete.roles', $item->id) }}" class="text-danger delete mx-2">
+                                                        <a href="{{ route('delete.roles', $item->id) }}"
+                                                            class="text-danger delete mx-2">
                                                             <i class="delete icon-trash"></i>
                                                         </a>
 
@@ -321,22 +323,23 @@
                         </div>
                     </div>
                     <div class="tab-content">
-                        <div class="tab-pane fade show {{($class == 'rolesinpermission') ? 'active' : '' }}" id="rolesinpermission">
-                            <div class="d-flex align-items-center py-2">
+                        <div class="tab-pane fade show {{ $class == 'rolesinpermission' ? 'active' : '' }}"
+                            id="rolesinpermission">
+                            <div class="d-flex justify-content-between align-items-center py-2 main_bg rounded-1">
                                 {{-- Add Tax Vat Modal --}}
-                                <a href="" class=" text-success nav-link cat-tab3" data-bs-toggle="modal"
-                                    data-bs-target="#rolesinpermissionAdd" style="position: relative; z-index: 999; margin-bottom: -40px;">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Add Expense">
-                                        <i class="ph-plus icons_design"></i>
+                                <a href="" class="text-success nav-link cat-tab3" data-bs-toggle="modal"
+                                    data-bs-target="#rolesinpermissionAdd">
+                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Add Expense">
+                                        <i class="ph-plus icons_design text-white"></i>
+                                        <span class="ms-1 text-white">Add</span>
                                     </span>
-                                    <div class="d-flex justify-content-between">
-                                        <span class="ms-1">Add</span>
-                                    </div>
-                                    <div class="d-flex justify-content-between hide_mobile">
-                                        <h6 class="mb-0 text-black text-center" style="margin-left: 15rem !important;">All Permission</h6>
-                                    </div>
                                 </a>
+                                <div>
+                                    <h6 class="mb-0 text-white text-center pe-2" style="margin-left: 15rem !important;">
+                                        Roles In
+                                        Permission</h6>
+                                </div>
                             </div>
                             <div>
                                 <table class="table rolesPermissionDT table-bordered table-hover text-center ">
@@ -360,10 +363,12 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="{{ route('admin.edit.roles', $item->id) }}" class="text-primary">
+                                                    <a href="{{ route('admin.edit.roles', $item->id) }}"
+                                                        class="text-primary">
                                                         <i class="icon-pencil"></i>
                                                     </a>
-                                                    <a href="{{ route('admin.delete.roles', $item->id) }}" class="text-danger delete mx-2">
+                                                    <a href="{{ route('admin.delete.roles', $item->id) }}"
+                                                        class="text-danger delete mx-2">
                                                         <i class="delete icon-trash"></i>
                                                     </a>
 
@@ -418,18 +423,15 @@
                     targets: [0, 1, 2],
                 }, ],
             });
-
-
         </script>
         <script type="text/javascript">
-
             $('.rolesPermissionDT').DataTable({
                 dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
                 "iDisplayLength": 10,
                 "lengthMenu": [10, 25, 30, 50],
                 columnDefs: [{
                     orderable: false,
-                    targets: [0,1,2,3],
+                    targets: [0, 1, 2, 3],
                 }, ],
             });
         </script>

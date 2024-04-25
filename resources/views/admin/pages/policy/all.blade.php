@@ -4,12 +4,12 @@
         <!-- Inner content -->
         <!-- Page header -->
         <div class="page-header page-header-light shadow">
-            <div class="page-header-content d-lg-flex border-top">
+            <div class="page-header-content d-flex justify-content-between align-items-center border-top">
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house me-2"></i> Home</a>
-                        <a href="{{route('site-content.index')}}" class="breadcrumb-item">Site Contents</a>
-                        <a href="{{route('policy.index')}}" class="breadcrumb-item active">Terms & Policy</a>
+                        <a href="{{ route('site-content.index') }}" class="breadcrumb-item">Site Contents</a>
+                        <a href="{{ route('policy.index') }}" class="breadcrumb-item active">Terms & Policy</a>
                     </div>
                     <a href="#breadcrumb_elements"
                         class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
@@ -17,27 +17,27 @@
                         <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
                     </a>
                 </div>
+                <div>
+                    <a href="#" class="btn navigation_btn">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-calculator me-1" style="font-size: 12px;"></i>
+                            <span>Site Content</span>
+                        </div>
+                    </a>
+                    <a href="javascript:void()" class="btn navigation_btn" data-bs-toggle="modal"
+                        data-bs-target="#policyAdd">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-plus me-1" style="font-size: 12px;"></i>
+                            <span>Add Terms</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
         <!-- /page header -->
         <!-- Highlighting rows and columns -->
         <div class="content pt-0 w-75 mx-auto">
-            <div class="d-flex align-items-center py-2">
-                <div class="text-success nav-link cat-tab3" style="position: relative; z-index: 999; margin-bottom: -40px;">
-                    <a href="" data-bs-toggle="modal" data-bs-target="#policyAdd">
-                        <div class="d-flex align-items-center">
-                            <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                data-bs-placement="top" title="Add Policy Managements">
-                                <i class="ph-plus icons_design"></i> </span>
-                            <span class="ms-1" style="color: #247297;">Add</span>
-                        </div>
-                    </a>
-                    <div class="text-center" style="margin-left: 300px">
-                        <h5 class="ms-1 mb-0 mt-1 text-black">Terms & Policy</h5>
-                    </div>
-                </div>
-
-            </div>
+            <h5 class="text-center mt-3">Terms & Policy</h5>
             <div>
                 <table class="table portfolioDetailDT table-bordered table-hover text-center">
                     <thead>
@@ -57,14 +57,14 @@
                                     <td>{{ $policy->condition }}</td>
                                     <td>
                                         <a href="" class="text-primary" data-bs-toggle="modal"
-                                            data-bs-target="#policyEdit{{$policy->id}}">
-                                            <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
+                                            data-bs-target="#policyEdit{{ $policy->id }}">
+                                            <i class="fa-solid fa-pen-to-square dash-icons text-primary"></i>
                                         </a>
                                         <a href="{{ route('policy.destroy', [$policy->id]) }}" class="text-danger delete">
-                                            <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
+                                            <i class="fa-solid fa-trash dash-icons text-danger"></i>
                                         </a>
                                         {{-- Edit Policy Modal Content --}}
-                                        <div id="policyEdit{{$policy->id}}" class="modal fade" tabindex="-1">
+                                        <div id="policyEdit{{ $policy->id }}" class="modal fade" tabindex="-1">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -85,7 +85,8 @@
                                                                     <div class="row mb-1">
                                                                         <div class="col-lg-6 col-sm-12">
                                                                             <div class="row mb-1">
-                                                                                <div class="col-lg-12 col-sm-12 d-flex align-items-center">
+                                                                                <div
+                                                                                    class="col-lg-12 col-sm-12 d-flex align-items-center">
                                                                                     <span>Name</span>
                                                                                 </div>
                                                                                 <div class="col-lg-12 col-sm-12">
@@ -107,8 +108,7 @@
                                                                                             {{ $policy->condition == 'terms' ? 'checked' : '' }}
                                                                                             class="form-check-input"
                                                                                             type="radio" name="condition"
-                                                                                            value="terms"
-                                                                                            id="terms">
+                                                                                            value="terms" id="terms">
                                                                                         <label class="form-check-label"
                                                                                             for="terms">
                                                                                             Terms
@@ -121,68 +121,66 @@
                                                                                             {{ $policy->condition == 'policy' ? 'checked' : '' }}
                                                                                             class="form-check-input"
                                                                                             type="radio" name="condition"
-                                                                                            value="policy"
-                                                                                            id="policy">
+                                                                                            value="policy" id="policy">
                                                                                         <label class="form-check-label"
                                                                                             for="policy">
                                                                                             Policy
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>
-                                                                                </div>
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-6 col-sm-6">
-                                                                                        <div class="form-check text-start">
-                                                                                            <input
-                                                                                                {{ $policy->condition == 'sale_terms' ? 'checked' : '' }}
-                                                                                                class="form-check-input"
-                                                                                                type="radio" name="condition"
-                                                                                                value="sale_terms"
-                                                                                                id="saleTerms">
-                                                                                            <label class="form-check-label"
-                                                                                                for="saleTerms">
-                                                                                                Terms of Sale
-                                                                                            </label>
-                                                                                        </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-lg-6 col-sm-6">
+                                                                                    <div class="form-check text-start">
+                                                                                        <input
+                                                                                            {{ $policy->condition == 'sale_terms' ? 'checked' : '' }}
+                                                                                            class="form-check-input"
+                                                                                            type="radio" name="condition"
+                                                                                            value="sale_terms"
+                                                                                            id="saleTerms">
+                                                                                        <label class="form-check-label"
+                                                                                            for="saleTerms">
+                                                                                            Terms of Sale
+                                                                                        </label>
                                                                                     </div>
-                                                                                    <div class="col-lg-6 col-sm-6">
-                                                                                        <div class="form-check text-start">
-                                                                                            <input
-                                                                                                {{ $policy->condition == 'service_terms' ? 'checked' : '' }}
-                                                                                                class="form-check-input"
-                                                                                                type="radio" name="condition"
-                                                                                                value="service_terms"
-                                                                                                id="serviceTerms">
-                                                                                            <label class="form-check-label"
-                                                                                                for="serviceTerms">
-                                                                                                Terms of Service
-                                                                                            </label>
-                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="col-lg-6 col-sm-6">
+                                                                                    <div class="form-check text-start">
+                                                                                        <input
+                                                                                            {{ $policy->condition == 'service_terms' ? 'checked' : '' }}
+                                                                                            class="form-check-input"
+                                                                                            type="radio"
+                                                                                            name="condition"
+                                                                                            value="service_terms"
+                                                                                            id="serviceTerms">
+                                                                                        <label class="form-check-label"
+                                                                                            for="serviceTerms">
+                                                                                            Terms of Service
+                                                                                        </label>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    {{--  --}}
-                                                                    <div class="row mb-1">
-                                                                        <div class="col-lg-12 col-sm-12">
-                                                                            <span>Description</span>
-                                                                        </div>
-                                                                        <div class="col-lg-12 col-sm-12">
-                                                                            <textarea class="form-control" name="description" id="common" style=" font-size: 12px; font-weight: 500;">{{ $policy->description }}</textarea>
-                                                                        </div>
+                                                                </div>
+                                                                {{--  --}}
+                                                                <div class="row mb-1">
+                                                                    <div class="col-lg-12 col-sm-12">
+                                                                        <span>Description</span>
+                                                                    </div>
+                                                                    <div class="col-lg-12 col-sm-12">
+                                                                        <textarea class="form-control" name="description" id="common" style=" font-size: 12px; font-weight: 500;">{{ $policy->description }}</textarea>
                                                                     </div>
                                                                 </div>
-                                                                <div class="row mt-2">
-                                                                    <div
-                                                                        class="col-sm-12 text-secondary d-flex justify-content-end">
-                                                                        <button type="submit"
-                                                                            class="text-white btn btn-sm"
-                                                                            style="background-color:#247297 !important; padding: 5px 12px 5px;">Submit</button>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
                                                         </div>
+                                                        <div class="row mt-2">
+                                                            <div
+                                                                class="col-sm-12 text-secondary d-flex justify-content-end">
+                                                                <button type="submit" class="text-white btn btn-sm"
+                                                                    style="background-color:#247297 !important; padding: 5px 12px 5px;">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -200,11 +198,11 @@
         <div id="policyAdd" class="modal fade" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header py-2 px-3">
                         <h6 class="modal-title text-white">Add Terms & Policy
                         </h6>
                         <a type="button" data-bs-dismiss="modal">
-                            <i class="ph ph-x text-white" style="font-weight: 800;font-size: 10px;"></i>
+                            <i class="ph ph-x text-white"></i>
                         </a>
                     </div>
                     <div class="modal-body p-1">

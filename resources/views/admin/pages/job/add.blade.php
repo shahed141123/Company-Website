@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <!-- Page header -->
         <div class="page-header page-header-light shadow">
-            <div class="page-header-content d-lg-flex border-top">
+            <div class="page-header-content d-flex d-flex justify-content-between align-items-center border-top">
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house me-2"></i> Home</a>
@@ -22,6 +22,20 @@
                         <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
                     </a>
                 </div>
+                <div>
+                    <a href="{{ route('employee-category.index') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-nfc-magnifying-glass me-1"></i>
+                            <span>Jobs Dashboard</span>
+                        </div>
+                    </a>
+                    <a href="{{ route('employee-category.index') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-nfc-magnifying-glass me-1"></i>
+                            <span>Jobs List</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
         <!-- /page header -->
@@ -32,27 +46,20 @@
                 <div class="text-start">
                     <div class="row main_bg py-1 rounded-1 d-flex align-items-center gx-0 px-2">
 
-                        <div class="col-lg-4 col-sm-12">
+                        <div class="col-lg-12 col-sm-12 d-flex justify-content-between align-items-center">
                             <div>
                                 <a class="btn btn-primary btn-rounded rounded-circle btn-icon back-btn"
                                     href="{{ route('job.index') }}">
                                     <i class="fa-solid fa-arrow-left main_color"></i>
                                 </a>
                             </div>
-                        </div>
-
-                        <div class="col-lg-4 col-sm-12 d-flex justify-content-center">
                             <p class="text-white p-0 m-0 fw-bold"> Add Job Form </p>
-                        </div>
-
-                        <div class="col-lg-4 col-sm-12 d-flex justify-content-end">
-
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card rounded-0">
                 <form id="myform" method="post" action="{{ route('job.store') }}" enctype="multipart/form-data">
                     @csrf
                     <!--Banner Section-->
@@ -143,9 +150,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
-
                                     <div class="row mb-1">
                                         <div class="col-lg-12 col-sm-12">
                                             <span>Job Description</span>
@@ -157,7 +161,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer border-0 pb-2 pe-3">
+                    <div class="modal-footer border-0 pb-2 pe-3 pt-2">
                         <button type="submit" class="submit_btn from-prevent-multiple-submits"
                             style="padding: 4px 9px;">Submit</button>
                     </div>

@@ -35,7 +35,7 @@
                 <h4 class="m-0" style="color: #247297;">All Feed Back</h4>
             </div>
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 mx-auto">
+                <div class="col-lg-8 offset-lg-2">
                     <div class="card border-0 shadow-sm">
                         <div class="card-body p-0">
                             <div class="table-responsive">
@@ -55,12 +55,12 @@
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>this is details</td>
-                                            <td>text568</td>
+                                            <td>This is details</td>
+                                            <td>Text568</td>
                                             <td>25-2024</td>
                                             <td>56$</td>
                                             <td>Yes</td>
-                                            <td>no</td>
+                                            <td>No</td>
                                             <td>
                                                 <a href="" class="text-primary">
                                                     <i class="fa-solid fa-pen-to-square dash-icons"></i>
@@ -72,7 +72,7 @@
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td>this is details</td>
+                                            <td>This is details</td>
                                             <td>text568</td>
                                             <td>25-2024</td>
                                             <td>56$</td>
@@ -89,7 +89,7 @@
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td>this is details</td>
+                                            <td>This is details</td>
                                             <td>text568</td>
                                             <td>25-2024</td>
                                             <td>56$</td>

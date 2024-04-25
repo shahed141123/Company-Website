@@ -1,5 +1,6 @@
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-8 offset-lg-2">
+        <h5 class="text-center">Simple Mail Transfer Protocol</h5>
         <form action="{{ route('smtp.setting') }}" method="POST">
             @csrf
             @method('PUT')

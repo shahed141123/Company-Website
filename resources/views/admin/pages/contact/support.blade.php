@@ -42,7 +42,7 @@
                     </div>
 
                 </div>
-                <div class="col-12 p-0">
+                <div class="col-lg-8 offset-lg-2 p-0">
                     <div class="table-responive">
                         <table class="table supportDT table-bordered table-hover text-center">
                             <thead>

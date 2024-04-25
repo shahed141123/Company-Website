@@ -1,10 +1,29 @@
 <div class="row">
-    <div class="col-lg-12">
-        <div class="row">
-            <div class="col-lg-12 px-2 py-2">
-                <form method="post" action="{{ route('site.setting') }}" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
+    <div class="col-lg-8 offset-lg-2 px-2 py-2">
+        <form method="post" action="{{ route('site.setting') }}" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div class="d-flex justify-content-between align-items-center border shadow-sm">
+                <div>
+                    <ul class="nav nav-tabs border-0">
+                        <li class="nav-item mt-1">
+                            <a href="#siteData" class="nav-link active" data-bs-toggle="tab">
+                                Site Data
+                            </a>
+                        </li>
+                        <li class="nav-item mt-1">
+                            <a href="#socialLink" class="nav-link " data-bs-toggle="tab">
+                                Social Link
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-center mb-0 pe-2">Search Engine Optimization (SEO)</h5>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="siteData">
                     <div class="card rounded-0 border border-secondary">
                         <div class="rounded-0 card-header bg-secondary text-white p-2">
                             <h6 class="mb-0">Site Data</h6>
@@ -49,7 +68,8 @@
                                             </div>
                                             <div class="col-lg-3">
                                                 <img class="img-fluid rounded-circle" id="showImage"
-                                                    src="{{ isset(optional($site)->favicon) ? asset('storage/' . optional($site)->favicon) : url('upload/no_image.jpg') }}" alt=""
+                                                    src="{{ isset(optional($site)->favicon) ? asset('storage/' . optional($site)->favicon) : url('upload/no_image.jpg') }}"
+                                                    alt=""
                                                     style="width: 30px;
                                                     height: 30px;">
                                             </div>
@@ -93,7 +113,8 @@
                                             </div>
                                             <div class="col-lg-3">
                                                 <img class="img-fluid rounded-circle" id="showImage1"
-                                                    src="{{ isset(optional($site)->logo) ? asset('storage/' . optional($site)->logo) : url('upload/no_image.jpg') }}" alt=""
+                                                    src="{{ isset(optional($site)->logo) ? asset('storage/' . optional($site)->logo) : url('upload/no_image.jpg') }}"
+                                                    alt=""
                                                     style="width: 30px;
                                                     height: 30px;">
                                             </div>
@@ -212,6 +233,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="tab-pane fade" id="socialLink">
                     <div class="card rounded-0 border border-secondary">
                         <div class="rounded-0 card-header bg-secondary text-white p-2">
                             <h6 class="mb-0">Social Link</h6>
@@ -308,15 +331,15 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Form Submit Button Start-->
-                    <div class="text-end mb-3 mx-3">
-                        <button type="submit" class="btn btn-primary">Submit
-                            <i class="ph-paper-plane-tilt ms-2"></i>
-                        </button>
-                    </div>
-                    <!-- Form Submit Button End-->
-                </form>
+                </div>
             </div>
-        </div>
+            <!-- Form Submit Button Start-->
+            <div class="text-end mb-3 mx-3">
+                <button type="submit" class="btn btn-primary">Submit
+                    <i class="ph-paper-plane-tilt ms-2"></i>
+                </button>
+            </div>
+            <!-- Form Submit Button End-->
+        </form>
     </div>
 </div>

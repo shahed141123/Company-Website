@@ -2,18 +2,15 @@
 @section('content')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
-        .nav-tabs .nav-link.active{
-            color:white !important;
+        .nav-tabs .nav-link.active {
+            color: white !important;
         }
-        .nav-tabs .nav-link:hover{
-            color:white !important;
+
+        .nav-tabs .nav-link:hover {
+            color: white !important;
         }
     </style>
     <div class="content-wrapper">
-
-        <!-- Inner content -->
-
-
         <!-- Page header -->
         <section class="shadow-sm">
             <div class="d-flex justify-content-between align-items-center">
@@ -35,31 +32,34 @@
                 </div>
                 {{-- Inner Page Tab --}}
                 <!-- Basic tabs -->
-                <div>
+                <div class="d-flex align-items-center">
                     <ul class="nav nav-tabs border-bottom-0">
                         <li class="nav-item d-flex align-items-center">
-                            <a href="#js-tab1" class="navigation_btn p-0 me-2 btn nav-link active cat-tab1" data-bs-toggle="tab">
-                                <p class="p-1 mb-0" >
+                            <a href="#js-tab1" class="navigation_btn p-0 me-2 btn nav-link active cat-tab1"
+                                data-bs-toggle="tab">
+                                <p class="p-1 mb-0">
                                     Navbar Module</p>
                             </a>
                         </li>
-
                         <li class="nav-item d-flex align-items-center">
                             <a href="#js-tab2" class="navigation_btn p-0 me-2 btn nav-link cat-tab2" data-bs-toggle="tab">
                                 <p class="p-1 mb-0">
                                     Navbar Menu</p>
                             </a>
                         </li>
-
                         <li class="nav-item d-flex align-items-center">
                             <a href="#js-tab3" class="navigation_btn p-0 me-2 btn nav-link cat-tab3" data-bs-toggle="tab">
                                 <p class="p-1 mb-0">
                                     Navbar Menu Item</p>
                             </a>
                         </li>
-
-
                     </ul>
+                    <a href="http://127.0.0.1:3000/admin/marketing-dashboard" class="btn navigation_btn ms-2 py-2">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-business-time me-1" style="font-size: 12px;"></i>
+                            <span>Site Setting</span>
+                        </div>
+                    </a>
                 </div>
         </section>
         <!-- /page header -->
@@ -102,9 +102,7 @@
     <!-- /inner content -->
 
     </div>
-    <script>
-
-    </script>
+    <script></script>
 @endsection
 
 @once
@@ -129,7 +127,7 @@
                 "lengthMenu": [10, 26, 30, 50],
                 columnDefs: [{
                     orderable: false,
-                    targets: [0,1,2,3],
+                    targets: [0, 1, 2, 3],
                 }, ],
             });
 
@@ -139,7 +137,7 @@
                 "lengthMenu": [10, 26, 30, 50],
                 columnDefs: [{
                     orderable: false,
-                    targets: [0,1,2,3],
+                    targets: [0, 1, 2, 3],
                 }, ],
             });
 
@@ -149,11 +147,9 @@
                 "lengthMenu": [10, 26, 30, 50],
                 columnDefs: [{
                     orderable: false,
-                    targets: [0,1,2,3,4],
+                    targets: [0, 1, 2, 3, 4],
                 }, ],
             });
-
-
         </script>
     @endpush
 @endonce

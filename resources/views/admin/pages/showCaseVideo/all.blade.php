@@ -34,7 +34,37 @@
         <div class="content">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 mx-auto">
-                    <div class="card"></div>
+                    <h5 class="main_color text-center">Show Case</h5>
+                    <div class="card border-0">
+                        <table class="table showCaseVideoDT table-bordered table-hover text-center">
+                            <thead>
+                                <tr>
+                                    <th width="5%">SL</th>
+                                    <th width="15%">Image</th>
+                                    <th width="60%">Title</th>
+                                    <th width="20%" class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">1</td>
+                                    <td>
+                                        <img class="rounded-circle img-fluid" src="" alt="" width="25"
+                                            height="25">
+                                    </td>
+                                    <td>Show Case Title</td>
+                                    <td>
+                                        <a href="#" class="text-primary">
+                                            <i class="fa-solid fa-pen-to-square dash-icons text-primary"></i>
+                                        </a>
+                                        <a href="#" class="text-danger delete">
+                                            <i class="fa-solid fa-trash dash-icons text-danger"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

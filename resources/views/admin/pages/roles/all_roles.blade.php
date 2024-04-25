@@ -26,60 +26,52 @@
         <!-- /page header -->
 
 
-        <div class="content pt-0 w-75 mx-auto">
-            <!-- Highlighting rows and columns -->
-            <div class="d-flex align-items-center py-2">
-                {{-- Add Tax Vat Modal --}}
-                <a href="" class=" text-success nav-link cat-tab3" data-bs-toggle="modal"
-                    data-bs-target="#permissionAdd" style="position: relative; z-index: 999; margin-bottom: -40px;">
-                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip" data-bs-placement="top"
-                        title="Add Expense">
-                        <i class="ph-plus icons_design"></i>
-                    </span>
-                    <div class="d-flex justify-content-between">
-                        <span class="ms-1">Add</span>
-                    </div>
-                    <div class="d-flex justify-content-between hide_mobile">
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="d-flex justify-content-between align-items-center py-2">
+                        {{-- Add Tax Vat Modal --}}
+                        <a href="" class=" text-success nav-link cat-tab3" data-bs-toggle="modal"
+                            data-bs-target="#permissionAdd" style="position: relative; z-index: 999; margin-bottom: -40px;">
+                            <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Add Expense">
+                                <i class="ph-plus icons_design"></i>
+                                <span class="ms-1">Add</span>
+                            </span>
+                        </a>
                         <h6 class="mb-0 text-black text-center" style="margin-left: 15rem !important;">All Roles</h6>
                     </div>
-                </a>
+                    <div>
+                        <table class="table rolesDT table-bordered table-hover text-center ">
+                            <thead>
+                                <tr>
+                                    <th>Sl</th>
+                                    <th>Roles Name </th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($roles as $key => $item)
+                                    <tr>
+                                        <td> {{ $key + 1 }} </td>
+                                        <td>{{ $item->name }}</td>
+
+                                        <td>
+                                            <a href="{{ route('edit.roles', $item->id) }}" class="text-primary">
+                                                <i class="icon-pencil"></i>
+                                            </a>
+                                            <a href="{{ route('delete.roles', $item->id) }}" class="text-danger delete mx-2">
+                                                <i class="delete icon-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <div>
-                <table class="table rolesDT table-bordered table-hover text-center ">
-                    <thead>
-                        <tr>
-                            <th>Sl</th>
-                            <th>Roles Name </th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($roles as $key => $item)
-                            <tr>
-                                <td> {{ $key + 1 }} </td>
-                                <td>{{ $item->name }}</td>
-
-                                <td>
-                                    <a href="{{ route('edit.roles', $item->id) }}" class="text-primary">
-                                        <i class="icon-pencil"></i>
-                                    </a>
-                                    <a href="{{ route('delete.roles', $item->id) }}" class="text-danger delete mx-2">
-                                        <i class="delete icon-trash"></i>
-                                    </a>
-
-
-                                </td>
-                            </tr>
-                        @endforeach
-
-                    </tbody>
-                </table>
-            </div>
-            <!-- /highlighting rows and columns -->
         </div>
-
-
-
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
@@ -133,10 +125,7 @@
                                             </td>
                                         </tr>
                                     @endforeach
-
-
                                 </tbody>
-
                             </table>
                         </div>
                     </div>

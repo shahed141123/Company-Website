@@ -556,6 +556,11 @@ label {
     border-radius: 0 !important;
     /* height: 30px; */
 }
+.title-text {
+    font-family: 'Bebas Neue';
+    font-weight: 400;
+    font-size: 25px;
+}
 
 .select2-selection--single {
     border-radius: 0px;
@@ -579,6 +584,10 @@ label {
     top: 3px;
 }
 
+.amount-ft-size {
+    font-size: 60px;
+    color: #ae0a56;
+}
 /* New Design */
 .nav-tabs .nav-link {
     border: none !important;

@@ -59,16 +59,16 @@
                                                             style="width: 25px;
                                                         height: 25px;">
                                                     </td>
-                                                    <td>{{ $story->badge }}</td>
-                                                    <td>{{ $story->title }}</td>
+                                                    <td class="text-start uppertext">{{ $story->badge }}</td>
+                                                    <td class="text-start">{{ $story->title }}</td>
                                                     <td>
                                                         <a href="{{ route('techglossy.edit', $story->id) }}" class="text-primary">
                                                             <i
-                                                                class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
+                                                                class="fa-solid fa-pen-to-square dash-icons text-primary"></i>
                                                         </a>
                                                         <a href="{{ route('techglossy.destroy', [$story->id]) }}"
                                                             class="text-danger delete">
-                                                            <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
+                                                            <i class="fa-solid fa-trash dash-icons text-danger"></i>
                                                         </a>
                                                     </td>
                                                 </tr>

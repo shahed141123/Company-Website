@@ -40,7 +40,7 @@
             <!-- Content area -->
             <div class="content pt-1 mx-lg-3 mx-1">
                 <div class="row">
-                    <div class="col-12 p-0">
+                    <div class="col-lg-8 offset-lg-2 p-0">
                         <div class="card mt-3 rounded-0">
                             <div class="card-header p-0 d-flex justify-content-start align-items-center rounded-0 ">
                                 <div>
@@ -57,9 +57,9 @@
                                                 <th style="width: 7% !important;">Image</th>
                                                 <th style="width: 45% !important;">Name</th>
                                                 <th style="width: 13% !important;">Added By</th>
-                                                <th style="width: 13% !important;">Price</th>
+                                                <th style="width: 10% !important;">Price</th>
                                                 <th style="width: 10% !important;">Status</th>
-                                                <th style="width: 9% !important;">Actions</th>
+                                                <th style="width: 12% !important;">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -91,7 +91,7 @@
                                                     </td>
                                                     <td>
                                                         <a href="{{ route('product-sourcing.edit', $product->id) }}" class="text-primary">
-                                                            <i class="fa-solid fa-pen-to-square me-2 dash-icons"></i>
+                                                            <i class="fa-solid fa-pen-to-square dash-icons"></i>
                                                         </a>
                                                         <a href="{{ route('product-sourcing.destroy', [$product->id]) }}" class="text-danger delete">
                                                             <i class="fa-solid fa-trash dash-icons text-danger"></i>

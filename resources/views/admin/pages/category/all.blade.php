@@ -37,8 +37,6 @@
     </style>
 
     <div class="content-wrapper">
-
-
         <!-- Page header -->
         <section class="shadow-sm">
             <div class="d-flex justify-content-between align-items-center">
@@ -88,74 +86,36 @@
                                     Sub Sub Sub Category</p>
                             </a>
                         </li>
-
-
                     </ul>
                 </div>
         </section>
-        <!-- product-sourcing Content Start style="position: relative;z-index: 999;"
-        -->
         <section>
-
-            <div class="container-fluid mt-3
-             ">
-                {{-- <div class="row rounded mb-3" id="exTab3" >
-                    <div class="d-flex justify-content-center align-items-center p-0">
-                        <ul class="nav nav-tabs border-0">
-                            <li class="nav-item ">
-                                <a href="#category" class=" nav-link text-black active cat-tab1 p-1" data-bs-toggle="tab">
-                                    <p class="m-0 p-1">
-                                        Category <span class="ms-2">|</span></p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#sub_category" class=" nav-link text-black cat-tab2 p-1 " data-bs-toggle="tab">
-                                    <p class="m-0 p-1"> Sub Category <span class="ms-2">|</span></p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#sub_sub_category" class=" nav-link text-black cat-tab3 p-1" data-bs-toggle="tab">
-                                    <p class="m-0 p-1"> Sub Sub Category <span class="ms-2">|</span></p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#sub_sub_sub_category" class=" nav-link text-black cat-tab3 p-1" data-bs-toggle="tab">
-                                    <p class="m-0 p-1"> Sub Sub Sub Category <span class="ms-2"></span></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div> --}}
+            <div class="container mt-3">
                 <div class="row rounded mt-2">
-                    <div class="tab-content p-0 mx-auto" style="width: 90%;">
-                        @include('admin.pages.category.partials.category_partial')
-                    </div>
-                    <div class="tab-content p-0 mx-auto" style="width: 90%;">
-                        @include('admin.pages.category.partials.sub_category_partial')
+                    <div class="col-lg-12">
+                        <div class="tab-content p-0 mx-auto">
+                            @include('admin.pages.category.partials.category_partial')
+                        </div>
+                        <div class="tab-content p-0 mx-auto">
+                            @include('admin.pages.category.partials.sub_category_partial')
 
 
-                    </div>
-                    <div class="tab-content p-0 mx-auto" style="width: 90%;">
-                        @include('admin.pages.category.partials.sub_sub_category_partial')
+                        </div>
+                        <div class="tab-content p-0 mx-auto">
+                            @include('admin.pages.category.partials.sub_sub_category_partial')
 
-                    </div>
-                    <div class="tab-content p-0 mx-auto" style="width: 90%;">
-                        @include('admin.pages.category.partials.sub_sub_sub_category_partial')
+                        </div>
+                        <div class="tab-content p-0 mx-auto">
+                            @include('admin.pages.category.partials.sub_sub_sub_category_partial')
 
 
+                        </div>
                     </div>
                 </div>
                 {{-- Add Modal Content Start --}}
                 @include('admin.pages.category.partials.add_modals')
-
-
-
             </div>
         </section>
-
-
-
     </div>
 @endsection
 
