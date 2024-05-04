@@ -74,7 +74,7 @@
                 <ul class="d-lg-flex justify-content-start stand-header-nav mb-0 d-lg-block d-sm-none">
                     <li class="px-3">
                         <a class="p-2 {{ Route::current()->getName() == 'brand.overview' ? 'active-brands' : '' }}"
-                            href="{{ route('brand.overview', $brand->slug) }}">Company</a>
+                            href="{{ route('brand.overview', $brand->slug) }}">Overview</a>
                     </li>
                     <li class="px-3">
                         <a class="p-2 {{ in_array(Route::currentRouteName(), ['brand.products', 'product.details']) ? 'active-brands' : '' }}"
@@ -147,7 +147,7 @@
                         <ul class="d-flex align-items-center justify-content-center">
                             <li class="px-1">
                                 <a class="{{ Route::current()->getName() == 'brand.overview' ? 'active-brands' : '' }}"
-                                    href="{{ route('brand.overview', $brand->slug) }}">Company</a>
+                                    href="{{ route('brand.overview', $brand->slug) }}">Overview</a>
                             </li>
                             <li class="px-1">
                                 <a class="{{ in_array(Route::currentRouteName(), ['brand.products', 'product.details']) ? 'active-brands' : '' }}"

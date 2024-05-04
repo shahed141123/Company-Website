@@ -218,7 +218,7 @@
                                                             @foreach ($attendanceData as $userId => $times)
                                                                 <tr class="">
                                                                     <td scope="row">{{ $loop->iteration }}</td>
-                                                                    <td><a href="{{ route('attendance.single.currentMonth', $userId) }}"
+                                                                    <td><a href="{{ route('attendance.single', $userId) }}"
                                                                             style="text-decoration: underline;">{{ $times['user_name'] }}</a>
                                                                     </td>
                                                                     <td>
@@ -239,7 +239,7 @@
                                                                                 @endif
                                                                             </div>
                                                                         @else
-                                                                            <a href="{{ route('attendance.single.currentMonth', $userId) }}"
+                                                                            <a href="{{ route('attendance.single', $userId) }}"
                                                                                 class="border-bottom-link">{{ $times['check_in'] }}</a>
                                                                         @endif
                                                                     </td>
