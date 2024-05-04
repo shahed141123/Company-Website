@@ -16,6 +16,12 @@
                 </div>
             </div>
             <div class="mx-2">
+                <a href="#" class="btn navigation_btn">
+                    <div class="d-flex align-items-center ">
+                        <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
+                        <span>HR & Admin</span>
+                    </div>
+                </a>
                 <a href="{{ route('leave.history') }}" class="btn navigation_btn">
                     <div class="d-flex align-items-center ">
                         <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
@@ -30,7 +36,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
-                        <h6 class="text-center card-main-title m-0 p-1">Today's Leave Applications</h6>
+                        <h6 class="text-center m-0 p-1 pb-2">Today's Leave Applications</h6>
                         <div class="card">
                             <div class="card-body p-0">
                                 <div class="table-responsive table-bordered">

@@ -168,7 +168,6 @@ thead {
 
 /*Custom icon Btn */
 
-
 .icon_btn {
     /* background: #247297; */
     color: #247297 !important;
@@ -557,11 +556,17 @@ label {
     border-radius: 0 !important;
     /* height: 30px; */
 }
+.title-text {
+    font-family: 'Bebas Neue';
+    font-weight: 400;
+    font-size: 25px;
+}
 
 .select2-selection--single {
     border-radius: 0px;
     font-size: 16px;
-    padding: 0px 5px;
+    /* padding: 15px 5px; */
+    padding: 3px 5px;
     border: 0px;
     background-color: #f9f9f9;
 }
@@ -579,6 +584,10 @@ label {
     top: 3px;
 }
 
+.amount-ft-size {
+    font-size: 60px;
+    color: #ae0a56;
+}
 /* New Design */
 .nav-tabs .nav-link {
     border: none !important;
@@ -1779,7 +1788,6 @@ ul.row-sm {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-
 .notice-card-header {
     /* Styles for card header */
     background-color: blue;
@@ -1810,5 +1818,18 @@ ul.row-sm {
         border-radius: 0px;
         padding: 0px 40px;
         font-size: 1rem;
+    }
+    .box_details-count {
+        font-size: 20px;
+    }
+    .navigation_btn {
+        width: 100% !important;
+    }
+    .brand-page-content {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        background-color: #fff;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+        padding-top: 0px;
     }
 }

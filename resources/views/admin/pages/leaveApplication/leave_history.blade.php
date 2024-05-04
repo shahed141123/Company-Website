@@ -68,14 +68,18 @@
                 </div>
             </div>
             <div class="mx-2">
+                <a href="{{ route('hr-and-admin.index') }}" class="btn navigation_btn">
+                    <div class="d-flex align-items-center ">
+                        <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
+                        <span>HR & Admin</span>
+                    </div>
+                </a>
                 <a href="{{ route('leaveApplications') }}" class="btn navigation_btn">
                     <div class="d-flex align-items-center ">
                         <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
                         <span>Total Leave Applications</span>
                     </div>
                 </a>
-
-
             </div>
         </div>
         <!-- /page header -->
@@ -84,16 +88,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
-                        <h6 class="text-center m-0 p-1 card-main-title">Leave Applications</h6>
+                        <h6 class="text-center m-0 p-1 pb-2">Leave Applications</h6>
                         <div class="card rounded-0">
                             <div class="card-body p-0">
-                                <div class="table-responsive table-bordered">
-                                    <table class="table table-hover">
+                                <div class="table-responsive  table-bordered">
+                                    <table class="table leavehistory table-bordered table-hover text-center table-sm">
                                         <thead class="border">
                                             <tr>
                                                 <th width="5%" class="text-center">Sl:</th>
-                                                <th width="30%">Applicant name</th>
-                                                <th width="15%">Type Of Leave</th>
+                                                <th width="25%">Applicant name</th>
+                                                <th width="20%">Type Of Leave</th>
                                                 <th width="15%">Designation</th>
                                                 <th width="20%">Status</th>
                                                 <th width="15%" class="text-center">Action</th>
@@ -116,13 +120,11 @@
                                                         <td class="text-center">
                                                             <a href="{{ route('leave-application.edit', $leaveApplication->id) }}"
                                                                 class="text-primary">
-                                                                <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-white"
-                                                                    style="color: #247297 !important;"></i>
+                                                                <i class="fa-solid fa-pen-to-square dash-icons text-primary"></i>
                                                             </a>
                                                             <a href="{{ route('leave-application.destroy', $leaveApplication->id) }}"
                                                                 class="text-danger delete">
-                                                                <i class="fa-solid fa-trash p-1 rounded-circle text-white"
-                                                                    style="color: #d60000 !important;"></i>
+                                                                <i class="fa-solid fa-trash dash-icons text-danger"></i>
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -520,6 +522,19 @@
     {{-- Modal End --}}
 @endsection
 @push('scripts')
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.leavehistory').DataTable({
+            dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+            "iDisplayLength": 10,
+            "lengthMenu": [10, 25, 30, 50],
+            columnDefs: [{
+                orderable: false,
+                targets: [5],
+            }, ],
+        });
+    });
+</script>
     <script>
         // Function to toggle the accordion without closing the modal
         function toggleAccordion() {

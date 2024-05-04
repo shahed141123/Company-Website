@@ -63,8 +63,6 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <p class="m-0 p-0 text-white">Total Employee</p>
                                         <i class="fa-solid fa-user-tie badge-icons"></i>
-                                    </div>
-                                    <div>
                                         <h5 class="p-0 m-0 text-white">8</h5>
                                     </div>
                                 </div>
@@ -78,8 +76,6 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <p class="m-0 p-0 text-white">Probation</p>
                                         <i class="fa-solid fa-clipboard-check badge-icons"></i>
-                                    </div>
-                                    <div>
                                         <h5 class="p-0 m-0 text-white">8</h5>
                                     </div>
                                 </div>
@@ -93,8 +89,6 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <p class="m-0 p-0 text-white">Intern</p>
                                         <i class="fa-solid fa-user-slash badge-icons"></i>
-                                    </div>
-                                    <div>
                                         <h5 class="p-0 m-0 text-white">8</h5>
                                     </div>
                                 </div>
@@ -109,8 +103,6 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <p class="m-0 p-0 text-white">Parmanent</p>
                                         <i class="fa-solid fa-user-tie badge-icons"></i>
-                                    </div>
-                                    <div>
                                         <h5 class="p-0 m-0 text-white">8</h5>
                                     </div>
                                 </div>
@@ -134,11 +126,12 @@
                                                     <tr>
                                                         <th width="5%">SL</th>
                                                         <th width="10%">Image</th>
-                                                        <th width="45%">Name</th>
+                                                        <th width="20%">Name</th>
+                                                        <th width="15%">Status</th>
                                                         <th width="20%">Email</th>
-                                                        <th width="10%">Designation</th>
+                                                        <th width="15%">Designation</th>
                                                         {{-- <th width="23%">Department</th> --}}
-                                                        <th width="10%" class="text-center">Actions</th>
+                                                        <th width="15%" class="text-center">Actions</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -155,24 +148,11 @@
                                                                 </td>
                                                                 <!-- Employee Name -->
                                                                 <td>{{ $employee->name }}</td>
+                                                                <td>Status</td>
                                                                 <!-- Employee Email -->
                                                                 <td>{{ $employee->email }}</td>
                                                                 <!-- Employee Designation -->
                                                                 <td>{{ $employee->designation }}</td>
-                                                                <!-- Employee Role -->
-                                                                {{-- <td>{{ ucfirst($employee->role) }}</td> --}}
-                                                                <!-- Employee Department -->
-                                                                {{-- <td>
-                                                                @if (is_array(json_decode($employee->department)))
-                                                                    @foreach (json_decode($employee->department) as $department)
-                                                                        <span
-                                                                            class="text-primary">{{ ucfirst($department) }},</span>
-                                                                    @endforeach
-                                                                @else
-                                                                    <span
-                                                                        class="text-primary">{{ ucfirst($employee->department) }},</span>
-                                                                @endif
-                                                            </td> --}}
                                                                 <!-- Employee Actions -->
                                                                 <td class="text-center">
                                                                     <a href="javascript:void(0);" class="text-primary"
@@ -210,7 +190,8 @@
                                                     <tr>
                                                         <th width="5%">SL</th>
                                                         <th width="7%">Image</th>
-                                                        <th width="18%">Name</th>
+                                                        <th width="20%">Name</th>
+                                                        <th width="15%">Status</th>
                                                         <th width="10%">Designation</th>
                                                         <th width="23%">Department</th>
                                                         <th width="10%" class="text-center">Actions</th>
@@ -230,6 +211,7 @@
                                                                 </td>
                                                                 <!-- Employee Name -->
                                                                 <td>{{ $employee->name }}</td>
+                                                                <td>Probation</td>
                                                                 <!-- Employee Designation -->
                                                                 <td>{{ $employee->designation }}</td>
                                                                 <!-- Employee Department -->
@@ -281,7 +263,8 @@
                                                     <tr>
                                                         <th width="5%">SL</th>
                                                         <th width="7%">Image</th>
-                                                        <th width="18%">Name</th>
+                                                        <th width="20%">Name</th>
+                                                        <th width="15%">Status</th>
                                                         <th width="10%">Designation</th>
                                                         <th width="23%">Department</th>
                                                         <th width="10%" class="text-center">Actions</th>
@@ -301,6 +284,7 @@
                                                                 </td>
                                                                 <!-- Employee Name -->
                                                                 <td>{{ $employee->name }}</td>
+                                                                <td>Intern</td>
                                                                 <!-- Employee Designation -->
                                                                 <td>{{ $employee->designation }}</td>
                                                                 <!-- Employee Department -->
@@ -645,7 +629,9 @@
                                                     data-enable-filtering="true"
                                                     data-enable-case-insensitive-filtering="true" required>
                                                     @php
-                                                        $employeeIds = isset($employee->department) ? json_decode($employee->department, true) : [];
+                                                        $employeeIds = isset($employee->department)
+                                                            ? json_decode($employee->department, true)
+                                                            : [];
                                                     @endphp
                                                     <option value="admin" @selected(is_array($employeeIds) && in_array('admin', $employeeIds))>Admin</option>
                                                     <option value="business" @selected(is_array($employeeIds) && in_array('business', $employeeIds))>Business</option>

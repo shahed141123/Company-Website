@@ -21,7 +21,7 @@
         </div>
         <div class="content">
             <div class="row mx-lg-3">
-                <div class="col-lg-10 offset-lg-1 mx-auto p-0">
+                <div class="col-lg-8 offset-lg-2 mx-auto p-0">
                     <div class="text-center">
                         <h4 class="m-0" style="color: #247297;">Available Supports</h4>
                     </div>
@@ -32,9 +32,9 @@
                                     <thead style="background-color:#24729759 !important">
                                         <tr>
                                             <th width="15%">Support ID</th>
-                                            <th width="15%">Support Type</th>
+                                            <th width="25%">Support Type</th>
                                             <th width="10%">Project ID</th>
-                                            <th width="50%">Title</th>
+                                            <th width="40%">Title</th>
                                             <th width="10%">Status</th>
                                         </tr>
                                     </thead>

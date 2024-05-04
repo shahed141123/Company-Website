@@ -22,7 +22,7 @@
                     <a href="{{ route('feature.create') }}" class="btn navigation_btn">
                         <div class="d-flex align-items-center ">
                             <i class="ph-plus me-1" style="font-size: 10px;"></i>
-                            <span>add Features</span>
+                            <span>Add Features</span>
                         </div>
                     </a>
                 </div>
@@ -34,7 +34,7 @@
                 <h4 class="m-0" style="color: #247297;">All Client Experience</h4>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-8 offset-lg-2">
                     <div class="card shadow-sm border-0 rounded-0">
                         <div class="card-body p-0">
                             <div class="table-responsive">
@@ -43,8 +43,8 @@
                                         <tr>
                                             <th width="5%">Id</th>
                                             <th width="5%">Logo</th>
-                                            <th width="20%">Title</th>
-                                            <th width="60%">Header</th>
+                                            <th width="40%">Title</th>
+                                            <th width="40%">Header</th>
                                             <th width="10%" class="text-center">Actions</th>
                                         </tr>
                                     </thead>
@@ -56,8 +56,8 @@
                                                     <td class="text-center"><img class="rounded-circle"
                                                             src="{{ asset('storage/thumb/' . $feature->logo) }}"
                                                             height="25" width="25" alt=""></td>
-                                                    <td>{{ $feature->title }}</td>
-                                                    <td>{!! $feature->header !!}</td>
+                                                    <td class="text-start">{{ $feature->title }}</td>
+                                                    <td class="text-start"><span title="{!! $feature->header !!}">{!! implode(' ', array_slice(str_word_count($feature->header, 1), 0, 10)) !!}</span></td>
                                                     <td>
                                                         <a href="{{ route('feature.edit', $feature->id) }}"
                                                             class="text-primary">

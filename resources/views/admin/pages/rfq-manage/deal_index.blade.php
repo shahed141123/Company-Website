@@ -31,7 +31,7 @@
             <!-- Content area -->
             <div class="content pt-1">
                 <div class="row">
-                    <div class="col-lg-10 col-offset-1 mx-auto">
+                    <div class="col-lg-8 offset-2">
                         <div class="card mt-4">
                             <div class="card-header p-0">
                                 <div class="row align-items-center">

@@ -21,166 +21,171 @@
         </div>
         <!-- /page header -->
         <!-- Highlighting rows and columns -->
-        <div class="content pt-0 w-75 mx-auto">
-            <div class="d-flex align-items-center py-2">
-                <div class="text-success nav-link cat-tab3" style="position: relative; z-index: 999; margin-bottom: -40px;">
-                    <a href="" data-bs-toggle="modal" data-bs-target="#brandAdd">
-                        <div class="d-flex align-items-center">
-                            <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                data-bs-placement="top" title="Add Brand Management">
-                                <i class="ph-plus icons_design"></i> </span>
-                            <span class="ms-1" style="color: #247297;">Add</span>
+        <div class="content pt-0">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="d-flex justify-content-between align-items-center py-1 px-4 mt-3 rounded-1" style="background-color: #247297">
+                        <div>
+                            <h5 class="mb-0 text-white">Brand Management</h5>
                         </div>
-                    </a>
-                    <div class="text-center" style="margin-left: 300px">
-                        <h5 class="ms-1 mb-0 mt-1 text-black">Brand Management</h5>
+                        <div>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#brandAdd">
+                                <div class="d-flex align-items-center">
+                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Add Brand Management">
+                                        <i class="ph-plus text-white"></i> </span>
+                                    <span class="ms-1 text-white">Add</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
-
-            </div>
-            <div>
-                <table class="table portfolioDetailDT table-bordered table-hover text-center">
-                    <thead>
-                        <tr>
-                            <th width="10%">Sl No:</th>
-                            <th width="20%">Brand Image</th>
-                            <th width="35%">Brand Name</th>
-                            <th width="20%">Brand Category</th>
-                            <th width="15%" class="text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if ($brands)
-                            @foreach ($brands as $key => $brand)
+                <div class="col-lg-8 offset-lg-2">
+                    <div>
+                        <table class="table portfolioDetailDT table-bordered table-hover text-center">
+                            <thead>
                                 <tr>
-                                    <td class="text-center">{{ ++$key }}</td>
-                                    <td>
-                                        <img class="rounded-circle" src="{{ asset('storage/' . $brand->image) }}"
-                                            height="25px" width="25px" alt="">
-                                    </td>
-                                    <td>{{ $brand->title }}</td>
-                                    <td>{{ $brand->category }}</td>
-                                    <td>
-                                        <a href="" class="text-primary" data-bs-toggle="modal"
-                                            data-bs-target="#brandEdit{{ $brand->id }}">
-                                            <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
-                                        </a>
-                                        <a href="{{ route('brand.destroy', [$brand->id]) }}" class="text-danger delete">
-                                            <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
-                                        </a>
-                                        {{-- Edit brand Modal Content --}}
-                                        <div id="brandEdit{{ $brand->id }}" class="modal fade" tabindex="-1">
-                                            <div class="modal-dialog modal-centered">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h6 class="modal-title text-white">Add Brand Management</h6>
-                                                        <a type="button" data-bs-dismiss="modal">
-                                                            <i class="ph ph-x text-white"
-                                                                style="font-weight: 800;font-size: 10px;"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="modal-body p-1">
-                                                        <div class="container ps-0 pe-0">
-                                                            <form method="post"
-                                                                action="{{ route('brand.update', $brand->id) }}"
-                                                                enctype="multipart/form-data" id="myform">
-                                                                @csrf
-                                                                @method('PUT')
-                                                                <div class="px-2 py-2 m-2 bg-light rounded">
-                                                                    <div class="row mb-3">
-                                                                        <div class="col-sm-4">
-                                                                            <span>Brand Name</span>
-                                                                        </div>
-                                                                        <div class="col-sm-8">
-                                                                            <input type="text" name="title"
-                                                                                class="form-control form-control-sm maxlength"
-                                                                                maxlength="100"
-                                                                                value="{{ $brand->title }}" />
-                                                                        </div>
-                                                                    </div>
-                                                                    {{--  --}}
-                                                                    <div class="row mb-3">
-                                                                        <div class="col-sm-4">
-                                                                            <span>Brand Image</span>
-                                                                        </div>
-                                                                        <div class="col-sm-6">
-                                                                            <input type="file" name="image"
-                                                                                class="form-control form-control-sm"
-                                                                                id="image" accept="image/*" />
-                                                                        </div>
-                                                                        <div class="col-sm-2">
-                                                                            <img id="showImage" class="rounded-circle"
-                                                                                src="{{ asset('storage/requestImg/' . $brand->image) }}"
-                                                                                alt="Brand" height="40px"
-                                                                                width="40px">
-                                                                        </div>
-                                                                    </div>
-                                                                    {{--  --}}
-                                                                    <div class="row mb-3">
-                                                                        <div class="col-sm-4">
-                                                                            <span>Brand Category</span>
-                                                                        </div>
-                                                                        <div class="col-sm-8">
-                                                                            <select name="category"
-                                                                                class="form-control form-control-sm select"
-                                                                                data-minimum-results-for-search="Infinity"
-                                                                                data-placeholder="Chose category name"
-                                                                                required>
-                                                                                <option value="Top"
-                                                                                    {{ $brand->category == 'Top' ? 'selected' : '' }}>
-                                                                                    Top
-                                                                                </option>
-                                                                                <option value="Featured"
-                                                                                    {{ $brand->category == 'Featured' ? 'selected' : '' }}>
-                                                                                    Featured</option>
-                                                                                <option value="Others"
-                                                                                    {{ $brand->category == 'Others' ? 'selected' : '' }}>
-                                                                                    Others</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row mb-3">
-                                                                        <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Status</h6>
-                                                                        </div>
-                                                                        <div class="form-group col-sm-9 text-secondary">
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="status" value="active"
-                                                                                    id="active-status" {{ $brand->status == 'active' ? 'checked' : '' }}>
-                                                                                <label class="form-check-label" for="active-status">
-                                                                                    Active
-                                                                                </label>
+                                    <th width="10%">Sl No:</th>
+                                    <th width="20%">Brand Image</th>
+                                    <th width="35%">Brand Name</th>
+                                    <th width="20%">Brand Category</th>
+                                    <th width="15%" class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if ($brands)
+                                    @foreach ($brands as $key => $brand)
+                                        <tr>
+                                            <td class="text-center">{{ ++$key }}</td>
+                                            <td>
+                                                <img class="rounded-circle" src="{{ asset('storage/' . $brand->image) }}"
+                                                    height="25px" width="25px" alt="">
+                                            </td>
+                                            <td>{{ $brand->title }}</td>
+                                            <td>{{ $brand->category }}</td>
+                                            <td>
+                                                <a href="" class="text-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#brandEdit{{ $brand->id }}">
+                                                    <i class="fa-solid fa-pen-to-square me-2 dash-icons text-primary"></i>
+                                                </a>
+                                                <a href="{{ route('brand.destroy', [$brand->id]) }}" class="text-danger delete">
+                                                    <i class="fa-solid fa-trash dash-icons text-danger"></i>
+                                                </a>
+                                                {{-- Edit brand Modal Content --}}
+                                                <div id="brandEdit{{ $brand->id }}" class="modal fade" tabindex="-1">
+                                                    <div class="modal-dialog modal-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h6 class="modal-title text-white">Add Brand Management</h6>
+                                                                <a type="button" data-bs-dismiss="modal">
+                                                                    <i class="ph ph-x text-white"
+                                                                        style="font-weight: 800;font-size: 10px;"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="modal-body p-1">
+                                                                <div class="container ps-0 pe-0">
+                                                                    <form method="post"
+                                                                        action="{{ route('brand.update', $brand->id) }}"
+                                                                        enctype="multipart/form-data" id="myform">
+                                                                        @csrf
+                                                                        @method('PUT')
+                                                                        <div class="px-2 py-2 m-2 bg-light rounded">
+                                                                            <div class="row mb-3">
+                                                                                <div class="col-sm-4">
+                                                                                    <span>Brand Name</span>
+                                                                                </div>
+                                                                                <div class="col-sm-8">
+                                                                                    <input type="text" name="title"
+                                                                                        class="form-control form-control-sm maxlength"
+                                                                                        maxlength="100"
+                                                                                        value="{{ $brand->title }}" />
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="status" value="inactive"
-                                                                                    id="inactive-status" {{ $brand->status == 'inactive' ? 'checked' : '' }}>
-                                                                                <label class="form-check-label" for="inactive-status">
-                                                                                    Inactive
-                                                                                </label>
+                                                                            {{--  --}}
+                                                                            <div class="row mb-3">
+                                                                                <div class="col-sm-4">
+                                                                                    <span>Brand Image</span>
+                                                                                </div>
+                                                                                <div class="col-sm-6">
+                                                                                    <input type="file" name="image"
+                                                                                        class="form-control form-control-sm"
+                                                                                        id="image" accept="image/*" />
+                                                                                </div>
+                                                                                <div class="col-sm-2">
+                                                                                    <img id="showImage" class="rounded-circle"
+                                                                                        src="{{ asset('storage/requestImg/' . $brand->image) }}"
+                                                                                        alt="Brand" height="40px"
+                                                                                        width="40px">
+                                                                                </div>
+                                                                            </div>
+                                                                            {{--  --}}
+                                                                            <div class="row mb-3">
+                                                                                <div class="col-sm-4">
+                                                                                    <span>Brand Category</span>
+                                                                                </div>
+                                                                                <div class="col-sm-8">
+                                                                                    <select name="category"
+                                                                                        class="form-control form-control-sm select"
+                                                                                        data-minimum-results-for-search="Infinity"
+                                                                                        data-placeholder="Chose category name"
+                                                                                        required>
+                                                                                        <option value="Top"
+                                                                                            {{ $brand->category == 'Top' ? 'selected' : '' }}>
+                                                                                            Top
+                                                                                        </option>
+                                                                                        <option value="Featured"
+                                                                                            {{ $brand->category == 'Featured' ? 'selected' : '' }}>
+                                                                                            Featured</option>
+                                                                                        <option value="Others"
+                                                                                            {{ $brand->category == 'Others' ? 'selected' : '' }}>
+                                                                                            Others</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row mb-3">
+                                                                                <div class="col-sm-3">
+                                                                                    <h6 class="mb-0">Status</h6>
+                                                                                </div>
+                                                                                <div class="form-group col-sm-9 text-secondary">
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input" type="radio" name="status" value="active"
+                                                                                            id="active-status" {{ $brand->status == 'active' ? 'checked' : '' }}>
+                                                                                        <label class="form-check-label" for="active-status">
+                                                                                            Active
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input" type="radio" name="status" value="inactive"
+                                                                                            id="inactive-status" {{ $brand->status == 'inactive' ? 'checked' : '' }}>
+                                                                                        <label class="form-check-label" for="inactive-status">
+                                                                                            Inactive
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                        <div class="row mt-2">
+                                                                            <div class="col-sm-12 text-secondary text-end">
+                                                                                <button type="submit"
+                                                                                    class="text-white btn btn-sm" id="submitbtn"
+                                                                                    style="background-color:#247297 !important; padding: 5px 12px 5px;">Submit</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
                                                                 </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-sm-12 text-secondary text-end">
-                                                                        <button type="submit"
-                                                                            class="text-white btn btn-sm" id="submitbtn"
-                                                                            style="background-color:#247297 !important; padding: 5px 12px 5px;">Submit</button>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        {{-- Edit brand Modal End --}}
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
-                    </tbody>
-                </table>
+                                                {{-- Edit brand Modal End --}}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
         {{-- add brand Modal Content --}}

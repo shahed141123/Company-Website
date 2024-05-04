@@ -27,7 +27,7 @@ style="background: url('https://i.ibb.co/qgHN3jC/Background.jpg') no-repeat cent
                 </a>
             </li>
 
-            <li class="nav-item nav-item-dropdown-lg dropdown">
+            {{-- <li class="nav-item nav-item-dropdown-lg dropdown">
                 <a href="#" class="navbar-nav-link navbar-nav-link-icon rounded-pill" data-bs-toggle="dropdown">
                     <i class="ph-squares-four"></i>
                 </a>
@@ -91,12 +91,12 @@ style="background: url('https://i.ibb.co/qgHN3jC/Background.jpg') no-repeat cent
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> --}}
         </ul>
 
         <div class="navbar-collapse justify-content-center flex-lg-1 order-2 order-lg-1 collapse show"
             id="navbar_search">
-            <div class="navbar-search flex-fill position-relative mt-2 mt-lg-0 mx-lg-3">
+            <div class="navbar-search flex-fill position-relative mt-2 mt-lg-0 mx-lg-3 d-sm-none d-lg-block">
                 <div id="clock">
                     <!-- Time units wrapper -->
                     <span class="wrap-time">

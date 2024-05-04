@@ -335,7 +335,8 @@
                                                             <tr>
                                                                 <th width="5%"> SL </th>
                                                                 <th width="75%"> Product Name </th>
-                                                                <th width="5%"> Qty <span class="text-danger">*</span></th>
+                                                                <th width="5%"> Qty <span class="text-danger">*</span>
+                                                                </th>
                                                                 <th width="15%"> Unit Price</th>
                                                             </tr>
                                                         </thead>
@@ -357,7 +358,12 @@
                                                                             value="{{ $rfq_product->qty }}">
                                                                     </td>
                                                                     <td class="py-0 px-0 text-center">
+<<<<<<< HEAD
+                                                                        <input type="text"
+                                                                            class="form-control text-center"
+=======
                                                                         <input type="text" class="form-control text-center"
+>>>>>>> 94e1302fce0fef8eb48673c510bab6578e54ae91
                                                                             name="unit_price[]">
                                                                     </td>
                                                                 </tr>

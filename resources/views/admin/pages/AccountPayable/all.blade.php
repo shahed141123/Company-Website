@@ -20,17 +20,17 @@
     <div class="content">
         <!-- Table components -->
         <div class="row">
-            <div class="col-lg-12">
-                <table class="table table-xs table-bordered table-responsive w-75 mx-auto mb-3">
+            <div class="col-lg-4 offset-lg-4 mb-3">
+                <table class="table table-xs table-bordered table-responsive">
                     <tr class="main_bg">
                         <th class="text-center text-white " colspan="4">
-                            <div class="row  ">
+                            <div class="row ">
                                 <div class="col-lg-4">
-                                    <a href="payable-receiveable-dashboard.html" class="float-start text-white"> Payable &
-                                        Receivable Dashboard </a>
+                                    <a href="payable-receiveable-dashboard.html" class="float-start text-white"> Pay &
+                                        Receivable </a>
                                 </div>
                                 <div class="col-lg-4">
-                                    <span>Details Payable Information</span>
+                                    <span>Details Payable</span>
                                 </div>
                                 <div class="col-lg-4 d-flex justify-content-end">
                                     <a class="btn navigation_btn" href="" data-bs-toggle="modal"
@@ -70,7 +70,7 @@
                     <div id="modal_account_payable" class="modal fade" tabindex="-1">
                         <div class="modal-dialog modal-dialog-centered modal-lg">
                             <div class="modal-content">
-                                <div class="modal-header">
+                                <div class="modal-header p-1 px-3">
                                     <h5 class="modal-title">Account Payable</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                 </div>
@@ -81,7 +81,7 @@
                                                 {{--  --}}
                                                 <div class="row mb-1">
                                                     <div class="col-sm-4">
-                                                        <span>RFQ Name</span>
+                                                        <span>RFQ No.</span>
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <select name="rfq_id" id="rfq_id"
@@ -171,7 +171,7 @@
                                                 {{--  --}}
                                                 <div class="row mb-1">
                                                     <div class="col-sm-4">
-                                                        <span>Principal PO</span>
+                                                        <span>PO</span>
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <input type="file" name="principal_po" id="principal_po">
@@ -180,7 +180,7 @@
                                                 {{--  --}}
                                                 <div class="row mb-1">
                                                     <div class="col-sm-4">
-                                                        <span>Principal PO Number</span>
+                                                        <span>PO Number</span>
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <input type="text" name="principal_po_number"
@@ -191,7 +191,7 @@
                                                 {{--  --}}
                                                 <div class="row mb-1">
                                                     <div class="col-sm-4">
-                                                        <span>Principal Amount</span>
+                                                        <span>Amount</span>
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <input type="text" name="principal_amount"
@@ -202,7 +202,7 @@
                                                 {{--  --}}
                                                 <div class="row mb-1">
                                                     <div class="col-sm-4">
-                                                        <span>Principal Payment</span>
+                                                        <span>Payment</span>
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <select name="principal_payment_status"
@@ -220,7 +220,7 @@
                                                 {{--  --}}
                                                 <div class="row mb-1">
                                                     <div class="col-sm-4">
-                                                        <span>Principal Payment</span>
+                                                        <span>Payment</span>
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <input type="text" name="principal_payment_value"
@@ -231,7 +231,7 @@
                                                 {{--  --}}
                                                 <div class="row mb-1">
                                                     <div class="col-sm-4">
-                                                        <span>Principal Name</span>
+                                                        <span>Name</span>
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <input type="text" name="principal_name" id="principal_name"
@@ -337,32 +337,23 @@
                 <div class="tab-content table-responsive">
                     <div class="tab-pane fade active show" id="js-January-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center justify-content-center py-2">
-                                {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3">
-                                    <div class="text-center">
-                                        <h5 class="ms-1" style="color: #247297;">January</h5>
-                                    </div>
-                                </div>
-                                {{-- Add Details End --}}
-                            </div>
                             <div>
                                 <table class="table newsLetterDt table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
-                                            <th width="5%"> Id </th>
-                                            <th width="5%"> Rfq Name </th>
+                                            <th width="2%"> Id </th>
+                                            <th width="8%"> Rfq No. </th>
                                             <th width="10%">Payment type </th>
-                                            <th width="8%"> Po Value </th>
-                                            <th width="8%"> due Date </th>
-                                            <th width="8%"> Principal Name </th>
-                                            <th width="8%"> Principal Po number </th>
-                                            <th width="8%"> Principal Amount </th>
-                                            <th width="8%"> Principal Payment status </th>
-                                            <th width="8%"> Principal Payment Value </th>
-                                            <th width="8%"> delivery Date </th>
-                                            <th width="10%">credit days </th>
-                                            <th width="7%">Action </th>
+                                            <th width="7%"> Po Value </th>
+                                            <th width="8%"> Due Date </th>
+                                            <th width="6%"> Name </th>
+                                            <th width="8%"> Po number </th>
+                                            <th width="8%"> Amount </th>
+                                            <th width="10%"> Payment status </th>
+                                            <th width="11%"> Payment Value </th>
+                                            <th width="8%"> Delivery Date </th>
+                                            <th width="8%">Credit days </th>
+                                            <th width="7%"> Action </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -406,32 +397,23 @@
                     </div>
                     <div class="tab-pane fade" id="js-February-tab" role="tabpanel">
                         <div class="content pt-0">
-                            <div class="d-flex align-items-center justify-content-center py-2">
-                                {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3">
-                                    <div class="text-center">
-                                        <h5 class="ms-1" style="color: #247297;">February</h5>
-                                    </div>
-                                </div>
-                                {{-- Add Details End --}}
-                            </div>
                             <div>
                                 <table class="table newsLetterDt table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
-                                            <th width="5%"> Id </th>
-                                            <th width="5%"> Rfq Name </th>
+                                            <th width="2%"> Id </th>
+                                            <th width="8%"> Rfq No. </th>
                                             <th width="10%">Payment type </th>
-                                            <th width="8%"> Po Value </th>
-                                            <th width="8%"> due Date </th>
-                                            <th width="8%"> Principal Name </th>
-                                            <th width="8%"> Principal Po number </th>
-                                            <th width="8%"> Principal Amount </th>
-                                            <th width="8%"> Principal Payment status </th>
-                                            <th width="8%"> Principal Payment Value </th>
-                                            <th width="8%"> delivery Date </th>
-                                            <th width="10%">credit days </th>
-                                            <th width="7%">Action </th>
+                                            <th width="7%"> Po Value </th>
+                                            <th width="8%"> Due Date </th>
+                                            <th width="6%"> Name </th>
+                                            <th width="8%"> Po number </th>
+                                            <th width="8%"> Amount </th>
+                                            <th width="10%"> Payment status </th>
+                                            <th width="11%"> Payment Value </th>
+                                            <th width="8%"> Delivery Date </th>
+                                            <th width="8%">Credit days </th>
+                                            <th width="7%"> Action </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -475,32 +457,23 @@
                     </div>
                     <div class="tab-pane fade" id="js-March-tab" role="tabpanel">
                         <div class="content pt-0">
-                            <div class="d-flex align-items-center justify-content-center py-2">
-                                {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3">
-                                    <div class="text-center">
-                                        <h5 class="ms-1" style="color: #247297;">March</h5>
-                                    </div>
-                                </div>
-                                {{-- Add Details End --}}
-                            </div>
                             <div>
                                 <table class="table newsLetterDt table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
-                                            <th width="5%"> Id </th>
-                                            <th width="5%"> Rfq Name </th>
+                                            <th width="2%"> Id </th>
+                                            <th width="8%"> Rfq No. </th>
                                             <th width="10%">Payment type </th>
-                                            <th width="8%"> Po Value </th>
-                                            <th width="8%"> due Date </th>
-                                            <th width="8%"> Principal Name </th>
-                                            <th width="8%"> Principal Po number </th>
-                                            <th width="8%"> Principal Amount </th>
-                                            <th width="8%"> Principal Payment status </th>
-                                            <th width="8%"> Principal Payment Value </th>
-                                            <th width="8%"> delivery Date </th>
-                                            <th width="10%">credit days </th>
-                                            <th width="7%">Action </th>
+                                            <th width="7%"> Po Value </th>
+                                            <th width="8%"> Due Date </th>
+                                            <th width="6%"> Name </th>
+                                            <th width="8%"> Po number </th>
+                                            <th width="8%"> Amount </th>
+                                            <th width="10%"> Payment status </th>
+                                            <th width="11%"> Payment Value </th>
+                                            <th width="8%"> Delivery Date </th>
+                                            <th width="8%">Credit days </th>
+                                            <th width="7%"> Action </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -544,32 +517,23 @@
                     </div>
                     <div class="tab-pane fade" id="js-April-tab" role="tabpanel">
                         <div class="content pt-0">
-                            <div class="d-flex align-items-center justify-content-center py-2">
-                                {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3">
-                                    <div class="text-center">
-                                        <h5 class="ms-1" style="color: #247297;">April</h5>
-                                    </div>
-                                </div>
-                                {{-- Add Details End --}}
-                            </div>
                             <div>
                                 <table class="table newsLetterDt table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
-                                            <th width="5%"> Id </th>
-                                            <th width="5%"> Rfq Name </th>
+                                            <th width="2%"> Id </th>
+                                            <th width="8%"> Rfq No. </th>
                                             <th width="10%">Payment type </th>
-                                            <th width="8%"> Po Value </th>
-                                            <th width="8%"> due Date </th>
-                                            <th width="8%"> Principal Name </th>
-                                            <th width="8%"> Principal Po number </th>
-                                            <th width="8%"> Principal Amount </th>
-                                            <th width="8%"> Principal Payment status </th>
-                                            <th width="8%"> Principal Payment Value </th>
-                                            <th width="8%"> delivery Date </th>
-                                            <th width="10%">credit days </th>
-                                            <th width="7%">Action </th>
+                                            <th width="7%"> Po Value </th>
+                                            <th width="8%"> Due Date </th>
+                                            <th width="6%"> Name </th>
+                                            <th width="8%"> Po number </th>
+                                            <th width="8%"> Amount </th>
+                                            <th width="10%"> Payment status </th>
+                                            <th width="11%"> Payment Value </th>
+                                            <th width="8%"> Delivery Date </th>
+                                            <th width="8%">Credit days </th>
+                                            <th width="7%"> Action </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -613,32 +577,23 @@
                     </div>
                     <div class="tab-pane fade" id="js-May-tab" role="tabpanel">
                         <div class="content pt-0">
-                            <div class="d-flex align-items-center justify-content-center py-2">
-                                {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3">
-                                    <div class="text-center">
-                                        <h5 class="ms-1" style="color: #247297;">May</h5>
-                                    </div>
-                                </div>
-                                {{-- Add Details End --}}
-                            </div>
                             <div>
                                 <table class="table newsLetterDt table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
-                                            <th width="5%"> Id </th>
-                                            <th width="5%"> Rfq Name </th>
+                                            <th width="2%"> Id </th>
+                                            <th width="8%"> Rfq No. </th>
                                             <th width="10%">Payment type </th>
-                                            <th width="8%"> Po Value </th>
-                                            <th width="8%"> due Date </th>
-                                            <th width="8%"> Principal Name </th>
-                                            <th width="8%"> Principal Po number </th>
-                                            <th width="8%"> Principal Amount </th>
-                                            <th width="8%"> Principal Payment status </th>
-                                            <th width="8%"> Principal Payment Value </th>
-                                            <th width="8%"> delivery Date </th>
-                                            <th width="10%">credit days </th>
-                                            <th width="7%">Action </th>
+                                            <th width="7%"> Po Value </th>
+                                            <th width="8%"> Due Date </th>
+                                            <th width="6%"> Name </th>
+                                            <th width="8%"> Po number </th>
+                                            <th width="8%"> Amount </th>
+                                            <th width="10%"> Payment status </th>
+                                            <th width="11%"> Payment Value </th>
+                                            <th width="8%"> Delivery Date </th>
+                                            <th width="8%">Credit days </th>
+                                            <th width="7%"> Action </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -682,32 +637,23 @@
                     </div>
                     <div class="tab-pane fade" id="js-June-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center justify-content-center py-2">
-                                {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3">
-                                    <div class="text-center">
-                                        <h5 class="ms-1" style="color: #247297;">June</h5>
-                                    </div>
-                                </div>
-                                {{-- Add Details End --}}
-                            </div>
                             <div>
                                 <table class="table newsLetterDt table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
-                                            <th width="5%"> Id </th>
-                                            <th width="5%"> Rfq Name </th>
+                                            <th width="2%"> Id </th>
+                                            <th width="8%"> Rfq No. </th>
                                             <th width="10%">Payment type </th>
-                                            <th width="8%"> Po Value </th>
-                                            <th width="8%"> due Date </th>
-                                            <th width="8%"> Principal Name </th>
-                                            <th width="8%"> Principal Po number </th>
-                                            <th width="8%"> Principal Amount </th>
-                                            <th width="8%"> Principal Payment status </th>
-                                            <th width="8%"> Principal Payment Value </th>
-                                            <th width="8%"> delivery Date </th>
-                                            <th width="10%">credit days </th>
-                                            <th width="7%">Action </th>
+                                            <th width="7%"> Po Value </th>
+                                            <th width="8%"> Due Date </th>
+                                            <th width="6%"> Name </th>
+                                            <th width="8%"> Po number </th>
+                                            <th width="8%"> Amount </th>
+                                            <th width="10%"> Payment status </th>
+                                            <th width="11%"> Payment Value </th>
+                                            <th width="8%"> Delivery Date </th>
+                                            <th width="8%">Credit days </th>
+                                            <th width="7%"> Action </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -751,32 +697,23 @@
                     </div>
                     <div class="tab-pane fade" id="js-July-tab" role="tabpanel">
                         <div class="content pt-0">
-                            <div class="d-flex align-items-center justify-content-center py-2">
-                                {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3">
-                                    <div class="text-center">
-                                        <h5 class="ms-1" style="color: #247297;">July</h5>
-                                    </div>
-                                </div>
-                                {{-- Add Details End --}}
-                            </div>
                             <div>
                                 <table class="table newsLetterDt table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
-                                            <th width="5%"> Id </th>
-                                            <th width="5%"> Rfq Name </th>
+                                            <th width="2%"> Id </th>
+                                            <th width="8%"> Rfq No. </th>
                                             <th width="10%">Payment type </th>
-                                            <th width="8%"> Po Value </th>
-                                            <th width="8%"> due Date </th>
-                                            <th width="8%"> Principal Name </th>
-                                            <th width="8%"> Principal Po number </th>
-                                            <th width="8%"> Principal Amount </th>
-                                            <th width="8%"> Principal Payment status </th>
-                                            <th width="8%"> Principal Payment Value </th>
-                                            <th width="8%"> delivery Date </th>
-                                            <th width="10%">credit days </th>
-                                            <th width="7%">Action </th>
+                                            <th width="7%"> Po Value </th>
+                                            <th width="8%"> Due Date </th>
+                                            <th width="6%"> Name </th>
+                                            <th width="8%"> Po number </th>
+                                            <th width="8%"> Amount </th>
+                                            <th width="10%"> Payment status </th>
+                                            <th width="11%"> Payment Value </th>
+                                            <th width="8%"> Delivery Date </th>
+                                            <th width="8%">Credit days </th>
+                                            <th width="7%"> Action </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -820,32 +757,23 @@
                     </div>
                     <div class="tab-pane fade" id="js-August-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center justify-content-center py-2">
-                                {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3">
-                                    <div class="text-center">
-                                        <h5 class="ms-1" style="color: #247297;">August</h5>
-                                    </div>
-                                </div>
-                                {{-- Add Details End --}}
-                            </div>
                             <div>
                                 <table class="table newsLetterDt table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
-                                            <th width="5%"> Id </th>
-                                            <th width="5%"> Rfq Name </th>
+                                            <th width="2%"> Id </th>
+                                            <th width="8%"> Rfq No. </th>
                                             <th width="10%">Payment type </th>
-                                            <th width="8%"> Po Value </th>
-                                            <th width="8%"> due Date </th>
-                                            <th width="8%"> Principal Name </th>
-                                            <th width="8%"> Principal Po number </th>
-                                            <th width="8%"> Principal Amount </th>
-                                            <th width="8%"> Principal Payment status </th>
-                                            <th width="8%"> Principal Payment Value </th>
-                                            <th width="8%"> delivery Date </th>
-                                            <th width="10%">credit days </th>
-                                            <th width="7%">Action </th>
+                                            <th width="7%"> Po Value </th>
+                                            <th width="8%"> Due Date </th>
+                                            <th width="6%"> Name </th>
+                                            <th width="8%"> Po number </th>
+                                            <th width="8%"> Amount </th>
+                                            <th width="10%"> Payment status </th>
+                                            <th width="11%"> Payment Value </th>
+                                            <th width="8%"> Delivery Date </th>
+                                            <th width="8%">Credit days </th>
+                                            <th width="7%"> Action </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -889,32 +817,23 @@
                     </div>
                     <div class="tab-pane fade" id="js-September-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center justify-content-center py-2">
-                                {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3">
-                                    <div class="text-center">
-                                        <h5 class="ms-1" style="color: #247297;">September</h5>
-                                    </div>
-                                </div>
-                                {{-- Add Details End --}}
-                            </div>
                             <div>
                                 <table class="table newsLetterDt table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
-                                            <th width="5%"> Id </th>
-                                            <th width="5%"> Rfq Name </th>
+                                            <th width="2%"> Id </th>
+                                            <th width="8%"> Rfq No. </th>
                                             <th width="10%">Payment type </th>
-                                            <th width="8%"> Po Value </th>
-                                            <th width="8%"> due Date </th>
-                                            <th width="8%"> Principal Name </th>
-                                            <th width="8%"> Principal Po number </th>
-                                            <th width="8%"> Principal Amount </th>
-                                            <th width="8%"> Principal Payment status </th>
-                                            <th width="8%"> Principal Payment Value </th>
-                                            <th width="8%"> delivery Date </th>
-                                            <th width="10%">credit days </th>
-                                            <th width="7%">Action </th>
+                                            <th width="7%"> Po Value </th>
+                                            <th width="8%"> Due Date </th>
+                                            <th width="6%"> Name </th>
+                                            <th width="8%"> Po number </th>
+                                            <th width="8%"> Amount </th>
+                                            <th width="10%"> Payment status </th>
+                                            <th width="11%"> Payment Value </th>
+                                            <th width="8%"> Delivery Date </th>
+                                            <th width="8%">Credit days </th>
+                                            <th width="7%"> Action </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -958,32 +877,23 @@
                     </div>
                     <div class="tab-pane fade" id="js-October-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center justify-content-center py-2">
-                                {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3">
-                                    <div class="text-center">
-                                        <h5 class="ms-1" style="color: #247297;">October</h5>
-                                    </div>
-                                </div>
-                                {{-- Add Details End --}}
-                            </div>
                             <div>
                                 <table class="table newsLetterDt table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
-                                            <th width="5%"> Id </th>
-                                            <th width="5%"> Rfq Name </th>
+                                            <th width="2%"> Id </th>
+                                            <th width="8%"> Rfq No. </th>
                                             <th width="10%">Payment type </th>
-                                            <th width="8%"> Po Value </th>
-                                            <th width="8%"> due Date </th>
-                                            <th width="8%"> Principal Name </th>
-                                            <th width="8%"> Principal Po number </th>
-                                            <th width="8%"> Principal Amount </th>
-                                            <th width="8%"> Principal Payment status </th>
-                                            <th width="8%"> Principal Payment Value </th>
-                                            <th width="8%"> delivery Date </th>
-                                            <th width="10%">credit days </th>
-                                            <th width="7%">Action </th>
+                                            <th width="7%"> Po Value </th>
+                                            <th width="8%"> Due Date </th>
+                                            <th width="6%"> Name </th>
+                                            <th width="8%"> Po number </th>
+                                            <th width="8%"> Amount </th>
+                                            <th width="10%"> Payment status </th>
+                                            <th width="11%"> Payment Value </th>
+                                            <th width="8%"> Delivery Date </th>
+                                            <th width="8%">Credit days </th>
+                                            <th width="7%"> Action </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1027,32 +937,23 @@
                     </div>
                     <div class="tab-pane fade" id="js-November-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center justify-content-center py-2">
-                                {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3">
-                                    <div class="text-center">
-                                        <h5 class="ms-1" style="color: #247297;">November</h5>
-                                    </div>
-                                </div>
-                                {{-- Add Details End --}}
-                            </div>
                             <div>
                                 <table class="table newsLetterDt table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
-                                            <th width="5%"> Id </th>
-                                            <th width="5%"> Rfq Name </th>
+                                            <th width="2%"> Id </th>
+                                            <th width="8%"> Rfq No. </th>
                                             <th width="10%">Payment type </th>
-                                            <th width="8%"> Po Value </th>
-                                            <th width="8%"> due Date </th>
-                                            <th width="8%"> Principal Name </th>
-                                            <th width="8%"> Principal Po number </th>
-                                            <th width="8%"> Principal Amount </th>
-                                            <th width="8%"> Principal Payment status </th>
-                                            <th width="8%"> Principal Payment Value </th>
-                                            <th width="8%"> delivery Date </th>
-                                            <th width="10%">credit days </th>
-                                            <th width="7%">Action </th>
+                                            <th width="7%"> Po Value </th>
+                                            <th width="8%"> Due Date </th>
+                                            <th width="6%"> Name </th>
+                                            <th width="8%"> Po number </th>
+                                            <th width="8%"> Amount </th>
+                                            <th width="10%"> Payment status </th>
+                                            <th width="11%"> Payment Value </th>
+                                            <th width="8%"> Delivery Date </th>
+                                            <th width="8%"> Credit days </th>
+                                            <th width="7%"> Action </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1096,32 +997,23 @@
                     </div>
                     <div class="tab-pane fade" id="js-December-tab" role="tabpanel">
                         <div class="content pt-0 ">
-                            <div class="d-flex align-items-center justify-content-center py-2">
-                                {{-- Add Details Start --}}
-                                <div class="text-success nav-link cat-tab3">
-                                    <div class="text-center">
-                                        <h5 class="ms-1" style="color: #247297;">December</h5>
-                                    </div>
-                                </div>
-                                {{-- Add Details End --}}
-                            </div>
                             <div>
                                 <table class="table newsLetterDt table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
-                                            <th width="5%"> Id </th>
-                                            <th width="5%"> Rfq Name </th>
+                                            <th width="2%"> Id </th>
+                                            <th width="8%"> Rfq No. </th>
                                             <th width="10%">Payment type </th>
-                                            <th width="8%"> Po Value </th>
-                                            <th width="8%"> due Date </th>
-                                            <th width="8%"> Principal Name </th>
-                                            <th width="8%"> Principal Po number </th>
-                                            <th width="8%"> Principal Amount </th>
-                                            <th width="8%"> Principal Payment status </th>
-                                            <th width="8%"> Principal Payment Value </th>
-                                            <th width="8%"> delivery Date </th>
-                                            <th width="10%">credit days </th>
-                                            <th width="7%">Action </th>
+                                            <th width="7%"> Po Value </th>
+                                            <th width="8%"> Due Date </th>
+                                            <th width="6%"> Name </th>
+                                            <th width="8%"> Po number </th>
+                                            <th width="8%"> Amount </th>
+                                            <th width="10%"> Payment status </th>
+                                            <th width="11%"> Payment Value </th>
+                                            <th width="8%"> Delivery Date </th>
+                                            <th width="8%">Credit days </th>
+                                            <th width="7%"> Action </th>
                                         </tr>
                                     </thead>
                                     <tbody>

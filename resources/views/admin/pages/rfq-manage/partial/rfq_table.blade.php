@@ -9,7 +9,6 @@
             <th width="19%">RFQ Code</th>
             <th width="15%">Created At</th>
             <th width="30%">Client Name (Company)</th>
-            {{-- <th width="20%">Client Email</th> --}}
             <th width="3%">Details</th>
             <th width="8%">Status</th>
             <th width="25%" class="text-center">Actions</th>

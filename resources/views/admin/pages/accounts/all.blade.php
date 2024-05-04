@@ -96,7 +96,7 @@
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-fill title_text_link">
                                             <a href="{{ route('account-payable.index') }}">
-                                                <h6 class="mb-0 text-primary">Total Accounts Payable</h6>
+                                                <h6 class="mb-0 text-primary">Accounts Payable</h6>
                                             </a>
                                         </div>
                                         <a href="{{ route('account-payable.index') }}">
@@ -124,7 +124,7 @@
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-fill title_text_link">
                                             <a href="{{ route('account-receivable.index') }}">
-                                                <h6 class="mb-0 text-primary">Total Accounts Receivable</h6>
+                                                <h6 class="mb-0 text-primary">Accounts Receivable</h6>
                                             </a>
                                         </div>
                                         <a href="{{ route('account-receivable.index') }}">
@@ -152,7 +152,7 @@
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-fill title_text_link">
                                             <a href="{{ route('account-profit-loss.index') }}">
-                                                <h6 class="mb-0 text-primary">Total Accounts Profit Loss</h6>
+                                                <h6 class="mb-0 text-primary">Accounts Profit Loss</h6>
                                             </a>
                                         </div>
                                         <a href="{{ route('account-profit-loss.index') }}">
@@ -181,7 +181,7 @@
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-fill title_text_link">
                                             <a href="{{ route('expense.index') }}">
-                                                <h6 class="mb-0 text-primary">Total Expense</h6>
+                                                <h6 class="mb-0 text-primary">Expense</h6>
                                             </a>
                                             {{-- <span class="text-muted">Until {{ Carbon\Carbon::now()->format('d-m-Y') }}</span> --}}
                                         </div>
@@ -212,7 +212,7 @@
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-fill title_text_link">
                                             <a href="{{ route('income.index') }}">
-                                                <h6 class="mb-0 text-primary">Total Income</h6>
+                                                <h6 class="mb-0 text-primary">Income</h6>
                                             </a>
                                             {{-- <span class="text-muted">Until {{ Carbon\Carbon::now()->format('d-m-Y') }}</span> --}}
                                         </div>
@@ -241,7 +241,7 @@
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="flex-fill title_text_link">
                                             <a href="{{ route('income-expense.ledger') }}">
-                                                <h6 class="mb-0 text-primary">Total Balance</h6>
+                                                <h6 class="mb-0 text-primary">Balance</h6>
                                             </a>
                                             {{-- <span class="text-muted">Until {{ Carbon\Carbon::now()->format('d-m-Y') }}</span> --}}
                                         </div>
@@ -262,7 +262,36 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="col-lg-3">
+                            <div class="col-lg-3">
+                                <h6 style="color: #fff; border-bottom: 1px solid #247297; background-color: #247297;"
+                                    class=" mb-0 text-center">Tax & Vat</h6>
+                                <div class="card card-body border-0 shadow-sm mb-0 "
+                                    style="border-top-left-radius: 0px;border-top-right-radius: 0px;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="flex-fill title_text_link">
+                                            <a href="{{ route('income-expense.ledger') }}">
+                                                <h6 class="mb-0 text-primary">Tax & Vat</h6>
+                                            </a>
+                                            {{-- <span class="text-muted">Until {{ Carbon\Carbon::now()->format('d-m-Y') }}</span> --}}
+                                        </div>
+                                        <a href="{{ route('income-expense.ledger') }}">
+                                            <button type="button" class="btn  rounded-circle dashboard_btn"
+                                                style="width: 30px; height: 30px">
+                                                <i style="color: #247297" class="fa-solid fa-scale-balanced fs-4 p-1"></i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div class="box_details">
+                                        <span class="float-end" style="color: #247297;">0 <span>$</span>
+                                        </span> This Month
+                                    </div>
+                                    <div class="box_details">
+                                        <span class="float-end" style="color: #247297;">0 <span>$</span>
+                                        </span> This Year
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
                                 <h6 style="color: #fff; border-bottom: 1px solid #247297; background-color: #247297;"
                                     class=" mb-0 text-center">Quick Link</h6>
                                 <div class="card card-body border-0 shadow-sm mb-0"
@@ -308,7 +337,7 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                 </div>

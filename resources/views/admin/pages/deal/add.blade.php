@@ -30,494 +30,498 @@
         <!-- Content area -->
         <div class="content pt-1">
             <div class="row my-2">
-                @include('admin.pages.rfq-manage.partial.rfq_sidebar')
+                <div class="col-lg-8 offset-lg-2">
+                    @include('admin.pages.rfq-manage.partial.rfq_sidebar')
+                </div>
             </div>
             <div class="row">
-                <div class="card px-0">
-                    <div class="text-start">
-                        <div class="row main_bg py-1 rounded-1 d-flex align-items-center justify-content-center gx-0 px-2">
-                            <div class="col-lg-5 col-sm-12 d-flex justify-content-center">
-                                <h5 class="text-white p-0 m-0 fw-bold">Deal Create</h5>
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="card px-0">
+                        <div class="text-start">
+                            <div class="row main_bg py-1 rounded-1 d-flex align-items-center justify-content-center gx-0 px-2">
+                                <div class="col-lg-5 col-sm-12 d-flex justify-content-center">
+                                    <h5 class="text-white p-0 m-0 fw-bold">Deal Create</h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-body p-1 px-0">
-                        <div class="row gx-0">
-                            <div class="col-lg-2">
-                                <ul class="nav nav-tabs flex-column" id="myTabs" role="tablist" style="border-bottom: 0px;">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab"
-                                            data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1"
-                                            aria-selected="true">Assigned Sales Manager</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2"
-                                            type="button" role="tab" aria-controls="tab2" aria-selected="false">Client
-                                            Details</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="tab3-tab" data-bs-toggle="tab" data-bs-target="#tab3"
-                                            type="button" role="tab" aria-controls="tab3" aria-selected="false">Add
-                                            Product</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="tab4-tab" data-bs-toggle="tab" data-bs-target="#tab4"
-                                            type="button" role="tab" aria-controls="tab4" aria-selected="false">Terms &
-                                            Condition</button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-10">
-                                <form method="post" action="{{ route('deal.store') }}" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="tab-content bg-white p-2 pt-0" id="myTabContent">
-                                        <div class="tab-pane fade show active" id="tab1" role="tabpanel"
-                                            aria-labelledby="tab1-tab">
-                                            <h6 class="mb-0 text-info">Assigned Sales Manager</h6>
-                                            <div class="row mb-3 gx-0 border border-secondary bg-light">
-                                                <div class="col-lg-12 p-2">
-                                                    <div class="row">
-                                                        <div class="col-lg-4 mb-2">
-                                                            <div class="form-group">
-                                                                <label for="sales_man_id_L1" class="form-label mb-0">Sales
-                                                                    Manager Name(Leader - L1) <span
-                                                                        class="text-danger">*</span></label>
-                                                                <select name="sales_man_id_L1"
-                                                                    data-placeholder="Select Sales Manager(L1).."
-                                                                    id="sales_man_id_L1" data-allow-clear="true"
-                                                                    class="form-select w-100 select-wizard" required>
-                                                                    <option></option>
-                                                                    @foreach ($users as $user)
-                                                                        <option value="{{ $user->id }}">
-                                                                            {{ $user->name }}
+                        <div class="card-body px-0 py-0">
+                            <div class="row gx-0">
+                                <div class="col-lg-2 bg-light pt-1">
+                                    <ul class="nav nav-tabs flex-column" id="myTabs" role="tablist" style="border-bottom: 0px;">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab"
+                                                data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1"
+                                                aria-selected="true">Assigned SM</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2"
+                                                type="button" role="tab" aria-controls="tab2" aria-selected="false">Client
+                                                Details</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="tab3-tab" data-bs-toggle="tab" data-bs-target="#tab3"
+                                                type="button" role="tab" aria-controls="tab3" aria-selected="false">Add
+                                                Product</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="tab4-tab" data-bs-toggle="tab" data-bs-target="#tab4"
+                                                type="button" role="tab" aria-controls="tab4" aria-selected="false">Terms &
+                                                Condition</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-10">
+                                    <form method="post" action="{{ route('deal.store') }}" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="tab-content bg-white p-2 pt-0" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="tab1" role="tabpanel"
+                                                aria-labelledby="tab1-tab">
+                                                <h6 class="mb-0 text-info">Assigned Sales Manager</h6>
+                                                <div class="row mb-3 gx-0 border border-secondary bg-light">
+                                                    <div class="col-lg-12 p-2">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 mb-2">
+                                                                <div class="form-group">
+                                                                    <label for="sales_man_id_L1" class="form-label mb-0">Sales
+                                                                        Manager Name(Leader - L1) <span
+                                                                            class="text-danger">*</span></label>
+                                                                    <select name="sales_man_id_L1"
+                                                                        data-placeholder="Select Sales Manager(L1).."
+                                                                        id="sales_man_id_L1" data-allow-clear="true"
+                                                                        class="form-select w-100 select-wizard" required>
+                                                                        <option></option>
+                                                                        @foreach ($users as $user)
+                                                                            <option value="{{ $user->id }}">
+                                                                                {{ $user->name }}
+                                                                            </option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 mb-2">
+                                                                <div class="form-group">
+                                                                    <label for="sales_man_id_T1" class="form-label mb-0">Sales
+                                                                        Manager Name (Team - T1)</label>
+                                                                    <select class="form-select w-100 select-wizard"
+                                                                        name="sales_man_id_T1" data-allow-clear="true"
+                                                                        data-placeholder="Select Sales Manager(T1)...">
+                                                                        <option></option>
+                                                                        @foreach ($users as $user)
+                                                                            <option value="{{ $user->id }}">
+                                                                                {{ $user->name }}
+                                                                            </option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 mb-2">
+                                                                <div class="form-group">
+                                                                    <label for="sales_man_id_T2" class="form-label mb-0">Sales
+                                                                        Manager Name (Team - T2)</label>
+                                                                    <select class="form-select w-100 select-wizard"
+                                                                        name="sales_man_id_T2" data-allow-clear="true"
+                                                                        data-placeholder="Select Sales Manager(T1)...">
+                                                                        <option></option>
+                                                                        @foreach ($users as $user)
+                                                                            <option value="{{ $user->id }}">
+                                                                                {{ $user->name }}
+                                                                            </option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 mb-2">
+                                                                <div class="form-group">
+                                                                    <label for="close_date"
+                                                                        class="form-label form-label-sm mb-0">Closed
+                                                                        date</label>
+                                                                    <input type="date" name="close_date"
+                                                                        class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 mb-2">
+                                                                <div class="form-group">
+                                                                    <label for="deal_type" class="form-label mb-0">Deal Type
+                                                                    </label>
+                                                                    <select name="deal_type" data-allow-clear="true"
+                                                                        class="form-select w-100 select-wizard "
+                                                                        data-minimum-results-for-search="Infinity"
+                                                                        data-placeholder="Chose Deal Type">
+                                                                        <option></option>
+                                                                        <option class="form-select" value="new">
+                                                                            New
                                                                         </option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 mb-2">
-                                                            <div class="form-group">
-                                                                <label for="sales_man_id_T1" class="form-label mb-0">Sales
-                                                                    Manager Name (Team - T1)</label>
-                                                                <select class="form-select w-100 select-wizard"
-                                                                    name="sales_man_id_T1" data-allow-clear="true"
-                                                                    data-placeholder="Select Sales Manager(T1)...">
-                                                                    <option></option>
-                                                                    @foreach ($users as $user)
-                                                                        <option value="{{ $user->id }}">
-                                                                            {{ $user->name }}
-                                                                        </option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 mb-2">
-                                                            <div class="form-group">
-                                                                <label for="sales_man_id_T2" class="form-label mb-0">Sales
-                                                                    Manager Name (Team - T2)</label>
-                                                                <select class="form-select w-100 select-wizard"
-                                                                    name="sales_man_id_T2" data-allow-clear="true"
-                                                                    data-placeholder="Select Sales Manager(T1)...">
-                                                                    <option></option>
-                                                                    @foreach ($users as $user)
-                                                                        <option value="{{ $user->id }}">
-                                                                            {{ $user->name }}
-                                                                        </option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 mb-2">
-                                                            <div class="form-group">
-                                                                <label for="close_date"
-                                                                    class="form-label form-label-sm mb-0">Closed
-                                                                    date</label>
-                                                                <input type="date" name="close_date"
-                                                                    class="form-control" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 mb-2">
-                                                            <div class="form-group">
-                                                                <label for="deal_type" class="form-label mb-0">Deal Type
-                                                                </label>
-                                                                <select name="deal_type" data-allow-clear="true"
-                                                                    class="form-select w-100 select-wizard "
-                                                                    data-minimum-results-for-search="Infinity"
-                                                                    data-placeholder="Chose Deal Type">
-                                                                    <option></option>
-                                                                    <option class="form-select" value="new">
-                                                                        New
-                                                                    </option>
-                                                                    <option class="form-select" value="renew">
-                                                                        Renew</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-12 text-end">
-                                                    <button type="submit" class="btn btn-success" name="action"
-                                                        id="submitbtn" value="save">Save<i
-                                                            class="ph-paper-plane-tilt "></i></button>
-                                                    <a href="javascript:void(0);" class="btn btn-info rounded-0 p-2 px-2"
-                                                        id="nextTabButton">Next
-                                                        <i class="ph-arrow-circle-right "></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="tab2" role="tabpanel"
-                                            aria-labelledby="tab2-tab">
-                                            <h6 class="ms-1 mb-0 text-info">Client Details</h6>
-
-                                            <div class="row mb-3 p-3 mx-1 border border-secondary bg-light">
-                                                <div class="row offset-lg-2">
-                                                    <div class="col-lg-8 d-flex justify-content-end align-items-center">
-                                                        <div
-                                                            class="center bg-gray p-1 text-center d-flex align-items-baseline">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    value="1" name="regular" id="flexRadioDefault1">
-                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                    Regular Discount
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    value="1" name="special" id="flexRadioDefault1">
-                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                    Special Discount
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    value="1" name="tax_status"
-                                                                    id="flexRadioDefault1">
-                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                    Tax / VAT
-                                                                </label>
+                                                                        <option class="form-select" value="renew">
+                                                                            Renew</option>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-lg-3 mb-2">
-                                                        <div class="form-group">
-                                                            <label for="sales_man_id_L1" class="form-label mb-0">Client
+                                                    <div class="col-lg-12 text-end">
+                                                        <button type="submit" class="btn btn-success" name="action"
+                                                            id="submitbtn" value="save">Save<i
+                                                                class="ph-paper-plane-tilt "></i></button>
+                                                        <a href="javascript:void(0);" class="btn btn-info rounded-0 p-2 px-2"
+                                                            id="nextTabButton">Next
+                                                            <i class="ph-arrow-circle-right "></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tab2" role="tabpanel"
+                                                aria-labelledby="tab2-tab">
+                                                <h6 class="ms-1 mb-0 text-info">Client Details</h6>
+
+                                                <div class="row mb-3 p-3 mx-1 border border-secondary bg-light">
+                                                    <div class="row offset-lg-2">
+                                                        <div class="col-lg-8 d-flex justify-content-end align-items-center">
+                                                            <div
+                                                                class="center bg-gray p-1 text-center d-flex align-items-baseline">
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        value="1" name="regular" id="flexRadioDefault1">
+                                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                                        Regular Discount
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        value="1" name="special" id="flexRadioDefault1">
+                                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                                        Special Discount
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        value="1" name="tax_status"
+                                                                        id="flexRadioDefault1">
+                                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                                        Tax / VAT
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-3 mb-2">
+                                                            <div class="form-group">
+                                                                <label for="sales_man_id_L1" class="form-label mb-0">Client
+                                                                    Type<span class="text-danger">*</span></label>
+                                                                <select name="client_type"
+                                                                    class="form-select w-100 select-wizard client_select"
+                                                                    data-minimum-results-for-search="Infinity"
+                                                                    data-allow-clear="true"
+                                                                    data-placeholder="Chose client Type">
+                                                                    <option></option>
+                                                                    <option class="form-select" value="client">
+                                                                        Client
+                                                                    </option>
+                                                                    <option class="form-select" value="partner">
+                                                                        Partner</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 mb-2 partner_display d-none">
+                                                            <label for="sales_man_id_L1" class="form-label mb-0">Partner
                                                                 Type<span class="text-danger">*</span></label>
-                                                            <select name="client_type"
-                                                                class="form-select w-100 select-wizard client_select"
-                                                                data-minimum-results-for-search="Infinity"
-                                                                data-allow-clear="true"
-                                                                data-placeholder="Chose client Type">
-                                                                <option></option>
-                                                                <option class="form-select" value="client">
-                                                                    Client
-                                                                </option>
-                                                                <option class="form-select" value="partner">
-                                                                    Partner</option>
+                                                            <select name="partner_id"
+                                                                class="form-select w-100 select-wizard partnerID"
+                                                                data-placeholder="Choose Partner" data-allow-clear="true">
+                                                                <option class="common_partner"></option>
+                                                                @foreach ($partners as $partner)
+                                                                    <option value="{{ $partner->id }}">Name :
+                                                                        {{ $partner->name }}; Company Name :
+                                                                        {{ $partner->company_name }}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-3 mb-2 partner_display d-none">
-                                                        <label for="sales_man_id_L1" class="form-label mb-0">Partner
-                                                            Type<span class="text-danger">*</span></label>
-                                                        <select name="partner_id"
-                                                            class="form-select w-100 select-wizard partnerID"
-                                                            data-placeholder="Choose Partner" data-allow-clear="true">
-                                                            <option class="common_partner"></option>
-                                                            @foreach ($partners as $partner)
-                                                                <option value="{{ $partner->id }}">Name :
-                                                                    {{ $partner->name }}; Company Name :
-                                                                    {{ $partner->company_name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-lg-3 mb-2 client_display d-none">
-                                                        <label for="sales_man_id_L1" class="form-label mb-0">Search Client<span class="text-danger">*</span></label>
-                                                        <select name="client_id"
-                                                            class="form-select w-100 select-wizard clientID"
-                                                            data-allow-clear="true" data-placeholder="Choose Client">
-                                                            <option class="common_client"></option>
-                                                            @foreach ($clients as $client)
-                                                                <option value="{{ $client->id }}">Name :
-                                                                    {{ $client->name }}; Company Name :
-                                                                    {{ $client->company_name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-lg-4 mt-3 partner_account d-none text-warning">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input account" type="checkbox"
-                                                                value="partner" name="account" id="flexCheckDefault">
-                                                            <label class="form-check-label" for="flexCheckDefault">
-                                                                Create Partner Account
-                                                            </label>
+                                                        <div class="col-lg-3 mb-2 client_display d-none">
+                                                            <label for="sales_man_id_L1" class="form-label mb-0">Search Client<span class="text-danger">*</span></label>
+                                                            <select name="client_id"
+                                                                class="form-select w-100 select-wizard clientID"
+                                                                data-allow-clear="true" data-placeholder="Choose Client">
+                                                                <option class="common_client"></option>
+                                                                @foreach ($clients as $client)
+                                                                    <option value="{{ $client->id }}">Name :
+                                                                        {{ $client->name }}; Company Name :
+                                                                        {{ $client->company_name }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-lg-4 mt-3 partner_account d-none text-warning">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input account" type="checkbox"
+                                                                    value="partner" name="account" id="flexCheckDefault">
+                                                                <label class="form-check-label" for="flexCheckDefault">
+                                                                    Create Partner Account
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 mt-3 client_account d-none text-warning">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input account" type="checkbox"
+                                                                    value="client" name="account" id="flexCheckDefault">
+                                                                <label class="form-check-label" for="flexCheckDefault">
+                                                                    Create Client Account
+                                                                </label>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-4 mt-3 client_account d-none text-warning">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input account" type="checkbox"
-                                                                value="client" name="account" id="flexCheckDefault">
-                                                            <label class="form-check-label" for="flexCheckDefault">
-                                                                Create Client Account
-                                                            </label>
+
+
+                                                    <div class="col-lg-3 mb-2">
+                                                        <div class="form-group">
+                                                            <label for="sales_man_id_L1" class="form-label mb-0">Name<span
+                                                                    class="text-danger">*</span></label>
+                                                            <input type="text" name="name"
+                                                                class="form-control form-control-sm maxlength"
+                                                                maxlength="100" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 mb-2">
+                                                        <div class="form-group">
+                                                            <label for="sales_man_id_L1" class="form-label mb-0">Email<span
+                                                                    class="text-danger">*</span></label>
+                                                            <input type="email" name="email"
+                                                                class="form-control form-control-sm maxlength"
+                                                                maxlength="100" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 mb-2">
+                                                        <div class="form-group">
+                                                            <label for="sales_man_id_L1" class="form-label mb-0">Phone<span
+                                                                    class="text-danger">*</span></label>
+                                                            <input type="text" name="phone"
+                                                                class="form-control form-control-sm maxlength" maxlength="100"
+                                                                required />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 mb-2">
+                                                        <div class="form-group">
+                                                            <label for="sales_man_id_L1" class="form-label mb-0">Company
+                                                                Name<span class="text-danger">*</span></label>
+                                                            <input type="text" name="company_name"
+                                                                class="form-control form-control-sm maxlength"
+                                                                maxlength="200" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 mb-2">
+                                                        <div class="form-group">
+                                                            <label for="sales_man_id_L1"
+                                                                class="form-label mb-0">Designation<span
+                                                                    class="text-danger">*</span></label>
+                                                            <input type="text" name="designation"
+                                                                class="form-control form-control-sm maxlength"
+                                                                maxlength="100" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 mb-2">
+                                                        <div class="form-group">
+                                                            <label for="sales_man_id_L1" class="form-label mb-0">Address<span
+                                                                    class="text-danger">*</span></label>
+                                                            <input type="text" name="address"
+                                                                class="form-control form-control-sm maxlength"
+                                                                maxlength="200" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 mb-2 user_password d-none">
+                                                        <div class="form-group">
+                                                            <label for="sales_man_id_L1" class="form-label mb-0">User
+                                                                Password<span class="text-danger">*</span></label>
+                                                            <input type="password" name="password"
+                                                                class="form-control form-control-sm maxlength"
+                                                                maxlength="100" />
                                                         </div>
                                                     </div>
                                                 </div>
-
-
-                                                <div class="col-lg-3 mb-2">
-                                                    <div class="form-group">
-                                                        <label for="sales_man_id_L1" class="form-label mb-0">Name<span
-                                                                class="text-danger">*</span></label>
-                                                        <input type="text" name="name"
-                                                            class="form-control form-control-sm maxlength"
-                                                            maxlength="100" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3 mb-2">
-                                                    <div class="form-group">
-                                                        <label for="sales_man_id_L1" class="form-label mb-0">Email<span
-                                                                class="text-danger">*</span></label>
-                                                        <input type="email" name="email"
-                                                            class="form-control form-control-sm maxlength"
-                                                            maxlength="100" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3 mb-2">
-                                                    <div class="form-group">
-                                                        <label for="sales_man_id_L1" class="form-label mb-0">Phone<span
-                                                                class="text-danger">*</span></label>
-                                                        <input type="text" name="phone"
-                                                            class="form-control form-control-sm maxlength" maxlength="100"
-                                                            required />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3 mb-2">
-                                                    <div class="form-group">
-                                                        <label for="sales_man_id_L1" class="form-label mb-0">Company
-                                                            Name<span class="text-danger">*</span></label>
-                                                        <input type="text" name="company_name"
-                                                            class="form-control form-control-sm maxlength"
-                                                            maxlength="200" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 mb-2">
-                                                    <div class="form-group">
-                                                        <label for="sales_man_id_L1"
-                                                            class="form-label mb-0">Designation<span
-                                                                class="text-danger">*</span></label>
-                                                        <input type="text" name="designation"
-                                                            class="form-control form-control-sm maxlength"
-                                                            maxlength="100" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 mb-2">
-                                                    <div class="form-group">
-                                                        <label for="sales_man_id_L1" class="form-label mb-0">Address<span
-                                                                class="text-danger">*</span></label>
-                                                        <input type="text" name="address"
-                                                            class="form-control form-control-sm maxlength"
-                                                            maxlength="200" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 mb-2 user_password d-none">
-                                                    <div class="form-group">
-                                                        <label for="sales_man_id_L1" class="form-label mb-0">User
-                                                            Password<span class="text-danger">*</span></label>
-                                                        <input type="password" name="password"
-                                                            class="form-control form-control-sm maxlength"
-                                                            maxlength="100" />
+                                                <div class="row">
+                                                    <div class="col-lg-12 text-end">
+                                                        <button type="submit" class="btn btn-success" name="action"
+                                                            id="submitbtn" value="save">Save<i
+                                                                class="ph-paper-plane-tilt"></i></button>
+                                                        <a href="javascript:void(0);" class="btn btn-info rounded-0 p-2 px-2"
+                                                            id="nextTabButton2">Next
+                                                            <i class="ph-arrow-circle-right"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-lg-12 text-end">
-                                                    <button type="submit" class="btn btn-success" name="action"
-                                                        id="submitbtn" value="save">Save<i
-                                                            class="ph-paper-plane-tilt"></i></button>
-                                                    <a href="javascript:void(0);" class="btn btn-info rounded-0 p-2 px-2"
-                                                        id="nextTabButton2">Next
-                                                        <i class="ph-arrow-circle-right"></i>
-                                                    </a>
+                                            <div class="tab-pane fade" id="tab3" role="tabpanel"
+                                                aria-labelledby="tab3-tab">
+                                                <h6 class="mb-0 text-info">Product Description</h6>
+                                                <div class="row  gx-0 pt-2 border border-secondary bg-light">
+                                                    <div class="col-lg-12 p-2">
+                                                        <div class="table-responsive col-md-12">
+                                                            <table class="table table-bordered col-md-12" style="width:100%">
+
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th style="padding:7px !important;">
+                                                                            Product Name <span class="text-danger">*</span>
+                                                                        </th>
+                                                                        <th style="padding:7px !important;"> Qty </th>
+                                                                        <th style="padding:7px !important;"> Unit Price</th>
+                                                                        <th style="padding:7px !important;"> Regular Discount
+                                                                        </th>
+                                                                        <th style="padding:7px !important;">
+                                                                            <a href="javascript:void(0)"
+                                                                                class="btn btn-primary addRow">
+                                                                                <i class="ph-plus"></i>
+                                                                            </a>
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+
+                                                                <tbody class="repeater">
+                                                                    <tr>
+                                                                        <td> <input type="text" class="form-control"
+                                                                                name="item_name[]" placeholder='Product Name*'
+                                                                                required></td>
+                                                                        <td> <input type="text" class="form-control"
+                                                                                name="qty[]" placeholder='Quantity'></td>
+                                                                        <td> <input type="text" class="form-control"
+                                                                                name="unit_price[]"></td>
+                                                                        <td> <input type="text" class="form-control"
+                                                                                name="regular_discount[]"></td>
+
+
+                                                                        <td class="text-center"> <a href="javascript:void(0)"
+                                                                                class=" removeRow"><i
+                                                                                    class="ph-minus"></i></a>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                            {{-- <div class="col-md-11 mt-3">
+                                                                <button type="submit" class="btn btn-primary text-right">Submit</button>
+                                                            </div> --}}
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="tab3" role="tabpanel"
-                                            aria-labelledby="tab3-tab">
-                                            <h6 class="mb-0 text-info">Product Description</h6>
-                                            <div class="row  gx-0 pt-2 border border-secondary bg-light">
-                                                <div class="col-lg-12 p-2">
-                                                    <div class="table-responsive col-md-12">
-                                                        <table class="table table-bordered col-md-12" style="width:100%">
-
-                                                            <thead>
-                                                                <tr>
-                                                                    <th style="padding:7px !important;">
-                                                                        Product Name <span class="text-danger">*</span>
-                                                                    </th>
-                                                                    <th style="padding:7px !important;"> Qty </th>
-                                                                    <th style="padding:7px !important;"> Unit Price</th>
-                                                                    <th style="padding:7px !important;"> Regular Discount
-                                                                    </th>
-                                                                    <th style="padding:7px !important;">
-                                                                        <a href="javascript:void(0)"
-                                                                            class="btn btn-primary addRow">
-                                                                            <i class="ph-plus"></i>
-                                                                        </a>
-                                                                    </th>
-                                                                </tr>
-                                                            </thead>
-
-                                                            <tbody class="repeater">
-                                                                <tr>
-                                                                    <td> <input type="text" class="form-control"
-                                                                            name="item_name[]" placeholder='Product Name*'
-                                                                            required></td>
-                                                                    <td> <input type="text" class="form-control"
-                                                                            name="qty[]" placeholder='Quantity'></td>
-                                                                    <td> <input type="text" class="form-control"
-                                                                            name="unit_price[]"></td>
-                                                                    <td> <input type="text" class="form-control"
-                                                                            name="regular_discount[]"></td>
-
-
-                                                                    <td class="text-center"> <a href="javascript:void(0)"
-                                                                            class=" removeRow"><i
-                                                                                class="ph-minus"></i></a>
-                                                                    </td>
-                                                                </tr>
-
-                                                            </tbody>
-                                                        </table>
-                                                        {{-- <div class="col-md-11 mt-3">
-                                                            <button type="submit" class="btn btn-primary text-right">Submit</button>
-                                                        </div> --}}
+                                                <div class="row">
+                                                    <div class="col-lg-12 text-end mt-3">
+                                                        <button type="submit" class="btn btn-success" name="action"
+                                                            id="submitbtn" value="save">Save<i
+                                                                class="ph-paper-plane-tilt"></i></button>
+                                                        <a href="javascript:void(0);" class="btn btn-info rounded-0 p-2 px-2"
+                                                            id="nextTabButton3">Next
+                                                            <i class="ph-arrow-circle-right"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-lg-12 text-end mt-3">
-                                                    <button type="submit" class="btn btn-success" name="action"
-                                                        id="submitbtn" value="save">Save<i
-                                                            class="ph-paper-plane-tilt"></i></button>
-                                                    <a href="javascript:void(0);" class="btn btn-info rounded-0 p-2 px-2"
-                                                        id="nextTabButton3">Next
-                                                        <i class="ph-arrow-circle-right"></i>
-                                                    </a>
+                                            <div class="tab-pane fade" id="tab4" role="tabpanel"
+                                                aria-labelledby="tab4-tab">
+                                                {{-- <h5>Tab 3 Content</h5> --}}
+                                                <h6 class="ms-1 mb-0 text-info">Source Details</h6>
+                                                <div class="row mb-3 gx-0 border border-secondary bg-light">
+                                                    <table class="table table-bordered table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th width="10%">Validity </th>
+                                                                <td width="22%">
+                                                                    <input type="text" name="validity"
+                                                                        class="form-control maxlength" form-control-sm
+                                                                        maxlength="200"
+                                                                        value="7 Days from the PQ date.Offer may change on the bank forex rate or stock availability" />
+                                                                </td>
+                                                                <th width="10%">Payment </th>
+                                                                <td width="22%">
+                                                                    <input type="text" name="payment"
+                                                                        class="form-control form-control-sm maxlength"
+                                                                        maxlength="200"
+                                                                        value="100% advanced payment with Work Order for Renewal order Excuation" />
+                                                                </td>
+                                                                <th width="10%">Payment Mode </th>
+                                                                <td width="22%">
+                                                                    <input type="text" name="payment_mode"
+                                                                        class="form-control form-control-sm maxlength"
+                                                                        maxlength="200"
+                                                                        value="Payment must be through Cheque/EFTN/WT & hit in the NGen IT account" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th width="10%">Delivery </th>
+                                                                <td width="22%">
+                                                                    <input type="text" name="delivery"
+                                                                        class="form-control form-control-sm maxlength"
+                                                                        maxlength="200"
+                                                                        value="3 business wks upon receiving of WO & Payment.Extended time may require for disaster issues" />
+                                                                </td>
+                                                                <th width="10%">Delivery Location </th>
+                                                                <td width="22%">
+                                                                    <input type="text" name="delivery_location"
+                                                                        class="form-control form-control-sm maxlength"
+                                                                        maxlength="200"
+                                                                        value="Automatice Renewal Activation to the Licenses & Client's Console Panel" />
+                                                                </td>
+                                                                <th width="10%">Product & Order </th>
+                                                                <td width="22%">
+                                                                    <input type="text" name="product_order"
+                                                                        class="form-control form-control-sm maxlength"
+                                                                        maxlength="200"
+                                                                        value="May reject/modify order on any dispute in pr. price or product non-availability during execuation" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th width="10%">Installation Support </th>
+                                                                <td width="22%">
+                                                                    <input type="text" name="installation_support"
+                                                                        class="form-control form-control-sm maxlength"
+                                                                        maxlength="200"
+                                                                        value="Not Applicable. Local Support is Not Included with this Cost as per requirements" />
+                                                                </td>
+                                                                <th width="10%">Pmt Condition </th>
+                                                                <td width="22%">
+                                                                    <input type="text" name="pmt_condition"
+                                                                        class="form-control form-control-sm maxlength"
+                                                                        maxlength="200"
+                                                                        value="1.5% penalty per week on late from 7 days of / Payment Date" />
+                                                                </td>
+                                                                <th width="10%">Terms Nine </th>
+                                                                <td width="22%">
+                                                                    <input type="text" name="terms_nine"
+                                                                        class="form-control form-control-sm maxlength"
+                                                                        maxlength="200" value="" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th width="10%">Terms Ten </th>
+                                                                <td width="22%">
+                                                                    <input type="text" name="terms_ten"
+                                                                        class="form-control form-control-sm maxlength"
+                                                                        maxlength="200" value="" />
+                                                                </td>
+                                                                <th width="10%">Terms Eleven </th>
+                                                                <td width="22%">
+                                                                    <input type="text" name="terms_eleven"
+                                                                        class="form-control form-control-sm maxlength"
+                                                                        maxlength="200" value="" />
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="tab4" role="tabpanel"
-                                            aria-labelledby="tab4-tab">
-                                            {{-- <h5>Tab 3 Content</h5> --}}
-                                            <h6 class="ms-1 mb-0 text-info">Source Details</h6>
-                                            <div class="row mb-3 gx-0 border border-secondary bg-light">
-                                                <table class="table table-bordered table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th width="10%">Validity </th>
-                                                            <td width="22%">
-                                                                <input type="text" name="validity"
-                                                                    class="form-control maxlength" form-control-sm
-                                                                    maxlength="200"
-                                                                    value="7 Days from the PQ date.Offer may change on the bank forex rate or stock availability" />
-                                                            </td>
-                                                            <th width="10%">Payment </th>
-                                                            <td width="22%">
-                                                                <input type="text" name="payment"
-                                                                    class="form-control form-control-sm maxlength"
-                                                                    maxlength="200"
-                                                                    value="100% advanced payment with Work Order for Renewal order Excuation" />
-                                                            </td>
-                                                            <th width="10%">Payment Mode </th>
-                                                            <td width="22%">
-                                                                <input type="text" name="payment_mode"
-                                                                    class="form-control form-control-sm maxlength"
-                                                                    maxlength="200"
-                                                                    value="Payment must be through Cheque/EFTN/WT & hit in the NGen IT account" />
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th width="10%">Delivery </th>
-                                                            <td width="22%">
-                                                                <input type="text" name="delivery"
-                                                                    class="form-control form-control-sm maxlength"
-                                                                    maxlength="200"
-                                                                    value="3 business wks upon receiving of WO & Payment.Extended time may require for disaster issues" />
-                                                            </td>
-                                                            <th width="10%">Delivery Location </th>
-                                                            <td width="22%">
-                                                                <input type="text" name="delivery_location"
-                                                                    class="form-control form-control-sm maxlength"
-                                                                    maxlength="200"
-                                                                    value="Automatice Renewal Activation to the Licenses & Client's Console Panel" />
-                                                            </td>
-                                                            <th width="10%">Product & Order </th>
-                                                            <td width="22%">
-                                                                <input type="text" name="product_order"
-                                                                    class="form-control form-control-sm maxlength"
-                                                                    maxlength="200"
-                                                                    value="May reject/modify order on any dispute in pr. price or product non-availability during execuation" />
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th width="10%">Installation Support </th>
-                                                            <td width="22%">
-                                                                <input type="text" name="installation_support"
-                                                                    class="form-control form-control-sm maxlength"
-                                                                    maxlength="200"
-                                                                    value="Not Applicable. Local Support is Not Included with this Cost as per requirements" />
-                                                            </td>
-                                                            <th width="10%">Pmt Condition </th>
-                                                            <td width="22%">
-                                                                <input type="text" name="pmt_condition"
-                                                                    class="form-control form-control-sm maxlength"
-                                                                    maxlength="200"
-                                                                    value="1.5% penalty per week on late from 7 days of / Payment Date" />
-                                                            </td>
-                                                            <th width="10%">Terms Nine </th>
-                                                            <td width="22%">
-                                                                <input type="text" name="terms_nine"
-                                                                    class="form-control form-control-sm maxlength"
-                                                                    maxlength="200" value="" />
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th width="10%">Terms Ten </th>
-                                                            <td width="22%">
-                                                                <input type="text" name="terms_ten"
-                                                                    class="form-control form-control-sm maxlength"
-                                                                    maxlength="200" value="" />
-                                                            </td>
-                                                            <th width="10%">Terms Eleven </th>
-                                                            <td width="22%">
-                                                                <input type="text" name="terms_eleven"
-                                                                    class="form-control form-control-sm maxlength"
-                                                                    maxlength="200" value="" />
-                                                            </td>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                            <div class="row mt-5 text-end">
-                                                <div class="col-lg-4"></div>
-                                                <div class="col-lg-8">
-                                                    <button type="submit" class="btn btn-success" name="action"
-                                                        id="submitbtn" value="save">Save<i
-                                                            class="ph-paper-plane-tilt"></i></button>
-                                                    <button type="submit" class="btn btn-primary " name="action"
-                                                        id="submitbtn" value="approval"> Submit
-                                                        <i class="ph-paper-plane-tilt"></i>
-                                                    </button>
+                                                <div class="row mt-5 text-end">
+                                                    <div class="col-lg-4"></div>
+                                                    <div class="col-lg-8">
+                                                        <button type="submit" class="btn btn-success" name="action"
+                                                            id="submitbtn" value="save">Save<i
+                                                                class="ph-paper-plane-tilt"></i></button>
+                                                        <button type="submit" class="btn btn-primary " name="action"
+                                                            id="submitbtn" value="approval"> Submit
+                                                            <i class="ph-paper-plane-tilt"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

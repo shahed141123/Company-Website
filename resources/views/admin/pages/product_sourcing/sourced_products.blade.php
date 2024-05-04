@@ -18,16 +18,16 @@
                             <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
                         </a>
                     </div>
-                    <div class="collapse show d-lg-block ms-lg-auto" id="breadcrumb_elements">
+                    <div class="collapse show d-lg-block ms-lg-auto d-sm-none d-lg-block" id="breadcrumb_elements">
                         <div class="d-lg-flex mb-2 mb-lg-0">
                             <a href="{{ route('product-sourcing.index') }}" class="btn navigation_btn mt-1">
-                                <i class="ph-list-plus me-2"></i> Sourcing
+                                <i class="ph-list-plus me-2 me-sm-0"></i> Sourcing
                             </a>
                             <a href="{{ route('sas.index') }}" class="btn navigation_btn mt-1">
-                                <i class="ph-currency-circle-dollar me-2"></i> SAS
+                                <i class="ph-currency-circle-dollar me-2 me-sm-0"></i> SAS
                             </a>
                             <a href="{{ route('purchase.index') }}" class="btn navigation_btn mt-1">
-                                <i class="ph-shopping-cart me-2"></i> Purchase
+                                <i class="ph-shopping-cart me-2 me-sm-0"></i> Purchase
                             </a>
                             <a href="{{ route('delivery.index') }}" class="btn navigation_btn mt-1">
                                 <i class="ph-truck me-2"></i> Delivery
@@ -40,7 +40,7 @@
             <!-- Content area -->
             <div class="content pt-1 mx-lg-3 mx-1">
                 <div class="row">
-                    <div class="col-12 p-0">
+                    <div class="col-lg-8 offset-lg-2 p-0">
                         <div class="card mt-3 rounded-0">
                             <div class="card-header p-0 d-flex justify-content-start align-items-center rounded-0 ">
                                 <div>
@@ -57,9 +57,9 @@
                                                 <th style="width: 7% !important;">Image</th>
                                                 <th style="width: 45% !important;">Name</th>
                                                 <th style="width: 13% !important;">Added By</th>
-                                                <th style="width: 13% !important;">Price</th>
+                                                <th style="width: 10% !important;">Price</th>
                                                 <th style="width: 10% !important;">Status</th>
-                                                <th style="width: 9% !important;">Actions</th>
+                                                <th style="width: 12% !important;">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -71,7 +71,7 @@
                                                             <img src="{{ !file_exists($product->thumbnail) ? url('upload/no_image.jpg') : asset($product->thumbnail) }}" width="40px" height="40px" style="border-radius: 50%;">
                                                         </span>
                                                     </td>
-                                                    <td>{{ $product->name }}</td>
+                                                    <td class="text-start">{{ $product->name }}</td>
                                                     <td>{{ $product->added_by }}</td>
                                                     <td>
                                                         @if ($product->price_status === 'rfq')
@@ -91,10 +91,10 @@
                                                     </td>
                                                     <td>
                                                         <a href="{{ route('product-sourcing.edit', $product->id) }}" class="text-primary">
-                                                            <i class="fa-solid fa-pen-to-square me-2 p-1 rounded-circle text-primary"></i>
+                                                            <i class="fa-solid fa-pen-to-square dash-icons"></i>
                                                         </a>
                                                         <a href="{{ route('product-sourcing.destroy', [$product->id]) }}" class="text-danger delete">
-                                                            <i class="fa-solid fa-trash p-1 rounded-circle text-danger"></i>
+                                                            <i class="fa-solid fa-trash dash-icons text-danger"></i>
                                                         </a>
                                                     </td>
                                                 </tr>

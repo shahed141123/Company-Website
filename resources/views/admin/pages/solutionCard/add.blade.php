@@ -9,7 +9,7 @@
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house me-2"></i> Home</a>
                         <a href="{{ route('site-content.index') }}" class="breadcrumb-item"> Site Content</a>
                         <a href="{{ route('solutionCard.index') }}" class="breadcrumb-item">Solution Card Management</a>
-                        <a href="" class="breadcrumb-item">Edit</a>
+                        <a href="" class="breadcrumb-item">Add</a>
                     </div>
                     <a href="#breadcrumb_elements"
                         class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
@@ -41,55 +41,40 @@
                 <div class="card">
                     <!--Banner Section-->
                     <div class="container">
-                        <div class="row g-2 p-1">
-                            <div class="col">
-                                <span class="mt-1 fw-bold text-info">Solution Card Section</span>
-                                <div class="px-2 py-2 rounded bg-light">
-                                    <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Card
-                                            Title</label>
-                                        <div class="input-group">
-                                            <input name="title" maxlength="255" type="text"
-                                                class="form-control form-control-sm" placeholder="Enter Solution Card Title"
-                                                required>
-                                        </div>
+                        <div class="row p-2">
+                            <span class="mt-1 fw-bold text-info">Solution Card Section</span>
+                            <div class="col-lg-12">
+                                <label class="label_style">Card Title</label>
+                                <div class="input-group">
+                                    <input name="title" maxlength="255" type="text"
+                                        class="form-control form-control-sm" placeholder="Enter Solution Card Title"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <label class="label_style">Solution Card Image</label>
+                                <div class="row">
+                                    <div class="col-lg-11">
+                                        <input name="image" id="image" accept="image/*" type="file"
+                                            class="form-control form-control-sm" placeholder="Enter Solution Card Image">
                                     </div>
-                                    <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Solution
-                                            Card Image</label>
-                                        <div class="d-flex">
-                                            <div class="" style="width: 90%">
-                                                <input name="image" id="image" accept="image/*" type="file"
-                                                class="form-control form-control-sm"
-                                                placeholder="Enter Solution Card Image">
-                                            </div>
-                                                <div class=" ms-2" style="width: 10%">
-                                                    {{-- <img id="showImage" src="{{ asset('storage/requestImg/' . $solutionCard->image) }}"
-                                                        alt="" height="87px" width="157px"> --}}
-                                                    <img class="img-fluid rounded-circle" id="showImage" src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg"
-                                                        alt="" style="width: 30px;
-                                                        height: 30px; margin-left: 2.5rem;">
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Short
-                                            Description</label>
-                                        <div class="input-group">
-                                            <textarea class="form-control" name="short_des"  rows="4"
-                                                placeholder="Enter Solution Short Description" required></textarea>
-                                        </div>
+                                    <div class="col-lg-1">
+                                        <img class="img-fluid rounded-circle" id="showImage"
+                                            src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg"
+                                            alt="" style="width: 30px; height: 30px; ">
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-12">
+                                <label class="label_style">Short
+                                    Description</label>
+                                <div class="input-group">
+                                    <textarea class="form-control" name="short_des" rows="4" placeholder="Enter Solution Short Description" required></textarea>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                     <div class="modal-footer border-0 p-2">
-                        <button type="button" class="submit_close_btn " data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="submit_btn from-prevent-multiple-submits"
                             style="padding: 4px 9px;">Submit</button>
                     </div>

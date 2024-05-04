@@ -286,7 +286,13 @@
                 <div class="col-lg-4">
                     {{-- Attendance Info --}}
                     <div class="card user-dash-bg">
-
+                        <div class="card-header py-0 px-2">
+                            <p class="text-end pt-2">
+                                <a href="">
+                                    <i class="fa-solid fa-arrow-up-right-from-square main_color go-icon"></i>
+                                </a>
+                            </p>
+                        </div>
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="card w-50 me-2" style="height: 7rem;">
@@ -395,14 +401,14 @@
                     {{-- Achivement Info --}}
                     <div class="card user-dash-bg">
                         <div class="card-header py-0 px-2">
-                            <p class="text-end pt-2">
+                            <p class="text-end pt-2 mb-0">
                                 <a href="">
                                     <i class="fa-solid fa-arrow-up-right-from-square main_color go-icon"></i>
                                 </a>
                             </p>
                         </div>
                         <div class="card-body pt-0">
-                            <h3>Today's Achievement</h3>
+                            <h3>Access</h3>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="card me-2 user-inner-card" style="height: 12rem; width: 40%">
                                     <div class="card-body align-items-center">
@@ -443,10 +449,13 @@
                                     </div>
                                 </div>
                                 <div class="card me-2" style="height: 12rem; width: 60%">
-                                    <div class="card-body user-inner-card">
-                                        <p class="para-text m-0">Perform</p>
-                                        <div>
-                                            This Meter is Under Construction
+                                    <div class="card-body user-inner-card pt-1">
+                                        <p class="para-text m-0">Your Access</p>
+                                        <div class="">
+                                            <button class="btn navigation_btn w-100 mb-1">HR & ADMIN</button>
+                                            <button class="btn navigation_btn w-100 mb-1">SITE SETTING</button>
+                                            <button class="btn navigation_btn w-100 mb-1">SUPPLY CHAIN</button>
+                                            <button class="btn navigation_btn w-100 mb-1">CRM</button>
                                         </div>
                                     </div>
                                 </div>

@@ -40,53 +40,57 @@
         <!-- Content area -->
         <div class="content">
             <!-- Table components -->
-            <div class="card">
-                <table class="table table-bordered table-xs table-responsive text-center">
-                    <tr>
-                        <th colspan="7" class="py-2" style="background: #247297;">
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-12">
-                                    {{-- Add Details Start --}}
-                                    <div class="text-success nav-link cat-tab3"
-                                        style="position: relative; z-index: 999; margin-bottom: -40px;">
-                                        <a href="" data-bs-toggle="modal"
-                                        data-bs-target="#modal_account_profitLoss">
-                                            <div class="d-flex align-items-center">
-                                                <span class="ms-2 icon_btn" style="font-weight: 800;"
-                                                    data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    title="Add Solution Details">
-                                                    <i class="ph-plus icons_design text-white"></i> </span>
-                                                <span class="ms-1" style="color: #ffff;">Add</span>
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="card">
+                        <table class="table table-bordered table-xs table-responsive text-center">
+                            <tr>
+                                <th colspan="7" class="py-2" style="background: #247297;">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-sm-12">
+                                            {{-- Add Details Start --}}
+                                            <div class="text-success nav-link cat-tab3"
+                                                style="position: relative; z-index: 999; margin-bottom: -40px;">
+                                                <a href="" data-bs-toggle="modal"
+                                                data-bs-target="#modal_account_profitLoss">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="ms-2 icon_btn" style="font-weight: 800;"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Add Solution Details">
+                                                            <i class="ph-plus icons_design text-white"></i> </span>
+                                                        <span class="ms-1" style="color: #ffff;">Add</span>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </a>
+                                            {{-- Add Details End --}}
+                                        </div>
+                                        <div class="col-lg-6 col-sm-12 text-end text-white">
+                                            <span>Account Sales Profit & Loss Report FY22</span>
+                                        </div>
                                     </div>
-                                    {{-- Add Details End --}}
-                                </div>
-                                <div class="col-lg-6 col-sm-12 text-end text-white">
-                                    <span>Account Sales Profit & Loss Report FY22</span>
-                                </div>
-                            </div>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class=" text-info">Total Sales </th>
-                        <th class="  text-info"> Total Product Cost </th>
-                        <th class=" text-info">Gross Profit </th>
-                        <th class=" text-info">Other Cost </th>
-                        <th class=" text-info">Tax/Vat </th>
-                        <th class=" text-info">Total Cost </th>
-                        <th class=" text-info">Net Profit </th>
-                    </tr>
-                    <tr>
-                        <td class=" text-black"> 0.00</td>
-                        <td class="  text-black"> 0.00</td>
-                        <td class=" text-black"> 0.00</td>
-                        <td class=" text-black"> 0.00</td>
-                        <td class=" text-black"> 0.00</td>
-                        <td class=" text-black"> 0.00 </td>
-                        <td class=" text-black"> 0.00</td>
-                    </tr>
-                </table>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class=" text-info">Total Sales </th>
+                                <th class="  text-info"> Total Product Cost </th>
+                                <th class=" text-info">Gross Profit </th>
+                                <th class=" text-info">Other Cost </th>
+                                <th class=" text-info">Tax/Vat </th>
+                                <th class=" text-info">Total Cost </th>
+                                <th class=" text-info">Net Profit </th>
+                            </tr>
+                            <tr>
+                                <td class=" text-black"> 0.00</td>
+                                <td class="  text-black"> 0.00</td>
+                                <td class=" text-black"> 0.00</td>
+                                <td class=" text-black"> 0.00</td>
+                                <td class=" text-black"> 0.00</td>
+                                <td class=" text-black"> 0.00 </td>
+                                <td class=" text-black"> 0.00</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
             <!-- Basic modal for profit -->
             @include('admin.pages.AccountProfitLoss.par.add-modal')

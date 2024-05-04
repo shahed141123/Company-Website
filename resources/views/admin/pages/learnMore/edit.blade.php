@@ -22,36 +22,32 @@
         <!-- /page header -->
 
         <!-- Content area -->
-        <div class="content pt-2 w-75 mx-auto">
-            <div class="text-start">
-                <div class="d-flex align-items-center justify-content-start main_bg py-1 rounded-1">
-                    <div class="ms-2">
-                        <a class="btn btn-primary btn-rounded rounded-circle btn-icon back-btn"
-                            href="{{ route('learnMore.index') }}">
-                            <i class="fa-solid fa-arrow-left main_color"></i>
-                        </a>
-                    </div>
-                    <div class="me-2" style="margin-left: 19.7rem;">
-                        <p class="text-white p-0 m-0 fw-bold"> Edit Learn More </p>
-                    </div>
-                    <div style="margin-left: 14rem;">
-                        <a href="{{ route('row.index') }}" class="btn navigation_btn">
-                            <div class="d-flex align-items-center ">
-                                <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
-                                <span>Row Builder</span>
-                            </div>
-                        </a>
-                        <a href="{{ route('solutionCard.index') }}" class="btn navigation_btn">
-                            <div class="d-flex align-items-center ">
-                                <i class="fa-solid fa-money-check-dollar-pen me-1" style="font-size: 10px;"></i>
-                                <span>Solution Card</span>
-                            </div>
-                        </a>
-                    </div>
+        <div class="content w-100 w-lg-75 mx-auto">
+            <div class="d-flex align-items-center justify-content-between p-1" style="background-color: #247297">
+                <div>
+                    <a class="btn btn-primary btn-rounded rounded-circle btn-icon back-btn"
+                        href="{{ route('learnMore.index') }}">
+                        <i class="fa-solid fa-arrow-left main_color"></i>
+                    </a>
+                </div>
+                <div>
+                    <p class="text-white p-0 m-0 fw-bold"> Edit Learn More </p>
+                </div>
+                <div>
+                    <a href="{{ route('row.index') }}" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
+                            <span>Row Builder</span>
+                        </div>
+                    </a>
+                    <a href="{{ route('solutionCard.index') }}" class="btn navigation_btn me-0">
+                        <div class="d-flex align-items-center ">
+                            <i class="fa-solid fa-money-check-dollar-pen" style="font-size: 10px;"></i>
+                            <span>Solution Card</span>
+                        </div>
+                    </a>
                 </div>
             </div>
-
-
             <form method="post" action="{{ route('learnMore.update', $learnMore->id) }}" enctype="multipart/form-data"
                 id="myform">
                 @csrf
@@ -59,14 +55,13 @@
                 <div class="card">
                     <!--Banner Section-->
                     <div class="container">
-                        <div class="row g-2 p-1">
+                        <div class="row py-3">
                             <div class="col-lg-6 col-sm-12">
                                 <span class="mt-1 fw-bold text-info">Description</span>
-                                <div class="px-2 py-2 rounded bg-light mb-4">
+                                <div class="px-2 py-2 rounded bg-light mb-2">
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Badge</label>
+                                        <label class="p-0 text-start text-black label_style">Badge</label>
                                         <div class="input-group">
                                             <input name="badge" maxlength="255" type="text"
                                                 class="form-control form-control-sm" placeholder="Enter Learn More Badge"
@@ -75,8 +70,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Title</label>
+                                        <label class="p-0 text-start text-black label_style">Title</label>
                                         <div class="input-group">
                                             <input name="title" maxlength="255" type="text"
                                                 class="form-control form-control-sm" placeholder="Enter Learn More Title"
@@ -85,8 +79,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Banner
+                                        <label class="p-0 text-start text-black label_style">Banner
                                             Image</label>
                                         <div class="d-flex">
                                             <div class="" style="width: 70%">
@@ -105,8 +98,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Background
+                                        <label class="p-0 text-start text-black label_style">Background
                                             Image</label>
                                         <div class="d-flex">
                                             <div class="" style="width: 70%">
@@ -126,10 +118,9 @@
                                     </div>
                                 </div>
                                 <span class="mt-1 fw-bold text-info">Header</span>
-                                <div class="px-2 py-2 rounded bg-light mb-4">
+                                <div class="px-2 py-2 rounded bg-light mb-2">
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Header
+                                        <label class="p-0 text-start text-black label_style">Header
                                             One</label>
                                         <div class="input-group">
                                             <input name="header_one" maxlength="255" type="text"
@@ -139,8 +130,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Header
+                                        <label class="p-0 text-start text-black label_style">Header
                                             Two</label>
                                         <div class="input-group">
                                             <input name="header_two" maxlength="255" type="text"
@@ -153,8 +143,7 @@
                                 <div class="px-2 py-2 rounded bg-light">
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Footer</label>
+                                        <label class="p-0 text-start text-black label_style">Footer</label>
                                         <div class="input-group">
                                             <textarea name="footer" class="form-control form-control-sm" rows="1"
                                                 style=" font-size: 12px; font-weight: 500;">{{ $learnMore->footer }}</textarea>
@@ -162,8 +151,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Consult
+                                        <label class="p-0 text-start text-black label_style">Consult
                                             Title </label>
                                         <div class="input-group">
                                             <input name="consult_title" type="text"
@@ -173,8 +161,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Consult
+                                        <label class="p-0 text-start text-black label_style">Consult
                                             Short Description</label>
                                         <div class="input-group">
                                             <textarea name="consult_short_des" type="text" rows="1" class="form-control form-control-sm"
@@ -183,8 +170,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Industry
+                                        <label class="p-0 text-start text-black label_style">Industry
                                             Header</label>
                                         <div class="input-group">
                                             <input type="text" value="{{ $learnMore->industry_header }}"
@@ -194,15 +180,11 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
                             <div class="col-lg-6 col-sm-12">
                                 <span class="mt-1 fw-bold text-info">Box Area</span>
-                                <div class="px-2 py-2 rounded bg-light">
+                                <div class="px-2 py-2 rounded bg-light mt-4">
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Box
+                                        <label class="p-0 text-start text-black label_style">Box
                                             One Title </label>
                                         <div class="input-group">
                                             <input name="box_one_title" maxlength="255" type="text"
@@ -212,8 +194,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Box
+                                        <label class="p-0 text-start text-black label_style">Box
                                             One Short Description</label>
                                         <div class="input-group">
                                             <input name="box_one_short_des" type="text"
@@ -224,8 +205,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Box
+                                        <label class="p-0 text-start text-black label_style">Box
                                             One link</label>
                                         <div class="input-group">
                                             <input name="box_one_link" type="url"
@@ -235,8 +215,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Box
+                                        <label class="p-0 text-start text-black label_style">Box
                                             Two Title</label>
                                         <div class="input-group">
                                             <input name="box_two_title" type="text"
@@ -246,8 +225,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Box
+                                        <label class="p-0 text-start text-black label_style">Box
                                             Two Short Description</label>
                                         <div class="input-group">
                                             <textarea name="box_two_short_des" type="text" rows="3" class="form-control form-control-sm"
@@ -256,8 +234,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Box
+                                        <label class="p-0 text-start text-black label_style">Box
                                             Two link</label>
                                         <div class="input-group">
                                             <input name="box_two_link" type="url"
@@ -267,8 +244,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Box
+                                        <label class="p-0 text-start text-black label_style">Box
                                             Three Title</label>
                                         <div class="input-group">
                                             <input name="box_three_title" type="text"
@@ -278,8 +254,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Box
+                                        <label class="p-0 text-start text-black label_style">Box
                                             Three Short Description</label>
                                         <div class="input-group">
                                             <textarea name="box_three_short_des" type="text" rows="3" class="form-control form-control-sm"
@@ -288,8 +263,7 @@
                                     </div>
                                     {{--  --}}
                                     <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Box
+                                        <label class="p-0 text-start text-black label_style">Box
                                             Three link</label>
                                         <div class="input-group">
                                             <textarea name="box_three_link" type="text" rows="3" class="form-control form-control-sm"
@@ -298,80 +272,79 @@
                                     </div>
                                 </div>
                                 {{--  --}}
+                            </div>
+                            <div class="col-lg-12">
                                 <span class="mt-1 fw-bold text-info">Client Area</span>
                                 <div class="px-2 py-2 rounded bg-light">
-                                    <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Success
-                                            Story Title</label>
-                                        <div class="input-group">
-                                            <textarea name="success_story_title" type="text" rows="3" class="form-control form-control-sm"
-                                                placeholder="Enter Success Story Title" value="{{ $learnMore->success_story_title }}"></textarea>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <label class="p-0 text-start text-black label_style">Success
+                                                Story Title</label>
+                                            <div class="input-group">
+                                                <textarea name="success_story_title" type="text" rows="3" class="form-control form-control-sm"
+                                                    placeholder="Enter Success Story Title" value="{{ $learnMore->success_story_title }}"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div>
+                                                <label class="p-0 text-start text-black label_style">Client
+                                                    Story One</label>
+                                                <div class="input-group">
+                                                    <select name="success_story_one_id"
+                                                        class="form-control form-control-sm" id="select6">
+                                                        <option></option>
+                                                        @foreach ($storys as $item)
+                                                            <option value="{{ $item->id }}"
+                                                                {{ $item->id == $learnMore->success_story_one_id ? 'selected' : '' }}>
+                                                                {{ $item->title }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div>
+                                                <label class="p-0 text-start text-black label_style">Client
+                                                    Story Two</label>
+                                                <div class="input-group">
+                                                    <select name="success_story_two_id"
+                                                        class="form-select form-select-sm select" id="select7">
+                                                        <option></option>
+                                                        @foreach ($storys as $item)
+                                                            <option value="{{ $item->id }}"
+                                                                {{ $item->id == $learnMore->success_story_two_id ? 'selected' : '' }}>
+                                                                {{ $item->title }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div>
+                                                <label class="p-0 text-start text-black label_style">Client Story Three</label>
+                                                <div class="input-group">
+                                                    <select name="success_story_three_id"
+                                                        class="form-select form-select-sm select" id="select8">
+                                                        <option></option>
+                                                        @foreach ($storys as $item)
+                                                            <option value="{{ $item->id }}"
+                                                                {{ $item->id == $learnMore->success_story_three_id ? 'selected' : '' }}>
+                                                                {{ $item->title }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    {{--  --}}
-                                    <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Client
-                                            Story One</label>
-                                        <div class="input-group">
-                                            <select name="success_story_one_id" class="form-control form-control-sm"
-                                                id="select6">
-                                                <option></option>
-                                                @foreach ($storys as $item)
-                                                    <option value="{{ $item->id }}"
-                                                        {{ $item->id == $learnMore->success_story_one_id ? 'selected' : '' }}>
-                                                        {{ $item->title }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    {{--  --}}
-                                    <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Client
-                                            Story Two</label>
-                                        <div class="input-group" style="width: 275px !important;">
-                                            <select name="success_story_two_id"
-                                                class="form-control form-control-sm select" id="select7">
-                                                <option></option>
-                                                @foreach ($storys as $item)
-                                                    <option value="{{ $item->id }}"
-                                                        {{ $item->id == $learnMore->success_story_two_id ? 'selected' : '' }}>
-                                                        {{ $item->title }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    {{--  --}}
-                                    <div class="d-flex align-items-center pt-1">
-                                        <label
-                                            class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Client
-                                            Story Three</label>
-                                        <div class="input-group" style="width: 275px !important;">
-                                            <select name="success_story_three_id"
-                                                class="form-control form-control-sm select" id="select8">
-                                                <option></option>
-                                                @foreach ($storys as $item)
-                                                    <option value="{{ $item->id }}"
-                                                        {{ $item->id == $learnMore->success_story_three_id ? 'selected' : '' }}>
-                                                        {{ $item->title }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer border-0 p-2">
-                        <button type="button" class="submit_close_btn " data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="submit_btn from-prevent-multiple-submits"
-                            style="padding: 4px 9px;">Submit</button>
+                        <div class="modal-footer border-0 p-2">
+                            <button type="submit" class="submit_btn from-prevent-multiple-submits px-3">Submit</button>
+                        </div>
                     </div>
             </form>
         </div>

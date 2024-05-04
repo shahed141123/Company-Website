@@ -63,8 +63,8 @@
         <div class="content">
             <div class="card">
                 <div class="text-start">
-                    <div class="row main_bg py-1 rounded-1 d-flex align-items-center gx-0 px-2">
-                        <div class="col-lg-4 col-sm-12">
+                    <div class="main_bg py-1 rounded-1 d-flex align-items-center justify-content-between gx-0 px-2">
+                        <div class="">
                             <div>
                                 <a class="btn btn-primary btn-rounded rounded-circle btn-icon back-btn"
                                     href="{{ URL::previous() }}">
@@ -72,8 +72,8 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-sm-12 d-flex justify-content-center">
-                            <h4 class="text-white p-0 m-0 fw-bold admin_adedit_title">Product Sourcing Add</h4>
+                        <div class="">
+                            <h6 class="text-white p-0 m-0 fw-bold admin_adedit_title">Product Sourcing Add</h6>
                         </div>
 
                     </div>
@@ -173,7 +173,7 @@
                                                     <div class="form-group col-lg-3 basic-form">
                                                         <label for="product_type" class="form-label mb-0">Product
                                                             Type <span class="text-danger">*</span></label>
-                                                        <select name="product_type"
+                                                        <select name="product_type" data-allow-clear="true"
                                                             data-placeholder="Select Product Type.." id="product_type"
                                                             class="form-control select" required>
                                                             <option></option>
@@ -338,7 +338,8 @@
                                                     <div class="form-group col-md-6 basic-form">
                                                         <label for="weight" class="form-label mb-0">Sub Category</label>
                                                         <select class="form-control select" name="sub_cat_id"
-                                                            data-placeholder="Select Sub Category...">
+                                                            data-placeholder="Select Sub Category..."
+                                                            data-allow-clear="true">
                                                             <option></option>
                                                             @foreach ($sub_cats as $item)
                                                                 <option class="form-control" value="{{ $item->id }}">
@@ -353,7 +354,8 @@
                                                         <label for="weight" class="form-label mb-0">Sub Sub
                                                             Category</label>
                                                         <select name="sub_sub_cat_id" class="form-control select"
-                                                            data-placeholder="Select Sub Sub Category...">
+                                                            data-placeholder="Select Sub Sub Category..."
+                                                            data-allow-clear="true">
                                                             <option></option>
                                                             @foreach ($sub_sub_cats as $item)
                                                                 <option class="form-control" value="{{ $item->id }}">
@@ -428,7 +430,8 @@
                                                 <button type="submit" class="btn btn-success" name="action"
                                                     id="submitbtn" value="save">Save<i
                                                         class="ph-paper-plane-tilt "></i></button>
-                                                <a href="javascript:void(0);" class="btn btn-info rounded-0 p-2 px-2" id="nextTabButton">Next
+                                                <a href="javascript:void(0);" class="btn btn-info rounded-0 p-2 px-2"
+                                                    id="nextTabButton">Next
                                                     <i class="ph-arrow-circle-right "></i>
                                                 </a>
                                             </div>
@@ -469,7 +472,8 @@
                                                 <button type="submit" class="btn btn-success" name="action"
                                                     id="submitbtn" value="save">Save<i
                                                         class="ph-paper-plane-tilt"></i></button>
-                                                <a href="javascript:void(0);" class="btn btn-info rounded-0 p-2 px-2" id="nextTabButton2">Next
+                                                <a href="javascript:void(0);" class="btn btn-info rounded-0 p-2 px-2"
+                                                    id="nextTabButton2">Next
                                                     <i class="ph-arrow-circle-right"></i>
                                                 </a>
                                             </div>
@@ -481,8 +485,8 @@
                                         aria-labelledby="tab3-tab">
                                         {{-- <h5>Tab 3 Content</h5> --}}
                                         <h6 class="ms-1 mb-0 text-info">Source Details</h6>
-                                        <div class="row mb-3 gx-0 border border-secondary bg-light p-2 mx-2">
-                                            <div class="card-body m-1 p-1 border">
+                                        <div class="row mb-3 gx-0 border border-secondary p-2 mx-2">
+                                            <div class="card-body m-1 p-1">
                                                 <div class="row px-2 mb-3">
                                                     {{-- <div class="col-lg-2">
                                                     <h6 class="mb-0">Price Status :</h6>
@@ -506,19 +510,19 @@
                                                     <div class="col-lg-3 col-sm-6">
                                                         <div class="rfq_price d-none">
                                                             <label class="ms-1" for="price_status">SAS Price <span
-                                                                class="text-danger">*</span></label>
+                                                                    class="text-danger">*</span></label>
                                                             <input class="form-control form-control-sm" type="text"
                                                                 name="sas_price" placeholder="RFQ Price for Sas">
                                                         </div>
                                                         <div class="price d-none">
                                                             <label class="ms-1" for="price_status">SAS Price <span
-                                                                class="text-danger">*</span></label>
+                                                                    class="text-danger">*</span></label>
                                                             <input class="form-control form-control-sm" type="text"
                                                                 name="sas_price" placeholder="Price for Sas">
                                                         </div>
                                                         <div class="offer_price d-none">
                                                             <label class="ms-1" for="price_status">SAS Price <span
-                                                                class="text-danger">*</span></label>
+                                                                    class="text-danger">*</span></label>
                                                             <input class="form-control form-control-sm" type="text"
                                                                 name="sas_price" placeholder="Starting Price for Sas">
                                                         </div>
@@ -715,38 +719,41 @@
                                                             <table class="table table-bordered table-hover">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th width="70%" style="font-size: 12px;">
+                                                                        <th style="font-size: 12px;">
                                                                             Details
                                                                         </th>
-                                                                        <th width="15%" style="font-size: 12px;">
+                                                                        <th  style="font-size: 12px;">
                                                                             Status
                                                                         </th>
-                                                                        <th width="15%" style="font-size: 12px;">Status
+                                                                        <th  style="font-size: 12px;">Status
                                                                         </th>
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td>Is this solid source? ( Y/N )</td>
-                                                                        <td><input class="margin-right:0.5rem"
-                                                                                type="radio" name="solid_source"
-                                                                                value="yes" id="">&nbsp; Yes
+                                                                        <td >Is this solid source? ( Y/N )
                                                                         </td>
-                                                                        <td><input class="margin-right:0.5rem"
-                                                                                type="radio" name="solid_source"
-                                                                                value="no" id="">&nbsp; No
+                                                                        <td ><input
+                                                                                class="margin-right:0.5rem" type="radio"
+                                                                                name="solid_source" value="yes"
+                                                                                id="">&nbsp; Yes
+                                                                        </td>
+                                                                        <td ><input
+                                                                                class="margin-right:0.5rem" type="radio"
+                                                                                name="solid_source" value="no"
+                                                                                id="">&nbsp; No
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td width="68%">Is this direct Principal ? ( Y/N
+                                                                        <td>Is this direct Principal ? ( Y/N
                                                                             )
                                                                         </td>
-                                                                        <td width="15%"><input
+                                                                        <td ><input
                                                                                 class="margin-right:0.5rem" type="radio"
                                                                                 name="direct_principal" value="yes"
                                                                                 id="">&nbsp;
                                                                             Yes
                                                                         </td>
-                                                                        <td width="15%"><input
+                                                                        <td ><input
                                                                                 class="margin-right:0.5rem" type="radio"
                                                                                 name="direct_principal" value="no"
                                                                                 id="">&nbsp;
@@ -754,14 +761,14 @@
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td width="68%">Does it have Agreement ? ( Y/N )
+                                                                        <td>Does it have Agreement ? ( Y/N )
                                                                         </td>
-                                                                        <td width="15%"><input
+                                                                        <td ><input
                                                                                 class="margin-right:0.5rem" type="radio"
                                                                                 name="agreement" value="yes"
                                                                                 id="">&nbsp; Yes
                                                                         </td>
-                                                                        <td width="15%"><input
+                                                                        <td ><input
                                                                                 class="margin-right:0.5rem" type="radio"
                                                                                 name="agreement" value="no"
                                                                                 id="">&nbsp; No</td>
@@ -1067,7 +1074,5 @@
 
             });
         </script>
-
-
     @endpush
 @endonce

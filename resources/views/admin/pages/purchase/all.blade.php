@@ -31,7 +31,7 @@
                     <div class="d-flex px-2">
                         <div class="breadcrumb py-2">
                             <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
-                            <a href="http://127.0.0.1:8000/admin/dashboard" class="breadcrumb-item">Home</a>
+                            <a href="https://www.ngenitltd.com/admin/dashboard" class="breadcrumb-item">Home</a>
                             <span class="breadcrumb-item active">Purchase</span>
                         </div>
                         <a href="#breadcrumb_elements"
@@ -44,34 +44,34 @@
 
 
                 <!-- Basic tabs -->
-                <div class="d-flex">
-                    <div>
-                        <a href="http://127.0.0.1:8000/admin/income-expense/overview" class="btn navigation_btn">
+                <div class="d-flex ">
+                    <div class="d-lg-block d-sm-none">
+                        <a href="https://www.ngenitltd.com/admin/income-expense/overview" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-nfc-magnifying-glass me-1" style="font-size: 10px;"></i>
                                 <span>Overview</span>
                             </div>
                         </a>
-                        <a href="http://127.0.0.1:8000/admin/income-expense/ledger" class="btn navigation_btn">
+                        <a href="https://www.ngenitltd.com/admin/income-expense/ledger" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-money-check-dollar-pen me-1" style="font-size: 10px;"></i>
                                 <span>Ledger Book</span>
                             </div>
                         </a>
-                        <a href="http://127.0.0.1:8000/admin/income" class="btn navigation_btn">
+                        <a href="https://www.ngenitltd.com/admin/income" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-truck-bolt me-1" style="font-size: 10px;"></i>
                                 <span>Income</span>
                             </div>
                         </a>
-                        <a href="http://127.0.0.1:8000/admin/expense" class="btn navigation_btn">
+                        <a href="https://www.ngenitltd.com/admin/expense" class="btn navigation_btn">
                             <div class="d-flex align-items-center ">
                                 <i class="fa-solid fa-truck-bolt me-1" style="font-size: 10px;"></i>
                                 <span>Expense</span>
                             </div>
                         </a>
                     </div>
-                    <div class="dropdown ms-1 me-3">
+                    <div class="dropdown ms-1 me-3 d-lg-block d-sm-none">
                         <button class="btn navigation_btn dropdown-toggle" type="button" id="dropdownMenuButton1"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Dropdown button
@@ -93,11 +93,11 @@
                     <table class="table table-xs table-bordered table-responsive">
                         <tr class="main_bg">
                             <th class="text-center  py-1" colspan="2">
-                                <div class="row ">
-                                    <div class="col-lg-6 col-sm-6 d-flex justify-content-start">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-start">
                                         <span class="text-white">Purchase Order</span>
                                     </div>
-                                    <div class="col-lg-6 col-sm-6 d-flex justify-content-end">
+                                    <div class="d-flex justify-content-end">
                                         <a href="" data-bs-toggle="modal"
                                             data-bs-target="#modal_purchase_order_save">
                                             <div class="d-flex align-items-center">
@@ -126,7 +126,8 @@
             </div>
             <!-- tab month menu start-->
             <h3 class="text-center" style="color: #247297;">Purchase History</h3>
-            <ul class="nav nav-tabs mx-auto d-flex justify-content-center align-items-center" role="tablist" style=" border-bottom: 1px solid #247297;">
+            <ul class="nav nav-tabs mx-auto d-flex justify-content-center align-items-center" role="tablist"
+                style=" border-bottom: 1px solid #247297;">
                 <li class="nav-item mb-0" role="presentation">
                     <a href="#js-January-tab" class="nav-link  js-January-tab" data-bs-toggle="tab" aria-selected="true"
                         role="tab" tabindex="-1">
@@ -203,25 +204,8 @@
             <!-- tab month menu end -->
             <div class="tab-content table-responsive">
                 <div class="tab-pane fade js-January-tab" id="js-January-tab" role="tabpanel">
-                    <div class="d-flex align-items-center">
-                        {{-- Add Details Start --}}
-                        <div class="text-success nav-link cat-tab3"
-                            style="position: relative;
-                            z-index: 999;
-                            margin-bottom: -40px;">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#addnewsLetter">
-                                <div class="d-flex align-items-center">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Add Solution Details">
-                                        {{-- <i class="ph-plus icons_design"></i> </span>
-                                    <span class="ms-1" style="color: #247297;">Add</span> --}}
-                                </div>
-                            </a>
-                            <div class="text-center" style="margin-left: 540px">
-                                <h5 class="ms-1 mb-3 mt-2" style="color: #247297;">January Purchase</h5>
-                            </div>
-                        </div>
-                        {{-- Add Details End --}}
+                    <div class="text-center">
+                        <h5 class="py-3" style="color: #247297;">January Purchase</h5>
                     </div>
                     <table class="table january table-bordered table-hover text-center">
                         <thead>
@@ -267,25 +251,8 @@
                     </table>
                 </div>
                 <div class="tab-pane fade js-February-tab" id="js-February-tab" role="tabpanel">
-                    <div class="d-flex align-items-center py-2">
-                        {{-- Add Details Start --}}
-                        <div class="text-success nav-link cat-tab3"
-                            style="position: relative;
-                            z-index: 999;
-                            margin-bottom: -40px;">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#addnewsLetter">
-                                <div class="d-flex align-items-center">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Add Solution Details">
-                                        {{-- <i class="ph-plus icons_design"></i> </span>
-                                    <span class="ms-1" style="color: #247297;">Add</span> --}}
-                                </div>
-                            </a>
-                            <div class="text-center" style="margin-left: 540px">
-                                <h5 class="ms-1 mb-0" style="color: #247297;">February Purchase</h5>
-                            </div>
-                        </div>
-                        {{-- Add Details End --}}
+                    <div class="text-center">
+                        <h5 class="py-3" style="color: #247297;">February Purchase</h5>
                     </div>
                     <table class="table newsLetterDt table-bordered table-hover text-center  february">
                         <thead>
@@ -332,21 +299,8 @@
                 </div>
                 <div class="tab-pane fade js-March-tab" id="js-March-tab" role="tabpanel">
                     <div class="text-center">
-                        <h5 class="ms-1 mb-0" style="color: #247297;">March Purchase</h5>
+                        <h5 class="py-3" style="color: #247297;">March Purchase</h5>
                     </div>
-                    {{-- <div class="d-flex align-items-center py-2">
-                        <div class="text-success nav-link cat-tab3"
-                            style="position: relative;
-                            z-index: 999;
-                            margin-bottom: -40px;">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#addnewsLetter">
-                                <div class="d-flex align-items-center">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Add Solution Details">
-                                </div>
-                            </a>
-                        </div>
-                    </div> --}}
                     <table class="table newsLetterDt table-bordered table-hover text-center  march">
                         <thead>
                             <tr class="text-small">
@@ -391,25 +345,8 @@
                     </table>
                 </div>
                 <div class="tab-pane fade js-April-tab" id="js-April-tab" role="tabpanel">
-                    <div class="d-flex align-items-center py-2">
-                        {{-- Add Details Start --}}
-                        <div class="text-success nav-link cat-tab3"
-                            style="position: relative;
-                            z-index: 999;
-                            margin-bottom: -40px;">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#addnewsLetter">
-                                <div class="d-flex align-items-center">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Add Solution Details">
-                                        {{-- <i class="ph-plus icons_design"></i> </span>
-                                    <span class="ms-1" style="color: #247297;">Add</span> --}}
-                                </div>
-                            </a>
-                            <div class="text-center" style="margin-left: 540px">
-                                <h5 class="ms-1 mb-0" style="color: #247297;">April Purchase</h5>
-                            </div>
-                        </div>
-                        {{-- Add Details End --}}
+                    <div class="text-center">
+                        <h5 class="py-3" style="color: #247297;">April Purchase</h5>
                     </div>
                     <table class="table newsLetterDt table-bordered table-hover text-center  april">
                         <thead>
@@ -455,25 +392,8 @@
                     </table>
                 </div>
                 <div class="tab-pane fade js-May-tab" id="js-May-tab" role="tabpanel">
-                    <div class="d-flex align-items-center py-2">
-                        {{-- Add Details Start --}}
-                        <div class="text-success nav-link cat-tab3"
-                            style="position: relative;
-                            z-index: 999;
-                            margin-bottom: -40px;">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#addnewsLetter">
-                                <div class="d-flex align-items-center">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Add Solution Details">
-                                        {{-- <i class="ph-plus icons_design"></i> </span>
-                                    <span class="ms-1" style="color: #247297;">Add</span> --}}
-                                </div>
-                            </a>
-                            <div class="text-center" style="margin-left: 540px">
-                                <h5 class="ms-1 mb-0" style="color: #247297;">May Purchase</h5>
-                            </div>
-                        </div>
-                        {{-- Add Details End --}}
+                    <div class="text-center">
+                        <h5 class="py-3" style="color: #247297;">May Purchase</h5>
                     </div>
                     <table class="table newsLetterDt table-bordered table-hover text-center  may">
                         <thead>
@@ -519,25 +439,8 @@
                     </table>
                 </div>
                 <div class="tab-pane fade js-June-tab" id="js-June-tab" role="tabpanel">
-                    <div class="d-flex align-items-center py-2">
-                        {{-- Add Details Start --}}
-                        <div class="text-success nav-link cat-tab3"
-                            style="position: relative;
-                            z-index: 999;
-                            margin-bottom: -40px;">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#addnewsLetter">
-                                <div class="d-flex align-items-center">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Add Solution Details">
-                                        {{-- <i class="ph-plus icons_design"></i> </span>
-                                    <span class="ms-1" style="color: #247297;">Add</span> --}}
-                                </div>
-                            </a>
-                            <div class="text-center" style="margin-left: 540px">
-                                <h5 class="ms-1 mb-0" style="color: #247297;">June Purchase</h5>
-                            </div>
-                        </div>
-                        {{-- Add Details End --}}
+                    <div class="text-center">
+                        <h5 class="py-2" style="color: #247297;">June Purchase</h5>
                     </div>
                     <table class="table newsLetterDt table-bordered table-hover text-center  june">
                         <thead>
@@ -583,25 +486,8 @@
                     </table>
                 </div>
                 <div class="tab-pane fade js-July-tab" id="js-July-tab" role="tabpanel">
-                    <div class="d-flex align-items-center py-2">
-                        {{-- Add Details Start --}}
-                        <div class="text-success nav-link cat-tab3"
-                            style="position: relative;
-                            z-index: 999;
-                            margin-bottom: -40px;">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#addnewsLetter">
-                                <div class="d-flex align-items-center">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Add Solution Details">
-                                        {{-- <i class="ph-plus icons_design"></i> </span>
-                                    <span class="ms-1" style="color: #247297;">Add</span> --}}
-                                </div>
-                            </a>
-                            <div class="text-center" style="margin-left: 540px">
-                                <h5 class="ms-1 mb-0" style="color: #247297;">July Purchase</h5>
-                            </div>
-                        </div>
-                        {{-- Add Details End --}}
+                    <div class="text-center">
+                        <h5 class="py-2" style="color: #247297;">July Purchase</h5>
                     </div>
                     <table class="table newsLetterDt table-bordered table-hover text-center  july">
                         <thead>
@@ -647,25 +533,8 @@
                     </table>
                 </div>
                 <div class="tab-pane fade js-August-tab" id="js-August-tab" role="tabpanel">
-                    <div class="d-flex align-items-center py-2">
-                        {{-- Add Details Start --}}
-                        <div class="text-success nav-link cat-tab3"
-                            style="position: relative;
-                            z-index: 999;
-                            margin-bottom: -40px;">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#addnewsLetter">
-                                <div class="d-flex align-items-center">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Add Solution Details">
-                                        {{-- <i class="ph-plus icons_design"></i> </span>
-                                    <span class="ms-1" style="color: #247297;">Add</span> --}}
-                                </div>
-                            </a>
-                            <div class="text-center" style="margin-left: 540px">
-                                <h5 class="ms-1 mb-0" style="color: #247297;">August Purchase</h5>
-                            </div>
-                        </div>
-                        {{-- Add Details End --}}
+                    <div class="text-center">
+                        <h5 class="py-2" style="color: #247297;">August Purchase</h5>
                     </div>
                     <table class="table newsLetterDt table-bordered table-hover text-center  august">
                         <thead>
@@ -711,25 +580,8 @@
                     </table>
                 </div>
                 <div class="tab-pane fade js-September-tab" id="js-September-tab" role="tabpanel">
-                    <div class="d-flex align-items-center py-2">
-                        {{-- Add Details Start --}}
-                        <div class="text-success nav-link cat-tab3"
-                            style="position: relative;
-                            z-index: 999;
-                            margin-bottom: -40px;">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#addnewsLetter">
-                                <div class="d-flex align-items-center">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Add Solution Details">
-                                        {{-- <i class="ph-plus icons_design"></i> </span>
-                                    <span class="ms-1" style="color: #247297;">Add</span> --}}
-                                </div>
-                            </a>
-                            <div class="text-center" style="margin-left: 540px">
-                                <h5 class="ms-1 mb-0" style="color: #247297;">September Purchase</h5>
-                            </div>
-                        </div>
-                        {{-- Add Details End --}}
+                    <div class="text-center">
+                        <h5 class="py-2" style="color: #247297;">September Purchase</h5>
                     </div>
                     <table class="table newsLetterDt table-bordered table-hover text-center  september">
                         <thead>
@@ -775,25 +627,8 @@
                     </table>
                 </div>
                 <div class="tab-pane fade js-October-tab" id="js-October-tab" role="tabpanel">
-                    <div class="d-flex align-items-center py-2">
-                        {{-- Add Details Start --}}
-                        <div class="text-success nav-link cat-tab3"
-                            style="position: relative;
-                            z-index: 999;
-                            margin-bottom: -40px;">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#addnewsLetter">
-                                <div class="d-flex align-items-center">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Add Solution Details">
-                                        {{-- <i class="ph-plus icons_design"></i> </span>
-                                    <span class="ms-1" style="color: #247297;">Add</span> --}}
-                                </div>
-                            </a>
-                            <div class="text-center" style="margin-left: 540px">
-                                <h5 class="ms-1 mb-0" style="color: #247297;">October Purchase</h5>
-                            </div>
-                        </div>
-                        {{-- Add Details End --}}
+                    <div class="text-center">
+                        <h5 class="py-2" style="color: #247297;">October Purchase</h5>
                     </div>
                     <table class="table newsLetterDt table-bordered table-hover text-center  october">
                         <thead>
@@ -839,25 +674,8 @@
                     </table>
                 </div>
                 <div class="tab-pane fade js-November-tab" id="js-November-tab" role="tabpanel">
-                    <div class="d-flex align-items-center py-2">
-                        {{-- Add Details Start --}}
-                        <div class="text-success nav-link cat-tab3"
-                            style="position: relative;
-                            z-index: 999;
-                            margin-bottom: -40px;">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#addnewsLetter">
-                                <div class="d-flex align-items-center">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Add Solution Details">
-                                        {{-- <i class="ph-plus icons_design"></i> </span>
-                                    <span class="ms-1" style="color: #247297;">Add</span> --}}
-                                </div>
-                            </a>
-                            <div class="text-center" style="margin-left: 540px">
-                                <h5 class="ms-1 mb-0" style="color: #247297;">November Purchase</h5>
-                            </div>
-                        </div>
-                        {{-- Add Details End --}}
+                    <div class="text-center">
+                        <h5 class="py-2" style="color: #247297;">November Purchase</h5>
                     </div>
                     <table class="table newsLetterDt table-bordered table-hover text-center  november">
                         <thead>
@@ -903,25 +721,8 @@
                     </table>
                 </div>
                 <div class="tab-pane fade js-December-tab" id="js-December-tab" role="tabpanel">
-                    <div class="d-flex align-items-center py-2">
-                        {{-- Add Details Start --}}
-                        <div class="text-success nav-link cat-tab3"
-                            style="position: relative;
-                            z-index: 999;
-                            margin-bottom: -40px;">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#addnewsLetter">
-                                <div class="d-flex align-items-center">
-                                    <span class="ms-2 icon_btn" style="font-weight: 800;" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Add Solution Details">
-                                        {{-- <i class="ph-plus icons_design"></i> </span>
-                                    <span class="ms-1" style="color: #247297;">Add</span> --}}
-                                </div>
-                            </a>
-                            <div class="text-center" style="margin-left: 540px">
-                                <h5 class="ms-1 mb-0" style="color: #247297;">December Purchase</h5>
-                            </div>
-                        </div>
-                        {{-- Add Details End --}}
+                    <div class="text-center">
+                        <h5 class="py-2" style="color: #247297;">December Purchase</h5>
                     </div>
                     <table class="table newsLetterDt table-bordered table-hover text-center  december">
                         <thead>

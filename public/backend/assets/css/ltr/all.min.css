@@ -5607,8 +5607,8 @@ textarea.form-control-lg {
 .active>.page-link, .page-link.active {
     z-index: 3;
     color: var(--pagination-active-color);
-    background-color: var(--pagination-active-bg);
-    border-color: var(--pagination-active-border-color)
+    background-color: #247297;
+    border-color: #247297;
 }
 
 .disabled>.page-link, .page-link.disabled {
@@ -21390,8 +21390,8 @@ a.breadcrumb-item:focus, a.breadcrumb-item:hover, a.breadcrumb-item[aria-expande
 }
 
 .select2-search--dropdown:after {
-    content: "\f4a8";
-    font-family: var(--icon-font-family);
+    /* content: "\f4a8"; */
+    /* font-family: var(--icon-font-family); */
     position: absolute;
     top: 50%;
     left: calc(var(--s2-menu-item-padding-x) + var(--s2-search-padding-x));
@@ -21399,7 +21399,7 @@ a.breadcrumb-item:focus, a.breadcrumb-item:hover, a.breadcrumb-item[aria-expande
     display: block;
     font-size: var(--icon-font-size);
     -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+    transform: translateY(15%);
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
@@ -21410,8 +21410,8 @@ a.breadcrumb-item:focus, a.breadcrumb-item:hover, a.breadcrumb-item[aria-expande
 }
 
 .select2-search--dropdown .select2-search__field {
-    padding: var(--s2-search-padding-y) var(--s2-search-padding-x);
-    padding-left: calc(var(--s2-search-padding-x) * 2 + var(--icon-font-size));
+    /* padding: var(--s2-search-padding-y) var(--s2-search-padding-x); */
+    /* padding-left: calc(var(--s2-search-padding-x) * 2 + var(--icon-font-size)); */
     background-color: var(--s2-search-bg);
     color: var(--s2-search-color);
     border: var(--s2-search-border-width) solid var(--s2-search-border-color);

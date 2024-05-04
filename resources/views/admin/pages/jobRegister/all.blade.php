@@ -1,23 +1,28 @@
 @extends('admin.master')
 @section('content')
     <div class="content-wrapper">
-
         <!-- Page header -->
         <div class="page-header page-header-light shadow">
-
-
-            <div class="page-header-content d-lg-flex border-top">
+            <div class="page-header-content d-flex justify-content-between align-items-center border-top">
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
                         <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item">Home</a>
+                        <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item">Hr & Admin</a>
                         <span class="breadcrumb-item active">Job Reg. Management</span>
                     </div>
-
                     <a href="#breadcrumb_elements"
                         class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
                         data-bs-toggle="collapse">
                         <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
+                    </a>
+                </div>
+                <div class="px-3">
+                    <a href="http://127.0.0.1:3000/admin/hr-and-admin" class="btn navigation_btn">
+                        <div class="d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Add Solution Details">
+                            <i class="fa-solid fa-users me-1" style="font-size: 12px;"></i>
+                            <span>HR &amp; Admin</span>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -26,7 +31,7 @@
         <!-- Content area -->
         <div class="content">
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 mx-auto">
+                <div class="col-lg-8 offset-lg-2">
                     <h4 class="text-center">Job Reg. Users</h4>
                     <div class="card rounded-0">
                         <div class="card-body p-0">
@@ -34,10 +39,10 @@
                                 <table class="table table-hover jobregister table-bordered text-center">
                                     <thead>
                                         <tr>
-                                            <th width="5%">Sl No:</th>
-                                            <th width="35%">name</th>
-                                            <th width="25%">email</th>
-                                            <th width="20%">phone_number</th>
+                                            <th width="5%">Sl</th>
+                                            <th width="35%">Name</th>
+                                            <th width="25%">Email</th>
+                                            <th width="20%">Phone Number</th>
                                             <th class="text-center" width="15%">Actions</th>
                                         </tr>
                                     </thead>

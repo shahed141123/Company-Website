@@ -35,7 +35,7 @@
                 <h4 class="m-0" style="color: #247297;">All Contacts Message</h4>
             </div>
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 mx-auto">
+                <div class="col-lg-8 offset-lg-2 mx-auto">
                     <div class="card p-0 border-0">
                         <div class="card-body p-0">
                             <div class="table-responsive">
@@ -43,11 +43,11 @@
                                     <thead>
                                         <tr class="text-center">
                                             <th width="5%">Id</th>
-                                            <th width="30%">Name</th>
+                                            <th width="25%">Name</th>
                                             <th width="25%">Email</th>
                                             <th width="20%">Date</th>
                                             <th width="10%">Message</th>
-                                            <th width="10%">Actions</th>
+                                            <th width="15%">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -67,7 +67,8 @@
                                                             data-bs-target="#userMessage-{{ $contact->id }}">
                                                             <i class="fa-solid fa-reply dash-icons me-2"></i>
                                                         </a>
-                                                        <a href="{{ route('contact.edit', [$contact->id]) }}" class="text-primary">
+                                                        <a href="{{ route('contact.edit', [$contact->id]) }}"
+                                                            class="text-primary">
                                                             <i class="fa-solid fa-pen-to-square dash-icons me-2"></i>
                                                         </a>
                                                         <a href="{{ route('contact.destroy', [$contact->id]) }}"
@@ -108,7 +109,6 @@
                                         <p>{{ $contact->email }}</p>
                                     </div>
                                     <div class="col-lg-12">
-                                        <p class="main_text_color pt-3">User Message</p>
                                         <p>
                                             {{ $contact->message }}
                                         </p>
@@ -192,7 +192,6 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <h4 class="main_text_color text-center">User Message</h4>
                                         <p class="main_text_color">{{ $contact->name }}</p>
                                         <p>{{ $contact->created_at }}</p>
                                         <p>

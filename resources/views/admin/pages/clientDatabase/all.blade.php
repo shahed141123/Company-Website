@@ -16,6 +16,11 @@
                 {{-- Inner Page Tab --}}
                 <div>
                     <!-- Leave Dashboard link -->
+                    <a href="#" class="btn navigation_btn">
+                        <div class="d-flex align-items-center ">
+                            <span>CRM</span>
+                        </div>
+                    </a>
                     <a href="{{ route('client-database.create') }}" class="btn navigation_btn">
                         <div class="d-flex align-items-center ">
                             <i class="ph-plus me-1" style="font-size: 10px;"></i>
@@ -31,7 +36,7 @@
                 <div class="text-center">
                     <h4 class="m-0" style="color: #247297;">Client Databases</h4>
                 </div>
-                <div class="col-lg-10 offset-lg-1 mx-auto">
+                <div class="col-lg-8 offset-lg-2">
                     <div class="card border-0">
                         <div class="card-body p-0">
                             <div class="table-responive">
@@ -43,9 +48,9 @@
                                             <th width="20%">Name</th>
                                             <th width="10%">Phone</th>
                                             <th width="13%">Country</th>
-                                            <th width="25%">Email</th>
+                                            <th width="20%">Email</th>
                                             <th width="8%">Status</th>
-                                            <th width="15%">Actions</th>
+                                            <th width="20%">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -66,14 +71,15 @@
                                                             @if ($clientDatabase->status == 'active')
                                                                 <span class="badge bg-success">Approved</span>
                                                             @else
-                                                                <span class="badge bg-danger">Pending</span>
+                                                                <span class="badge bg-warning">Pending</span>
                                                             @endif
                                                         </div>
 
                                                     </td>
                                                     <td>
 
-                                                        <div class="text-center d-flex justify-content-center align-items-center">
+                                                        <div
+                                                            class="text-center d-flex justify-content-center align-items-center">
                                                             <div class="form-switch pe-2">
                                                                 <input name="toggle" type="checkbox"
                                                                     class="form-check-input form-check-input-sm form-check-input-danger"
@@ -83,7 +89,8 @@
                                                             <div>
                                                                 <a href="{{ route('client-database.edit', [$clientDatabase->id]) }}"
                                                                     class="text-info">
-                                                                    <i class="fa-solid fa-pencil dash-icons"></i>
+                                                                    <i
+                                                                        class="fa-solid fa-pencil dash-icons text-primary"></i>
                                                                 </a>
                                                                 <a href="{{ route('client-database.destroy', [$clientDatabase->id]) }}"
                                                                     class="text-danger delete">

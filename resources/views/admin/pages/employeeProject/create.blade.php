@@ -38,7 +38,7 @@
                             <div class="card-header rounded-0 d-flex justify-content-between align-items-center p-0"
                                 style="background: #247297;
                             color: white;">
-                                <h4 class="text-start mb-0 ps-3">Employe Prject Add</h4>
+                                <h4 class="text-start mb-0 ps-3">Employe Project Add</h4>
                                 <div>
                                     <a href="{{ route('employee-project.index') }}"
                                         class="btn btn-icon btn-primary w-auto px-3 rounded-0">
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form method="post" action="{{ route('store.subcategory') }}"
+                                <form method="post" action="{{ route('employee-project.store') }}"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
@@ -61,7 +61,7 @@
                                             </label>
                                             <select class="form-select form-select-sm select" name="type"
                                                 data-placeholder="Select Category..." required>
-                                                <option value="">News</option>
+                                                <option value="">New</option>
                                                 <option value="">Update</option>
                                                 <option value="">New Version</option>
                                             </select>
