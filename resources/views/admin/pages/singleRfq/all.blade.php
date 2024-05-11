@@ -49,7 +49,7 @@
                         <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
                     </a>
                 </div>
-                <div>
+                <div class="d-lg-block d-sm-none">
                     <a href="{{ route('rfq.list') }}" class="btn navigation_btn">
                         <div class="d-flex align-items-center">
                             <i class="fa-solid fa-business-time me-1" style="font-size: 12px;"></i>
@@ -1027,6 +1027,22 @@
                                                         Source
                                                     </button>
                                                 </li>
+                                                <div class="ps-5">
+                                                    <div class="accordion" id="accordionExample">
+                                                        <div class="accordion-item">
+                                                          <h2 class="accordion-header" id="headingOne">
+                                                            <button class="accordion-button p-2 m-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                <i class="fa-solid fa-gear pe-2"></i>
+                                                            </button>
+                                                          </h2>
+                                                          <div id="collapseOne" class="accordion-collapse collapse w-50" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body">
+                                                              <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                </div>
                                             </ul>
 
                                             <!-- Tab panes -->
@@ -1261,7 +1277,10 @@
                                                                                                 style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                                                                                 <td
                                                                                                     style="width: 85%;text-align: end;padding: 10px;color: #3d3d3d;">
-                                                                                                    Special Discount - 10 %
+                                                                                                    <input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-end"
+                                                                                                        value="Special Discount - 10 %"
+                                                                                                        style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                                                                                 </td>
                                                                                                 <td
                                                                                                     style="width: 15%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;">
@@ -1492,13 +1511,10 @@
                                                             </tr>
                                                         </table>
                                                         <div class="d-flex justify-content-center align-items-center py-3">
-                                                            <button type="submit" class="btn navigation_btn"><i
-                                                                    class="fa-solid fa-person-circle-check pe-2"></i>
-                                                                Submit for
-                                                                approval</button>
-                                                            <button type="submit" class="btn navigation_btn"><i
-                                                                    class="fa-regular fa-circle-check pe-2"></i>Send
-                                                                Quotation</button>
+                                                            <button type="submit" class="btn navigation_btn"><i class="fa-solid fa-person-circle-check pe-2"></i> Submit for Approval</button>
+                                                            <button type="submit" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Send Quotation</button>
+                                                            <button type="submit" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Resend</button>
+                                                            <button type="submit" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Share On What's App</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -1506,102 +1522,355 @@
                                                     aria-labelledby="profile-tab">
                                                     <div>
                                                         <div class="table-responsive">
-                                                            <table class="table table-borderd"
+                                                            <table id="myTable" class="table table-borderd"
                                                                 style="font-size: 10px !important">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th >
-                                                                            <button onclick="addTableRow()">+</button>
+                                                                        <th class="text-white"
+                                                                            style="background-color: #5B0F00">
+                                                                            <button
+                                                                                class="border-0 p-0 bg-transparent text-white"
+                                                                                onclick="addTableRow()"><i
+                                                                                    class="fa-solid fa-plus"></i></button>
                                                                         </th>
-                                                                        <th >Sl #</th>
-                                                                        <th >Item</th>
-                                                                        <th >Qty</th>
-                                                                        <th >Pr. Cost</th>
-                                                                        <th >Year</th>
-                                                                        <th  class="text-center">Pr. Disc. </th>
-                                                                        <th >Total</th>
-                                                                        <th >Office</th>
-                                                                        <th >Profit</th>
-                                                                        <th >Others</th>
-                                                                        <th >Subtotal</th>
-                                                                        <th >Tax/Vat/GST</th>
-                                                                        <th >EU Price</th>
-                                                                        <th >Partner Price</th>
+                                                                        <th class="text-white text-center"
+                                                                            style="background-color: #5B0F00">Sl </th>
+                                                                        <th class="text-white text-center"
+                                                                            style="background-color: #5B0F00">Item</th>
+                                                                        <th class="text-white text-center"
+                                                                            style="background-color: #5B0F00">Qty</th>
+                                                                        <th class="text-white text-center"
+                                                                            style="background-color: #800000">Pr. Cost</th>
+                                                                        <th class="text-white text-center"
+                                                                            style="background-color: #800000">Year</th>
+                                                                        <th class="text-white text-center"
+                                                                            style="background-color: #800000">Total</th>
+                                                                        <th class="text-white text-center"
+                                                                            style="background-color: #800000"
+                                                                            class="text-center">Pr. Disc.</th>
+                                                                        <th class="text-white text-center"
+                                                                            style="background-color: #800000">Total</th>
+                                                                        <th class="text-white text-center"
+                                                                            style="background-color: #800000">Office</th>
+                                                                        <th class="text-white text-center"
+                                                                            style="background-color: #800000">Profit</th>
+                                                                        <th class="text-white text-center"
+                                                                            style="background-color: #800000">Others</th>
+                                                                        <th rowspan="2" class="text-center"
+                                                                            style="background-color: #EA9999">Subtotal</th>
+                                                                        <th class="text-white text-center"
+                                                                            style="background-color: #800000">Tax/Vat/GST
+                                                                        </th>
+                                                                        <th rowspan="2" class="text-white"
+                                                                            style="background-color: #CC0000">EU Price</th>
+                                                                        <th colspan="2" class="text-white text-center"
+                                                                            style="background-color: #800000">Partner Price
+                                                                        </th>
                                                                     </tr>
                                                                     <tr style="background-color: #EAF1DD">
                                                                         <th class="text-end pe-3" colspan="5"></th>
                                                                         <th class="text-center pe-3">0%</th>
-                                                                        <th class="">10%</th>
-                                                                        <th class="">10%</th>
-                                                                        <th class="">10%</th>
-                                                                        <th class="">10%</th>
-                                                                        <th class="">10%</th>
-                                                                        <th class="">10%</th>
-                                                                        <th class="">10%</th>
-                                                                        <th class="">10%</th>
+                                                                        <th class="text-center">10%</th>
+                                                                        <th class="text-center">10%</th>
+                                                                        <th class="text-center">10%</th>
+                                                                        <th class="text-center">10%</th>
+                                                                        <th class="text-center">10%</th>
+                                                                        <th class="text-center">10%</th>
+                                                                        <th class="textc-center">11%</th>
+                                                                        <th class="text-center">Dis%</th>
+                                                                        <th class="text-center">Total</th>
                                                                     </tr>
                                                                 </thead>
-                                                                <tbody>
+                                                                <tbody class="table_bottom_area"
+                                                                    style="background-color: #D9D9D9">
                                                                     <tr class="">
                                                                         <td>
-                                                                            <button onclick="deleteTableRow(this)">-</button>
+                                                                            <button
+                                                                                class="border-0 p-0 text-danger bg-transparent"
+                                                                                onclick="deleteRow(this)"
+                                                                                title="Add List Items"><i
+                                                                                    class="fa-regular fa-trash-can"></i></button>
                                                                         </td>
-                                                                        <td>1</td>
-                                                                        <td>OPC UA Tunneller (UA+DA+HDA+A&E)</td>
-                                                                        <td>1</td>
-                                                                        <td>$4,230.00</td>
-                                                                        <td>1</td>
-                                                                        <td>TK 230.00</td>
-                                                                        <td>Tk.537,210.00</td>
-                                                                        <td>Tk.537,210.00</td>
-                                                                        <td>Tk.537,210.00</td>
-                                                                        <td>Tk.537,210.00</td>
-                                                                        <td>Tk.637,210.00</td>
-                                                                        <td>Tk.767,210.00</td>
-                                                                        <td>Tk.775,210.00</td>
-                                                                        <td>Tk.537,210.00</td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="OPC UA Tunneller (UA+DA+HDA+A&E)"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="$4230"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Tk.537,210"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Tk.537,210"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Tk.537,210"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Tk.537,210"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Tk.537,210"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Tk.537,210"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Tk.537,210"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Tk.537,210"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Tk.537,210"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Tk.537,210"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Tk.537,210"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Tk.537,210"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td class="text-center"><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Tk.537,210"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td class="text-center"><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Tk.537,210"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                                <tbody class="table_bottom_area"
+                                                                    style="background-color: #CCCCCC">
+                                                                    <tr class="">
+                                                                        <td>
+                                                                            <button
+                                                                                class="border-0 p-0 bg-transparent text-white"
+                                                                                title="Add List Amount"
+                                                                                onclick="AddTableRowTwoBottom()"><i
+                                                                                    class="fa-regular fa-plus"></i></button>
+                                                                        </td>
+                                                                        <td>-</td>
+                                                                        <td>
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
+                                                                        <td colspan="2" class="text-center">
+                                                                            <input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                        </td>
                                                                     </tr>
                                                                 </tbody>
                                                                 <tfoot>
                                                                     <tr>
-                                                                        <th class="text-center pe-3" colspan="3"
+                                                                        <th class="text-center pe-3" colspan="6"
                                                                             style="background-color: #A6A6A6; color: #fff">
                                                                             Total:</th>
-                                                                        <th class="text-end pe-3" colspan="3"></th>
                                                                         <th class="text-end pe-3"
                                                                             style="background-color: #A6A6A6; color: #fff">
-                                                                            Tk. 1,510,340.00</th>
+                                                                            Tk. 1,510,340</th>
                                                                         <th class="text-end pe-3"
                                                                             style="background-color: #BFBFBF; color: #fff">
-                                                                            Tk. 1,510,340.00</th>
+                                                                            Tk. 1,510,340</th>
+                                                                        <th class="text-end pe-3"
+                                                                            style="background-color: #BFBFBF; color: #983c3c">
+                                                                            Tk. 1,510,340</th>
                                                                         <th class="text-end pe-3"
                                                                             style="background-color: #BFBFBF; color: #fff">
-                                                                            Tk. 1,510,340.00</th>
+                                                                            Tk. 1,510,340</th>
                                                                         <th class="text-end pe-3"
                                                                             style="background-color: #BFBFBF; color: #fff">
-                                                                            Tk. 1,510,340.00</th>
+                                                                            Tk. 1,510,340</th>
                                                                         <th class="text-end pe-3"
                                                                             style="background-color: #BFBFBF; color: #fff">
-                                                                            Tk. 1,510,340.00</th>
-                                                                        <th class="text-end pe-3"
-                                                                            style="background-color: #BFBFBF; color: #fff">
-                                                                            Tk. 1,510,340.00</th>
+                                                                            Tk. 1,510,340</th>
                                                                         <th class="text-end pe-3"
                                                                             style="background-color: #666666; color: #fff">
-                                                                            Tk. 1,510,340.00</th>
+                                                                            Tk. 1,510,340</th>
                                                                         <th class="text-end pe-3"
                                                                             style="background-color: #434343; color: #fff">
-                                                                            Tk. 1,510,340.00</th>
+                                                                            Tk. 1,510,340</th>
+                                                                        <th class="text-end pe-3 text-center"
+                                                                            style="background-color: #434343; color: #fff">
+                                                                            Tk. 1,510,340</th>
+                                                                        <th class="text-end pe-3 text-center"
+                                                                            colspan="2"
+                                                                            style="background-color: #434343; color: #fff">
+                                                                            Tk. 1,510,340</th>
                                                                     </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="messages" role="tabpanel"
+                                                    aria-labelledby="messages-tab">
+                                                    <div>
+                                                        <div class="table-responsive">
+                                                            <table class="table table-borderd" style="font-size: 12px !important">
+                                                                <thead class="text-white" style="background-color: #800000 !important;">
+                                                                    <tr>
+                                                                        <th>Sl #</th>
+                                                                        <th>Item</th>
+                                                                        <th>Source 1</th>
+                                                                        <th>Price In BDT</th>
+                                                                        <th>Source 2</th>
+                                                                        <th>Price In BDT</th>
+                                                                        <th>Source 3</th>
+                                                                        <th>Price In BDT</th>
+                                                                        <th>Source 4</th>
+                                                                        <th>Price In BDT</th>
+                                                                        <th>Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="table-group-divider">
+                                                                    <tr class="">
+                                                                        <td>1</td>
+                                                                        <td>"Dell Latitude Rugged 5430 Laptop: 11th Gen.</td>
+                                                                        <td>Hp Store</td>
+                                                                        <td>12,305 TK</td>
+                                                                        <td>Hp Store</td>
+                                                                        <td>12,305 TK</td>
+                                                                        <td>Hp Store</td>
+                                                                        <td>12,305 TK</td>
+                                                                        <td>Hp Store</td>
+                                                                        <td>12,305 TK</td>
+                                                                        <td>12,305 TK</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                                <tfoot class="table-group-divider" style="background-color: #BFBFBF !important;">
+                                                                    <tr class="">
+                                                                        <td>1</td>
+                                                                        <td>"Dell Latitude Rugged 5430 Laptop: 11th Gen.</td>
+                                                                        <td>Hp Store</td>
+                                                                        <td>12,305 TK</td>
+                                                                        <td>Hp Store</td>
+                                                                        <td>12,305 TK</td>
+                                                                        <td>Hp Store</td>
+                                                                        <td>12,305 TK</td>
+                                                                        <td>Hp Store</td>
+                                                                        <td>12,305 TK</td>
+                                                                        <td>12,305 TK</td>
+                                                                    </tr>
+                                                                </tfoot>
+                                                                <tfoot>
+
                                                                 </tfoot>
                                                             </table>
                                                         </div>
 
                                                     </div>
-                                                </div>
-                                                <div class="tab-pane" id="messages" role="tabpanel"
-                                                    aria-labelledby="messages-tab">
-                                                    messages
                                                 </div>
                                             </div>
 
@@ -1803,6 +2072,170 @@
 @endsection
 @once
     @push('scripts')
+        <script>
+            function AddTableRowTwoBottom() {
+                var tableBodies = document.getElementsByClassName("table_bottom_area");
+                var tableBody = tableBodies[tableBodies.length - 1]; // Select the last tbody
+                var newRow = tableBody.insertRow(tableBody.rows.length);
+                newRow.innerHTML =
+                    `
+            <tr class="">
+                <td>
+                    <button class="border-0 p-0 bg-transparent text-danger rounded-0" onclick="deleteTableRowTwo(this)" title="Delete List Amount"><i class="fa-regular fa-trash-can"></i></button>
+                </td>
+                <td><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="-"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="Packing Charge"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="0"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="$0"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="$0"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="170 TK"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="Tk.30,480"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="Tk.30,480"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="Tk.30,480"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="Tk.30,480"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="Tk.30,480"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="Tk.30,480"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="Tk.30,480"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="Tk.30,480"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td class="text-center"><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="Tk.30,480"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td colspan="2" class="text-center"><input type="text"
+                                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                                        value="Tk.30,480"
+                                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+            </tr>
+        `;
+            }
+
+            function deleteTableRowTwo(btn) {
+                var row = btn.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
+        </script>
+        <script>
+            function addTableRow() {
+                var table = document.getElementsByClassName("table-borderd")[0].getElementsByTagName('tbody')[0];
+                var newRow = table.insertRow(table.rows.length);
+                newRow.innerHTML =
+                    `
+        <td>
+            <button class="border-0 p-0 bg-transparent text-danger rounded-0" onclick="deleteTableRow(this)" title="Delete List Items"><i class="fa-regular fa-trash-can"></i></button>
+        </td>
+        <td>${table.rows.length}</td>
+        <td>
+            <input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        <td><input type="text"
+                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                value="Remitance"
+                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+        `;
+            }
+
+            function deleteTableRow(btn) {
+                var row = btn.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
+        </script>
+
         <script>
             function addRow() {
                 var table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
