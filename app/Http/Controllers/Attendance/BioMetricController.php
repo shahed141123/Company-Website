@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Event;
 use App\Models\User;
 use DateTime;
+use DateTimeZone;
 use DatePeriod;
 use DateInterval;
 use Carbon\Carbon;
@@ -526,9 +527,6 @@ class BioMetricController extends Controller
         $zk->connect();
         $zk->enableDevice();
 
-        // $startDate = new DateTime('first day of this month');
-        // $endDate = new DateTime('today +1 day');
-
         $attendances_all = $zk->getAttendance(2);
         $users = $zk->getUser();
         $user = null;
@@ -541,18 +539,23 @@ class BioMetricController extends Controller
         }
 
         // Initialize an array to store the user's attendance data
-        $attendanceThisMonth = [];
+        $attendanceLastMonth = [];
 
         if ($user) {
             $user_name = $user['name'];
 
+            // Calculate the start date as the first day of April
+            $firstDayLastMonth = date('Y-m-01', strtotime('last month'));
+            $lastDayLastMonth = date('Y-m-t', strtotime('last month'));
+            // $startDate = new DateTime('first day of April');
 
-            $startDate = new DateTime('first day of last month');
-            $endDate = new DateTime('last day of last month');
+            // // Calculate the end date as the last moment of April 30th
+            // $endDate = new DateTime('last day of April');
+            $startDate = new DateTime($firstDayLastMonth);
+            $endDate = new DateTime($lastDayLastMonth);
+            $endDate->setTime(23, 59, 59);
 
-            $attendanceThisMonth = [];
-
-            // Iterate from the first day of the month to today
+            // Iterate from the first day of April to the last day of April
             foreach (new DatePeriod($startDate, new DateInterval('P1D'), $endDate) as $date) {
                 $currentDate = $date->format('Y-m-d');
 
@@ -579,7 +582,7 @@ class BioMetricController extends Controller
                 $formattedCheckOut = $latestCheckOut === 'N/A' ? 'N/A' : (new DateTime($latestCheckOut))->format('H:i:s');
 
                 // Add attendance data for the current date to the array
-                $attendanceThisMonth[] = [
+                $attendanceLastMonth[] = [
                     'user_id' => $id,
                     'user_name' => $user_name,
                     'date' => $currentDate,
@@ -590,8 +593,9 @@ class BioMetricController extends Controller
             }
         }
 
-        return view('admin.pages.attendance.attendance-single', ['attendanceData' => $attendanceThisMonth, 'user_name' => $user_name]);
+        return view('admin.pages.attendance.attendance-single', ['attendanceData' => $attendanceLastMonth, 'user_name' => $user_name]);
     }
+
     // public function attendanceDataCurrentMonth($id)
     // {
     //     // Connect to the ZKtecho device
