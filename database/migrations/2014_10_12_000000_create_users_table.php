@@ -30,6 +30,8 @@ return new class extends Migration
             $table->string('department')->nullable(); //['admin','business','accounts','site','logistics','marketing','support']
             // $table->enum('department',  ['admin','business','accounts','site','logistics','marketing'])->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->string('job_location')->nullable();
+
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

@@ -2,8 +2,9 @@
 
 namespace App\Models\Admin;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class EmployeeCategory extends Model
 {
@@ -14,4 +15,9 @@ class EmployeeCategory extends Model
      * @var array
      */
     protected $guarded = [];
+
+    public function employee()
+    {
+        return $this->hasMany(User::class, 'category_id');
+    }
 }

@@ -153,7 +153,14 @@ class RFQController extends Controller
             $rfq_code = $data['rfq_code'];
 
             $users = User::whereJsonContains('department', ['business', 'logistics'])->get();
-            $user_emails = User::whereJsonContains('department', ['business', 'logistics'])->pluck('email')->toArray();
+            $user_emails = User::whereJsonContains('department', ['business'])
+                    ->where(function ($query) {
+                        $query->where('role', 'manager')
+                              ->orWhere('role', 'admin');
+                    })
+                    ->pluck('email')
+                    ->toArray();
+
 
             Notification::send($users, new RfqCreate($name, $rfq_code));
 
@@ -173,7 +180,16 @@ class RFQController extends Controller
 
             Mail::to($request->input('email'))->send(new RFQNotificationMail($data));
             if (!empty($user_emails)) {
-                Mail::to($user_emails)->send(new RFQNotificationMail($data));
+                foreach ($user_emails as $email) {
+                    Mail::to($email)->send(new RFQNotificationMail($data));
+                }
+
+                // Extract the emails except the ones already sent to and use them as BCC
+                $bcc_emails = array_diff($user_emails, [$email]);
+
+                if (!empty($bcc_emails)) {
+                    Mail::bcc($bcc_emails)->send(new RFQNotificationMail($data));
+                }
             }
 
             Toastr::success('Your RFQ has been submitted successfully.');

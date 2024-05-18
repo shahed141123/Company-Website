@@ -548,8 +548,11 @@ label {
 .form-control:focus {
     border-radius: 0;
     border: 0;
-    background-color: #f1f1f4;
-    font-size: 12px;
+    background-color: #e7e7e78c;
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 8px 0px;
 }
 
 .bootstrap-tagsinput {

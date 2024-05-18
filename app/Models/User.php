@@ -90,4 +90,9 @@ class User extends Authenticatable
     {
         return User::where('id', $this->supervisor_id)->value('name');
     }
+
+    public function employeeStatus() {
+        return $this->belongsTo(EmployeeCategory::class, 'category_id');
+    }
+
 }

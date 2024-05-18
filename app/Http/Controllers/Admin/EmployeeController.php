@@ -27,9 +27,11 @@ class EmployeeController extends Controller
     public function index()
     {
         // $data['id'] = Auth::user()->id;
-        $data['countries'] = Country::orderBy('country_name', 'ASC')->get();
-        $data['employees'] = User::all();
-        $data['employeeCategories'] = EmployeeCategory::get(['id', 'name']);
+        $data = [
+            'countries' => Country::orderBy('country_name', 'ASC')->get(),
+            'employees' => User::with('employeeStatus')->get(),
+            'employeeCategories' => EmployeeCategory::with('employee')->get(['id', 'name']),
+        ];
         return view('admin.pages.employee.all', $data);
     }
 

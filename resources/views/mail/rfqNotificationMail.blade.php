@@ -154,14 +154,14 @@
                                             style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:17px;text-align:left">
                                             &nbsp; {{ $data['product_name'] }}</td>
                                     </tr>
-                                    @if (!empty($data['sku_code']))
+                                    @if (!empty($data['qty']))
                                         <tr>
                                             <th
                                                 style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;border-top:1px solid #f1f1f1;font-size:17px;text-align:left">
-                                                Product Sku</th>
+                                                Quantity</th>
                                             <td
                                                 style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:17px;text-align:left">
-                                                &nbsp; {{ $data['sku_code'] }}</td>
+                                                &nbsp; {{ $data['qty'] }}</td>
                                         </tr>
                                     @endif
 

@@ -52,7 +52,7 @@
         <!-- Sales Chain Page -->
         <div class="content p-1 my-3">
             <div class="row nav-tabs border-0" id="myTab" role="tablist">
-                <div class="col-lg-8 offset-lg-2 mx-auto">
+                <div class="col-lg-10 offset-lg-1 mx-auto">
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="card rounded-1 border-0 active" id="home-tab" data-bs-toggle="tab"
@@ -63,54 +63,30 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <p class="m-0 p-0 text-white">Total Employee</p>
                                         <i class="fa-solid fa-user-tie badge-icons"></i>
-                                        <h5 class="p-0 m-0 text-white">8</h5>
+                                        <h5 class="p-0 m-0 text-white">{{ $employees->count() }}</h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <div class="card rounded-1 border-0"
-                                style="background: url(https://i.ibb.co/jG5kKSf/Asset-5-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                                <div class="card-body" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                                    type="button" role="tab" aria-controls="profile" aria-selected="false">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p class="m-0 p-0 text-white">Probation</p>
-                                        <i class="fa-solid fa-clipboard-check badge-icons"></i>
-                                        <h5 class="p-0 m-0 text-white">8</h5>
+                        @foreach ($employeeCategories as $employeeCategory)
+                            <div class="col-lg-3">
+                                <div class="card rounded-1 border-0"
+                                    style="background: url(https://i.ibb.co/jG5kKSf/Asset-5-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                                    <div class="card-body" id="profile-tab" data-bs-toggle="tab"
+                                        data-bs-target="#profile-{{ $employeeCategory->id }}" type="button" role="tab"
+                                        aria-controls="profile" aria-selected="false">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p class="m-0 p-0 text-white">{{ $employeeCategory->name }}</p>
+                                            <i class="fa-solid fa-clipboard-check badge-icons"></i>
+                                            <h5 class="p-0 m-0 text-white">{{ $employeeCategory->employee->count() }}</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="card rounded-1 border-0"
-                                style="background: url(https://i.ibb.co/BtLj7TV/Asset-6-5x-8.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                                <div class="card-body" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages"
-                                    type="button" role="tab" aria-controls="messages" aria-selected="false">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p class="m-0 p-0 text-white">Intern</p>
-                                        <i class="fa-solid fa-user-slash badge-icons"></i>
-                                        <h5 class="p-0 m-0 text-white">8</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="card rounded-1 border-0 active" id="home-tab" data-bs-toggle="tab"
-                                data-bs-target="#home" type="button" role="tab" aria-controls="home"
-                                aria-selected="true"
-                                style="background: url(https://i.ibb.co/9vY37V3/Asset-4-5x-8.png);background-size: cover; background-position: center; background-repeat: no-repeat;">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p class="m-0 p-0 text-white">Parmanent</p>
-                                        <i class="fa-solid fa-user-tie badge-icons"></i>
-                                        <h5 class="p-0 m-0 text-white">8</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-                <div class="col-lg-8 offset-lg-2 mx-auto">
+                <div class="col-lg-10 offset-lg-1 mx-auto">
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -127,7 +103,7 @@
                                                         <th width="5%">SL</th>
                                                         <th width="10%">Image</th>
                                                         <th width="20%">Name</th>
-                                                        <th width="15%">Status</th>
+                                                        <th width="15%">Job Status</th>
                                                         <th width="20%">Email</th>
                                                         <th width="15%">Designation</th>
                                                         {{-- <th width="23%">Department</th> --}}
@@ -148,7 +124,13 @@
                                                                 </td>
                                                                 <!-- Employee Name -->
                                                                 <td>{{ $employee->name }}</td>
-                                                                <td>Status</td>
+                                                                <td>
+                                                                    @if ($employee->employeeStatus)
+                                                                        {{ $employee->employeeStatus->name }}
+                                                                    @else
+                                                                        No Job Status Assigned
+                                                                    @endif
+                                                                </td>
                                                                 <!-- Employee Email -->
                                                                 <td>{{ $employee->email }}</td>
                                                                 <!-- Employee Designation -->
@@ -176,151 +158,78 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane " id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="col-lg-12">
-                                <h6 class="m-0 p-1 text-center"
-                                    style="color: #fff; border-bottom: 1px solid #69d89e;
-                                background: #69d89e;">
-                                    Total Probation </h6>
-                                <div class="card ronded-0">
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table employeeDT table-bordered table-hover text-center">
-                                                <thead>
-                                                    <tr>
-                                                        <th width="5%">SL</th>
-                                                        <th width="7%">Image</th>
-                                                        <th width="20%">Name</th>
-                                                        <th width="15%">Status</th>
-                                                        <th width="10%">Designation</th>
-                                                        <th width="23%">Department</th>
-                                                        <th width="10%" class="text-center">Actions</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @if ($employees)
-                                                        @foreach ($employees as $key => $employee)
-                                                            <tr>
-                                                                <!-- Serial Number -->
-                                                                <td>{{ ++$key }}</td>
-                                                                <!-- Employee Image -->
-                                                                <td>
-                                                                    <img src="{{ !file_exists($employee->photo) ? url('upload/no_image.jpg') : url('upload/admin/' . $employee->photo) }}"
-                                                                        alt="" width="40px" height="40px"
-                                                                        style="border-radius: 50%">
-                                                                </td>
-                                                                <!-- Employee Name -->
-                                                                <td>{{ $employee->name }}</td>
-                                                                <td>Probation</td>
-                                                                <!-- Employee Designation -->
-                                                                <td>{{ $employee->designation }}</td>
-                                                                <!-- Employee Department -->
-                                                                <td>
-                                                                    @if (is_array(json_decode($employee->department)))
-                                                                        @foreach (json_decode($employee->department) as $department)
-                                                                            <span
-                                                                                class="text-primary">{{ ucfirst($department) }},</span>
-                                                                        @endforeach
-                                                                    @else
-                                                                        <span
-                                                                            class="text-primary">{{ ucfirst($employee->department) }},</span>
-                                                                    @endif
-                                                                </td>
-                                                                <!-- Employee Actions -->
-                                                                <td class="text-center">
-                                                                    <a href="javascript:void(0);" class="text-primary"
-                                                                        data-bs-target="#editEmployee{{ $employee->id }}"
-                                                                        data-bs-toggle="modal" type="button">
-                                                                        <i
-                                                                            class="fa-solid fa-pen-to-square dash-icons"></i>
-                                                                    </a>
-                                                                    <a href="{{ route('employee.destroy', [$employee->id]) }}"
-                                                                        class="text-danger delete mx-2">
-                                                                        <i class="delete fa-solid fa-trash dash-icons"></i>
-                                                                    </a>
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
-                                                    @endif
-                                                </tbody>
-                                            </table>
+                        @foreach ($employeeCategories as $employeeCategory)
+                            <div class="tab-pane" id="profile-{{ $employeeCategory->id }}" role="tabpanel"
+                                aria-labelledby="home-tab">
+                                <div class="col-lg-12">
+                                    <h6 class="m-0 p-1 text-center"
+                                        style="color: #fff; border-bottom: 1px solid #9042fc;background: #9042fc;">{{$employeeCategory->name }} Employee</h6>
+                                    <div class="card ronded-0">
+                                        <div class="card-body p-0">
+                                            <div class="table-responsive">
+                                                <table class="table employeeDT table-bordered table-hover text-center">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="5%">SL</th>
+                                                            <th width="10%">Image</th>
+                                                            <th width="20%">Name</th>
+                                                            <th width="15%">Job Status</th>
+                                                            <th width="20%">Email</th>
+                                                            <th width="15%">Designation</th>
+                                                            {{-- <th width="23%">Department</th> --}}
+                                                            <th width="15%" class="text-center">Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if (!empty($employeeCategory->employee))
+                                                            @foreach ($employeeCategory->employee as $key => $employee)
+                                                                <tr>
+                                                                    <!-- Serial Number -->
+                                                                    <td>{{ ++$key }}</td>
+                                                                    <!-- Employee Image -->
+                                                                    <td>
+                                                                        <img src="{{ !file_exists($employee->photo) ? url('upload/no_image.jpg') : url('upload/admin/' . $employee->photo) }}"
+                                                                            alt="" width="40px" height="40px"
+                                                                            style="border-radius: 50%">
+                                                                    </td>
+                                                                    <!-- Employee Name -->
+                                                                    <td>{{ $employee->name }}</td>
+                                                                    <td>
+                                                                        @if ($employee->employeeStatus)
+                                                                            {{ $employee->employeeStatus->name }}
+                                                                        @else
+                                                                            No Job Status Assigned
+                                                                        @endif
+                                                                    </td>
+                                                                    <!-- Employee Email -->
+                                                                    <td>{{ $employee->email }}</td>
+                                                                    <!-- Employee Designation -->
+                                                                    <td>{{ $employee->designation }}</td>
+                                                                    <!-- Employee Actions -->
+                                                                    <td class="text-center">
+                                                                        <a href="javascript:void(0);" class="text-primary"
+                                                                            data-bs-target="#editEmployee{{ $employee->id }}"
+                                                                            data-bs-toggle="modal" type="button">
+                                                                            <i
+                                                                                class="fa-solid fa-pen-to-square dash-icons"></i>
+                                                                        </a>
+                                                                        <a href="{{ route('employee.destroy', [$employee->id]) }}"
+                                                                            class="text-danger delete mx-2">
+                                                                            <i
+                                                                                class="delete fa-solid fa-trash dash-icons"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                        @endif
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-                            <div class="col-lg-12">
-                                <h6 class="m-0 p-1 text-center"
-                                    style="color: #fff; border-bottom: 1px solid #f49f9a;
-                                background: #f49f9a;">
-                                    Total Intern</h6>
-                                <div class="card ronded-0">
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table employeeDT2 table-bordered table-hover text-center">
-                                                <thead>
-                                                    <tr>
-                                                        <th width="5%">SL</th>
-                                                        <th width="7%">Image</th>
-                                                        <th width="20%">Name</th>
-                                                        <th width="15%">Status</th>
-                                                        <th width="10%">Designation</th>
-                                                        <th width="23%">Department</th>
-                                                        <th width="10%" class="text-center">Actions</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @if ($employees)
-                                                        @foreach ($employees as $key => $employee)
-                                                            <tr>
-                                                                <!-- Serial Number -->
-                                                                <td>{{ ++$key }}</td>
-                                                                <!-- Employee Image -->
-                                                                <td>
-                                                                    <img src="{{ !file_exists($employee->photo) ? url('upload/no_image.jpg') : url('upload/admin/' . $employee->photo) }}"
-                                                                        alt="" width="40px" height="40px"
-                                                                        style="border-radius: 50%">
-                                                                </td>
-                                                                <!-- Employee Name -->
-                                                                <td>{{ $employee->name }}</td>
-                                                                <td>Intern</td>
-                                                                <!-- Employee Designation -->
-                                                                <td>{{ $employee->designation }}</td>
-                                                                <!-- Employee Department -->
-                                                                <td>
-                                                                    @if (is_array(json_decode($employee->department)))
-                                                                        @foreach (json_decode($employee->department) as $department)
-                                                                            <span
-                                                                                class="text-primary">{{ ucfirst($department) }},</span>
-                                                                        @endforeach
-                                                                    @else
-                                                                        <span
-                                                                            class="text-primary">{{ ucfirst($employee->department) }},</span>
-                                                                    @endif
-                                                                </td>
-                                                                <!-- Employee Actions -->
-                                                                <td class="text-center">
-                                                                    <a href="javascript:void(0);" class="text-primary"
-                                                                        data-bs-target="#editEmployee{{ $employee->id }}"
-                                                                        data-bs-toggle="modal" type="button">
-                                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                                    </a>
-                                                                    <a href="{{ route('employee.destroy', [$employee->id]) }}"
-                                                                        class="text-danger delete mx-2">
-                                                                        <i class="delete fa-solid fa-trash"></i>
-                                                                    </a>
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
-                                                    @endif
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -385,7 +294,7 @@
                                         <div class="mb-1">
                                             <label class="form-label star" for="basicpill-email-input">Job
                                                 Category</label>
-                                            <select name="employee_category_id" class="form-control form-select-sm select"
+                                            <select name="category_id" class="form-control form-select-sm select"
                                                 data-container-css-class="select-sm" data-allow-clear="true"
                                                 data-minimum-results-for-search="Infinity"
                                                 data-placeholder="Choose Employee Category" required>
@@ -584,12 +493,14 @@
                                         <div class="col-lg-4">
                                             <div class="mb-4">
                                                 <label class="form-label" for="basicpill-email-input">Job Category</label>
-                                                <select name="employee_category_id"
-                                                    class="form-control form-control-sm select" data-control="select2"
-                                                    data-placeholder="Select an option" data-allow-clear="true">
+                                                <select name="category_id" class="form-control form-select-sm select"
+                                                data-container-css-class="select-sm" data-allow-clear="true"
+                                                data-minimum-results-for-search="Infinity"
+                                                data-placeholder="Choose Employee Category">
+                                                    <option></option>
                                                     @foreach ($employeeCategories as $employeeCategory)
                                                         <option value="{{ $employeeCategory->id }}"
-                                                            @selected($employee->employee_category_id == $employeeCategory->id)>
+                                                            @selected($employee->category_id == $employeeCategory->id)>
                                                             {{ $employeeCategory->name }}
                                                         </option>
                                                     @endforeach
