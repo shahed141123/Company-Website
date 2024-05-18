@@ -3,7 +3,7 @@
 @section('content')
     <style>
         .table>:not(caption)>*>* {
-            padding: 11px 7px;
+            padding: 5px;
         }
     </style>
     <div class="card-body p-4">
@@ -557,11 +557,11 @@
             <div class="tab-pane show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div>
                     <div class="table-responsive">
-                        <table id="myTable" class="table table-borderd" style="font-size: 10px !important">
+                        <table id="myTable" class="table table-borderd" style="font-size: 13px !important">
                             <thead>
                                 <tr style="background-color: #a9a9a9;color: black;font-size: 15px;">
                                     <th width="3%" class="text-center">
-                                        <button class="border-0 p-0 bg-transparent text-white" onclick="addTableRow()"><i
+                                        <button class="border-0 p-0 bg-transparent text-white" onclick="addRfqCalculationTableRow()"><i
                                                 class="fa-solid fa-plus"></i></button>
                                     </th>
                                     <th width="3%" class="text-center">Sl </th>
@@ -600,10 +600,10 @@
                                     <th class="text-center">Total</th>
                                 </tr>
                             </thead>
-                            <tbody class="table_bottom_area">
+                            <tbody class="table_bottom_area text-center">
                                 <tr class="">
                                     <td>
-                                        <button class="border-0 p-0 text-danger bg-transparent" onclick="deleteRow(this)"
+                                        <button class="border-0 p-0 text-danger bg-transparent" onclick="deleteRfqCalculationRow(this)"
                                             title="Add List Items"><i class="fa-regular fa-trash-can"></i></button>
                                     </td>
                                     <td>1</td>
@@ -665,11 +665,11 @@
                                     </td>
                                 </tr>
                             </tbody>
-                            <tbody class="table_bottom_area" style="background-color: #e7e7e7">
+                            <tbody class="table_bottom_area text-center" style="background-color: #e7e7e7">
                                 <tr class="">
                                     <td>-</td>
                                     <td>-</td>
-                                    <td class="fs-6 text-black">
+                                    <td class="text-black">
                                         Remittance
                                     </td>
                                     <td><input type="text"
@@ -728,7 +728,7 @@
                                 <tr class="">
                                     <td>-</td>
                                     <td>-</td>
-                                    <td class="fs-6 text-black">
+                                    <td class="text-black">
                                         Packing Charge
                                     </td>
                                     <td><input type="text"
@@ -787,7 +787,7 @@
                                 <tr class="">
                                     <td>-</td>
                                     <td>-</td>
-                                    <td class="fs-6 text-black">
+                                    <td class="text-black">
                                         Customs / CnF
                                     </td>
                                     <td><input type="text"
@@ -846,7 +846,7 @@
                                 <tr class="">
                                     <td>-</td>
                                     <td>-</td>
-                                    <td class="fs-6 text-black">
+                                    <td class="text-black">
                                         Freight / Logistics
                                     </td>
                                     <td><input type="text"
@@ -905,30 +905,30 @@
                             </tbody>
                             <tfoot>
                                 <tr class="text-black" style="font-size: 13px;">
-                                    <th class="text-center pe-3" colspan="6"
+                                    <th class="text-center" colspan="6"
                                         style="font-size: 20px;background-color: #A6A6A6; color: #fff">
                                         Total:</th>
-                                    <th class="text-end pe-3" style="background-color: #A6A6A6; color: #fff">
-                                        Tk. 1,510,340</th>
-                                    <th class="text-end pe-3" style="background-color: #BFBFBF; color: #fff">
-                                        Tk. 1,510,340</th>
-                                    <th class="text-end pe-3" style="background-color: #BFBFBF; color: #983c3c">
-                                        Tk. 1,510,340</th>
-                                    <th class="text-end pe-3" style="background-color: #BFBFBF; color: #fff">
-                                        Tk. 1,510,340</th>
-                                    <th class="text-end pe-3" style="background-color: #BFBFBF; color: #fff">
-                                        Tk. 1,510,340</th>
-                                    <th class="text-end pe-3" style="background-color: #BFBFBF; color: #fff">
-                                        Tk. 1,510,340</th>
-                                    <th class="text-end pe-3" style="background-color: #666666; color: #fff">
-                                        Tk. 1,510,340</th>
-                                    <th class="text-end pe-3" style="background-color: #434343; color: #fff">
-                                        Tk. 1,510,340</th>
-                                    <th class="text-end pe-3 text-center" style="background-color: #434343; color: #fff">
-                                        Tk. 1,510,340</th>
-                                    <th class="text-end pe-3 text-center" colspan="2"
+                                    <th class="text-center" style="background-color: #A6A6A6; color: #fff">
+                                        0</th>
+                                    <th class="text-center" style="background-color: #BFBFBF; color: #fff">
+                                        0</th>
+                                    <th class="text-center" style="background-color: #BFBFBF; color: #983c3c">
+                                        0</th>
+                                    <th class="text-center" style="background-color: #BFBFBF; color: #fff">
+                                        0</th>
+                                    <th class="text-center" style="background-color: #BFBFBF; color: #fff">
+                                        0</th>
+                                    <th class="text-center" style="background-color: #BFBFBF; color: #fff">
+                                        0</th>
+                                    <th class="text-center" style="background-color: #666666; color: #fff">
+                                        0</th>
+                                    <th class="text-center" style="background-color: #434343; color: #fff">
+                                        0</th>
+                                    <th class="text-center text-center" style="background-color: #434343; color: #fff">
+                                        0</th>
+                                    <th class="text-center text-center" colspan="2"
                                         style="background-color: #434343; color: #fff">
-                                        Tk. 1,510,340</th>
+                                        0</th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -1039,6 +1039,60 @@
             }
 
             document.getElementById('setting').addEventListener('click', toggleVisibility);
+        </script>
+
+        <script>
+            function addRfqCalculationTableRow() {
+                const table = document.querySelector('.table_bottom_area');
+                const rowCount = table.rows.length + 1;
+                const row = table.insertRow();
+
+                const cell0 = row.insertCell(0);
+                cell0.innerHTML =
+                    '<button class="border-0 p-0 text-danger bg-transparent" onclick="deleteRow(this)" title="Delete Row"><i class="fa-regular fa-trash-can"></i></button>';
+
+                const cell1 = row.insertCell(1);
+                cell1.innerText = rowCount;
+
+                const cell2 = row.insertCell(2);
+                cell2.innerHTML =
+                    '<input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="OPC UA Tunneller (UA+DA+HDA+A&E)">';
+
+                for (let i = 3; i <= 15; i++) {
+                    const cell = row.insertCell(i);
+                    cell.innerHTML =
+                        '<input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">';
+                }
+            }
+
+            function deleteRfqCalculationRow(button) {
+                const row = button.closest('tr');
+                row.remove();
+
+                const table = document.querySelector('.table_bottom_area');
+                const rows = table.rows;
+                for (let i = 0; i < rows.length; i++) {
+                    rows[i].cells[1].innerText = i + 1;
+                }
+            }
+        </script>
+        <script>
+            function addRow() {
+                var table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
+                var newRow = table.insertRow(table.rows.length);
+                newRow.innerHTML =
+                    `<td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;"><button class="btn btn-danger rounded-0" onclick="deleteRow(this)"><i class="fa-regular fa-trash-can"></i></button></td>
+                                <td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;">${table.rows.length}</td>
+                                <td style="border: 1px solid #eee; padding: 8px; width: 40%"><input type="text" class="form-control form-control-sm bg-transparent" value="" style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                                <td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;"><input type="text" class="form-control form-control-sm bg-transparent text-center" value="" style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                                <td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;"><input type="text" class="form-control form-control-sm bg-transparent text-center" value="" style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                                <td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;"><input type="text" class="form-control form-control-sm bg-transparent text-end" value="" style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>`;
+            }
+
+            function deleteRow(btn) {
+                var row = btn.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
         </script>
     @endpush
 @endonce

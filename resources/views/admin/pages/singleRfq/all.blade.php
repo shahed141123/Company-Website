@@ -1360,73 +1360,73 @@
                 var newRow = table.insertRow(table.rows.length);
                 newRow.innerHTML =
                     `
-        <td>
-            <button class="border-0 p-0 bg-transparent text-danger rounded-0" onclick="deleteTableRow(this)" title="Delete List Items"><i class="fa-regular fa-trash-can"></i></button>
-        </td>
-        <td>${table.rows.length}</td>
-        <td>
-            <input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        <td><input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        <td><input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        <td><input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        <td><input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        <td><input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        <td><input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        <td><input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        <td><input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        <td><input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        <td><input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        <td><input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        <td><input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        <td><input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        <td><input type="text"
-                                                                                class="form-control form-control-sm bg-transparent text-start"
-                                                                                value="Remitance"
-                                                                                style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-        `;
-            }
+                <td>
+                    <button class="border-0 p-0 bg-transparent text-danger rounded-0" onclick="deleteTableRow(this)" title="Delete List Items"><i class="fa-regular fa-trash-can"></i></button>
+                </td>
+                <td>${table.rows.length}</td>
+                <td>
+                    <input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                <td><input type="text"
+                                                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                                                        value="Remitance"
+                                                                                        style="font-size: 10px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
+                `;
+                    }
 
             function deleteTableRow(btn) {
                 var row = btn.parentNode.parentNode;
