@@ -30,30 +30,90 @@
                     Source
                 </button>
             </li>
-            <div class="ps-5">
-                <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button p-2 m-0" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <i class="fa-solid fa-gear pe-2"></i>
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse w-50" aria-labelledby="headingOne"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the first item's accordion body.</strong> It is shown by default, until the
-                                collapse plugin adds the appropriate classes that we use to style each element. These
-                                classes control the overall appearance, as well as the showing and hiding via CSS
-                                transitions. You can modify any of this with custom CSS or overriding our default variables.
-                                It's also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+            <li class="nav-item mb-0" role="presentation">
+                <button class="nav-link" id="setting">
+                    <i class="fa-solid fa-gear" style="font-size: 23.6px;"></i>
+                </button>
+            </li>
+        </ul>
+        <div id="mysetting">
+            <div class="fade-setting show" id="setting-show">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <div class="table-responsive">
+                                <table class="table table-primary">
+                                    <tbody>
+                                        <tr class="">
+                                            <td>
+                                                <select name="" class="form-select" id="" name="currency">
+                                                    <option selected>Currency</option>
+                                                    <option value="">Euro ()
+                                                    </option>
+                                                    <option value="">Doller ($)
+                                                    </option>
+                                                    <option value="">Pound ()
+                                                    </option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="email"
+                                                    class="form-control form-control-sm form-setting border" name="rate"
+                                                    id="exampleFormControlInput1" placeholder="Currency Rate">
+                                            </td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="flexCheckDefault" name="tax_vat">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        TAX/VAT/GST
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="email"
+                                                    class="form-control form-control-sm form-setting border"
+                                                    name="tax_vat_value" id="exampleFormControlInput1"
+                                                    placeholder="Tax Vat Value">
+                                            </td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="principal_disc"
+                                                        value="" id="flexCheckDefault">
+                                                    <label class="form-check-label  w-100" for="flexCheckDefault">
+                                                        Principal Disc
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="email"
+                                                    class="form-control form-control-sm form-setting border"
+                                                    name="principal_disc_value" id="exampleFormControlInput1"
+                                                    placeholder="Principal Discount">
+                                            </td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="partner_disc"
+                                                        value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Partner Disc
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td><input type="email"
+                                                    class="form-control form-control-sm form-setting border"
+                                                    name="partner_disc_value" id="exampleFormControlInput1"
+                                                    placeholder="Partner Discount">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </ul>
+        </div>
 
         <!-- Tab panes -->
         <div class="tab-content">
@@ -998,6 +1058,28 @@
                     $(this).parent().parent().remove();
                 });
             });
+        </script>
+        <script>
+            function toggleVisibility() {
+                var settingShow = document.getElementById('setting-show');
+                var button = document.getElementById('setting');
+                if (settingShow.classList.contains('show')) {
+                    settingShow.classList.remove('show');
+                    // Delay setting display to 'none' to allow transition to complete
+                    setTimeout(function() {
+                        settingShow.style.display = 'none';
+                        button.classList.remove('active');
+                    }, 500); // Duration should match the transition time
+                } else {
+                    settingShow.style.display = 'block';
+                    // Trigger reflow to ensure the transition occurs
+                    settingShow.offsetHeight; // Force reflow
+                    settingShow.classList.add('show');
+                    button.classList.add('active');
+                }
+            }
+
+            document.getElementById('setting').addEventListener('click', toggleVisibility);
         </script>
     @endpush
 @endonce
