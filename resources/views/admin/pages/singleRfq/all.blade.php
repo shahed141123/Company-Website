@@ -19,6 +19,38 @@
             font-family: "Poppins", sans-serif;
         }
 
+        .fade-setting {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.5s ease, max-height 0.5s ease;
+            display: none;
+        }
+
+        .fade-setting.show {
+            opacity: 1;
+            max-height: 500px;
+            /* Adjust this value as needed */
+        }
+
+        .nav-link.actives {
+            background-color: black;
+        }
+
+        .form-setting {
+            padding: 9px 11px !important;
+        }
+
+        .form-setting:focus {
+            border-radius: 0;
+            border: 0;
+            /* background-color: #e7e7e78c; */
+            color: black;
+            font-size: 11px;
+            font-weight: 500;
+            margin: 0px 0px;
+        }
+
         @media only screen and (min-width: 620px) {
             .u-row {
                 width: 600px !important;
@@ -1027,24 +1059,109 @@
                                                         Source
                                                     </button>
                                                 </li>
-                                                <div class="ps-5">
-                                                    <div class="accordion" id="accordionExample">
-                                                        <div class="accordion-item">
-                                                          <h2 class="accordion-header" id="headingOne">
-                                                            <button class="accordion-button p-2 m-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                                <i class="fa-solid fa-gear pe-2"></i>
-                                                            </button>
-                                                          </h2>
-                                                          <div id="collapseOne" class="accordion-collapse collapse w-50" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                            <div class="accordion-body">
-                                                              <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                </div>
+                                                <li class="nav-item mb-0" role="presentation">
+                                                    <button class="nav-link" id="setting">
+                                                        <i class="fa-solid fa-gear" style="font-size: 23.6px;"></i>
+                                                    </button>
+                                                </li>
                                             </ul>
-
+                                            <div id="mysetting">
+                                                <div class="fade-setting show" id="setting-show">
+                                                    <div class="row align-items-center justify-content-center">
+                                                        <div class="col-lg-12">
+                                                            <div class="table-responsive">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-primary">
+                                                                        <tbody>
+                                                                            <tr class="">
+                                                                                <td>
+                                                                                    <select name=""
+                                                                                        class="form-select" id=""
+                                                                                        name="currency">
+                                                                                        <option selected>Currency</option>
+                                                                                        <option value="">Euro ()
+                                                                                        </option>
+                                                                                        <option value="">Doller ($)
+                                                                                        </option>
+                                                                                        <option value="">Pound ()
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input type="email"
+                                                                                        class="form-control form-control-sm form-setting border"
+                                                                                        name="rate"
+                                                                                        id="exampleFormControlInput1"
+                                                                                        placeholder="Currency Rate">
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input"
+                                                                                            type="checkbox" value=""
+                                                                                            id="flexCheckDefault"
+                                                                                            name="tax_vat">
+                                                                                        <label class="form-check-label"
+                                                                                            for="flexCheckDefault">
+                                                                                            TAX/VAT/GST
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input type="email"
+                                                                                        class="form-control form-control-sm form-setting border"
+                                                                                        name="tax_vat_value"
+                                                                                        id="exampleFormControlInput1"
+                                                                                        placeholder="Tax Vat Value">
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input"
+                                                                                            type="checkbox"
+                                                                                            name="principal_disc"
+                                                                                            value=""
+                                                                                            id="flexCheckDefault">
+                                                                                        <label
+                                                                                            class="form-check-label  w-100"
+                                                                                            for="flexCheckDefault">
+                                                                                            Principal Disc
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input type="email"
+                                                                                        class="form-control form-control-sm form-setting border"
+                                                                                        name="principal_disc_value"
+                                                                                        id="exampleFormControlInput1"
+                                                                                        placeholder="Principal Discount">
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input"
+                                                                                            type="checkbox"
+                                                                                            name="partner_disc"
+                                                                                            value=""
+                                                                                            id="flexCheckDefault">
+                                                                                        <label class="form-check-label"
+                                                                                            for="flexCheckDefault">
+                                                                                            Partner Disc
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><input type="email"
+                                                                                        class="form-control form-control-sm form-setting border"
+                                                                                        name="partner_disc_value"
+                                                                                        id="exampleFormControlInput1"
+                                                                                        placeholder="Partner Discount">
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <!-- Tab panes -->
                                             <div class="tab-content">
                                                 <div class="tab-pane " id="home" role="tabpanel"
@@ -1508,13 +1625,37 @@
                                                                         <!-- ... -->
                                                                     </section>
                                                                 </td>
+
                                                             </tr>
                                                         </table>
-                                                        <div class="d-flex justify-content-center align-items-center py-3">
-                                                            <button type="submit" class="btn navigation_btn"><i class="fa-solid fa-person-circle-check pe-2"></i> Submit for Approval</button>
-                                                            <button type="submit" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Send Quotation</button>
-                                                            <button type="submit" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Resend</button>
-                                                            <button type="submit" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Share On What's App</button>
+                                                        <div>
+                                                            <div class="d-flex justify-content-center align-items-center py-3">
+                                                                <div>
+                                                                    <div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="checkbox"
+                                                                                value="" id="flexCheckDefault">
+                                                                            <label class="form-check-label"
+                                                                                for="flexCheckDefault">
+                                                                                Send With Attachment.
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex justify-content-center align-items-center py-3 pt-0">
+                                                                <button type="submit" class="btn navigation_btn"><i
+                                                                        class="fa-solid fa-person-circle-check pe-2"></i>
+                                                                    Submit for Approval</button>
+                                                                <button type="submit" class="btn navigation_btn"><i
+                                                                        class="fa-regular fa-circle-check pe-2"></i>Send
+                                                                    Quotation</button>
+                                                                {{-- <button type="submit" class="btn navigation_btn"><i
+                                                                                                                                   class="fa-regular fa-circle-check pe-2"></i>Resend</button>
+                                                                                                                           <button type="submit" class="btn navigation_btn"><i
+                                                                                                                                   class="fa-regular fa-circle-check pe-2"></i>Share On
+                                                                                                                               What's App</button> --}}
+                                                            </div>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -1818,8 +1959,10 @@
                                                     aria-labelledby="messages-tab">
                                                     <div>
                                                         <div class="table-responsive">
-                                                            <table class="table table-borderd" style="font-size: 12px !important">
-                                                                <thead class="text-white" style="background-color: #800000 !important;">
+                                                            <table class="table table-borderd"
+                                                                style="font-size: 12px !important">
+                                                                <thead class="text-white"
+                                                                    style="background-color: #800000 !important;">
                                                                     <tr>
                                                                         <th>Sl #</th>
                                                                         <th>Item</th>
@@ -1837,7 +1980,8 @@
                                                                 <tbody class="table-group-divider">
                                                                     <tr class="">
                                                                         <td>1</td>
-                                                                        <td>"Dell Latitude Rugged 5430 Laptop: 11th Gen.</td>
+                                                                        <td>"Dell Latitude Rugged 5430 Laptop: 11th Gen.
+                                                                        </td>
                                                                         <td>Hp Store</td>
                                                                         <td>12,305 TK</td>
                                                                         <td>Hp Store</td>
@@ -1849,10 +1993,12 @@
                                                                         <td>12,305 TK</td>
                                                                     </tr>
                                                                 </tbody>
-                                                                <tfoot class="table-group-divider" style="background-color: #BFBFBF !important;">
+                                                                <tfoot class="table-group-divider"
+                                                                    style="background-color: #BFBFBF !important;">
                                                                     <tr class="">
                                                                         <td>1</td>
-                                                                        <td>"Dell Latitude Rugged 5430 Laptop: 11th Gen.</td>
+                                                                        <td>"Dell Latitude Rugged 5430 Laptop: 11th Gen.
+                                                                        </td>
                                                                         <td>Hp Store</td>
                                                                         <td>12,305 TK</td>
                                                                         <td>Hp Store</td>
@@ -2072,6 +2218,28 @@
 @endsection
 @once
     @push('scripts')
+        <script>
+            function toggleVisibility() {
+                var settingShow = document.getElementById('setting-show');
+                var button = document.getElementById('setting');
+                if (settingShow.classList.contains('show')) {
+                    settingShow.classList.remove('show');
+                    // Delay setting display to 'none' to allow transition to complete
+                    setTimeout(function() {
+                        settingShow.style.display = 'none';
+                        button.classList.remove('active');
+                    }, 500); // Duration should match the transition time
+                } else {
+                    settingShow.style.display = 'block';
+                    // Trigger reflow to ensure the transition occurs
+                    settingShow.offsetHeight; // Force reflow
+                    settingShow.classList.add('show');
+                    button.classList.add('active');
+                }
+            }
+
+            document.getElementById('setting').addEventListener('click', toggleVisibility);
+        </script>
         <script>
             function AddTableRowTwoBottom() {
                 var tableBodies = document.getElementsByClassName("table_bottom_area");

@@ -276,7 +276,7 @@
                                                         </p>
                                                         <div class="row">
                                                             <div class="col-lg-12 mb-2">
-                                                                <a class="d-flex align-items-center pb-2"
+                                                                <a clJass="d-flex align-items-center pb-2"
                                                                     href="{{ route('software.info') }}">
                                                                     <div>Software</div>
                                                                     <div>
