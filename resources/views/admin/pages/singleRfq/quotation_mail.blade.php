@@ -1,973 +1,1003 @@
-@extlefts('admin.master')
-<style type="text/css">
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
+@extends('admin.master')
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-    }
-
-    a {
-        color: #000;
-        text-decoration: none;
-    }
-
-    p {
-        font-family: "Poppins", sans-serif;
-    }
-
-    @media only screen and (min-width: 620px) {
-        .u-row {
-            width: 100% !important;
-        }
-    }
-</style>
 @section('content')
-    <section class="container" style="margin-top: 0.5rem; margin-bottom: 0.5rem">
-        <!DOCTYPE html>
-        <html lang="en">
+    <style>
+        .table>:not(caption)>*>* {
+            padding: 11px 7px;
+        }
+    </style>
+    <div class="card-body p-4">
+        <!-- Nav tabs -->
+        <div class="text-center">
+            <h3 class="mb-0 py-2">Bypass Process</h3>
+        </div>
+        <ul class="nav nav-tabs d-flex justify-content-center align-items-center border-0" id="myTab" role="tablist">
+            <li class="nav-item mb-0" role="presentation">
+                <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                    role="tab" aria-controls="home" aria-selected="true">
+                    Quotation
+                </button>
+            </li>
+            <li class="nav-item mb-0" role="presentation">
+                <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                    type="button" role="tab" aria-controls="profile" aria-selected="false">
+                    Cost Of Goods
+                </button>
+            </li>
+            <li class="nav-item mb-0" role="presentation">
+                <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button"
+                    role="tab" aria-controls="messages" aria-selected="false">
+                    Source
+                </button>
+            </li>
+            <div class="ps-5">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button p-2 m-0" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="fa-solid fa-gear pe-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse w-50" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>This is the first item's accordion body.</strong> It is shown by default, until the
+                                collapse plugin adds the appropriate classes that we use to style each element. These
+                                classes control the overall appearance, as well as the showing and hiding via CSS
+                                transitions. You can modify any of this with custom CSS or overriding our default variables.
+                                It's also worth noting that just about any HTML can go within the
+                                <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ul>
 
-        <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <meta name="x-apple-disable-message-reformatting" />
-            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-            <title>Price Quotation</title>
-            <style type="text/css">
-                @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
-
-                * {
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                    font-family: "Poppins", sans-serif;
-                }
-
-                a {
-                    color: #3d3d3d;
-                    text-decoration: none;
-                }
-
-                h1,
-                h2,
-                h3,
-                h4,
-                h5,
-                h6 {
-                    padding: 0;
-                    margin: 0;
-                }
-
-                p {
-                    font-family: "Poppins", sans-serif;
-                    padding: 0;
-                    margin: 0;
-                }
-
-                @media only screen and (min-width: 620px) {
-                    .u-row {
-                        width: 600px !important;
-                    }
-
-                    @media print {
-                        body {
-                            background: none;
-                        }
-                    }
-                }
-            </style>
-        </head>
-
-        <body class="clean-body u_body" style="margin: 0; padding: 0">
-            <table cellpadding="0" cellspacing="0"
-                style="
-        border-collapse: collapse;
-        width: 100%;
-        max-width: 750px;
-        margin: 0 auto;
-        background-color: #f4f4f4;
-      ">
-                <tr>
-                    <td>
-                        <!-- Your email content goes here -->
-                        <section style="margin-top: 0rem; margin-bottom: 0rem">
-                            <!-- Email Header Start -->
-                            <div class="wrapper">
-                                <!-- Email Header Start -->
-                                <div style="overflow-x: auto">
-                                    <table id="u_body"
-                                        style="
-                    border-collapse: collapse;
-                    table-layout: fixed;
-                    border-spacing: 0;
-                    vertical-align: top;
-                    min-width: 20rem;
-                    margin: 0 auto;
-                    width: 100%;
-                    background-color: #ae0a46;
-                  "
-                                        cellpadding="0" cellspacing="0">
-                                        <tbody style="min-width: 20rem">
-                                            <tr>
-                                                <td style="text-align: start; padding: 10px">
-                                                    <div>
-                                                        <a href="https://ngenitltd.com" target="_blank">
-                                                            <img src="https://i.ibb.co/qMMpQMj/Logo-White.png"
-                                                                alt="Ngen IT" title="Ngen IT"
-                                                                style="
-                                outline: none;
-                                text-decoration: none;
-                                -ms-interpolation-mode: bicubic;
-                                clear: both;
-                                display: inline-block !important;
-                                border: none;
-                                height: auto;
-                                float: none;
-                                width: 7.5rem;
-                              "
-                                                                width="60" />
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div style="text-align: left; padding: 10px">
-                                                        <p
-                                                            style="
-                              font-size: 1.125rem;
-                              font-weight: 600;
-                              margin-bottom: 0;
-                              color: #fff;
-                              margin: 0;
-                              padding: 0;
-                            ">
-                                                            NGEN IT PTE. LTD.
-                                                        </p>
-                                                        <p
-                                                            style="font-size: 16px;  margin: 0;
-                          padding: 0;">
-                                                            <span style="color: #eee">REG-NO: 20437861K</span>
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- Email Header left -->
-                                <!-- Email User Info Start -->
-                                <div style="overflow-x: auto">
-                                    <table
-                                        style="
-                    border-collapse: collapse;
-                    table-layout: fixed;
-                    border-spacing: 0;
-                    vertical-align: top;
-                    min-width: 100%;
-                    margin: 0 auto;
-                    width: 100%;
-                    overflow: hidden;
-                  ">
-                                        <tbody style="min-width: 100%">
-                                            <tr style="vertical-align: top">
-                                                <td style="text-align: left">
-                                                    <div>
-                                                        <div style="padding-top: 1.25rem; padding-left: 0">
-                                                            <h3
-                                                                style="
-                                color: #ae0a46;
-                                text-align: left;
-                                font-size: 0.925rem;
-                                margin-top: 10px;
-                                margin-bottom: 0;
-                                text-align: start;
-                              ">
-                                                                {{ $rfq_details->company_name }}
-                                                            </h3>
-                                                            @if (!empty($rfq_details->address))
-                                                                <p
-                                                                    style="
-                                font-size: 13px;
-                                color: #3d3d3d;
-                                padding: 0;
-                                margin: 0;
-                              ">
-                                                                    {{ $rfq_details->address }}
-                                                                </p>
-                                                                @endif
-                                                                <p
-                                                                    style="
-                                font-size: 13px;
-                                color: #3d3d3d;
-                                padding: 0;
-                                margin: 0;
-                              ">
-                                                                    {{ $rfq_details->name }}
-                                                                </p>
-                                                                <div>
-                                                                    <p style="font-size: 13px; padding: 0; margin: 0">
-                                                                        <a href="mailto:{{ $rfq_details->email }}"
-                                                                            style="color: #3d3d3d; text-decoration: none">
-                                                                            <span>{{ $rfq_details->email }}</span> |
-                                                                            <span>{{ $rfq_details->phone }}</span>
-                                                                        </a>
-                                                                    </p>
-                                                                </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <!-- <td
-                            style="
-                          width: 0.125rem;
-                          background: #eee;
-                          padding: 0px;
-                          height: 8rem;
-                          margin: 0px;
-                          position: relative;
-                          right: -30px;
-                          top: 15px;
-                        "
-                          >
-                            <p></p>
-                          </td> -->
-                                                <td>
-                                                    <div style="text-align: right">
-                                                        <h3
-                                                            style="
-                              padding: 0.625rem;
-                              color: #ae0a46;
-                              text-align: right;
-                              font-size: 1.125rem;
-                              margin-top: 10px;
-                              margin-bottom: 0;
-                            ">
-                                                            Price Quotation
-                                                        </h3>
-                                                        <p
-                                                            style="
-                              color: #3d3d3d;
-                              font-size: 13px;
-                              padding: 0;
-                              margin: 0;
-                            ">
-                                                            Date :
-                                                            <span>{{ \Carbon\Carbon::now()->format('d F Y') }}</span>
-                                                        </p>
-                                                        <p
-                                                            style="
-                              color: #3d3d3d;
-                              font-size: 13px;
-                              padding: 0;
-                              margin: 0;
-                            ">
-                                                            {{-- PQ#: <span>{{ $pq_code }}</span> --}}
-                                                        </p>
-                                                        <p
-                                                            style="
-                              color: #3d3d3d;
-                              font-size: 13px;
-                              padding: 0;
-                              margin: 0;
-                            ">
-                                                            {{-- PQR#: <span>{{ $pqr_code_one }}</span> --}}
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- Email User Info left -->
-                                <!-- Main Content Start -->
-                                <div
-                                    style="
-                  overflow-x: auto;
-                  padding-left: 1.875rem;
-                  padding-right: 1.875rem;
-                  padding-top: 0.9375rem;
-                  padding-bottom: 0.9375rem;
-                ">
-                                    <table
-                                        style="
-                    border-collapse: collapse;
-                    width: 100%;
-                    border: 1px solid #eee;
-                    margin-top: 3rem;
-                  ">
-                                        <!-- Table Header Start -->
-                                        <tr
-                                            style="
-                      background-color: #e5e5e5;
-                      color: #3d3d3d;
-                      border: 1px solid #eee;
-                      font-size: 13px;
-                    ">
-                                            <th
-                                                style="
-                        text-align: center;
-                        padding: 0.5rem;
-                        font-weight: 400;
-                      ">
-                                                Sl
-                                            </th>
-                                            <th
-                                                style="
-                        text-align: center;
-                        padding: 0.5rem;
-                        font-weight: 400;
-                      ">
-                                                Product Description
-                                            </th>
-                                            <th
-                                                style="
-                        text-align: center;
-                        padding: 0.5rem;
-                        font-weight: 400;
-                      ">
-                                                Qty
-                                            </th>
-                                            <th
-                                                style="
-                        text-align: center;
-                        padding: 0.5rem;
-                        font-weight: 400;
-                      ">
-                                                Unit Price
-                                            </th>
-                                            <th
-                                                style="
-                        text-align: center;
-                        padding: 0.5rem;
-                        font-weight: 400;
-                      ">
-                                                {{-- Total ({{ $currency === 'taka' ? 'TK' : '$' }}) --}}
-                                            </th>
-                                        </tr>
-                                        <!-- Table Header left -->
-
-                                        @foreach ($products as $key => $item)
-                                            <tr
-                                                style="
-                      text-align: start;
-                      padding: 0.5rem;
-                      color: #3d3d3d;
-                      font-size: 13px;
-                      border: 1px solid #eee;
-                    ">
-                                                <td
-                                                    style="
-                        border: 1px solid #eee;
-                        padding: 0.5rem;
-                        text-align: center;
-                      ">
-                                                    {{ ++$key }}
-                                                </td>
-                                                <td style="border: 1px solid #eee; padding: 8px">
-                                                    {{ $item->item_name }}
-                                                </td>
-                                                <td
-                                                    style="
-                        border: 1px solid #eee;
-                        padding: 0.5rem;
-                        text-align: center;
-                      ">
-                                                    {{ $item->qty }}
-                                                </td>
-                                                <td
-                                                    style="
-                        border: 1px solid #eee;
-                        padding: 0.5rem;
-                        text-align: center;
-                      ">
-                                                    {{-- {{ $currency === 'taka' ? 'TK' : '$' }} --}}
-                                                    {{ number_format($item->sales_price / $item->qty, 2) }}
-                                                </td>
-                                                <td
-                                                    style="
-                        border: 1px solid #eee;
-                        padding: 0.5rem;
-                        text-align: center;
-                      ">
-                                                    <span>
-                                                        {{-- {{ $currency === 'taka' ? 'TK' : '$' }} --}}
-                                                        {{ $item->sales_price }}</span>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                    </table>
-                                    <!--  -->
-                                    <div style="display: flex; justify-content: left">
-                                        <table
-                                            style="
-                      border-collapse: collapse;
-                      width: 100%;
-                      font-size: 13px;
-                      border: 1px solid #eee;
-                    ">
-                                            <tr
-                                                style="
-                        text-align: left;
-                        padding: 0.5rem;
-                        color: #3d3d3d;
-                        font-size: 13px;
-                      ">
-                                                <th
-                                                    style="
-                          width: 85%;
-                          text-align: left;
-                          padding: 0.5rem;
-                          color: #3d3d3d;
-                          font-weight: 400;
-                        ">
-                                                    Sub Total
-                                                </th>
-                                                <th
-                                                    style="
-                          width: 15%;
-                          text-align: left;
-                          padding: 0.5rem;
-                          border-left: 1px solid #eee;
-                          color: #3d3d3d;
-                          text-align: left;
-                          font-weight: 400;
-                        ">
-                                                    <span>
-                                                        {{-- {{ $currency === 'taka' ? 'TK' : '$' }} --}}
-                                                        {{ $deal_sas->sub_total_sales }}</span>
-                                                </th>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--  -->
-                                    @if ($rfq_details->special == '1')
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane " id="home" role="tabpanel" aria-labelledby="home-tab">
+                <form action="">
+                    <table cellpadding="0" cellspacing="0"
+                        style="border-collapse: collapse;width: 100%;max-width: 750px;margin: 0 auto;background-color: #f4f4f4;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                        <tr>
+                            <td>
+                                <!-- Your email content goes here -->
+                                <section
+                                    style="margin-top: 0rem;margin-bottom: 0rem;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                                    <!-- Email Header Start -->
+                                    <div class="wrapper" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px">
+                                        <!-- Email Header Start -->
                                         <div>
-                                            <div style="display: flex; justify-content: left">
-                                                <table
-                                                    style="
-                        border-collapse: collapse;
-                        width: 100%;
-                        border: none;
-                      ">
+                                            <table id="u_body"
+                                                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 20rem;margin: 0 auto;width: 100%;background-color: #ae0a46;"
+                                                cellpadding="0" cellspacing="0">
+                                                <tbody style="min-width: 20rem">
                                                     <tr
-                                                        style="
-                          text-align: left;
-                          padding: 0.5rem;
-                          color: #3d3d3d;
-                          font-size: 13px;
-                          border: 1px solid #eee;
-                        ">
-                                                        <td
-                                                            style="
-                            width: 85%;
-                            text-align: left;
-                            padding: 10px;
-                            color: #3d3d3d;
-                          ">
-                                                            Special Discount - {{ $deal_sas->special_discount }}
+                                                        style="vertical-align: top;display: flex;justify-content: space-between;align-items: center;padding: 15px;">
+                                                        <td style="border: 0">
+                                                            <a href="https://ngenitltd.com" target="_blank">
+                                                                <img src="https://i.ibb.co/qMMpQMj/Logo-White.png"
+                                                                    alt="Ngen IT" title="Ngen IT"
+                                                                    style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 7.5rem; padding-left: 18px;"
+                                                                    width="60" />
+                                                            </a>
                                                         </td>
-                                                        <td
-                                                            style="
-                            width: 15%;
-                            text-align: left;
-                            padding: 0.5rem;
-                            border-left: 1px solid #eee;
-                            color: #3d3d3d;
-                          ">
-                                                            {{-- {{ $currency === 'taka' ? 'TK' : '$' }} --}}
-                                                            {{ $deal_sas->sub_total_sales - $deal_sas->special_discounted_sales }}
+                                                        <td style="border: 0">
+                                                            <input type="text"
+                                                                class="form-control form-control-sm bg-transparent text-end"
+                                                                value=" NGEN IT PTE. LTD."
+                                                                style="font-size: 1.125rem;font-weight: 600;margin-bottom: 0;color: #fff; padding: 0px 18px !important;">
+
+                                                            <input type="text"
+                                                                class="form-control form-control-sm bg-transparent text-end"
+                                                                value=" REG-NO: 20437861K"
+                                                                style="font-size: 16px; margin-bottom: 3px; color: #eee; padding: 0px 18px !important;">
                                                         </td>
                                                     </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        @endif
-                                        <!--  -->
-                                        <!--  -->
-                                        <div style="display: flex; justify-content: left">
-                                            <table
-                                                style="
-                      border: 1px solid #eee;
-                      border-collapse: collapse;
-                      background-color: #eee;
-                      width: 100%;
-                      font-size: 13px;
-                    ">
-                                                <tr
-                                                    style="
-                        text-align: left;
-                        padding: 0.5rem;
-                        border: 1px solid #eee;
-                        color: #3d3d3d;
-                        font-size: 13px;
-                      ">
-                                                    <th
-                                                        style="
-                          width: 85%;
-                          text-align: left;
-                          padding: 0.5rem;
-                          color: #3d3d3d;
-                          border: none;
-                        ">
-                                                        Grand Total
-                                                    </th>
-                                                    <th
-                                                        style="
-                          width: 15%;
-                          text-align: left;
-                          padding: 0.5rem;
-                          color: #3d3d3d;
-                          text-align: left;
-                          border-left: 1px solid #eee;
-                        ">
-                                                        <span>
-                                                            {{-- {{ $currency === 'taka' ? 'TK' : '$' }} --}}
-                                                            {{ $deal_sas->grand_total }}</span>
-                                                    </th>
-                                                </tr>
+                                                </tbody>
                                             </table>
                                         </div>
-                                        <!--  -->
-                                        @if ($rfq_details->tax_status == '1')
-                                            <div
-                                                style="
-                    display: flex;
-                    justify-content: left;
-                    margin-top: 2rem;
-                    margin-bottom: 1rem;
-                  ">
-                                                <table
-                                                    style="
-                      border-collapse: collapse;
-                      width: 60%;
-                      margin: auto;
-                      font-size: 13px;
-                      border: 1px solid #eee;
-                    ">
+                                        <!-- Email Header End -->
+                                        <!-- Email User Info Start -->
+                                        <div>
+                                            <table
+                                                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 20rem;margin: 0 auto;width: 100%;overflow: hidden;">
+                                                <tbody style="min-width: 20rem">
+                                                    <tr style="vertical-align: top">
+                                                        <td style="padding: 0rem 1.875rem; text-align: left">
+                                                            <div>
+                                                                <div style="padding-top: 1.25rem;padding-left: 0;">
+                                                                    <input type="text"
+                                                                        class="form-control form-control-sm bg-transparent"
+                                                                        value=" Kawsar Khan"
+                                                                        style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
+                                                                    <input type="text"
+                                                                        class="form-control form-control-sm bg-transparent"
+                                                                        value=" Samsung"
+                                                                        style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                    <input type="text"
+                                                                        class="form-control form-control-sm bg-transparent"
+                                                                        value=" khandker@gmail.com"
+                                                                        style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                    <input type="text"
+                                                                        class="form-control form-control-sm bg-transparent"
+                                                                        value=" 01754348949"
+                                                                        style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                    <input type="text"
+                                                                        class="form-control form-control-sm bg-transparent"
+                                                                        value=" Dhaka, Bangladesh"
+                                                                        style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td
+                                                            style="width: 0.125rem;background: #eee;padding: 0px;height: 10rem;margin: 0px;position: relative;right: -30px;top: 15px;">
+                                                            <p></p>
+                                                        </td>
+                                                        <td style="padding: 0rem 1.875rem; text-align: right">
+                                                            <div>
+                                                                <div style="padding-top: 1.25rem;">
+                                                                    <input type="text"
+                                                                        class="form-control form-control-sm bg-transparent text-end"
+                                                                        value=" Price Quotation"
+                                                                        style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
+                                                                    <input type="text"
+                                                                        class="form-control form-control-sm bg-transparent text-end"
+                                                                        value=" Date : 01 January 2024"
+                                                                        style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                    <input type="text"
+                                                                        class="form-control form-control-sm bg-transparent text-end"
+                                                                        value=" PQ#: NG-BD/Genexis/RV/231021"
+                                                                        style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                    <input type="text"
+                                                                        class="form-control form-control-sm bg-transparent text-end"
+                                                                        value=" PQR#: MEO-P021(T10)-W(L1)"
+                                                                        style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- Email User Info End -->
+                                        <!-- Main Content Start -->
+                                        <div
+                                            style="overflow-x: auto;padding-left: 1.875rem;padding-right: 1.875rem;padding-top: 0.9375rem;padding-bottom: 0.9375rem;">
+                                            <table id="myTable"
+                                                style="border-collapse: collapse;width: 100%;border: 1px solid #eee;">
+                                                <thead>
                                                     <tr
-                                                        style="
-                        width: 6%;
-                        text-align: left;
-                        padding: 0.5rem;
-                        color: #3d3d3d;
-                        font-size: 13px;
-                        border-bottom: 1px solid #eee;
-                      ">
+                                                        style="background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee;font-size: 13px;">
+                                                        <th style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                                            <button class="btn btn-primary rounded-0"
+                                                                onclick="addRow()"><i
+                                                                    class="fa-solid fa-plus"></i></button>
+                                                        </th>
+                                                        <th style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                                            SL</th>
+                                                        <th style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                                            Product Description</th>
+                                                        <th style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                                            Qty</th>
+                                                        <th style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                                            Unit Price</th>
+                                                        <th style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                                            Total ($)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr
+                                                        style="text-align: start;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
+                                                        <td
+                                                            style="border: 1px solid #eee;padding: 0.5rem;text-align: center;">
+                                                            <button class="btn btn-danger rounded-0"
+                                                                onclick="deleteRow(this)"><i
+                                                                    class="fa-regular fa-trash-can"></i></button>
+                                                        </td>
+                                                        <td
+                                                            style="border: 1px solid #eee;padding: 0.5rem;text-align: center;">
+                                                            1</td>
+                                                        <td style="border: 1px solid #eee; padding: 8px; width: 40%">
+                                                            <input type="text"
+                                                                class="form-control form-control-sm bg-transparent"
+                                                                value="Citrix Virtual Apps and Desktops Advanced Edition"
+                                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                        </td>
+                                                        <td
+                                                            style="border: 1px solid #eee;padding: 0.5rem;text-align: center;">
+                                                            <input type="text"
+                                                                class="form-control form-control-sm bg-transparent text-center"
+                                                                value="460"
+                                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                        </td>
+                                                        <td
+                                                            style="border: 1px solid #eee;padding: 0.5rem;text-align: center;">
+                                                            <input type="text"
+                                                                class="form-control form-control-sm bg-transparent text-center"
+                                                                value="218"
+                                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                        </td>
+                                                        <td
+                                                            style="border: 1px solid #eee;padding: 0.5rem;text-align: center;">
+                                                            <input type="text"
+                                                                class="form-control form-control-sm bg-transparent text-end"
+                                                                value="$100,174.20"
+                                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!--  -->
+                                            <div style="display: flex; justify-content: end">
+                                                <table
+                                                    style="border-collapse: collapse;width: 100%;font-size: 13px;border: 1px solid #eee;">
+                                                    <tr
+                                                        style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;">
                                                         <th
-                                                            style="
-                          text-align: center;
-                          padding: 0.5rem;
-                          color: #3d3d3d;
-                          font-weight: 400;
-                        ">
-                                                            <span>
-                                                                <strong>GST - 8%</strong> Not included. It may apply.
-                                                            </span>
+                                                            style="width: 85%;text-align: end;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
+                                                            Sub Total
+                                                        </th>
+                                                        <th
+                                                            style="width: 15%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
+                                                            <input type="text"
+                                                                class="form-control form-control-sm bg-transparent text-end"
+                                                                value="$85,148.1"
+                                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                                         </th>
                                                     </tr>
                                                 </table>
                                             </div>
-                                            @endif
+                                            <!--  -->
+                                            <div>
+                                                <div style="display: flex; justify-content: end">
+                                                    <table style="border-collapse: collapse;width: 100%;border: none;">
+                                                        <tr
+                                                            style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
+                                                            <td
+                                                                style="width: 85%;text-align: end;padding: 10px;color: #3d3d3d;">
+                                                                <input type="text"
+                                                                    class="form-control form-control-sm bg-transparent text-end"
+                                                                    value="Special Discount - 10 %"
+                                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                            </td>
+                                                            <td
+                                                                style="width: 15%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;">
+                                                                <input type="text"
+                                                                    class="form-control form-control-sm bg-transparent text-end"
+                                                                    value="-5,008.71"
+                                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!--  -->
+                                            <div style="display: flex; justify-content: end">
+                                                <table
+                                                    style="border: 1px solid #eee;border-collapse: collapse;background-color: #eee;width: 100%;font-size: 13px;">
+                                                    <tr
+                                                        style="text-align: end;padding: 0.5rem;border: 1px solid #eee;color: #3d3d3d;font-size: 13px;">
+                                                        <th
+                                                            style="width: 85%;text-align: end;padding: 0.5rem;color: #3d3d3d;border: none;">
+                                                            Grand Total
+                                                        </th>
+                                                        <th
+                                                            style="width: 15%;text-align: end;padding: 0.5rem;color: #3d3d3d;text-align: end;border-left: 1px solid #eee;">
+                                                            <input type="text"
+                                                                class="form-control form-control-sm bg-transparent text-end"
+                                                                value="$85,148.1"
+                                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                        </th>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <!--  -->
+                                            <div
+                                                style="display: flex;justify-content: end;margin-top: 1rem;margin-bottom: 1rem;">
+                                                <table
+                                                    style="border-collapse: collapse;width: 60%;margin: auto;font-size: 13px;border: 1px solid #eee;">
+                                                    <tr
+                                                        style="width: 6%;text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border-bottom: 1px solid #eee;">
+                                                        <th
+                                                            style="text-align: center;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
+                                                            <input type="text"
+                                                                class="form-control form-control-sm bg-transparent text-center"
+                                                                value="GST - 8% Not included. It may apply."
+                                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                        </th>
+                                                    </tr>
+                                                </table>
+                                            </div>
                                             <!--  -->
                                             <div>
                                                 <div>
                                                     <table
-                                                        style="
-                        margin-top: 0.5rem;
-                        border: 1px solid #eee;
-                        border-collapse: collapse;
-                        width: 100%;
-                        margin-top: 3rem;
-                      ">
+                                                        style="margin-top: 0.5rem;border: 1px solid #eee;border-collapse: collapse;width: 100%;">
                                                         <tr
-                                                            style="
-                          text-align: start;
-                          padding: 0.5rem;
-                          color: #3d3d3d;
-                          font-size: 13px;
-                          border: 1px solid #eee;
-                        ">
+                                                            style="text-align: start;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                                             <th colspan="2"
-                                                                style="
-                            text-align: center;
-                            padding: 0.5rem;
-                            background-color: #e5e5e5;
-                            color: #3d3d3d;
-                            border: 1px solid #eee;
-                          ">
+                                                                style="text-align: center;padding: 0.5rem;background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee;">
                                                                 Terms & Conditions
                                                             </th>
                                                         </tr>
+                                                        <tr>
+                                                            <td
+                                                                style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
+                                                                <input type="text"
+                                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                                    value="Validity :"
+                                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                            </td>
+                                                            <td
+                                                                style="padding: 0.3125rem 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
 
-                                                        @if (!empty($rfq_details->validity))
-                                                            <tr>
-                                                                <td
-                                                                    style="
-                            padding: 0.3125rem 10px;
-                            font-size: 13px;
-                            color: #3d3d3d;
-                            font-weight: 600;
-                          ">
-                                                                    Validity :
-                                                                </td>
-                                                                <td
-                                                                    style="
-                            padding: 0.3125rem 10px;
-                            font-size: 13px;
-                            font-family: 'Raleway', sans-serif;
-                            color: #3d3d3d;
-                          ">
-                                                                    {{ $rfq_details->validity }}
-                                                                </td>
-                                                            </tr>
-                                                            @endif @if (!empty($rfq_details->payment))
-                                                                <tr>
-                                                                    <td
-                                                                        style="
-                            padding: 0.3125rem 10px;
-                            /* padding-left: 0px; */
-                            font-size: 13px;
-                            color: #3d3d3d;
-                            font-weight: 600;
-                          ">
-                                                                        Payment :
-                                                                    </td>
-                                                                    <td
-                                                                        style="
-                            padding: 2px 10px;
-                            font-size: 13px;
-                            font-family: 'Raleway', sans-serif;
-                            color: #3d3d3d;
-                          ">
-                                                                        {{ $rfq_details->payment }}
-                                                                    </td>
-                                                                </tr>
-                                                                @endif @if (!empty($rfq_details->validity))
-                                                                    <tr>
-                                                                        <td
-                                                                            style="
-                            padding: 0.3125rem 10px;
-                            /* padding-left: 0px; */
-                            font-size: 13px;
-                            color: #3d3d3d;
-                            font-weight: 600;
-                          ">
-                                                                            Payment Mode:
-                                                                        </td>
-                                                                        <td
-                                                                            style="
-                            padding: 2px 10px;
-                            font-size: 13px;
-                            font-family: 'Raleway', sans-serif;
-                            color: #3d3d3d;
-                          ">
-                                                                            {{ $rfq_details->payment_mode }}
-                                                                        </td>
-                                                                    </tr>
-                                                                    @endif @if (!empty($rfq_details->delivery))
-                                                                        <tr>
-                                                                            <td
-                                                                                style="
-                            padding: 0.3125rem 10px;
-                            /* padding-left: 0px; */
-                            font-size: 13px;
-                            color: #3d3d3d;
-                            font-weight: 600;
-                          ">
-                                                                                Delivery :
-                                                                            </td>
-                                                                            <td
-                                                                                style="
-                            padding: 2px 10px;
-                            font-size: 13px;
-                            font-family: 'Raleway', sans-serif;
-                            color: #3d3d3d;
-                          ">
-                                                                                {{ $rfq_details->delivery }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        @endif @if (!empty($rfq_details->delivery_location))
-                                                                            <tr>
-                                                                                <td
-                                                                                    style="
-                            padding: 0.3125rem 10px;
-                            /* padding-left: 0px; */
-                            font-size: 13px;
-                            color: #3d3d3d;
-                            font-weight: 600;
-                          ">
-                                                                                    Delivery Location :
-                                                                                </td>
-                                                                                <td
-                                                                                    style="
-                            padding: 2px 10px;
-                            font-size: 13px;
-                            font-family: 'Raleway', sans-serif;
-                            color: #3d3d3d;
-                          ">
-                                                                                    {{ $rfq_details->delivery_location }}
-                                                                                </td>
-                                                                            </tr>
-                                                                            @endif @if (!empty($rfq_details->product_order))
-                                                                                <tr>
-                                                                                    <td
-                                                                                        style="
-                            padding: 0.3125rem 10px;
-                            /* padding-left: 0px; */
-                            font-size: 13px;
-                            color: #3d3d3d;
-                            font-weight: 600;
-                          ">
-                                                                                        Product Order :
-                                                                                    </td>
-                                                                                    <td
-                                                                                        style="
-                            padding: 2px 10px;
-                            font-size: 13px;
-                            font-family: 'Raleway', sans-serif;
-                            color: #3d3d3d;
-                          ">
-                                                                                        {{ $rfq_details->product_order }}
-                                                                                    </td>
-                                                                                </tr>
-                                                                                @endif @if (!empty($rfq_details->installation_support))
-                                                                                    <tr>
-                                                                                        <td
-                                                                                            style="
-                            padding: 0.3125rem 10px;
-                            /* padding-left: 0px; */
-                            font-size: 13px;
-                            color: #3d3d3d;
-                            font-weight: 600;
-                          ">
-                                                                                            Install Support :
-                                                                                        </td>
-                                                                                        <td
-                                                                                            style="
-                            padding: 2px 10px;
-                            font-size: 13px;
-                            font-family: 'Raleway', sans-serif;
-                            color: #3d3d3d;
-                          ">
-                                                                                            {{ $rfq_details->installation_support }}
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                    @endif @if (!empty($rfq_details->pmt_condition))
-                                                                                        <tr>
-                                                                                            <td
-                                                                                                style="
-                            padding: 0.3125rem 10px;
-                            /* padding-left: 0px; */
-                            font-size: 13px;
-                            color: #3d3d3d;
-                            font-weight: 600;
-                          ">
-                                                                                                Pmt Condition :
-                                                                                            </td>
-                                                                                            <td
-                                                                                                style="
-                            padding: 2px 10px;
-                            font-size: 13px;
-                            font-family: 'Raleway', sans-serif;
-                            color: #3d3d3d;
-                          ">
-                                                                                                {{ $rfq_details->pmt_condition }}
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                        @endif
+                                                                <input type="text"
+                                                                    class="form-control form-control-sm bg-transparent text-center"
+                                                                    value=" 7 Day from the PQ date on regular price.Offer may change on the bank forex rate"
+                                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td
+                                                                style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
+
+                                                                <input type="text"
+                                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                                    value="Payment :"
+                                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                            </td>
+                                                            <td
+                                                                style="padding: 2px 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
+                                                                <input type="text"
+                                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                                    value="100% Advanced payment with Work Order. Order cannot be cancelled once issues"
+                                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td
+                                                                style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
+
+                                                                <input type="text"
+                                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                                    value="Delivery :"
+                                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                            </td>
+                                                            <td
+                                                                style="padding: 2px 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
+                                                                <input type="text"
+                                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                                    value="Payment must be made through Telegraphic Transfer (TT) or Wire Transfer"
+                                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td
+                                                                style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
+
+                                                                <input type="text"
+                                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                                    value="Installation :"
+                                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                            </td>
+                                                            <td
+                                                                style="padding: 2px 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
+                                                                <input type="text"
+                                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                                    value="We may reject order on any dispute in
+                                                    principal price
+                                                    or product non-availability."
+                                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                            </td>
+                                                        </tr>
                                                     </table>
                                                 </div>
                                             </div>
-                                </div>
-                                <!-- Main Content left -->
-                                <!-- Column Area -->
-                                <div style="overflow-x: auto">
-                                    <table id="u_body"
-                                        style="
-                    border-collapse: collapse;
-                    table-layout: fixed;
-                    border-spacing: 0;
-                    vertical-align: top;
-                    min-width: 320px;
-                    margin: 0 auto;
-                    width: 100%;
-                  "
-                                        cellpadding="0" cellspacing="0">
-                                        <tbody style="min-width: 320px">
-                                            <tr>
-                                                <td style="padding: 0">
-                                                    <table
-                                                        style="
-                            width: 100%;
-                            border-collapse: collapse;
-                          ">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td
-                                                                    style="
-                                  padding: 0.9375rem;
-                                  padding-left: 1.875rem;
-                                  padding-right: 1.875rem;
-                                  background-image: url(https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg);
-                                  background-size: cover;
-                                ">
-                                                                    <table style="width: 100%; border-collapse: collapse">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td
-                                                                                    style="
-                                          text-align: start;
-                                          color: #ffffff;
-                                        ">
-                                                                                    <p
-                                                                                        style="
-                                            font-size: 13px;
-                                            font-weight: 600;
-                                            padding-bottom: 0.5rem;
-                                            margin: 0;
-                                            color: #000;
-                                          ">
-                                                                                        Thank You
-                                                                                    </p>
-                                                                                    <p
-                                                                                        style="
-                                            color: #ae0a46;
-                                            padding: 0;
-                                            margin: 0;
-                                          ">
-                                                                                        NGen IT Sales Team
-                                                                                    </p>
-                                                                                    <p
-                                                                                        style="
-                                            color: #ae0a46;
-                                            font-size: 13px;
-                                            padding: 0;
-                                            margin: 0;
-                                          ">
-                                                                                        Manager, Business
-                                                                                    </p>
-                                                                                </td>
-                                                                                <td
-                                                                                    style="text-align: left; color: #ffffff">
-                                                                                    <div
-                                                                                        style="
-                                            font-size: 13px;
-                                            margin-bottom: 0.5rem;
-                                          ">
-                                                                                        <p
-                                                                                            style="margin: 0; color: #ae0a46">
-                                                                                            sales@ngenitltd.com
-                                                                                            <i
-                                                                                                class="fa-solid fa-paper-plane"></i>
-                                                                                        </p>
-                                                                                    </div>
-                                                                                    <div
-                                                                                        style="
-                                            font-size: 13px;
-                                            padding: 0;
-                                            margin: 0;
-                                          ">
-                                                                                        <p
-                                                                                            style="
-                                              margin: 0;
-                                              padding: 0;
-                                              color: #ae0a46;
-                                            ">
-                                                                                            (skype) +1 917-720-3055
-                                                                                        </p>
-                                                                                    </div>
-                                                                                    <div style="font-size: 0.9375rem">
-                                                                                        <p
-                                                                                            style="
-                                              margin: 0;
-                                              padding: 0;
-                                              color: #ae0a46;
-                                            ">
-                                                                                            (whats app) +880 1714 243446
-                                                                                        </p>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- Column Area left -->
-                                <!-- Email Footer -->
-                                <div style="overflow-x: auto">
-                                    <table id="u_body"
-                                        style="
-                    border-collapse: collapse;
-                    table-layout: fixed;
-                    border-spacing: 0;
-                    vertical-align: top;
-                    min-width: 320px;
-                    margin: 0 auto;
-                    width: 100%;
-                  "
-                                        cellpadding="0" cellspacing="0">
-                                        <tbody style="min-width: 320px">
-                                            <tr>
-                                                <div
-                                                    style="
-                          text-align: center;
-                          background-color: #ae0a46;
-                          padding: 0.9375rem;
-                        ">
-                                                    <a class="" href="www.ngenitltd.com"
-                                                        style="
-                            color: #ffff;
-                            font-size: 1.125rem;
-                            text-align: center;
-                            letter-spacing: 4px;
-                            text-decoration: none;
-                          ">www.ngenitltd.com</a>
-                                                </div>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- Email Footer left-->
-                            </div>
-                            <!-- ... -->
-                        </section>
-                    </td>
-                </tr>
-            </table>
-        </body>
+                                        </div>
+                                        <!-- Main Content End -->
+                                        <!-- Column Area -->
+                                        <div>
+                                            <table id="u_body"
+                                                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
+                                                cellpadding="0" cellspacing="0">
+                                                <tbody style="min-width: 320px">
+                                                    <tr>
+                                                        <td style="padding: 0">
+                                                            <table style="width: 100%; border-collapse: collapse">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td
+                                                                            style="padding: 0.9375rem;padding-left: 1.875rem;padding-right: 1.875rem;background-image: url(https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg);background-size: cover;">
+                                                                            <table
+                                                                                style="width: 100%; border-collapse: collapse">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            style="border: 1px solid transparent;text-align: start;color: #ffffff;">
+                                                                                            <input type="text"
+                                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                                value="Thank You"
+                                                                                                style="font-size: 13px;font-weight: 600;margin: 0;color: #000; padding: 0px !important;"">
+                                                                                            <input type="text"
+                                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                                value="Kawsar  Khan"
+                                                                                                style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                                            <input type="text"
+                                                                                                class="form-control form-control-sm bg-transparent text-start"
+                                                                                                value="Manager, Business"
+                                                                                                style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                                        </td>
+                                                                                        <td
+                                                                                            style="text-align: end; color: #ffffff; border: 1px solid transparent;">
+                                                                                            <input type="text"
+                                                                                                class="form-control form-control-sm bg-transparent text-end"
+                                                                                                value="sales@ngenitltd.com"
+                                                                                                style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                                            <input type="text"
+                                                                                                class="form-control form-control-sm bg-transparent text-end"
+                                                                                                value="+880 156845 986"
+                                                                                                style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                                            <input type="text"
+                                                                                                class="form-control form-control-sm bg-transparent text-end"
+                                                                                                value="+880 156845 987"
+                                                                                                style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- Column Area End -->
+                                        <!-- Email Footer -->
+                                        <div>
+                                            <table id="u_body"
+                                                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
+                                                cellpadding="0" cellspacing="0">
+                                                <tbody style="min-width: 320px">
+                                                    <tr>
+                                                        <div
+                                                            style="text-align: center;background-color: #ae0a46;padding: 0.9375rem;">
+                                                            <a class="" href="www.ngenitltd.com"
+                                                                style="color: #ffff;font-size: 1.125rem;text-align: center;letter-spacing: 4px;">www.ngenitltd.com</a>
+                                                        </div>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- Email Footer End-->
+                                    </div>
+                                    <!-- ... -->
+                                </section>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="d-flex justify-content-center align-items-center py-3">
+                        <button type="submit" class="btn navigation_btn"><i
+                                class="fa-solid fa-person-circle-check pe-2"></i> Submit for Approval</button>
+                        <button type="submit" class="btn navigation_btn"><i
+                                class="fa-regular fa-circle-check pe-2"></i>Send Quotation</button>
+                        <button type="submit" class="btn navigation_btn"><i
+                                class="fa-regular fa-circle-check pe-2"></i>Resend</button>
+                        <button type="submit" class="btn navigation_btn"><i
+                                class="fa-regular fa-circle-check pe-2"></i>Share On What's App</button>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div>
+                    <div class="table-responsive">
+                        <table id="myTable" class="table table-borderd" style="font-size: 10px !important">
+                            <thead>
+                                <tr style="background-color: #a9a9a9;color: black;font-size: 15px;">
+                                    <th width="3%" class="text-center">
+                                        <button class="border-0 p-0 bg-transparent text-white" onclick="addTableRow()"><i
+                                                class="fa-solid fa-plus"></i></button>
+                                    </th>
+                                    <th width="3%" class="text-center">Sl </th>
+                                    <th width="14%" class="text-center">Item</th>
+                                    <th width="6%" class="text-center">Qty</th>
+                                    <th width="7%" class="text-center">Pr. Cost</th>
+                                    <th width="6%" class="text-center">Year</th>
+                                    <th width="7%" class="text-center">Pr. Disc.</th>
+                                    <th width="7%" class="text-center">Total (In TK)</th>
+                                    <th width="6%" class="text-center">Office</th>
+                                    <th width="6%" class="text-center">Profit</th>
+                                    <th width="6%" class="text-center">Others</th>
+                                    <th width="7%" rowspan="2" class="text-center">Subtotal
+                                    </th>
+                                    <th width="7%" class="text-center">Tax/Vat/GST
+                                    </th>
+                                    <th width="7%" rowspan="2" class="text-center">EU Price</th>
+                                    <th width="7%" colspan="2" class="text-center">
+                                        Partner Price
+                                    </th>
+                                </tr>
+                                <tr style="background-color: #EAF1DD">
+                                    <th class="text-center" colspan="6"></th>
+                                    <th class="text-center"><input class="form-control form-control-sm" type="number"
+                                            placeholder="0%"></th>
+                                    <th class="text-center"></th>
+                                    <th class="text-center"><input class="form-control form-control-sm" type="number"
+                                            placeholder="0%"></th>
+                                    <th class="text-center"><input class="form-control form-control-sm" type="number"
+                                            placeholder="0%"></th>
+                                    <th class="text-center"><input class="form-control form-control-sm" type="number"
+                                            placeholder="0%"></th>
+                                    <th class="text-center"><input class="form-control form-control-sm" type="number"
+                                            placeholder="0%"></th>
+                                    <th class="text-center">Dis%</th>
+                                    <th class="text-center">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table_bottom_area">
+                                <tr class="">
+                                    <td>
+                                        <button class="border-0 p-0 text-danger bg-transparent" onclick="deleteRow(this)"
+                                            title="Add List Items"><i class="fa-regular fa-trash-can"></i></button>
+                                    </td>
+                                    <td>1</td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            value="OPC UA Tunneller (UA+DA+HDA+A&E)" style="">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            value="Tk.537,210">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            value="Tk.537,210">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            value="Tk.537,210">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            value="Tk.537,210">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            value="Tk.537,210">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            value="Tk.537,210">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            value="Tk.537,210">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            value="Tk.537,210">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            value="Tk.537,210">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            value="Tk.537,210">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            value="Tk.537,210">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            value="Tk.537,210">
+                                    </td>
+                                    <td class="text-center"><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            value="Tk.537,210">
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody class="table_bottom_area" style="background-color: #e7e7e7">
+                                <tr class="">
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>
+                                        Remittance
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td colspan="2" class="text-center">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>
+                                        Packing Charge
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td colspan="2" class="text-center">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>
+                                        Customs / CnF
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td colspan="2" class="text-center">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>
+                                        Freight / Logistics
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                    <td colspan="2" class="text-center">
+                                        <input type="text"
+                                            class="form-control form-control-sm bg-transparent text-start"
+                                            value="Remitance">
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th class="text-center pe-3" colspan="6"
+                                        style="background-color: #A6A6A6; color: #fff">
+                                        Total:</th>
+                                    <th class="text-end pe-3" style="background-color: #A6A6A6; color: #fff">
+                                        Tk. 1,510,340</th>
+                                    <th class="text-end pe-3" style="background-color: #BFBFBF; color: #fff">
+                                        Tk. 1,510,340</th>
+                                    <th class="text-end pe-3" style="background-color: #BFBFBF; color: #983c3c">
+                                        Tk. 1,510,340</th>
+                                    <th class="text-end pe-3" style="background-color: #BFBFBF; color: #fff">
+                                        Tk. 1,510,340</th>
+                                    <th class="text-end pe-3" style="background-color: #BFBFBF; color: #fff">
+                                        Tk. 1,510,340</th>
+                                    <th class="text-end pe-3" style="background-color: #BFBFBF; color: #fff">
+                                        Tk. 1,510,340</th>
+                                    <th class="text-end pe-3" style="background-color: #666666; color: #fff">
+                                        Tk. 1,510,340</th>
+                                    <th class="text-end pe-3" style="background-color: #434343; color: #fff">
+                                        Tk. 1,510,340</th>
+                                    <th class="text-end pe-3 text-center" style="background-color: #434343; color: #fff">
+                                        Tk. 1,510,340</th>
+                                    <th class="text-end pe-3 text-center" colspan="2"
+                                        style="background-color: #434343; color: #fff">
+                                        Tk. 1,510,340</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+                <div>
+                    <div class="table-responsive">
+                        <table class="table table-borderd" style="font-size: 12px !important">
+                            <thead class="text-white" style="background-color: #800000 !important;">
+                                <tr>
+                                    <th>Sl #</th>
+                                    <th>Item</th>
+                                    <th>Source 1</th>
+                                    <th>Price In BDT</th>
+                                    <th>Source 2</th>
+                                    <th>Price In BDT</th>
+                                    <th>Source 3</th>
+                                    <th>Price In BDT</th>
+                                    <th>Source 4</th>
+                                    <th>Price In BDT</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                <tr class="">
+                                    <td>1</td>
+                                    <td>"Dell Latitude Rugged 5430 Laptop: 11th Gen.</td>
+                                    <td>Hp Store</td>
+                                    <td>12,305 TK</td>
+                                    <td>Hp Store</td>
+                                    <td>12,305 TK</td>
+                                    <td>Hp Store</td>
+                                    <td>12,305 TK</td>
+                                    <td>Hp Store</td>
+                                    <td>12,305 TK</td>
+                                    <td>12,305 TK</td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="table-group-divider" style="background-color: #BFBFBF !important;">
+                                <tr class="">
+                                    <td>1</td>
+                                    <td>"Dell Latitude Rugged 5430 Laptop: 11th Gen.</td>
+                                    <td>Hp Store</td>
+                                    <td>12,305 TK</td>
+                                    <td>Hp Store</td>
+                                    <td>12,305 TK</td>
+                                    <td>Hp Store</td>
+                                    <td>12,305 TK</td>
+                                    <td>Hp Store</td>
+                                    <td>12,305 TK</td>
+                                    <td>12,305 TK</td>
+                                </tr>
+                            </tfoot>
+                            <tfoot>
 
-        </html>
+                            </tfoot>
+                        </table>
+                    </div>
 
-    </section>
-    @endsection
-    @once
-        @push('scripts')
-            <script>
-                $(document).ready(function() {
-                    $('thead').on('click', '.addRow', function() {
+                </div>
+            </div>
+        </div>
 
-                        var tr = "<tr>" +
-                            "<td class='text-center'> <a href='javascript:void(0)' class='removeRow'><i class='fa-solid fa-minus dash-icons' style='padding: 6px 7px 6px !important;color: #ae0a46;'></i></a></td>" +
-                            "<td class='p-0'> <input type='text' class='form-control' name='item_name[]' placeholder='Product Name' required></td>" +
-                            "<td class='p-0'> <input type='text' class='form-control' name='qty[]' placeholder='Quantity' required></td>" +
-                            "<td class='p-0'> <input type='text' class='form-control' name='unit_price[]' placeholder='Unit Price' ></td>" +
-                            "<td class='p-0'> <input type='text' class='form-control' name='item_name[]' placeholder='Total' required></td></td>" +
-                            "</tr>";
+    </div>
+@endsection
+@once
+    @push('scripts')
+        <script>
+            $(document).ready(function() {
+                $('thead').on('click', '.addRow', function() {
 
-                        $('.repeater').appleft(tr);
-                    });
+                    var tr = "<tr>" +
+                        "<td class='text-center'> <a href='javascript:void(0)' class='removeRow'><i class='fa-solid fa-minus dash-icons' style='padding: 6px 7px 6px !important;color: #ae0a46;'></i></a></td>" +
+                        "<td class='p-0'> <input type='text' class='form-control' name='item_name[]' placeholder='Product Name' required></td>" +
+                        "<td class='p-0'> <input type='text' class='form-control' name='qty[]' placeholder='Quantity' required></td>" +
+                        "<td class='p-0'> <input type='text' class='form-control' name='unit_price[]' placeholder='Unit Price' ></td>" +
+                        "<td class='p-0'> <input type='text' class='form-control' name='item_name[]' placeholder='Total' required></td></td>" +
+                        "</tr>";
 
-                    $('tbody').on('click', '.removeRow', function() {
-                        $(this).parent().parent().remove();
-                    });
+                    $('.repeater').appleft(tr);
                 });
-            </script>
-            @endpush
-            @endonce
+
+                $('tbody').on('click', '.removeRow', function() {
+                    $(this).parent().parent().remove();
+                });
+            });
+        </script>
+    @endpush
+@endonce

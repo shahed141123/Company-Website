@@ -12,6 +12,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Admin\DealSas;
 use App\Models\Admin\Product;
+use App\Models\Client\Client;
+use App\Models\Admin\RfqTerms;
 use App\Models\Partner\Partner;
 use Illuminate\Validation\Rule;
 use App\Models\Admin\RfqProduct;
@@ -27,9 +29,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\RFQNotificationAdminMail;
+use App\Mail\RFQNotificationClientMail;
 use App\Models\Admin\CommercialDocument;
-use App\Models\Admin\RfqTerms;
-use App\Models\Client\Client;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Notification;
 
@@ -178,17 +180,17 @@ class RFQController extends Controller
                 'link' => route('single-rfq.show', $rfq_code),
             ];
 
-            Mail::to($request->input('email'))->send(new RFQNotificationMail($data));
+            Mail::to($request->input('email'))->send(new RFQNotificationClientMail($data));
             if (!empty($user_emails)) {
                 foreach ($user_emails as $email) {
-                    Mail::to($email)->send(new RFQNotificationMail($data));
+                    Mail::to($email)->send(new RFQNotificationAdminMail($data));
                 }
 
                 // Extract the emails except the ones already sent to and use them as BCC
                 $bcc_emails = array_diff($user_emails, [$email]);
 
                 if (!empty($bcc_emails)) {
-                    Mail::bcc($bcc_emails)->send(new RFQNotificationMail($data));
+                    Mail::bcc($bcc_emails)->send(new RFQNotificationAdminMail($data));
                 }
             }
 

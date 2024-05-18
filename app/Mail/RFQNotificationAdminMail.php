@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class RFQNotificationClientMail extends Mailable
+class RFQNotificationAdminMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $data;
@@ -30,15 +30,15 @@ class RFQNotificationClientMail extends Mailable
 
      public function build()
     {
-        return $this->from('support@ngenit.com', 'NGEN-Sales')
-                    ->view('mail.rfqNotificationMail', ['data' => $this->data])
-                    ->subject('[NGEN IT-Sales] - Reply in response of your RFQ');
+        return $this->from('support@ngenit.com', 'NGEN-Business')
+                    ->view('mail.rfqNotificationAdminMail', ['data' => $this->data])
+                    ->subject('A RFQ has been received and need to reply.');
     }
 
     public function envelope()
     {
         return new Envelope(
-            subject: '[NGEN IT-Sales] - Reply in response of your RFQ',
+            subject: 'A RFQ has been received and need to reply',
         );
     }
 
