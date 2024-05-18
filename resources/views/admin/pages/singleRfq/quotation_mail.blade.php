@@ -542,15 +542,26 @@
                             </td>
                         </tr>
                     </table>
-                    <div class="d-flex justify-content-center align-items-center py-3">
-                        <button type="submit" class="btn navigation_btn"><i
-                                class="fa-solid fa-person-circle-check pe-2"></i> Submit for Approval</button>
-                        <button type="submit" class="btn navigation_btn"><i
-                                class="fa-regular fa-circle-check pe-2"></i>Send Quotation</button>
-                        <button type="submit" class="btn navigation_btn"><i
-                                class="fa-regular fa-circle-check pe-2"></i>Resend</button>
-                        <button type="submit" class="btn navigation_btn"><i
-                                class="fa-regular fa-circle-check pe-2"></i>Share On What's App</button>
+                    <div>
+                        <div class="d-flex justify-content-center align-items-center py-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value=""
+                                    id="flexCheckDefault" name="tax_vat">
+                                <label class="form-check-label text-danger" for="flexCheckDefault">
+                                    Send Quotation With Attachment
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center py-3 pt-0">
+                            <button type="submit" class="btn navigation_btn"><i
+                                    class="fa-solid fa-person-circle-check pe-2"></i> Submit for Approval</button>
+                            <button type="submit" class="btn navigation_btn"><i
+                                    class="fa-regular fa-circle-check pe-2"></i>Send Quotation</button>
+                            {{-- <button type="submit" class="btn navigation_btn"><i
+                                    class="fa-regular fa-circle-check pe-2"></i>Resend</button>
+                            <button type="submit" class="btn navigation_btn"><i
+                                    class="fa-regular fa-circle-check pe-2"></i>Share On What's App</button> --}}
+                        </div>
                     </div>
                 </form>
             </div>
