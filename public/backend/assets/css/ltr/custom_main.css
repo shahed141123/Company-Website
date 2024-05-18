@@ -1804,10 +1804,12 @@ ul.row-sm {
 
 /*== Quotation bypass== */
 .rfqcalculationinput{
-    font-size: 10px;
-    font-family: 'Poppins',
-    sans-serif;
-    color: #3d3d3d;
+
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    color: #000000;
     padding: 0px !important;
 }
 /*== Quotation bypass== */

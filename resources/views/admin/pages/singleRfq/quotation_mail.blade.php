@@ -619,60 +619,60 @@
                                     </td>
                                     <td>1</td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
                                             value="OPC UA Tunneller (UA+DA+HDA+A&E)" style="">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
-                                            value="Tk.537,210">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
-                                            value="Tk.537,210">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
-                                            value="Tk.537,210">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
-                                            value="Tk.537,210">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
-                                            value="Tk.537,210">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
-                                            value="Tk.537,210">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
-                                            value="Tk.537,210">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
-                                            value="Tk.537,210">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
-                                            value="Tk.537,210">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
-                                            value="Tk.537,210">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
-                                            value="Tk.537,210">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
-                                            value="Tk.537,210">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td class="text-center"><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start rfqcalculationinput"
-                                            value="Tk.537,210">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                 </tr>
                             </tbody>
@@ -680,285 +680,244 @@
                                 <tr class="">
                                     <td>-</td>
                                     <td>-</td>
-                                    <td>
+                                    <td class="fs-6 text-black">
                                         Remittance
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td class="text-center">
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td colspan="2" class="text-center">
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td class="text-center"><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                 </tr>
                                 <tr class="">
                                     <td>-</td>
                                     <td>-</td>
-                                    <td>
+                                    <td class="fs-6 text-black">
                                         Packing Charge
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td class="text-center">
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td colspan="2" class="text-center">
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td class="text-center"><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                 </tr>
                                 <tr class="">
                                     <td>-</td>
                                     <td>-</td>
-                                    <td>
+                                    <td class="fs-6 text-black">
                                         Customs / CnF
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td class="text-center">
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td colspan="2" class="text-center">
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td class="text-center"><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                 </tr>
                                 <tr class="">
                                     <td>-</td>
                                     <td>-</td>
-                                    <td>
+                                    <td class="fs-6 text-black">
                                         Freight / Logistics
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                     <td><input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td class="text-center">
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
-                                    <td colspan="2" class="text-center">
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-start"
-                                            value="Remitance">
+                                    <td class="text-center"><input type="text"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0">
                                     </td>
                                 </tr>
                             </tbody>
                             <tfoot>
-                                <tr>
+                                <tr class="text-black" style="font-size: 13px;">
                                     <th class="text-center pe-3" colspan="6"
-                                        style="background-color: #A6A6A6; color: #fff">
+                                        style="font-size: 20px;background-color: #A6A6A6; color: #fff">
                                         Total:</th>
                                     <th class="text-end pe-3" style="background-color: #A6A6A6; color: #fff">
                                         Tk. 1,510,340</th>
