@@ -1031,11 +1031,24 @@
                                     </div>
                                     <div class="tab-pane fade show active border-0 text-center" id="tab3"
                                         role="tabpanel" aria-labelledby="tab3-tab">
-                                        <div class="card mt-5">
+                                        <div class="card mt-4 w-50 mx-auto">
+                                            <div class="card-header border-0 rounded-0 bg-transparent p-0">
+                                                <img class="img-fluid" width="300px" src="https://i.ibb.co/GTfWfMB/quotation-marks-11721-removebg-preview.png" alt="">
+                                            </div>
                                             <div class="card-body">
+                                                <div>
+                                                    <h3>Exploring Direct Quotations in Textual Analysis</h3>
+                                                    <p>Delve into the power of direct quotations in textual analysis with
+                                                        this insightful guide. Learn how to navigate and extract meaning
+                                                        from direct quotes, uncovering the nuances and depths of language
+                                                        within various contexts. Whether you're a student, researcher, or
+                                                        enthusiast, this resource offers valuable strategies and techniques
+                                                        for harnessing the richness of direct quotations to enhance your
+                                                        understanding and interpretation of text.</p>
+                                                </div>
                                                 <a href="{{ route('single-rfq.quoation_mail', $rfq_details->rfq_code) }}"
-                                                    target="_blank" class="text-center main_color fw-bolder">Go to Direct
-                                                    Quotation</a>
+                                                    target="_blank" class="text-center main_color fw-bolder py-3">Go to Direct
+                                                    Quotation <i class="fa-solid fa-arrow-right ps-2"></i></a>
                                             </div>
                                         </div>
                                     </div>
