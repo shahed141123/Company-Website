@@ -9,6 +9,7 @@ use App\Models\Admin\DealSas;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use App\Models\Admin\CommercialDocument;
+use App\Models\Admin\Region;
 
 class RFQManageController extends Controller
 {
@@ -47,6 +48,7 @@ class RFQManageController extends Controller
             $query->whereJsonContains('department', 'business');
         })->select('id', 'name')->orderBy('id', 'DESC')->get();
         $data['rfq_details'] = Rfq::with('rfqProducts')->where('rfq_code',$id)->first();
+        $data['regions'] = Region::with('countries')->latest()->get();
         $data['deal_products'] = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->get();
         $data['commercial_document'] = CommercialDocument::where('rfq_id', $data['rfq_details']->id)->first();
         //dd($data['rfq_details']->rfq_code);

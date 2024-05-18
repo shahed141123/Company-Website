@@ -14,4 +14,9 @@ class Region extends Model
      * @var array
      */
     protected $guarded = [];
+
+    public function countries() {
+        return $this->hasMany(Country::class);
+
+    }
 }

@@ -59,6 +59,7 @@ class CountryController extends Controller
                 'region_id'  => $request->region_id,
                 'country_name' => $request->country_name,
                 'country_slug' => Str::slug($request->country_name),
+                'country_code' => $request->country_code,
                 'locale'       => $request->locale,
             ]);
             Toastr::success('Data Insert Successfully');
@@ -117,8 +118,9 @@ class CountryController extends Controller
 
         if ($validator->passes()) {
             Country::find($id)->update([
-                'region_id'  => $request->region_id,
+                'region_id'    => $request->region_id,
                 'country_name' => $request->country_name,
+                'country_code' => $request->country_code,
                 'locale'       => $request->locale,
             ]);
             Toastr::success('Data Insert Successfully');

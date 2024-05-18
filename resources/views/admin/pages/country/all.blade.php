@@ -30,7 +30,7 @@
         </div>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-lg-5 col-sm-12">
                     {{-- First Table Start --}}
                     <div>
                         <!-- /page header -->
@@ -89,33 +89,41 @@
                                                                             data-bs-dismiss="modal"></button>
                                                                     </div>
                                                                     <div class="modal-body p-0 px-2">
-                                                                        <form method="post"
-                                                                            action="{{ route('region.update', $region->id) }}"
-                                                                            enctype="multipart/form-data">
-                                                                            @csrf
-                                                                            @method('PUT')
-                                                                            <div class="row my-2 d-flex align-items-center">
-                                                                                <div class="col-sm-4">
-                                                                                    <span>Region Name :</span>
-                                                                                </div>
-                                                                                <div class="col-sm-8 text-secondary">
-                                                                                    <input type="text" name="region_name"
-                                                                                        class="form-control form-control-sm"
-                                                                                        value="{{ $region->region_name }}"
-                                                                                        maxlength="100" />
-                                                                                </div>
+                                                                        <div class="card">
+                                                                            <div class="card-body">
+                                                                                <form method="post"
+                                                                                    action="{{ route('region.update', $region->id) }}"
+                                                                                    enctype="multipart/form-data">
+                                                                                    @csrf
+                                                                                    @method('PUT')
+                                                                                    <div
+                                                                                        class="row my-2 d-flex align-items-center">
+                                                                                        <div class="col-sm-4">
+                                                                                            <span>Region Name :</span>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="col-sm-8 text-secondary">
+                                                                                            <input type="text"
+                                                                                                name="region_name"
+                                                                                                class="form-control form-control-sm"
+                                                                                                value="{{ $region->region_name }}"
+                                                                                                maxlength="100" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row my-2">
+                                                                                        <div
+                                                                                            class="col-sm-12 text-secondary d-flex justify-content-end mb-2">
+                                                                                            <button type="submit"
+                                                                                                class="submit_btn from-prevent-multiple-submits"
+                                                                                                style="padding: 4px 9px;">Add
+                                                                                                Region
+                                                                                                &nbsp;<i
+                                                                                                    class="icon-paperplane ml-2"></i></button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
                                                                             </div>
-                                                                            <div class="row my-2">
-                                                                                <div
-                                                                                    class="col-sm-12 text-secondary d-flex justify-content-end mb-2">
-                                                                                    <button type="submit"
-                                                                                        class="submit_btn from-prevent-multiple-submits"
-                                                                                        style="padding: 4px 9px;">Add Region
-                                                                                        &nbsp;<i
-                                                                                            class="icon-paperplane ml-2"></i></button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </form>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -134,7 +142,7 @@
                             <div class="modal-dialog modal-dialog-centered modal-sm">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h6 class="modal-title text-white">Add Rigion</h6>
+                                        <h6 class="modal-title text-white">Add Region</h6>
                                         <a type="button" data-bs-dismiss="modal">
                                             <i class="ph ph-x text-white" style="font-weight: 800;font-size: 10px;"></i>
                                         </a>
@@ -169,7 +177,7 @@
                     </div>
                     {{-- First Table End --}}
                 </div>
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-lg-7 col-sm-12">
                     {{-- Second Table Start --}}
                     <div>
                         <!-- /page header -->
@@ -197,10 +205,11 @@
                                 <table class="table coutryRegionDT table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
-                                            <th>Id</th>
-                                            <th>Region Name</th>
-                                            <th>Country Name</th>
-                                            <th class="text-center">Actions</th>
+                                            <th width="7%" class="text-center">Id</th>
+                                            <th width="35%" class="text-center">Region Name</th>
+                                            <th width="27%" class="text-center">Country Name</th>
+                                            <th width="20%" class="text-center">Code</th>
+                                            <th width="13%" class="text-center">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -211,6 +220,7 @@
                                                     <td>{{ App\Models\Admin\Region::where('id', $country->region_id)->value('region_name') }}
                                                     </td>
                                                     <td>{{ $country->country_name }}</td>
+                                                    <td>{{ $country->country_code }}</td>
                                                     <td>
                                                         <a href="" class="text-primary" data-bs-toggle="modal"
                                                             data-bs-target="#country-{{ $country->id }}">
@@ -225,28 +235,31 @@
                                                         <!---Region Update modal--->
                                                         <div id="country-{{ $country->id }}" class="modal fade"
                                                             tabindex="-1" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered modal-sm">
+                                                            <div class="modal-dialog modal-dialog-centered">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
                                                                         <h5 class="modal-title">Edit Country</h5>
                                                                         <button type="button" class="btn-close"
                                                                             data-bs-dismiss="modal"></button>
                                                                     </div>
-                                                                    <div class="modal-body p-0 px-2">
+                                                                    <div class="modal-body">
                                                                         <form method="post"
-                                                                            action="{{ route('country.store') }}">
+                                                                            action="{{ route('country.update',$country->id) }}">
                                                                             @csrf
+                                                                            @method('PUT')
                                                                             <div class="row my-2">
                                                                                 <div class="col-sm-4">
                                                                                     <span>Region Name </span>
                                                                                 </div>
-                                                                                <div
-                                                                                    class="form-group col-sm-8 text-secondary">
-                                                                                    <input type="text"
-                                                                                        value="{{ $country->region_name }}"
-                                                                                        name="region_name"
-                                                                                        class="form-control form-control-sm"
-                                                                                        maxlength="100" />
+                                                                                <div class="form-group col-sm-8 text-secondary">
+                                                                                    <select name="region_id" class="form-control form-control-sm select"
+                                                                                        data-placeholder="Choose Region name">
+                                                                                        <option></option>
+                                                                                        @foreach ($regions as $region)
+                                                                                            <option value="{{ $region->id }}" @selected($region->id == $country->region_id)>
+                                                                                                {{ $region->region_name }}</option>
+                                                                                        @endforeach
+                                                                                    </select>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row mb-2">
@@ -258,6 +271,19 @@
                                                                                     <input type="text"
                                                                                         value="{{ $country->country_name }}"
                                                                                         name="country_name"
+                                                                                        class="form-control form-control-sm"
+                                                                                        maxlength="100" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row mb-2">
+                                                                                <div class="col-sm-4">
+                                                                                    <span>Country Code </span>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="form-group col-sm-8 text-secondary">
+                                                                                    <input type="text"
+                                                                                        value="{{ $country->country_code }}"
+                                                                                        name="country_code"
                                                                                         class="form-control form-control-sm"
                                                                                         maxlength="100" />
                                                                                 </div>
@@ -320,6 +346,15 @@
                                                 </div>
                                                 <div class="form-group col-sm-8 text-secondary">
                                                     <input type="text" name="country_name"
+                                                        class="form-control form-control-sm" maxlength="100" />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-sm-4">
+                                                    <span>Country Code </span>
+                                                </div>
+                                                <div class="form-group col-sm-8 text-secondary">
+                                                    <input type="text" name="country_code"
                                                         class="form-control form-control-sm" maxlength="100" />
                                                 </div>
                                             </div>
