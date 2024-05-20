@@ -47,8 +47,8 @@
                                         <tbody>
                                             <tr>
                                                 <td width="15%">
-                                                    <select class="form-control select" id="" name="region" data-allow-clear="true"
-                                                        data-placeholder="Select Region">
+                                                    <select class="form-control select" id="" name="region"
+                                                        data-allow-clear="true" data-placeholder="Select Region">
                                                         <option></option>
                                                         @foreach ($regions as $region)
                                                             <option value="{{ $region->id }}">
@@ -59,8 +59,6 @@
 
                                             </tr>
                                             <tr class="">
-
-
                                                 <td>
                                                     <select class="form-select" id="" name="currency">
                                                         <option value="taka" selected>Taka (Tk)</option>
@@ -113,7 +111,7 @@
                                                     </div>
                                                 </td>
                                                 <td><input type="number"
-                                                        class="form-control form-control-sm form-setting border"
+                                                        class="form-control form-control-sm form-setting border partner_discount_percentage"
                                                         name="partner_discount_percentage" placeholder="Partner Discount">
                                                 </td>
                                             </tr>
@@ -189,38 +187,78 @@
 
         <script>
             function addRfqCalculationTableRow() {
-                const table = document.querySelector('.table_bottom_area');
-                const rowCount = table.rows.length + 1;
-                const row = table.insertRow();
+                // Get the table body where new rows will be added
+                const tableBody = document.querySelector('#myTable tbody.table_bottom_area');
 
-                const cell0 = row.insertCell(0);
-                cell0.innerHTML =
-                    '<button class="border-0 p-0 text-danger bg-transparent" onclick="deleteRow(this)" title="Delete Row"><i class="fa-regular fa-trash-can"></i></button>';
+                // Create a new row element
+                const newRow = document.createElement('tr');
+                newRow.classList.add('thd');
 
-                const cell1 = row.insertCell(1);
-                cell1.innerText = rowCount;
+                // Create the inner HTML for the new row
+                newRow.innerHTML = `
+        <td>
+            <a class="border-0 p-0 text-danger bg-transparent" onclick="deleteRfqCalculationRow(this)" title="Delete Row"><i class="fa-regular fa-trash-can"></i></a>
+        </td>
+        <td></td>
+        <td><input type="text" name="product_name[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="" style=""></td>
+        <td><input type="text" name="qty[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value=""></td>
+        <td><input type="text" name="principal_cost[]" class="form-control form-control-sm bg-transparent rfqcalculationinput principal_cost" value="0"></td>
+        <td><input type="text" name="year[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="1"></td>
+        <td><input type="text" name="principal_discount_amount[]" class="form-control form-control-sm bg-transparent rfqcalculationinput principal_discount_amount" value="0"></td>
+        <td><input type="text" name="principal_unit_total_amount_taka[]" class="form-control form-control-sm bg-transparent rfqcalculationinput principal_unit_total_amount_taka" value="0"></td>
+        <td><input type="text" name="unit_office_cost[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
+        <td><input type="text" name="unit_profit[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
+        <td><input type="text" name="unit_others_cost[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
+        <td><input type="text" name="unit_subtotal[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
+        <td><input type="text" name="unit_tax_vat[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
+        <td><input type="text" name="unit_eu_price[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
+        <td><input type="text" name="unit_partner_discount[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
+        <td class="text-center"><input type="text" name="unit_partner_price[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
+    `;
 
-                const cell2 = row.insertCell(2);
-                cell2.innerHTML =
-                    '<input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="OPC UA Tunneller (UA+DA+HDA+A&E)">';
+                // Append the new row to the table body
+                tableBody.appendChild(newRow);
 
-                for (let i = 3; i <= 15; i++) {
-                    const cell = row.insertCell(i);
-                    cell.innerHTML =
-                        '<input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">';
-                }
+                // Update the serial numbers
+                updateSerialNumbers();
             }
 
-            function deleteRfqCalculationRow(button) {
-                const row = button.closest('tr');
+            function deleteRfqCalculationRow(element) {
+                // Find the row to delete
+                const row = element.closest('tr');
+
+                // Remove the row from the table
                 row.remove();
 
-                const table = document.querySelector('.table_bottom_area');
-                const rows = table.rows;
-                for (let i = 0; i < rows.length; i++) {
-                    rows[i].cells[1].innerText = i + 1;
-                }
+                // Update the serial numbers
+                updateSerialNumbers();
             }
+
+            function updateSerialNumbers() {
+                // Get all the rows in the table body
+                const rows = document.querySelectorAll('#myTable tbody.table_bottom_area tr.thd');
+
+                // Update the serial number for each row
+                rows.forEach((row, index) => {
+                    row.querySelector('td:nth-child(2)').textContent = index + 1;
+                });
+            }
+
+            // Example function to initialize event listeners on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                // Add event listener for adding new row
+                document.querySelector('.fa-plus').addEventListener('click', addRfqCalculationTableRow);
+
+                // Add event listener for deleting row on existing delete buttons
+                document.querySelectorAll('.fa-trash-can').forEach(button => {
+                    button.addEventListener('click', function() {
+                        deleteRfqCalculationRow(button);
+                    });
+                });
+
+                // Initialize serial numbers
+                updateSerialNumbers();
+            });
         </script>
         <script>
             function addRow() {
@@ -253,6 +291,11 @@
                     // alert(currency_rate);
                     var tax_vat_percentage = 0;
                     var principal_discount_percentage = 0;
+                    if (currency_rate > 0) {
+                        currency_rate = currency_rate;
+                    } else {
+                        currency_rate = 1;
+                    }
                     var office_cost_percentage = $("input[name='office_cost_percentage']").val();
                     var profit_percentage = $("input[name='profit_percentage']").val();
                     var others_cost_percentage = $("input[name='others_cost_percentage']").val();
@@ -273,6 +316,15 @@
                         $("input.partner_discount_percentage").val(inputValue);
                         var partner_discount_percentage = inputValue;
                     }
+                    var principal_total_amount_taka = 0;
+                    var total_office_cost = 0;
+                    var total_profit = 0;
+                    var total_others_cost = 0;
+                    var total_subtotal = 0;
+                    var total_tax_vat = 0;
+                    var total_eu_price = 0;
+                    var total_partner_discount = 0;
+                    var total_partner_price = 0;
 
                     $("tr.thd").each(function() {
                         // get the values from this row:
@@ -280,6 +332,11 @@
                         var qty = $("input[name='qty[]']", this).val();
                         var year = $("input[name='year[]']", this).val();
 
+                        // if (inputName == 'unit_partner_discount[]') {
+                        //     var partner_discount_percentage = $("input[name='unit_partner_discount[]']",this).val();
+                        // } else {
+                        //     var partner_discount_percentage = partner_discount_percentage;
+                        // }
                         var unit_cost_total = (qty * 1) * (principal_cost * 1);
                         var principal_discount_amount = unit_cost_total * (
                             principal_discount_percentage / 100);
@@ -292,15 +349,201 @@
                         var others_cost = principal_unit_total_amount_taka * (others_cost_percentage /
                             100);
 
+                        var unit_subtotal = principal_unit_total_amount_taka + office_cost + profit +
+                            others_cost;
+                        var unit_tax_vat = unit_subtotal * (tax_vat_percentage / 100);
+
+                        var unit_eu_price = unit_subtotal + unit_tax_vat;
+
+                        if (partner_discount_percentage != null) {
+                            var unit_partner_price = unit_eu_price - (unit_eu_price * (
+                                partner_discount_percentage / 100));
+                        } else {
+                            var unit_partner_price = unit_eu_price;
+                        }
+
                         $(this).find(".principal_discount_amount").val(parseFloat(
                             principal_discount_amount).toFixed(2));
                         $(this).find(".principal_unit_total_amount_taka").val(parseFloat(
                             principal_unit_total_amount_taka).toFixed(2));
 
-                        // Uncomment and complete other calculations if needed
-                        // var unit_sales_price = unit_cost_total - principal_discount_amount;
-                        // $(this).find("input[name='discounted_sales[]']").val(unit_sales_price.toFixed(2));
+
+                        // total_qty += isNaN(qty) ? 0 : qty;
+
+                        principal_total_amount_taka += isNaN(principal_unit_total_amount_taka) ? 0 :
+                            principal_unit_total_amount_taka;
+                        total_office_cost += isNaN(office_cost) ? 0 : office_cost;
+                        total_profit += isNaN(profit) ? 0 : profit;
+                        total_others_cost += isNaN(others_cost) ? 0 : others_cost;
+                        total_subtotal += isNaN(unit_subtotal) ? 0 : unit_subtotal;
+                        total_tax_vat += isNaN(unit_tax_vat) ? 0 : unit_tax_vat;
+                        total_eu_price += isNaN(unit_eu_price) ? 0 : unit_eu_price;
+                        total_partner_discount += isNaN(partner_discount_percentage) ? 0 :
+                            partner_discount_percentage;
+                        total_partner_price += isNaN(unit_partner_price) ? 0 : unit_partner_price;
+
+
+
+                        $("input[name='unit_office_cost[]']", this).val(parseFloat(office_cost).toFixed(
+                            2));
+                        $("input[name='unit_profit[]']", this).val(parseFloat(profit).toFixed(2));
+                        $("input[name='unit_others_cost[]']", this).val(parseFloat(others_cost).toFixed(
+                            2));
+                        $("input[name='unit_subtotal[]']", this).val(parseFloat(unit_subtotal).toFixed(
+                            2));
+                        $("input[name='unit_tax_vat[]']", this).val(parseFloat(unit_tax_vat).toFixed(
+                            2));
+                        $("input[name='unit_eu_price[]']", this).val(parseFloat(unit_eu_price).toFixed(
+                            2));
+                        $("input[name='unit_partner_discount[]']").val(partner_discount_percentage);
+                        $("input[name='unit_partner_price[]']", this).val(parseFloat(unit_partner_price)
+                            .toFixed(2));
                     });
+
+                    var principal_total_amount_taka = parseFloat(principal_total_amount_taka).toFixed(2);
+                    var total_office_cost = parseFloat(total_office_cost).toFixed(2);
+                    var total_profit = parseFloat(total_profit).toFixed(2);
+                    var total_others_cost = parseFloat(total_others_cost).toFixed(2);
+                    var total_subtotal = parseFloat(total_subtotal).toFixed(2);
+                    var total_tax_vat = parseFloat(total_tax_vat).toFixed(2);
+                    var total_eu_price = parseFloat(total_eu_price).toFixed(2);
+                    var total_partner_discount = parseFloat(total_partner_discount).toFixed(2);
+                    var total_partner_price = parseFloat(total_partner_price).toFixed(2);
+
+                    var remittence_qty = $("input[name='remittence_qty']").val();
+                    var packing_charge_qty = $("input[name='packing_charge_qty']").val();
+                    var custom_qty = $("input[name='custom_qty']").val();
+                    var freight_qty = $("input[name='freight_qty']").val();
+
+                    var remittence_year = $("input[name='remittence_year']").val();
+                    var packing_charge_year = $("input[name='packing_charge_year']").val();
+                    var custom_year = $("input[name='custom_year']").val();
+                    var freight_year = $("input[name='freight_year']").val();
+
+                    var remittence_principal_cost = $("input[name='remittence_principal_cost']").val();
+                    var packing_charge_principal_cost = $("input[name='packing_charge_principal_cost']").val();
+                    var custom_principal_cost = $("input[name='custom_principal_cost']").val();
+                    var freight_principal_cost = $("input[name='freight_principal_cost']").val();
+
+                    var remittence_principal_unit_total_amount_taka = parseFloat(remittence_principal_cost *
+                        remittence_qty * remittence_year * currency_rate).toFixed(2);
+
+                    var packing_charge_principal_unit_total_amount_taka = parseFloat(
+                            packing_charge_principal_cost * packing_charge_qty * packing_charge_year * currency_rate)
+                        .toFixed(2);
+
+                    var custom_principal_unit_total_amount_taka = parseFloat(custom_principal_cost * custom_qty *
+                        custom_year * currency_rate).toFixed(2);
+
+                    var freight_principal_unit_total_amount_taka = parseFloat(freight_principal_cost *
+                        freight_qty * freight_year * currency_rate).toFixed(2);
+
+
+
+
+                    var remittence_unit_office_cost = parseFloat(remittence_principal_unit_total_amount_taka * (
+                        office_cost_percentage / 100)).toFixed(2);
+                    var remittence_unit_profit = parseFloat(remittence_principal_unit_total_amount_taka * (
+                        profit_percentage / 100)).toFixed(2);
+                    var remittence_unit_others_cost = parseFloat(remittence_principal_unit_total_amount_taka * (
+                        others_cost_percentage / 100)).toFixed(2);
+
+                    var remittence_unit_subtotal = parseFloat(remittence_principal_unit_total_amount_taka + remittence_unit_office_cost + remittence_unit_profit + remittence_unit_others_cost).toFixed(2);
+                    var remittence_unit_partner_price = parseFloat(remittence_unit_subtotal - (remittence_unit_subtotal * (partner_discount_percentage / 100))).toFixed(2);
+
+                    // alert(remittence_principal_unit_total_amount_taka + remittence_unit_office_cost + remittence_unit_profit + remittence_unit_others_cost);
+
+                    var packing_charge_unit_office_cost = parseFloat(packing_charge_principal_unit_total_amount_taka * (
+                        office_cost_percentage / 100)).toFixed(2);
+                    var packing_charge_unit_profit = parseFloat(packing_charge_principal_unit_total_amount_taka * (
+                        profit_percentage / 100)).toFixed(2);
+                    var packing_charge_unit_others_cost = parseFloat(packing_charge_principal_unit_total_amount_taka * (
+                        others_cost_percentage / 100)).toFixed(2);
+
+                    var packing_charge_unit_subtotal = parseFloat(packing_charge_principal_unit_total_amount_taka + packing_charge_unit_office_cost + packing_charge_unit_profit + packing_charge_unit_others_cost).toFixed(2);
+                    var packing_charge_unit_partner_price = parseFloat(packing_charge_unit_subtotal - (packing_charge_unit_subtotal * (partner_discount_percentage / 100))).toFixed(2);
+
+                    var custom_unit_office_cost = parseFloat(custom_principal_unit_total_amount_taka * (
+                        office_cost_percentage / 100)).toFixed(2);
+                    var custom_unit_profit = parseFloat(custom_principal_unit_total_amount_taka * (profit_percentage / 100)).toFixed(2);
+                    var custom_unit_others_cost = parseFloat(custom_principal_unit_total_amount_taka * (
+                        others_cost_percentage / 100)).toFixed(2);
+
+                    var custom_unit_subtotal = parseFloat(parseFloat(custom_principal_unit_total_amount_taka) + parseFloat(custom_unit_office_cost) + parseFloat(custom_unit_profit) + parseFloat(custom_unit_others_cost)).toFixed(2);
+                    var custom_unit_partner_price = parseFloat(custom_unit_subtotal - (custom_unit_subtotal * (partner_discount_percentage / 100))).toFixed(2);
+
+                    var freight_unit_office_cost = parseFloat(freight_principal_unit_total_amount_taka * (
+                        office_cost_percentage / 100)).toFixed(2);
+                    var freight_unit_profit = parseFloat(freight_principal_unit_total_amount_taka * (profit_percentage / 100)).toFixed(2);
+                    var freight_unit_others_cost = parseFloat(freight_principal_unit_total_amount_taka * (
+                        others_cost_percentage / 100)).toFixed(2);
+
+                    var freight_unit_subtotal = parseFloat(parseFloat(freight_principal_unit_total_amount_taka) + parseFloat(freight_unit_office_cost) + parseFloat(freight_unit_profit) + parseFloat(freight_unit_others_cost)).toFixed(2);
+                    var freight_unit_partner_price = parseFloat(freight_unit_subtotal - (freight_unit_subtotal * (partner_discount_percentage / 100))).toFixed(2);
+
+                    $("input[name='remittence_principal_unit_total_amount_taka']").val(
+                        remittence_principal_unit_total_amount_taka);
+                    $("input[name='packing_charge_principal_unit_total_amount_taka']").val(
+                        packing_charge_principal_unit_total_amount_taka);
+                    $("input[name='custom_principal_unit_total_amount_taka']").val(
+                        custom_principal_unit_total_amount_taka);
+                    $("input[name='freight_principal_unit_total_amount_taka']").val(
+                        freight_principal_unit_total_amount_taka);
+
+                    $("input[name='remittence_unit_office_cost']").val(
+                        remittence_unit_office_cost);
+                    $("input[name='remittence_unit_profit']").val(
+                        remittence_unit_profit);
+                    $("input[name='remittence_unit_others_cost']").val(
+                        remittence_unit_others_cost);
+                    $("input[name='packing_charge_unit_office_cost']").val(
+                        packing_charge_unit_office_cost);
+                    $("input[name='packing_charge_unit_profit']").val(
+                        packing_charge_unit_profit);
+                    $("input[name='packing_charge_unit_others_cost']").val(
+                        packing_charge_unit_others_cost);
+                    $("input[name='custom_unit_office_cost']").val(
+                        custom_unit_office_cost);
+                    $("input[name='custom_unit_profit']").val(
+                        custom_unit_profit);
+                    $("input[name='custom_unit_others_cost']").val(
+                        custom_unit_others_cost);
+                    $("input[name='freight_unit_office_cost']").val(
+                        freight_unit_office_cost);
+                    $("input[name='freight_unit_profit']").val(
+                        freight_unit_profit);
+                    $("input[name='freight_unit_others_cost']").val(
+                        freight_unit_others_cost);
+
+                    $("input[name='remittence_unit_subtotal']").val(
+                        remittence_unit_subtotal);
+                    $("input[name='packing_charge_unit_subtotal']").val(
+                        packing_charge_unit_subtotal);
+                    $("input[name='custom_unit_subtotal']").val(
+                        custom_unit_subtotal);
+                    $("input[name='freight_unit_subtotal']").val(
+                        freight_unit_subtotal);
+
+                    $("input[name='remittence_unit_partner_price']").val(
+                        remittence_unit_partner_price);
+                    $("input[name='packing_charge_unit_partner_price']").val(
+                        packing_charge_unit_partner_price);
+                    $("input[name='custom_unit_partner_price']").val(
+                        custom_unit_partner_price);
+                    $("input[name='freight_unit_partner_price']").val(
+                        freight_unit_partner_price);
+
+
+
+                    $("input[name='principal_total_amount_taka']").val(principal_total_amount_taka);
+                    $("input[name='total_office_cost']").val(total_office_cost);
+                    $("input[name='total_profit']").val(total_profit);
+                    $("input[name='total_others_cost']").val(total_others_cost);
+                    $("input[name='total_subtotal']").val(total_subtotal);
+                    $("input[name='total_tax_vat']").val(total_tax_vat);
+                    $("input[name='total_eu_price']").val(total_eu_price);
+                    $("input[name='total_partner_discount']").val(total_partner_discount);
+                    $("input[name='total_partner_price']").val(total_partner_price);
 
                     // For debugging
                     console.log("Input Name:", inputName, "Input Value:", inputValue);

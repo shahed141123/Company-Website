@@ -107,8 +107,8 @@
                                 <tr
                                     style="background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee;font-size: 13px;">
                                     <th style="text-align: center;padding: 0.5rem;font-weight: 400;">
-                                        <button class="btn btn-primary rounded-0" onclick="addRow()"><i
-                                                class="fa-solid fa-plus"></i></button>
+                                        <a class="btn btn-primary rounded-0" onclick="addRow()"><i
+                                                class="fa-solid fa-plus"></i></a>
                                     </th>
                                     <th style="text-align: center;padding: 0.5rem;font-weight: 400;">
                                         SL</th>
@@ -123,7 +123,34 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr
+                                @foreach ($rfq_details->rfqProducts as $product)
+                                    <tr class="text-center">
+                                        <td>
+                                            <a class="btn btn-danger rounded-0"
+                                                onclick="deleteRow(this)" title="Add List Items"><i
+                                                    class="fa-regular fa-trash-can"></i></a>
+                                        </td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td><input type="text" name="product_name[]"
+                                                class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                                value="{{ $product->product_name }}" style="">
+                                        </td>
+                                        <td><input type="text" name="qty[]"
+                                                class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                                value="{{ $product->qty }}">
+                                        </td>
+                                        <td><input type="text" name="principal_cost[]"
+                                                class="form-control form-control-sm bg-transparent rfqcalculationinput principal_cost"
+                                                value="0">
+                                        </td>
+
+                                        <td class="text-center"><input type="text" name="unit_partner_price[]"
+                                                class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                                value="0">
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                {{-- <tr
                                     style="text-align: start;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                     <td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;">
                                         <button class="btn btn-danger rounded-0" onclick="deleteRow(this)"><i
@@ -154,7 +181,7 @@
                                             value="$100,174.20"
                                             style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                     </td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                         <!--  -->

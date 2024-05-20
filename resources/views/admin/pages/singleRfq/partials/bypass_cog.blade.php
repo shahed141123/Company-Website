@@ -9,9 +9,9 @@
                     </th>
                     <th width="3%" class="text-center">Sl </th>
                     <th width="14%" class="text-center">Item</th>
-                    <th width="6%" class="text-center">Qty</th>
+                    <th width="4%" class="text-center">Qty</th>
                     <th width="7%" class="text-center">Pr. Cost</th>
-                    <th width="6%" class="text-center">Year</th>
+                    <th width="3%" class="text-center">Year</th>
                     <th width="7%" class="text-center">Pr. Disc.</th>
                     <th width="7%" class="text-center">Total (In TK)</th>
                     <th width="6%" class="text-center">Office</th>
@@ -22,7 +22,7 @@
                     <th width="7%" class="text-center">Tax/Vat/GST
                     </th>
                     <th width="7%" rowspan="2" class="text-center">EU Price</th>
-                    <th width="7%" colspan="2" class="text-center">
+                    <th width="12%" colspan="2" class="text-center">
                         Partner Price
                     </th>
                 </tr>
@@ -127,43 +127,43 @@
                     <td class="text-black">
                         Remittance
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="remittence_qty" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                            value="1">
+                    </td>
+                    <td><input type="text" name="remittence_principal_cost" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="remittence_year" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                            value="1">
+                    </td>
+                    <td><input type="text" name="remittence_principal_discount_amount" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="remittence_principal_unit_total_amount_taka" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="remittence_unit_office_cost" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="remittence_unit_profit" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="remittence_unit_others_cost" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="remittence_unit_subtotal" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="remittence_unit_tax_vat" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="remittence_unit_eu_price" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="remittence_unit_partner_discount" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                            value="0">
-                    </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                            value="0">
-                    </td>
-                    <td class="text-center"><input type="text"
+                    <td class="text-center"><input type="text" name="remittence_unit_partner_price"
                             class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
                     </td>
                 </tr>
@@ -173,43 +173,43 @@
                     <td class="text-black">
                         Packing Charge
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="packing_charge_qty" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                            value="1">
+                    </td>
+                    <td><input type="text" name="packing_charge_principal_cost" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="packing_charge_year" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                            value="1">
+                    </td>
+                    <td><input type="text" name="packing_charge_principal_discount_amount" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="packing_charge_principal_unit_total_amount_taka" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="packing_charge_unit_office_cost" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="packing_charge_unit_profit" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="packing_charge_unit_others_cost" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="packing_charge_unit_subtotal" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="packing_charge_unit_tax_vat" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="packing_charge_unit_eu_price" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="packing_charge_unit_partner_discount" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                            value="0">
-                    </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                            value="0">
-                    </td>
-                    <td class="text-center"><input type="text"
+                    <td class="text-center"><input type="text"name="packing_charge_unit_partner_price"
                             class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
                     </td>
                 </tr>
@@ -219,43 +219,43 @@
                     <td class="text-black">
                         Customs / CnF
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="custom_qty" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                            value="1">
+                    </td>
+                    <td><input type="text" name="custom_principal_cost" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="custom_year" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                            value="1">
+                    </td>
+                    <td><input type="text" name="custom_principal_discount_amount" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="custom_principal_unit_total_amount_taka" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="custom_unit_office_cost" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="custom_unit_profit" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="custom_unit_others_cost" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="custom_unit_subtotal" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="custom_unit_tax_vat" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="custom_unit_eu_price" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="custom_unit_partner_discount" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                            value="0">
-                    </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                            value="0">
-                    </td>
-                    <td class="text-center"><input type="text"
+                    <td class="text-center"><input type="text" name="custom_unit_partner_price"
                             class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
                     </td>
                 </tr>
@@ -265,43 +265,43 @@
                     <td class="text-black">
                         Freight / Logistics
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="freight_qty" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                            value="1">
+                    </td>
+                    <td><input type="text" name="freight_principal_cost" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="freight_year" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                            value="1">
+                    </td>
+                    <td><input type="text" name="freight_principal_discount_amount" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="freight_principal_unit_total_amount_taka" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="freight_unit_office_cost" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="freight_unit_profit" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="freight_unit_others_cost" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="freight_unit_subtotal" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="freight_unit_tax_vat" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="freight_unit_eu_price" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                    <td><input type="text" name="freight_unit_partner_discount" class="form-control form-control-sm bg-transparent rfqcalculationinput"
                             value="0">
                     </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                            value="0">
-                    </td>
-                    <td><input type="text" class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                            value="0">
-                    </td>
-                    <td class="text-center"><input type="text"
+                    <td class="text-center"><input type="text" name="freight_unit_partner_price"
                             class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
                     </td>
                 </tr>
@@ -309,7 +309,55 @@
             <tfoot>
                 <tr class="text-black" style="font-size: 13px;">
                     <th class="text-center" colspan="7"
-                        style="font-size: 20px;background-color: #A6A6A6; color: #fff">
+                        style="font-size: 20px;background-color: #A6A6A6; color: #000">
+                        Sub Total:</th>
+                    <th class="text-center" style="background-color: #BFBFBF; color: #fff">
+                        <input type="text" name="principal_total_amount_taka"
+                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
+                    </th>
+                    <th class="text-center" style="background-color: #BFBFBF; color: #983c3c">
+                        <input type="text" name="total_office_cost"
+                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
+                    </th>
+                    <th class="text-center" style="background-color: #BFBFBF; color: #fff">
+                        <input type="text" name="total_profit"
+                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
+                    </th>
+                    <th class="text-center" style="background-color: #BFBFBF; color: #fff">
+                        <input type="text" name="total_others_cost"
+                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
+                    </th>
+                    <th class="text-center" style="background-color: #BFBFBF; color: #fff">
+                        <input type="text" name="total_subtotal"
+                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
+                    </th>
+                    <th class="text-center" style="background-color: #a9a9a9; color: #fff">
+                        <input type="text" name="total_tax_vat"
+                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
+                    </th>
+                    <th class="text-center" style="background-color: #a9a9a9; color: #fff">
+                        <input type="text" name="total_eu_price"
+                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
+                    </th>
+                    <th class="text-center text-center" style="background-color: #a9a9a9; color: #fff">
+                        <input type="text" name="total_partner_discount"
+                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
+                    </th>
+                    <th class="text-center text-center" colspan="2"
+                        style="background-color: #a9a9a9; color: #fff">
+                        <input type="text" name="total_partner_price"
+                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
+                    </th>
+                </tr>
+                <tr>
+
+                </tr>
+                <tr>
+
+                </tr>
+                <tr class="text-black" style="font-size: 13px;">
+                    <th class="text-center" colspan="7"
+                        style="font-size: 20px;background-color: #A6A6A6; color: #000">
                         Total:</th>
                     <th class="text-center" style="background-color: #BFBFBF; color: #fff">
                         <input type="text" name="principal_total_amount_taka"
@@ -331,20 +379,20 @@
                         <input type="text" name="total_subtotal"
                             class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
                     </th>
-                    <th class="text-center" style="background-color: #666666; color: #fff">
+                    <th class="text-center" style="background-color: #a9a9a9; color: #fff">
                         <input type="text" name="total_tax_vat"
                             class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
                     </th>
-                    <th class="text-center" style="background-color: #434343; color: #fff">
+                    <th class="text-center" style="background-color: #a9a9a9; color: #fff">
                         <input type="text" name="total_eu_price"
                             class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
                     </th>
-                    <th class="text-center text-center" style="background-color: #434343; color: #fff">
+                    <th class="text-center text-center" style="background-color: #a9a9a9; color: #fff">
                         <input type="text" name="total_partner_discount"
                             class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
                     </th>
                     <th class="text-center text-center" colspan="2"
-                        style="background-color: #434343; color: #fff">
+                        style="background-color: #a9a9a9; color: #fff">
                         <input type="text" name="total_partner_price"
                             class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0">
                     </th>
