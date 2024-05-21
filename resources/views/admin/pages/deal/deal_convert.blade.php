@@ -341,10 +341,10 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody class="repeater">
-                                                            @foreach ($rfq_products as $rfq_product)
+                                                            @foreach ($rfq->rfqProducts as $rfq_product)
                                                                 <tr>
                                                                     <td>
-                                                                       {{$loop->iteration()}}
+                                                                       {{$loop->iteration}}
                                                                 </td>
                                                                 <td>
                                                                     {{-- {{ $rfq_product->product_name }} --}}
@@ -358,12 +358,7 @@
                                                                             value="{{ $rfq_product->qty }}">
                                                                     </td>
                                                                     <td class="py-0 px-0 text-center">
-<<<<<<< HEAD
-                                                                        <input type="text"
-                                                                            class="form-control text-center"
-=======
                                                                         <input type="text" class="form-control text-center"
->>>>>>> 94e1302fce0fef8eb48673c510bab6578e54ae91
                                                                             name="unit_price[]">
                                                                     </td>
                                                                 </tr>

@@ -611,8 +611,8 @@ class RFQController extends Controller
         // $data['solution_details'] = SolutionDetail::select('solution_details.id', 'solution_details.name')->get();
         $data['clients']      = Client::where('user_type', 'client')->select('clients.id', 'clients.name')->get();
         $data['partners']     = Client::where('user_type', 'partner')->select('clients.id', 'clients.name')->get();
-        $data['rfq']          = Rfq::find($id);
-        $data['rfq_products'] = RfqProduct::where('rfq_id', $data['rfq']->id)->get();
+        $data['rfq']          = Rfq::with('rfqProducts')->find($id);
+        // $data['rfq_products'] = RfqProduct::where('rfq_id', $data['rfq']->id)->get();
         return view('admin.pages.deal.deal_convert', $data);
     }
 

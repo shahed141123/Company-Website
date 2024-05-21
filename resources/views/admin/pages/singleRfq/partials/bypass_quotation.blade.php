@@ -22,14 +22,14 @@
                                         </a>
                                     </td>
                                     <td style="border: 0">
-                                        <input type="text"
+                                        <input type="text" name="ngen_company_name"
                                             class="form-control form-control-sm bg-transparent text-end"
                                             value=" NGEN IT PTE. LTD."
                                             style="font-size: 1.125rem;font-weight: 600;margin-bottom: 0;color: #fff; padding: 0px 18px !important;">
 
-                                        <input type="text"
+                                        <input type="text" name="ngen_company_registration_number"
                                             class="form-control form-control-sm bg-transparent text-end"
-                                            value=" REG-NO: 20437861K"
+                                            value="REG-NO: 20437861K"
                                             style="font-size: 16px; margin-bottom: 3px; color: #eee; padding: 0px 18px !important;">
                                     </td>
                                 </tr>
@@ -46,24 +46,24 @@
                                     <td style="padding: 0rem 1.875rem; text-align: left">
                                         <div>
                                             <div style="padding-top: 1.25rem;padding-left: 0;">
-                                                <input type="text"
+                                                <input type="text" name="name"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value=" Kawsar Khan"
+                                                    value="{{$rfq_details->name}}"
                                                     style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
-                                                <input type="text"
-                                                    class="form-control form-control-sm bg-transparent" value=" Samsung"
+                                                <input type="text" name="company_name"
+                                                    class="form-control form-control-sm bg-transparent" value="{{$rfq_details->company_name}}"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                <input type="text"
+                                                <input type="text" name="email"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value=" khandker@gmail.com"
+                                                    value="{{$rfq_details->email}}"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                <input type="text"
+                                                <input type="text" name="phone"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value=" 01754348949"
+                                                    value="{{$rfq_details->phone}}"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                <input type="text"
+                                                <input type="text" name="address"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value=" Dhaka, Bangladesh"
+                                                    value="{{$rfq_details->address}}"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                             </div>
                                         </div>
@@ -84,10 +84,10 @@
                                                     value=" Date : 01 January 2024"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                                 <input type="text"
-                                                    class="form-control form-control-sm bg-transparent text-end"
-                                                    value=" PQ#: NG-BD/Genexis/RV/231021"
+                                                    class="form-control form-control-sm bg-transparent text-end text-black pq_code" name="pq_code"
+                                                    value="PQ#: NG-BD/Genexis/RV/231021"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                <input type="text"
+                                                <input type="text" name="pqr_code"
                                                     class="form-control form-control-sm bg-transparent text-end"
                                                     value=" PQR#: MEO-P021(T10)-W(L1)"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">

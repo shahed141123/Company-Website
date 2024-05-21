@@ -39,7 +39,6 @@
 
 {{-- Custom CSS --}}
 <link href="{{ asset('backend/assets/css/ltr/custom_main.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('backend/assets/css/oliullah.css') }}" rel="stylesheet">
 {{-- Custom CSS --}}
 
 <link rel="stylesheet" href="https://unpkg.com/c3/c3.min.css">

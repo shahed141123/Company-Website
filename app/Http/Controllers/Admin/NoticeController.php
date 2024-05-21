@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Helper;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Mail\NoticeMail;
 use Illuminate\Support\Str;
@@ -83,10 +84,10 @@ class NoticeController extends Controller
                 'title'              => $request->title,
                 'slug'               => $data['slug'],
                 'content'            => $request->content,
-                'publish_date'       => date('Y-m-d H: i: s', strtotime($request->publish_date)),
-                'expiry_date'        => date('Y-m-d H: i: s', strtotime($request->expiry_date)),
-                'start_date'         => date('Y-m-d H: i: s', strtotime($request->start_date)),
-                'end_date'           => date('Y-m-d H: i: s', strtotime($request->end_date)),
+                'publish_date'       => Carbon::parse($request->publish_date)->format('Y-m-d H:i:s'),
+                'expiry_date'        => Carbon::parse($request->expiry_date)->format('Y-m-d H:i:s'),
+                'start_date'         => Carbon::parse($request->start_date)->format('Y-m-d H:i:s'),
+                'end_date'           => Carbon::parse($request->end_date)->format('Y-m-d H:i:s'),
                 'department'         => $request->department,
                 'status'             => $request->status,
                 'department'         => $request->department,
@@ -188,10 +189,11 @@ class NoticeController extends Controller
                 'employee_id'        => $request->employee_id,
                 'title'              => $request->title,
                 'content'            => $request->content,
-                'publish_date'       => date('Y-m-d H: i: s', strtotime($request->publish_date)),
-                'expiry_date'        => date('Y-m-d H: i: s', strtotime($request->expiry_date)),
-                'start_date'         => date('Y-m-d H: i: s', strtotime($request->start_date)),
-                'end_date'           => date('Y-m-d H: i: s', strtotime($request->end_date)),
+                'publish_date'       => Carbon::parse($request->publish_date)->format('Y-m-d H:i:s'),
+                'expiry_date'        => Carbon::parse($request->expiry_date)->format('Y-m-d H:i:s'),
+                'start_date'         => Carbon::parse($request->start_date)->format('Y-m-d H:i:s'),
+                'end_date'           => Carbon::parse($request->end_date)->format('Y-m-d H:i:s'),
+
                 'department'         => $request->department,
                 'status'             => $request->status,
                 'department'         => $request->department,
