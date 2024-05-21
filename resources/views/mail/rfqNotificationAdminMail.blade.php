@@ -227,6 +227,29 @@
                             </table>
                         </div>
                         <!-- Main Content End -->
+                        <div style="overflow-x: auto">
+                            <table id="u_body"
+                                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
+                                cellpadding="0" cellspacing="0">
+                                <tbody style="min-width: 320px">
+
+                                    <tr>
+                                        <div style="text-align: left;padding: 15px;">
+                                            <p style="text-align: left; font-size: 18px; color: #141414;">
+                                                If you want to Bypass step by step Process. click here. <a href="{{route('single-rfq.quoation_mail', $data['rfq_code'])}}" style="color: #ae0a46; font-size:20px">Bypass Process</a>
+                                            </p>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div style="text-align: left;padding: 15px;">
+                                            <p style="text-align: left; font-size: 18px; color: #141414;">
+                                                If you want to go step by step Process. click here. <a href="{{route('single-rfq.show', $data['rfq_code'])}}" style="color: #ae0a46; font-size:20px">Details Process</a>
+                                            </p>
+                                        </div>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <!-- Column Area -->
                         <div style="overflow-x: auto">
                             <table id="u_body"

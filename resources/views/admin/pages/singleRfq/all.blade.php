@@ -1037,14 +1037,14 @@
                                             </div>
                                             <div class="card-body">
                                                 <div>
-                                                    <h3>Exploring Direct Quotations in Textual Analysis</h3>
-                                                    <p>Delve into the power of direct quotations in textual analysis with
+                                                    <h3>Exploring Direct Quotations without going step by step </h3>
+                                                    {{-- <p>Delve into the power of direct quotations in textual analysis with
                                                         this insightful guide. Learn how to navigate and extract meaning
                                                         from direct quotes, uncovering the nuances and depths of language
                                                         within various contexts. Whether you're a student, researcher, or
                                                         enthusiast, this resource offers valuable strategies and techniques
                                                         for harnessing the richness of direct quotations to enhance your
-                                                        understanding and interpretation of text.</p>
+                                                        understanding and interpretation of text.</p> --}}
                                                 </div>
                                                 <a href="{{ route('single-rfq.quoation_mail', $rfq_details->rfq_code) }}"
                                                     target="_blank" class="text-center main_color fw-bolder py-3">Go to Direct

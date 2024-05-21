@@ -303,7 +303,7 @@
                     table-layout: fixed;
                     border-spacing: 0;
                     vertical-align: top;
-                    min-width: 320px;
+                    min-width: 320px; 
                     margin: 0 auto;
                     width: 100%;
                   "

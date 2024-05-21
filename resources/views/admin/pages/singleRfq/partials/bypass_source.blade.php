@@ -1,54 +1,49 @@
 <div>
     <div class="table-responsive">
-        <table class="table table-borderd" style="font-size: 12px !important">
+        <table class="table table-bordered" style="font-size: 12px !important">
             <thead class="text-white" style="background-color: #800000 !important;">
                 <tr>
-                    <th>Sl #</th>
-                    <th>Item</th>
-                    <th>Source 1</th>
-                    <th>Price In BDT</th>
-                    <th>Source 2</th>
-                    <th>Price In BDT</th>
-                    <th>Source 3</th>
-                    <th>Price In BDT</th>
-                    <th>Source 4</th>
-                    <th>Price In BDT</th>
-                    <th>Action</th>
+                    <th width="5%">Sl #</th>
+                    <th width="25%">Item</th>
+                    <th width="20%">Source 1</th>
+                    <th width="15%">Source 1 Price</th>
+                    <th width="20%">Source 2</th>
+                    <th width="15%">Source 2 Price</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr class="">
-                    <td>1</td>
-                    <td>"Dell Latitude Rugged 5430 Laptop: 11th Gen.</td>
-                    <td>Hp Store</td>
-                    <td>12,305 TK</td>
-                    <td>Hp Store</td>
-                    <td>12,305 TK</td>
-                    <td>Hp Store</td>
-                    <td>12,305 TK</td>
-                    <td>Hp Store</td>
-                    <td>12,305 TK</td>
-                    <td>12,305 TK</td>
-                </tr>
+                @foreach ($rfq_details->rfqProducts as $rfqProduct)
+                    @php
+                        $sproduct = App\Models\Admin\Product::where('name', 'LIKE', '%' . $rfqProduct->product_name . '%')
+                            ->where('product_status', 'product')
+                            ->first(['id', 'name', 'source_one_price', 'source_two_price', 'source_one_name', 'source_two_name', 'source_one_link', 'source_two_link']);
+                    @endphp
+                    @if (!empty($sproduct))
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $sproduct->name }}</td>
+                            <td>
+                                <a href="{{ $sproduct->source_one_link }}" target="_blank" rel="noopener noreferrer">
+                                    {{ $sproduct->source_one_name }}
+                                </a>
+                            </td>
+                            <td>{{ $sproduct->source_one_price }}</td>
+                            <td>
+                                <a href="{{ $sproduct->source_two_link }}" target="_blank" rel="noopener noreferrer">
+                                    {{ $sproduct->source_two_name }}
+                                </a>
+                            </td>
+                            <td>{{ $sproduct->source_two_price }}</td>
+                        </tr>
+                    @else
+                        <tr class="text-center">
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $rfqProduct->product_name }}</td>
+                            <td colspan="4">Product is not in our website</td>
+                        </tr>
+                    @endif
+                @endforeach
             </tbody>
-            <tfoot class="table-group-divider" style="background-color: #BFBFBF !important;">
-                <tr class="">
-                    <td>1</td>
-                    <td>"Dell Latitude Rugged 5430 Laptop: 11th Gen.</td>
-                    <td>Hp Store</td>
-                    <td>12,305 TK</td>
-                    <td>Hp Store</td>
-                    <td>12,305 TK</td>
-                    <td>Hp Store</td>
-                    <td>12,305 TK</td>
-                    <td>Hp Store</td>
-                    <td>12,305 TK</td>
-                    <td>12,305 TK</td>
-                </tr>
-            </tfoot>
-            <tfoot>
-
-            </tfoot>
         </table>
     </div>
 </div>
