@@ -13,13 +13,12 @@
             }
 
 
-            .rfq-tabs-link,
-            .fa-gear {
+            .rfq-tabs-link{
                 font-size: 10px;
             }
 
             .fa-gear {
-                font-size: 10px !important;
+                font-size: 10.1px !important;
                 padding: 3px;
             }
 
