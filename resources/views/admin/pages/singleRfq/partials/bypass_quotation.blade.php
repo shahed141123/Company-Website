@@ -1,4 +1,4 @@
-<table cellpadding="0" cellspacing="0"
+<table cellpadding="0" cellspacing="0" class="qutatation-form"
     style="border-collapse: collapse;width: 100%;max-width: 750px;margin: 0 auto;background-color: #f4f4f4;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
     <tr>
         <td>

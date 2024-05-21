@@ -5,33 +5,93 @@
         .table>:not(caption)>*>* {
             padding: 5px;
         }
+
+        @media only screen and (max-width: 767px) {
+            .table>:not(caption)>*>* {
+                padding: 5px;
+                font-size: 9px;
+            }
+
+
+            .rfq-tabs-link,
+            .fa-gear {
+                font-size: 10px;
+            }
+
+            .fa-gear {
+                font-size: 10px !important;
+                padding: 3px;
+            }
+
+            .form-control-sm {
+                padding: 0px 0px !important;
+                font-size: 10px;
+            }
+
+            .rfqcalculationinput {
+                font-size: 10px;
+            }
+
+            .form-setting {
+                padding: 0px 40px !important;
+            }
+
+            .form-select {
+                font-size: 12px !important;
+                height: 25px !important;
+                padding: 0px 0px 0px 20px !important;
+                border-radius: 2px !important;
+                width: 130px;
+            }
+
+            .qutatation-form {
+                border-collapse: collapse !important;
+                width: 100% !important;
+                margin: auto !important;
+                background-color: #f4f4f4 !important;
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+            }
+
+            .table-title-font {
+                font-size: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            html,
+            body {
+                width: 100%;
+                overflow-x: hidden;
+            }
+        }
     </style>
-    <div class="card-body p-4">
+    <div class="card-body p-lg-4 p-0">
         <!-- Nav tabs -->
         <div class="text-center">
             <h3 class="mb-0 py-2">Bypass Process</h3>
         </div>
         <ul class="nav nav-tabs d-flex justify-content-center align-items-center border-0" id="myTab" role="tablist">
             <li class="nav-item mb-0" role="presentation">
-                <button class="nav-link" id="quotation-tab" data-bs-toggle="tab" data-bs-target="#quotation" type="button"
-                    role="tab" aria-controls="quotation" aria-selected="true">
+                <button class="nav-link rfq-tabs-link" id="quotation-tab" data-bs-toggle="tab" data-bs-target="#quotation"
+                    type="button" role="tab" aria-controls="quotation" aria-selected="true">
                     Quotation
                 </button>
             </li>
             <li class="nav-item mb-0" role="presentation">
-                <button class="nav-link active" id="cog-tab" data-bs-toggle="tab" data-bs-target="#cog" type="button"
-                    role="tab" aria-controls="cog" aria-selected="false">
+                <button class="nav-link rfq-tabs-link active" id="cog-tab" data-bs-toggle="tab" data-bs-target="#cog"
+                    type="button" role="tab" aria-controls="cog" aria-selected="false">
                     Cost Of Goods
                 </button>
             </li>
             <li class="nav-item mb-0" role="presentation">
-                <button class="nav-link" id="source-tab" data-bs-toggle="tab" data-bs-target="#source" type="button"
-                    role="tab" aria-controls="source" aria-selected="false">
+                <button class="nav-link rfq-tabs-link" id="source-tab" data-bs-toggle="tab" data-bs-target="#source"
+                    type="button" role="tab" aria-controls="source" aria-selected="false">
                     Source
                 </button>
             </li>
             <li class="nav-item mb-0" role="presentation">
-                <button class="nav-link" id="setting">
+                <button class="nav-link rfq-tabs-link" id="setting">
                     <i class="fa-solid fa-gear" style="font-size: 23.6px;"></i>
                 </button>
             </li>
@@ -40,7 +100,7 @@
             <div id="mysetting">
                 <div class="fade-setting show" id="setting-show">
                     <div class="row align-items-center justify-content-center">
-                        <div class="col-lg-12 mb-5">
+                        <div class="col-lg-12 mb-2">
                             <div class="table-responsive">
                                 <div class="table-responsive">
                                     <table class="table table-primary">
@@ -186,7 +246,7 @@
                         var ngen_company_registration_number = "REG-NO: 20437861K";
                     }
                     $('input[name="ngen_company_name"]').val(ngen_company_name);
-                        $('input[name="ngen_company_registration_number"]').val(ngen_company_registration_number);
+                    $('input[name="ngen_company_registration_number"]').val(ngen_company_registration_number);
                 });
             });
         </script>

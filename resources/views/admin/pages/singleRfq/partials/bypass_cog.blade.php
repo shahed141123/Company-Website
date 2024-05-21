@@ -2,27 +2,27 @@
     <div class="table-responsive">
         <table id="myTable" class="table table-borderd" style="font-size: 13px !important">
             <thead>
-                <tr style="background-color: #a9a9a9;color: black;font-size: 15px;">
-                    <th width="3%" class="text-center">
+                <tr style="background-color: #f5f5f;color: black;font-size: 15px;">
+                    <th width="3%" class="text-center table-title-font">
                         <a class="border-0 p-0 bg-transparent text-white" onclick="addRfqCalculationTableRow()"><i
                                 class="fa-solid fa-plus"></i></a>
                     </th>
-                    <th width="3%" class="text-center">Sl </th>
-                    <th width="14%" class="text-center">Item</th>
-                    <th width="4%" class="text-center">Qty</th>
-                    <th width="7%" class="text-center">Pr. Cost</th>
-                    <th width="3%" class="text-center">Year</th>
-                    <th width="7%" class="text-center">Pr. Disc.</th>
-                    <th width="7%" class="text-center">Total (In TK)</th>
-                    <th width="6%" class="text-center">Office</th>
-                    <th width="6%" class="text-center">Profit</th>
-                    <th width="6%" class="text-center">Others</th>
-                    {{-- <th width="7%" rowspan="2" class="text-center">Subtotal
+                    <th width="3%" class="text-center table-title-font">Sl </th>
+                    <th width="14%" class="text-center table-title-font">Item</th>
+                    <th width="4%" class="text-center table-title-font">Qty</th>
+                    <th width="7%" class="text-center table-title-font">Pr. Cost</th>
+                    <th width="3%" class="text-center table-title-font">Year</th>
+                    <th width="7%" class="text-center table-title-font">Pr. Disc.</th>
+                    <th width="7%" class="text-center table-title-font">Total (In TK)</th>
+                    <th width="6%" class="text-center table-title-font">Office</th>
+                    <th width="6%" class="text-center table-title-font">Profit</th>
+                    <th width="6%" class="text-center table-title-font">Others</th>
+                    {{-- <th width="7%" rowspan="2" class="text-center table-title-font">Subtotal
                     </th> --}}
-                    <th width="7%" class="text-center">Tax/Vat/GST
+                    <th width="7%" class="text-center table-title-font">Tax/Vat/GST
                     </th>
-                    <th width="7%" rowspan="2" class="text-center">Sub Total</th> {{--EU Price --}}
-                    <th width="12%" colspan="2" class="text-center">
+                    <th width="7%" rowspan="2" class="text-center table-title-font">Sub Total</th> {{--EU Price --}}
+                    <th width="12%" colspan="2" class="text-center table-title-font">
                         Partner Price
                     </th>
                 </tr>
