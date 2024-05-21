@@ -202,6 +202,7 @@
 
                 quotationForm.find('select[name="country"]').on('change', function() {
                     var countryValue = $(this).val();
+                    alert(countryValue);
                     var pq_code = '';
                     if (countryValue) {
                         pq_code = "PQ#: NG-" + countryValue;
@@ -316,7 +317,6 @@
                 <td><input type="text" name="unit_office_cost[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
                 <td><input type="text" name="unit_profit[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
                 <td><input type="text" name="unit_others_cost[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
-                <td><input type="text" name="unit_subtotal[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
                 <td><input type="text" name="unit_tax_vat[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
                 <td><input type="text" name="unit_eu_price[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
                 <td><input type="text" name="unit_partner_discount[]" class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0"></td>
@@ -386,298 +386,7 @@
             }
         </script>
 
-        {{-- <script>
-            $(document).ready(function() {
-                var quotationForm = $('#quotationForm');
 
-                quotationForm.find('input').on('keyup change', function() {
-                    // Extract input value and name
-                    var inputValue = $(this).val();
-                    var inputName = $(this).attr('name');
-                    var currency_rate = $("input[name='currency_rate']").val();
-                    // alert(currency_rate);
-                    var tax_vat_percentage = 0;
-                    var principal_discount_percentage = 0;
-                    if (currency_rate > 0) {
-                        currency_rate = currency_rate;
-                    } else {
-                        currency_rate = 1;
-                    }
-                    var office_cost_percentage = $("input[name='office_cost_percentage']").val();
-                    var profit_percentage = $("input[name='profit_percentage']").val();
-                    var others_cost_percentage = $("input[name='others_cost_percentage']").val();
-                    var partner_discount_percentage = 0;
-
-                    if ($(this).hasClass('tax_vat_percentage')) {
-                        $("input[name='tax_vat_percentage']").val(inputValue);
-                        $("input.tax_vat_percentage").val(inputValue);
-                        var tax_vat_percentage = inputValue;
-                    }
-                    if ($(this).hasClass('principal_discount_percentage')) {
-                        $("input[name='principal_discount_percentage']").val(inputValue);
-                        $("input.principal_discount_percentage").val(inputValue);
-                        var principal_discount_percentage = inputValue;
-                    }
-                    if ($(this).hasClass('partner_discount_percentage')) {
-                        $("input[name='partner_discount_percentage']").val(inputValue);
-                        $("input.partner_discount_percentage").val(inputValue);
-                        var partner_discount_percentage = inputValue;
-                    }
-                    var principal_total_amount_taka = 0;
-                    var total_office_cost = 0;
-                    var total_profit = 0;
-                    var total_others_cost = 0;
-                    var total_subtotal = 0;
-                    var total_tax_vat = 0;
-                    var total_eu_price = 0;
-                    var total_partner_discount = 0;
-                    var total_partner_price = 0;
-
-                    $("tr.thd").each(function() {
-                        // get the values from this row:
-                        var principal_cost = $("input[name='principal_cost[]']", this).val();
-                        var qty = $("input[name='qty[]']", this).val();
-                        var year = $("input[name='year[]']", this).val();
-
-                        // if (inputName == 'unit_partner_discount[]') {
-                        //     var partner_discount_percentage = $("input[name='unit_partner_discount[]']",this).val();
-                        // } else {
-                        //     var partner_discount_percentage = partner_discount_percentage;
-                        // }
-                        var unit_cost_total = (qty * 1) * (principal_cost * 1);
-                        var principal_discount_amount = unit_cost_total * (
-                            principal_discount_percentage / 100);
-                        var principal_unit_total_amount_taka = unit_cost_total * year * currency_rate -
-                            principal_discount_amount;
-
-                        var office_cost = principal_unit_total_amount_taka * (office_cost_percentage /
-                            100);
-                        var profit = principal_unit_total_amount_taka * (profit_percentage / 100);
-                        var others_cost = principal_unit_total_amount_taka * (others_cost_percentage /
-                            100);
-
-                        var unit_subtotal = principal_unit_total_amount_taka + office_cost + profit +
-                            others_cost;
-                        var unit_tax_vat = unit_subtotal * (tax_vat_percentage / 100);
-
-                        var unit_eu_price = unit_subtotal + unit_tax_vat;
-
-                        if (partner_discount_percentage != null) {
-                            var unit_partner_price = unit_eu_price - (unit_eu_price * (
-                                partner_discount_percentage / 100));
-                        } else {
-                            var unit_partner_price = unit_eu_price;
-                        }
-
-                        $(this).find(".principal_discount_amount").val(parseFloat(
-                            principal_discount_amount).toFixed(2));
-                        $(this).find(".principal_unit_total_amount_taka").val(parseFloat(
-                            principal_unit_total_amount_taka).toFixed(2));
-
-
-                        // total_qty += isNaN(qty) ? 0 : qty;
-
-                        principal_total_amount_taka += isNaN(principal_unit_total_amount_taka) ? 0 :
-                            principal_unit_total_amount_taka;
-                        total_office_cost += isNaN(office_cost) ? 0 : office_cost;
-                        total_profit += isNaN(profit) ? 0 : profit;
-                        total_others_cost += isNaN(others_cost) ? 0 : others_cost;
-                        total_subtotal += isNaN(unit_subtotal) ? 0 : unit_subtotal;
-                        total_tax_vat += isNaN(unit_tax_vat) ? 0 : unit_tax_vat;
-                        total_eu_price += isNaN(unit_eu_price) ? 0 : unit_eu_price;
-                        total_partner_discount += isNaN(partner_discount_percentage) ? 0 :
-                            partner_discount_percentage;
-                        total_partner_price += isNaN(unit_partner_price) ? 0 : unit_partner_price;
-
-
-
-                        $("input[name='unit_office_cost[]']", this).val(parseFloat(office_cost).toFixed(
-                            2));
-                        $("input[name='unit_profit[]']", this).val(parseFloat(profit).toFixed(2));
-                        $("input[name='unit_others_cost[]']", this).val(parseFloat(others_cost).toFixed(
-                            2));
-                        $("input[name='unit_subtotal[]']", this).val(parseFloat(unit_subtotal).toFixed(
-                            2));
-                        $("input[name='unit_tax_vat[]']", this).val(parseFloat(unit_tax_vat).toFixed(
-                            2));
-                        $("input[name='unit_eu_price[]']", this).val(parseFloat(unit_eu_price).toFixed(
-                            2));
-                        $("input[name='unit_partner_discount[]']").val(partner_discount_percentage);
-                        $("input[name='unit_partner_price[]']", this).val(parseFloat(unit_partner_price)
-                            .toFixed(2));
-                    });
-
-                    var principal_total_amount_taka = parseFloat(principal_total_amount_taka).toFixed(2);
-                    var total_office_cost = parseFloat(total_office_cost).toFixed(2);
-                    var total_profit = parseFloat(total_profit).toFixed(2);
-                    var total_others_cost = parseFloat(total_others_cost).toFixed(2);
-                    var total_subtotal = parseFloat(total_subtotal).toFixed(2);
-                    var total_tax_vat = parseFloat(total_tax_vat).toFixed(2);
-                    var total_eu_price = parseFloat(total_eu_price).toFixed(2);
-                    var total_partner_discount = parseFloat(total_partner_discount).toFixed(2);
-                    var total_partner_price = parseFloat(total_partner_price).toFixed(2);
-
-                    var remittence_qty = $("input[name='remittence_qty']").val();
-                    var packing_charge_qty = $("input[name='packing_charge_qty']").val();
-                    var custom_qty = $("input[name='custom_qty']").val();
-                    var freight_qty = $("input[name='freight_qty']").val();
-
-                    var remittence_year = $("input[name='remittence_year']").val();
-                    var packing_charge_year = $("input[name='packing_charge_year']").val();
-                    var custom_year = $("input[name='custom_year']").val();
-                    var freight_year = $("input[name='freight_year']").val();
-
-                    var remittence_principal_cost = $("input[name='remittence_principal_cost']").val();
-                    var packing_charge_principal_cost = $("input[name='packing_charge_principal_cost']").val();
-                    var custom_principal_cost = $("input[name='custom_principal_cost']").val();
-                    var freight_principal_cost = $("input[name='freight_principal_cost']").val();
-
-                    var remittence_principal_unit_total_amount_taka = parseFloat(remittence_principal_cost *
-                        remittence_qty * remittence_year * currency_rate).toFixed(2);
-
-                    var packing_charge_principal_unit_total_amount_taka = parseFloat(
-                            packing_charge_principal_cost * packing_charge_qty * packing_charge_year *
-                            currency_rate)
-                        .toFixed(2);
-
-                    var custom_principal_unit_total_amount_taka = parseFloat(custom_principal_cost *
-                        custom_qty *
-                        custom_year * currency_rate).toFixed(2);
-
-                    var freight_principal_unit_total_amount_taka = parseFloat(freight_principal_cost *
-                        freight_qty * freight_year * currency_rate).toFixed(2);
-
-
-
-
-                    var remittence_unit_office_cost = parseFloat(remittence_principal_unit_total_amount_taka * (
-                        office_cost_percentage / 100)).toFixed(2);
-                    var remittence_unit_profit = parseFloat(remittence_principal_unit_total_amount_taka * (
-                        profit_percentage / 100)).toFixed(2);
-                    var remittence_unit_others_cost = parseFloat(remittence_principal_unit_total_amount_taka * (
-                        others_cost_percentage / 100)).toFixed(2);
-
-                    var remittence_unit_subtotal = parseFloat(remittence_principal_unit_total_amount_taka +
-                            remittence_unit_office_cost + remittence_unit_profit + remittence_unit_others_cost)
-                        .toFixed(2);
-                    var remittence_unit_partner_price = parseFloat(remittence_unit_subtotal - (
-                        remittence_unit_subtotal * (partner_discount_percentage / 100))).toFixed(2);
-
-                    // alert(remittence_principal_unit_total_amount_taka + remittence_unit_office_cost + remittence_unit_profit + remittence_unit_others_cost);
-
-                    var packing_charge_unit_office_cost = parseFloat(
-                        packing_charge_principal_unit_total_amount_taka * (
-                            office_cost_percentage / 100)).toFixed(2);
-                    var packing_charge_unit_profit = parseFloat(
-                        packing_charge_principal_unit_total_amount_taka * (
-                            profit_percentage / 100)).toFixed(2);
-                    var packing_charge_unit_others_cost = parseFloat(
-                        packing_charge_principal_unit_total_amount_taka * (
-                            others_cost_percentage / 100)).toFixed(2);
-
-                    var packing_charge_unit_subtotal = parseFloat(
-                        packing_charge_principal_unit_total_amount_taka + packing_charge_unit_office_cost +
-                        packing_charge_unit_profit + packing_charge_unit_others_cost).toFixed(2);
-                    var packing_charge_unit_partner_price = parseFloat(packing_charge_unit_subtotal - (
-                        packing_charge_unit_subtotal * (partner_discount_percentage / 100))).toFixed(2);
-
-                    var custom_unit_office_cost = parseFloat(custom_principal_unit_total_amount_taka * (
-                        office_cost_percentage / 100)).toFixed(2);
-                    var custom_unit_profit = parseFloat(custom_principal_unit_total_amount_taka * (
-                        profit_percentage / 100)).toFixed(2);
-                    var custom_unit_others_cost = parseFloat(custom_principal_unit_total_amount_taka * (
-                        others_cost_percentage / 100)).toFixed(2);
-
-                    var custom_unit_subtotal = parseFloat(parseFloat(custom_principal_unit_total_amount_taka) +
-                        parseFloat(custom_unit_office_cost) + parseFloat(custom_unit_profit) + parseFloat(
-                            custom_unit_others_cost)).toFixed(2);
-                    var custom_unit_partner_price = parseFloat(custom_unit_subtotal - (custom_unit_subtotal * (
-                        partner_discount_percentage / 100))).toFixed(2);
-
-                    var freight_unit_office_cost = parseFloat(freight_principal_unit_total_amount_taka * (
-                        office_cost_percentage / 100)).toFixed(2);
-                    var freight_unit_profit = parseFloat(freight_principal_unit_total_amount_taka * (
-                        profit_percentage / 100)).toFixed(2);
-                    var freight_unit_others_cost = parseFloat(freight_principal_unit_total_amount_taka * (
-                        others_cost_percentage / 100)).toFixed(2);
-
-                    var freight_unit_subtotal = parseFloat(parseFloat(
-                            freight_principal_unit_total_amount_taka) + parseFloat(
-                        freight_unit_office_cost) +
-                        parseFloat(freight_unit_profit) + parseFloat(freight_unit_others_cost)).toFixed(2);
-                    var freight_unit_partner_price = parseFloat(freight_unit_subtotal - (freight_unit_subtotal *
-                        (partner_discount_percentage / 100)
-                    )).toFixed(2);
-
-                    $("input[name='remittence_principal_unit_total_amount_taka']").val(
-                        remittence_principal_unit_total_amount_taka);
-                    $("input[name='packing_charge_principal_unit_total_amount_taka']").val(
-                        packing_charge_principal_unit_total_amount_taka);
-                    $("input[name='custom_principal_unit_total_amount_taka']").val(
-                        custom_principal_unit_total_amount_taka);
-                    $("input[name='freight_principal_unit_total_amount_taka']").val(
-                        freight_principal_unit_total_amount_taka);
-
-                    $("input[name='remittence_unit_office_cost']").val(
-                        remittence_unit_office_cost);
-                    $("input[name='remittence_unit_profit']").val(
-                        remittence_unit_profit);
-                    $("input[name='remittence_unit_others_cost']").val(
-                        remittence_unit_others_cost);
-                    $("input[name='packing_charge_unit_office_cost']").val(
-                        packing_charge_unit_office_cost);
-                    $("input[name='packing_charge_unit_profit']").val(
-                        packing_charge_unit_profit);
-                    $("input[name='packing_charge_unit_others_cost']").val(
-                        packing_charge_unit_others_cost);
-                    $("input[name='custom_unit_office_cost']").val(
-                        custom_unit_office_cost);
-                    $("input[name='custom_unit_profit']").val(
-                        custom_unit_profit);
-                    $("input[name='custom_unit_others_cost']").val(
-                        custom_unit_others_cost);
-                    $("input[name='freight_unit_office_cost']").val(
-                        freight_unit_office_cost);
-                    $("input[name='freight_unit_profit']").val(
-                        freight_unit_profit);
-                    $("input[name='freight_unit_others_cost']").val(
-                        freight_unit_others_cost);
-
-                    $("input[name='remittence_unit_subtotal']").val(
-                        remittence_unit_subtotal);
-                    $("input[name='packing_charge_unit_subtotal']").val(
-                        packing_charge_unit_subtotal);
-                    $("input[name='custom_unit_subtotal']").val(
-                        custom_unit_subtotal);
-                    $("input[name='freight_unit_subtotal']").val(
-                        freight_unit_subtotal);
-
-                    $("input[name='remittence_unit_partner_price']").val(
-                        remittence_unit_partner_price);
-                    $("input[name='packing_charge_unit_partner_price']").val(
-                        packing_charge_unit_partner_price);
-                    $("input[name='custom_unit_partner_price']").val(
-                        custom_unit_partner_price);
-                    $("input[name='freight_unit_partner_price']").val(
-                        freight_unit_partner_price);
-
-
-
-                    $("input[name='principal_total_amount_taka']").val(principal_total_amount_taka);
-                    $("input[name='total_office_cost']").val(total_office_cost);
-                    $("input[name='total_profit']").val(total_profit);
-                    $("input[name='total_others_cost']").val(total_others_cost);
-                    $("input[name='total_subtotal']").val(total_subtotal);
-                    $("input[name='total_tax_vat']").val(total_tax_vat);
-                    $("input[name='total_eu_price']").val(total_eu_price);
-                    $("input[name='total_partner_discount']").val(total_partner_discount);
-                    $("input[name='total_partner_price']").val(total_partner_price);
-
-                    // For debugging
-                    console.log("Input Name:", inputName, "Input Value:", inputValue);
-                });
-            });
-        </script> --}}
 
         <script>
             $(document).ready(function() {
@@ -702,6 +411,13 @@
                     var partner_discount_percentage = 0;
                     var vat_percentage = $("input[name='vat_percentage']").val();
                     var tax_vat_percentage = $("input[name='tax_vat_percentage']").val();
+                    
+                    if (tax_vat_percentage > 0) {
+                        var tax_vat_percentage = (tax_vat_percentage / 100);
+                    } else {
+                        var tax_vat_percentage = 0;
+                    }
+
 
                     if ($(this).hasClass('principal_discount_percentage')) {
                         $("input[name='principal_discount_percentage']").val(inputValue);
@@ -711,13 +427,9 @@
                         var principal_discount_percentage = $("input[name='principal_discount_percentage']")
                             .val();;
                     }
-                    if ($(this).hasClass('partner_discount_percentage')) {
-                        $("input[name='partner_discount_percentage']").val(inputValue);
-                        $("input.partner_discount_percentage").val(inputValue);
-                        var partner_discount_percentage = inputValue;
-                    } else {
-                        var partner_discount_percentage = $("input[name='partner_discount_percentage']").val();;
-                    }
+
+                    var partner_discount_percentage = $("input[name='partner_discount_percentage']").val();;
+
 
                     var principal_sub_total_amount_taka = 0;
                     var sub_total_office_cost = 0;
@@ -734,6 +446,7 @@
                         var principal_cost = $("input[name='principal_cost[]']", this).val();
                         var qty = $("input[name='qty[]']", this).val();
                         var year = $("input[name='year[]']", this).val();
+                        var partner_discount_percentage = $("input[name='unit_partner_discount[]']", this).val();
 
                         var unit_cost_total = (qty * 1) * (principal_cost * 1);
                         var principal_discount_amount = unit_cost_total * (
@@ -749,7 +462,7 @@
 
                         var unit_subtotal = principal_unit_total_amount_taka + office_cost + profit +
                             others_cost;
-                        var unit_tax_vat = unit_subtotal * (tax_vat_percentage / 100);
+                        var unit_tax_vat = unit_subtotal * tax_vat_percentage;
                         var unit_eu_price = unit_subtotal + unit_tax_vat;
                         var unit_partner_price = unit_eu_price - (unit_eu_price * (
                             partner_discount_percentage / 100));
@@ -786,6 +499,8 @@
                             2));
                         $("input[name='unit_eu_price[]']", this).val(parseFloat(unit_eu_price).toFixed(
                             2));
+                        // $("input[name='unit_eu_price[]']", this).val(parseFloat(unit_eu_price).toFixed(
+                        //     2));
                         $("input[name='unit_partner_price[]']", this).val(parseFloat(unit_partner_price)
                             .toFixed(2));
                     });
@@ -824,7 +539,7 @@
                     var remittence_unit_subtotal = remittence_principal_unit_total_amount_taka +
                         remittence_unit_office_cost + remittence_unit_profit + remittence_unit_others_cost;
 
-                    var remittence_unit_tax_vat = remittence_unit_subtotal * (tax_vat_percentage / 100);
+                    var remittence_unit_tax_vat = remittence_unit_subtotal * tax_vat_percentage;
 
                     var remittence_unit_eu_price = remittence_principal_unit_total_amount_taka +
                         remittence_unit_office_cost + remittence_unit_profit + remittence_unit_others_cost +
@@ -843,7 +558,7 @@
                         packing_charge_unit_office_cost +
                         packing_charge_unit_profit + packing_charge_unit_others_cost;
 
-                    var packing_charge_unit_tax_vat = packing_charge_unit_subtotal * (tax_vat_percentage / 100);
+                    var packing_charge_unit_tax_vat = packing_charge_unit_subtotal * tax_vat_percentage;
 
                     var packing_charge_unit_eu_price = packing_charge_principal_unit_total_amount_taka +
                         packing_charge_unit_office_cost + packing_charge_unit_profit +
@@ -861,7 +576,7 @@
                         others_cost_percentage / 100);
                     var custom_unit_subtotal = custom_principal_unit_total_amount_taka +
                         custom_unit_office_cost + custom_unit_profit + custom_unit_others_cost;
-                    var custom_unit_tax_vat = custom_unit_subtotal * (tax_vat_percentage / 100);
+                    var custom_unit_tax_vat = custom_unit_subtotal * tax_vat_percentage;
 
                     var custom_unit_eu_price = custom_principal_unit_total_amount_taka +
                         custom_unit_office_cost + custom_unit_profit + custom_unit_others_cost +
@@ -878,7 +593,7 @@
                         others_cost_percentage / 100);
                     var freight_unit_subtotal = freight_principal_unit_total_amount_taka +
                         freight_unit_office_cost + freight_unit_profit + freight_unit_others_cost;
-                    var freight_unit_tax_vat = freight_unit_subtotal * (tax_vat_percentage / 100);
+                    var freight_unit_tax_vat = freight_unit_subtotal * tax_vat_percentage;
 
                     var freight_unit_eu_price = freight_principal_unit_total_amount_taka +
                         freight_unit_office_cost + freight_unit_profit + freight_unit_others_cost +

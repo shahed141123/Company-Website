@@ -507,7 +507,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="tab1" role="tabpanel"
+                                    <div class="tab-pane fade show active " id="tab1" role="tabpanel"
                                         aria-labelledby="tab1-tab">
                                         <div class="card rounded-0">
                                             <div class="card-header rounded-0 p-0">
@@ -1029,7 +1029,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade show active border-0 text-center" id="tab3"
+                                    <div class="tab-pane fade border-0 text-center" id="tab3"
                                         role="tabpanel" aria-labelledby="tab3-tab">
                                         <div class="card mt-4 w-50 mx-auto">
                                             <div class="card-header border-0 rounded-0 bg-transparent p-0">

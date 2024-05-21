@@ -45,7 +45,7 @@
                             type="number" value="0" placeholder="0%">
                     </th>
                     <th class="text-center">
-                        <input class="form-control form-control-sm tax_vat_percentage" type="number" value="0"
+                        <input class="form-control form-control-sm tax_vat_percentage" type="number" value="0" name="tax_vat_percentage"
                             placeholder="0%">
                     </th>
                     <th class="text-center">Dis%</th>
