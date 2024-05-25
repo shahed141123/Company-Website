@@ -13,7 +13,7 @@
             }
 
 
-            .rfq-tabs-link{
+            .rfq-tabs-link {
                 font-size: 10px;
             }
 
@@ -89,8 +89,8 @@
                     Source
                 </button>
             </li>
-            <li class="nav-item mb-0" role="presentation">
-                <button class="nav-link rfq-tabs-link" id="setting">
+            <li class="nav-item mb-0 ms-2" role="presentation">
+                <button class="nav-link rfq-tabs-link bg-black" id="setting">
                     <i class="fa-solid fa-gear" style="font-size: 23.6px;"></i>
                 </button>
             </li>
@@ -99,13 +99,13 @@
             <div id="mysetting">
                 <div class="fade-setting show" id="setting-show">
                     <div class="row align-items-center justify-content-center">
-                        <div class="col-lg-12 mb-2">
+                        <div class="col-lg-7 mb-2">
                             <div class="table-responsive">
                                 <div class="table-responsive">
                                     <table class="table table-primary">
                                         <tbody>
                                             <tr>
-                                                <td width="10%">
+                                                <td width="18%">
                                                     <select class="form-select" id="" name="country"
                                                         data-allow-clear="true" data-placeholder="Select Country">
                                                         <option value="">Select Country</option>
@@ -116,7 +116,7 @@
                                                         @endforeach
                                                     </select>
                                                 </td>
-                                                <td width="10%">
+                                                <td width="18%">
                                                     <select class="form-select" id="" name="region"
                                                         data-allow-clear="true" data-placeholder="Select Region">
                                                         <option value="">Select Region</option>
@@ -126,48 +126,56 @@
                                                         <option value="portugal">Portugal</option>
                                                     </select>
                                                 </td>
-                                                <td width="10%">
+                                                <td width="14%">
                                                     <select class="form-select" id="" name="currency">
-                                                        <option value="taka" selected>Taka (Tk)</option>
-                                                        <option value="euro">Euro ()</option>
-                                                        <option value="doller">Dollar ($)</option>
-                                                        <option value="pound">Pound ()</option>
+                                                        <option value="taka" selected>Taka(Tk)</option>
+                                                        <option value="euro">Euro(&euro;)</option>
+                                                        <option value="dollar">Dollar($)</option>
+                                                        <option value="pound">Pound(&pound;)</option>
                                                     </select>
                                                 </td>
-                                                <td width="10%">
+                                                <td width="12%">
                                                     <input type="number"
                                                         class="form-control form-control-sm form-setting border"
-                                                        name="currency_rate" placeholder="Currency Rate">
+                                                        name="currency_rate" placeholder="Cur. Rate">
                                                 </td>
-                                                <td width="10%">
+                                                <td width="9%">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" value="1"
                                                             id="flexCheckDefault" name="individual_tax">
                                                         <label class="form-check-label" for="flexCheckDefault">
-                                                            Individual Tax
+                                                            Tax
                                                         </label>
                                                     </div>
                                                 </td>
-                                                <td width="10%">
+                                                <td width="12%">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" value="1"
                                                             id="flexCheckDefault" name="vat_display">
                                                         <label class="form-check-label" for="flexCheckDefault">
-                                                            Vat
+                                                            VAT / GST
                                                         </label>
                                                     </div>
                                                 </td>
-                                                <td width="10%">
+                                                <td width="16%">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="1"
+                                                            id="flexCheckDefault" name="special_discount_display">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Special Discount
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                {{-- <td width="10%">
                                                     <input type="number"
                                                         class="form-control form-control-sm form-setting border principal_discount_percentage"
-                                                        name="principal_discount_percentage"
-                                                        placeholder="Principal Discount">
-                                                </td>
-                                                <td width="10%">
+                                                        name="principal_discount_percentage" placeholder="Pr. Disc(%)">
+                                                </td> --}}
+                                                {{-- <td width="10%">
                                                     <input type="number"
                                                         class="form-control form-control-sm form-setting border partner_discount_percentage"
-                                                        name="partner_discount_percentage" placeholder="Partner Discount">
-                                                </td>
+                                                        name="partner_discount_percentage" placeholder="Extr. Disc(%)">
+                                                </td> --}}
                                             </tr>
                                         </tbody>
                                     </table>
@@ -196,13 +204,50 @@
 @endsection
 @once
     @push('scripts')
-        <script>
+        {{-- <script>
+            $(document).ready(function() {
+                var quotationForm = $('#quotationForm');
+
+                quotationForm.find('select[name="currency"]').on('change', function() {
+                    var currencyValue = $(this).val();
+                    // alert(currencyValue);
+                    var currency = '';
+                    if (currencyValue == 'taka') {
+                        currency = 'TK';
+                    } else if (currencyValue == 'dollar') {
+                        currency = '$';
+                    } else if (currencyValue == 'euro') {
+                        currency = '&euro;';
+                    } else if (currencyValue == 'pound') {
+                        currency = '&pound;';
+                    } else {
+                        currency = "TK";
+                    }
+                    $('.currency').html(currency); // Update the currency input field
+                });
+
+                var initiallySelectedValue = $('select[name="currency"]').val();
+                var currency = '';
+                if (initiallySelectedValue == 'taka') {
+                        currency = 'TK';
+                    } else if (initiallySelectedValue == 'dollar') {
+                        currency = '$';
+                    } else if (initiallySelectedValue == 'euro') {
+                        currency = '&euro;';
+                    } else if (initiallySelectedValue == 'pound') {
+                        currency = '&pound;';
+                    } else {
+                        currency = "TK";
+                    }
+
+                $('.currency').val(currency);
+            });
             $(document).ready(function() {
                 var quotationForm = $('#quotationForm');
 
                 quotationForm.find('select[name="country"]').on('change', function() {
                     var countryValue = $(this).val();
-                    alert(countryValue);
+                    // alert(countryValue);
                     var pq_code = '';
                     if (countryValue) {
                         pq_code = "PQ#: NG-" + countryValue;
@@ -233,6 +278,13 @@
                         $('.vat_display').hide();
                     }
                 });
+                quotationForm.find('input[name="special_discount_display"]').on('click', function() {
+                    if ($(this).is(":checked")) {
+                        $('.special_discount_display').show();
+                    } else if ($(this).is(":not(:checked)")) {
+                        $('.special_discount_display').hide();
+                    }
+                });
                 quotationForm.find('select[name="region"]').on('change', function() {
                     var regionValue = $(this).val();
                     var ngen_company_name = "NGEN IT LTD.";
@@ -249,27 +301,79 @@
                     $('input[name="ngen_company_registration_number"]').val(ngen_company_registration_number);
                 });
             });
-        </script>
+        </script> --}}
+        <script></script>
         <script>
             $(document).ready(function() {
-                $('thead').on('click', '.addRow', function() {
+                var quotationForm = $('#quotationForm');
 
-                    var tr = "<tr>" +
-                        "<td class='text-center'> <a href='javascript:void(0)' class='removeRow'><i class='fa-solid fa-minus dash-icons' style='padding: 6px 7px 6px !important;color: #ae0a46;'></i></a></td>" +
-                        "<td class='p-0'> <input type='text' class='form-control' name='item_name[]' placeholder='Product Name' required></td>" +
-                        "<td class='p-0'> <input type='text' class='form-control' name='qty[]' placeholder='Quantity' required></td>" +
-                        "<td class='p-0'> <input type='text' class='form-control' name='unit_price[]' placeholder='Unit Price' ></td>" +
-                        "<td class='p-0'> <input type='text' class='form-control' name='item_name[]' placeholder='Total' required></td></td>" +
-                        "</tr>";
+                // Function to update currency field
+                function updateCurrency(currencyValue) {
+                    var currencyMap = {
+                        'taka': 'TK',
+                        'dollar': '$',
+                        'euro': '&euro;',
+                        'pound': '&pound;'
+                    };
+                    var currency = currencyMap[currencyValue] || 'TK';
+                    $('.currency').html(currency); // Update the currency input field
+                }
 
-                    $('.repeater').appleft(tr);
+                // Update currency on currency select change
+                quotationForm.find('select[name="currency"]').on('change', function() {
+                    updateCurrency($(this).val());
                 });
 
-                $('tbody').on('click', '.removeRow', function() {
-                    $(this).parent().parent().remove();
+                // Initially set currency
+                updateCurrency($('select[name="currency"]').val());
+
+                // Function to update pq_code field
+                function updatePQCode(countryValue) {
+                    var pq_code = countryValue ? "PQ#: NG-" + countryValue : "PQ#: NG-";
+                    $('input[name="pq_code"]').val(pq_code); // Update the pq_code input field
+                }
+
+                // Update pq_code on country select change
+                quotationForm.find('select[name="country"]').on('change', function() {
+                    updatePQCode($(this).val());
+                });
+
+                // Initially set pq_code
+                updatePQCode($('select[name="country"]').val());
+
+                // Show/hide VAT display
+                quotationForm.find('input[name="vat_display"]').on('click', function() {
+                    $('.vat_display').toggle($(this).is(":checked"));
+                });
+
+                // Show/hide special discount display
+                quotationForm.find('input[name="special_discount_display"]').on('click', function() {
+                    $('.special_discount').toggle($(this).is(":checked"));
+                });
+
+                // Update company name and registration number based on region
+                quotationForm.find('select[name="region"]').on('change', function() {
+                    var regionValue = $(this).val();
+                    var companyInfoMap = {
+                        'bangladesh': {
+                            name: "NGEN IT LTD.",
+                            registration_number: "C-193116/2024"
+                        },
+                        'singapore': {
+                            name: "NGEN IT PTE. LTD.",
+                            registration_number: "REG-NO: 20437861K"
+                        }
+                    };
+                    var companyInfo = companyInfoMap[regionValue] || {
+                        name: "NGEN IT LTD.",
+                        registration_number: "C-193116/2024"
+                    };
+                    $('input[name="ngen_company_name"]').val(companyInfo.name);
+                    $('input[name="ngen_company_registration_number"]').val(companyInfo.registration_number);
                 });
             });
         </script>
+
         <script>
             function toggleVisibility() {
                 var settingShow = document.getElementById('setting-show');
@@ -367,24 +471,7 @@
                 updateSerialNumbers();
             });
         </script>
-        <script>
-            function addRow() {
-                var table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
-                var newRow = table.insertRow(table.rows.length);
-                newRow.innerHTML =
-                    `<td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;"><button class="btn btn-danger rounded-0" onclick="deleteRow(this)"><i class="fa-regular fa-trash-can"></i></button></td>
-                                <td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;">${table.rows.length}</td>
-                                <td style="border: 1px solid #eee; padding: 8px; width: 40%"><input type="text" class="form-control form-control-sm bg-transparent" value="" style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-                                <td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;"><input type="text" class="form-control form-control-sm bg-transparent text-center" value="" style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-                                <td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;"><input type="text" class="form-control form-control-sm bg-transparent text-center" value="" style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>
-                                <td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;"><input type="text" class="form-control form-control-sm bg-transparent text-end" value="" style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;"></td>`;
-            }
 
-            function deleteRow(btn) {
-                var row = btn.parentNode.parentNode;
-                row.parentNode.removeChild(row);
-            }
-        </script>
 
 
 
@@ -411,7 +498,7 @@
                     var partner_discount_percentage = 0;
                     var vat_percentage = $("input[name='vat_percentage']").val();
                     var tax_vat_percentage = $("input[name='tax_vat_percentage']").val();
-                    
+
                     if (tax_vat_percentage > 0) {
                         var tax_vat_percentage = (tax_vat_percentage / 100);
                     } else {
@@ -446,7 +533,8 @@
                         var principal_cost = $("input[name='principal_cost[]']", this).val();
                         var qty = $("input[name='qty[]']", this).val();
                         var year = $("input[name='year[]']", this).val();
-                        var partner_discount_percentage = $("input[name='unit_partner_discount[]']", this).val();
+                        var partner_discount_percentage = $("input[name='unit_partner_discount[]']",
+                            this).val();
 
                         var unit_cost_total = (qty * 1) * (principal_cost * 1);
                         var principal_discount_amount = unit_cost_total * (
@@ -803,6 +891,250 @@
                     $("input[name='total_partner_discount']").val(parseFloat(total_partner_discount).toFixed(
                         2));
                     $("input[name='total_partner_price']").val(parseFloat(total_partner_price).toFixed(2));
+
+                    // For debugging
+                    console.log("Input Name:", inputName, "Input Value:", inputValue);
+                });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                var quotationForm = $('#quotationForm');
+
+                quotationForm.find('input').on('keyup change', function() {
+                    // Extract input value and name
+                    var inputValue = $(this).val();
+                    var inputName = $(this).attr('name');
+                    var currency_rate = $("input[name='currency_rate']").val();
+                    // alert(currency_rate);
+                    // var tax_vat_percentage = 0;
+                    // var principal_discount_percentage = 0;
+                    if (currency_rate > 0) {
+                        currency_rate = currency_rate;
+                    } else {
+                        currency_rate = 1;
+                    }
+                    var office_cost_percentage          = $("input[name='office_cost_percentage']").val();
+                    var profit_percentage               = $("input[name='profit_percentage']").val();
+                    var others_cost_percentage          = $("input[name='others_cost_percentage']").val();
+                    var remittence_percentage           = $("input[name='remittence_percentage']").val();
+                    var packing_percentage              = $("input[name='packing_percentage']").val();
+                    var custom_percentage               = $("input[name='custom_percentage']").val();
+                    var tax_vat_percentage              = $("input[name='tax_vat_percentage']").val();
+                    var vat_percentage                  = $("input[name='vat_percentage']").val();
+                    var special_discount_percentage     = $("input[name='special_discount_percentage']").val();
+
+                    if (tax_vat_percentage > 0) {
+                        var tax_vat_percentage = (tax_vat_percentage / 100);
+                    } else {
+                        var tax_vat_percentage = 0;
+                    }
+
+
+                    var sub_total_principal_amount      = 0;
+                    var sub_total_office_cost           = 0;
+                    var sub_total_profit                = 0;
+                    var sub_total_others_cost           = 0;
+                    var sub_total_remittance            = 0;
+                    var sub_total_packing               = 0;
+                    var sub_total_customs               = 0;
+                    var sub_total_tax                   = 0;
+                    var sub_total_subtotal              = 0;
+                    var sub_total_final_total_price     = 0;
+
+                    // $('tr.thd').each(function(index) {
+                        $('tbody.table_bottom_area tr.thd').each(function(index) {
+                        // get the values from this row:
+                        var principal_cost = $("input[name='principal_cost[]']", this).val();
+                        var qty = $("input[name='qty[]']", this).val();
+
+                        var unit_cost_total = (qty * 1) * (principal_cost * 1);
+
+                        var principal_unit_total_amount = unit_cost_total * currency_rate;
+
+                        var office_cost = principal_unit_total_amount * (office_cost_percentage /
+                            100);
+                        var profit = principal_unit_total_amount * (profit_percentage / 100);
+                        var others_cost = principal_unit_total_amount * (others_cost_percentage /
+                            100);
+                        var unit_remittence = principal_unit_total_amount * (remittence_percentage /
+                            100);
+                        var unit_packing = principal_unit_total_amount * (packing_percentage /
+                            100);
+                        var unit_customs = principal_unit_total_amount * (custom_percentage /
+                            100);
+                        var unit_tax_vat = principal_unit_total_amount * tax_vat_percentage;
+
+                        var unit_subtotal = principal_unit_total_amount + office_cost + profit +
+                            others_cost + unit_remittence +  unit_packing + unit_customs + unit_tax_vat;
+
+                        var unit_final_price = unit_subtotal / qty;
+                        var unit_final_total_price = unit_subtotal;
+
+                        sub_total_principal_amount += isNaN(principal_unit_total_amount) ? 0 : principal_unit_total_amount;
+                        sub_total_office_cost += isNaN(office_cost) ? 0 : office_cost;
+                        sub_total_profit += isNaN(profit) ? 0 : profit;
+                        sub_total_others_cost += isNaN(others_cost) ? 0 : others_cost;
+                        sub_total_remittance += isNaN(unit_remittence) ? 0 : unit_remittence;
+                        sub_total_packing += isNaN(unit_packing) ? 0 : unit_packing;
+                        sub_total_customs += isNaN(unit_customs) ? 0 : unit_customs;
+                        sub_total_tax += isNaN(unit_tax_vat) ? 0 : unit_tax_vat;
+                        sub_total_subtotal += isNaN(unit_subtotal) ? 0 : unit_subtotal;
+                        sub_total_final_total_price += isNaN(unit_subtotal) ? 0 : unit_subtotal;
+
+
+
+                        // $("input[name='principal_unit_total_amount[]']", this).val(Math.round(principal_unit_total_amount));
+                        // $("input[name='unit_office_cost[]']", this).val(Math.round(office_cost));
+                        // $("input[name='qty[]']", this).val(Math.round(qty));
+                        // $("input[name='unit_profit[]']", this).val(Math.round(profit));
+                        // $("input[name='unit_others_cost[]']", this).val(Math.round(others_cost));
+                        // $("input[name='unit_remittence[]']", this).val(Math.round(unit_remittence));
+                        // $("input[name='unit_packing[]']", this).val(Math.round(unit_packing));
+                        // $("input[name='unit_customs[]']", this).val(Math.round(unit_customs));
+                        // $("input[name='unit_tax_vat[]']", this).val(Math.round(unit_tax_vat));
+                        // $("input[name='unit_subtotal[]']", this).val(Math.round(unit_subtotal));
+                        // $("input[name='unit_final_price[]']", this).val(Math.round(unit_final_price));
+                        // $("input[name='unit_final_total_price[]']", this).val(Math.round(unit_final_total_price));
+                        $('input[name="unit_final_price[]"]').eq(index).val(unit_final_price.toFixed(2));
+                        $('input[name="unit_final_total_price[]"]').eq(index).val(unit_final_price.toFixed(2));
+
+                        $(this).find("input[name='principal_unit_total_amount[]']").val(Math.round(principal_unit_total_amount));
+                        $(this).find("input[name='unit_office_cost[]']").val(Math.round(office_cost));
+                        $(this).find("input[name='unit_profit[]']").val(Math.round(profit));
+                        $(this).find("input[name='unit_others_cost[]']").val(Math.round(others_cost));
+                        $(this).find("input[name='unit_remittence[]']").val(Math.round(unit_remittence));
+                        $(this).find("input[name='unit_packing[]']").val(Math.round(unit_packing));
+                        $(this).find("input[name='unit_customs[]']").val(Math.round(unit_customs));
+                        $(this).find("input[name='unit_tax_vat[]']").val(Math.round(unit_tax_vat));
+                        $(this).find("input[name='unit_subtotal[]']").val(Math.round(unit_subtotal));
+                        $(this).find("input[name='unit_final_price[]']").val(Math.round(unit_final_price));
+                        $(this).find("input[name='unit_final_total_price[]']").val(Math.round(unit_final_total_price));
+                        // Update corresponding fields in the display table
+                        var displayTableRow = $('#myTable tbody tr.tdsp').eq(index);
+                        displayTableRow.find('input[name="qty[]"]').val(qty);
+                        displayTableRow.find('input[name="unit_final_price[]"]').val(unit_final_price.toFixed(2));
+                        displayTableRow.find('input[name="unit_final_total_price[]"]').val(unit_final_total_price.toFixed(2));
+                        // $('input[name="qty[]"]').eq(index).val(qty);
+                        // $('input[name="unit_final_price[]"]').eq(index).val(parseFloat(unit_final_price).toFixed(0));
+                        // $('input[name="unit_final_total_price[]"]').eq(index).val(parseFloat(unit_final_total_price).toFixed(0));
+
+
+                    });
+
+                    var sub_total_principal_amount  = sub_total_principal_amount;
+                    var sub_total_office_cost       = sub_total_office_cost;
+                    var sub_total_profit            = sub_total_profit;
+                    var sub_total_others_cost       = sub_total_others_cost;
+                    var sub_total_remittance        = sub_total_remittance;
+                    var sub_total_packing           = sub_total_packing;
+                    var sub_total_customs           = sub_total_customs;
+                    var sub_total_tax               = sub_total_tax;
+                    var sub_total_subtotal          = sub_total_subtotal;
+                    var sub_total_final_total_price = sub_total_final_total_price;
+                    // alert(sub_total_principal_amount);
+
+                    // Special Discount
+                    var special_discount_principal_amount  = sub_total_principal_amount * (special_discount_percentage / 100);
+                    var special_discount_office_cost       = sub_total_office_cost * (special_discount_percentage / 100);
+                    var special_discount_profit            = sub_total_profit * (special_discount_percentage / 100);
+                    var special_discount_others_cost       = sub_total_others_cost * (special_discount_percentage / 100);
+                    var special_discount_remittance        = sub_total_remittance * (special_discount_percentage / 100);
+                    var special_discount_packing           = sub_total_packing * (special_discount_percentage / 100);
+                    var special_discount_customs           = sub_total_customs * (special_discount_percentage / 100);
+                    var special_discount_tax               = sub_total_tax * (special_discount_percentage / 100);
+                    var special_discount_subtotal          = sub_total_subtotal * (special_discount_percentage / 100);
+                    var special_discount_final_total_price = sub_total_final_total_price * (special_discount_percentage / 100);
+
+                     // Vat Calculation
+                     if (special_discount_percentage > 0) {
+                        var vat_principal_amount  = special_discount_principal_amount * (vat_percentage / 100);
+                        var vat_office_cost       = special_discount_office_cost * (vat_percentage / 100);
+                        var vat_profit            = special_discount_profit * (vat_percentage / 100);
+                        var vat_others_cost       = special_discount_others_cost * (vat_percentage / 100);
+                        var vat_remittance        = special_discount_remittance * (vat_percentage / 100);
+                        var vat_packing           = special_discount_packing * (vat_percentage / 100);
+                        var vat_customs           = special_discount_customs * (vat_percentage / 100);
+                        var vat_tax               = special_discount_tax * (vat_percentage / 100);
+                        var vat_subtotal          = special_discount_subtotal * (vat_percentage / 100);
+                        var vat_final_total_price = special_discount_final_total_price * (vat_percentage / 100);
+                     } else {
+                        var vat_principal_amount  = sub_total_principal_amount * (vat_percentage / 100);
+                        var vat_office_cost       = sub_total_office_cost * (vat_percentage / 100);
+                        var vat_profit            = sub_total_profit * (vat_percentage / 100);
+                        var vat_others_cost       = sub_total_others_cost * (vat_percentage / 100);
+                        var vat_remittance        = sub_total_remittance * (vat_percentage / 100);
+                        var vat_packing           = sub_total_packing * (vat_percentage / 100);
+                        var vat_customs           = sub_total_customs * (vat_percentage / 100);
+                        var vat_tax               = sub_total_tax * (vat_percentage / 100);
+                        var vat_subtotal          = sub_total_subtotal * (vat_percentage / 100);
+                        var vat_final_total_price = sub_total_final_total_price * (vat_percentage / 100);
+                     }
+
+
+                     var total_principal_amount  = sub_total_principal_amount + vat_principal_amount - special_discount_principal_amount;
+                     var total_office_cost       = sub_total_office_cost + vat_office_cost - special_discount_office_cost;
+                     var total_profit            = sub_total_profit + vat_profit - special_discount_profit;
+                     var total_others_cost       = sub_total_others_cost + vat_others_cost - special_discount_others_cost;
+                     var total_remittance        = sub_total_remittance + vat_remittance - special_discount_remittance;
+                     var total_packing           = sub_total_packing + vat_packing - special_discount_packing;
+                     var total_customs           = sub_total_customs + vat_customs - special_discount_customs;
+                     var total_tax               = sub_total_tax + vat_tax - special_discount_tax;
+                     var total_subtotal          = sub_total_subtotal + vat_subtotal - special_discount_subtotal;
+                     var total_final_total_price = sub_total_final_total_price + vat_final_total_price - special_discount_final_total_price;
+
+
+
+                    // Total Calculation
+                    $("input[name='sub_total_principal_amount']").val(Math.round(sub_total_principal_amount));
+                    $("input[name='sub_total_office_cost']").val(Math.round(sub_total_office_cost));
+                    $("input[name='sub_total_profit']").val(Math.round(sub_total_profit));
+                    $("input[name='sub_total_others_cost']").val(Math.round(sub_total_others_cost));
+                    $("input[name='sub_total_remittance']").val(Math.round(sub_total_remittance));
+                    $("input[name='sub_total_packing']").val(Math.round(sub_total_packing));
+                    $("input[name='sub_total_customs']").val(Math.round(sub_total_customs));
+                    $("input[name='sub_total_tax']").val(Math.round(sub_total_tax));
+                    $("input[name='sub_total_subtotal']").val(Math.round(sub_total_subtotal));
+                    $("input[name='sub_total_final_total_price']").val(Math.round(sub_total_final_total_price));
+
+                    $("input[name='special_discount_principal_amount']").val(Math.round(special_discount_principal_amount));
+                    $("input[name='special_discount_office_cost']").val(Math.round(special_discount_office_cost));
+                    $("input[name='special_discount_profit']").val(Math.round(special_discount_profit));
+                    $("input[name='special_discount_others_cost']").val(Math.round(special_discount_others_cost));
+                    $("input[name='special_discount_remittance']").val(Math.round(special_discount_remittance));
+                    $("input[name='special_discount_packing']").val(Math.round(special_discount_packing));
+                    $("input[name='special_discount_customs']").val(Math.round(special_discount_customs));
+                    $("input[name='special_discount_tax']").val(Math.round(special_discount_tax));
+                    $("input[name='special_discount_subtotal']").val(Math.round(special_discount_subtotal));
+                    $("input[name='special_discount_final_total_price']").val(Math.round(special_discount_final_total_price));
+
+                    $("input[name='vat_principal_amount']").val(Math.round(vat_principal_amount));
+                    $("input[name='vat_office_cost']").val(Math.round(vat_office_cost));
+                    $("input[name='vat_profit']").val(Math.round(vat_profit));
+                    $("input[name='vat_others_cost']").val(Math.round(vat_others_cost));
+                    $("input[name='vat_remittance']").val(Math.round(vat_remittance));
+                    $("input[name='vat_packing']").val(Math.round(vat_packing));
+                    $("input[name='vat_customs']").val(Math.round(vat_customs));
+                    $("input[name='vat_tax']").val(Math.round(vat_tax));
+                    $("input[name='vat_subtotal']").val(Math.round(vat_subtotal));
+                    $("input[name='vat_final_total_price']").val(Math.round(vat_final_total_price));
+
+                    $("input[name='total_principal_amount']").val(Math.round(total_principal_amount));
+                    $("input[name='total_office_cost']").val(Math.round(total_office_cost));
+                    $("input[name='total_profit']").val(Math.round(total_profit));
+                    $("input[name='total_others_cost']").val(Math.round(total_others_cost));
+                    $("input[name='total_remittance']").val(Math.round(total_remittance));
+                    $("input[name='total_packing']").val(Math.round(total_packing));
+                    $("input[name='total_customs']").val(Math.round(total_customs));
+                    $("input[name='total_tax']").val(Math.round(total_tax));
+                    $("input[name='total_subtotal']").val(Math.round(total_subtotal));
+                    $("input[name='total_final_total_price']").val(Math.round(total_final_total_price));
+
+
+                    // $("input[name='total_partner_discount']").val(parseFloat(total_partner_discount).toFixed(
+                    //     2));
+                    // $("input[name='total_partner_price']").val(parseFloat(total_partner_price).toFixed(2));
 
                     // For debugging
                     console.log("Input Name:", inputName, "Input Value:", inputValue);

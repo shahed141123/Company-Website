@@ -1,5 +1,5 @@
 <table cellpadding="0" cellspacing="0" class="qutatation-form"
-    style="border-collapse: collapse;width: 100%;max-width: 750px;margin: 0 auto;background-color: #f4f4f4;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+    style="border-collapse: collapse;width: 58.3333%;margin: 0 auto;background-color: #f4f4f4;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
     <tr>
         <td>
             <section style="margin-top: 0rem;margin-bottom: 0rem;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
@@ -46,24 +46,25 @@
                                     <td style="padding: 0rem 1.875rem; text-align: left">
                                         <div>
                                             <div style="padding-top: 1.25rem;padding-left: 0;">
+                                                <input type="text" name="company_name"
+                                                    class="form-control form-control-sm bg-transparent"
+                                                    value="{{ $rfq_details->company_name }}"
+                                                    style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
                                                 <input type="text" name="name"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="{{$rfq_details->name}}"
-                                                    style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
-                                                <input type="text" name="company_name"
-                                                    class="form-control form-control-sm bg-transparent" value="{{$rfq_details->company_name}}"
+                                                    value="{{ $rfq_details->name }}"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                                 <input type="text" name="email"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="{{$rfq_details->email}}"
+                                                    value="{{ $rfq_details->email }}"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                                 <input type="text" name="phone"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="{{$rfq_details->phone}}"
+                                                    value="{{ $rfq_details->phone }}"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                                 <input type="text" name="address"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="{{$rfq_details->address}}"
+                                                    value="{{ $rfq_details->address }}"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                             </div>
                                         </div>
@@ -84,8 +85,8 @@
                                                     value=" Date : 01 January 2024"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                                 <input type="text"
-                                                    class="form-control form-control-sm bg-transparent text-end text-black pq_code" name="pq_code"
-                                                    value="PQ#: NG-BD/Genexis/RV/231021"
+                                                    class="form-control form-control-sm bg-transparent text-end text-black pq_code"
+                                                    name="pq_code" value="PQ#: NG-BD/Genexis/RV/231021"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                                 <input type="text" name="pqr_code"
                                                     class="form-control form-control-sm bg-transparent text-end"
@@ -106,83 +107,51 @@
                             <thead>
                                 <tr
                                     style="background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee;font-size: 13px;">
-                                    <th style="text-align: center;padding: 0.5rem;font-weight: 400;">
-                                        <a class="btn btn-primary rounded-0" onclick="addRow()"><i
+                                    {{-- <th width="7%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                        <a class="text-primary rounded-0 btn-sm p-1" onclick="addRow()"><i
                                                 class="fa-solid fa-plus"></i></a>
-                                    </th>
-                                    <th style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                    </th> --}}
+                                    <th width="6%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
                                         SL</th>
-                                    <th style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                    <th width="49%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
                                         Product Description</th>
-                                    <th style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                    <th width="8%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
                                         Qty</th>
-                                    <th style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                    <th width="15%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
                                         Unit Price</th>
-                                    <th style="text-align: center;padding: 0.5rem;font-weight: 400;">
-                                        Total ($)</th>
+                                    <th width="15%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                        Total (<span class="currency"></span>)</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($rfq_details->rfqProducts as $product)
-                                    <tr class="text-center thd">
-                                        <td>
-                                            <a class="btn btn-danger rounded-0"
-                                                onclick="deleteRow(this)" title="Add List Items"><i
-                                                    class="fa-regular fa-trash-can"></i></a>
-                                        </td>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td><input type="text" name="product_name[]"
-                                                class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                                                value="{{ $product->product_name }}" style="">
-                                        </td>
-                                        <td><input type="text" name="qty[]"
-                                                class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                                                value="{{ $product->qty }}">
-                                        </td>
-                                        <td>
-                                            <input type="text" name="unit_eu_price[]"
-                                                class="form-control form-control-sm bg-transparent rfqcalculationinput principal_cost"
-                                                value="1">
-                                        </td>
+                                @if ($rfq_details->rfqProducts->count() > 0)
+                                    @foreach ($rfq_details->rfqProducts as $product)
+                                        <tr class="tdsp">
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td><input type="text" name="product_name[]"
+                                                    class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                                    value="{{ $product->product_name }}" style="">
+                                            </td>
+                                            <td><input type="text" name="qty[]"
+                                                    class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                                    value="{{ $product->qty }}">
+                                            </td>
 
-                                        <td class="text-center"><input type="text" name="unit_partner_price[]"
-                                                class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                                                value="1">
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                {{-- <tr
-                                    style="text-align: start;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
-                                    <td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;">
-                                        <button class="btn btn-danger rounded-0" onclick="deleteRow(this)"><i
-                                                class="fa-regular fa-trash-can"></i></button>
-                                    </td>
-                                    <td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;">
-                                        1</td>
-                                    <td style="border: 1px solid #eee; padding: 8px; width: 40%">
-                                        <input type="text" class="form-control form-control-sm bg-transparent"
-                                            value="Citrix Virtual Apps and Desktops Advanced Edition"
-                                            style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                    </td>
-                                    <td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;">
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-center"
-                                            value="460"
-                                            style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                    </td>
-                                    <td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;">
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-center"
-                                            value="218"
-                                            style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                    </td>
-                                    <td style="border: 1px solid #eee;padding: 0.5rem;text-align: center;">
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-end"
-                                            value="$100,174.20"
-                                            style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                    </td>
-                                </tr> --}}
+                                            <td><input type="text" name="unit_final_price[]"
+                                                    class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                                    value="0">
+                                            </td>
+                                            <td class=" text-center"><input type="text"
+                                                    name="unit_final_total_price[]"
+                                                    class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                                    value="0">
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr> No Data Available</tr>
+                                @endif
+
                             </tbody>
                         </table>
                         <!--  -->
@@ -196,37 +165,37 @@
                                     </th>
                                     <th
                                         style="width: 15%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                        
-                                            <input type="text" name="sub_total_partner_price"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="0" style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                        <span class="currency"></span>
+                                        <input type="text" readonly name="sub_total_final_total_price"
+                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            value="0"
+                                            style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                     </th>
                                 </tr>
                             </table>
                         </div>
                         <!--  -->
-                        {{-- <div>
+                        <div class="special_discount" style="display: none;">
                             <div style="display: flex; justify-content: end">
                                 <table style="border-collapse: collapse;width: 100%;border: none;">
                                     <tr
                                         style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                         <td style="width: 85%;text-align: end;padding: 10px;color: #3d3d3d;">
-                                            <input type="text"
-                                                class="form-control form-control-sm bg-transparent text-end"
-                                                value="Special Discount - 10 %"
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                            Special Discount
                                         </td>
                                         <td
                                             style="width: 15%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;">
-                                            <input type="text"
-                                                class="form-control form-control-sm bg-transparent text-end"
-                                                value="-5,008.71"
+                                            <span class="currency"></span>
+                                            <input type="text" name="special_discount_final_total_price"
+                                                class="form-control form-control-sm bg-transparent text-center"
+                                                value="0"
                                                 style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                         </td>
                                     </tr>
                                 </table>
                             </div>
-                        </div> --}}
-                        <div>
+                        </div>
+                        <div class="vat_display" style="display: none;">
                             <div style="display: flex; justify-content: end">
                                 <table style="border-collapse: collapse;width: 100%;border: none;">
                                     <tr
@@ -239,9 +208,10 @@
                                         </td>
                                         <td
                                             style="width: 15%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;">
-                                            <input type="text" name="vat_partner_price"
-                                                class="form-control form-control-sm bg-transparent text-end"
-                                                value=""
+                                            <span class="currency"></span>
+                                            <input type="text" name="vat_final_total_price"
+                                                class="form-control form-control-sm bg-transparent text-center"
+                                                value="0"
                                                 style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                         </td>
                                     </tr>
@@ -260,8 +230,9 @@
                                     </th>
                                     <th
                                         style="width: 15%;text-align: end;padding: 0.5rem;color: #3d3d3d;text-align: end;border-left: 1px solid #eee;">
-                                        <input type="text" name="total_partner_price"
-                                            class="form-control form-control-sm bg-transparent text-end"
+                                        <span class="currency"></span>
+                                        <input type="text" name="total_final_total_price" readonly
+                                            class="form-control form-control-sm bg-transparent text-center"
                                             value="$85,148.1"
                                             style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                     </th>
@@ -269,19 +240,22 @@
                             </table>
                         </div>
                         <!--  -->
-                        <div style="display: flex;justify-content: end;margin-top: 1rem;margin-bottom: 1rem;">
-                            <table
-                                style="border-collapse: collapse;width: 60%;margin: auto;font-size: 13px;border: 1px solid #eee;">
-                                <tr
-                                    style="width: 6%;text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border-bottom: 1px solid #eee;">
-                                    <th style="text-align: center;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-transparent text-center"
-                                            value="GST - 8% Not included. It may apply."
-                                            style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                    </th>
-                                </tr>
-                            </table>
+                        <div class="vat_display" style="display: none;">
+                            <div style="display: flex;justify-content: end;margin-top: 1rem;margin-bottom: 1rem;">
+                                <table
+                                    style="border-collapse: collapse;width: 60%;margin: auto;font-size: 13px;border: 1px solid #eee;">
+                                    <tr
+                                        style="width: 6%;text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border-bottom: 1px solid #eee;">
+                                        <th
+                                            style="text-align: center;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
+                                            <input type="text"
+                                                class="form-control form-control-sm bg-transparent text-center"
+                                                value="GST - 8% Not included. It may apply."
+                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                        </th>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                         <!--  -->
                         <div>
