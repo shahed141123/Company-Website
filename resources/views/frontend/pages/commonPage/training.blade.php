@@ -50,14 +50,16 @@
             <div class="container">
                 <div class="row gx-3">
                     <div class="col-lg-8">
-                        <div class="p-5 blocks-content block-image-content" style="background-color:#f7f6f5!important; height: 30rem;">
+                        <div class="p-5 blocks-content block-image-content"
+                            style="background-color:#f7f6f5!important; height: 30rem;">
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="animated-image parbase section">
                                         <div id="solution_image_1">
                                             <img src="{{ isset($software_info->row_six_image) && file_exists(public_path('storage/' . $software_info->row_six_image)) ? asset('storage/' . $software_info->row_six_image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                                                alt="{{ $software_info->row_six_title }}" title="Software Information NGENIT"
-                                                class="img-fluid" style="background-color: rgb(212,208,202);">
+                                                alt="{{ $software_info->row_six_title }}"
+                                                title="Software Information NGENIT" class="img-fluid"
+                                                style="background-color: rgb(212,208,202);">
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +164,12 @@
                                         <div class="col-lg-3 col-6 mb-4">
                                             <a href="{{ route('category.html', $category->slug) }}"
                                                 style="cursor: pointer;">
-                                                <div class="p-lg-4 p-4 shadow-sm bg-white">
+                                                <div class="p-lg-4 p-4 shadow-sm bg-white"
+                                                    style="
+                                                display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130px;">
                                                     <div class="d-lg-flex align-items-center">
                                                         <div class="icons_area pe-2">
                                                             <img class="category_icon"
@@ -191,7 +198,7 @@
     </section>
     <!----------End--------->
     <!--======// Our expert //======-->
-    @if (!empty($software_info->row_four_video_link ))
+    @if (!empty($software_info->row_four_video_link))
         <section>
             <div class="container mt-3 mb-5 video_row">
                 <div class="software_feature_title py-lg-5 py-3">
@@ -449,7 +456,7 @@
                                         <p class="mb-0">{{ Str::words($blog->title, 8) }}</p>
                                     </a>
                                 </div>
-                            <hr class="my-1 mx-0">
+                                <hr class="my-1 mx-0">
                             @endforeach
                         @endif
 
