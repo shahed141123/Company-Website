@@ -518,6 +518,22 @@
                                                         </div>
                                                     </a>
                                                 </div>
+                                                <div class="col-lg-12">
+                                                    <a href="{{ route('training-page.index') }}">
+                                                        <div
+                                                            class="box_details d-flex justify-content-between align-items-center bg-light p-1 rounded-0 border-right">
+                                                            <div>
+                                                                <span class="link_title_admin text-muted">Training Page</span>
+                                                            </div>
+                                                            <a href="{{ route('training-page.create') }}">
+                                                                <button type="button"
+                                                                    class="btn btn-default btn-circle"><i
+                                                                        class="ph ph-plus"></i>
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                                 <div class="col-lg-12 mt-1">
                                                     <a href="{{ route('solutionDetails.index') }}">
                                                         <div

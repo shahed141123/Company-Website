@@ -2585,7 +2585,7 @@ select:focus-visible {
 }
 
 .main_color {
-    color: #ae0a46;
+    color: #ae0a46 !important;
 }
 
 .main_bg {

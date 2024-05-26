@@ -171,7 +171,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="tab-content bg-white mt-0 pt-0" id="myTabContent">
-                                    <div class="tab-pane fade" id="tab0" role="tabpanel"
+                                    <div class="tab-pane fade show active " id="tab0" role="tabpanel"
                                         aria-labelledby="tab1-tab">
                                         <div class="card rounded-0">
                                             <div class="card-header p-1 rounded-0" style="background-color: #247297;">
@@ -507,7 +507,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade show active " id="tab1" role="tabpanel"
+                                    <div class="tab-pane fade" id="tab1" role="tabpanel"
                                         aria-labelledby="tab1-tab">
                                         <div class="card rounded-0">
                                             <div class="card-header rounded-0 p-0">

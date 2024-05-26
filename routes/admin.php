@@ -135,6 +135,7 @@ use App\Http\Controllers\Admin\PolicyAcknowledgmentsController;
 use App\Http\Controllers\Client\ClientSupportMessageController;
 use App\Http\Controllers\Admin\FrontendNavbarMenuItemController;
 use App\Http\Controllers\Admin\PortfolioClientFeedbackController;
+use App\Http\Controllers\Admin\TrainingPageController;
 use App\Http\Controllers\Marketing\MarketingTeamTargetController;
 use App\Http\Controllers\Marketing\MarketingManagerRoleController;
 
@@ -484,6 +485,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'software-common-page'      => SoftwareCommonController::class, // done
             'hardware-common-page'      => HardwareCommonController::class, // done
 
+            'training-page'             => TrainingPageController::class, // done
             'banking'                   => BankingController::class, // allmost - pending
             'tax-vat'                   => TaxVatController::class, // done
             'expense-category'          => ExpenseCategoryController::class, // done
