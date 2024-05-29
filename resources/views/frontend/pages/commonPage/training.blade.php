@@ -301,7 +301,7 @@
     @endif
     <!--======// Nasted tab //======-->
     @if (!empty($row_five))
-        <div class="container">
+        <section class="container">
             <div class="row brandpage_row pt-lg-4">
                 <div class="col-lg-6 col-sm-12 company-tab-para">
                     <div class="d-flex justify-content-center">
@@ -322,7 +322,7 @@
                     @endif
                 </div>
             </div>
-        </div>
+        </section>
     @endif
 
 

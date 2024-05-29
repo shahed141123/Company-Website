@@ -22,15 +22,12 @@
                                         </a>
                                     </td>
                                     <td style="border: 0">
-                                        <input type="text" name="ngen_company_name"
+                                        <input type="text" name="quotation_title"
                                             class="form-control form-control-sm bg-transparent text-end"
-                                            value=" NGEN IT PTE. LTD."
+                                            value="Price Quotation"
                                             style="font-size: 1.125rem;font-weight: 600;margin-bottom: 0;color: #fff; padding: 0px 18px !important;">
 
-                                        <input type="text" name="ngen_company_registration_number"
-                                            class="form-control form-control-sm bg-transparent text-end"
-                                            value="REG-NO: 20437861K"
-                                            style="font-size: 16px; margin-bottom: 3px; color: #eee; padding: 0px 18px !important;">
+
                                     </td>
                                 </tr>
                             </tbody>
@@ -76,10 +73,14 @@
                                     <td style="padding: 0rem 1.875rem; text-align: right">
                                         <div>
                                             <div style="padding-top: 1.25rem;">
-                                                <input type="text"
+                                                <input type="text" name="ngen_company_name"
                                                     class="form-control form-control-sm bg-transparent text-end"
-                                                    value=" Price Quotation"
+                                                    value="NGen IT"
                                                     style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
+                                                    REG-NO: <input type="text" name="ngen_company_registration_number"
+                                                    class="form-control form-control-sm bg-transparent text-end"
+                                                    value="20437861K"
+                                                    style="font-size: 13px; margin-bottom: 3px; color: #eee; padding: 0px 18px !important;">
                                                 <input type="text"
                                                     class="form-control form-control-sm bg-transparent text-end"
                                                     value=" Date : 01 January 2024"
