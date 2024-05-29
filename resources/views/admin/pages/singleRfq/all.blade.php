@@ -102,41 +102,41 @@
         <div class="content p-0" style="overflow: hidden">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-2 col-12 p-2" style="background: #eee;">
+                    <div class="col-lg-2 col-12 p-2">
                         <div class="d-lg-block d-sm-none">
                             {{-- For Large Device --}}
                             <ul class="nav nav-tabs flex-column border-0" id="myTabs" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <input type="radio" name="tabs" id="tab0-radio" class="nav-radio visually-hidden"
+                                <li class="nav-item active" role="presentation">
+                                    <button class="nav-link active" id="tab0-tab" data-bs-toggle="tab"
+                                        data-bs-target="#tab0" type="button" role="tab" aria-controls="tab0"
+                                        aria-selected="true">Status</button>
+                                    {{-- <input type="radio" name="tabs" id="tab0-radio" class="nav-radio visually-hidden"
                                         data-bs-toggle="tab" data-bs-target="#tab0" role="tab" aria-controls="tab0"
                                         aria-selected="true">
-                                    <label class="nav-link" for="tab0-radio" style="padding: 17px;">Status</label>
+                                    <label class="nav-link" for="tab0-radio" style="padding: 17px;">Status</label> --}}
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <input type="radio" name="tabs" id="tab1-radio" class="nav-radio visually-hidden"
-                                        data-bs-toggle="tab" data-bs-target="#tab1" role="tab" aria-controls="tab1"
-                                        aria-selected="false">
-                                    <label class="nav-link" for="tab1-radio" style="padding: 17px;">RFQ Details</label>
+                                    <button class="nav-link" id="tab1-tab" data-bs-toggle="tab"
+                                        data-bs-target="#tab1" type="button" role="tab" aria-controls="tab0"
+                                        aria-selected="true">RFQ Details</button>
+
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <input type="radio" name="tabs" id="tab2-radio" class="nav-radio visually-hidden"
-                                        data-bs-toggle="tab" data-bs-target="#tab2" role="tab" aria-controls="tab2"
-                                        aria-selected="false">
-                                    <label class="nav-link" for="tab2-radio" style="padding: 17px;">Regular Process</label>
+                                    <button class="nav-link" id="tab2-tab" data-bs-toggle="tab"
+                                        data-bs-target="#tab2" type="button" role="tab" aria-controls="tab0"
+                                        aria-selected="true">Regular Process</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <input type="radio" name="tabs" id="tab3-radio" class="nav-radio visually-hidden"
-                                        data-bs-toggle="tab" data-bs-target="#tab3" role="tab" aria-controls="tab3"
-                                        aria-selected="false">
-                                    <label class="nav-link active" for="tab3-radio" style="padding: 17px;">Bypass
-                                        Process</label>
+                                    <button class="nav-link" id="tab3-tab" data-bs-toggle="tab"
+                                        data-bs-target="#tab3" type="button" role="tab" aria-controls="tab0"
+                                        aria-selected="true">Bypass Process</button>
+
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <input type="radio" name="tabs" id="tab4-radio" class="nav-radio visually-hidden"
-                                        data-bs-toggle="tab" data-bs-target="#tab4" role="tab" aria-controls="tab4"
-                                        aria-selected="false">
-                                    <label class="nav-link" for="tab4-radio" style="padding: 17px;">Department Wise
-                                        Actions</label>
+                                    <button class="nav-link" id="tab4-tab" data-bs-toggle="tab"
+                                        data-bs-target="#tab4" type="button" role="tab" aria-controls="tab0"
+                                        aria-selected="true">Department Wise
+                                        Actions</button>
                                 </li>
                             </ul>
                         </div>

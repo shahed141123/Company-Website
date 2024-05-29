@@ -473,7 +473,7 @@
         </script>
 
 
-
+ 
 
         <script>
             $(document).ready(function() {
@@ -984,19 +984,6 @@
                         sub_total_final_total_price += isNaN(unit_subtotal) ? 0 : unit_subtotal;
 
 
-
-                        // $("input[name='principal_unit_total_amount[]']", this).val(Math.round(principal_unit_total_amount));
-                        // $("input[name='unit_office_cost[]']", this).val(Math.round(office_cost));
-                        // $("input[name='qty[]']", this).val(Math.round(qty));
-                        // $("input[name='unit_profit[]']", this).val(Math.round(profit));
-                        // $("input[name='unit_others_cost[]']", this).val(Math.round(others_cost));
-                        // $("input[name='unit_remittence[]']", this).val(Math.round(unit_remittence));
-                        // $("input[name='unit_packing[]']", this).val(Math.round(unit_packing));
-                        // $("input[name='unit_customs[]']", this).val(Math.round(unit_customs));
-                        // $("input[name='unit_tax_vat[]']", this).val(Math.round(unit_tax_vat));
-                        // $("input[name='unit_subtotal[]']", this).val(Math.round(unit_subtotal));
-                        // $("input[name='unit_final_price[]']", this).val(Math.round(unit_final_price));
-                        // $("input[name='unit_final_total_price[]']", this).val(Math.round(unit_final_total_price));
                         $('input[name="unit_final_price[]"]').eq(index).val(unit_final_price.toFixed(2));
                         $('input[name="unit_final_total_price[]"]').eq(index).val(unit_final_price.toFixed(2));
 
@@ -1016,9 +1003,6 @@
                         displayTableRow.find('input[name="qty[]"]').val(qty);
                         displayTableRow.find('input[name="unit_final_price[]"]').val(unit_final_price.toFixed(2));
                         displayTableRow.find('input[name="unit_final_total_price[]"]').val(unit_final_total_price.toFixed(2));
-                        // $('input[name="qty[]"]').eq(index).val(qty);
-                        // $('input[name="unit_final_price[]"]').eq(index).val(parseFloat(unit_final_price).toFixed(0));
-                        // $('input[name="unit_final_total_price[]"]').eq(index).val(parseFloat(unit_final_total_price).toFixed(0));
 
 
                     });

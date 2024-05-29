@@ -395,24 +395,26 @@
     @endif
     <!--======// Nasted tab //======-->
     @if (!empty($row_five))
-        <div class="row brandpage_row pt-lg-4">
-            <div class="col-lg-6 col-sm-12 company-tab-para">
-                <div class="d-flex justify-content-center">
-                    <img class="img-fluid row_right_image"
-                        src="{{ isset($row_five->image) && file_exists(public_path('storage/' . $row_five->image)) ? asset('storage/' . $row_five->image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                        style="border-radius: 7px 55px 7px 55px;">
+        <div class="container">
+            <div class="row brandpage_row pt-lg-4">
+                <div class="col-lg-6 col-sm-12 company-tab-para">
+                    <div class="d-flex justify-content-center">
+                        <img class="img-fluid row_right_image"
+                            src="{{ isset($row_five->image) && file_exists(public_path('storage/' . $row_five->image)) ? asset('storage/' . $row_five->image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                            style="border-radius: 7px 55px 7px 55px;">
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-sm-12 company-tab-para">
-                @if (!empty($row_five->badge))
-                    <h6 class="eyebrow">{{ $row_five->badge }}</h6>
-                @endif
-                <h3 class="eyebrow_title">{{ $row_five->title }}</h3>
-                <p class="company-tab-para text-justify-align">{!! $row_five->description !!}</p>
-                @if (!empty($row_five->link))
-                    <a href="{{ $row_five->link }}" class="btn-color">{{ $row_five->btn_name }}</a>
-                @else
-                @endif
+                <div class="col-lg-6 col-sm-12 company-tab-para">
+                    @if (!empty($row_five->badge))
+                        <h6 class="eyebrow">{{ $row_five->badge }}</h6>
+                    @endif
+                    <h3 class="eyebrow_title">{{ $row_five->title }}</h3>
+                    <p class="company-tab-para text-justify-align">{!! $row_five->description !!}</p>
+                    @if (!empty($row_five->link))
+                        <a href="{{ $row_five->link }}" class="btn-color">{{ $row_five->btn_name }}</a>
+                    @else
+                    @endif
+                </div>
             </div>
         </div>
     @endif
