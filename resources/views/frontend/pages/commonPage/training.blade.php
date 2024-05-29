@@ -145,12 +145,12 @@
                                                 style="border-top: 3px solid #ae0a46;">{{ Str::substr($tab_one->title, 0, 2) }}</span>{{ Str::substr($tab_one->title, 2) }}
                                         </h1>
                                         <p class="software-info-paragraph" style="text-align: justify;">
-                                            {!! Str::words($tab_one->description, 37) !!}
+                                            {!! Str::words($tab_one->description) !!}
 
                                         </p>
                                         @if (!empty($tab_one->btn_name))
                                             <a href="{{ $tab_one->link }}"
-                                                class="button-bottom-animation main_color">{{ $tab_one->btn_name }}</a>
+                                                class="button-bottom-animation main_color fs-5">{{ $tab_one->btn_name }}</a>
                                         @endif
                                     </div>
                                 </div>
@@ -176,11 +176,11 @@
                                                     style="border-top: 3px solid #ae0a46;">{{ Str::substr($tabId->title, 0, 2) }}</span>{{ Str::substr($tabId->title, 2) }}
                                             </h1>
                                             <p class="software-info-paragraph" style="text-align: justify;">
-                                                {!! Str::words($tabId->description, 37) !!}
+                                                {!! Str::words($tabId->description) !!}
                                             </p>
                                             @if (!empty($tabId->btn_name))
                                                 <a href="{{ $tabId->link }}"
-                                                    class="button-bottom-animation main_color">{{ $tabId->btn_name }}
+                                                    class="button-bottom-animation main_color fs-5">{{ $tabId->btn_name }}
                                                 </a>
                                             @endif
                                         </div>
@@ -207,177 +207,83 @@
                                 <h4 class="text-white">Categories</h4> --}}
                             </div>
                         </div>
-                        <div class="card-header p-lg-5 p-4 card-header-area border-bottom-left-r">
-                            <div class="row card-row-area">
-                                <div class="col-lg-3 col-6 mb-4">
-                                    <a href="javascript:void(0)" style="cursor: pointer;">
-                                        <div class="p-lg-4 p-4 shadow-sm bg-white">
-                                            <div class="d-lg-flex align-items-center">
-                                                <div class="icons_area fs-5 pe-2">
-                                                    Management, Leadership & Strategy
-                                                </div>
-                                                <div class="text_area">
-
-                                                </div>
-                                            </div>
+                        <div class="card-header p-lg-5 p-4 card-header-area border-bottom-left-r border-0">
+                            <a href="">
+                                <div class="row gx-2">
+                                    <div class="col-lg-3 mb-2">
+                                        <div class="d-flex justify-content-between align-items-center p-3 bg-white" style="height: 130px">
+                                            <p class="mb-0"> Management, Leadership & Strategy</p>
+                                            <p class="mb-0"><i class="fa-solid fa-plus"></i></p>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-3 col-6 mb-4">
-                                    <a href="javascript:void(0)" style="cursor: pointer;">
-                                        <div class="p-lg-4 p-4 shadow-sm bg-white">
-                                            <div class="d-lg-flex align-items-center">
-                                                <div class="icons_area fs-5 pe-2">
-                                                    Oil, Gas & Process Engineering
-                                                </div>
-                                                <div class="text_area">
-
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="col-lg-3 mb-2">
+                                        <div class="d-flex justify-content-between align-items-center p-3 bg-white" style="height: 130px">
+                                            <p class="mb-0"> Oil, Gas & Process Engineering</p>
+                                            <p class="mb-0"><i class="fa-solid fa-plus"></i></p>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-3 col-6 mb-4">
-                                    <a href="javascript:void(0)" style="cursor: pointer;">
-                                        <div class="p-lg-4 p-4 shadow-sm bg-white">
-                                            <div class="d-lg-flex align-items-center">
-                                                <div class="icons_area fs-5 pe-2">
-                                                    Procurement, Logistics & Supply Chain
-                                                </div>
-                                                <div class="text_area">
-
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="col-lg-3 mb-2">
+                                        <div class="d-flex justify-content-between align-items-center p-3 bg-white" style="height: 130px">
+                                            <p class="mb-0">Procurement, Logistics & Supply Chain.</p>
+                                            <p class="mb-0"><i class="fa-solid fa-plus"></i></p>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-3 col-6 mb-4">
-                                    <a href="javascript:void(0)" style="cursor: pointer;">
-                                        <div class="p-lg-4 p-4 shadow-sm bg-white">
-                                            <div class="d-lg-flex align-items-center">
-                                                <div class="icons_area fs-5 pe-2">
-                                                    Human Resources Management
-                                                </div>
-                                                <div class="text_area">
-
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="col-lg-3 mb-2">
+                                        <div class="d-flex justify-content-between align-items-center p-3 bg-white" style="height: 130px">
+                                            <p class="mb-0">Human Resources Management</p>
+                                            <p class="mb-0"><i class="fa-solid fa-plus"></i></p>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-3 col-6 mb-4">
-                                    <a href="javascript:void(0)" style="cursor: pointer;">
-                                        <div class="p-lg-4 p-4 shadow-sm bg-white">
-                                            <div class="d-lg-flex align-items-center">
-                                                <div class="icons_area fs-5 pe-2">
-                                                    Finance, Accounting & Budgeting
-                                                </div>
-                                                <div class="text_area">
-
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="col-lg-3 mb-2">
+                                        <div class="d-flex justify-content-between align-items-center p-3 bg-white" style="height: 130px">
+                                            <p class="mb-0">Finance, Accounting & Budgeting</p>
+                                            <p class="mb-0"><i class="fa-solid fa-plus"></i></p>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-3 col-6 mb-4">
-                                    <a href="javascript:void(0)" style="cursor: pointer;">
-                                        <div class="p-lg-4 p-4 shadow-sm bg-white">
-                                            <div class="d-lg-flex align-items-center">
-                                                <div class="icons_area fs-5 pe-2">
-                                                    Administration, Office Management & Secretarial
-                                                </div>
-                                                <div class="text_area">
-
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="col-lg-3 mb-2">
+                                        <div class="d-flex justify-content-between align-items-center p-3 bg-white" style="height: 130px">
+                                            <p class="mb-0">Administration, Office Management & Secretarial</p>
+                                            <p class="mb-0"><i class="fa-solid fa-plus"></i></p>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-3 col-6 mb-4">
-                                    <a href="javascript:void(0)" style="cursor: pointer;">
-                                        <div class="p-lg-4 p-4 shadow-sm bg-white">
-                                            <div class="d-lg-flex align-items-center">
-                                                <div class="icons_area fs-5 pe-2">
-                                                    Contract Management
-                                                </div>
-                                                <div class="text_area">
-
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="col-lg-3 mb-2">
+                                        <div class="d-flex justify-content-between align-items-center p-3 bg-white" style="height: 130px">
+                                            <p class="mb-0">Contract Management</p>
+                                            <p class="mb-0"><i class="fa-solid fa-plus"></i></p>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-3 col-6 mb-4">
-                                    <a href="javascript:void(0)" style="cursor: pointer;">
-                                        <div class="p-lg-4 p-4 shadow-sm bg-white">
-                                            <div class="d-lg-flex align-items-center">
-                                                <div class="icons_area fs-5 pe-2">
-                                                    Customer Service Management
-                                                </div>
-                                                <div class="text_area">
-
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="col-lg-3 mb-2">
+                                        <div class="d-flex justify-content-between align-items-center p-3 bg-white" style="height: 130px">
+                                            <p class="mb-0">Customer Service Management</p>
+                                            <p class="mb-0"><i class="fa-solid fa-plus"></i></p>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-3 col-6 mb-4">
-                                    <a href="javascript:void(0)" style="cursor: pointer;">
-                                        <div class="p-lg-4 p-4 shadow-sm bg-white">
-                                            <div class="d-lg-flex align-items-center">
-                                                <div class="icons_area fs-5 pe-2">
-                                                    Health, Safety, Environmental & Security
-                                                </div>
-                                                <div class="text_area">
-
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="col-lg-3 mb-2">
+                                        <div class="d-flex justify-content-between align-items-center p-3 bg-white" style="height: 130px">
+                                            <p class="mb-0">Health, Safety, Environmental & Security</p>
+                                            <p class="mb-0"><i class="fa-solid fa-plus"></i></p>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-3 col-6 mb-4">
-                                    <a href="javascript:void(0)" style="cursor: pointer;">
-                                        <div class="p-lg-4 p-4 shadow-sm bg-white">
-                                            <div class="d-lg-flex align-items-center">
-                                                <div class="icons_area fs-5 pe-2">
-                                                    Mechanical, Instrumentation & Process Control
-                                                </div>
-                                                <div class="text_area">
-
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="col-lg-3 mb-2">
+                                        <div class="d-flex justify-content-between align-items-center p-3 bg-white" style="height: 130px">
+                                            <p class="mb-0">Mechanical, Instrumentation & Process Control</p>
+                                            <p class="mb-0"><i class="fa-solid fa-plus"></i></p>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-3 col-6 mb-4">
-                                    <a href="javascript:void(0)" style="cursor: pointer;">
-                                        <div class="p-lg-4 p-4 shadow-sm bg-white">
-                                            <div class="d-lg-flex align-items-center">
-                                                <div class="icons_area fs-5 pe-2">
-                                                    Online Training Courses
-                                                </div>
-                                                <div class="text_area">
-
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="col-lg-3 mb-2">
+                                        <div class="d-flex justify-content-between align-items-center p-3 bg-white" style="height: 130px">
+                                            <p class="mb-0">Online Training Courses</p>
+                                            <p class="mb-0"><i class="fa-solid fa-plus"></i></p>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-3 col-6 mb-4">
-                                    <a href="javascript:void(0)" style="cursor: pointer;">
-                                        <div class="p-lg-4 p-4 shadow-sm bg-white">
-                                            <div class="d-lg-flex align-items-center">
-                                                <div class="icons_area fs-5 pe-2">
-                                                    All Technical Courses
-                                                </div>
-                                                <div class="text_area">
-
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="col-lg-3 mb-2">
+                                        <div class="d-flex justify-content-between align-items-center p-3 bg-white" style="height: 130px">
+                                            <p class="mb-0"> All Technical Courses</p>
+                                            <p class="mb-0"><i class="fa-solid fa-plus"></i></p>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>

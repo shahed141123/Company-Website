@@ -15787,7 +15787,9 @@ thead {
     width: 20%;
     flex: 0 0 auto;
 }
-
+.training-box-area{
+    height: 130px;
+}
 .slick-slider .element {
     height: 480px;
     background-color: #000;
