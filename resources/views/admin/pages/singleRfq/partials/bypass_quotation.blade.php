@@ -102,7 +102,7 @@
                                                         <input type="text"
                                                             class="form-control form-control-sm bg-transparent pq_code"
                                                             name="pq_code" value="PQ#: NG-BD/Genexis/RV/231021"
-                                                            style="width:9rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
+                                                            style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
                                                     </div>
                                                 </div>
                                                 <div class="d-flex align-items-center justify-content-start">
@@ -110,11 +110,9 @@
                                                         <input type="text" name="pqr_code"
                                                             class="form-control form-control-sm bg-transparent"
                                                             value=" PQR#: MEO-P021(T10)-W(L1)"
-                                                            style="width:9rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
+                                                            style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
                                                     </div>
                                                 </div>
-
-
 
                                             </div>
                                         </div>
@@ -184,7 +182,7 @@
                                 style="border-collapse: collapse;width: 100%;font-size: 13px;border: 1px solid #eee;">
                                 <tr style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;">
                                     <th
-                                        style="width: 85%;text-align: end;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
+                                        style="width: 85%;text-align: end;padding: 0.5rem;color: #3d3d3d;border: none;">
                                         Sub Total
                                     </th>
                                     <th
@@ -257,7 +255,7 @@
                                         <span class="currency"></span>
                                         <input type="text" name="total_final_total_price" readonly
                                             class="form-control form-control-sm bg-transparent text-center"
-                                            value="$85,148.1"
+                                            value="85,148.1"
                                             style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                     </th>
                                 </tr>
@@ -387,32 +385,32 @@
                                                                 <tr>
                                                                     <td
                                                                         style="border: 1px solid transparent;text-align: start;color: #ffffff;">
-                                                                        <input type="text"
+                                                                        <input type="text" name="thank_you_text"
                                                                             class="form-control form-control-sm bg-transparent text-start"
                                                                             value="Thank You"
                                                                             style="font-size: 13px;font-weight: 600;margin: 0;color: #000; padding: 0px !important;"">
-                                                                        <input type="text"
+                                                                        <input type="text" name="sender_name"
                                                                             class="form-control form-control-sm bg-transparent text-start"
-                                                                            value="Kawsar  Khan"
+                                                                            value="Kawsar Khan"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                        <input type="text"
+                                                                        <input type="text" name="sender_designation"
                                                                             class="form-control form-control-sm bg-transparent text-start"
                                                                             value="Manager, Business"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                     </td>
                                                                     <td
                                                                         style="text-align: end; color: #ffffff; border: 1px solid transparent;">
-                                                                        <input type="text"
+                                                                        <input type="text" name="ngen_email"
                                                                             class="form-control form-control-sm bg-transparent text-end"
                                                                             value="sales@ngenitltd.com"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                        <input type="text"
+                                                                        <input type="text" name="ngen_whatsapp_number"
                                                                             class="form-control form-control-sm bg-transparent text-end"
-                                                                            value="+880 156845 986"
+                                                                            value="+880 156845986"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                        <input type="text"
+                                                                        <input type="text" name="ngen_number_two"
                                                                             class="form-control form-control-sm bg-transparent text-end"
-                                                                            value="+880 156845 987"
+                                                                            value="+880 156845987"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                     </td>
                                                                 </tr>
@@ -436,7 +434,7 @@
                             <tbody style="min-width: 320px">
                                 <tr>
                                     <div style="text-align: center;background-color: #ae0a46;padding: 0.9375rem;">
-                                        <a class="" href="www.ngenitltd.com"
+                                        <a class="" href="https://www.ngenitltd.com/"
                                             style="color: #ffff;font-size: 1.125rem;text-align: center;letter-spacing: 4px;">www.ngenitltd.com</a>
                                     </div>
                                 </tr>
