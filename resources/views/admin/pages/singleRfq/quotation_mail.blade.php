@@ -473,7 +473,7 @@
         </script>
 
 
- 
+
 
         <script>
             $(document).ready(function() {
@@ -1125,5 +1125,67 @@
                 });
             });
         </script>
+
+
+<script>
+    function AddtermsTableRow() {
+        // Get the table body where new rows will be added
+        const tableBody = document.querySelector('#myTables tbody.table_bottom_area');
+
+        // Create a new row element
+        const newRow = document.createElement('tr');
+        newRow.classList.add('thd');
+
+        // Create the inner HTML for the new row
+        newRow.innerHTML = `
+        <td>
+            <a class="border-0 p-0 text-danger bg-transparent" onclick="deleteRfqCalculationRow(this)" title="Delete Row"><i class="fa-regular fa-trash-can"></i></a>
+        </td>
+        `;
+
+        // Append the new row to the table body
+        tableBody.appendChild(newRow);
+
+        // Update the serial numbers
+        updateSerialNumbers();
+    }
+
+    function deleteRfqCalculationRow(element) {
+        // Find the row to delete
+        const row = element.closest('tr');
+
+        // Remove the row from the table
+        row.remove();
+
+        // Update the serial numbers
+        updateSerialNumbers();
+    }
+
+    function updateSerialNumbers() {
+        // Get all the rows in the table body
+        const rows = document.querySelectorAll('#myTable tbody.table_bottom_area tr.thd');
+
+        // Update the serial number for each row
+        rows.forEach((row, index) => {
+            row.querySelector('td:nth-child(2)').textContent = index + 1;
+        });
+    }
+
+    // Example function to initialize event listeners on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add event listener for adding new row
+        document.querySelector('.fa-plus').addEventListener('click', addRfqCalculationTableRow);
+
+        // Add event listener for deleting row on existing delete buttons
+        document.querySelectorAll('.fa-trash-can').forEach(button => {
+            button.addEventListener('click', function() {
+                deleteRfqCalculationRow(button);
+            });
+        });
+
+        // Initialize serial numbers
+        updateSerialNumbers();
+    });
+</script>
     @endpush
 @endonce
