@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\File;
 use App\Models\Admin\CommercialDocument;
 use App\Models\Admin\Country;
 use App\Models\Admin\Region;
+use App\Models\Admin\Rfqquotation;
 
 class RFQManageController extends Controller
 {
@@ -58,6 +59,16 @@ class RFQManageController extends Controller
         $data['sourcing'] = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->first();
         return view('admin.pages.singleRfq.quotation_mail',$data);
     }
+
+
+    public function store(Request $request)
+    {
+        Rfqquotation::create([
+            
+        ]);
+    }
+
+
 
 
     public function destroy($id)

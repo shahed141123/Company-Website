@@ -5,10 +5,10 @@
                 <tr>
                     <th width="5%">Sl #</th>
                     <th width="25%">Item</th>
-                    <th width="20%">Source 1</th>
-                    <th width="15%">Source 1 Price</th>
-                    <th width="20%">Source 2</th>
-                    <th width="15%">Source 2 Price</th>
+                    <th width="20%">Source One</th>
+                    <th width="15%">Source One Price</th>
+                    <th width="20%">Source Two</th>
+                    <th width="15%">Source Two Price</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">

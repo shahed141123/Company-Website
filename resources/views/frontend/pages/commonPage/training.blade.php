@@ -122,7 +122,8 @@
                                     </p>
                                     @if (!empty($training->row_two_btn_name))
                                         <a href="{{ $training->row_two_btn_link }}"
-                                            class="button-bottom-animation main_color fs-5">{{ $training->row_two_btn_name }} --></a>
+                                            class="button-bottom-animation main_color fs-5">{{ $training->row_two_btn_name }}
+                                            --></a>
                                     @endif
                                 </div>
                             </div>
@@ -394,7 +395,7 @@
     @endif
     <!--======// Nasted tab //======-->
     @if (!empty($row_five))
-        <div class="container">
+        <section class="container">
             <div class="row brandpage_row pt-lg-4">
                 <div class="col-lg-6 col-sm-12 company-tab-para">
                     <div class="d-flex justify-content-center">
@@ -415,7 +416,7 @@
                     @endif
                 </div>
             </div>
-        </div>
+        </section>
     @endif
 
 
