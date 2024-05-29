@@ -95,7 +95,7 @@
 
     <!--======// Information Section //======-->
 
-    @if (!empty($training->row_six_image))
+    @if (!empty($training->row_two_image))
         <section>
             <div class="container">
                 <div class="row gx-3">
@@ -106,8 +106,8 @@
                                 <div class="col-lg-6">
                                     <div class="animated-image parbase section">
                                         <div id="solution_image_1">
-                                            <img src="{{ isset($training->row_six_image) && file_exists(public_path('storage/' . $training->row_six_image)) ? asset('storage/' . $training->row_six_image) : asset('frontend/images/no-row-img(580-326).png') }}"
-                                                alt="{{ $training->row_six_title }}" title="Software Information NGENIT"
+                                            <img src="{{ isset($training->row_two_image) && file_exists(public_path('storage/' . $training->row_two_image)) ? asset('storage/' . $training->row_two_image) : asset('frontend/images/no-row-img(580-326).png') }}"
+                                                alt="{{ $training->row_two_title }}" title="Software Information NGENIT"
                                                 class="img-fluid" style="background-color: rgb(212,208,202);">
                                         </div>
                                     </div>
@@ -115,15 +115,14 @@
                                 <div class="col-lg-6">
                                     <h3 class="software-info-title">
                                         <span
-                                            style="border-top: 3px solid #ae0a46;">{{ Str::substr($training->row_six_title, 0, 2) }}</span>{{ Str::substr($training->row_six_title, 2) }}
+                                            style="border-top: 3px solid #ae0a46;">{{ Str::substr($training->row_two_title, 0, 2) }}</span>{{ Str::substr($training->row_two_title, 2) }}
                                     </h3>
                                     <p class="software-info-paragraph" style="text-align: justify;">
-                                        {!! $training->row_six_short_description !!}
+                                        {!! $training->row_two_short_description !!}
                                     </p>
-                                    @if (!empty($training->row_six_btn_name))
-                                        <a href="{{ $training->row_six_btn_link }}"
-                                            class="button-bottom-animation main_color fs-5">{{ $training->row_six_btn_name }}
-                                            --></a>
+                                    @if (!empty($training->row_two_btn_name))
+                                        <a href="{{ $training->row_two_btn_link }}"
+                                            class="button-bottom-animation main_color fs-5">{{ $training->row_two_btn_name }} --></a>
                                     @endif
                                 </div>
                             </div>
