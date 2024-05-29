@@ -26,8 +26,6 @@
                                             class="form-control form-control-sm bg-transparent text-end"
                                             value="Price Quotation"
                                             style="font-size: 1.125rem;font-weight: 600;margin-bottom: 0;color: #fff; padding: 0px 18px !important;">
-
-
                                     </td>
                                 </tr>
                             </tbody>
@@ -67,32 +65,57 @@
                                         </div>
                                     </td>
                                     <td
-                                        style="width: 0.125rem;background: #eee;padding: 0px;height: 10rem;margin: 0px;position: relative;right: -30px;top: 15px;">
+                                        style="width: 22rem;padding: 0px;height: 10rem;margin: 0px;position: relative;right: -30px;top: 15px;">
                                         <p></p>
                                     </td>
                                     <td style="padding: 0rem 1.875rem; text-align: right">
                                         <div>
                                             <div style="padding-top: 1.25rem;">
                                                 <input type="text" name="ngen_company_name"
-                                                    class="form-control form-control-sm bg-transparent text-end"
+                                                    class="form-control form-control-sm bg-transparent text-start"
                                                     value="NGen IT"
                                                     style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
-                                                    REG-NO: <input type="text" name="ngen_company_registration_number"
-                                                    class="form-control form-control-sm bg-transparent text-end"
-                                                    value="20437861K"
-                                                    style="font-size: 13px; margin-bottom: 3px; color: #eee; padding: 0px 18px !important;">
-                                                <input type="text"
-                                                    class="form-control form-control-sm bg-transparent text-end"
-                                                    value=" Date : 01 January 2024"
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                <input type="text"
-                                                    class="form-control form-control-sm bg-transparent text-end text-black pq_code"
-                                                    name="pq_code" value="PQ#: NG-BD/Genexis/RV/231021"
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                <input type="text" name="pqr_code"
-                                                    class="form-control form-control-sm bg-transparent text-end"
-                                                    value=" PQR#: MEO-P021(T10)-W(L1)"
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                <div class="d-flex align-items-center justify-content-start">
+                                                    <div class="me-3">
+                                                        REG-NO:
+                                                    </div>
+                                                    <div>
+                                                        <input type="text" name="ngen_company_registration_number"
+                                                            class="form-control form-control-sm bg-transparent text-start"
+                                                            value="20437861K"
+                                                            style="font-size: 13px;color: #4a5472;padding: 0px!important;width: 9rem;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-start">
+                                                    <div class="me-3">
+                                                        Date:
+                                                    </div>
+                                                    <div>
+                                                        <input type="text" name="quotation_date"
+                                                            class="form-control form-control-sm bg-transparent text-start"
+                                                            value="{{ now()->format('d F Y') }}"
+                                                            style="width:9rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-start">
+                                                    <div>
+                                                        <input type="text"
+                                                            class="form-control form-control-sm bg-transparent pq_code"
+                                                            name="pq_code" value="PQ#: NG-BD/Genexis/RV/231021"
+                                                            style="width:9rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-start">
+                                                    <div>
+                                                        <input type="text" name="pqr_code"
+                                                            class="form-control form-control-sm bg-transparent"
+                                                            value=" PQR#: MEO-P021(T10)-W(L1)"
+                                                            style="width:9rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
+                                                    </div>
+                                                </div>
+
+
+
                                             </div>
                                         </div>
                                     </td>
