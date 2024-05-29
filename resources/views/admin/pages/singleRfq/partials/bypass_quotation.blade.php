@@ -185,9 +185,9 @@
                                         style="width: 85%;text-align: end;padding: 0.5rem;color: #3d3d3d;border: none;">
                                         Sub Total
                                     </th>
-                                    <th
+                                    <th class="d-flex align-items-center"
                                         style="width: 15%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                        <span class="currency"></span>
+                                        <p class="currency mb-0"></p>
                                         <input type="text" readonly name="sub_total_final_total_price"
                                             class="form-control form-control-sm bg-transparent rfqcalculationinput"
                                             value="0"
@@ -250,9 +250,9 @@
                                         style="width: 85%;text-align: end;padding: 0.5rem;color: #3d3d3d;border: none;">
                                         Grand Total
                                     </th>
-                                    <th
+                                    <th class="d-flex align-items-center"
                                         style="width: 15%;text-align: end;padding: 0.5rem;color: #3d3d3d;text-align: end;border-left: 1px solid #eee;">
-                                        <span class="currency"></span>
+                                        <p class="currency mb-0"></p>
                                         <input type="text" name="total_final_total_price" readonly
                                             class="form-control form-control-sm bg-transparent text-center"
                                             value="85,148.1"
@@ -284,10 +284,14 @@
                             <div>
                                 <table
                                     style="margin-top: 0.5rem;border: 1px solid #eee;border-collapse: collapse;width: 100%;">
-                                    <tr
-                                        style="text-align: start;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
+                                    <tr style="text-align: start;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                         <th colspan="2"
-                                            style="text-align: center;padding: 0.5rem;background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee;">
+                                            style="text-align: center;padding: 0.5rem;background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee; width: 10%;">
+                                            <a class="border-0 p-0 bg-transparent text-primary" onclick="addRfqCalculationTableRow()">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </a>
+                                        </th>
+                                        <th colspan="2" style="text-align: center;padding: 0.5rem;background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee; width: 90%;">
                                             Terms & Conditions
                                         </th>
                                     </tr>
@@ -303,7 +307,7 @@
                                             style="padding: 0.3125rem 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
 
                                             <input type="text"
-                                                class="form-control form-control-sm bg-transparent text-center"
+                                                class="form-control form-control-sm bg-transparent text-start"
                                                 value=" 7 Day from the PQ date on regular price.Offer may change on the bank forex rate"
                                                 style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                         </td>
@@ -356,9 +360,7 @@
                                             style="padding: 2px 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
                                             <input type="text"
                                                 class="form-control form-control-sm bg-transparent text-start"
-                                                value="We may reject order on any dispute in
-                                    principal price
-                                    or product non-availability."
+                                                value="We may reject order on any dispute in principal price or product non-availability."
                                                 style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                         </td>
                                     </tr>
