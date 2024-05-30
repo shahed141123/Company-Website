@@ -126,7 +126,7 @@
                     <div
                         style="overflow-x: auto;padding-left: 1.875rem;padding-right: 1.875rem;padding-top: 0.9375rem;padding-bottom: 0.9375rem;">
                         <table id="myTable" style="border-collapse: collapse;width: 100%;border: 1px solid #eee;">
-                            <thead>
+                            <thead class="text-center">
                                 <tr
                                     style="background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee;font-size: 13px;">
                                     {{-- <th width="7%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
@@ -148,7 +148,7 @@
                             <tbody>
                                 @if ($rfq_details->rfqProducts->count() > 0)
                                     @foreach ($rfq_details->rfqProducts as $product)
-                                        <tr class="tdsp">
+                                        <tr class="tdsp text-center">
                                             <td>{{ $loop->iteration }}</td>
                                             <td><input type="text" name="product_name[]"
                                                     class="form-control form-control-sm bg-transparent rfqcalculationinput"
@@ -282,93 +282,37 @@
                         <!--  -->
                         <div>
                             <div>
-                                <table class="terms_table"
-                                    style="margin-top: 0.5rem;border: 1px solid #eee;border-collapse: collapse;width: 100%;">
+                                <table class="terms_table">
                                     <thead>
-                                        <tr
-                                            style="text-align: start;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
-                                            <th colspan="2"
-                                                style="text-align: center;padding: 0.5rem;background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee; width: 10%;">
+                                        <tr>
+                                            <th width="5%" style="text-align: center;">
                                                 <a class="border-0 p-0 bg-transparent text-primary"
                                                     onclick="addTermsTableRow()">
                                                     <i class="fa-solid fa-plus"></i>
                                                 </a>
                                             </th>
-                                            <th colspan="2"
-                                                style="text-align: center;padding: 0.5rem;background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee; width: 90%;">
+                                            <th colspan="2" style="text-align: center;">
                                                 Terms & Conditions
                                             </th>
                                         </tr>
-
                                     </thead>
                                     <tbody class="terms_tbody">
                                         <tr>
-                                            <td
-                                                style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
-                                                <input type="text"
-                                                    class="form-control form-control-sm bg-transparent text-start"
-                                                    value="Validity :"
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                            <td style="text-align: center;">
+                                                <a class="text-danger rounded-0 btn-sm p-1"
+                                                    onclick="deleteTermsTableRow(this)">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
                                             </td>
-                                            <td
-                                                style="padding: 0.3125rem 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
-
-                                                <input type="text"
+                                            <td>
+                                                <input type="text" name="terms_title[]"
                                                     class="form-control form-control-sm bg-transparent text-start"
-                                                    value=" 7 Day from the PQ date on regular price.Offer may change on the bank forex rate"
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                    value="Validity :">
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
-
-                                                <input type="text"
-                                                    class="form-control form-control-sm bg-transparent text-start"
-                                                    value="Payment :"
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                            </td>
-                                            <td
-                                                style="padding: 2px 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
-                                                <input type="text"
-                                                    class="form-control form-control-sm bg-transparent text-start"
-                                                    value="100% Advanced payment with Work Order. Order cannot be cancelled once issues"
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
-
-                                                <input type="text"
-                                                    class="form-control form-control-sm bg-transparent text-start"
-                                                    value="Delivery :"
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                            </td>
-                                            <td
-                                                style="padding: 2px 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
-                                                <input type="text"
-                                                    class="form-control form-control-sm bg-transparent text-start"
-                                                    value="Payment must be made through Telegraphic Transfer (TT) or Wire Transfer"
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
-
-                                                <input type="text"
-                                                    class="form-control form-control-sm bg-transparent text-start"
-                                                    value="Installation :"
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                            </td>
-                                            <td
-                                                style="padding: 2px 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
-                                                <input type="text"
-                                                    class="form-control form-control-sm bg-transparent text-start"
-                                                    value="We may reject order on any dispute in principal price or product non-availability."
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                            <td>
+                                                <input type="text" name="terms_value[]"
+                                                    class="form-control form-control-sm bg-transparent"
+                                                    value="7 Days from the PQ date on regular price.Offer may change on the bank forex rate">
                                             </td>
                                         </tr>
                                     </tbody>

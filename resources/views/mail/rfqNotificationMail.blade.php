@@ -104,7 +104,7 @@
                             font-weight: 600;
                             margin-bottom: 0;
                           ">
-                                                NGEN IT LTD.
+                                                RFQ
                                             </p>
                                             <!-- <p style="font-size: 16px; margin-bottom: 3px">
                           REG.NO. <span style="color: #eee">20437861K</span>
@@ -165,7 +165,19 @@
                                         </tr>
                                     @endif
 
+                                    @if (!empty($data['message']))
+                                        <tr>
+                                            <th
+                                                style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:17px;text-align:left">
+                                                Inquiry Details</th>
+                                            <td
+                                                style="padding:10px 15px;border-top:1px solid #f1f1f1;border-bottom:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:12px;text-align:left">
 
+
+                                                {{ $data['message'] }}
+                                            </td>
+                                        </tr>
+                                    @endif
 
 
                                     <tr>
@@ -203,30 +215,44 @@
                                     @endif
                                     <tr>
                                         <th
-                                            style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:12px;text-align:left">
+                                            style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:17px;text-align:left">
                                             Email</th>
                                         <td
                                             style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:12px;text-align:left">
                                             &nbsp; <a href="mailto:{{ $data['email'] }}"
                                                 target="_blank">{{ $data['email'] }}</a></td>
                                     </tr>
-                                    @if (!empty($data['message']))
-                                        <tr>
-                                            <th
-                                                style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:12px;text-align:left">
-                                                Inquiry Details</th>
-                                            <td
-                                                style="padding:10px 15px;border-top:1px solid #f1f1f1;border-bottom:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:12px;text-align:left">
 
-
-                                                {{ $data['message'] }}
-                                            </td>
-                                        </tr>
-                                    @endif
                                 </tbody>
                             </table>
                         </div>
                         <!-- Main Content End -->
+                        <div style="overflow-x: auto">
+                            <table id="u_body"
+                                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
+                                cellpadding="0" cellspacing="0">
+                                <tbody style="min-width: 320px">
+
+                                    <tr>
+                                        <div style="text-align: left;padding: 15px;">
+                                            <p style="text-align: left; font-size: 18px; color: #141414;">
+                                                Want to get update our products often, please <a
+                                                    href="{{ route('shop') }}"
+                                                    style="color: #ae0a46; font-size:20px"> Click here..</a>
+                                            </p>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div style="text-align: left;padding: 15px;">
+                                            <p style="text-align: left; font-size: 18px; color: #141414;">
+                                                If you are not a registered yet, <a href="{{ route('client.login') }}"
+                                                    style="color: #ae0a46; font-size:20px">Cliek here</a> to register.
+                                            </p>
+                                        </div>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <!-- Column Area -->
                         <div style="overflow-x: auto">
                             <table id="u_body"
@@ -240,12 +266,10 @@
                                                     <tr>
                                                         <td
                                                             style="padding: 15px;padding-left: 30px;padding-right: 30px;background-image: url(https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg);background-size: cover;">
-                                                            <table
-                                                                style="width: 100%;border-collapse: collapse;">
+                                                            <table style="width: 100%;border-collapse: collapse;">
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td
-                                                                            style="text-align: start;color: #ffffff;">
+                                                                        <td style="text-align: start;color: #ffffff;">
                                                                             <p
                                                                                 style="font-size: 15px;font-weight: 600;padding-bottom: 0.5rem;margin: 0;color: #000;">
                                                                                 Thank You
@@ -258,8 +282,7 @@
                                                                                 Manager, Business
                                                                             </p>
                                                                         </td>
-                                                                        <td
-                                                                            style="text-align: end;color: #ffffff;">
+                                                                        <td style="text-align: end;color: #ffffff;">
                                                                             <div
                                                                                 style="font-size: 15px;margin-bottom: 0.5rem;">
                                                                                 <p style="margin: 0; color: #ae0a46">
@@ -303,7 +326,7 @@
                     table-layout: fixed;
                     border-spacing: 0;
                     vertical-align: top;
-                    min-width: 320px; 
+                    min-width: 320px;
                     margin: 0 auto;
                     width: 100%;
                   "
