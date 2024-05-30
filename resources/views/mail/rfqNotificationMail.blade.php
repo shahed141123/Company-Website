@@ -217,8 +217,9 @@
                                             Email</th>
                                         <td
                                             style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
-                                            &nbsp; <a href="mailto:{{ $data['email'] }}"
+                                            <a href="mailto:{{ $data['email'] }}"
                                                 target="_blank">{{ $data['email'] }}</a></td>
+                                        </td>
                                     </tr>
 
                                 </tbody>
@@ -234,18 +235,26 @@
 
                                     <tr>
                                         <div style="text-align: center;padding: 15px; padding-bottom: 5px;">
-                                            <p style="text-align: center; font-size: 18px; color: #141414;">
-                                                Want to get update our products often, please <a
-                                                    href="{{ route('shop') }}" style="color: #ae0a46; font-size:20px">
+                                            <p style="text-align: center; font-size: 16px; color: #141414;">
+                                                Want to get update of our products often, please <a
+                                                    href="{{ route('shop') }}" style="color: #ae0a46; font-size:18px">
                                                     Click here..</a>
                                             </p>
                                         </div>
                                     </tr>
                                     <tr>
                                         <div style="text-align: center;padding: 15px; padding-bottom: 5px;">
-                                            <p style="text-align: center; font-size: 18px; color: #141414;">
-                                                If you are not a registered yet, <a href="{{ route('client.login') }}"
-                                                    style="color: #ae0a46; font-size:20px">Cliek here</a> to register.
+                                            <p style="text-align: center; font-size: 16px; color: #141414;">
+                                                If you are not a registered member yet, <a href="{{ route('client.login') }}"
+                                                    style="color: #ae0a46; font-size:18px">Cliek here</a> to register.
+                                            </p>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div style="text-align: center;padding: 15px; padding-bottom: 15px;">
+                                            <p style="text-align: center; font-size: 16px; color: #141414;">
+                                                Contact us through , <a href="https://wa.me/8801714243446"
+                                                    style="color: #ae0a46; font-size:18px">Whatsapp (8801714243446)</a>.
                                             </p>
                                         </div>
                                     </tr>
@@ -299,9 +308,10 @@
                                                                                 </p>
                                                                             </div>
                                                                             <div style="font-size: 15px">
-                                                                                <p
-                                                                                    style="margin: 0; padding: 0; color: #ae0a46">
-                                                                                    (whats app) +880 1714 243446
+                                                                                <p style="margin: 0; padding: 0; color: #ae0a46">
+                                                                                    <a href="https://wa.me/8801714243446" style="color: inherit; text-decoration: none;">
+                                                                                        (whats app) +880 1714 243446
+                                                                                    </a>
                                                                                 </p>
                                                                             </div>
                                                                         </td>

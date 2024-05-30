@@ -121,11 +121,7 @@
                                 style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
                                 cellpadding="0" cellspacing="0">
                                 <tbody style="min-width: 320px">
-                                    {{-- <tr>
-                                        <div style="text-align: left;padding: 15px;">
-                                            <h4 style="text-align: left; font-size: 18px; color: #141414;">Dear,</h4>
-                                        </div>
-                                    </tr> --}}
+
                                     <tr>
                                         <div style="text-align: left; padding: 3rem 2rem;">
                                             <p style="text-align: left; font-size: 18px; color: #141414;">
@@ -145,14 +141,7 @@
                                 style="border: 1px solid #eee;border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 70%;"
                                 cellpadding="0" cellspacing="0">
                                 <tbody style="min-width: 320px">
-                                    {{-- <tr>
-                                        <th
-                                            style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;border-top:1px solid #f1f1f1;font-size:15px;text-align:left">
-                                            Name</th>
-                                        <td
-                                            style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
-                                            {{ $data['product_name'] }}</td>
-                                    </tr> --}}
+
                                     <tr>
                                         <th
                                             style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;border-top:1px solid #f1f1f1;font-size:15px;text-align:left">
@@ -235,25 +224,25 @@
                                 <tbody style="min-width: 320px">
                                     <tr>
                                         <div style="text-align: center;padding: 15px;padding-bottom: 5px;">
-                                            <p style="text-align: center; font-size: 18px; color: #141414;">
+                                            <p style="text-align: center; font-size: 16px; color: #141414;">
                                                 If you want to Bypass step by step Process. click here. <a
                                                     href="{{ route('single-rfq.quoation_mail', $data['rfq_code']) }}"
-                                                    style="color: #ae0a46; font-size:20px">Bypass Process</a>
+                                                    style="color: #ae0a46; font-size:18px">Bypass Process</a>
                                             </p>
                                         </div>
                                     </tr>
                                     <tr>
-                                        <div style="text-align: center;padding: 15px;padding-bottom: 5px;">
-                                            <p style="text-align: center; font-size: 18px; color: #141414;">
+                                        <div style="text-align: center;padding: 15px;padding-bottom: 15px;">
+                                            <p style="text-align: center; font-size: 16px; color: #141414;">
                                                 If you want to go step by step Process. click here. <a
                                                     href="{{ route('single-rfq.show', $data['rfq_code']) }}"
-                                                    style="color: #ae0a46; font-size:20px">Details Process</a>
+                                                    style="color: #ae0a46; font-size:18px">Details Process</a>
                                             </p>
                                         </div>
                                     </tr>
                                 </tbody>
                             </table>
-                            <hr class="m-0 p-0" style="border-bottom: 1px solid #eee;">
+                            <hr class="m-0 p-0" style="border:none; border-bottom: 1px solid #d3d3d3;">
                         </div>
                         <!-- Column Area -->
                         <div style="overflow-x: auto">
