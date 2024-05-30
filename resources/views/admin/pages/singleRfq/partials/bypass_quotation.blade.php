@@ -18,14 +18,14 @@
                                             <img src="https://i.ibb.co/qMMpQMj/Logo-White.png" alt="Ngen IT"
                                                 title="Ngen IT"
                                                 style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 7.5rem; padding-left: 18px;"
-                                                width="60"/>
+                                                width="60" />
                                         </a>
                                     </td>
                                     <td style="border: 0">
                                         <input type="text" name="quotation_title"
                                             class="form-control form-control-sm bg-transparent text-end"
                                             value="Price Quotation"
-                                            style="font-size: 1.125rem;font-weight: 600;margin-bottom: 0;color: #fff; padding: 0px 18px !important;">
+                                            style="font-size: 2em;font-weight: 600;margin-bottom: 0;color: #fff; padding: 0px 18px !important;">
                                     </td>
                                 </tr>
                             </tbody>
@@ -109,7 +109,7 @@
                                                     <div>
                                                         <input type="text" name="pqr_code"
                                                             class="form-control form-control-sm bg-transparent"
-                                                            value=" PQR#: MEO-P021(T10)-W(L1)"
+                                                            value="PQR#: MEO-P021(T10)-W(L1)"
                                                             style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
                                                     </div>
                                                 </div>
@@ -151,7 +151,7 @@
                                         <tr class="tdsp text-center">
                                             <td>{{ $loop->iteration }}</td>
                                             <td><input type="text" name="product_name[]"
-                                                    class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                                    class="form-control form-control-sm bg-transparent rfqcalculationinput text-start"
                                                     value="{{ $product->product_name }}" style="">
                                             </td>
                                             <td><input type="text" name="qty[]"
@@ -179,14 +179,14 @@
                         <!--  -->
                         <div style="display: flex; justify-content: end">
                             <table
-                                style="border-collapse: collapse;width: 100%;font-size: 13px;border: 1px solid #eee;">
+                                style="border-collapse: collapse;width: 100%;font-size: 13px;border-top: 2px solid #eee;">
                                 <tr style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;">
                                     <th
                                         style="width: 85%;text-align: end;padding: 0.5rem;color: #3d3d3d;border: none;">
                                         Sub Total
                                     </th>
                                     <th class="d-flex align-items-center"
-                                        style="width: 15%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
+                                        style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                         <p class="currency mb-0"></p>
                                         <input type="text" readonly name="sub_total_final_total_price"
                                             class="form-control form-control-sm bg-transparent rfqcalculationinput"
@@ -205,8 +205,8 @@
                                         <td style="width: 85%;text-align: end;padding: 10px;color: #3d3d3d;">
                                             Special Discount
                                         </td>
-                                        <td
-                                            style="width: 15%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;">
+                                        <td class="d-flex align-items-center"
+                                            style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                             <span class="currency"></span>
                                             <input type="text" name="special_discount_final_total_price"
                                                 class="form-control form-control-sm bg-transparent text-center"
@@ -228,8 +228,8 @@
                                                 value="Vat"
                                                 style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                         </td>
-                                        <td
-                                            style="width: 15%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;">
+                                        <td class="d-flex align-items-center"
+                                        style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                             <span class="currency"></span>
                                             <input type="text" name="vat_final_total_price"
                                                 class="form-control form-control-sm bg-transparent text-center"
@@ -251,7 +251,7 @@
                                         Grand Total
                                     </th>
                                     <th class="d-flex align-items-center"
-                                        style="width: 15%;text-align: end;padding: 0.5rem;color: #3d3d3d;text-align: end;border-left: 1px solid #eee;">
+                                    style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                         <p class="currency mb-0"></p>
                                         <input type="text" name="total_final_total_price" readonly
                                             class="form-control form-control-sm bg-transparent text-center"
@@ -291,7 +291,7 @@
                                             </a>
                                         </th>
                                         <th colspan="2" style="text-align: center;">
-                                            Terms & Conditions
+                                            <p class="mb-0 p-2">Terms & Conditions</p>
                                         </th>
                                     </tr>
                                 </thead>
@@ -303,7 +303,7 @@
                                                 <i class="fa-solid fa-trash"></i>
                                             </a>
                                         </td>
-                                        <td>
+                                        <td style="width: 10%">
                                             <input type="text" name="terms_title[]"
                                                 class="form-control form-control-sm bg-transparent text-start"
                                                 value="Validity :">
@@ -357,15 +357,31 @@
                                                                             class="form-control form-control-sm bg-transparent text-end"
                                                                             value="sales@ngenitltd.com"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                        <input type="text"
-                                                                            name="ngen_whatsapp_number"
-                                                                            class="form-control form-control-sm bg-transparent text-end"
-                                                                            value="+880 156845986"
-                                                                            style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                        <input type="text" name="ngen_number_two"
-                                                                            class="form-control form-control-sm bg-transparent text-end"
-                                                                            value="+880 156845987"
-                                                                            style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+
+                                                                        <div class="d-flex">
+                                                                            <div style="width: 78%; color: #ae0a46;">
+                                                                                <i class="fa-brands fa-skype"></i>
+                                                                            </div>
+                                                                            <div style="width: 22%">
+                                                                                <input type="text"
+                                                                                    name="ngen_whatsapp_number"
+                                                                                    class="form-control form-control-sm bg-transparent text-end"
+                                                                                    value="+880 156845986"
+                                                                                    style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="d-flex">
+                                                                            <div style="width: 78%; color: #ae0a46;">
+                                                                                <i class="fa-brands fa-whatsapp"></i>
+                                                                            </div>
+                                                                            <div style="width: 22%">
+                                                                                <input type="text"
+                                                                                    name="ngen_number_two"
+                                                                                    class="form-control form-control-sm bg-transparent text-end"
+                                                                                    value="+880 156845987"
+                                                                                    style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                            </div>
+                                                                        </div>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -412,9 +428,11 @@
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center py-3 pt-0">
-        <button type="submit" value="approval" name="action" class="btn navigation_btn"><i class="fa-solid fa-person-circle-check pe-2"></i>
+        <button type="submit" value="approval" name="action" class="btn navigation_btn"><i
+                class="fa-solid fa-person-circle-check pe-2"></i>
             Submit for Approval</button>
-        <button type="submit" value="submit" name="action" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Send
+        <button type="submit" value="submit" name="action" class="btn navigation_btn"><i
+                class="fa-regular fa-circle-check pe-2"></i>Send
             Quotation</button>
         @php
             $currentUrl = url()->current();
