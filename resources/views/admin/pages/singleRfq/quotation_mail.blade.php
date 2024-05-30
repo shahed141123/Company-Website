@@ -915,15 +915,15 @@
                     } else {
                         currency_rate = 1;
                     }
-                    var office_cost_percentage          = $("input[name='office_cost_percentage']").val();
-                    var profit_percentage               = $("input[name='profit_percentage']").val();
-                    var others_cost_percentage          = $("input[name='others_cost_percentage']").val();
-                    var remittence_percentage           = $("input[name='remittence_percentage']").val();
-                    var packing_percentage              = $("input[name='packing_percentage']").val();
-                    var custom_percentage               = $("input[name='custom_percentage']").val();
-                    var tax_vat_percentage              = $("input[name='tax_vat_percentage']").val();
-                    var vat_percentage                  = $("input[name='vat_percentage']").val();
-                    var special_discount_percentage     = $("input[name='special_discount_percentage']").val();
+                    var office_cost_percentage = $("input[name='office_cost_percentage']").val();
+                    var profit_percentage = $("input[name='profit_percentage']").val();
+                    var others_cost_percentage = $("input[name='others_cost_percentage']").val();
+                    var remittence_percentage = $("input[name='remittence_percentage']").val();
+                    var packing_percentage = $("input[name='packing_percentage']").val();
+                    var custom_percentage = $("input[name='custom_percentage']").val();
+                    var tax_vat_percentage = $("input[name='tax_vat_percentage']").val();
+                    var vat_percentage = $("input[name='vat_percentage']").val();
+                    var special_discount_percentage = $("input[name='special_discount_percentage']").val();
 
                     if (tax_vat_percentage > 0) {
                         var tax_vat_percentage = (tax_vat_percentage / 100);
@@ -932,19 +932,19 @@
                     }
 
 
-                    var sub_total_principal_amount      = 0;
-                    var sub_total_office_cost           = 0;
-                    var sub_total_profit                = 0;
-                    var sub_total_others_cost           = 0;
-                    var sub_total_remittance            = 0;
-                    var sub_total_packing               = 0;
-                    var sub_total_customs               = 0;
-                    var sub_total_tax                   = 0;
-                    var sub_total_subtotal              = 0;
-                    var sub_total_final_total_price     = 0;
+                    var sub_total_principal_amount = 0;
+                    var sub_total_office_cost = 0;
+                    var sub_total_profit = 0;
+                    var sub_total_others_cost = 0;
+                    var sub_total_remittance = 0;
+                    var sub_total_packing = 0;
+                    var sub_total_customs = 0;
+                    var sub_total_tax = 0;
+                    var sub_total_subtotal = 0;
+                    var sub_total_final_total_price = 0;
 
                     // $('tr.thd').each(function(index) {
-                        $('tbody.table_bottom_area tr.thd').each(function(index) {
+                    $('tbody.table_bottom_area tr.thd').each(function(index) {
                         // get the values from this row:
                         var principal_cost = $("input[name='principal_cost[]']", this).val();
                         var qty = $("input[name='qty[]']", this).val();
@@ -967,12 +967,13 @@
                         var unit_tax_vat = principal_unit_total_amount * tax_vat_percentage;
 
                         var unit_subtotal = principal_unit_total_amount + office_cost + profit +
-                            others_cost + unit_remittence +  unit_packing + unit_customs + unit_tax_vat;
+                            others_cost + unit_remittence + unit_packing + unit_customs + unit_tax_vat;
 
                         var unit_final_price = unit_subtotal / qty;
                         var unit_final_total_price = unit_subtotal;
 
-                        sub_total_principal_amount += isNaN(principal_unit_total_amount) ? 0 : principal_unit_total_amount;
+                        sub_total_principal_amount += isNaN(principal_unit_total_amount) ? 0 :
+                            principal_unit_total_amount;
                         sub_total_office_cost += isNaN(office_cost) ? 0 : office_cost;
                         sub_total_profit += isNaN(profit) ? 0 : profit;
                         sub_total_others_cost += isNaN(others_cost) ? 0 : others_cost;
@@ -984,89 +985,106 @@
                         sub_total_final_total_price += isNaN(unit_subtotal) ? 0 : unit_subtotal;
 
 
-                        $('input[name="unit_final_price[]"]').eq(index).val(unit_final_price.toFixed(2));
-                        $('input[name="unit_final_total_price[]"]').eq(index).val(unit_final_price.toFixed(2));
+                        $('input[name="unit_final_price[]"]').eq(index).val(unit_final_price.toFixed(
+                        2));
+                        $('input[name="unit_final_total_price[]"]').eq(index).val(unit_final_price
+                            .toFixed(2));
 
-                        $(this).find("input[name='principal_unit_total_amount[]']").val(Math.round(principal_unit_total_amount));
+                        $(this).find("input[name='principal_unit_total_amount[]']").val(Math.round(
+                            principal_unit_total_amount));
                         $(this).find("input[name='unit_office_cost[]']").val(Math.round(office_cost));
                         $(this).find("input[name='unit_profit[]']").val(Math.round(profit));
                         $(this).find("input[name='unit_others_cost[]']").val(Math.round(others_cost));
-                        $(this).find("input[name='unit_remittence[]']").val(Math.round(unit_remittence));
+                        $(this).find("input[name='unit_remittence[]']").val(Math.round(
+                        unit_remittence));
                         $(this).find("input[name='unit_packing[]']").val(Math.round(unit_packing));
                         $(this).find("input[name='unit_customs[]']").val(Math.round(unit_customs));
                         $(this).find("input[name='unit_tax_vat[]']").val(Math.round(unit_tax_vat));
                         $(this).find("input[name='unit_subtotal[]']").val(Math.round(unit_subtotal));
-                        $(this).find("input[name='unit_final_price[]']").val(Math.round(unit_final_price));
-                        $(this).find("input[name='unit_final_total_price[]']").val(Math.round(unit_final_total_price));
+                        $(this).find("input[name='unit_final_price[]']").val(Math.round(
+                            unit_final_price));
+                        $(this).find("input[name='unit_final_total_price[]']").val(Math.round(
+                            unit_final_total_price));
                         // Update corresponding fields in the display table
                         var displayTableRow = $('#myTable tbody tr.tdsp').eq(index);
                         displayTableRow.find('input[name="qty[]"]').val(qty);
-                        displayTableRow.find('input[name="unit_final_price[]"]').val(unit_final_price.toFixed(2));
-                        displayTableRow.find('input[name="unit_final_total_price[]"]').val(unit_final_total_price.toFixed(2));
+                        displayTableRow.find('input[name="unit_final_price[]"]').val(unit_final_price
+                            .toFixed(2));
+                        displayTableRow.find('input[name="unit_final_total_price[]"]').val(
+                            unit_final_total_price.toFixed(2));
 
 
                     });
 
-                    var sub_total_principal_amount  = sub_total_principal_amount;
-                    var sub_total_office_cost       = sub_total_office_cost;
-                    var sub_total_profit            = sub_total_profit;
-                    var sub_total_others_cost       = sub_total_others_cost;
-                    var sub_total_remittance        = sub_total_remittance;
-                    var sub_total_packing           = sub_total_packing;
-                    var sub_total_customs           = sub_total_customs;
-                    var sub_total_tax               = sub_total_tax;
-                    var sub_total_subtotal          = sub_total_subtotal;
+                    var sub_total_principal_amount = sub_total_principal_amount;
+                    var sub_total_office_cost = sub_total_office_cost;
+                    var sub_total_profit = sub_total_profit;
+                    var sub_total_others_cost = sub_total_others_cost;
+                    var sub_total_remittance = sub_total_remittance;
+                    var sub_total_packing = sub_total_packing;
+                    var sub_total_customs = sub_total_customs;
+                    var sub_total_tax = sub_total_tax;
+                    var sub_total_subtotal = sub_total_subtotal;
                     var sub_total_final_total_price = sub_total_final_total_price;
                     // alert(sub_total_principal_amount);
 
                     // Special Discount
-                    var special_discount_principal_amount  = sub_total_principal_amount * (special_discount_percentage / 100);
-                    var special_discount_office_cost       = sub_total_office_cost * (special_discount_percentage / 100);
-                    var special_discount_profit            = sub_total_profit * (special_discount_percentage / 100);
-                    var special_discount_others_cost       = sub_total_others_cost * (special_discount_percentage / 100);
-                    var special_discount_remittance        = sub_total_remittance * (special_discount_percentage / 100);
-                    var special_discount_packing           = sub_total_packing * (special_discount_percentage / 100);
-                    var special_discount_customs           = sub_total_customs * (special_discount_percentage / 100);
-                    var special_discount_tax               = sub_total_tax * (special_discount_percentage / 100);
-                    var special_discount_subtotal          = sub_total_subtotal * (special_discount_percentage / 100);
-                    var special_discount_final_total_price = sub_total_final_total_price * (special_discount_percentage / 100);
+                    var special_discount_principal_amount = sub_total_principal_amount * (
+                        special_discount_percentage / 100);
+                    var special_discount_office_cost = sub_total_office_cost * (special_discount_percentage /
+                        100);
+                    var special_discount_profit = sub_total_profit * (special_discount_percentage / 100);
+                    var special_discount_others_cost = sub_total_others_cost * (special_discount_percentage /
+                        100);
+                    var special_discount_remittance = sub_total_remittance * (special_discount_percentage /
+                    100);
+                    var special_discount_packing = sub_total_packing * (special_discount_percentage / 100);
+                    var special_discount_customs = sub_total_customs * (special_discount_percentage / 100);
+                    var special_discount_tax = sub_total_tax * (special_discount_percentage / 100);
+                    var special_discount_subtotal = sub_total_subtotal * (special_discount_percentage / 100);
+                    var special_discount_final_total_price = sub_total_final_total_price * (
+                        special_discount_percentage / 100);
 
-                     // Vat Calculation
-                     if (special_discount_percentage > 0) {
-                        var vat_principal_amount  = special_discount_principal_amount * (vat_percentage / 100);
-                        var vat_office_cost       = special_discount_office_cost * (vat_percentage / 100);
-                        var vat_profit            = special_discount_profit * (vat_percentage / 100);
-                        var vat_others_cost       = special_discount_others_cost * (vat_percentage / 100);
-                        var vat_remittance        = special_discount_remittance * (vat_percentage / 100);
-                        var vat_packing           = special_discount_packing * (vat_percentage / 100);
-                        var vat_customs           = special_discount_customs * (vat_percentage / 100);
-                        var vat_tax               = special_discount_tax * (vat_percentage / 100);
-                        var vat_subtotal          = special_discount_subtotal * (vat_percentage / 100);
+                    // Vat Calculation
+                    if (special_discount_percentage > 0) {
+                        var vat_principal_amount = special_discount_principal_amount * (vat_percentage / 100);
+                        var vat_office_cost = special_discount_office_cost * (vat_percentage / 100);
+                        var vat_profit = special_discount_profit * (vat_percentage / 100);
+                        var vat_others_cost = special_discount_others_cost * (vat_percentage / 100);
+                        var vat_remittance = special_discount_remittance * (vat_percentage / 100);
+                        var vat_packing = special_discount_packing * (vat_percentage / 100);
+                        var vat_customs = special_discount_customs * (vat_percentage / 100);
+                        var vat_tax = special_discount_tax * (vat_percentage / 100);
+                        var vat_subtotal = special_discount_subtotal * (vat_percentage / 100);
                         var vat_final_total_price = special_discount_final_total_price * (vat_percentage / 100);
-                     } else {
-                        var vat_principal_amount  = sub_total_principal_amount * (vat_percentage / 100);
-                        var vat_office_cost       = sub_total_office_cost * (vat_percentage / 100);
-                        var vat_profit            = sub_total_profit * (vat_percentage / 100);
-                        var vat_others_cost       = sub_total_others_cost * (vat_percentage / 100);
-                        var vat_remittance        = sub_total_remittance * (vat_percentage / 100);
-                        var vat_packing           = sub_total_packing * (vat_percentage / 100);
-                        var vat_customs           = sub_total_customs * (vat_percentage / 100);
-                        var vat_tax               = sub_total_tax * (vat_percentage / 100);
-                        var vat_subtotal          = sub_total_subtotal * (vat_percentage / 100);
+                    } else {
+                        var vat_principal_amount = sub_total_principal_amount * (vat_percentage / 100);
+                        var vat_office_cost = sub_total_office_cost * (vat_percentage / 100);
+                        var vat_profit = sub_total_profit * (vat_percentage / 100);
+                        var vat_others_cost = sub_total_others_cost * (vat_percentage / 100);
+                        var vat_remittance = sub_total_remittance * (vat_percentage / 100);
+                        var vat_packing = sub_total_packing * (vat_percentage / 100);
+                        var vat_customs = sub_total_customs * (vat_percentage / 100);
+                        var vat_tax = sub_total_tax * (vat_percentage / 100);
+                        var vat_subtotal = sub_total_subtotal * (vat_percentage / 100);
                         var vat_final_total_price = sub_total_final_total_price * (vat_percentage / 100);
-                     }
+                    }
 
 
-                     var total_principal_amount  = sub_total_principal_amount + vat_principal_amount - special_discount_principal_amount;
-                     var total_office_cost       = sub_total_office_cost + vat_office_cost - special_discount_office_cost;
-                     var total_profit            = sub_total_profit + vat_profit - special_discount_profit;
-                     var total_others_cost       = sub_total_others_cost + vat_others_cost - special_discount_others_cost;
-                     var total_remittance        = sub_total_remittance + vat_remittance - special_discount_remittance;
-                     var total_packing           = sub_total_packing + vat_packing - special_discount_packing;
-                     var total_customs           = sub_total_customs + vat_customs - special_discount_customs;
-                     var total_tax               = sub_total_tax + vat_tax - special_discount_tax;
-                     var total_subtotal          = sub_total_subtotal + vat_subtotal - special_discount_subtotal;
-                     var total_final_total_price = sub_total_final_total_price + vat_final_total_price - special_discount_final_total_price;
+                    var total_principal_amount = sub_total_principal_amount + vat_principal_amount -
+                        special_discount_principal_amount;
+                    var total_office_cost = sub_total_office_cost + vat_office_cost -
+                        special_discount_office_cost;
+                    var total_profit = sub_total_profit + vat_profit - special_discount_profit;
+                    var total_others_cost = sub_total_others_cost + vat_others_cost -
+                        special_discount_others_cost;
+                    var total_remittance = sub_total_remittance + vat_remittance - special_discount_remittance;
+                    var total_packing = sub_total_packing + vat_packing - special_discount_packing;
+                    var total_customs = sub_total_customs + vat_customs - special_discount_customs;
+                    var total_tax = sub_total_tax + vat_tax - special_discount_tax;
+                    var total_subtotal = sub_total_subtotal + vat_subtotal - special_discount_subtotal;
+                    var total_final_total_price = sub_total_final_total_price + vat_final_total_price -
+                        special_discount_final_total_price;
 
 
 
@@ -1082,16 +1100,20 @@
                     $("input[name='sub_total_subtotal']").val(Math.round(sub_total_subtotal));
                     $("input[name='sub_total_final_total_price']").val(Math.round(sub_total_final_total_price));
 
-                    $("input[name='special_discount_principal_amount']").val(Math.round(special_discount_principal_amount));
-                    $("input[name='special_discount_office_cost']").val(Math.round(special_discount_office_cost));
+                    $("input[name='special_discount_principal_amount']").val(Math.round(
+                        special_discount_principal_amount));
+                    $("input[name='special_discount_office_cost']").val(Math.round(
+                        special_discount_office_cost));
                     $("input[name='special_discount_profit']").val(Math.round(special_discount_profit));
-                    $("input[name='special_discount_others_cost']").val(Math.round(special_discount_others_cost));
+                    $("input[name='special_discount_others_cost']").val(Math.round(
+                        special_discount_others_cost));
                     $("input[name='special_discount_remittance']").val(Math.round(special_discount_remittance));
                     $("input[name='special_discount_packing']").val(Math.round(special_discount_packing));
                     $("input[name='special_discount_customs']").val(Math.round(special_discount_customs));
                     $("input[name='special_discount_tax']").val(Math.round(special_discount_tax));
                     $("input[name='special_discount_subtotal']").val(Math.round(special_discount_subtotal));
-                    $("input[name='special_discount_final_total_price']").val(Math.round(special_discount_final_total_price));
+                    $("input[name='special_discount_final_total_price']").val(Math.round(
+                        special_discount_final_total_price));
 
                     $("input[name='vat_principal_amount']").val(Math.round(vat_principal_amount));
                     $("input[name='vat_office_cost']").val(Math.round(vat_office_cost));
@@ -1127,65 +1149,32 @@
         </script>
 
 
-<script>
-    function addTermsTableRow() {
-        // Get the table body where new rows will be added
-        const tableBody = document.querySelector('.terms_table tbody.terms_tbody');
+        <script>
+            function addTermsTableRow() {
+                const tableBody = document.querySelector('.terms_tbody');
+                const newRow = document.createElement('tr');
 
-        // Create a new row element
-        const newRow = document.createElement('tr');
-        // newRow.classList.add('thd');
-
-        // Create the inner HTML for the new row
-        newRow.innerHTML = `
-        <td>
-            <a class="border-0 p-0 text-danger bg-transparent" onclick="deleteRfqCalculationRow(this)" title="Delete Row"><i class="fa-regular fa-trash-can"></i></a>
-        </td>
+                newRow.innerHTML = `
+            <td style="text-align: center;">
+                <a class="text-danger rounded-0 btn-sm p-1" onclick="deleteTermsTableRow(this)">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+            </td>
+            <td>
+                <input type="text" name="terms_title[]" class="form-control form-control-sm bg-transparent text-start">
+            </td>
+            <td>
+                <input type="text" name="terms_value[]" class="form-control form-control-sm bg-transparent">
+            </td>
         `;
 
-        // Append the new row to the table body
-        tableBody.appendChild(newRow);
+                tableBody.appendChild(newRow);
+            }
 
-        // Update the serial numbers
-        updateSerialNumbers();
-    }
-
-    function deleteRfqCalculationRow(element) {
-        // Find the row to delete
-        const row = element.closest('tr');
-
-        // Remove the row from the table
-        row.remove();
-
-        // Update the serial numbers
-        updateSerialNumbers();
-    }
-
-    function updateSerialNumbers() {
-        // Get all the rows in the table body
-        const rows = document.querySelectorAll('.terms_table tbody.terms_tbody tr');
-
-        // Update the serial number for each row
-        rows.forEach((row, index) => {
-            row.querySelector('td:nth-child(2)').textContent = index + 1;
-        });
-    }
-
-    // Example function to initialize event listeners on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        // Add event listener for adding new row
-        document.querySelector('.fa-plus').addEventListener('click', addRfqCalculationTableRow);
-
-        // Add event listener for deleting row on existing delete buttons
-        document.querySelectorAll('.fa-trash-can').forEach(button => {
-            button.addEventListener('click', function() {
-                deleteRfqCalculationRow(button);
-            });
-        });
-
-        // Initialize serial numbers
-        updateSerialNumbers();
-    });
-</script>
+            function deleteTermsTableRow(button) {
+                const row = button.closest('tr');
+                row.remove();
+            }
+        </script>
     @endpush
 @endonce
