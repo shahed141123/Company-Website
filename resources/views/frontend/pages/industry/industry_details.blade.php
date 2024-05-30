@@ -474,7 +474,7 @@
                                             <h4 class="mb-1">
                                                 {{ App\Models\Admin\Industry::where('id', $item->industry_id)->value('title') }}
                                             </h4>
-                                            <h3 class="mb-0 fw-bold">{{ $item->name }}</h3>
+                                            <h3 class="mb-0 fw-bold solutions-titles">{{ $item->name }}</h3>
                                         </div>
                                     </a>
                                 </div>
