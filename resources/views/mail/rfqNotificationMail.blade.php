@@ -42,34 +42,18 @@
 
 <body class="clean-body u_body" style="margin: 0; padding: 0; background-color: #f4f4f4">
     <table cellpadding="0" cellspacing="0"
-        style="
-        border-collapse: collapse;
-        width: 70%;
-        max-width: 70%;
-        margin: 0 auto;
-        background-color: white;
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      ">
+        style="border-collapse: collapse;width: 70%;max-width: 70%;margin: 0 auto;background-color: white;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
         <tr>
             <td>
                 <!-- Your email content goes here -->
                 <section
-                    style="margin-top: 0rem; margin-bottom: 0rem; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                    tyle="margin-top: 0rem; margin-bottom: 0rem; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
                     <!-- Email Header Start -->
                     <div class="wrapper" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
                         <!-- Email Header Start -->
                         <div style="overflow-x: auto">
                             <table id="u_body"
-                                style="
-                    border-collapse: collapse;
-                    table-layout: fixed;
-                    border-spacing: 0;
-                    vertical-align: top;
-                    min-width: 320px;
-                    margin: 0 auto;
-                    width: 100%;
-                    background-color: #ae0a46;
-                  "
+                                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;background-color: #ae0a46; "
                                 cellpadding="0" cellspacing="0">
                                 <tbody style="min-width: 320px">
                                     <tr style="vertical-align: top">
@@ -77,44 +61,22 @@
                                             <a href="https://ngenitltd.com" target="_blank">
                                                 <img src="https://i.ibb.co/qMMpQMj/Logo-White.png" alt="Ngen IT"
                                                     title="Ngen IT"
-                                                    style="
-                              outline: none;
-                              text-decoration: none;
-                              -ms-interpolation-mode: bicubic;
-                              clear: both;
-                              display: inline-block !important;
-                              border: none;
-                              height: auto;
-                              float: none;
-                              width: 100%;
-                              max-width: 110px;
-                            "
+                                                    style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 110px;"
                                                     width="60" />
                                             </a>
                                         </td>
-                                        <td
-                                            style="
-                          padding: 25px 30px 0px;
-                          text-align: right;
-                          color: #ffffff;
-                        ">
-                                            <p
-                                                style="
-                            font-size: 2.5em;
-                            font-weight: 600;
-                            margin-bottom: 0;
-                          ">
+                                        <td style="padding: 25px 30px 0px;text-align: right;color: #ffffff;">
+                                            <p style="font-size: 2.5em;font-weight: 600;margin-bottom: 0; ">
                                                 RFQ
                                             </p>
                                             <!-- <p style="font-size: 16px; margin-bottom: 3px">
-                          REG.NO. <span style="color: #eee">20437861K</span>
-                        </p> -->
+                                                    REG.NO. <span style="color: #eee">20437861K</span>
+                                                </p> -->
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <!-- Email Header End -->
                         <!-- Main Content Start -->
                         <div style="overflow-x: auto">
                             <table id="u_body"
@@ -150,7 +112,7 @@
                                             Product Name</th>
                                         <td
                                             style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
-                                             {{ $data['product_name'] }}</td>
+                                            {{ $data['product_name'] }}</td>
                                     </tr>
                                     @if (!empty($data['qty']))
                                         <tr>
@@ -159,7 +121,7 @@
                                                 Quantity</th>
                                             <td
                                                 style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
-                                                 {{ $data['qty'] }}</td>
+                                                {{ $data['qty'] }}</td>
                                         </tr>
                                     @endif
 
@@ -184,7 +146,8 @@
                                             Fullname</th>
                                         <td
                                             style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
-                                             {{ $data['name'] }}</td>
+                                            {{ $data['name'] }}
+                                        </td>
                                     </tr>
 
 
@@ -197,7 +160,7 @@
                                                 Company</th>
                                             <td
                                                 style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
-                                                 {{ $data['company_name'] }}</td>
+                                                {{ $data['company_name'] }}</td>
                                         </tr>
                                     @endif
 
@@ -208,7 +171,7 @@
                                                 Telephone</th>
                                             <td
                                                 style="width: 30%;padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
-                                                 {{ $data['phone'] }}</td>
+                                                {{ $data['phone'] }}</td>
                                         </tr>
                                     @endif
                                     <tr>
@@ -218,7 +181,7 @@
                                         <td
                                             style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
                                             <a href="mailto:{{ $data['email'] }}"
-                                                target="_blank">{{ $data['email'] }}</a></td>
+                                                target="_blank">{{ $data['email'] }}</a>
                                         </td>
                                     </tr>
 
@@ -232,7 +195,6 @@
                                 style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
                                 cellpadding="0" cellspacing="0">
                                 <tbody style="min-width: 320px">
-
                                     <tr>
                                         <div style="text-align: center;padding: 15px; padding-bottom: 5px;">
                                             <p style="text-align: center; font-size: 16px; color: #141414;">
@@ -245,7 +207,8 @@
                                     <tr>
                                         <div style="text-align: center;padding: 15px; padding-bottom: 5px;">
                                             <p style="text-align: center; font-size: 16px; color: #141414;">
-                                                If you are not a registered member yet, <a href="{{ route('client.login') }}"
+                                                If you are not a registered member yet, <a
+                                                    href="{{ route('client.login') }}"
                                                     style="color: #ae0a46; font-size:18px">Cliek here</a> to register.
                                             </p>
                                         </div>
@@ -308,8 +271,10 @@
                                                                                 </p>
                                                                             </div>
                                                                             <div style="font-size: 15px">
-                                                                                <p style="margin: 0; padding: 0; color: #ae0a46">
-                                                                                    <a href="https://wa.me/8801714243446" style="color: inherit; text-decoration: none;">
+                                                                                <p
+                                                                                    style="margin: 0; padding: 0; color: #ae0a46">
+                                                                                    <a href="https://wa.me/8801714243446"
+                                                                                        style="color: inherit; text-decoration: none;">
                                                                                         (whats app) +880 1714 243446
                                                                                     </a>
                                                                                 </p>
@@ -331,31 +296,13 @@
                         <!-- Email Footer -->
                         <div style="overflow-x: auto">
                             <table id="u_body"
-                                style="
-                    border-collapse: collapse;
-                    table-layout: fixed;
-                    border-spacing: 0;
-                    vertical-align: top;
-                    min-width: 320px;
-                    margin: 0 auto;
-                    width: 100%;
-                  "
+                                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
                                 cellpadding="0" cellspacing="0">
                                 <tbody style="min-width: 320px">
                                     <tr>
-                                        <div
-                                            style="
-                          text-align: center;
-                          background-color: #ae0a46;
-                          padding: 15px;
-                        ">
+                                        <div style="text-align: center;background-color: #ae0a46;padding: 15px;">
                                             <a class="" href="www.ngenitltd.com"
-                                                style="
-                            color: #ffff;
-                            font-size: 18px;
-                            text-align: center;
-                            letter-spacing: 4px;
-                          ">www.ngenitltd.com</a>
+                                                style="color: #ffff;font-size: 18px;text-align: center;letter-spacing: 4px;">www.ngenitltd.com</a>
                                         </div>
                                     </tr>
                                 </tbody>
@@ -363,8 +310,8 @@
                         </div>
                         <!-- Email Footer End-->
                     </div>
-                    <!-- ... -->
                 </section>
+                <!-- Your email content goes here -->
             </td>
         </tr>
     </table>
