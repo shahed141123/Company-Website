@@ -127,7 +127,7 @@
                                         </div>
                                     </tr> --}}
                                     <tr>
-                                        <div style="text-align: left;padding: 15px;">
+                                        <div style="text-align: left; padding: 3rem 2rem;">
                                             <p style="text-align: left; font-size: 18px; color: #141414;">
                                                 We have received a new query. We need to respond to the query as soon as
                                                 possible.
@@ -140,6 +140,7 @@
 
 
                         <div style="overflow-x: auto; margin-bottom:10px;">
+                            <hr class="m-0 p-0" style="padding-bottom:1rem; border: none; border-top: 1px solid #eee;">
                             <table id="u_body"
                                 style="border: 1px solid #eee;border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 70%;"
                                 cellpadding="0" cellspacing="0">
@@ -234,7 +235,7 @@
                         </div>
                         <!-- Main Content End -->
                         <div style="overflow-x: auto">
-                            <hr class="m-0 p-0">
+                            <hr class="m-0 p-0" style="border-top: 1px solid #eee;">
                             <table id="u_body"
                                 style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
                                 cellpadding="0" cellspacing="0">
@@ -259,7 +260,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <hr class="m-0 p-0">
+                            <hr class="m-0 p-0" style="border-bottom: 1px solid #eee;">
                         </div>
                         <!-- Column Area -->
                         <div style="overflow-x: auto">

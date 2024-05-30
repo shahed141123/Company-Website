@@ -18,7 +18,7 @@
                                             <img src="https://i.ibb.co/qMMpQMj/Logo-White.png" alt="Ngen IT"
                                                 title="Ngen IT"
                                                 style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 7.5rem; padding-left: 18px;"
-                                                width="60" />
+                                                width="60"/>
                                         </a>
                                     </td>
                                     <td style="border: 0">
