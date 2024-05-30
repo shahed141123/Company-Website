@@ -282,88 +282,96 @@
                         <!--  -->
                         <div>
                             <div>
-                                <table
+                                <table class="terms_table"
                                     style="margin-top: 0.5rem;border: 1px solid #eee;border-collapse: collapse;width: 100%;">
-                                    <tr style="text-align: start;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
-                                        <th colspan="2"
-                                            style="text-align: center;padding: 0.5rem;background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee; width: 10%;">
-                                            <a class="border-0 p-0 bg-transparent text-primary" onclick="addRfqCalculationTableRow()">
-                                                <i class="fa-solid fa-plus"></i>
-                                            </a>
-                                        </th>
-                                        <th colspan="2" style="text-align: center;padding: 0.5rem;background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee; width: 90%;">
-                                            Terms & Conditions
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
-                                            <input type="text"
-                                                class="form-control form-control-sm bg-transparent text-start"
-                                                value="Validity :"
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                        </td>
-                                        <td
-                                            style="padding: 0.3125rem 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
+                                    <thead>
+                                        <tr
+                                            style="text-align: start;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
+                                            <th colspan="2"
+                                                style="text-align: center;padding: 0.5rem;background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee; width: 10%;">
+                                                <a class="border-0 p-0 bg-transparent text-primary"
+                                                    onclick="addTermsTableRow()">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </a>
+                                            </th>
+                                            <th colspan="2"
+                                                style="text-align: center;padding: 0.5rem;background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee; width: 90%;">
+                                                Terms & Conditions
+                                            </th>
+                                        </tr>
 
-                                            <input type="text"
-                                                class="form-control form-control-sm bg-transparent text-start"
-                                                value=" 7 Day from the PQ date on regular price.Offer may change on the bank forex rate"
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
+                                    </thead>
+                                    <tbody class="terms_tbody">
+                                        <tr>
+                                            <td
+                                                style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
+                                                <input type="text"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="Validity :"
+                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                            </td>
+                                            <td
+                                                style="padding: 0.3125rem 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
 
-                                            <input type="text"
-                                                class="form-control form-control-sm bg-transparent text-start"
-                                                value="Payment :"
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                        </td>
-                                        <td
-                                            style="padding: 2px 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
-                                            <input type="text"
-                                                class="form-control form-control-sm bg-transparent text-start"
-                                                value="100% Advanced payment with Work Order. Order cannot be cancelled once issues"
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                <input type="text"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value=" 7 Day from the PQ date on regular price.Offer may change on the bank forex rate"
+                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
+                                                <input type="text"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="Payment :"
+                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                            </td>
+                                            <td
+                                                style="padding: 2px 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
+                                                <input type="text"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="100% Advanced payment with Work Order. Order cannot be cancelled once issues"
+                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
 
-                                            <input type="text"
-                                                class="form-control form-control-sm bg-transparent text-start"
-                                                value="Delivery :"
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                        </td>
-                                        <td
-                                            style="padding: 2px 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
-                                            <input type="text"
-                                                class="form-control form-control-sm bg-transparent text-start"
-                                                value="Payment must be made through Telegraphic Transfer (TT) or Wire Transfer"
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
 
-                                            <input type="text"
-                                                class="form-control form-control-sm bg-transparent text-start"
-                                                value="Installation :"
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                        </td>
-                                        <td
-                                            style="padding: 2px 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
-                                            <input type="text"
-                                                class="form-control form-control-sm bg-transparent text-start"
-                                                value="We may reject order on any dispute in principal price or product non-availability."
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                        </td>
-                                    </tr>
+                                                <input type="text"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="Delivery :"
+                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                            </td>
+                                            <td
+                                                style="padding: 2px 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
+                                                <input type="text"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="Payment must be made through Telegraphic Transfer (TT) or Wire Transfer"
+                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                style="padding: 0.3125rem 10px;font-size: 13px;color: #3d3d3d;font-weight: 600;width: 20%;">
+
+                                                <input type="text"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="Installation :"
+                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                            </td>
+                                            <td
+                                                style="padding: 2px 10px;font-size: 13px;font-family: 'Raleway', sans-serif;color: #3d3d3d;">
+                                                <input type="text"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="We may reject order on any dispute in principal price or product non-availability."
+                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -395,7 +403,8 @@
                                                                             class="form-control form-control-sm bg-transparent text-start"
                                                                             value="Kawsar Khan"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                        <input type="text" name="sender_designation"
+                                                                        <input type="text"
+                                                                            name="sender_designation"
                                                                             class="form-control form-control-sm bg-transparent text-start"
                                                                             value="Manager, Business"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
@@ -406,7 +415,8 @@
                                                                             class="form-control form-control-sm bg-transparent text-end"
                                                                             value="sales@ngenitltd.com"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                        <input type="text" name="ngen_whatsapp_number"
+                                                                        <input type="text"
+                                                                            name="ngen_whatsapp_number"
                                                                             class="form-control form-control-sm bg-transparent text-end"
                                                                             value="+880 156845986"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">

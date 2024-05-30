@@ -1128,13 +1128,13 @@
 
 
 <script>
-    function AddtermsTableRow() {
+    function addTermsTableRow() {
         // Get the table body where new rows will be added
-        const tableBody = document.querySelector('#myTables tbody.table_bottom_area');
+        const tableBody = document.querySelector('.terms_table tbody.terms_tbody');
 
         // Create a new row element
         const newRow = document.createElement('tr');
-        newRow.classList.add('thd');
+        // newRow.classList.add('thd');
 
         // Create the inner HTML for the new row
         newRow.innerHTML = `
@@ -1163,7 +1163,7 @@
 
     function updateSerialNumbers() {
         // Get all the rows in the table body
-        const rows = document.querySelectorAll('#myTable tbody.table_bottom_area tr.thd');
+        const rows = document.querySelectorAll('.terms_table tbody.terms_tbody tr');
 
         // Update the serial number for each row
         rows.forEach((row, index) => {
