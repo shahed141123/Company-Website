@@ -73,7 +73,7 @@
                                 cellpadding="0" cellspacing="0">
                                 <tbody style="min-width: 320px">
                                     <tr style="vertical-align: top">
-                                        <td style="padding: 10px 30px; text-align: left">
+                                        <td style="padding: 15px 30px 10px; text-align: left">
                                             <a href="https://ngenitltd.com" target="_blank">
                                                 <img src="https://i.ibb.co/qMMpQMj/Logo-White.png" alt="Ngen IT"
                                                     title="Ngen IT"
@@ -94,9 +94,7 @@
                                         </td>
                                         <td
                                             style="
-                          padding: 25px 30px 0px;
-                          text-align: right;
-                          color: #ffffff;
+                          padding: 25px 30px 25px;text-align:right;color:#ffffff"
                         ">
                                             <p
                                                 style="
