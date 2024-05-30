@@ -310,48 +310,6 @@
                         </tr>
                     @endforeach
                 @endif
-                {{-- @if (!empty($rfq->payment))
-                    <tr>
-                        <td>Payment :</td>
-                        <td>{{ $rfq->payment }}</td>
-                    </tr>
-                @endif
-                @if (!empty($rfq->validity))
-                    <tr>
-                        <td>Payment Mode:</td>
-                        <td>{{ $rfq->payment_mode }}</td>
-                    </tr>
-                @endif
-                @if (!empty($rfq->delivery))
-                    <tr>
-                        <td>Delivery :</td>
-                        <td> {{ $rfq->delivery }}</td>
-                    </tr>
-                @endif
-                @if (!empty($rfq->delivery_location))
-                    <tr>
-                        <td>Delivery Location :</td>
-                        <td>{{ $rfq->delivery_location }}</td>
-                    </tr>
-                @endif
-                @if (!empty($rfq->product_order))
-                    <tr>
-                        <td>Product Order :</td>
-                        <td>{{ $rfq->product_order }}</td>
-                    </tr>
-                @endif
-                @if (!empty($rfq->installation_support))
-                    <tr>
-                        <td>Installation Support:</td>
-                        <td>{{ $rfq->installation_support }}</td>
-                    </tr>
-                @endif
-                @if (!empty($rfq->pmt_condition))
-                    <tr>
-                        <td>Pmt Condition :</td>
-                        <td>{{ $rfq->pmt_condition }}</td>
-                    </tr>
-                @endif --}}
             </tbody>
         </table>
         {{-- Qutation Footer --}}

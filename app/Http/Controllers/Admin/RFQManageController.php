@@ -177,6 +177,17 @@ class RFQManageController extends Controller
                 'total_final_total_price' => $product['total_final_total_price'] ?? null,
             ]);
         };
+
+        $data['pq_code'] = $request->pq_code;
+        $data['currency'] = $request->currency;
+        $data['pqr_code_one'] = $request->pqr_code_one;
+        $data['email'] = $request->email;
+        $data['rfq'] = Rfq::where('id', $rfq_id)->first();
+
+        $data['rfq_terms'] = QuotationTerm::where('rfq_id', $data['rfq']->id)->get();
+        // dd($data['rfq_terms']);
+        $data['products'] = DealSas::where('rfq_id',  $data['rfq']->id)->get();
+        $data['deal_sas'] = DealSas::where('rfq_id',  $data['rfq']->id)->first();
         Toastr::success('Quotation Saved.');
         return redirect()->back();
     }
