@@ -8,12 +8,13 @@ use App\Models\Admin\Region;
 use Illuminate\Http\Request;
 use App\Models\Admin\Country;
 use App\Models\Admin\DealSas;
+use App\Models\Admin\RfqQuotation;
+use App\Models\Admin\QuotationTerm;
 use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\File;
 use App\Models\Admin\QuotationProduct;
 use App\Models\Admin\CommercialDocument;
-use App\Models\Admin\QuotationTerm;
-use App\Models\Admin\RfqQuotation;
 
 class RFQManageController extends Controller
 {
@@ -176,6 +177,8 @@ class RFQManageController extends Controller
                 'total_final_total_price' => $product['total_final_total_price'] ?? null,
             ]);
         };
+        Toastr::success('Quotation Saved.');
+        return redirect()->back();
     }
 
 

@@ -95,7 +95,7 @@
                 </button>
             </li>
         </ul>
-        <form id="quotationForm" action="{{route('rfq-manage.store')}}" method="post" enctype="multipart/form-data">
+        <form id="quotationForm" action="{{route('rfq-manage.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div id="mysetting">
                 <input type="hidden" name="rfq_id" value="{{$rfq_details->id}}">
