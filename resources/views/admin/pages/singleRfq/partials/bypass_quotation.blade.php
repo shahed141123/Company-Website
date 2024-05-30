@@ -412,9 +412,9 @@
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center py-3 pt-0">
-        <button type="submit" value="approval" class="btn navigation_btn"><i class="fa-solid fa-person-circle-check pe-2"></i>
+        <button type="submit" value="approval" name="action" class="btn navigation_btn"><i class="fa-solid fa-person-circle-check pe-2"></i>
             Submit for Approval</button>
-        <button type="submit" value="submit" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Send
+        <button type="submit" value="submit" name="action" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Send
             Quotation</button>
         @php
             $currentUrl = url()->current();
