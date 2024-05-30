@@ -138,8 +138,6 @@
                                 </tbody>
                             </table>
                         </div>
-
-
                         <div style="overflow-x: auto; margin-bottom:10px;">
                             <hr class="m-0 p-0" style="padding-bottom:1rem; border: none; border-top: 1px solid #eee;">
                             <table id="u_body"
