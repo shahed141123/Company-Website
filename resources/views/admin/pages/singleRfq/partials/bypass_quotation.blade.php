@@ -140,7 +140,7 @@
                                     <th width="8%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
                                         Qty</th>
                                     <th width="15%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
-                                        Unit Price</th>
+                                        Unit Price (<span class="currency"></span>)</th>
                                     <th width="15%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
                                         Total (<span class="currency"></span>)</th>
                                 </tr>
@@ -203,7 +203,7 @@
                                     <tr
                                         style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                         <td style="width: 85%;text-align: end;padding: 10px;color: #3d3d3d;">
-                                            Special Discount
+                                            Special Discount (<span class="special_discount_value"></span>)
                                         </td>
                                         <td class="d-flex align-items-center"
                                             style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
@@ -223,10 +223,7 @@
                                     <tr
                                         style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                         <td style="width: 85%;text-align: end;padding: 10px;color: #3d3d3d;">
-                                            <input type="text"
-                                                class="form-control form-control-sm bg-transparent text-end"
-                                                value="Vat"
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                            Vat (<span class="vat_tax_value"></span>)
                                         </td>
                                         <td class="d-flex align-items-center"
                                         style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
@@ -255,7 +252,7 @@
                                         <p class="currency mb-0"></p>
                                         <input type="text" name="total_final_total_price" readonly
                                             class="form-control form-control-sm bg-transparent text-center"
-                                            value="85,148.1"
+                                            value="0"
                                             style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                     </th>
                                 </tr>

@@ -95,11 +95,11 @@
                 </button>
             </li>
         </ul>
-        <form id="quotationForm" action="{{route('rfq-manage.store')}}" method="POST" enctype="multipart/form-data">
+        <form id="quotationForm" action="{{ route('rfq-manage.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div id="mysetting">
-                <input type="hidden" name="rfq_id" value="{{$rfq_details->id}}">
-                <input type="hidden" name="rfq_code" value="{{$rfq_details->rfq_code}}">
+                <input type="hidden" name="rfq_id" value="{{ $rfq_details->id }}">
+                <input type="hidden" name="rfq_code" value="{{ $rfq_details->rfq_code }}">
                 <div class="fade-setting show" id="setting-show">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-lg-7 mb-2">
@@ -478,7 +478,7 @@
 
 
 
-        <script>
+        {{-- <script>
             $(document).ready(function() {
                 var quotationForm = $('#quotationForm');
 
@@ -767,7 +767,8 @@
                     var total_partner_discount = parseFloat(total_partner_discount).toFixed(2);
                     var total_partner_price = parseFloat(total_partner_price).toFixed(2);
 
-
+                    $('.special_discount_value').html(currency);
+                    $('.vat_tax_value').html(currency);
                     $("input[name='remittence_principal_unit_total_amount_taka']").val(
                         parseFloat(remittence_principal_unit_total_amount_taka).toFixed(2));
                     $("input[name='packing_charge_principal_unit_total_amount_taka']").val(
@@ -899,7 +900,7 @@
                     console.log("Input Name:", inputName, "Input Value:", inputValue);
                 });
             });
-        </script>
+        </script> --}}
 
         <script>
             $(document).ready(function() {
@@ -989,7 +990,7 @@
 
 
                         $('input[name="unit_final_price[]"]').eq(index).val(unit_final_price.toFixed(
-                        2));
+                            2));
                         $('input[name="unit_final_total_price[]"]').eq(index).val(unit_final_price
                             .toFixed(2));
 
@@ -999,7 +1000,7 @@
                         $(this).find("input[name='unit_profit[]']").val(Math.round(profit));
                         $(this).find("input[name='unit_others_cost[]']").val(Math.round(others_cost));
                         $(this).find("input[name='unit_remittence[]']").val(Math.round(
-                        unit_remittence));
+                            unit_remittence));
                         $(this).find("input[name='unit_packing[]']").val(Math.round(unit_packing));
                         $(this).find("input[name='unit_customs[]']").val(Math.round(unit_customs));
                         $(this).find("input[name='unit_tax_vat[]']").val(Math.round(unit_tax_vat));
@@ -1040,7 +1041,7 @@
                     var special_discount_others_cost = sub_total_others_cost * (special_discount_percentage /
                         100);
                     var special_discount_remittance = sub_total_remittance * (special_discount_percentage /
-                    100);
+                        100);
                     var special_discount_packing = sub_total_packing * (special_discount_percentage / 100);
                     var special_discount_customs = sub_total_customs * (special_discount_percentage / 100);
                     var special_discount_tax = sub_total_tax * (special_discount_percentage / 100);
@@ -1090,7 +1091,8 @@
                         special_discount_final_total_price;
 
 
-
+                    $('.special_discount_value').html(special_discount_percentage);
+                    $('.vat_tax_value').html(vat_percentage);
                     // Total Calculation
                     $("input[name='sub_total_principal_amount']").val(Math.round(sub_total_principal_amount));
                     $("input[name='sub_total_office_cost']").val(Math.round(sub_total_office_cost));
@@ -1164,10 +1166,10 @@
                 </a>
             </td>
             <td>
-                <input type="text" name="terms_title[]" class="form-control form-control-sm bg-transparent text-start">
+                <input type="text" name="terms_title[]" placeholder="Terms title" class="form-control form-control-sm bg-transparent text-start">
             </td>
             <td>
-                <input type="text" name="terms_value[]" class="form-control form-control-sm bg-transparent">
+                <input type="text" name="terms_description[]" placeholder="Terms Description" class="form-control form-control-sm bg-transparent">
             </td>
         `;
 
