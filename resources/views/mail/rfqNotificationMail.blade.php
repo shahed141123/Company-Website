@@ -131,8 +131,7 @@
                                         <div style="text-align: left;padding: 15px;">
                                             <p style="text-align: left; font-size: 18px; color: #141414;">
                                                 We have received your query, Thank you for your interest! Our dedicated
-                                                sales
-                                                manager/consultant will contact you within two working days.
+                                                sales manager/consultant will contact you within two working days.
                                             </p>
                                         </div>
                                     </tr>
@@ -228,23 +227,24 @@
                         </div>
                         <!-- Main Content End -->
                         <div style="overflow-x: auto">
+                            <hr class="m-0 p-0">
                             <table id="u_body"
                                 style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
                                 cellpadding="0" cellspacing="0">
                                 <tbody style="min-width: 320px">
 
                                     <tr>
-                                        <div style="text-align: left;padding: 15px;">
-                                            <p style="text-align: left; font-size: 18px; color: #141414;">
+                                        <div style="text-align: center;padding: 15px; padding-bottom: 5px;">
+                                            <p style="text-align: center; font-size: 18px; color: #141414;">
                                                 Want to get update our products often, please <a
-                                                    href="{{ route('shop') }}"
-                                                    style="color: #ae0a46; font-size:20px"> Click here..</a>
+                                                    href="{{ route('shop') }}" style="color: #ae0a46; font-size:20px">
+                                                    Click here..</a>
                                             </p>
                                         </div>
                                     </tr>
                                     <tr>
-                                        <div style="text-align: left;padding: 15px;">
-                                            <p style="text-align: left; font-size: 18px; color: #141414;">
+                                        <div style="text-align: center;padding: 15px; padding-bottom: 5px;">
+                                            <p style="text-align: center; font-size: 18px; color: #141414;">
                                                 If you are not a registered yet, <a href="{{ route('client.login') }}"
                                                     style="color: #ae0a46; font-size:20px">Cliek here</a> to register.
                                             </p>
@@ -252,6 +252,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <hr class="m-0 p-0">
                         </div>
                         <!-- Column Area -->
                         <div style="overflow-x: auto">

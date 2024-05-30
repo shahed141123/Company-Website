@@ -281,43 +281,41 @@
                         </div>
                         <!--  -->
                         <div>
-                            <div>
-                                <table class="terms_table">
-                                    <thead>
-                                        <tr>
-                                            <th width="5%" style="text-align: center;">
-                                                <a class="border-0 p-0 bg-transparent text-primary"
-                                                    onclick="addTermsTableRow()">
-                                                    <i class="fa-solid fa-plus"></i>
-                                                </a>
-                                            </th>
-                                            <th colspan="2" style="text-align: center;">
-                                                Terms & Conditions
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="terms_tbody">
-                                        <tr>
-                                            <td style="text-align: center;">
-                                                <a class="text-danger rounded-0 btn-sm p-1"
-                                                    onclick="deleteTermsTableRow(this)">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="terms_title[]"
-                                                    class="form-control form-control-sm bg-transparent text-start"
-                                                    value="Validity :">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="terms_value[]"
-                                                    class="form-control form-control-sm bg-transparent"
-                                                    value="7 Days from the PQ date on regular price.Offer may change on the bank forex rate">
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <table class="terms_table w-100">
+                                <thead>
+                                    <tr>
+                                        <th width="5%" style="text-align: center;">
+                                            <a class="border-0 p-0 bg-transparent text-primary"
+                                                onclick="addTermsTableRow()">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </a>
+                                        </th>
+                                        <th colspan="2" style="text-align: center;">
+                                            Terms & Conditions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="terms_tbody">
+                                    <tr>
+                                        <td style="text-align: center;">
+                                            <a class="text-danger rounded-0 btn-sm p-1"
+                                                onclick="deleteTermsTableRow(this)">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <input type="text" name="terms_title[]"
+                                                class="form-control form-control-sm bg-transparent text-start"
+                                                value="Validity :">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="terms_value[]"
+                                                class="form-control form-control-sm bg-transparent"
+                                                value="7 Days from the PQ date on regular price.Offer may change on the bank forex rate">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <!-- Main Content End -->
