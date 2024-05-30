@@ -32,8 +32,6 @@ return new class extends Migration
             $table->string('special_discount_final_total_price')->nullable();
             $table->string('vat_final_total_price')->nullable();
             $table->string('total_final_total_price')->nullable();
-            $table->string('terms_title')->nullable();
-            $table->string('terms_value')->nullable();
             $table->string('thank_you_text')->nullable();
             $table->string('sender_name')->nullable();
             $table->string('sender_designation')->nullable();
