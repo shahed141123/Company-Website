@@ -104,7 +104,7 @@
                             font-weight: 600;
                             margin-bottom: 0;
                           ">
-                                                NGEN IT LTD.
+                                                RFQ
                                             </p>
                                             <!-- <p style="font-size: 16px; margin-bottom: 3px">
                           REG.NO. <span style="color: #eee">20437861K</span>
@@ -121,11 +121,11 @@
                                 style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
                                 cellpadding="0" cellspacing="0">
                                 <tbody style="min-width: 320px">
-                                    <tr>
+                                    {{-- <tr>
                                         <div style="text-align: left;padding: 15px;">
                                             <h4 style="text-align: left; font-size: 18px; color: #141414;">Dear,</h4>
                                         </div>
-                                    </tr>
+                                    </tr> --}}
                                     <tr>
                                         <div style="text-align: left;padding: 15px;">
                                             <p style="text-align: left; font-size: 18px; color: #141414;">
@@ -189,7 +189,7 @@
                                     <tr>
                                         <th
                                             style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:17px;text-align:left">
-                                            Fullname</th>
+                                            Customer Name</th>
                                         <td
                                             style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:17px;text-align:left">
                                             &nbsp; {{ $data['name'] }}</td>
@@ -202,7 +202,7 @@
                                         <tr>
                                             <th
                                                 style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:17px;text-align:left">
-                                                Company</th>
+                                                Customer Company</th>
                                             <td
                                                 style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:17px;text-align:left">
                                                 &nbsp; {{ $data['company_name'] }}</td>
@@ -213,7 +213,7 @@
                                         <tr>
                                             <th
                                                 style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:17px;text-align:left">
-                                                Telephone</th>
+                                                Customer Telephone</th>
                                             <td
                                                 style="width: 30%;padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:17px;text-align:left">
                                                 &nbsp; {{ $data['phone'] }}</td>
@@ -222,7 +222,7 @@
                                     <tr>
                                         <th
                                             style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:17px;text-align:left">
-                                            Email</th>
+                                            Customer Email</th>
                                         <td
                                             style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:12px;text-align:left">
                                             &nbsp; <a href="mailto:{{ $data['email'] }}"
