@@ -57,7 +57,7 @@
                                 cellpadding="0" cellspacing="0">
                                 <tbody style="min-width: 320px">
                                     <tr style="vertical-align: top">
-                                        <td style="padding: 15px 30px 10px; text-align: left">
+                                        <td style="padding: 25px 30px 10px; text-align: left">
                                             <a href="https://ngenitltd.com" target="_blank">
                                                 <img src="https://i.ibb.co/qMMpQMj/Logo-White.png" alt="Ngen IT"
                                                     title="Ngen IT"
@@ -72,6 +72,14 @@
                                             <!-- <p style="font-size: 16px; margin-bottom: 3px">
                                                     REG.NO. <span style="color: #eee">20437861K</span>
                                                 </p> -->
+                                            <p
+                                                style="
+                                font-size: 0.85em;
+                            font-weight: 600;
+                            margin-bottom: 0;
+                          ">
+                                                Confirmation
+                                            </p>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -93,7 +101,7 @@
                                         <div style="text-align: left;padding: 15px;">
                                             <p style="text-align: left; font-size: 18px; color: #141414;">
                                                 We have received your query, Thank you for your interest! Our dedicated
-                                                sales manager/consultant will contact you within two working days.
+                                                sales representative will contact with you within 24 hour working days.
                                             </p>
                                         </div>
                                     </tr>

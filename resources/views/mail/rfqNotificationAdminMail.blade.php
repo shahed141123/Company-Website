@@ -73,7 +73,7 @@
                                 cellpadding="0" cellspacing="0">
                                 <tbody style="min-width: 320px">
                                     <tr style="vertical-align: top">
-                                        <td style="padding: 15px 30px 10px; text-align: left">
+                                        <td style="padding: 25px 30px 10px; text-align: left">
                                             <a href="https://ngenitltd.com" target="_blank">
                                                 <img src="https://i.ibb.co/qMMpQMj/Logo-White.png" alt="Ngen IT"
                                                     title="Ngen IT"
@@ -104,6 +104,14 @@
                           ">
                                                 RFQ
                                             </p>
+                                            <p
+                                                style="
+                            font-size: 1.18em;
+                            font-weight: 600;
+                            margin-bottom: 0;
+                          ">
+                                                Received
+                                            </p>
                                             <!-- <p style="font-size: 16px; margin-bottom: 3px">
                           REG.NO. <span style="color: #eee">20437861K</span>
                         </p> -->
@@ -123,8 +131,7 @@
                                     <tr>
                                         <div style="text-align: left; padding: 3rem 2rem;">
                                             <p style="text-align: left; font-size: 18px; color: #141414;">
-                                                We have received a new query. We need to respond to the query as soon as
-                                                possible.
+                                                We have received a RFQ. Please respond immediately for best customer service and reputation.
                                             </p>
                                         </div>
                                     </tr>

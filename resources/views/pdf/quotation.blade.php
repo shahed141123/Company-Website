@@ -157,11 +157,9 @@
         .footer-footer {
             border: 0;
         }
-
         .footer-table td {
             border: 0;
         }
-
         .footer-footer-top-info {
             background-image: url(https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg);
             background-size: cover;
