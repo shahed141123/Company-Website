@@ -91,7 +91,6 @@
         </div>
     </section>
     <!--======// Magazine Section //======-->
-    \
 
     <!--======// Information Section //======-->
 
