@@ -309,7 +309,7 @@
                                                 value="Validity :">
                                         </td>
                                         <td>
-                                            <input type="text" name="terms_value[]"
+                                            <input type="text" name="terms_description[]"
                                                 class="form-control form-control-sm bg-transparent"
                                                 value="7 Days from the PQ date on regular price.Offer may change on the bank forex rate">
                                         </td>
