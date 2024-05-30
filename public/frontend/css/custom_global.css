@@ -17161,6 +17161,9 @@ nav > div a.nav-item.nav-link.active {
 /* Refurbished Product End*/
 
 @media screen and (max-width: 767px) {
+    .solutions-titles{
+        text-align: center !important;
+    }
     .solution-feature-cards {
         height: 100% !important;
     }
