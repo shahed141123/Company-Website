@@ -95,8 +95,11 @@
                 </button>
             </li>
         </ul>
-        <form id="quotationForm" action="" method="post">
+        <form id="quotationForm" action="{{route('rfq-manage.store')}}" method="post" enctype="multipart/form-data">
+            @csrf
             <div id="mysetting">
+                <input type="hidden" name="rfq_id" value="{{$rfq_details->id}}">
+                <input type="hidden" name="rfq_code" value="{{$rfq_details->rfq_code}}">
                 <div class="fade-setting show" id="setting-show">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-lg-7 mb-2">
