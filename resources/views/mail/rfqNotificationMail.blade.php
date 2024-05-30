@@ -148,30 +148,30 @@
                                 <tbody style="min-width: 320px">
                                     <tr>
                                         <th
-                                            style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;border-top:1px solid #f1f1f1;font-size:17px;text-align:left">
+                                            style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;border-top:1px solid #f1f1f1;font-size:15px;text-align:left">
                                             Product Name</th>
                                         <td
-                                            style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:17px;text-align:left">
-                                            &nbsp; {{ $data['product_name'] }}</td>
+                                            style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
+                                             {{ $data['product_name'] }}</td>
                                     </tr>
                                     @if (!empty($data['qty']))
                                         <tr>
                                             <th
-                                                style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;border-top:1px solid #f1f1f1;font-size:17px;text-align:left">
+                                                style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;border-top:1px solid #f1f1f1;font-size:15px;text-align:left">
                                                 Quantity</th>
                                             <td
-                                                style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:17px;text-align:left">
-                                                &nbsp; {{ $data['qty'] }}</td>
+                                                style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
+                                                 {{ $data['qty'] }}</td>
                                         </tr>
                                     @endif
 
                                     @if (!empty($data['message']))
                                         <tr>
                                             <th
-                                                style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:17px;text-align:left">
+                                                style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:15px;text-align:left">
                                                 Inquiry Details</th>
                                             <td
-                                                style="padding:10px 15px;border-top:1px solid #f1f1f1;border-bottom:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:12px;text-align:left">
+                                                style="padding:10px 15px;border-top:1px solid #f1f1f1;border-bottom:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
 
 
                                                 {{ $data['message'] }}
@@ -182,11 +182,11 @@
 
                                     <tr>
                                         <th
-                                            style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:17px;text-align:left">
+                                            style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:15px;text-align:left">
                                             Fullname</th>
                                         <td
-                                            style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:17px;text-align:left">
-                                            &nbsp; {{ $data['name'] }}</td>
+                                            style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
+                                             {{ $data['name'] }}</td>
                                     </tr>
 
 
@@ -195,30 +195,30 @@
                                     @if (!empty($data['company_name']))
                                         <tr>
                                             <th
-                                                style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:17px;text-align:left">
+                                                style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:15px;text-align:left">
                                                 Company</th>
                                             <td
-                                                style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:17px;text-align:left">
-                                                &nbsp; {{ $data['company_name'] }}</td>
+                                                style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
+                                                 {{ $data['company_name'] }}</td>
                                         </tr>
                                     @endif
 
                                     @if (!empty($data['phone']))
                                         <tr>
                                             <th
-                                                style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:17px;text-align:left">
+                                                style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:15px;text-align:left">
                                                 Telephone</th>
                                             <td
-                                                style="width: 30%;padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:17px;text-align:left">
-                                                &nbsp; {{ $data['phone'] }}</td>
+                                                style="width: 30%;padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
+                                                 {{ $data['phone'] }}</td>
                                         </tr>
                                     @endif
                                     <tr>
                                         <th
-                                            style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:17px;text-align:left">
+                                            style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:15px;text-align:left">
                                             Email</th>
                                         <td
-                                            style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:12px;text-align:left">
+                                            style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
                                             &nbsp; <a href="mailto:{{ $data['email'] }}"
                                                 target="_blank">{{ $data['email'] }}</a></td>
                                     </tr>
