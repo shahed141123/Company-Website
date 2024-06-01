@@ -125,14 +125,10 @@
                     <!-- Main Content Start -->
                     <div
                         style="overflow-x: auto;padding-left: 1.875rem;padding-right: 1.875rem;padding-top: 0.9375rem;padding-bottom: 0.9375rem;">
-                        <table id="myTable" style="border-collapse: collapse;width: 100%;border: 1px solid #eee;">
+                        <table id="quotationTable" style="border-collapse: collapse;width: 100%;border: 1px solid #eee;">
                             <thead class="text-center">
                                 <tr
                                     style="background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee;font-size: 13px;">
-                                    {{-- <th width="7%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
-                                        <a class="text-primary rounded-0 btn-sm p-1" onclick="addRow()"><i
-                                                class="fa-solid fa-plus"></i></a>
-                                    </th> --}}
                                     <th width="6%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
                                         SL</th>
                                     <th width="49%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
@@ -145,27 +141,30 @@
                                         Total (<span class="currency"></span>)</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="quotationTable_area text-center">
                                 @if ($rfq_details->rfqProducts->count() > 0)
                                     @foreach ($rfq_details->rfqProducts as $product)
                                         <tr class="tdsp text-center">
                                             <td>{{ $loop->iteration }}</td>
-                                            <td><input type="text" name="product_name[]"
-                                                    class="form-control form-control-sm bg-transparent rfqcalculationinput text-start"
-                                                    value="{{ $product->product_name }}" style="">
+                                            <td>
+                                                <input type="text" name="quotation_product_name[]"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="{{ $product->product_name }}">
                                             </td>
-                                            <td><input type="text" name="qty[]"
-                                                    class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            <td>
+                                                <input type="text" name="quotation_qty[]"
+                                                    class="form-control form-control-sm bg-transparent text-center"
                                                     value="{{ $product->qty }}">
                                             </td>
 
-                                            <td><input type="text" name="unit_final_price[]"
-                                                    class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            <td><input type="text" name="quotation_unit_final_price[]"
+                                                    class="form-control form-control-sm bg-transparent text-center"
                                                     value="0">
                                             </td>
-                                            <td class=" text-center"><input type="text"
-                                                    name="unit_final_total_price[]"
-                                                    class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                            <td class=" text-center">
+                                                <input type="text"
+                                                    name="quotation_unit_final_total_price[]"
+                                                    class="form-control form-control-sm bg-transparent text-center"
                                                     value="0">
                                             </td>
                                         </tr>
