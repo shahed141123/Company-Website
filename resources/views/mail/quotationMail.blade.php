@@ -2,354 +2,230 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Quotation PDF</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="x-apple-disable-message-reformatting" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Price Quotation</title>
+  <style type="text/css">
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
 
-    <!-- Bootstrap CSS -->
-    <link href="{{ asset('frontend/css/bootstrap/bootstrap@5.min.css') }}" rel="stylesheet" type="text/css" />
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
 
-    <!-- Google Fonts -->
-    <!-- <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />  -->
+    a {
+      color: #3d3d3d;
+      text-decoration: none;
+    }
 
-    <!-- Custom Styles -->
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    p {
+      font-family: "Poppins", sans-serif;
+    }
 
+    @media only screen and (min-width: 620px) {
+      .u-row {
+        width: 600px !important;
+      }
+
+      @media print {
         body {
-            padding: 0;
-            /* font-family: "Raleway", sans-serif; */
-            margin: 0;
+          background: none;
         }
-
-        /* Resetting some default styles for consistency */
-        a,
-        p,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            text-decoration: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        /* Table Styles */
-        .quotation-header {
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        td {
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
-
-        /* Flexbox for Logo Column */
-        .logo-column {
-            display: flex;
-        }
-
-        /* Text Column Styles */
-        .text-column {
-            color: white;
-            text-align: end;
-        }
-
-        /* Responsive Image Styles */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* Quotation Header Styles */
-        .quotation-header {
-            background-color: #ae0a46;
-            border: 0;
-        }
-
-        .quotation-header td {
-            border: 0;
-        }
-
-        /* Brand Logo Styles */
-        .brand-logo {
-            display: flex;
-            align-items: center;
-            justify-content: start;
-        }
-
-        .qutation-client-details {
-            padding-bottom: 1.5rem;
-            padding-left: 10px;
-        }
-
-        .qutation-client-details h3,
-        .qutation-details h3 {
-            color: #ae0a46;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-        }
-
-        .qutation-details {
-            padding-bottom: 1.5rem;
-            padding-right: 5px;
-        }
-
-        .qutation-details {
-            text-align: end;
-        }
-
-        .quotation-info-table td {
-            border: 0;
-        }
-
-        .company-name {
-            font-weight: 600;
-            color: #ae0a46;
-        }
-
-        .table-border {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .table-border th {
-            border: 1px solid #ddd;
-            padding: 10px;
-        }
-
-        .amount-container .sub-total {
-            text-align: right;
-        }
-
-        .amount-container .special-discount {
-            text-align: right;
-        }
-
-        .terms-condition tr td {
-            font-size: 13px;
-        }
-
-        p {
-            font-size: 13px;
-        }
-
-        .footer-footer {
-            border: 0;
-        }
-
-        .footer-table td {
-            border: 0;
-        }
-
-        .footer-footer-top-info {
-            background-image: url(https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg);
-            background-size: cover;
-            border: 0;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-        }
-
-        .footer-footer-top-info tr td {
-            border: 0;
-            padding-top: 3px;
-            padding-bottom: 3px;
-        }
-    </style>
+      }
+    }
+  </style>
 </head>
 
-<body>
-    <div class="container px-0">
-        <!-- Quotation Header Table -->
-        <table width="100%" class="table-responsive border-0 quotation-header-table">
-            <tr class="quotation-header">
-                <!-- Logo Column -->
-                <td class="logo-column">
-                    <div class="brand-logo">
-                        <!-- NGen IT Logo -->
-                        <img src="https://i.ibb.co/GkjPXN7/Logo-NGen-IT-White.png" alt="NGen IT"
-                            style="height: 51px" />
-                    </div>
-                </td>
-
-                <!-- Text Column -->
-                <td class="text-column">
-                    <div class="header-register" style="text-align: right">
-                        <!-- Company Details -->
-                        <h2>NGEN IT LTD.</h2>
-                        <p>REG-NO: 20437861K</p>
-                    </div>
-                </td>
-            </tr>
-            <!-- Add more rows as needed -->
-        </table>
-        <!-- Qutation Info -->
-        <table width="100%" class="table-responsive border-0 quotation-info-table">
-            <tr class="">
-                <!-- Logo Column -->
-                <td class="qutation-client-details">
-                    <div>
-                        <h3>{{ $rfq->company_name }}</h3>
-                        @if (!empty($rfq->address))
-                            <p>{{ $rfq->address }}</p>
-                        @endif
-                        <p class="company-name">{{ $rfq->name }}</p>
-                        <p>
-                            <span>{{ $rfq->email }}</span> | <span> {{ $rfq->phone }}</span>
-                        </p>
-                    </div>
-                </td>
-
-                <!-- Text Column -->
-                <td class="" style="text-align: right;">
-                    <div class="qutation-details" style="text-align: right">
-                        <!-- Company Details -->
-                        <h3>PRICE QUOTATION</h3>
-                        <p>Date : {{ \Carbon\Carbon::now()->format('d F Y') }}</p>
-                        <p>PQ#:# {{ $pq_code }}</p>
-                        <p>PQR#: {{ $pqr_code_one }}</p>
-                    </div>
-                </td>
-            </tr>
-            <!-- Add more rows as needed -->
-        </table>
-        <!-- Qutation Main content Table -->
-        <table width="100%" class="table-responsive table-border pricing-details-table">
-            <thead>
-                <tr style="background-color: #ddd;">
-                    <th>Sl</th>
-                    <th>Product Description</th>
-                    <th>Qty</th>
-                    <th>Unit Price</th>
-                    <th>Total ({{ $currency === 'taka' ? 'TK' : '$' }})</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($products as $key => $item)
-                    <tr>
-                        <td>{{ ++$key }}</td>
-                        <td>{{ $item->item_name }}</td>
-                        <td>{{ $item->qty }}
-                        </td>
-                        <td>
-                            {{ $currency === 'taka' ? 'TK' : '$' }}
-                            {{ number_format($item->sales_price / $item->qty, 2) }}
-                        </td>
-                        <td>{{ $currency === 'taka' ? 'TK' : '$' }} {{ $item->sales_price }}</td>
-                    </tr>
-                @endforeach
-                <tr class="amount-container" style="background-color: #ddd;">
-                    <td colspan="4" class="sub-total">Sub Total</td>
-                    <td>{{ $currency === 'taka' ? 'TK' : '$' }} {{ $deal_sas->sub_total_sales }}</td>
-                </tr>
-                @if ($rfq->special == '1')
-                    <tr class="amount-container">
-                        <td colspan="4" class="special-discount">Special Discount &nbsp;&nbsp;
-                            ({{ $deal_sas->special_discount }} %)</td>
-                        <td>{{ $currency === 'taka' ? 'TK' : '$' }}
-                            {{ $deal_sas->sub_total_sales - $deal_sas->special_discounted_sales }}
-                        </td>
-                    </tr>
-                @endif
-                <tr class="amount-container" style="background-color: #ddd;">
-                    <td colspan="4" class="special-discount">Grand Total</td>
-                    <td>{{ $currency === 'taka' ? 'TK' : '$' }} {{ $deal_sas->grand_total }}</td>
-                </tr>
-            </tbody>
-            <!-- Add more rows as needed -->
-        </table>
-        {{-- GST --}}
-
-        <table class="table-responsive table-border pricing-details-table" style="width:50%; margin: auto;">
-            <thead>
-                <tr style="background-color: #ddd;">
-                    <th colspan="2"><strong>GST - 8%</strong> Not included. It may apply.
-                </tr>
-            </thead>
-            {{-- <thead>
-                @if ($rfq->tax_status == '1')
-                    <tr>
-                        <th colspan="2"><strong>GST - 8%</strong> Not included. It may apply.
-                    </tr>
-                @endif
-            </thead> --}}
-        </table>
-        {{-- Terms & Condition --}}
-        <table width="100%" class="table-responsive table-border pricing-details-table">
-            <thead>
-                <tr class="quotation-header">
-                    <th colspan="2" style="color: white;">Terms & Conditions</th>
-                </tr>
-            </thead>
-            <tbody class="terms-condition">
-                @if (!empty($rfq_terms))
-                    @foreach ($rfq_terms as $rfq_term)
-                        <tr>
-                            <td>{{ $rfq_term->title }}</td>
-                            <td>{{ $rfq_term->description }}</td>
-                        </tr>
-                    @endforeach
-                @endif
-            </tbody>
-        </table>
-        {{-- Qutation Footer --}}
-        <table width="100%" class="table-responsive table-border pricing-details-table footer-footer"
-            style="margin: 0px; padding-left:0; padding-right:0; padding-bottom: 0px; margin-top: 2.5px;">
-            <tbody style="border: 0;" class="footer-footer-top-info">
-                <tr>
-                    <td style="text-align: left; font-weight: bold; padding-top: 2rem; padding-left: 2rem;">Thank You
+<body class="clean-body u_body" style="margin: 0; padding: 0; background-color: #f4f4f4">
+  <table cellpadding="0" cellspacing="0"
+    style="border-collapse: collapse;width: 70%;max-width: 70%;margin: 0 auto;background-color: white;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+    <tr>
+      <td>
+        <!-- Your email content goes here -->
+        <section tyle="margin-top: 0rem; margin-bottom: 0rem; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+          <!-- Email Header Start -->
+          <div class="wrapper" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+            <!-- Email Header Start -->
+            <div style="overflow-x: auto">
+              <table id="u_body"
+                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;background-color: #ae0a46; "
+                cellpadding="0" cellspacing="0">
+                <tbody style="min-width: 320px">
+                  <tr style="vertical-align: top">
+                    <td style="padding: 15px 30px 10px; text-align: left">
+                      <a href="https://ngenitltd.com" target="_blank">
+                        <img src="https://i.ibb.co/qMMpQMj/Logo-White.png" alt="Ngen IT"
+                                                    title="Ngen IT"
+                                                    style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 110px;"
+                                                    width="60" />
+                      </a>
                     </td>
-                    <td style="text-align: right; color: #ae0a46; padding-top: 2rem; padding-right: 2rem;">
-                        sales@ngenitltd.com</td>
-                </tr>
-                <tr>
-                    <td style="text-align: left; color: #ae0a46;padding-left: 2rem;">NGen IT Sales Team</td>
-                    <td style="text-align: right; color: #ae0a46;padding-right: 2rem;">(skype) +1 917-720-3055</td>
-                </tr>
-                <tr>
-                    <td style="text-align: left; color: #ae0a46; padding-bottom: 2rem;padding-left: 2rem;">Manager,
-                        Business</td>
-                    <td style="text-align: right; color: #ae0a46; padding-bottom: 2rem;padding-right: 2rem;">(whats app)
-                        +880 1714 243446</td>
-                </tr>
-            </tbody>
-        </table>
-        <!-- Quotation Header Table -->
-        <table width="100%" class="table-responsive border-0 quotation-header-table footer-table" style="">
-            <tr class="quotation-header">
-                <!-- Text Column -->
-                <td class="text-column" style="text-align: center;padding: 30px;">
-                    <div class="header-register" style="text-align: center">
-                        <!-- Company Details -->
-                        <h2 class="">www.ngenitltd.com</h2>
+                    <td style="padding: 35px 30px 25px;text-align:right;color:#ffffff">
+                      <p style="font-size: 2em;font-weight: 600;margin-bottom: 0; ">
+                        Price Quotation
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Main Content Start -->
+            <div style="overflow-x: auto">
+              <table id="u_body"
+                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
+                cellpadding="0" cellspacing="0">
+                <tbody style="min-width: 320px">
+                  <tr>
+                    <div style="text-align: left;padding: 15px;">
+                      <h4 style="text-align: left; font-size: 18px; color: #141414;">Hello
+                        Kazi Akramul,</h4>
                     </div>
-                </td>
-            </tr>
-            <!-- Add more rows as needed -->
-        </table>
-
-        <!-- Additional details or content can be added here -->
-    </div>
+                  </tr>
+                  <tr>
+                    <div style="text-align: left;padding: 15px;">
+                      <p style="text-align: left; font-size: 18px; color: #141414;">
+                        We have generated a Quotation against your RFQ (RFQ-230425). You can check & download the Quotation from the below link.
+                        Thanks for being attached with us.
+                      </p>
+                    </div>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Main Content End -->
+            <div style="overflow-x: auto">
+              <hr class="m-0 p-0" style="border-top: 1px solid #eee;">
+              <table id="u_body"
+                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
+                cellpadding="0" cellspacing="0">
+                <tbody style="min-width: 320px">
+                  <tr>
+                    <div style="text-align: center;padding: 15px; padding-bottom: 5px;">
+                      <p style="text-align: center; font-size: 16px; color: #141414;">
+                        From the below link, you can watch and download Quotation
+                      </p>
+                    </div>
+                  </tr>
+                  <tr>
+                    <div style="text-align: center;padding: 15px; padding-bottom: 5px; padding-top: 30px">
+                      <strong>
+                                <a href="{{route('sourcing.sas',$data['product_id'])}}" style="color: #FFF;
+                                border: 1px solid #ae0a46;
+                                background-color: #ae0a46;
+                                transition: all 0.8s ease-in-out;padding: 10px 40px;
+                                cursor: pointer;
+                                font-size: 18px;
+                                font-weight: 500;"> Go To Link</a>
+                            </strong>
+                    </div>
+                  </tr>
+                  <tr>
+                    <div style="text-align: center;padding: 30px; width: 70%; margin: auto">
+                      <strong>NB:</strong> Your Quotation link will expire within 14 days.
+                      </div>
+                  </tr>
+                  <tr>
+                    <div style="text-align: center;padding: 15px; padding-bottom: 15px; width: 70%; margin: auto">
+                      <p style="text-align: center; font-size: 14px; color: #141414; padding-bottom: 15px;">
+                        If you are having trouble clicking the "Go To Link" button, copy and paste theURL below into your web browser:
+                      </p>
+                      <a href="https://wa.me/8801714243446"
+                          style="color: #ae0a46; font-size:16px; padding-top: 10px">https://ngenitltd.com/client/RFQ-230425</a>
+                    </div>
+                  </tr>
+                </tbody>
+              </table>
+              <hr class="m-0 p-0" style="border:none; border-bottom: 1px solid #d3d3d3;">
+            </div>
+            <!-- Column Area -->
+            <div style="overflow-x: auto">
+              <table id="u_body"
+                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
+                cellpadding="0" cellspacing="0">
+                <tbody style="min-width: 320px">
+                  <tr>
+                    <td style="padding: 0">
+                      <table style="width: 100%; border-collapse: collapse">
+                        <tbody>
+                          <tr>
+                            <td
+                              style="padding: 15px;padding-left: 30px;padding-right: 30px;background-image: url(https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg);background-size: cover;">
+                              <table style="width: 100%;border-collapse: collapse;">
+                                <tbody>
+                                  <tr>
+                                    <td style="text-align: start;color: #ffffff;">
+                                      <p
+                                        style="font-size: 15px;font-weight: 600;padding-bottom: 0.5rem;margin: 0;color: #000;">
+                                        Thank You
+                                      </p>
+                                      <p style="color: #ae0a46; margin: 0">
+                                        NGen IT Sales Team
+                                      </p>
+                                      <p style="color: #ae0a46;font-size: 15px;margin: 0;">
+                                        Manager, Business
+                                      </p>
+                                    </td>
+                                    <td style="text-align: end;color: #ffffff;">
+                                      <div style="font-size: 15px;margin-bottom: 0.5rem;">
+                                        <p style="margin: 0; color: #ae0a46">
+                                          sales@ngenitltd.com
+                                          <i
+                                                                                        class="fa-solid fa-paper-plane"></i>
+                                        </p>
+                                      </div>
+                                      <div style="font-size: 15px;margin-bottom: 0.5rem;">
+                                        <p style="margin: 0; padding: 0; color: #ae0a46">
+                                          (skype) +1 917-720-3055
+                                        </p>
+                                      </div>
+                                      <div style="font-size: 15px">
+                                        <p style="margin: 0; padding: 0; color: #ae0a46">
+                                          <a href="https://wa.me/8801714243446"
+                                            style="color: inherit; text-decoration: none;">
+                                            (whats app) +880 1714 243446
+                                          </a>
+                                        </p>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Column Area End -->
+            <!-- Email Footer -->
+            <div style="overflow-x: auto">
+              <table id="u_body"
+                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
+                cellpadding="0" cellspacing="0">
+                <tbody style="min-width: 320px">
+                  <tr>
+                    <div style="text-align: center;background-color: #ae0a46;padding: 15px;">
+                      <a class="" href="www.ngenitltd.com"
+                        style="color: #ffff;font-size: 18px;text-align: center;letter-spacing: 4px;">www.ngenitltd.com</a>
+                    </div>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Email Footer End-->
+          </div>
+        </section>
+        <!-- Your email content goes here -->
+      </td>
+    </tr>
+  </table>
 </body>
 
 </html>
