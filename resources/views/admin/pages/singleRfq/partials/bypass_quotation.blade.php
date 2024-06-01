@@ -64,8 +64,8 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td
-                                        style="width: 22rem;padding: 0px;height: 10rem;margin: 0px;position: relative;right: -30px;top: 15px;">
+                                    <td class="content-table"
+                                        style="padding: 0px;height: 10rem;margin: 0px;position: relative;right: -30px;top: 15px;">
                                         <p></p>
                                     </td>
                                     <td style="padding: 0rem 1.875rem; text-align: right">
@@ -77,7 +77,7 @@
                                                     style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
                                                 <div class="d-flex align-items-center justify-content-start">
                                                     <div class="me-3">
-                                                        REG-NO:
+                                                        REG:
                                                     </div>
                                                     <div>
                                                         <input type="text" name="ngen_company_registration_number"
@@ -229,7 +229,7 @@
                                                 style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                         </td>
                                         <td class="d-flex align-items-center"
-                                        style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
+                                            style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                             <span class="currency"></span>
                                             <input type="text" name="vat_final_total_price"
                                                 class="form-control form-control-sm bg-transparent text-center"
@@ -251,7 +251,7 @@
                                         Grand Total
                                     </th>
                                     <th class="d-flex align-items-center"
-                                    style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
+                                        style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                         <p class="currency mb-0"></p>
                                         <input type="text" name="total_final_total_price" readonly
                                             class="form-control form-control-sm bg-transparent text-center"

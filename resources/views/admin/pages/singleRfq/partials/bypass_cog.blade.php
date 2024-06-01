@@ -14,7 +14,7 @@
                     <th width="7%" class="text-center table-title-font">Pr. Cost</th>
                     {{-- <th width="3%" class="text-center table-title-font">Year</th> --}}
                     {{-- <th width="7%" class="text-center table-title-font">Pr. Disc.</th> --}}
-                    <th width="7%" class="text-center table-title-font">Total (In <span class="currency">TK</span> )
+                    <th width="7%" class="text-center table-title-font">Total (<span class="currency">TK</span> )
                     </th>
                     <th width="6%" class="text-center table-title-font">Office</th>
                     <th width="6%" class="text-center table-title-font">Profit</th>
