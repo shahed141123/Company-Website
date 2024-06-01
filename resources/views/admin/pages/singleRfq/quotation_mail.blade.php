@@ -270,7 +270,7 @@
 
                 $('input[name="pq_code"]').val(pq_code);
             });
-        </script>
+        </script> 
         <script>
             $(document).ready(function() {
                 var quotationForm = $('#quotationForm');
