@@ -72,7 +72,7 @@
             }
         }
     </style>
-    <div class="card-body p-lg-4 p-0" style="overflow: hidden">
+    <div class="card-body p-lg-4 p-0" style="overflow: auto">
         <!-- Nav tabs -->
         <div class="text-center">
             <h3 class="mb-0 py-2">Bypass Process</h3>

@@ -67,7 +67,7 @@
                                         </td>
                                         <td style="padding: 35px 30px 25px;text-align:right;color:#ffffff">
                                             <p style="font-size: 2em;font-weight: 600;margin-bottom: 0; ">
-                                                Price Quotation
+                                                {{$data['quotation_title']}}
                                             </p>
                                         </td>
                                     </tr>
@@ -82,14 +82,13 @@
                                 <tbody style="min-width: 320px">
                                     <tr>
                                         <div style="text-align: left;padding: 15px;">
-                                            <h4 style="text-align: left; font-size: 18px; color: #141414;">Hello
-                                                Kazi Akramul,</h4>
+                                            <h4 style="text-align: left; font-size: 18px; color: #141414;">Hello {{$data['name']}},</h4>
                                         </div>
                                     </tr>
                                     <tr>
                                         <div style="text-align: left;padding: 15px;">
                                             <p style="text-align: left; font-size: 18px; color: #141414;">
-                                                We have generated a Quotation against your RFQ (RFQ-230425). You can
+                                                We have generated a Quotation against your RFQ ({{$data['rfq_id']}}). You can
                                                 check & download the Quotation from the below link.
                                                 Thanks for being attached with us.
                                             </p>
@@ -116,7 +115,7 @@
                                         <div
                                             style="text-align: center;padding: 15px; padding-bottom: 5px; padding-top: 30px">
                                             <strong>
-                                                <a href="{{ route('sourcing.sas', $data['product_id']) }}"
+                                                <a href="{{ route('sourcing.sas', $data['rfq_id']) }}"
                                                     style="color: #FFF;
                                 border: 1px solid #ae0a46;
                                 background-color: #ae0a46;
@@ -141,8 +140,8 @@
                                                 If you are having trouble clicking the "Go To Link" button, copy and
                                                 paste theURL below into your web browser:
                                             </p>
-                                            <a href="https://wa.me/8801714243446"
-                                                style="color: #ae0a46; font-size:16px; padding-top: 10px">https://ngenitltd.com/client/RFQ-230425</a>
+                                            <a href="{{ route('sourcing.sas', $data['rfq_id']) }}"
+                                                style="color: #ae0a46; font-size:16px; padding-top: 10px">https://ngenitltd.com/client/{{ $data['rfq_id'] }}</a>
                                         </div>
                                     </tr>
                                 </tbody>
@@ -168,14 +167,14 @@
                                                                         <td style="text-align: start;color: #ffffff;">
                                                                             <p
                                                                                 style="font-size: 15px;font-weight: 600;padding-bottom: 0.5rem;margin: 0;color: #000;">
-                                                                                Thank You
+                                                                                {{ $data['thank_you_text'] }}
                                                                             </p>
                                                                             <p style="color: #ae0a46; margin: 0">
-                                                                                NGen IT Sales Team
+                                                                                {{ $data['sender_name'] }}
                                                                             </p>
                                                                             <p
                                                                                 style="color: #ae0a46;font-size: 15px;margin: 0;">
-                                                                                Manager, Business
+                                                                                {{ $data['sender_designation'] }}
                                                                             </p>
                                                                         </td>
                                                                         <td style="text-align: end;color: #ffffff;">
@@ -183,23 +182,22 @@
                                                                                 style="font-size: 15px;margin-bottom: 0.5rem;">
                                                                                 <p style="margin: 0; color: #ae0a46">
                                                                                     sales@ngenitltd.com
-                                                                                    <i
-                                                                                        class="fa-solid fa-paper-plane"></i>
+                                                                                    <i class="fa-solid fa-paper-plane"></i>
                                                                                 </p>
                                                                             </div>
                                                                             <div
                                                                                 style="font-size: 15px;margin-bottom: 0.5rem;">
                                                                                 <p
                                                                                     style="margin: 0; padding: 0; color: #ae0a46">
-                                                                                    (skype) +1 917-720-3055
+                                                                                    (skype) {{ $data['ngen_number_two'] }}
                                                                                 </p>
                                                                             </div>
                                                                             <div style="font-size: 15px">
                                                                                 <p
                                                                                     style="margin: 0; padding: 0; color: #ae0a46">
-                                                                                    <a href="https://wa.me/8801714243446"
+                                                                                    <a href="https://wa.me/{{ $data['ngen_whatsapp_number'] }}"
                                                                                         style="color: inherit; text-decoration: none;">
-                                                                                        (whats app) +880 1714 243446
+                                                                                        (whats app) {{ $data['ngen_whatsapp_number'] }}
                                                                                     </a>
                                                                                 </p>
                                                                             </div>

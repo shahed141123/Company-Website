@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Pdf;
+use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Models\Admin\Rfq;
 use App\Models\Admin\Region;
@@ -11,8 +13,10 @@ use App\Models\Admin\DealSas;
 use App\Models\Admin\RfqQuotation;
 use App\Models\Admin\QuotationTerm;
 use App\Http\Controllers\Controller;
+use App\Mail\QuotationMail;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Admin\QuotationProduct;
 use App\Models\Admin\CommercialDocument;
 
@@ -74,37 +78,39 @@ class RFQManageController extends Controller
         $data['quotation_products'] = $request->product_name;
 
         $rfqQuotation = RfqQuotation::create([
-            'rfq_id' => $data['rfq_id'] ?? null,
-            'rfq_code' => $data['rfq_code'] ?? null,
-            'quotation_title' => $data['quotation_title'] ?? null,
-            'company_name' => $data['company_name'] ?? null,
-            'name' => $data['name'] ?? null,
-            'email' => $data['email'] ?? null,
-            'phone' => $data['phone'] ?? null,
-            'address' => $data['address'] ?? null,
-            'ngen_company_name' => $data['ngen_company_name'] ?? null,
-            'ngen_company_registration_number' => $data['ngen_company_registration_number'] ?? null,
-            'quotation_date' => $data['quotation_date'] ?? null,
-            'pq_code' => $data['pq_code'] ?? null,
-            'pqr_code' => $data['pqr_code'] ?? null,
-            'sub_total_final_total_price' => $data['sub_total_final_total_price'] ?? null,
+            'rfq_id'                             => $data['rfq_id'] ?? null,
+            'rfq_code'                           => $data['rfq_code'] ?? null,
+            'quotation_title'                    => $data['quotation_title'] ?? null,
+            'company_name'                       => $data['company_name'] ?? null,
+            'name'                               => $data['name'] ?? null,
+            'email'                              => $data['email'] ?? null,
+            'receiver_email'                     => $data['receiver_email'] ?? null,
+            'receiver_cc_email'                  => $data['receiver_cc_email'] ?? null,
+            'phone'                              => $data['phone'] ?? null,
+            'address'                            => $data['address'] ?? null,
+            'ngen_company_name'                  => $data['ngen_company_name'] ?? null,
+            'ngen_company_registration_number'   => $data['ngen_company_registration_number'] ?? null,
+            'quotation_date'                     => $data['quotation_date'] ?? null,
+            'pq_code'                            => $data['pq_code'] ?? null,
+            'pqr_code'                           => $data['pqr_code'] ?? null,
+            'sub_total_final_total_price'        => $data['sub_total_final_total_price'] ?? null,
             'special_discount_final_total_price' => $data['special_discount_final_total_price'] ?? null,
-            'vat_final_total_price' => $data['vat_final_total_price'] ?? null,
-            'total_final_total_price' => $data['total_final_total_price'] ?? null,
-            'thank_you_text' => $data['thank_you_text'] ?? null,
-            'sender_name' => $data['sender_name'] ?? null,
-            'sender_designation' => $data['sender_designation'] ?? null,
-            'ngen_email' => $data['ngen_email'] ?? null,
-            'ngen_whatsapp_number' => $data['ngen_whatsapp_number'] ?? null,
-            'ngen_number_two' => $data['ngen_number_two'] ?? null,
-            'attachment' => $data['attachment'] ?? null,
-            'office_cost_percentage' => $data['office_cost_percentage'] ?? null,
-            'profit_percentage' => $data['profit_percentage'] ?? null,
-            'others_cost_percentage' => $data['others_cost_percentage'] ?? null,
-            'remittence_percentage' => $data['remittence_percentage'] ?? null,
-            'packing_percentage' => $data['packing_percentage'] ?? null,
-            'custom_percentage' => $data['custom_percentage'] ?? null,
-            'tax_vat_percentage' => $data['tax_vat_percentage'] ?? null,
+            'vat_final_total_price'              => $data['vat_final_total_price'] ?? null,
+            'total_final_total_price'            => $data['total_final_total_price'] ?? null,
+            'thank_you_text'                     => $data['thank_you_text'] ?? null,
+            'sender_name'                        => $data['sender_name'] ?? null,
+            'sender_designation'                 => $data['sender_designation'] ?? null,
+            'ngen_email'                         => $data['ngen_email'] ?? null,
+            'ngen_whatsapp_number'               => $data['ngen_whatsapp_number'] ?? null,
+            'ngen_number_two'                    => $data['ngen_number_two'] ?? null,
+            'attachment'                         => $data['attachment'] ?? null,
+            'office_cost_percentage'             => $data['office_cost_percentage'] ?? null,
+            'profit_percentage'                  => $data['profit_percentage'] ?? null,
+            'others_cost_percentage'             => $data['others_cost_percentage'] ?? null,
+            'remittence_percentage'              => $data['remittence_percentage'] ?? null,
+            'packing_percentage'                 => $data['packing_percentage'] ?? null,
+            'custom_percentage'                  => $data['custom_percentage'] ?? null,
+            'tax_vat_percentage'                 => $data['tax_vat_percentage'] ?? null,
         ]);
 
 
@@ -183,11 +189,32 @@ class RFQManageController extends Controller
         $data['pqr_code_one'] = $request->pqr_code_one;
         $data['email'] = $request->email;
         $data['rfq'] = Rfq::where('id', $rfq_id)->first();
+        $data['quotation'] = RfqQuotation::where('rfq_id', $rfq_id)->first();
+        $data['rfq_terms'] = QuotationTerm::where('rfq_id', $rfq_id)->get();
+        $data['products'] = QuotationProduct::where('rfq_id',  $rfq_id)->get();
+        $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
+        $filePath = 'public/files/' . $fileName;
+        // $pdf = PDF::loadView('pdf.quotation', $data);
+        $pdf = PDF::loadView('pdf.quotation', $data);
+        $pdf->setPaper('a4', 'portrait');
+        //$pdf_upload = $pdf->save($filePath);
+        $pdf_output = $pdf->output();
+        Storage::put($filePath, $pdf_output);
+        if ($data['attachment']) {
+            Mail::to($request->input('receiver_email'))
+            ->cc(explode(',', $request->input('receiver_cc_email')))
+            ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
+            ->send(new QuotationMail($data));
+        } else {
+            Mail::to($request->input('receiver_email'))
+            ->cc(explode(',', $request->input('receiver_cc_email')))
+            ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
+            ->send(new QuotationMail($data))->attachData($pdf_output, 'Quotation-Ngenit.pdf');
+        }
 
-        $data['rfq_terms'] = QuotationTerm::where('rfq_id', $data['rfq']->id)->get();
-        // dd($data['rfq_terms']);
-        $data['products'] = DealSas::where('rfq_id',  $data['rfq']->id)->get();
-        $data['deal_sas'] = DealSas::where('rfq_id',  $data['rfq']->id)->first();
+
+
+
         Toastr::success('Quotation Saved.');
         return redirect()->back();
     }

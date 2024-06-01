@@ -125,7 +125,8 @@
                     <!-- Main Content Start -->
                     <div
                         style="overflow-x: auto;padding-left: 1.875rem;padding-right: 1.875rem;padding-top: 0.9375rem;padding-bottom: 0.9375rem;">
-                        <table id="quotationTable" style="border-collapse: collapse;width: 100%;border: 1px solid #eee;">
+                        <table id="quotationTable"
+                            style="border-collapse: collapse;width: 100%;border: 1px solid #eee;">
                             <thead class="text-center">
                                 <tr
                                     style="background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee;font-size: 13px;">
@@ -162,8 +163,7 @@
                                                     value="0">
                                             </td>
                                             <td class=" text-center">
-                                                <input type="text"
-                                                    name="quotation_unit_final_total_price[]"
+                                                <input type="text" name="quotation_unit_final_total_price[]"
                                                     class="form-control form-control-sm bg-transparent text-center"
                                                     value="0">
                                             </td>
@@ -188,9 +188,8 @@
                                         style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                         <p class="currency mb-0"></p>
                                         <input type="text" readonly name="sub_total_final_total_price"
-                                            class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                                            value="0"
-                                            style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                            class="form-control form-control-sm bg-transparent text-center rfqcalculationinput"
+                                            value="0" style="color: #3d3d3d;padding: 0px !important;">
                                     </th>
                                 </tr>
                             </table>
@@ -209,8 +208,7 @@
                                             <span class="currency"></span>
                                             <input type="text" name="special_discount_final_total_price"
                                                 class="form-control form-control-sm bg-transparent text-center"
-                                                value="0"
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                value="0" style="color: #3d3d3d;padding: 0px !important;">
                                         </td>
                                     </tr>
                                 </table>
@@ -229,8 +227,7 @@
                                             <span class="currency"></span>
                                             <input type="text" name="vat_final_total_price"
                                                 class="form-control form-control-sm bg-transparent text-center"
-                                                value="0"
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                value="0" style="color: #3d3d3d;padding: 0px !important;">
                                         </td>
                                     </tr>
                                 </table>
@@ -251,8 +248,7 @@
                                         <p class="currency mb-0"></p>
                                         <input type="text" name="total_final_total_price" readonly
                                             class="form-control form-control-sm bg-transparent text-center"
-                                            value="0"
-                                            style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                            value="0" style="color: #3d3d3d;padding: 0px !important;">
                                     </th>
                                 </tr>
                             </table>
@@ -427,9 +423,12 @@
         <button type="submit" value="approval" name="action" class="btn navigation_btn"><i
                 class="fa-solid fa-person-circle-check pe-2"></i>
             Submit for Approval</button>
-        <button type="submit" value="submit" name="action" class="btn navigation_btn"><i
+        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#quotationMail" value="submit"
+            name="action" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Send
+            Quotation</a>
+        {{-- <button type="submit" value="submit" name="action" class="btn navigation_btn"><i
                 class="fa-regular fa-circle-check pe-2"></i>Send
-            Quotation</button>
+            Quotation</button> --}}
         @php
             $currentUrl = url()->current();
             $whatsappLink = 'https://wa.me/?text=' . urlencode('Check out this page: ' . $currentUrl);
@@ -442,5 +441,37 @@
         {{-- <button type="submit" class="btn navigation_btn"><i
                     class="fa-regular fa-circle-check pe-2"></i>Resend</button>
             <button type="submit" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Share On What's App</button> --}}
+    </div>
+</div>
+
+<div id="quotationMail" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header p-1 px-2">
+                <h5 class="modal-title">Email Where Quotation will send</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body border br-7">
+                <div class="container p-2 mx-2">
+                    <div class="row">
+                        <div class="mb-1">
+                            <label class="form-label" for="basicpill-firstname-input">Quotation Receiver Email</label>
+                            <input type="email" maxlength="250" class="form-control form-control-sm"
+                                placeholder="demo@example.com" name="receiver_email" />
+                        </div>
+                        <div class="mb-1">
+                            <label class="form-label" for="basicpill-firstname-input">Quotation Receiver Email
+                                (CC)</label>
+                            <input type="text" name="receiver_cc_email" class="form-control visually-hidden"
+                                data-role="tagsinput" placeholder="demo@example.com">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer border-0 pt-1 pb-0 pe-0">
+                <button type="submit" class="btn btn-info from-prevent-multiple-submits"
+                    style="padding: 10px;">Send</button>
+            </div>
+        </div>
     </div>
 </div>
