@@ -43,23 +43,23 @@
                                             <div style="padding-top: 1.25rem;padding-left: 0;">
                                                 <input type="text" name="company_name"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="{{ $rfq_details->company_name }}"
+                                                    value="{{ $quotation->company_name ?? $rfq_details->company_name }}"
                                                     style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
                                                 <input type="text" name="name"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="{{ $rfq_details->name }}"
+                                                    value="{{ $quotation->name ?? $rfq_details->name }}"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                                 <input type="text" name="email"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="{{ $rfq_details->email }}"
+                                                    value="{{ $quotation->email ?? $rfq_details->email }}"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                                 <input type="text" name="phone"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="{{ $rfq_details->phone }}"
+                                                    value="{{ $quotation->phone ?? $rfq_details->phone }}"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                                 <input type="text" name="address"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="{{ $rfq_details->address }}"
+                                                    value="{{ $quotation->address ?? $rfq_details->address }}"
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                             </div>
                                         </div>
@@ -143,29 +143,29 @@
                                 </tr>
                             </thead>
                             <tbody class="quotationTable_area text-center">
-                                @if ($rfq_details->rfqProducts->count() > 0)
-                                    @foreach ($rfq_details->rfqProducts as $product)
+                                @if ($rfq_details->quotationProducts->count() > 0)
+                                    @foreach ($rfq_details->quotationProducts as $quotationproduct)
                                         <tr class="tdsp text-center">
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
                                                 <input type="text" name="quotation_product_name[]"
                                                     class="form-control form-control-sm bg-transparent text-start"
-                                                    value="{{ $product->product_name }}">
+                                                    value="{{ $quotationproduct->product_name }}">
                                             </td>
                                             <td>
                                                 <input type="text" name="quotation_qty[]"
                                                     class="form-control form-control-sm bg-transparent text-center"
-                                                    value="{{ $product->qty }}">
+                                                    value="{{ $quotationproduct->qty }}">
                                             </td>
 
                                             <td><input type="text" name="quotation_unit_final_price[]"
                                                     class="form-control form-control-sm bg-transparent text-center"
-                                                    value="0">
+                                                    value="{{ $quotationproduct->unit_final_price }}">
                                             </td>
                                             <td class=" text-center">
                                                 <input type="text" name="quotation_unit_final_total_price[]"
                                                     class="form-control form-control-sm bg-transparent text-center"
-                                                    value="0">
+                                                    value="{{ $quotationproduct->unit_final_total_price }}">
                                             </td>
                                         </tr>
                                     @endforeach
@@ -195,7 +195,7 @@
                             </table>
                         </div>
                         <!--  -->
-                        <div class="special_discount" style="display: none;">
+                        <div class="special_discount" style="display: {{ optional($quotation)->special_discount_display == '1' ? 'block' : 'none' }};">
                             <div style="display: flex; justify-content: end">
                                 <table style="border-collapse: collapse;width: 100%;border: none;">
                                     <tr
@@ -214,18 +214,18 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="vat_display" style="display: none;">
+                        <div class="vat_display" style="display: {{ optional($quotation)->vat_display == '1' ? 'block' : 'none' }};">
                             <div style="display: flex; justify-content: end">
                                 <table style="border-collapse: collapse;width: 100%;border: none;">
                                     <tr
                                         style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                         <td style="width: 85%;text-align: end;padding: 10px;color: #3d3d3d;">
-                                            Vat (<span class="vat_tax_value"></span>)
+                                            Vat (<span class="vat_tax_value">{{ optional($singleproduct)->vat_percentage }}</span>)
                                         </td>
                                         <td class="d-flex align-items-center"
                                             style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                             <span class="currency"></span>
-                                            <input type="text" name="vat_final_total_price"
+                                            <input type="text" name="vat_final_total_price" value="{{ optional($singleproduct)->vat_percentage }}"
                                                 class="form-control form-control-sm bg-transparent text-center"
                                                 value="0" style="color: #3d3d3d;padding: 0px !important;">
                                         </td>
@@ -254,7 +254,7 @@
                             </table>
                         </div>
                         <!--  -->
-                        <div class="vat_display" style="display: none;">
+                        <div class="vat_display" style="display: {{ optional($quotation)->vat_display == '1' ? 'block' : 'none' }};">
                             <div style="display: flex;justify-content: end;margin-top: 1rem;margin-bottom: 1rem;">
                                 <table
                                     style="border-collapse: collapse;width: 60%;margin: auto;font-size: 13px;border: 1px solid #eee;">
@@ -264,7 +264,7 @@
                                             style="text-align: center;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
                                             <input type="text"
                                                 class="form-control form-control-sm bg-transparent text-center"
-                                                value="GST - 8% Not included. It may apply."
+                                                value="GST Not included. It may apply."
                                                 style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                         </th>
                                     </tr>
@@ -277,9 +277,9 @@
                                 <thead>
                                     <tr>
                                         <th width="5%" style="text-align: center;">
-                                            <a class="border-0 p-0 bg-transparent text-primary"
-                                                onclick="addTermsTableRow()">
-                                                <i class="fa-solid fa-plus"></i>
+                                            <a
+                                                class="border-0 p-0 bg-transparent text-primary fa-solid fa-plus add-terms-row">
+                                                {{-- <i class="fa-solid fa-plus"></i> --}}
                                             </a>
                                         </th>
                                         <th colspan="2" style="text-align: center;">
@@ -288,26 +288,51 @@
                                     </tr>
                                 </thead>
                                 <tbody class="terms_tbody">
-                                    <tr>
-                                        <td style="text-align: center;">
-                                            <a class="text-danger rounded-0 btn-sm p-1"
-                                                onclick="deleteTermsTableRow(this)">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </a>
-                                        </td>
-                                        <td style="width: 10%">
-                                            <input type="text" name="terms_title[]"
-                                                class="form-control form-control-sm bg-transparent text-start"
-                                                value="Validity :">
-                                        </td>
-                                        <td>
-                                            <input type="text" name="terms_description[]"
-                                                class="form-control form-control-sm bg-transparent"
-                                                value="7 Days from the PQ date on regular price.Offer may change on the bank forex rate">
-                                        </td>
-                                    </tr>
+                                    @if ($rfq_terms->isEmpty())
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </td>
+                                            <td style="width: 10%">
+                                                <input type="hidden" name="terms_id[]" value="">
+                                                <input type="text" name="terms_title[]"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="Validity :">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="terms_description[]"
+                                                    class="form-control form-control-sm bg-transparent"
+                                                    value="7 Days from the PQ date on regular price. Offer may change on the bank forex rate">
+                                            </td>
+                                        </tr>
+                                    @else
+                                        @foreach ($rfq_terms as $term)
+                                            <tr>
+                                                <td style="text-align: center;">
+                                                    <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row" data-id="{{ $term->id }}">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                                <td style="width: 10%">
+                                                    <input type="hidden" name="terms_id[]"
+                                                        value="{{ $term->id }}">
+                                                    <input type="text" name="terms_title[]"
+                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                        value="{{ $term->title }}">
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="terms_description[]"
+                                                        class="form-control form-control-sm bg-transparent"
+                                                        value="{{ $term->description }}">
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                 </tbody>
                             </table>
+
                         </div>
                     </div>
                     <!-- Main Content End -->
@@ -356,7 +381,7 @@
                                                                             </div>
                                                                             <div style="width: 22%">
                                                                                 <input type="text"
-                                                                                    name="ngen_whatsapp_number"
+                                                                                    name="ngen_number_two"
                                                                                     class="form-control form-control-sm bg-transparent text-end"
                                                                                     value="+880 156845986"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
@@ -368,7 +393,7 @@
                                                                             </div>
                                                                             <div style="width: 22%">
                                                                                 <input type="text"
-                                                                                    name="ngen_number_two"
+                                                                                    name="ngen_whatsapp_number"
                                                                                     class="form-control form-control-sm bg-transparent text-end"
                                                                                     value="+880 156845987"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">

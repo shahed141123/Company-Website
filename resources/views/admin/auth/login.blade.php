@@ -105,7 +105,7 @@
                                         <div class="mb-3 text-left">
                                             <label class="form-label">Email</label>
                                             <div class="form-control-feedback form-control-feedback-start">
-                                                <input type="text" name="email" class="form-control"
+                                                <input type="text" name="email" class="form-control" value="{{ old('email') }}"
                                                     style="border-radius: 0px; border: 0px; background-color:#eee;"
                                                     placeholder="john@doe.com" required>
                                                 <div class="invalid-feedback">Enter your Email</div>
@@ -124,7 +124,7 @@
                                         <div class="mb-3 text-left position-relative">
                                             <label class="form-label">Password</label>
                                             <div class="form-control-feedback form-control-feedback-start">
-                                                <input type="password" name="password" class="form-control"
+                                                <input type="password" name="password" class="form-control" value="{{ old('password') }}"
                                                     style="border-radius: 0px; border: 0px; background-color:#eee;"
                                                     placeholder="•••••••••••" required>
                                                 <div class="invalid-feedback">Enter your Password</div>

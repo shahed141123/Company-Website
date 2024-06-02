@@ -56,172 +56,204 @@ class RFQManageController extends Controller
         $data['users'] = User::where(function ($query) {
             $query->whereJsonContains('department', 'business');
         })->select('id', 'name')->orderBy('id', 'DESC')->get();
-        $data['rfq_details'] = Rfq::with('rfqProducts')->where('rfq_code', $id)->first();
+        $data['rfq_details'] = Rfq::with('quotationProducts')->where('rfq_code', $id)->first();
         $data['countires'] = Country::all();
         $data['rfq_country'] = Country::where('country_name', 'LIKE', '%' . $data['rfq_details']->country . '%')->first();
-        // dd($data['countires']);
-        $data['deal_products'] = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->get();
-        $data['commercial_document'] = CommercialDocument::where('rfq_id', $data['rfq_details']->id)->first();
-        //dd($data['rfq_details']->rfq_code);
         $data['sourcing'] = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->first();
+        $data['quotation']   = RfqQuotation::where('rfq_id', $data['rfq_details']->id)->first();
+        $data['singleproduct']   = QuotationProduct::where('rfq_id', $data['rfq_details']->id)->first();
+        $data['rfq_terms']   = QuotationTerm::where('rfq_id', $data['rfq_details']->id)->get();
         return view('admin.pages.singleRfq.quotation_mail', $data);
     }
 
 
     public function store(Request $request)
     {
-        $rfq_id   = $request->rfq_id;
+        $rfq_id = $request->rfq_id;
         $rfq_code = $request->rfq_code;
         $data = $request->all();
-        dd($data);
-        $data['terms_titles'] = $request->terms_title;
-        $data['quotation_products'] = $request->product_name;
+        $data['terms_titles'] = $request->terms_title ?? []; // Ensure terms_titles is an array
+        $data['quotation_products'] = $request->product_name ?? []; // Ensure quotation_products is an array
 
-        $rfqQuotation = RfqQuotation::create([
-            'rfq_id'                             => $data['rfq_id'] ?? null,
-            'rfq_code'                           => $data['rfq_code'] ?? null,
-            'quotation_title'                    => $data['quotation_title'] ?? null,
-            'company_name'                       => $data['company_name'] ?? null,
-            'name'                               => $data['name'] ?? null,
-            'email'                              => $data['email'] ?? null,
-            'receiver_email'                     => $data['receiver_email'] ?? null,
-            'receiver_cc_email'                  => $data['receiver_cc_email'] ?? null,
-            'phone'                              => $data['phone'] ?? null,
-            'address'                            => $data['address'] ?? null,
-            'ngen_company_name'                  => $data['ngen_company_name'] ?? null,
-            'ngen_company_registration_number'   => $data['ngen_company_registration_number'] ?? null,
-            'quotation_date'                     => $data['quotation_date'] ?? null,
-            'pq_code'                            => $data['pq_code'] ?? null,
-            'pqr_code'                           => $data['pqr_code'] ?? null,
-            'sub_total_final_total_price'        => $data['sub_total_final_total_price'] ?? null,
+        $rfqQuotation = RfqQuotation::updateOrCreate(
+            ['rfq_id' => $rfq_id],
+            [
+            // 'rfq_id' => $data['rfq_id'] ?? null,
+            'rfq_code' => $data['rfq_code'] ?? null,
+            'quotation_title' => $data['quotation_title'] ?? null,
+            'company_name' => $data['company_name'] ?? null,
+            'name' => $data['name'] ?? null,
+            'email' => $data['email'] ?? null,
+            'receiver_email' => $data['receiver_email'] ?? null,
+            'receiver_cc_email' => $data['receiver_cc_email'] ?? null,
+            'phone' => $data['phone'] ?? null,
+            'address' => $data['address'] ?? null,
+            'ngen_company_name' => $data['ngen_company_name'] ?? null,
+            'ngen_company_registration_number' => $data['ngen_company_registration_number'] ?? null,
+            'quotation_date' => $data['quotation_date'] ?? null,
+            'pq_code' => $data['pq_code'] ?? null,
+            'pqr_code' => $data['pqr_code'] ?? null,
+            'sub_total_final_total_price' => $data['sub_total_final_total_price'] ?? null,
             'special_discount_final_total_price' => $data['special_discount_final_total_price'] ?? null,
-            'vat_final_total_price'              => $data['vat_final_total_price'] ?? null,
-            'total_final_total_price'            => $data['total_final_total_price'] ?? null,
-            'thank_you_text'                     => $data['thank_you_text'] ?? null,
-            'sender_name'                        => $data['sender_name'] ?? null,
-            'sender_designation'                 => $data['sender_designation'] ?? null,
-            'ngen_email'                         => $data['ngen_email'] ?? null,
-            'ngen_whatsapp_number'               => $data['ngen_whatsapp_number'] ?? null,
-            'ngen_number_two'                    => $data['ngen_number_two'] ?? null,
-            'attachment'                         => $data['attachment'] ?? null,
-            'office_cost_percentage'             => $data['office_cost_percentage'] ?? null,
-            'profit_percentage'                  => $data['profit_percentage'] ?? null,
-            'others_cost_percentage'             => $data['others_cost_percentage'] ?? null,
-            'remittence_percentage'              => $data['remittence_percentage'] ?? null,
-            'packing_percentage'                 => $data['packing_percentage'] ?? null,
-            'custom_percentage'                  => $data['custom_percentage'] ?? null,
-            'tax_vat_percentage'                 => $data['tax_vat_percentage'] ?? null,
+            'vat_final_total_price' => $data['vat_final_total_price'] ?? null,
+            'total_final_total_price' => $data['total_final_total_price'] ?? null,
+            'thank_you_text' => $data['thank_you_text'] ?? null,
+            'sender_name' => $data['sender_name'] ?? null,
+            'sender_designation' => $data['sender_designation'] ?? null,
+            'ngen_email' => $data['ngen_email'] ?? null,
+            'ngen_whatsapp_number' => $data['ngen_whatsapp_number'] ?? null,
+            'ngen_number_two' => $data['ngen_number_two'] ?? null,
+            'attachment' => $data['attachment'] ?? null,
+            'office_cost_percentage' => $data['office_cost_percentage'] ?? null,
+            'profit_percentage' => $data['profit_percentage'] ?? null,
+            'others_cost_percentage' => $data['others_cost_percentage'] ?? null,
+            'remittence_percentage' => $data['remittence_percentage'] ?? null,
+            'packing_percentage' => $data['packing_percentage'] ?? null,
+            'vat_display' => $data['vat_display'] ?? null,
+            'special_discount_display' => $data['special_discount_display'] ?? null,
+            'custom_percentage' => $data['custom_percentage'] ?? null,
+            'tax_vat_percentage' => $data['tax_vat_percentage'] ?? null,
         ]);
 
+        foreach ($data['terms_titles'] as $index => $title) {
+            $termsId = $data['terms_id'][$index];
 
-        foreach ($data['terms_titles'] as $terms_title) {
-            QuotationTerm::create([
-                'rfq_id' => $rfq_id ?? null,
-                'title' => $terms_title['terms_title'] ?? null,
-                'description' => $terms_title['terms_description'] ?? null,
-            ]);
-        };
-        foreach ($data['quotation_products'] as $product) {
-            QuotationProduct::create([
-                'rfq_id' => $rfq_id ?? null,
-                'product_id' => $product['product_id'] ?? null,
-                'product_name' => $product['product_name'] ?? null,
-                'qty' => $product['qty'] ?? null,
-                'principal_cost' => $product['principal_cost'] ?? null,
-                'principal_unit_total_amount' => $product['principal_unit_total_amount'] ?? null,
-                'unit_office_cost' => $product['unit_office_cost'] ?? null,
-                'unit_profit' => $product['unit_profit'] ?? null,
-                'unit_others_cost' => $product['unit_others_cost'] ?? null,
-                'unit_remittence' => $product['unit_remittence'] ?? null,
-                'unit_packing' => $product['unit_packing'] ?? null,
-                'unit_customs' => $product['unit_customs'] ?? null,
-                'unit_tax_vat' => $product['unit_tax_vat'] ?? null,
-                'unit_subtotal' => $product['unit_subtotal'] ?? null,
-                'unit_final_price' => $product['unit_final_price'] ?? null,
-                'unit_final_total_price' => $product['unit_final_total_price'] ?? null,
-                'sub_total_principal_amount' => $product['sub_total_principal_amount'] ?? null,
-                'sub_total_office_cost' => $product['sub_total_office_cost'] ?? null,
-                'sub_total_profit' => $product['sub_total_profit'] ?? null,
-                'sub_total_others_cost' => $product['sub_total_others_cost'] ?? null,
-                'sub_total_remittance' => $product['sub_total_remittance'] ?? null,
-                'sub_total_packing' => $product['sub_total_packing'] ?? null,
-                'sub_total_customs' => $product['sub_total_customs'] ?? null,
-                'sub_total_tax' => $product['sub_total_tax'] ?? null,
-                'sub_total_subtotal' => $product['sub_total_subtotal'] ?? null,
-                'sub_total_final_total_price' => $product['sub_total_final_total_price'] ?? null,
-                'special_discount_percentage' => $product['special_discount_percentage'] ?? null,
-                'special_discount_principal_amount' => $product['special_discount_principal_amount'] ?? null,
-                'special_discount_office_cost' => $product['special_discount_office_cost'] ?? null,
-                'special_discount_profit' => $product['special_discount_profit'] ?? null,
-                'special_discount_others_cost' => $product['special_discount_others_cost'] ?? null,
-                'special_discount_remittance' => $product['special_discount_remittance'] ?? null,
-                'special_discount_packing' => $product['special_discount_packing'] ?? null,
-                'special_discount_customs' => $product['special_discount_customs'] ?? null,
-                'special_discount_tax' => $product['special_discount_tax'] ?? null,
-                'special_discount_subtotal' => $product['special_discount_subtotal'] ?? null,
-                'special_discount_final_total_price' => $product['special_discount_final_total_price'] ?? null,
-                'vat_percentage' => $product['vat_percentage'] ?? null,
-                'vat_principal_amount' => $product['vat_principal_amount'] ?? null,
-                'vat_office_cost' => $product['vat_office_cost'] ?? null,
-                'vat_profit' => $product['vat_profit'] ?? null,
-                'vat_others_cost' => $product['vat_others_cost'] ?? null,
-                'vat_remittance' => $product['vat_remittance'] ?? null,
-                'vat_packing' => $product['vat_packing'] ?? null,
-                'vat_customs' => $product['vat_customs'] ?? null,
-                'vat_tax' => $product['vat_tax'] ?? null,
-                'vat_subtotal' => $product['vat_subtotal'] ?? null,
-                'vat_final_total_price' => $product['vat_final_total_price'] ?? null,
-                'total_principal_amount' => $product['total_principal_amount'] ?? null,
-                'total_office_cost' => $product['total_office_cost'] ?? null,
-                'total_profit' => $product['total_profit'] ?? null,
-                'total_others_cost' => $product['total_others_cost'] ?? null,
-                'total_remittance' => $product['total_remittance'] ?? null,
-                'total_packing' => $product['total_packing'] ?? null,
-                'total_customs' => $product['total_customs'] ?? null,
-                'total_tax' => $product['total_tax'] ?? null,
-                'total_subtotal' => $product['total_subtotal'] ?? null,
-                'total_final_total_price' => $product['total_final_total_price'] ?? null,
-            ]);
-        };
+            if ($termsId) {
+                // Update existing term
+                $term = QuotationTerm::find($termsId);
+            } else {
+                // Create new term
+                $term = new QuotationTerm;
+            }
+            $term->rfq_id = $data['rfq_id']; // Ensure rfq_id is passed in the request
+            $term->title = $title;
+            $term->description = $data['terms_description'][$index];
+            $term->save();
+        }
+        foreach ($data['quotation_products'] as $index => $name) {
+            $productId = $data['product_id'][$index];
 
-        $data['pq_code'] = $request->pq_code;
-        $data['currency'] = $request->currency;
-        $data['pqr_code_one'] = $request->pqr_code_one;
-        $data['email'] = $request->email;
+            if ($productId) {
+                // Update existing product
+                $product = QuotationProduct::find($productId);
+            } else {
+                // Create new product
+                $product = new QuotationProduct;
+            }
+
+            $product->rfq_id = $data['rfq_id'];
+            $product->product_name = $name;
+            $product->qty = $data['qty'][$index];
+            $product->principal_cost = $data['principal_cost'][$index];
+            $product->principal_unit_total_amount = $data['principal_unit_total_amount'][$index];
+            $product->unit_office_cost = $data['unit_office_cost'][$index];
+            $product->unit_profit = $data['unit_profit'][$index];
+            $product->unit_others_cost = $data['unit_others_cost'][$index];
+            $product->unit_remittance = $data['unit_remittance'][$index];
+            $product->unit_packing = $data['unit_packing'][$index];
+            $product->unit_customs = $data['unit_customs'][$index];
+            $product->unit_tax_vat = $data['unit_tax_vat'][$index];
+            $product->unit_subtotal = $data['unit_subtotal'][$index];
+            $product->unit_final_price = $data['unit_final_price'][$index];
+            $product->unit_final_total_price = $data['unit_final_total_price'][$index];
+            $product->sub_total_principal_amount = $data['sub_total_principal_amount'] ?? null;
+            $product->sub_total_office_cost = $data['sub_total_office_cost'] ?? null;
+            $product->sub_total_profit = $data['sub_total_profit'] ?? null;
+            $product->sub_total_others_cost = $data['sub_total_others_cost'] ?? null;
+            $product->sub_total_remittance = $data['sub_total_remittance'] ?? null;
+            $product->sub_total_packing = $data['sub_total_packing'] ?? null;
+            $product->sub_total_customs = $data['sub_total_customs'] ?? null;
+            $product->sub_total_tax = $data['sub_total_tax'] ?? null;
+            $product->sub_total_subtotal = $data['sub_total_subtotal'] ?? null;
+            $product->sub_total_final_total_price = $data['sub_total_final_total_price'] ?? null;
+            $product->special_discount_percentage = $data['special_discount_percentage'] ?? null;
+            $product->special_discount_principal_amount = $data['special_discount_principal_amount'] ?? null;
+            $product->special_discount_office_cost = $data['special_discount_office_cost'] ?? null;
+            $product->special_discount_profit = $data['special_discount_profit'] ?? null;
+            $product->special_discount_others_cost = $data['special_discount_others_cost'] ?? null;
+            $product->special_discount_remittance = $data['special_discount_remittance'] ?? null;
+            $product->special_discount_packing = $data['special_discount_packing'] ?? null;
+            $product->special_discount_customs = $data['special_discount_customs'] ?? null;
+            $product->special_discount_tax = $data['special_discount_tax'] ?? null;
+            $product->special_discount_subtotal = $data['special_discount_subtotal'] ?? null;
+            $product->special_discount_final_total_price = $data['special_discount_final_total_price'] ?? null;
+            $product->vat_percentage = $data['vat_percentage'] ?? null;
+            $product->vat_principal_amount = $data['vat_principal_amount'] ?? null;
+            $product->vat_office_cost = $data['vat_office_cost'] ?? null;
+            $product->vat_profit = $data['vat_profit'] ?? null;
+            $product->vat_others_cost = $data['vat_others_cost'] ?? null;
+            $product->vat_remittance = $data['vat_remittance'] ?? null;
+            $product->vat_packing = $data['vat_packing'] ?? null;
+            $product->vat_customs = $data['vat_customs'] ?? null;
+            $product->vat_tax = $data['vat_tax'] ?? null;
+            $product->vat_subtotal = $data['vat_subtotal'] ?? null;
+            $product->vat_final_total_price = $data['vat_final_total_price'] ?? null;
+            $product->total_principal_amount = $data['total_principal_amount'] ?? null;
+            $product->total_office_cost = $data['total_office_cost'] ?? null;
+            $product->total_profit = $data['total_profit'] ?? null;
+            $product->total_others_cost = $data['total_others_cost'] ?? null;
+            $product->total_remittance = $data['total_remittance'] ?? null;
+            $product->total_packing = $data['total_packing'] ?? null;
+            $product->total_customs = $data['total_customs'] ?? null;
+            $product->total_tax = $data['total_tax'] ?? null;
+            $product->total_subtotal = $data['total_subtotal'] ?? null;
+            $product->total_final_total_price = $data['total_final_total_price'] ?? null;
+
+            $product->save();
+        }
+
+
+
+
+        $data['rfq_details'] = Rfq::with('quotationProducts')->where('rfq_code', $rfq_code)->first();
+        $data['countires'] = Country::all();
+        $data['rfq_country'] = Country::where('country_name', 'LIKE', '%' . $data['rfq_details']->country . '%')->first();
+        $data['quotation']   = RfqQuotation::where('rfq_id', $rfq_id)->first();
+        $data['singleproduct']   = QuotationProduct::where('rfq_id', $rfq_id)->first();
+        $data['rfq_terms']   = QuotationTerm::where('rfq_id', $rfq_id)->get();
+        Toastr::success('Quotation Saved.');
+        return response()->json([
+            'mysetting' => view('admin.pages.singleRfq.partials.bypass_setting', $data)->render(),
+            'quotation' => view('admin.pages.singleRfq.partials.bypass_quotation', $data)->render(),
+            'cog' => view('admin.pages.singleRfq.partials.bypass_cog', $data)->render(),
+        ]);
+    }
+
+
+
+
+
+
+    public function bypassQuotationSend($id){
+        $rfq_id = $id;
+        // $data['email'] = $request->email;
         $data['rfq'] = Rfq::where('id', $rfq_id)->first();
         $data['quotation'] = RfqQuotation::where('rfq_id', $rfq_id)->first();
         $data['rfq_terms'] = QuotationTerm::where('rfq_id', $rfq_id)->get();
         $data['products'] = QuotationProduct::where('rfq_id',  $rfq_id)->get();
         $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
         $filePath = 'public/files/' . $fileName;
-        // $pdf = PDF::loadView('pdf.quotation', $data);
+        return view('pdf.quotation', $data);
         $pdf = PDF::loadView('pdf.quotation', $data);
         $pdf->setPaper('a4', 'portrait');
-        //$pdf_upload = $pdf->save($filePath);
         $pdf_output = $pdf->output();
         Storage::put($filePath, $pdf_output);
+
         if ($data['attachment']) {
-            Mail::to($request->input('receiver_email'))
-            ->cc(explode(',', $request->input('receiver_cc_email')))
-            ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
-            ->send(new QuotationMail($data));
+            Mail::to($data['quotation']->receiver_email)
+                ->cc(explode(',', $data['quotation']->receiver_cc_email))
+                ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
+                ->send(new QuotationMail($data));
         } else {
-            Mail::to($request->input('receiver_email'))
-            ->cc(explode(',', $request->input('receiver_cc_email')))
-            ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
-            ->send(new QuotationMail($data))->attachData($pdf_output, 'Quotation-Ngenit.pdf');
+            Mail::to($data['quotation']->receiver_email)
+                ->cc(explode(',', $data['quotation']->receiver_cc_email))
+                ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
+                ->send(new QuotationMail($data))->attachData($pdf_output, 'Quotation-Ngenit.pdf');
         }
-
-
-
-
         Toastr::success('Quotation Saved.');
+        Toastr::success('Mail Sent.');
         return redirect()->back();
     }
-
-
-
-
     public function destroy($id)
     {
         $rfq = RFQ::findOrFail($id);
@@ -236,5 +268,25 @@ class RFQManageController extends Controller
             File::delete(public_path('storage/thumb/') . $rfq->image);
         }
         $rfq->delete();
+    }
+    public function quotationProductDelete($id)
+    {
+        $product = QuotationProduct::find($id);
+        if ($product) {
+            $product->delete();
+            return response()->json(['success' => true]);
+        } else {
+            return response()->json(['success' => false, 'message' => 'Product not found.']);
+        }
+    }
+    public function quotationTermsDelete($id)
+    {
+        $product = QuotationTerm::find($id);
+        if ($product) {
+            $product->delete();
+            return response()->json(['success' => true]);
+        } else {
+            return response()->json(['success' => false, 'message' => 'Product not found.']);
+        }
     }
 }

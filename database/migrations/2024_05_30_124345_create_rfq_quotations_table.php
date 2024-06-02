@@ -48,6 +48,8 @@ return new class extends Migration
             $table->string('packing_percentage')->nullable();
             $table->string('custom_percentage')->nullable();
             $table->string('tax_vat_percentage')->nullable();
+            $table->string('vat_display')->nullable();
+            $table->string('special_discount_display')->nullable();
             $table->timestamps();
         });
     }

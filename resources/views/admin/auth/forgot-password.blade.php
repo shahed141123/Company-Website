@@ -80,9 +80,6 @@
                             <form class="login-form needs-validation" method="POST" action="{{ route('admin.password.email') }}"
                                 style="width: 30rem;" novalidate>
                                 @csrf
-
-
-
                                 <div class="card mb-0 admin-login-form pt-1">
                                     <div class="card-body">
                                         <div class="text-center mb-3">
@@ -101,7 +98,7 @@
                                             <label class="form-label">Recover Email</label>
                                             <div class="form-control-feedback form-control-feedback-start">
                                                 <input type="email" name="email" class="form-control"
-                                                    style="border-radius: 0px; border: 0px; background-color:#eee;"
+                                                    style="border-radius: 0px; border: 0px; background-color:#eee;" value="{{ old('email') }}"
                                                     placeholder="john@doe.com" required>
                                                 <div class="invalid-feedback">Enter your Email</div>
                                                 <div class="form-control-feedback-icon">

@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                @foreach ($rfq_details->rfqProducts as $rfqProduct)
+                @foreach ($rfq_details->quotationProducts as $rfqProduct)
                     @php
                         $sproduct = App\Models\Admin\Product::where('name', 'LIKE', '%' . $rfqProduct->product_name . '%')
                             ->where('product_status', 'product')
