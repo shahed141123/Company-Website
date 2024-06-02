@@ -171,15 +171,15 @@
                 // Show/hide VAT display if already checked
 
 
-                // Toggle VAT display
-                quotationForm.find('input[name="vat_display"]').on('click', function() {
-                    $('.vat_display').toggle($(this).is(":checked"));
-                }).trigger('click'); // Trigger click event on page load
+                // // Toggle VAT display
+                // quotationForm.find('input[name="vat_display"]').on('click', function() {
+                //     $('.vat_display').toggle($(this).is(":checked"));
+                // }).trigger('click'); // Trigger click event on page load
 
-                // Toggle special discount display
-                quotationForm.find('input[name="special_discount_display"]').on('click', function() {
-                    $('.special_discount').toggle($(this).is(":checked"));
-                }).trigger('click'); // Trigger click event on page load
+                // // Toggle special discount display
+                // quotationForm.find('input[name="special_discount_display"]').on('click', function() {
+                //     $('.special_discount').toggle($(this).is(":checked"));
+                // }).trigger('click'); // Trigger click event on page load
 
                 // Update company name and registration number based on region
                 quotationForm.find('select[name="region"]').on('change', function() {
