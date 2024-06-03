@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('rfq_id')->nullable()->constrained('rfqs')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('rfq_code')->nullable();
             $table->string('quotation_title')->nullable();
+            $table->string('country')->nullable();
+            $table->string('region')->nullable();
             $table->string('company_name')->nullable();
             $table->string('name')->nullable();
             $table->string('receiver_email')->nullable();
