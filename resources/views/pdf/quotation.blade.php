@@ -141,7 +141,7 @@
 </head>
 
 <body>
-    <div class="container-fluid px-0" style="height: 100vh !important;">
+    <div class="container-fluid px-0">
         <table cellpadding="0" cellspacing="0" class="qutatation-form"
             style="border-collapse: collapse;margin: 0 auto;background-color: #f4f4f4;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
             <tr>
@@ -178,10 +178,10 @@
                             </div>
                             <!-- Email Header End -->
                             <!-- Email User Info Start -->
-                            <div class="">
+                            <div class="mb-5">
                                 <table
                                     style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 20rem;margin: 0 auto;width: 100%;overflow: hidden;">
-                                    <tbody style="min-width: 20rem">
+                                    <tbody style="min-width: 20rem;">
                                         <tr style="vertical-align: top">
                                             <td style="padding: 0rem 1.875rem; text-align: left">
                                                 <div>
@@ -253,7 +253,7 @@
                             <!-- Email User Info End -->
                             <!-- Main Content Start -->
                             <div
-                                style="overflow-x: auto;padding-left: 1.875rem;padding-right: 1.875rem;padding-top: 0.9375rem;padding-bottom: 0.9375rem;">
+                                style="overflow-x: auto;padding-left: 1.875rem;padding-right: 1.875rem;padding-top: 0.9375rem;padding-bottom: 0.9375rem; height: 57.8vh;">
                                 <table id="quotationTable"
                                     style="border-collapse: collapse;width: 100%;border: 1px solid #eee;">
                                     <thead class="text-center">
@@ -409,11 +409,11 @@
                                     </div>
                                 </div>
                                 <!--  -->
-                                <div>
+                                <div class="mt-5">
                                     <table class="terms_table w-100">
                                         <thead>
                                             <tr>
-                                                <th colspan="2" style="text-align: center;">
+                                                <th colspan="2" style="text-align: center; background-color: #C8D9E1">
                                                     <p class="mb-0 p-2">Terms & Conditions</p>
                                                 </th>
                                             </tr>
@@ -531,7 +531,7 @@
                                         <tr>
                                             <div
                                                 style="text-align: center;background-color: #ae0a46;padding: 0.9375rem;">
-                                                <a class="" href="https://www.ngenitltd.com/"
+                                                <a href="https://www.ngenitltd.com/"
                                                     style="color: #ffff;font-size: 1.125rem;text-align: center;letter-spacing: 4px;">www.ngenitltd.com</a>
                                             </div>
                                         </tr>
