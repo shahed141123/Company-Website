@@ -433,7 +433,7 @@
                                         <tbody class="terms_tbody">
                                             @foreach ($rfq_terms as $term)
                                                 <tr>
-                                                    <td class="text-start" style="width: 10%">
+                                                    <td class="text-start fw-bold" style="width: 15%">
                                                         <p style="font-size:14px;">{{ $term->title }}</p>
                                                     </td>
                                                     <td>
@@ -469,25 +469,21 @@
                                                                                     style="font-size: 13px;font-weight: 600;margin: 0;color: #000; padding: 0px !important;">
                                                                                     {{ $quotation->thank_you_text }}
                                                                                 </p>
-
-                                                                                <input type="text"
-                                                                                    name="sender_name"
-                                                                                    class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                                                    value="Kawsar Khan"
+                                                                                <p class="form-control form-control-sm border-0 bg-transparent text-start"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                                <input type="text"
-                                                                                    name="sender_designation"
-                                                                                    class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                                                    value="Manager, Business"
+                                                                                    {{ $quotation->sender_name }}
+                                                                                </p>
+                                                                                <p class="form-control form-control-sm border-0 bg-transparent text-start"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                                    {{ $quotation->sender_designation }}
+                                                                                </p>
                                                                             </td>
                                                                             <td
                                                                                 style="text-align: end; color: #ffffff; border: 1px solid transparent;">
-                                                                                <input type="text"
-                                                                                    name="ngen_email"
-                                                                                    class="form-control form-control-sm border-0 bg-transparent text-end"
-                                                                                    value="sales@ngenitltd.com"
+                                                                                <p class="text-end"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                                    {{ $quotation->ngen_email }}
+                                                                                </p>
 
                                                                                 <div
                                                                                     class="d-flex justify-content-end">
@@ -497,11 +493,10 @@
                                                                                             class="fa-brands fa-skype"></i>
                                                                                     </div>
                                                                                     <div class="icons-input">
-                                                                                        <input type="text"
-                                                                                            name="ngen_number_two"
-                                                                                            class="form-control form-control-sm border-0 bg-transparent text-end"
-                                                                                            value="+880 156845986"
+                                                                                        <p class="form-control form-control-sm border-0 bg-transparent text-start"
                                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                                            {{ $quotation->ngen_number_two }}
+                                                                                        </p>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div
@@ -512,11 +507,10 @@
                                                                                             class="fa-brands fa-whatsapp"></i>
                                                                                     </div>
                                                                                     <div class="icons-input">
-                                                                                        <input type="text"
-                                                                                            name="ngen_whatsapp_number"
-                                                                                            class="form-control form-control-sm border-0 bg-transparent text-end"
-                                                                                            value="+880 156845987"
+                                                                                        <p class="form-control form-control-sm border-0 bg-transparent text-start"
                                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                                            {{ $quotation->ngen_whatsapp_number }}
+                                                                                        </p>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
