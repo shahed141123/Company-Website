@@ -231,6 +231,8 @@ class RFQManageController extends Controller
 
         $data['rfq'] = Rfq::where('id', $rfq_id)->first();
         $data['quotation'] = RfqQuotation::where('rfq_id', $rfq_id)->first();
+        $data['rfq_code'] = $data['rfq']->code;
+        $data['quotation_title'] = $data['quotation']->quotation_title;
         $data['quotation']->update([
             'receiver_email'     => $request->receiver_email,
             'receiver_cc_email'  => $request->receiver_cc_email,
@@ -245,16 +247,17 @@ class RFQManageController extends Controller
         $pdf_output = $pdf->output();
         Storage::put($filePath, $pdf_output);
 
-        if ($data['attachment']) {
+        if ($data['quotation']->attachment == '1') {
             Mail::to($data['quotation']->receiver_email)
-                ->cc(explode(',', $data['quotation']->receiver_cc_email))
-                ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
-                ->send(new QuotationMail($data));
+            ->cc(explode(',', $data['quotation']->receiver_cc_email))
+            // ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
+            ->send((new QuotationMail($data))->attachData($pdf_output, "Quotation-Ngenit-{$data['rfq_code']}.pdf"));
         } else {
             Mail::to($data['quotation']->receiver_email)
                 ->cc(explode(',', $data['quotation']->receiver_cc_email))
-                ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
-                ->send(new QuotationMail($data))->attachData($pdf_output, 'Quotation-Ngenit.pdf');
+                // ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
+                ->send(new QuotationMail($data));
+
         }
         Toastr::success('Quotation Saved.');
         Toastr::success('Mail Sent.');

@@ -65,7 +65,11 @@ class HomeController extends Controller
         return view('frontend.auth.register');
     }
 
+    public function quotationLink($id)
+    {
 
+        return view('frontend.quotaion.link');
+    }
 
     //Homepage
 
