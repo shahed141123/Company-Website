@@ -105,6 +105,10 @@
             width: 10rem;
         }
 
+        .icons-input input {
+            width: 6.5rem;
+        }
+
         @media only screen and (max-width: 768px) {
 
             html,
@@ -116,18 +120,34 @@
             .content-table {
                 width: 0 !important;
             }
+
+            .icons-area {
+                width: 55%;
+            }
+
+            .icons-input {
+                width: auto;
+            }
+
+            .icons-input input {
+                width: auto;
+            }
+
+            .rfqs-btns {
+                font-size: 8px !important;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container px-0">
+    <div class="container-fluid px-0" style="height: 100vh !important;">
         <table cellpadding="0" cellspacing="0" class="qutatation-form"
-            style="border-collapse: collapse;width: 58.3333%;margin: 0 auto;background-color: #f4f4f4;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+            style="border-collapse: collapse;margin: 0 auto;background-color: #f4f4f4;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
             <tr>
                 <td>
                     <section
-                        style="margin-top: 0rem;margin-bottom: 0rem;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                        style="margin-top: 0rem;margin-bottom: 0rem;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; height: 100vh;">
                         <!-- Email Header Start -->
                         <div class="wrapper" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px">
                             <!-- Email Header Start -->
@@ -158,7 +178,7 @@
                             </div>
                             <!-- Email Header End -->
                             <!-- Email User Info Start -->
-                            <div>
+                            <div class="">
                                 <table
                                     style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 20rem;margin: 0 auto;width: 100%;overflow: hidden;">
                                     <tbody style="min-width: 20rem">
@@ -191,28 +211,34 @@
                                             <td style="padding: 0rem 1.875rem; text-align: right">
                                                 <div>
                                                     <div style="padding-top: 1.25rem;">
-                                                        <div class="d-flex align-items-center justify-content-start">
-                                                            <p style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
+                                                        <div class="text-start">
+                                                            <p
+                                                                style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
                                                                 {{ $quotation->ngen_company_name }}
                                                             </p>
                                                         </div>
-                                                        <div class="d-flex align-items-center justify-content-start">
-                                                            <p style="font-size: 13px;color: #4a5472;padding: 0px!important;width: 9rem;">
-                                                                REG NO: {{ $quotation->ngen_company_registration_number }}
+                                                        <div class="text-start">
+                                                            <p
+                                                                style="font-size: 13px;color: #4a5472;padding: 0px!important;width: 9rem;">
+                                                                REG NO:
+                                                                {{ $quotation->ngen_company_registration_number }}
                                                             </p>
                                                         </div>
-                                                        <div class="d-flex align-items-center justify-content-start">
-                                                            <p style="width:9rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
+                                                        <div class="text-start">
+                                                            <p
+                                                                style="width:9rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
                                                                 Date : {{ $quotation->quotation_date }}
                                                             </p>
                                                         </div>
-                                                        <div class="d-flex align-items-center justify-content-start">
-                                                            <p style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
+                                                        <div class="text-start">
+                                                            <p
+                                                                style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
                                                                 {{ $quotation->pq_code }}
                                                             </p>
                                                         </div>
-                                                        <div class="d-flex align-items-center justify-content-start">
-                                                            <p style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
+                                                        <div class="text-start">
+                                                            <p
+                                                                style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
                                                                 {{ $quotation->pqr_code }}
                                                             </p>
                                                         </div>
@@ -257,23 +283,22 @@
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>
                                                         <input type="text" name="quotation_product_name[]"
-                                                            class="form-control form-control-sm bg-transparent text-start"
+                                                            class="form-control form-control-sm border-0 bg-transparent text-start"
                                                             value="{{ $product->product_name }}">
                                                     </td>
                                                     <td>
                                                         <input type="text" name="quotation_qty[]"
-                                                            class="form-control form-control-sm bg-transparent text-center"
+                                                            class="form-control form-control-sm border-0 bg-transparent text-center"
                                                             value="{{ $product->qty }}">
                                                     </td>
 
                                                     <td><input type="text" name="quotation_unit_final_price[]"
-                                                            class="form-control form-control-sm bg-transparent text-center"
+                                                            class="form-control form-control-sm border-0 bg-transparent text-center"
                                                             value="0">
                                                     </td>
                                                     <td class=" text-center">
-                                                        <input type="text"
-                                                            name="quotation_unit_final_total_price[]"
-                                                            class="form-control form-control-sm bg-transparent text-center"
+                                                        <input type="text" name="quotation_unit_final_total_price[]"
+                                                            class="form-control form-control-sm border-0 bg-transparent text-center"
                                                             value="0">
                                                     </td>
                                                 </tr>
@@ -297,7 +322,7 @@
                                                 style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                                 <p class="currency mb-0"></p>
                                                 <input type="text" readonly name="sub_total_final_total_price"
-                                                    class="form-control form-control-sm bg-transparent text-center rfqcalculationinput"
+                                                    class="form-control form-control-sm border-0 bg-transparent text-center rfqcalculationinput"
                                                     value="0" style="color: #3d3d3d;padding: 0px !important;">
                                             </th>
                                         </tr>
@@ -316,7 +341,7 @@
                                                     style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                                     <span class="currency"></span>
                                                     <input type="text" name="special_discount_final_total_price"
-                                                        class="form-control form-control-sm bg-transparent text-center"
+                                                        class="form-control form-control-sm border-0 bg-transparent text-center"
                                                         value="0"
                                                         style="color: #3d3d3d;padding: 0px !important;">
                                                 </td>
@@ -336,7 +361,7 @@
                                                     style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                                     <span class="currency"></span>
                                                     <input type="text" name="vat_final_total_price"
-                                                        class="form-control form-control-sm bg-transparent text-center"
+                                                        class="form-control form-control-sm border-0 bg-transparent text-center"
                                                         value="0"
                                                         style="color: #3d3d3d;padding: 0px !important;">
                                                 </td>
@@ -358,7 +383,7 @@
                                                 style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                                 <p class="currency mb-0"></p>
                                                 <input type="text" name="total_final_total_price" readonly
-                                                    class="form-control form-control-sm bg-transparent text-center"
+                                                    class="form-control form-control-sm border-0 bg-transparent text-center"
                                                     value="0" style="color: #3d3d3d;padding: 0px !important;">
                                             </th>
                                         </tr>
@@ -375,7 +400,7 @@
                                                 <th
                                                     style="text-align: center;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
                                                     <input type="text"
-                                                        class="form-control form-control-sm bg-transparent text-center"
+                                                        class="form-control form-control-sm border-0 bg-transparent text-center"
                                                         value="GST - 8% Not included. It may apply."
                                                         style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                                 </th>
@@ -388,12 +413,6 @@
                                     <table class="terms_table w-100">
                                         <thead>
                                             <tr>
-                                                <th width="5%" style="text-align: center;">
-                                                    <a
-                                                        class="border-0 p-0 bg-transparent text-primary fa-solid fa-plus add-terms-row">
-                                                        {{-- <i class="fa-solid fa-plus"></i> --}}
-                                                    </a>
-                                                </th>
                                                 <th colspan="2" style="text-align: center;">
                                                     <p class="mb-0 p-2">Terms & Conditions</p>
                                                 </th>
@@ -401,19 +420,14 @@
                                         </thead>
                                         <tbody class="terms_tbody">
                                             <tr>
-                                                <td style="text-align: center;">
-                                                    <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
-                                                        <i class="fa-solid fa-trash"></i>
-                                                    </a>
-                                                </td>
                                                 <td style="width: 10%">
                                                     <input type="text" name="terms_title[]"
-                                                        class="form-control form-control-sm bg-transparent text-start"
+                                                        class="form-control form-control-sm border-0 bg-transparent text-start"
                                                         value="Validity :">
                                                 </td>
                                                 <td>
                                                     <input type="text" name="terms_description[]"
-                                                        class="form-control form-control-sm bg-transparent"
+                                                        class="form-control form-control-sm border-0 bg-transparent"
                                                         value="7 Days from the PQ date on regular price. Offer may change on the bank forex rate">
                                                 </td>
                                             </tr>
@@ -442,17 +456,17 @@
                                                                                 style="border: 1px solid transparent;text-align: start;color: #ffffff;">
                                                                                 <input type="text"
                                                                                     name="thank_you_text"
-                                                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                                                    class="form-control form-control-sm border-0 bg-transparent text-start"
                                                                                     value="Thank You"
                                                                                     style="font-size: 13px;font-weight: 600;margin: 0;color: #000; padding: 0px !important;"">
                                                                                 <input type="text"
                                                                                     name="sender_name"
-                                                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                                                    class="form-control form-control-sm border-0 bg-transparent text-start"
                                                                                     value="Kawsar Khan"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                                 <input type="text"
                                                                                     name="sender_designation"
-                                                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                                                    class="form-control form-control-sm border-0 bg-transparent text-start"
                                                                                     value="Manager, Business"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                             </td>
@@ -460,34 +474,36 @@
                                                                                 style="text-align: end; color: #ffffff; border: 1px solid transparent;">
                                                                                 <input type="text"
                                                                                     name="ngen_email"
-                                                                                    class="form-control form-control-sm bg-transparent text-end"
+                                                                                    class="form-control form-control-sm border-0 bg-transparent text-end"
                                                                                     value="sales@ngenitltd.com"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
 
-                                                                                <div class="d-flex">
-                                                                                    <div
-                                                                                        style="width: 78%; color: #ae0a46;">
+                                                                                <div
+                                                                                    class="d-flex justify-content-end">
+                                                                                    <div class="icons-area"
+                                                                                        style="color: #ae0a46;">
                                                                                         <i
                                                                                             class="fa-brands fa-skype"></i>
                                                                                     </div>
-                                                                                    <div style="width: 22%">
+                                                                                    <div class="icons-input">
                                                                                         <input type="text"
                                                                                             name="ngen_number_two"
-                                                                                            class="form-control form-control-sm bg-transparent text-end"
+                                                                                            class="form-control form-control-sm border-0 bg-transparent text-end"
                                                                                             value="+880 156845986"
                                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="d-flex">
-                                                                                    <div
-                                                                                        style="width: 78%; color: #ae0a46;">
+                                                                                <div
+                                                                                    class="d-flex justify-content-end">
+                                                                                    <div class="icons-area"
+                                                                                        style="color: #ae0a46;">
                                                                                         <i
                                                                                             class="fa-brands fa-whatsapp"></i>
                                                                                     </div>
-                                                                                    <div style="width: 22%">
+                                                                                    <div class="icons-input">
                                                                                         <input type="text"
                                                                                             name="ngen_whatsapp_number"
-                                                                                            class="form-control form-control-sm bg-transparent text-end"
+                                                                                            class="form-control form-control-sm border-0 bg-transparent text-end"
                                                                                             value="+880 156845987"
                                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                                     </div>
@@ -530,6 +546,7 @@
             </tr>
         </table>
     </div>
+    <script src="https://kit.fontawesome.com/69b7156a94.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
