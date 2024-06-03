@@ -355,10 +355,10 @@
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
 
                                                                         <div class="d-flex">
-                                                                            <div style="width: 78%; color: #ae0a46;">
+                                                                            <div class="icons-area" style="color: #ae0a46;">
                                                                                 <i class="fa-brands fa-skype"></i>
                                                                             </div>
-                                                                            <div style="width: 22%">
+                                                                            <div class="icons-input">
                                                                                 <input type="text"
                                                                                     name="ngen_whatsapp_number"
                                                                                     class="form-control form-control-sm bg-transparent text-end"
@@ -367,10 +367,10 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="d-flex">
-                                                                            <div style="width: 78%; color: #ae0a46;">
+                                                                            <div class="icons-area" style="color: #ae0a46;">
                                                                                 <i class="fa-brands fa-whatsapp"></i>
                                                                             </div>
-                                                                            <div style="width: 22%">
+                                                                            <div class="icons-input">
                                                                                 <input type="text"
                                                                                     name="ngen_number_two"
                                                                                     class="form-control form-control-sm bg-transparent text-end"
@@ -424,10 +424,10 @@
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center py-3 pt-0">
-        <button type="submit" value="approval" name="action" class="btn navigation_btn"><i
+        <button type="submit" value="approval" name="action" class="btn navigation_btn rfqs-btns"><i
                 class="fa-solid fa-person-circle-check pe-2"></i>
             Submit for Approval</button>
-        <button type="submit" value="submit" name="action" class="btn navigation_btn"><i
+        <button type="submit" value="submit" name="action" class="btn navigation_btn rfqs-btns"><i
                 class="fa-regular fa-circle-check pe-2"></i>Send
             Quotation</button>
         @php
@@ -436,7 +436,7 @@
         @endphp
 
         <!-- Create a button or link to share via WhatsApp -->
-        <a href="{{ $whatsappLink }}" target="_blank" class="btn navigation_btn">
+        <a href="{{ $whatsappLink }}" target="_blank" class="btn navigation_btn rfqs-btns">
             <i class="fa-regular fa-circle-check pe-2"></i>Share on WhatsApp
         </a>
         {{-- <button type="submit" class="btn navigation_btn"><i

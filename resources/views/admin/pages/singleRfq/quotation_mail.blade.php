@@ -58,7 +58,15 @@
         }
 
         .content-table {
-                width: 22rem;
+            width: 22rem;
+        }
+
+        .icons-area {
+                width: 78%;
+            }
+
+            .icons-input {
+                width: 22%;
             }
         @media only screen and (max-width: 768px) {
 
@@ -67,12 +75,24 @@
                 width: 100%;
                 overflow-x: hidden;
             }
+
             .content-table {
                 width: 0 !important;
             }
+
+            .icons-area {
+                width: 55%;
+            }
+
+            .icons-input {
+                width: auto;
+            }
+            .rfqs-btns{
+                font-size: 8px !important;
+            }
         }
     </style>
-    <div class="card-body p-lg-4 p-0" style="overflow: hidden">
+    <div class="card-body p-lg-4 p-0" style="overflow-x: hidden">
         <!-- Nav tabs -->
         <div class="text-center">
             <h3 class="mb-0 py-2">Bypass Process</h3>
@@ -102,7 +122,8 @@
                 </button>
             </li>
         </ul>
-        <form id="quotationForm" action="{{route('rfq-manage.store')}}" method="POST" enctype="multipart/form-data" style="overflow-x: none">
+        <form id="quotationForm" action="{{ route('rfq-manage.store') }}" method="POST" enctype="multipart/form-data"
+            style="overflow-x: none">
             @csrf
             <div id="mysetting">
                 <input type="hidden" name="rfq_id" value="{{ $rfq_details->id }}">
