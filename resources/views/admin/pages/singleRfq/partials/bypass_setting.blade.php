@@ -11,7 +11,7 @@
                                         data-placeholder="Select Country">
                                         <option value="">Select Country</option>
                                         @foreach ($countires as $country)
-                                            <option value="{{ $country->country_code }}" @selected(optional($rfq_country)->id == $country->id)>
+                                            <option value="{{ $country->country_code }}" @selected(optional($quotation)->country == $country->country_code)>
                                                 {{ $country->country_name }}</option>
                                         @endforeach
                                     </select>

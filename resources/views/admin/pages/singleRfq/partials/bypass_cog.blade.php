@@ -149,165 +149,171 @@
             </tbody>
 
             <tfoot>
-                <tr class="text-black vat_display special_discount w-100" style="font-size: 13px; display:{{ optional($quotation)->special_discount_display == '1' || optional($quotation)->vat_display == '1' ? 'table-row' : 'none' }};">
-                    <th class="text-end pe-5" colspan="5"
-                        style="font-size: 18px;background-color: #e2e1e1; color: #000">
-                        Sub Total:</th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="sub_total_principal_amount"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_principal_amount }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #983c3c">
-                        <input type="text" name="sub_total_office_cost"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_office_cost }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="sub_total_profit"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_profit }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="sub_total_others_cost"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_others_cost }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="sub_total_remittance"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_remittance }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="sub_total_packing"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_packing }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="sub_total_customs"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_customs }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="sub_total_tax"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_tax }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="sub_total_subtotal"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_subtotal }}">
-                    </th>
-                    <th class="text-center text-center" style="background-color: #e2e1e1; color: #fff">
-                        ---
-                    </th>
-                    <th class="text-center text-center" colspan="2"
-                        style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="sub_total_final_total_price"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_final_total_price }}">
-                    </th>
-                </tr>
-                <tr class="special_discount" style="display:{{ optional($quotation)->special_discount_display == '1' ? 'table-row' : 'none' }};">
-                    <th class="text-end pe-5" colspan="5"
-                        style="font-size: 15px;background-color: #e2e1e1; color: #000">
-                        <div class="d-flex align-items-center justify-content-end">
-                            Special Discount: <input type="text" name="special_discount_percentage"
-                                style="width: 5%;border-bottom: 1px solid rgb(218, 201, 201);margin: 0px 19px;"
-                                class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                                value="{{ optional($singleproduct)->special_discount_percentage }}"> %
-                        </div>
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="special_discount_principal_amount"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_principal_amount }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #983c3c">
-                        <input type="text" name="special_discount_office_cost"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_office_cost }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="special_discount_profit"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_profit }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="special_discount_others_cost"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_others_cost }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="special_discount_remittance"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_remittance }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="special_discount_packing"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_packing }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="special_discount_customs"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_customs }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="special_discount_tax"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_tax }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="special_discount_subtotal"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_subtotal }}">
-                    </th>
-                    <th class="text-center text-center" style="background-color: #e2e1e1; color: #fff">
-                        ---
-                    </th>
-                    <th class="text-center text-center" colspan="2"
-                        style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="special_discount_final_total_price"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_final_total_price }}">
-                    </th>
-                </tr>
-                <tr class="vat_display" style="display:{{ optional($quotation)->vat_display == '1' ? 'table-row' : 'none' }};">
-                    <th class="text-end pe-5" colspan="5"
-                        style="font-size: 15px;background-color: #e2e1e1; color: #000">
-                        <div class="d-flex align-items-center justify-content-end">
-                            Vat / GST: <input type="text" name="vat_percentage"
-                                style="width: 5%;border-bottom: 1px solid rgb(218, 201, 201);margin: 0px 19px;"
-                                class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                                value="{{ optional($singleproduct)->vat_percentage }}"> %
-                        </div>
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="vat_principal_amount"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_principal_amount }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #983c3c">
-                        <input type="text" name="vat_office_cost"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_office_cost }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="vat_profit"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_profit }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="vat_others_cost"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_others_cost }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="vat_remittance"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_remittance }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="vat_packing"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_packing }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="vat_customs"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_customs }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="vat_tax"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_tax }}">
-                    </th>
-                    <th class="text-center" style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="vat_subtotal"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_subtotal }}">
-                    </th>
-                    <th class="text-center text-center" style="background-color: #e2e1e1; color: #fff">
-                        ---
-                    </th>
-                    <th class="text-center text-center" colspan="2"
-                        style="background-color: #e2e1e1; color: #fff">
-                        <input type="text" name="vat_final_total_price"
-                            class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_final_total_price }}">
-                    </th>
-                </tr>
+                @if (optional($quotation)->special_discount_display == '1' || optional($quotation)->vat_display == '1')
+                    <tr class="text-black vat_display special_discount w-100" style="font-size: 13px;">
+                        <th class="text-end pe-5" colspan="5"
+                            style="font-size: 18px;background-color: #e2e1e1; color: #000">
+                            Sub Total:</th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="sub_total_principal_amount"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_principal_amount }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #983c3c">
+                            <input type="text" name="sub_total_office_cost"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_office_cost }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="sub_total_profit"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_profit }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="sub_total_others_cost"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_others_cost }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="sub_total_remittance"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_remittance }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="sub_total_packing"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_packing }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="sub_total_customs"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_customs }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="sub_total_tax"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_tax }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="sub_total_subtotal"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_subtotal }}">
+                        </th>
+                        <th class="text-center text-center" style="background-color: #e2e1e1; color: #fff">
+                            ---
+                        </th>
+                        <th class="text-center text-center" colspan="2"
+                            style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="sub_total_final_total_price"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_final_total_price }}">
+                        </th>
+                    </tr>
+                @endif
+                @if (optional($quotation)->special_discount_display == '1')
+                    <tr class="special_discount">
+                        <th class="text-end pe-5" colspan="5"
+                            style="font-size: 15px;background-color: #e2e1e1; color: #000">
+                            <div class="d-flex align-items-center justify-content-end">
+                                Special Discount: <input type="text" name="special_discount_percentage"
+                                    style="width: 5%;border-bottom: 1px solid rgb(218, 201, 201);margin: 0px 19px;"
+                                    class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                    value="{{ optional($singleproduct)->special_discount_percentage }}"> %
+                            </div>
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="special_discount_principal_amount"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_principal_amount }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #983c3c">
+                            <input type="text" name="special_discount_office_cost"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_office_cost }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="special_discount_profit"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_profit }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="special_discount_others_cost"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_others_cost }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="special_discount_remittance"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_remittance }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="special_discount_packing"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_packing }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="special_discount_customs"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_customs }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="special_discount_tax"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_tax }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="special_discount_subtotal"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_subtotal }}">
+                        </th>
+                        <th class="text-center text-center" style="background-color: #e2e1e1; color: #fff">
+                            ---
+                        </th>
+                        <th class="text-center text-center" colspan="2"
+                            style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="special_discount_final_total_price"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_final_total_price }}">
+                        </th>
+                    </tr>
+                @endif
+                @if ( optional($quotation)->vat_display == '1')
+                    <tr class="vat_display">
+                        <th class="text-end pe-5" colspan="5"
+                            style="font-size: 15px;background-color: #e2e1e1; color: #000">
+                            <div class="d-flex align-items-center justify-content-end">
+                                Vat / GST: <input type="text" name="vat_percentage"
+                                    style="width: 5%;border-bottom: 1px solid rgb(218, 201, 201);margin: 0px 19px;"
+                                    class="form-control form-control-sm bg-transparent rfqcalculationinput"
+                                    value="{{ optional($singleproduct)->vat_percentage }}"> %
+                            </div>
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="vat_principal_amount"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_principal_amount }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #983c3c">
+                            <input type="text" name="vat_office_cost"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_office_cost }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="vat_profit"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_profit }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="vat_others_cost"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_others_cost }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="vat_remittance"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_remittance }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="vat_packing"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_packing }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="vat_customs"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_customs }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="vat_tax"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_tax }}">
+                        </th>
+                        <th class="text-center" style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="vat_subtotal"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_subtotal }}">
+                        </th>
+                        <th class="text-center text-center" style="background-color: #e2e1e1; color: #fff">
+                            ---
+                        </th>
+                        <th class="text-center text-center" colspan="2"
+                            style="background-color: #e2e1e1; color: #fff">
+                            <input type="text" name="vat_final_total_price"
+                                class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_final_total_price }}">
+                        </th>
+                    </tr>
+                @endif
                 <tr class="text-black" style="font-size: 13px;">
                     <th class="text-end pe-5" colspan="5"
                         style="font-size: 18px;background-color: #e2e1e1; color: #000">

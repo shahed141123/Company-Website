@@ -73,7 +73,7 @@
                                             <div style="padding-top: 1.25rem;">
                                                 <input type="text" name="ngen_company_name"
                                                     class="form-control form-control-sm bg-transparent text-start"
-                                                    value="NGen IT"
+                                                    value="{{ $quotation->ngen_company_name ?? 'NGen IT' }}"
                                                     style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
                                                 <div class="d-flex align-items-center justify-content-start">
                                                     <div class="me-3">
@@ -82,7 +82,7 @@
                                                     <div>
                                                         <input type="text" name="ngen_company_registration_number"
                                                             class="form-control form-control-sm bg-transparent text-start"
-                                                            value="20437861K"
+                                                            value="{{ $quotation->ngen_company_registration_number ?? '20437861K' }}"
                                                             style="font-size: 13px;color: #4a5472;padding: 0px!important;width: 9rem;">
                                                     </div>
                                                 </div>
@@ -93,7 +93,7 @@
                                                     <div>
                                                         <input type="text" name="quotation_date"
                                                             class="form-control form-control-sm bg-transparent text-start"
-                                                            value="{{ now()->format('d F Y') }}"
+                                                            value="{{ $quotation->quotation_date ?? now()->format('d F Y') }}"
                                                             style="width:9rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
                                                     </div>
                                                 </div>
@@ -101,7 +101,7 @@
                                                     <div>
                                                         <input type="text"
                                                             class="form-control form-control-sm bg-transparent pq_code"
-                                                            name="pq_code" value="PQ#: NG-BD/Genexis/RV/231021"
+                                                            name="pq_code" value="{{ $quotation->ngen_company_registration_number ?? 'PQ#: NG-BD/Genexis/RV/231021' }}"
                                                             style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
                                                     </div>
                                                 </div>
@@ -109,7 +109,7 @@
                                                     <div>
                                                         <input type="text" name="pqr_code"
                                                             class="form-control form-control-sm bg-transparent"
-                                                            value="PQR#: MEO-P021(T10)-W(L1)"
+                                                            value="{{ $quotation->ngen_company_registration_number ?? 'PQR#: MEO-P021(T10)-W(L1)' }}"
                                                             style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
                                                     </div>
                                                 </div>
@@ -189,7 +189,7 @@
                                         <p class="currency mb-0"></p>
                                         <input type="text" readonly name="sub_total_final_total_price"
                                             class="form-control form-control-sm bg-transparent text-center rfqcalculationinput"
-                                            value="0" style="color: #3d3d3d;padding: 0px !important;">
+                                            value="{{ optional($singleproduct)->sub_total_final_total_price }}" style="color: #3d3d3d;padding: 0px !important;">
                                     </th>
                                 </tr>
                             </table>
@@ -201,14 +201,14 @@
                                     <tr
                                         style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                         <td style="width: 85%;text-align: end;padding: 10px;color: #3d3d3d;">
-                                            Special Discount (<span class="special_discount_value"></span>)
+                                            Special Discount (<span class="special_discount_value">{{ optional($quotation)->special_discount_percentage }}</span>)
                                         </td>
                                         <td class="d-flex align-items-center"
                                             style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                             <span class="currency"></span>
                                             <input type="text" name="special_discount_final_total_price"
                                                 class="form-control form-control-sm bg-transparent text-center"
-                                                value="0" style="color: #3d3d3d;padding: 0px !important;">
+                                                value="{{ optional($singleproduct)->special_discount_final_total_price }}" style="color: #3d3d3d;padding: 0px !important;">
                                         </td>
                                     </tr>
                                 </table>
@@ -225,7 +225,7 @@
                                         <td class="d-flex align-items-center"
                                             style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                             <span class="currency"></span>
-                                            <input type="text" name="vat_final_total_price" value="{{ optional($singleproduct)->vat_percentage }}"
+                                            <input type="text" name="vat_final_total_price" value="{{ optional($singleproduct)->vat_final_total_price }}"
                                                 class="form-control form-control-sm bg-transparent text-center"
                                                 value="0" style="color: #3d3d3d;padding: 0px !important;">
                                         </td>
@@ -248,29 +248,31 @@
                                         <p class="currency mb-0"></p>
                                         <input type="text" name="total_final_total_price" readonly
                                             class="form-control form-control-sm bg-transparent text-center"
-                                            value="0" style="color: #3d3d3d;padding: 0px !important;">
+                                            value="{{ optional($singleproduct)->total_final_total_price }}" style="color: #3d3d3d;padding: 0px !important;">
                                     </th>
                                 </tr>
                             </table>
                         </div>
                         <!--  -->
-                        <div class="vat_display" style="display: {{ optional($quotation)->vat_display == '1' ? 'block' : 'none' }};">
-                            <div style="display: flex;justify-content: end;margin-top: 1rem;margin-bottom: 1rem;">
-                                <table
-                                    style="border-collapse: collapse;width: 60%;margin: auto;font-size: 13px;border: 1px solid #eee;">
-                                    <tr
-                                        style="width: 6%;text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border-bottom: 1px solid #eee;">
-                                        <th
-                                            style="text-align: center;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
-                                            <input type="text"
-                                                class="form-control form-control-sm bg-transparent text-center"
-                                                value="GST Not included. It may apply."
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                        </th>
-                                    </tr>
-                                </table>
+                        @if (optional($quotation)->vat_display == '1')
+                            <div class="vat_display">
+                                <div style="display: flex;justify-content: end;margin-top: 1rem;margin-bottom: 1rem;">
+                                    <table
+                                        style="border-collapse: collapse;width: 60%;margin: auto;font-size: 13px;border: 1px solid #eee;">
+                                        <tr
+                                            style="width: 6%;text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border-bottom: 1px solid #eee;">
+                                            <th
+                                                style="text-align: center;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
+                                                <input type="text"
+                                                    class="form-control form-control-sm bg-transparent text-center"
+                                                    value="GST Not included. It may apply."
+                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                            </th>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
+                        @endif
                         <!--  -->
                         <div>
                             <table class="terms_table w-100">

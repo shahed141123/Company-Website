@@ -205,53 +205,6 @@
         </script>
 
         <script>
-            function showVatDisplayElements() {
-                document.querySelectorAll('.vat_display').forEach(function(element) {
-                    element.style.display = 'block'; // Show elements
-                });
-            }
-
-            // Function to hide VAT display elements
-            function hideVatDisplayElements() {
-                document.querySelectorAll('.vat_display').forEach(function(element) {
-                    element.style.display = 'none'; // Hide elements
-                });
-            }
-
-            // Function to show special discount display elements
-            function showSpecialDiscountDisplayElements() {
-                document.querySelectorAll('.special_discount').forEach(function(element) {
-                    element.style.display = 'block'; // Show elements
-                });
-            }
-
-            // Function to hide special discount display elements
-            function hideSpecialDiscountDisplayElements() {
-                document.querySelectorAll('.special_discount').forEach(function(element) {
-                    element.style.display = 'none'; // Hide elements
-                });
-            }
-
-            // Check VAT display checkbox state and update elements accordingly
-            function updateVatDisplay() {
-                const vatDisplayCheckbox = document.querySelector('input[name="vat_display"]');
-                if (vatDisplayCheckbox.checked) {
-                    showVatDisplayElements();
-                } else {
-                    hideVatDisplayElements();
-                }
-            }
-
-            // Check special discount display checkbox state and update elements accordingly
-            function updateSpecialDiscountDisplay() {
-                const specialDiscountCheckbox = document.querySelector('input[name="special_discount_display"]');
-                if (specialDiscountCheckbox.checked) {
-                    showSpecialDiscountDisplayElements();
-                } else {
-                    hideSpecialDiscountDisplayElements();
-                }
-            }
-
             function toggleVisibility() {
                 var settingShow = document.getElementById('setting-show');
                 var button = document.getElementById('setting');
@@ -423,8 +376,7 @@
                     $("input[name='sub_total_subtotal']").val(Math.round(sub_total_subtotal));
                     $("input[name='sub_total_final_total_price']").val(Math.round(sub_total_final_total_price));
 
-                    $("input[name='special_discount_principal_amount']").val(Math.round(
-                        special_discount_principal_amount));
+                    $("input[name='special_discount_principal_amount']").val(Math.round(special_discount_principal_amount));
                     $("input[name='special_discount_office_cost']").val(Math.round(special_discount_office_cost));
                     $("input[name='special_discount_profit']").val(Math.round(special_discount_profit));
                     $("input[name='special_discount_others_cost']").val(Math.round(special_discount_others_cost));
@@ -459,7 +411,6 @@
                     $("input[name='total_final_total_price']").val(Math.round(total_final_total_price));
                 }
 
-                // Bind the event handler to the document and delegate to input fields
                 // Bind the event handler to the document and delegate to input fields
                 $(document).on('keyup change', '#quotationForm input', function(event) {
                     calculateTotals();
