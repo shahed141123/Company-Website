@@ -143,6 +143,7 @@
                                 </tr>
                             </thead>
                             <tbody class="quotationTable_area text-center">
+
                                 @if ($rfq_details->quotationProducts->count() > 0)
                                     @foreach ($rfq_details->quotationProducts as $quotationproduct)
                                         <tr class="tdsp text-center">
@@ -160,12 +161,12 @@
 
                                             <td><input type="text" name=""
                                                     class="form-control form-control-sm bg-transparent text-center"
-                                                    value="{{ round((float)optional($singleproduct)->unit_final_price / (($quotation->currency_rate > 0) ? (float)$quotation->currency_rate : 1)) }}">
+                                                    value="{{ round((float)optional($singleproduct)->unit_final_price / ((optional($quotation)->currency_rate > 0) ? (float)optional($quotation)->currency_rate : 1)) }}">
                                             </td>
                                             <td class=" text-center">
                                                 <input type="text" name=""
                                                     class="form-control form-control-sm bg-transparent text-center"
-                                                    value="{{ round((float)optional($singleproduct)->unit_final_total_price / (($quotation->currency_rate > 0) ? (float)$quotation->currency_rate : 1)) }}">
+                                                    value="{{ round((float)optional($singleproduct)->unit_final_total_price / ((optional($quotation)->currency_rate > 0) ? (float)optional($quotation)->currency_rate : 1)) }}">
                                             </td>
                                         </tr>
                                     @endforeach
@@ -189,7 +190,7 @@
                                         <p class="currency mb-0"></p>
                                         <input type="text" readonly name=""
                                             class="form-control form-control-sm bg-transparent text-center rfqcalculationinput"
-                                            value="{{ round((float)optional($singleproduct)->sub_total_final_total_price / (($quotation->currency_rate > 0) ? (float)$quotation->currency_rate : 1)) }}"
+                                            value="{{ round((float)optional($singleproduct)->sub_total_final_total_price / ((optional($quotation)->currency_rate > 0) ? (float)optional($quotation)->currency_rate : 1)) }}"
                                             style="color: #3d3d3d;padding: 0px !important;">
                                     </th>
                                 </tr>
@@ -211,7 +212,7 @@
                                             <span class="currency"></span>
                                             <input type="text" name="" readonly
                                                 class="form-control form-control-sm bg-transparent text-center"
-                                                value="{{ round((float)optional($singleproduct)->special_discount_final_total_price / (($quotation->currency_rate > 0) ? (float)$quotation->currency_rate : 1)) }}"
+                                                value="{{ round((float)optional($singleproduct)->special_discount_final_total_price / ((optional($quotation)->currency_rate > 0) ? (float)optional($quotation)->currency_rate : 1)) }}"
                                                 style="color: #3d3d3d;padding: 0px !important;">
                                         </td>
                                     </tr>
@@ -232,7 +233,7 @@
                                             style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                             <span class="currency"></span>
                                             <input type="text" name=""
-                                                value="{{ round((float)optional($singleproduct)->vat_final_total_price / (($quotation->currency_rate > 0) ? (float)$quotation->currency_rate : 1)) }}"
+                                                value="{{ round((float)optional($singleproduct)->vat_final_total_price / ((optional($quotation)->currency_rate > 0) ? (float)optional($quotation)->currency_rate : 1)) }}"
                                                 class="form-control form-control-sm bg-transparent text-center"
                                                 value="0" style="color: #3d3d3d;padding: 0px !important;">
                                         </td>
@@ -255,7 +256,7 @@
                                         <p class="currency mb-0"></p>
                                         <input type="text" name="" readonly
                                             class="form-control form-control-sm bg-transparent text-center"
-                                            value="{{ round((float)optional($singleproduct)->total_final_total_price / (($quotation->currency_rate > 0) ? (float)$quotation->currency_rate : 1)) }}"
+                                            value="{{ round((float)optional($singleproduct)->total_final_total_price / ((optional($quotation)->currency_rate > 0) ? (float)optional($quotation)->currency_rate : 1)) }}"
                                             style="color: #3d3d3d;padding: 0px !important;">
                                     </th>
                                 </tr>
@@ -458,9 +459,9 @@
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center py-3 pt-0">
-        <button type="submit" value="approval" name="action" class="btn navigation_btn rfqs-btns"><i
+        {{-- <button type="submit" value="approval" name="action" class="btn navigation_btn rfqs-btns"><i
                 class="fa-solid fa-person-circle-check pe-2"></i>
-            Submit for Approval</button>
+            Submit for Approval</button> --}}
         <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#quotationMail" value="submit"
             name="action" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Send
             Quotation</a>
@@ -468,8 +469,8 @@
                 class="fa-regular fa-circle-check pe-2"></i>Send
             Quotation</button> --}}
         @php
-            $currentUrl = url()->current();
-            $whatsappLink = 'https://wa.me/?text=' . urlencode('Check out this page: ' . $currentUrl);
+            $currentUrl = request()->url();
+            $whatsappLink = 'https://wa.me/?text=' . urlencode('Check out this quotation: ' . $currentUrl);
         @endphp
 
         <!-- Create a button or link to share via WhatsApp -->

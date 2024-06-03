@@ -170,14 +170,14 @@
                                         Email</label>
                                     <input type="hidden" name="rfq_id" value="{{ $rfq_details->id }}">
                                     <input type="email" maxlength="250" class="form-control form-control-sm"
-                                        value="{{ $quotation->receiver_email }}" placeholder="demo@example.com"
+                                        value="{{ optional($quotation)->receiver_email }}" placeholder="demo@example.com"
                                         name="receiver_email" />
                                 </div>
                                 <div class="mb-1">
                                     <label class="form-label" for="basicpill-firstname-input">Quotation Receiver Email
                                         (CC)</label>
                                     <input type="text" name="receiver_cc_email" class="form-control visually-hidden"
-                                        value="{{ $quotation->receiver_cc_email }}" data-role="tagsinput"
+                                        value="{{ optional($quotation)->receiver_cc_email }}" data-role="tagsinput"
                                         placeholder="demo@example.com">
                                 </div>
                             </div>
