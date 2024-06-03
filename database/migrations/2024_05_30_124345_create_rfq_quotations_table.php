@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('quotation_title')->nullable();
             $table->string('company_name')->nullable();
             $table->string('name')->nullable();
+            $table->string('receiver_email')->nullable();
+            $table->text('receiver_cc_email')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
@@ -46,6 +48,8 @@ return new class extends Migration
             $table->string('packing_percentage')->nullable();
             $table->string('custom_percentage')->nullable();
             $table->string('tax_vat_percentage')->nullable();
+            $table->string('vat_display')->nullable();
+            $table->string('special_discount_display')->nullable();
             $table->timestamps();
         });
     }

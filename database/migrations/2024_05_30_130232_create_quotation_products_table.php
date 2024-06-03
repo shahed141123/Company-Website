@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('unit_office_cost',250)->nullable();
             $table->string('unit_profit',250)->nullable();
             $table->string('unit_others_cost',250)->nullable();
-            $table->string('unit_remittence',250)->nullable();
+            $table->string('unit_remittance',250)->nullable();
             $table->string('unit_packing',250)->nullable();
             $table->string('unit_customs',250)->nullable();
             $table->string('unit_tax_vat',250)->nullable();

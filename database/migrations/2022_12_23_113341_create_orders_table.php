@@ -23,9 +23,7 @@ return new class extends Migration
             $table->string('invoice_no')->nullable();
             $table->string('work_order')->nullable()->comment('file');
             $table->string('work_order_no')->nullable()->comment('number');
-
             $table->enum('order_type',['online','deal'])->default('online')->nullable();
-
             $table->string('billing_name');
             $table->string('billing_phone');
             $table->string('billing_email');
@@ -34,7 +32,6 @@ return new class extends Migration
             $table->string('billing_company_name')->nullable();
             $table->integer('billing_postal')->nullable();
             $table->string('billing_country')->nullable();
-
             $table->string('shipping_name');
             $table->string('shipping_phone');
             $table->string('shipping_email');
@@ -43,12 +40,9 @@ return new class extends Migration
             $table->string('shipping_company_name')->nullable();
             $table->integer('shipping_postal')->nullable();
             $table->string('shipping_country')->nullable();
-
             $table->text('notes')->nullable();
-
             $table->string('payment_type')->nullable();
             $table->string('payment_method')->nullable();
-
             $table->string('proforma_invoice')->nullable();
             $table->string('invoice')->nullable();
             $table->string('transaction_id')->nullable();

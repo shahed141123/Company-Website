@@ -378,7 +378,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
 
 
-
+    Route::delete('/delete-quotationProduct/{id}',  [RFQManageController::class, 'quotationProductDelete'])->name('delete.quotationProduct');
+    Route::delete('/delete-quotationTerms/{id}',  [RFQManageController::class, 'quotationTermsDelete'])->name('delete.quotationTerms');
 
     Route::get('send/mail', [PartnerController::class, 'sendBulkMail'])->name('sendBulkMail');
 
@@ -554,6 +555,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'destroy' => 'employee.destroy',
         ]);
     }
+
 
 
     Route::post('admin/case/message',  [ClientSupportMessageController::class, 'store'])->name('admin.message.store');

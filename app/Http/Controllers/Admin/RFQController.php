@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\RFQNotificationAdminMail;
 use App\Mail\RFQNotificationClientMail;
 use App\Models\Admin\CommercialDocument;
+use App\Models\Admin\QuotationProduct;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Notification;
 
@@ -141,6 +142,17 @@ class RFQController extends Controller
 
             if ($product_name) {
                 RfqProduct::insert([
+
+                    'rfq_id'       => $rfq_id,
+                    'product_name' => $product_name,
+                    'qty'          => $request->qty,
+                    'created_at'   => Carbon::now(),
+
+                ]);
+            }
+
+            if ($product_name) {
+                QuotationProduct::insert([
 
                     'rfq_id'       => $rfq_id,
                     'product_name' => $product_name,
@@ -316,6 +328,16 @@ class RFQController extends Controller
                         'qty'          => $item['qty'],
                         'created_at'   => Carbon::now(),
 
+                    ]);
+                }
+            }
+            if ($request->items) {
+                foreach ($request->items as $item) {
+                    QuotationProduct::create([
+                        'rfq_id'       => $rfq_id,
+                        'product_name' => $item['product_name'],
+                        'qty'          => $item['qty'],
+                        'created_at'   => Carbon::now(),
                     ]);
                 }
             }
