@@ -54,6 +54,7 @@ return new class extends Migration
             $table->string('tax_vat_percentage')->nullable();
             $table->string('vat_display')->nullable();
             $table->string('special_discount_display')->nullable();
+            $table->string('quotation_pdf')->nullable();
             $table->timestamps();
         });
     }

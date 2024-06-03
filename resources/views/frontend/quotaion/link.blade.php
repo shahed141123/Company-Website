@@ -8,14 +8,15 @@
                     <h3>Quotation Against Your RFQ</h3>
                 </div>
                 <div class="pt-3">
-                    <iframe src="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/44678.pdf"
+                    <iframe src="{{ asset($filePath) }}"
                         class="w-100 border" height="768px">
                     </iframe>
                 </div>
                 <div class="d-flex justify-content-center my-5">
-                    <a class="btn-color" href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/44678.pdf" download>Download A Quotation</a>
+                    <a class="btn-color" href="{{ asset($filePath) }}" download>Download Your Quotation</a>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+

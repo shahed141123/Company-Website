@@ -48,6 +48,7 @@ use App\Models\Admin\PortfolioCategory;
 use App\Models\Admin\PortfolioChooseUs;
 use App\Models\Admin\SubSubSubCategory;
 use App\Models\Admin\PortfolioClientFeedback;
+use App\Models\Admin\RfqQuotation;
 use App\Models\Admin\TrainingPage;
 
 class HomeController extends Controller
@@ -67,8 +68,16 @@ class HomeController extends Controller
 
     public function quotationLink($id)
     {
+        $quotation = RfqQuotation::where('rfq_code', $id)->first();
 
-        return view('frontend.quotaion.link');
+        if (!$quotation) {
+            // Handle the case where the quotation is not found
+            abort(404);
+        }
+
+        // Get the file path from the quotation
+        $data['filePath'] = $quotation->quotation_pdf;
+        return view('frontend.quotaion.link',$data);
     }
 
     //Homepage

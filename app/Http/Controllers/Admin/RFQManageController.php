@@ -233,7 +233,8 @@ class RFQManageController extends Controller
 
 
 
-    public function bypassQuotationSend(Request $request){
+    public function bypassQuotationSend(Request $request)
+    {
         set_time_limit(240);
         $rfq_id = $request->rfq_id;
 
@@ -242,19 +243,19 @@ class RFQManageController extends Controller
         $data['rfq_terms'] = QuotationTerm::where('rfq_id', $rfq_id)->get();
         $data['products'] = QuotationProduct::where('rfq_id', $rfq_id)->get();
         $data['singleproduct'] = $data['products']->first();
-        $data['rfq_code'] = $data['rfq']->code;
+        $data['rfq_code'] = $data['rfq']->rfq_code;
+        $data['name'] = $data['rfq']->name;
         $data['quotation_title'] = $data['quotation']->quotation_title;
-        $data['quotation']->update([
-            'receiver_email'     => $request->receiver_email,
-            'receiver_cc_email'  => $request->receiver_cc_email,
-        ]);
-        if ($data['quotation']->currency = 'taka') {
+
+
+
+        if ($data['quotation']->currency == 'taka') {
             $data['currency'] = 'Tk';
-        } else if ($data['quotation']->currency = 'euro') {
-                $data['currency'] = '&euro';
-        } else if ($data['quotation']->currency = 'dollar') {
+        } else if ($data['quotation']->currency == 'euro') {
+            $data['currency'] = '&euro';
+        } else if ($data['quotation']->currency == 'dollar') {
             $data['currency'] = '$';
-        } else if ($data['quotation']->currency = 'pound') {
+        } else if ($data['quotation']->currency == 'pound') {
             $data['currency'] = '&pound';
         } else {
             $data['currency'] = 'Tk';
@@ -262,28 +263,36 @@ class RFQManageController extends Controller
 
         $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
         $filePath = 'public/files/' . $fileName;
-        // return view('pdf.quotation', $data);
+        return view('pdf.quotation', $data);
         $pdf = PDF::loadView('pdf.quotation', $data);
         $pdf->setPaper('a4', 'portrait');
         $pdf_output = $pdf->output();
         Storage::put($filePath, $pdf_output);
 
+        // Save the file path to the database
+        $data['quotation']->update([
+            'receiver_email' => $request->receiver_email,
+            'receiver_cc_email' => $request->receiver_cc_email,
+            'quotation_pdf' => $filePath,
+        ]);
+
         if ($data['quotation']->attachment == '1') {
             Mail::to($data['quotation']->receiver_email)
-            ->cc(explode(',', $data['quotation']->receiver_cc_email))
-            // ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
-            ->send((new QuotationMail($data))->attachData($pdf_output, "Quotation-Ngenit-{$data['rfq_code']}.pdf"));
+                ->cc(explode(',', $data['quotation']->receiver_cc_email))
+                // ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
+                ->send(new QuotationMail($data, $pdf_output));
         } else {
             Mail::to($data['quotation']->receiver_email)
                 ->cc(explode(',', $data['quotation']->receiver_cc_email))
                 // ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
                 ->send(new QuotationMail($data));
-
         }
+
         Toastr::success('Quotation Saved.');
         Toastr::success('Mail Sent.');
         return redirect()->back();
     }
+
 
 
     // public function bypassQuotationSend(Request $request)

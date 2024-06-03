@@ -12,23 +12,32 @@ use Illuminate\Queue\SerializesModels;
 class QuotationMail extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $data;
+    protected $pdfAttachment;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(array $data)
+    public function __construct(array $data, $pdfAttachment = null)
     {
         $this->data = $data;
+        $this->pdfAttachment = $pdfAttachment;
     }
 
     public function build()
     {
-        return $this->from('support@ngenit.com', 'NGEN-Sales')
-                    ->view('mail.quotationMail', ['data' => $this->data])
-                    ->subject('Quotation Mail in Response of your '.$this->data['name']).' from NGenIT';
+        $email = $this->from('support@ngenit.com', 'NGEN-Sales')
+                      ->view('mail.quotationMail', ['data' => $this->data])
+                      ->subject('Quotation Mail in Response of your ' . $this->data['name'] . ' from NGenIT');
+
+        if ($this->pdfAttachment) {
+            $email->attachData($this->pdfAttachment, "Quotation-Ngenit-{$this->data['rfq_code']}.pdf");
+        }
+
+        return $email;
     }
 
     /**
@@ -39,7 +48,7 @@ class QuotationMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Quotation Mail in Response of your '.$this->data['name'].' from NGenIT',
+            subject: 'Quotation Mail in Response of your ' . $this->data['name'] . ' from NGenIT',
         );
     }
 
@@ -51,7 +60,7 @@ class QuotationMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            // view: 'view.name',
         );
     }
 
@@ -62,6 +71,6 @@ class QuotationMail extends Mailable
      */
     public function attachments()
     {
-        return [];
+        // return [];
     }
 }

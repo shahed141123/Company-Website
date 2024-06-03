@@ -134,8 +134,10 @@
                                                 If you are having trouble clicking the "Go To Link" button, copy and
                                                 paste theURL below into your web browser:
                                             </p>
-                                            <a href="{{ route('sourcing.sas', $data['rfq_id']) }}"
-                                                style="color: #ae0a46; font-size:16px; padding-top: 10px">https://ngenitltd.com/client/{{ $data['rfq_id'] }}</a>
+
+
+                                            <a href="{{ route('quotation.link', $data['rfq_code']) }}"
+                                                style="color: #ae0a46; font-size:16px; padding-top: 10px">https://ngenitltd.com/quotation/link/{{ $data['rfq_code'] }}</a>
                                         </div>
                                     </tr>
                                 </tbody>
@@ -161,14 +163,14 @@
                                                                         <td style="text-align: start;color: #ffffff;">
                                                                             <p
                                                                                 style="font-size: 15px;font-weight: 600;padding-bottom: 0.5rem;margin: 0;color: #000;">
-                                                                                {{ $data['thank_you_text'] }}
+                                                                                {{ $data['quotation']->thank_you_text }}
                                                                             </p>
                                                                             <p style="color: #ae0a46; margin: 0">
-                                                                                {{ $data['sender_name'] }}
+                                                                                {{ $data['quotation']->sender_name }}
                                                                             </p>
                                                                             <p
                                                                                 style="color: #ae0a46;font-size: 15px;margin: 0;">
-                                                                                {{ $data['sender_designation'] }}
+                                                                                {{ $data['quotation']->sender_designation }}
                                                                             </p>
                                                                         </td>
                                                                         <td style="text-align: end;color: #ffffff;">
@@ -183,15 +185,15 @@
                                                                                 style="font-size: 15px;margin-bottom: 0.5rem;">
                                                                                 <p
                                                                                     style="margin: 0; padding: 0; color: #ae0a46">
-                                                                                    (skype) {{ $data['ngen_number_two'] }}
+                                                                                    (skype) {{ $data['quotation']->ngen_number_two }}
                                                                                 </p>
                                                                             </div>
                                                                             <div style="font-size: 15px">
                                                                                 <p
                                                                                     style="margin: 0; padding: 0; color: #ae0a46">
-                                                                                    <a href="https://wa.me/{{ $data['ngen_whatsapp_number'] }}"
+                                                                                    <a href="https://wa.me/{{ $data['quotation']->ngen_whatsapp_number }}"
                                                                                         style="color: inherit; text-decoration: none;">
-                                                                                        (whats app) {{ $data['ngen_whatsapp_number'] }}
+                                                                                        (whats app) {{ $data['quotation']->ngen_whatsapp_number }}
                                                                                     </a>
                                                                                 </p>
                                                                             </div>
