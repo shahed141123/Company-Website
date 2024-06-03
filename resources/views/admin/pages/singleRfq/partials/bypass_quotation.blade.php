@@ -367,23 +367,23 @@
                                                                         style="border: 1px solid transparent;text-align: start;color: #ffffff;">
                                                                         <input type="text" name="thank_you_text"
                                                                             class="form-control form-control-sm bg-transparent text-start"
-                                                                            value="Thank You"
+                                                                            value="{{ $quotation->thank_you_text ?? 'Thank You' }}"
                                                                             style="font-size: 13px;font-weight: 600;margin: 0;color: #000; padding: 0px !important;"">
                                                                         <input type="text" name="sender_name"
                                                                             class="form-control form-control-sm bg-transparent text-start"
-                                                                            value="Kawsar Khan"
+                                                                            value="{{ $quotation->sender_name ?? 'Md. Faisal Iqbal' }}"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                         <input type="text"
                                                                             name="sender_designation"
                                                                             class="form-control form-control-sm bg-transparent text-start"
-                                                                            value="Manager, Business"
+                                                                            value="{{ $quotation->sender_designation ?? 'Manager, Sales' }}"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                     </td>
                                                                     <td
                                                                         style="text-align: end; color: #ffffff; border: 1px solid transparent;">
                                                                         <input type="text" name="ngen_email"
                                                                             class="form-control form-control-sm bg-transparent text-end"
-                                                                            value="sales@ngenitltd.com"
+                                                                            value="{{ $quotation->ngen_email ?? 'sales@ngenitltd.com' }}"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
 
                                                                         <div class="d-flex justify-content-end">
@@ -393,7 +393,7 @@
                                                                             </div>
                                                                             <div class="icons-input">
                                                                                 <input type="text"
-                                                                                    name="ngen_number_two"
+                                                                                    name="{{ $quotation->ngen_number_two ?? 'ngen_number_two' }}"
                                                                                     class="form-control form-control-sm bg-transparent text-end"
                                                                                     value="+880 156845986"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
@@ -406,7 +406,7 @@
                                                                             </div>
                                                                             <div class="icons-input">
                                                                                 <input type="text"
-                                                                                    name="ngen_whatsapp_number"
+                                                                                    name="{{ $quotation->ngen_whatsapp_number ?? 'ngen_whatsapp_number' }}"
                                                                                     class="form-control form-control-sm bg-transparent text-end"
                                                                                     value="+880 156845987"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">

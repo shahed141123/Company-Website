@@ -154,41 +154,56 @@
                     <h5 class="modal-title" id="staticBackdropLabel">Email Where Quotation will send</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('bypass_quotation.send') }}" method="post" enctype="multipart/form-data">
+                <form id="quotationMailForm" action="{{ route('bypass_quotation.send') }}" method="post"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
-                        <div class="container p-2 mx-2">
+                        <div class="loader" style="display: none;">
+                            <img class="preloader-spinner"
+                                src="https://i.ibb.co/3RFMwtd/image-processing20210829-18627-1j5lvo.gif" alt="Loading..."
+                                style="width: 200px;">
+                        </div>
+                        <div class="container p-2 mx-2 submit_modal_container">
                             <div class="row">
                                 <div class="mb-1">
                                     <label class="form-label" for="basicpill-firstname-input">Quotation Receiver
                                         Email</label>
                                     <input type="hidden" name="rfq_id" value="{{ $rfq_details->id }}">
-                                    <input type="email" maxlength="250" class="form-control form-control-sm"
+                                    <input type="email" maxlength="250" class="form-control form-control-sm" value="{{ $quotation->receiver_email }}"
                                         placeholder="demo@example.com" name="receiver_email" />
                                 </div>
                                 <div class="mb-1">
                                     <label class="form-label" for="basicpill-firstname-input">Quotation Receiver Email
                                         (CC)</label>
-                                    <input type="text" name="receiver_cc_email" class="form-control visually-hidden"
+                                    <input type="text" name="receiver_cc_email" class="form-control visually-hidden" value="{{ $quotation->receiver_cc_email }}"
                                         data-role="tagsinput" placeholder="demo@example.com">
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-info from-prevent-multiple-submits"
                             style="padding: 10px;">Send</button>
+
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
     </div>
 @endsection
 @once
     @push('scripts')
         <script>
+            $(document).ready(function() {
+                $('#quotationMailForm').on('submit', function() {
+                    $('.from-prevent-multiple-submits').prop('disabled', true); // Disable the submit button
+                    $('.loader').show(); // Show the loader
+                    $('.submit_modal_container').style.display = 'none'(); // Show the loader
+                });
+            });
+
             // Show/hide VAT display if already checked
             // // Toggle VAT display
             // quotationForm.find('input[name="vat_display"]').on('click', function() {

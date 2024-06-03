@@ -3,21 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use Pdf;
-use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Models\Admin\Rfq;
+use App\Mail\QuotationMail;
 use App\Models\Admin\Region;
 use Illuminate\Http\Request;
 use App\Models\Admin\Country;
 use App\Models\Admin\DealSas;
+use App\Jobs\SendQuotationEmail;
 use App\Models\Admin\RfqQuotation;
 use App\Models\Admin\QuotationTerm;
 use App\Http\Controllers\Controller;
-use App\Mail\QuotationMail;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Admin\QuotationProduct;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Admin\CommercialDocument;
 
 class RFQManageController extends Controller
@@ -233,19 +234,20 @@ class RFQManageController extends Controller
 
 
     public function bypassQuotationSend(Request $request){
+        set_time_limit(240);
         $rfq_id = $request->rfq_id;
 
-        $data['rfq'] = Rfq::where('id', $rfq_id)->first();
+        $data['rfq'] = Rfq::find($rfq_id); // Use find() if you're fetching by primary key
         $data['quotation'] = RfqQuotation::where('rfq_id', $rfq_id)->first();
+        $data['rfq_terms'] = QuotationTerm::where('rfq_id', $rfq_id)->get();
+        $data['products'] = QuotationProduct::where('rfq_id', $rfq_id)->get();
+        $data['singleproduct'] = $data['products']->first();
         $data['rfq_code'] = $data['rfq']->code;
         $data['quotation_title'] = $data['quotation']->quotation_title;
         $data['quotation']->update([
             'receiver_email'     => $request->receiver_email,
             'receiver_cc_email'  => $request->receiver_cc_email,
         ]);
-        $data['rfq_terms'] = QuotationTerm::where('rfq_id', $rfq_id)->get();
-        $data['products'] = QuotationProduct::where('rfq_id',  $rfq_id)->get();
-        $data['singleproduct']   = QuotationProduct::where('rfq_id', $rfq_id)->first();
         if ($data['quotation']->currency = 'taka') {
             $data['currency'] = 'Tk';
         } else if ($data['quotation']->currency = 'euro') {
@@ -260,7 +262,7 @@ class RFQManageController extends Controller
 
         $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
         $filePath = 'public/files/' . $fileName;
-        return view('pdf.quotation', $data);
+        // return view('pdf.quotation', $data);
         $pdf = PDF::loadView('pdf.quotation', $data);
         $pdf->setPaper('a4', 'portrait');
         $pdf_output = $pdf->output();
@@ -282,6 +284,52 @@ class RFQManageController extends Controller
         Toastr::success('Mail Sent.');
         return redirect()->back();
     }
+
+
+    // public function bypassQuotationSend(Request $request)
+    // {
+    //     set_time_limit(240);
+    //     $rfq_id = $request->rfq_id;
+
+    //     $data['rfq'] = Rfq::where('id', $rfq_id)->first();
+    //     $data['quotation'] = RfqQuotation::where('rfq_id', $rfq_id)->first();
+    //     $data['rfq_code'] = $data['rfq']->code;
+    //     $data['quotation_title'] = $data['quotation']->quotation_title;
+    //     $data['quotation']->update([
+    //         'receiver_email' => $request->receiver_email,
+    //         'receiver_cc_email' => $request->receiver_cc_email,
+    //     ]);
+    //     $data['rfq_terms'] = QuotationTerm::where('rfq_id', $rfq_id)->get();
+    //     $data['products'] = QuotationProduct::where('rfq_id', $rfq_id)->get();
+    //     $data['singleproduct'] = $data['products']->first();
+
+    //     if ($data['quotation']->currency == 'taka') {
+    //         $data['currency'] = 'Tk';
+    //     } elseif ($data['quotation']->currency == 'euro') {
+    //         $data['currency'] = '&euro;';
+    //     } elseif ($data['quotation']->currency == 'dollar') {
+    //         $data['currency'] = '$';
+    //     } elseif ($data['quotation']->currency == 'pound') {
+    //         $data['currency'] = '&pound;';
+    //     } else {
+    //         $data['currency'] = 'Tk';
+    //     }
+
+    //     $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
+    //     $filePath = 'public/files/' . $fileName;
+
+    //     // Generate PDF and store in the variable
+    //     $pdf = PDF::loadView('pdf.quotation', $data);
+    //     $pdf->setPaper('a4', 'portrait');
+    //     $pdf_output = $pdf->output();
+
+    //     // Dispatch the job
+    //     SendQuotationEmail::dispatch($data, $pdf_output, $filePath);
+
+    //     Toastr::success('Quotation Saved.');
+    //     Toastr::success('Mail Sent.');
+    //     return redirect()->back();
+    // }
     public function destroy($id)
     {
         $rfq = RFQ::findOrFail($id);
