@@ -170,7 +170,7 @@
                                         Email</label>
                                     <input type="hidden" name="rfq_id" value="{{ $rfq_details->id }}">
                                     <input type="email" maxlength="250" class="form-control form-control-sm"
-                                        value="{{ optional($quotation)->receiver_email }}" placeholder="demo@example.com"
+                                        value="{{ optional($quotation)->receiver_email ?? $rfq_details->email }}" placeholder="demo@example.com"
                                         name="receiver_email" />
                                 </div>
                                 <div class="mb-1">
