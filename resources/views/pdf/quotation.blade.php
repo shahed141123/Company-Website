@@ -135,110 +135,103 @@
     <div class="container-fluid px-0">
         <div class="qutatation-form"
             style="border-collapse: collapse;margin: 0 auto;background-color: #f4f4f4;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
-
             <section
                 style="margin-top: 0rem;margin-bottom: 0rem;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; height: 100vh;">
                 <div class="wrapper" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px">
-                    <div>
-                        <table id="u_body"
-                            style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 20rem;margin: 0 auto;width: 100%;background-color: #ae0a46;"
-                            cellpadding="0" cellspacing="0">
-                            <tbody style="min-width: 20rem">
-                                <tr class="d-flex"
-                                    style="vertical-align: top;justify-content: space-between;align-items: center;padding: 15px;">
-                                    <td style="border: 0">
-                                        <a href="https://ngenitltd.com" target="_blank">
-                                            <img src="https://i.ibb.co/qMMpQMj/Logo-White.png" alt="Ngen IT"
-                                                title="Ngen IT"
-                                                style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 7.5rem; padding-left: 18px;"
-                                                width="60" />
-                                        </a>
-                                    </td>
-                                    <td style="border: 0">
-                                        <p
-                                            style="font-size: 2em;font-weight: 600;margin-bottom: 0;color: #fff; padding: 0px 18px !important;">
-                                            {{ $quotation->quotation_title }}
-                                        </p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="">
-                        <table
-                            style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 20rem;margin: 0 auto;width: 100%;overflow: hidden;">
-                            <tbody style="min-width: 20rem;">
-                                <tr style="vertical-align: top">
-                                    <td style="padding: 0rem 1.875rem; text-align: left">
-                                        <div>
-                                            <div style="padding-top: 1.25rem;padding-left: 0;">
+                    <table id="u_body"
+                        style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 20rem;margin: 0 auto;width: 100%;background-color: #ae0a46;"
+                        cellpadding="0" cellspacing="0">
+                        <tbody style="min-width: 20rem">
+                            <tr class="d-flex"
+                                style="vertical-align: top;justify-content: space-between;align-items: center;padding: 15px;">
+                                <td style="border: 0">
+                                    <a href="https://ngenitltd.com" target="_blank">
+                                        <img src="https://i.ibb.co/qMMpQMj/Logo-White.png" alt="Ngen IT"
+                                            title="Ngen IT"
+                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 7.5rem; padding-left: 18px;"
+                                            width="60" />
+                                    </a>
+                                </td>
+                                <td style="border: 0">
+                                    <p
+                                        style="font-size: 2em;font-weight: 600;margin-bottom: 0;color: #fff; padding: 0px 18px !important;">
+                                        {{ $quotation->quotation_title }}
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table
+                        style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 20rem;margin: 0 auto;width: 100%;overflow: hidden;">
+                        <tbody style="min-width: 20rem;">
+                            <tr style="vertical-align: top">
+                                <td style="padding: 0rem 1.875rem; text-align: left">
+                                    <div>
+                                        <div style="padding-top: 1.25rem;padding-left: 0;">
+                                            <p
+                                                style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
+                                                {{ $quotation->company_name }}</p>
+                                            <p
+                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                {{ $quotation->name }}</p>
+                                            <p
+                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                {{ $quotation->email }}</p>
+                                            <p
+                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                {{ $quotation->phone }}</p>
+                                            <p
+                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                {{ $quotation->address }}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="content-table"
+                                    style="padding: 0px;height: 10rem;margin: 0px;position: relative;right: -30px;top: 15px;">
+                                    <p></p>
+                                </td>
+                                <td style="padding: 0rem 1.875rem; text-align: right">
+                                    <div>
+                                        <div style="padding-top: 1.25rem;">
+                                            <div class="text-start">
                                                 <p
                                                     style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
-                                                    {{ $quotation->company_name }}</p>
-                                                <p
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                    {{ $quotation->name }}</p>
-                                                <p
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                    {{ $quotation->email }}</p>
-                                                <p
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                    {{ $quotation->phone }}</p>
-                                                <p
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                    {{ $quotation->address }}</p>
+                                                    {{ $quotation->ngen_company_name }}
+                                                </p>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="content-table"
-                                        style="padding: 0px;height: 10rem;margin: 0px;position: relative;right: -30px;top: 15px;">
-                                        <p></p>
-                                    </td>
-                                    <td style="padding: 0rem 1.875rem; text-align: right">
-                                        <div>
-                                            <div style="padding-top: 1.25rem;">
-                                                <div class="text-start">
-                                                    <p
-                                                        style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
-                                                        {{ $quotation->ngen_company_name }}
-                                                    </p>
-                                                </div>
-                                                <div class="text-start">
-                                                    <p
-                                                        style="font-size: 13px;color: #4a5472;padding: 0px!important;width: 9rem;">
-                                                        REG NO:
-                                                        {{ $quotation->ngen_company_registration_number }}
-                                                    </p>
-                                                </div>
-                                                <div class="text-start">
-                                                    <p
-                                                        style="width:9rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
-                                                        Date : {{ $quotation->quotation_date }}
-                                                    </p>
-                                                </div>
-                                                <div class="text-start">
-                                                    <p
-                                                        style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
-                                                        {{ $quotation->pq_code }}
-                                                    </p>
-                                                </div>
-                                                <div class="text-start">
-                                                    <p
-                                                        style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
-                                                        {{ $quotation->pqr_code }}
-                                                    </p>
-                                                </div>
-
+                                            <div class="text-start">
+                                                <p
+                                                    style="font-size: 13px;color: #4a5472;padding: 0px!important;width: 9rem;">
+                                                    REG NO:
+                                                    {{ $quotation->ngen_company_registration_number }}
+                                                </p>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                            <div class="text-start">
+                                                <p
+                                                    style="width:9rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
+                                                    Date : {{ $quotation->quotation_date }}
+                                                </p>
+                                            </div>
+                                            <div class="text-start">
+                                                <p
+                                                    style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
+                                                    {{ $quotation->pq_code }}
+                                                </p>
+                                            </div>
+                                            <div class="text-start">
+                                                <p
+                                                    style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
+                                                    {{ $quotation->pqr_code }}
+                                                </p>
+                                            </div>
 
-                    <div
-                        style="overflow-x: auto;padding-left: 1.875rem;padding-right: 1.875rem;padding-top: 0.9375rem;padding-bottom: 0.9375rem; height: 100%;">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="overflow-x: auto;padding-left: 1.875rem;padding-right: 1.875rem;padding-top: 0.9375rem;padding-bottom: 0.9375rem; height: 100%;">
                         <table id="quotationTable"
                             style="border-collapse: collapse;width: 100%;border: 1px solid #eee;">
                             <thead class="text-center">
@@ -274,12 +267,12 @@
 
                                             <td><input type="text" readonly name=""
                                                     class="form-control form-control-sm border-0 bg-transparent text-center"
-                                                    value="{{ round((float)optional($singleproduct)->unit_final_price / (($quotation->currency_rate > 0) ? (float)$quotation->currency_rate : 1)) }}">
+                                                    value="{{ round((float) optional($singleproduct)->unit_final_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}">
                                             </td>
                                             <td class=" text-center">
                                                 <input type="text" readonly name=""
                                                     class="form-control form-control-sm border-0 bg-transparent text-center"
-                                                    value="{{ round((float)optional($singleproduct)->unit_final_total_price / (($quotation->currency_rate > 0) ? (float)$quotation->currency_rate : 1)) }}">
+                                                    value="{{ round((float) optional($singleproduct)->unit_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}">
                                             </td>
                                         </tr>
                                     @endforeach
@@ -301,7 +294,7 @@
                                         style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                         <p class="currency mb-0">{{ $currency }}</p>
                                         <p class="text-center" style="color: #3d3d3d;padding: 0px !important;">
-                                            {{ round((float)optional($singleproduct)->sub_total_final_total_price / (($quotation->currency_rate > 0) ? (float)$quotation->currency_rate : 1)) }}
+                                            {{ round((float) optional($singleproduct)->sub_total_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}
                                         </p>
                                     </th>
                                 </tr>
@@ -324,7 +317,7 @@
                                             <input type="text" readonly name="special_discount_final_total_price"
                                                 @readonly(true)
                                                 class="form-control form-control-sm border-0 bg-transparent text-center"
-                                                value="{{ round((float)optional($singleproduct)->special_discount_final_total_price / (($quotation->currency_rate > 0) ? (float)$quotation->currency_rate : 1)) }}"
+                                                value="{{ round((float) optional($singleproduct)->special_discount_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}"
                                                 style="color: #3d3d3d;padding: 0px !important;">
                                         </td>
                                     </tr>
@@ -346,7 +339,7 @@
                                             <span class="currency">{{ $currency }}</span>
                                             <input type="text" readonly name="vat_final_total_price" readonly
                                                 class="form-control form-control-sm border-0 bg-transparent text-center"
-                                                value="{{ round((float)optional($singleproduct)->vat_final_total_price / (($quotation->currency_rate > 0) ? (float)$quotation->currency_rate : 1)) }}"
+                                                value="{{ round((float) optional($singleproduct)->vat_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}"
                                                 style="color: #3d3d3d;padding: 0px !important;">
                                         </td>
                                     </tr>
@@ -367,7 +360,7 @@
                                         <p class="currency mb-0">{{ $currency }}</p>
                                         <input type="text" readonly name="total_final_total_price" readonly
                                             class="form-control form-control-sm border-0 bg-transparent text-center"
-                                            value="{{ round((float)optional($singleproduct)->total_final_total_price / (($quotation->currency_rate > 0) ? (float)$quotation->currency_rate : 1)) }}"
+                                            value="{{ round((float) optional($singleproduct)->total_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}"
                                             style="color: #3d3d3d;padding: 0px !important;">
                                     </th>
                                 </tr>
@@ -393,115 +386,105 @@
                                 </div>
                             </div>
                         @endif
-                        <div class="mt-5">
-                            <table class="terms_table w-100">
-                                <thead>
+                        <table class="terms_table w-100">
+                            <thead>
+                                <tr>
+                                    <th colspan="2" style="text-align: center; background-color: #C8D9E1">
+                                        <p class="mb-0 p-2">Terms & Conditions</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="terms_tbody">
+                                @foreach ($rfq_terms as $term)
                                     <tr>
-                                        <th colspan="2" style="text-align: center; background-color: #C8D9E1">
-                                            <p class="mb-0 p-2">Terms & Conditions</p>
-                                        </th>
+                                        <td class="text-start fw-bold" style="width: 15%">
+                                            <p class="p-1" style="font-size:14px;">{{ $term->title }}</p>
+                                        </td>
+                                        <td>
+                                            <p class="p-1 text-start" style="font-size:14px;">
+                                                {{ $term->description }}</p>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody class="terms_tbody">
-                                    @foreach ($rfq_terms as $term)
-                                        <tr>
-                                            <td class="text-start fw-bold" style="width: 15%">
-                                                <p class="p-1" style="font-size:14px;">{{ $term->title }}</p>
-                                            </td>
-                                            <td>
-                                                <p class="p-1 text-start" style="font-size:14px;">
-                                                    {{ $term->description }}</p>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                     <div>
                         <div id="u_body"
                             style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
                             cellpadding="0" cellspacing="0">
                             <div style="min-width: 320px">
-                                <tr>
-                                    <td style="padding: 0">
-                                        <div style="width: 100%; border-collapse: collapse">
-                                                    <div
-                                                        style="padding: 0.9375rem;padding-left: 1.875rem;padding-right: 1.875rem;background-image: url(https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg);background-size: cover;">
-                                                        <table style="width: 100%; border-collapse: collapse">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td
-                                                                        style="border: 1px solid transparent;text-align: start;color: #ffffff;">
-                                                                        <p class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                                            style="font-size: 14px;font-weight: 600;margin: 0;color: #000; padding: 0px !important;">
-                                                                            {{ $quotation->thank_you_text }}
-                                                                        </p>
-                                                                        <p class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                                            style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                            {{ $quotation->sender_name }}
-                                                                        </p>
-                                                                        <p class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                                            style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                            {{ $quotation->sender_designation }}
-                                                                        </p>
-                                                                    </td>
-                                                                    <td
-                                                                        style="text-align: end; color: #ffffff; border: 1px solid transparent;">
-                                                                        <p class="text-end"
-                                                                            style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                            {{ $quotation->ngen_email }}
-                                                                        </p>
+                                <div style="width: 100%; border-collapse: collapse">
+                                    <div
+                                        style="padding: 0.9375rem;padding-left: 1.875rem;padding-right: 1.875rem;background-image: url(https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg);background-size: cover;">
+                                        <table style="width: 100%; border-collapse: collapse">
+                                            <tbody>
+                                                <tr>
+                                                    <td
+                                                        style="border: 1px solid transparent;text-align: start;color: #ffffff;">
+                                                        <p class="form-control form-control-sm border-0 bg-transparent text-start"
+                                                            style="font-size: 14px;font-weight: 600;margin: 0;color: #000; padding: 0px !important;">
+                                                            {{ $quotation->thank_you_text }}
+                                                        </p>
+                                                        <p class="form-control form-control-sm border-0 bg-transparent text-start"
+                                                            style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                            {{ $quotation->sender_name }}
+                                                        </p>
+                                                        <p class="form-control form-control-sm border-0 bg-transparent text-start"
+                                                            style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                            {{ $quotation->sender_designation }}
+                                                        </p>
+                                                    </td>
+                                                    <td
+                                                        style="text-align: end; color: #ffffff; border: 1px solid transparent;">
+                                                        <p class="text-end"
+                                                            style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                            {{ $quotation->ngen_email }}
+                                                        </p>
 
-                                                                        <div class="d-flex justify-content-end">
-                                                                            <div class="icons-area"
-                                                                                style="color: #ae0a46;">
-                                                                                <i class="fa-brands fa-skype"></i>
-                                                                            </div>
-                                                                            <div class="icons-input">
-                                                                                <p class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                                                    style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                                    {{ $quotation->ngen_number_two }}
-                                                                                </p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-end">
-                                                                            <div class="icons-area"
-                                                                                style="color: #ae0a46;">
-                                                                                <i class="fa-brands fa-whatsapp"></i>
-                                                                            </div>
-                                                                            <div class="icons-input">
-                                                                                <p class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                                                    style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                                    {{ $quotation->ngen_whatsapp_number }}
-                                                                                </p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                                        <div class="d-flex justify-content-end">
+                                                            <div class="icons-area" style="color: #ae0a46;">
+                                                                <i class="fa-brands fa-skype"></i>
+                                                            </div>
+                                                            <div class="icons-input">
+                                                                <p class="form-control form-control-sm border-0 bg-transparent text-start"
+                                                                    style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                    {{ $quotation->ngen_number_two }}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-end">
+                                                            <div class="icons-area" style="color: #ae0a46;">
+                                                                <i class="fa-brands fa-whatsapp"></i>
+                                                            </div>
+                                                            <div class="icons-input">
+                                                                <p class="form-control form-control-sm border-0 bg-transparent text-start"
+                                                                    style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                    {{ $quotation->ngen_whatsapp_number }}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <table id="u_body"
-                            style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
-                            cellpadding="0" cellspacing="0">
-                            <tbody style="min-width: 320px">
-                                <tr>
-                                    <div style="text-align: center;background-color: #ae0a46;padding: 0.9375rem;">
-                                        <a href="https://www.ngenitltd.com/"
-                                            style="color: #ffff;font-size: 1.125rem;text-align: center;letter-spacing: 4px;">www.ngenitltd.com</a>
-                                    </div>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table id="u_body"
+                        style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
+                        cellpadding="0" cellspacing="0">
+                        <tbody style="min-width: 320px">
+                            <tr>
+                                <div style="text-align: center;background-color: #ae0a46;padding: 0.9375rem;">
+                                    <a href="https://www.ngenitltd.com/"
+                                        style="color: #ffff;font-size: 1.125rem;text-align: center;letter-spacing: 4px;">www.ngenitltd.com</a>
+                                </div>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
         </div>
