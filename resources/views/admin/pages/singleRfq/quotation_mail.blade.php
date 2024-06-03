@@ -386,25 +386,34 @@
                     var special_discount_final_total_price = sub_total_final_total_price * (
                         special_discount_percentage / 100);
 
-                    var vat_principal_amount = special_discount_percentage > 0 ? special_discount_principal_amount * (
+                    var vat_principal_amount = special_discount_percentage > 0 ? (sub_total_principal_amount - special_discount_principal_amount) * (
                         vat_percentage / 100) : sub_total_principal_amount * (vat_percentage / 100);
-                    var vat_office_cost = special_discount_percentage > 0 ? special_discount_office_cost * (
+
+                    var vat_office_cost = special_discount_percentage > 0 ? (sub_total_office_cost - special_discount_office_cost) * (
                         vat_percentage / 100) : sub_total_office_cost * (vat_percentage / 100);
-                    var vat_profit = special_discount_percentage > 0 ? special_discount_profit * (vat_percentage /
+
+                    var vat_profit = special_discount_percentage > 0 ? (sub_total_profit - special_discount_profit) * (vat_percentage /
                         100) : sub_total_profit * (vat_percentage / 100);
-                    var vat_others_cost = special_discount_percentage > 0 ? special_discount_others_cost * (
+
+                    var vat_others_cost = special_discount_percentage > 0 ? (sub_total_others_cost - special_discount_others_cost) * (
                         vat_percentage / 100) : sub_total_others_cost * (vat_percentage / 100);
-                    var vat_remittance = special_discount_percentage > 0 ? special_discount_remittance * (
+
+                    var vat_remittance = special_discount_percentage > 0 ? (sub_total_remittance - special_discount_remittance) * (
                         vat_percentage / 100) : sub_total_remittance * (vat_percentage / 100);
-                    var vat_packing = special_discount_percentage > 0 ? special_discount_packing * (vat_percentage /
+
+                    var vat_packing = special_discount_percentage > 0 ? (sub_total_packing - special_discount_packing) * (vat_percentage /
                         100) : sub_total_packing * (vat_percentage / 100);
-                    var vat_customs = special_discount_percentage > 0 ? special_discount_customs * (vat_percentage /
+
+                    var vat_customs = special_discount_percentage > 0 ? (sub_total_customs - special_discount_customs) * (vat_percentage /
                         100) : sub_total_customs * (vat_percentage / 100);
-                    var vat_tax = special_discount_percentage > 0 ? special_discount_tax * (vat_percentage / 100) :
+
+                    var vat_tax = special_discount_percentage > 0 ? (sub_total_tax - special_discount_tax) * (vat_percentage / 100) :
                         sub_total_tax * (vat_percentage / 100);
-                    var vat_subtotal = special_discount_percentage > 0 ? special_discount_subtotal * (vat_percentage /
+
+                    var vat_subtotal = special_discount_percentage > 0 ? (sub_total_subtotal - special_discount_subtotal) * (vat_percentage /
                         100) : sub_total_subtotal * (vat_percentage / 100);
-                    var vat_final_total_price = special_discount_percentage > 0 ? special_discount_final_total_price * (
+
+                    var vat_final_total_price = special_discount_percentage > 0 ? (sub_total_final_total_price - special_discount_final_total_price) * (
                         vat_percentage / 100) : sub_total_final_total_price * (vat_percentage / 100);
 
                     var total_principal_amount = sub_total_principal_amount + vat_principal_amount -

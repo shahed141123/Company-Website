@@ -220,8 +220,7 @@
                                                         <div class="text-start">
                                                             <p
                                                                 style="font-size: 13px;color: #4a5472;padding: 0px!important;width: 9rem;">
-                                                                REG NO:
-                                                                {{ $quotation->ngen_company_registration_number }}
+                                                                REG NO: {{ $quotation->ngen_company_registration_number }}
                                                             </p>
                                                         </div>
                                                         <div class="text-start">
@@ -320,7 +319,12 @@
                                             </th>
                                             <th class="d-flex align-items-center"
                                                 style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                                <p class="currency mb-0"></p>
+                                                @if (condition)
+                                                    <p class="currency mb-0"></p>
+                                                @else
+
+                                                @endif
+                                                <p class="text-center" style="color: #3d3d3d;padding: 0px !important;">{{  }}</p>
                                                 <input type="text" readonly name="sub_total_final_total_price"
                                                     class="form-control form-control-sm border-0 bg-transparent text-center rfqcalculationinput"
                                                     value="0" style="color: #3d3d3d;padding: 0px !important;">
