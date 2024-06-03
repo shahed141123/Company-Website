@@ -72,9 +72,20 @@
             .content-table {
                 width: 0 !important;
             }
+
+            .icons-area {
+                width: 55%;
+            }
+
+            .icons-input {
+                width: auto;
+            }
+            .rfqs-btns{
+                font-size: 8px !important;
+            }
         }
     </style>
-    <div class="card-body p-lg-4 p-0" style="overflow: auto">
+    <div class="card-body p-lg-4 p-0" style="overflow: hidden">
         <!-- Nav tabs -->
         <div class="text-center">
             <h3 class="mb-0 py-2">Bypass Process</h3>
@@ -104,7 +115,7 @@
                 </button>
             </li>
         </ul>
-        <form id="quotationForm" method="POST" enctype="multipart/form-data" style="overflow-x: none">
+        <form id="quotationForm" action="{{route('rfq-manage.store')}}" method="POST" enctype="multipart/form-data" style="overflow-x: none">
             @csrf
             <input type="hidden" name="rfq_id" value="{{ $rfq_details->id }}">
             <input type="hidden" name="rfq_code" value="{{ $rfq_details->rfq_code }}">
