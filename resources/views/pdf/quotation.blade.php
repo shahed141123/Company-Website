@@ -251,6 +251,7 @@
                                 </table>
                             </div>
                             <!-- Email User Info End -->
+
                             <!-- Main Content Start -->
                             <div
                                 style="overflow-x: auto;padding-left: 1.875rem;padding-right: 1.875rem;padding-top: 0.9375rem;padding-bottom: 0.9375rem; height: 57.8vh;">
@@ -270,10 +271,10 @@
                                                 Qty</th>
                                             <th width="15%"
                                                 style="text-align: center;padding: 0.5rem;font-weight: 400;">
-                                                Unit Price (<span class="currency"></span>)</th>
+                                                Unit Price (<span class="currency">{{$currency}}</span>)</th>
                                             <th width="15%"
                                                 style="text-align: center;padding: 0.5rem;font-weight: 400;">
-                                                Total (<span class="currency"></span>)</th>
+                                                Total (<span class="currency">{{$currency}}</span>)</th>
                                         </tr>
                                     </thead>
                                     <tbody class="quotationTable_area text-center">
@@ -322,22 +323,15 @@
                                             </th>
                                             <th class="d-flex align-items-center"
                                                 style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                                @if ($quotation->currency)
-                                                    <p class="currency mb-0"></p>
-                                                @else
-                                                @endif
-                                                <p class="text-center"
-                                                    style="color: #3d3d3d;padding: 0px !important;">
-                                                    {{ $singleproduct->sub_total_final_total_price }}</p>
-                                                <input type="text" readonly name="sub_total_final_total_price"
-                                                    class="form-control form-control-sm border-0 bg-transparent text-center rfqcalculationinput"
-                                                    value="0" style="color: #3d3d3d;padding: 0px !important;">
+                                                <p class="currency mb-0">{{$currency}}</p>
+                                                <p class="text-center" style="color: #3d3d3d;padding: 0px !important;">{{ optional($singleproduct)->sub_total_final_total_price }}</p>
+
                                             </th>
                                         </tr>
                                     </table>
                                 </div>
                                 <!--  -->
-                                <div class="special_discount" style="display: none;">
+                                <div class="special_discount" style="display: {{ optional($quotation)->special_discount_display == '1' ? 'block' : 'none' }};">
                                     <div style="display: flex; justify-content: end">
                                         <table style="border-collapse: collapse;width: 100%;border: none;">
                                             <tr
@@ -347,7 +341,7 @@
                                                 </td>
                                                 <td class="d-flex align-items-center"
                                                     style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                                    <span class="currency"></span>
+                                                    <span class="currency">{{$currency}}</span>
                                                     <input type="text" name="special_discount_final_total_price"
                                                         class="form-control form-control-sm border-0 bg-transparent text-center"
                                                         value="0"
@@ -357,17 +351,17 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="vat_display" style="display: none;">
+                                <div class="vat_display" style="display: {{ optional($quotation)->vat_display == '1' ? 'block' : 'none' }};">
                                     <div style="display: flex; justify-content: end">
                                         <table style="border-collapse: collapse;width: 100%;border: none;">
                                             <tr
                                                 style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                                 <td style="width: 85%;text-align: end;padding: 10px;color: #3d3d3d;">
-                                                    Vat (<span class="vat_tax_value"></span>)
+                                                    Vat (<span class="vat_tax_value">{{ optional($singleproduct)->vat_percentage }}</span>)
                                                 </td>
                                                 <td class="d-flex align-items-center"
                                                     style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                                    <span class="currency"></span>
+                                                    <span class="currency">{{$currency}}</span>
                                                     <input type="text" name="vat_final_total_price"
                                                         class="form-control form-control-sm border-0 bg-transparent text-center"
                                                         value="0"
@@ -389,7 +383,7 @@
                                             </th>
                                             <th class="d-flex align-items-center"
                                                 style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                                <p class="currency mb-0"></p>
+                                                <p class="currency mb-0">{{$currency}}</p>
                                                 <input type="text" name="total_final_total_price" readonly
                                                     class="form-control form-control-sm border-0 bg-transparent text-center"
                                                     value="0" style="color: #3d3d3d;padding: 0px !important;">

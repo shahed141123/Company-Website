@@ -242,6 +242,18 @@ class RFQManageController extends Controller
         $data['rfq_terms'] = QuotationTerm::where('rfq_id', $rfq_id)->get();
         $data['products'] = QuotationProduct::where('rfq_id',  $rfq_id)->get();
         $data['singleproduct']   = QuotationProduct::where('rfq_id', $rfq_id)->first();
+        if ($data['quotation']->currency = 'taka') {
+            $data['currency'] = 'Tk';
+        } else if ($data['quotation']->currency = 'euro') {
+                $data['currency'] = '&euro';
+        } else if ($data['quotation']->currency = 'dollar') {
+            $data['currency'] = '$';
+        } else if ($data['quotation']->currency = 'pound') {
+            $data['currency'] = '&pound';
+        } else {
+            $data['currency'] = 'Tk';
+        }
+
         $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
         $filePath = 'public/files/' . $fileName;
         return view('pdf.quotation', $data);
