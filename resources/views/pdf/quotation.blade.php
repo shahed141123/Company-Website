@@ -220,7 +220,8 @@
                                                         <div class="text-start">
                                                             <p
                                                                 style="font-size: 13px;color: #4a5472;padding: 0px!important;width: 9rem;">
-                                                                REG NO: {{ $quotation->ngen_company_registration_number }}
+                                                                REG NO:
+                                                                {{ $quotation->ngen_company_registration_number }}
                                                             </p>
                                                         </div>
                                                         <div class="text-start">
@@ -282,22 +283,24 @@
                                                 <tr class="tdsp text-center">
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>
-                                                        <input type="text" name="quotation_product_name[]"
+                                                        <input type="text" name="quotation_product_name[]" readonly
                                                             class="form-control form-control-sm border-0 bg-transparent text-start"
                                                             value="{{ $product->product_name }}">
                                                     </td>
                                                     <td>
-                                                        <input type="text" name="quotation_qty[]"
+                                                        <input type="text" name="quotation_qty[]" readonly
                                                             class="form-control form-control-sm border-0 bg-transparent text-center"
                                                             value="{{ $product->qty }}">
                                                     </td>
 
                                                     <td><input type="text" name="quotation_unit_final_price[]"
+                                                            readonly
                                                             class="form-control form-control-sm border-0 bg-transparent text-center"
                                                             value="{{ $product->quotation_unit_final_price }}">
                                                     </td>
                                                     <td class=" text-center">
                                                         <input type="text" name="quotation_unit_final_total_price[]"
+                                                            readonly
                                                             class="form-control form-control-sm border-0 bg-transparent text-center"
                                                             value="{{ $product->quotation_unit_final_total_price }}">
                                                     </td>
@@ -389,7 +392,7 @@
                                     </table>
                                 </div>
                                 <!--  -->
-                                @if (optional($quotation)->vat_display == '1' | !empty($quotation->vat_text))
+                                @if ((optional($quotation)->vat_display == '1') | !empty($quotation->vat_text))
                                     <div class="vat_display" style="display: none;">
                                         <div
                                             style="display: flex;justify-content: end;margin-top: 1rem;margin-bottom: 1rem;">
@@ -399,7 +402,8 @@
                                                     style="width: 6%;text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border-bottom: 1px solid #eee;">
                                                     <th
                                                         style="text-align: center;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
-                                                        <p class="text-center" style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                        <p class="text-center"
+                                                            style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                                             {{ $quotation->vat_text }}
                                                         </p>
 
@@ -414,22 +418,24 @@
                                     <table class="terms_table w-100">
                                         <thead>
                                             <tr>
-                                                <th colspan="2" style="text-align: center; background-color: #C8D9E1">
+                                                <th colspan="2"
+                                                    style="text-align: center; background-color: #C8D9E1">
                                                     <p class="mb-0 p-2">Terms & Conditions</p>
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody class="terms_tbody">
                                             @foreach ($rfq_terms as $term)
-                                            <tr>
-                                                <td class="text-start" style="width: 10%">
-                                                    <p style="font-size:14px;">{{ $term->title }}</p>
-                                                </td>
-                                                <td>
-                                                    <p class="text-start" style="font-size:14px;">{{ $term->description }}</p>
-                                                </td>
-                                            </tr>
-                                        @endforeach
+                                                <tr>
+                                                    <td class="text-start fw-bold" style="width: 15%">
+                                                        <p style="font-size:14px;">{{ $term->title }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="text-start" style="font-size:14px;">
+                                                            {{ $term->description }}</p>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -454,26 +460,24 @@
                                                                             <td
                                                                                 style="border: 1px solid transparent;text-align: start;color: #ffffff;">
                                                                                 <p class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                                                style="font-size: 13px;font-weight: 600;margin: 0;color: #000; padding: 0px !important;"> {{ $quotation->thank_you_text }}</p>
-
-                                                                                <input type="text"
-                                                                                    name="sender_name"
-                                                                                    class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                                                    value="Kawsar Khan"
+                                                                                    style="font-size: 13px;font-weight: 600;margin: 0;color: #000; padding: 0px !important;">
+                                                                                    {{ $quotation->thank_you_text }}
+                                                                                </p>
+                                                                                <p class="form-control form-control-sm border-0 bg-transparent text-start"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                                <input type="text"
-                                                                                    name="sender_designation"
-                                                                                    class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                                                    value="Manager, Business"
+                                                                                    {{ $quotation->sender_name }}
+                                                                                </p>
+                                                                                <p class="form-control form-control-sm border-0 bg-transparent text-start"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                                    {{ $quotation->sender_designation }}
+                                                                                </p>
                                                                             </td>
                                                                             <td
                                                                                 style="text-align: end; color: #ffffff; border: 1px solid transparent;">
-                                                                                <input type="text"
-                                                                                    name="ngen_email"
-                                                                                    class="form-control form-control-sm border-0 bg-transparent text-end"
-                                                                                    value="sales@ngenitltd.com"
+                                                                                <p class="text-end"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                                    {{ $quotation->ngen_email }}
+                                                                                </p>
 
                                                                                 <div
                                                                                     class="d-flex justify-content-end">
@@ -483,11 +487,10 @@
                                                                                             class="fa-brands fa-skype"></i>
                                                                                     </div>
                                                                                     <div class="icons-input">
-                                                                                        <input type="text"
-                                                                                            name="ngen_number_two"
-                                                                                            class="form-control form-control-sm border-0 bg-transparent text-end"
-                                                                                            value="+880 156845986"
+                                                                                        <p class="form-control form-control-sm border-0 bg-transparent text-start"
                                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                                            {{ $quotation->ngen_number_two }}
+                                                                                        </p>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div
@@ -498,11 +501,10 @@
                                                                                             class="fa-brands fa-whatsapp"></i>
                                                                                     </div>
                                                                                     <div class="icons-input">
-                                                                                        <input type="text"
-                                                                                            name="ngen_whatsapp_number"
-                                                                                            class="form-control form-control-sm border-0 bg-transparent text-end"
-                                                                                            value="+880 156845987"
+                                                                                        <p class="form-control form-control-sm border-0 bg-transparent text-start"
                                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
+                                                                                            {{ $quotation->ngen_whatsapp_number }}
+                                                                                        </p>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
