@@ -271,7 +271,7 @@
                                             style="width: 6%;text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border-bottom: 1px solid #eee;">
                                             <th
                                                 style="text-align: center;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
-                                                <input type="text"
+                                                <input type="text" name="vat_text"
                                                     class="form-control form-control-sm bg-transparent text-center"
                                                     value="GST Not included. It may apply."
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">

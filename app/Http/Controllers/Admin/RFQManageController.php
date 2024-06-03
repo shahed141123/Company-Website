@@ -83,6 +83,7 @@ class RFQManageController extends Controller
             'quotation_title'                    => $data['quotation_title'] ?? null,
             'country'                            => $data['country'] ?? null,
             'region'                             => $data['region'] ?? null,
+            'currency'                           => $data['currency'] ?? null,
             'company_name'                       => $data['company_name'] ?? null,
             'name'                               => $data['name'] ?? null,
             'email'                              => $data['email'] ?? null,
@@ -112,6 +113,7 @@ class RFQManageController extends Controller
             'remittence_percentage'              => $data['remittence_percentage'] ?? null,
             'packing_percentage'                 => $data['packing_percentage'] ?? null,
             'vat_display'                        => $data['vat_display'] ?? null,
+            'vat_text'                           => $data['vat_text'] ?? null,
             'special_discount_display'           => $data['special_discount_display'] ?? null,
             'custom_percentage'                  => $data['custom_percentage'] ?? null,
             'tax_vat_percentage'                 => $data['tax_vat_percentage'] ?? null,
@@ -239,6 +241,7 @@ class RFQManageController extends Controller
         ]);
         $data['rfq_terms'] = QuotationTerm::where('rfq_id', $rfq_id)->get();
         $data['products'] = QuotationProduct::where('rfq_id',  $rfq_id)->get();
+        $data['singleproduct']   = QuotationProduct::where('rfq_id', $rfq_id)->first();
         $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
         $filePath = 'public/files/' . $fileName;
         return view('pdf.quotation', $data);

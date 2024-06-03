@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('quotation_title')->nullable();
             $table->string('country')->nullable();
             $table->string('region')->nullable();
+            $table->string('currency')->nullable();
+            $table->string('vat_text')->nullable();
             $table->string('company_name')->nullable();
             $table->string('name')->nullable();
             $table->string('receiver_email')->nullable();
