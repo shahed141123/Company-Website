@@ -226,11 +226,15 @@ class RFQManageController extends Controller
 
 
 
-    public function bypassQuotationSend($id){
-        $rfq_id = $id;
-        // $data['email'] = $request->email;
+    public function bypassQuotationSend(Request $request){
+        $rfq_id = $request->rfq_id;
+
         $data['rfq'] = Rfq::where('id', $rfq_id)->first();
         $data['quotation'] = RfqQuotation::where('rfq_id', $rfq_id)->first();
+        $data['quotation']->update([
+            'receiver_email'     => $request->receiver_email,
+            'receiver_cc_email'  => $request->receiver_cc_email,
+        ]);
         $data['rfq_terms'] = QuotationTerm::where('rfq_id', $rfq_id)->get();
         $data['products'] = QuotationProduct::where('rfq_id',  $rfq_id)->get();
         $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';

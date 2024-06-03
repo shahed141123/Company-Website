@@ -61,9 +61,10 @@
             width: 22rem;
         }
 
-        .icons-input input{
-                width: 7rem;
-            }
+        .icons-input input {
+            width: 7rem;
+        }
+
         @media only screen and (max-width: 768px) {
 
             html,
@@ -83,10 +84,12 @@
             .icons-input {
                 width: auto;
             }
-            .icons-input input{
+
+            .icons-input input {
                 width: auto;
             }
-            .rfqs-btns{
+
+            .rfqs-btns {
                 font-size: 8px !important;
             }
         }
@@ -121,7 +124,8 @@
                 </button>
             </li>
         </ul>
-        <form id="quotationForm" action="{{route('rfq-manage.store')}}" method="POST" enctype="multipart/form-data" style="overflow-x: none">
+        <form id="quotationForm" action="{{ route('rfq-manage.store') }}" method="POST" enctype="multipart/form-data"
+            style="overflow-x: none">
             @csrf
             <input type="hidden" name="rfq_id" value="{{ $rfq_details->id }}">
             <input type="hidden" name="rfq_code" value="{{ $rfq_details->rfq_code }}">
@@ -142,7 +146,44 @@
             @include('admin.pages.singleRfq.partials.bypass_source')
         </div>
     </div>
+    <div class="modal fade" id="quotationMail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Email Where Quotation will send</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{ route('bypass_quotation.send') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="container p-2 mx-2">
+                            <div class="row">
+                                <div class="mb-1">
+                                    <label class="form-label" for="basicpill-firstname-input">Quotation Receiver
+                                        Email</label>
+                                    <input type="hidden" name="rfq_id" value="{{ $rfq_details->id }}">
+                                    <input type="email" maxlength="250" class="form-control form-control-sm"
+                                        placeholder="demo@example.com" name="receiver_email" />
+                                </div>
+                                <div class="mb-1">
+                                    <label class="form-label" for="basicpill-firstname-input">Quotation Receiver Email
+                                        (CC)</label>
+                                    <input type="text" name="receiver_cc_email" class="form-control visually-hidden"
+                                        data-role="tagsinput" placeholder="demo@example.com">
+                                </div>
+                            </div>
 
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-info from-prevent-multiple-submits"
+                            style="padding: 10px;">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     </div>
 @endsection
 @once
@@ -393,7 +434,8 @@
                     $("input[name='sub_total_subtotal']").val(Math.round(sub_total_subtotal));
                     $("input[name='sub_total_final_total_price']").val(Math.round(sub_total_final_total_price));
 
-                    $("input[name='special_discount_principal_amount']").val(Math.round(special_discount_principal_amount));
+                    $("input[name='special_discount_principal_amount']").val(Math.round(
+                        special_discount_principal_amount));
                     $("input[name='special_discount_office_cost']").val(Math.round(special_discount_office_cost));
                     $("input[name='special_discount_profit']").val(Math.round(special_discount_profit));
                     $("input[name='special_discount_others_cost']").val(Math.round(special_discount_others_cost));

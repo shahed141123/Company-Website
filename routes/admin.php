@@ -380,6 +380,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::delete('/delete-quotationProduct/{id}',  [RFQManageController::class, 'quotationProductDelete'])->name('delete.quotationProduct');
     Route::delete('/delete-quotationTerms/{id}',  [RFQManageController::class, 'quotationTermsDelete'])->name('delete.quotationTerms');
+    Route::post('bypass_quotation/send', [RFQManageController::class, 'bypassQuotationSend'])->name('bypass_quotation.send');
 
     Route::get('send/mail', [PartnerController::class, 'sendBulkMail'])->name('sendBulkMail');
 
