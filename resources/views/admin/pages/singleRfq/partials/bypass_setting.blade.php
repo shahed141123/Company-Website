@@ -36,7 +36,7 @@
                                 </td>
                                 <td width="12%">
                                     <input type="number" step="0.01"
-                                        value="{{ optional($quotation)->currency_rate }}"
+                                        value="{{ optional($quotation)->currency_rate ?? 1 }}"
                                         class="form-control form-control-sm form-setting border" name="currency_rate"
                                         placeholder="Cur. Rate">
                                 </td>

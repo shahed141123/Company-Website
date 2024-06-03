@@ -84,6 +84,7 @@ class RFQManageController extends Controller
             'country'                            => $data['country'] ?? null,
             'region'                             => $data['region'] ?? null,
             'currency'                           => $data['currency'] ?? null,
+            'currency_rate'                      => $data['currency_rate'] ?? null,
             'company_name'                       => $data['company_name'] ?? null,
             'name'                               => $data['name'] ?? null,
             'email'                              => $data['email'] ?? null,
@@ -220,6 +221,9 @@ class RFQManageController extends Controller
             'mysetting' => view('admin.pages.singleRfq.partials.bypass_setting', $data)->render(),
             'quotation' => view('admin.pages.singleRfq.partials.bypass_quotation', $data)->render(),
             'cog' => view('admin.pages.singleRfq.partials.bypass_cog', $data)->render(),
+            'currency_value' => $data['quotation']->currency,
+            'country_value' => $data['quotation']->country,
+            'region_value' => $data['quotation']->region,
         ]);
     }
 

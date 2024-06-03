@@ -189,20 +189,60 @@
 @once
     @push('scripts')
         <script>
+            // Show/hide VAT display if already checked
+            // // Toggle VAT display
+            // quotationForm.find('input[name="vat_display"]').on('click', function() {
+            //     $('.vat_display').toggle($(this).is(":checked"));
+            // }).trigger('click'); // Trigger click event on page load
+
+            // // Toggle special discount display
+            // quotationForm.find('input[name="special_discount_display"]').on('click', function() {
+            //     $('.special_discount').toggle($(this).is(":checked"));
+            // }).trigger('click'); // Trigger click event on page load
+
+            // Update company name and registration number based on region
+        </script>
+        <script>
+            // Define the updateCurrency function globally
+            function updateCurrency(currencyValue) {
+                var currencyMap = {
+                    'taka': 'TK',
+                    'dollar': '$',
+                    'euro': '&euro;',
+                    'pound': '&pound;'
+                };
+                var currency = currencyMap[currencyValue] || 'TK';
+                $('.currency').html(currency); // Update the currency input field
+            }
+
+            // Define the updatePQCode function globally
+            function updatePQCode(countryValue) {
+                var pq_code = countryValue ? "PQ#: NG-" + countryValue : "PQ#: NG-";
+                $('input[name="pq_code"]').val(pq_code); // Update the pq_code input field
+            }
+
+            // Define the updateRegistrationNumber function globally
+            function updateRegistrationNumber(regionValue) {
+                var companyInfoMap = {
+                    'bangladesh': {
+                        name: "NGEN IT LTD.",
+                        registration_number: "C-193116/2024"
+                    },
+                    'singapore': {
+                        name: "NGEN IT PTE. LTD.",
+                        registration_number: "REG-NO: 20437861K"
+                    }
+                };
+                var companyInfo = companyInfoMap[regionValue] || {
+                    name: "NGEN IT LTD.",
+                    registration_number: "C-193116/2024"
+                };
+                $('input[name="ngen_company_name"]').val(companyInfo.name);
+                $('input[name="ngen_company_registration_number"]').val(companyInfo.registration_number);
+            }
+
             $(document).ready(function() {
                 var quotationForm = $('#quotationForm');
-
-                // Function to update currency field
-                function updateCurrency(currencyValue) {
-                    var currencyMap = {
-                        'taka': 'TK',
-                        'dollar': '$',
-                        'euro': '&euro;',
-                        'pound': '&pound;'
-                    };
-                    var currency = currencyMap[currencyValue] || 'TK';
-                    $('.currency').html(currency); // Update the currency input field
-                }
 
                 // Update currency on currency select change
                 quotationForm.find('select[name="currency"]').on('change', function() {
@@ -212,12 +252,6 @@
                 // Initially set currency
                 updateCurrency($('select[name="currency"]').val());
 
-                // Function to update pq_code field
-                function updatePQCode(countryValue) {
-                    var pq_code = countryValue ? "PQ#: NG-" + countryValue : "PQ#: NG-";
-                    $('input[name="pq_code"]').val(pq_code); // Update the pq_code input field
-                }
-
                 // Update pq_code on country select change
                 quotationForm.find('select[name="country"]').on('change', function() {
                     updatePQCode($(this).val());
@@ -226,41 +260,16 @@
                 // Initially set pq_code
                 updatePQCode($('select[name="country"]').val());
 
-                // Show/hide VAT display if already checked
-
-
-                // // Toggle VAT display
-                // quotationForm.find('input[name="vat_display"]').on('click', function() {
-                //     $('.vat_display').toggle($(this).is(":checked"));
-                // }).trigger('click'); // Trigger click event on page load
-
-                // // Toggle special discount display
-                // quotationForm.find('input[name="special_discount_display"]').on('click', function() {
-                //     $('.special_discount').toggle($(this).is(":checked"));
-                // }).trigger('click'); // Trigger click event on page load
-
                 // Update company name and registration number based on region
                 quotationForm.find('select[name="region"]').on('change', function() {
-                    var regionValue = $(this).val();
-                    var companyInfoMap = {
-                        'bangladesh': {
-                            name: "NGEN IT LTD.",
-                            registration_number: "C-193116/2024"
-                        },
-                        'singapore': {
-                            name: "NGEN IT PTE. LTD.",
-                            registration_number: "REG-NO: 20437861K"
-                        }
-                    };
-                    var companyInfo = companyInfoMap[regionValue] || {
-                        name: "NGEN IT LTD.",
-                        registration_number: "C-193116/2024"
-                    };
-                    $('input[name="ngen_company_name"]').val(companyInfo.name);
-                    $('input[name="ngen_company_registration_number"]').val(companyInfo.registration_number);
+                    updateRegistrationNumber($(this).val());
                 });
+
+                // Initially set company name and registration number based on region
+                updateRegistrationNumber($('select[name="region"]').val());
             });
         </script>
+
 
         <script>
             function toggleVisibility() {
@@ -364,13 +373,13 @@
                         $(this).find("input[name='unit_final_total_price[]']").val(Math.round(
                             unit_final_total_price));
 
-                        var displayTableRow = $('#quotationTable tbody.quotationTable_area tr.tdsp').eq(index);
-                        displayTableRow.find('input[name="quotation_product_name[]"]').val(product_name);
-                        displayTableRow.find('input[name="quotation_qty[]"]').val(qty);
-                        displayTableRow.find('input[name="quotation_unit_final_price[]"]').val(unit_final_price
-                            .toFixed(2));
-                        displayTableRow.find('input[name="quotation_unit_final_total_price[]"]').val(
-                            unit_final_total_price.toFixed(2));
+                        // var displayTableRow = $('#quotationTable tbody.quotationTable_area tr.tdsp').eq(index);
+                        // displayTableRow.find('input[name="quotation_product_name[]"]').val(product_name);
+                        // displayTableRow.find('input[name="quotation_qty[]"]').val(qty);
+                        // displayTableRow.find('input[name="quotation_unit_final_price[]"]').val(unit_final_price
+                        //     .toFixed(2));
+                        // displayTableRow.find('input[name="quotation_unit_final_total_price[]"]').val(
+                        //     unit_final_total_price.toFixed(2));
                     });
 
                     var special_discount_principal_amount = sub_total_principal_amount * (special_discount_percentage /
@@ -386,34 +395,45 @@
                     var special_discount_final_total_price = sub_total_final_total_price * (
                         special_discount_percentage / 100);
 
-                    var vat_principal_amount = special_discount_percentage > 0 ? (sub_total_principal_amount - special_discount_principal_amount) * (
+                    var vat_principal_amount = special_discount_percentage > 0 ? (sub_total_principal_amount -
+                        special_discount_principal_amount) * (
                         vat_percentage / 100) : sub_total_principal_amount * (vat_percentage / 100);
 
-                    var vat_office_cost = special_discount_percentage > 0 ? (sub_total_office_cost - special_discount_office_cost) * (
+                    var vat_office_cost = special_discount_percentage > 0 ? (sub_total_office_cost -
+                        special_discount_office_cost) * (
                         vat_percentage / 100) : sub_total_office_cost * (vat_percentage / 100);
 
-                    var vat_profit = special_discount_percentage > 0 ? (sub_total_profit - special_discount_profit) * (vat_percentage /
+                    var vat_profit = special_discount_percentage > 0 ? (sub_total_profit - special_discount_profit) * (
+                        vat_percentage /
                         100) : sub_total_profit * (vat_percentage / 100);
 
-                    var vat_others_cost = special_discount_percentage > 0 ? (sub_total_others_cost - special_discount_others_cost) * (
+                    var vat_others_cost = special_discount_percentage > 0 ? (sub_total_others_cost -
+                        special_discount_others_cost) * (
                         vat_percentage / 100) : sub_total_others_cost * (vat_percentage / 100);
 
-                    var vat_remittance = special_discount_percentage > 0 ? (sub_total_remittance - special_discount_remittance) * (
+                    var vat_remittance = special_discount_percentage > 0 ? (sub_total_remittance -
+                        special_discount_remittance) * (
                         vat_percentage / 100) : sub_total_remittance * (vat_percentage / 100);
 
-                    var vat_packing = special_discount_percentage > 0 ? (sub_total_packing - special_discount_packing) * (vat_percentage /
-                        100) : sub_total_packing * (vat_percentage / 100);
+                    var vat_packing = special_discount_percentage > 0 ? (sub_total_packing - special_discount_packing) *
+                        (vat_percentage /
+                            100) :
+                        sub_total_packing * (vat_percentage / 100);
 
-                    var vat_customs = special_discount_percentage > 0 ? (sub_total_customs - special_discount_customs) * (vat_percentage /
-                        100) : sub_total_customs * (vat_percentage / 100);
+                    var vat_customs = special_discount_percentage > 0 ? (sub_total_customs - special_discount_customs) *
+                        (vat_percentage /
+                            100) : sub_total_customs * (vat_percentage / 100);
 
-                    var vat_tax = special_discount_percentage > 0 ? (sub_total_tax - special_discount_tax) * (vat_percentage / 100) :
+                    var vat_tax = special_discount_percentage > 0 ? (sub_total_tax - special_discount_tax) * (
+                            vat_percentage / 100) :
                         sub_total_tax * (vat_percentage / 100);
 
-                    var vat_subtotal = special_discount_percentage > 0 ? (sub_total_subtotal - special_discount_subtotal) * (vat_percentage /
+                    var vat_subtotal = special_discount_percentage > 0 ? (sub_total_subtotal -
+                        special_discount_subtotal) * (vat_percentage /
                         100) : sub_total_subtotal * (vat_percentage / 100);
 
-                    var vat_final_total_price = special_discount_percentage > 0 ? (sub_total_final_total_price - special_discount_final_total_price) * (
+                    var vat_final_total_price = special_discount_percentage > 0 ? (sub_total_final_total_price -
+                        special_discount_final_total_price) * (
                         vat_percentage / 100) : sub_total_final_total_price * (vat_percentage / 100);
 
                     var total_principal_amount = sub_total_principal_amount + vat_principal_amount -
@@ -700,8 +720,10 @@
                             $('#mysetting').html(response.mysetting);
                             $('#quotation').html(response.quotation);
                             $('#cog').html(response.cog);
+                            updateCurrency(response.currency_value);
+                            updatePQCode(response.country_value);
+                            updateRegistrationNumber(response.region_value);
 
-                            // Use setTimeout to ensure the DOM is fully updated before restoring focus
                             setTimeout(function() {
                                 var newElement = document.getElementById(focusedElementId);
                                 if (newElement) {
