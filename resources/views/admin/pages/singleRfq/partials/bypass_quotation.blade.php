@@ -101,7 +101,7 @@
                                                     <div>
                                                         <input type="text"
                                                             class="form-control form-control-sm bg-transparent pq_code"
-                                                            name="pq_code" value="{{ $quotation->ngen_company_registration_number ?? 'PQ#: NG-BD/Genexis/RV/231021' }}"
+                                                            name="pq_code" value="{{ $quotation->pq_code ?? 'PQ#: NG-BD/Genexis/RV/231021' }}"
                                                             style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
                                                     </div>
                                                 </div>
@@ -109,7 +109,7 @@
                                                     <div>
                                                         <input type="text" name="pqr_code"
                                                             class="form-control form-control-sm bg-transparent"
-                                                            value="{{ $quotation->ngen_company_registration_number ?? 'PQR#: MEO-P021(T10)-W(L1)' }}"
+                                                            value="{{ $quotation->pqr_code ?? 'PQR#: MEO-P021(T10)-W(L1)' }}"
                                                             style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
                                                     </div>
                                                 </div>
