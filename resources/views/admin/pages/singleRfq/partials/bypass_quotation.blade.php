@@ -451,7 +451,7 @@
 <div>
     <div class="d-flex justify-content-center align-items-center py-3">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="attachment">
+            <input class="form-check-input" type="checkbox" value="1" name="attachment" @checked(optional($quotation)->attachment == '1')>
             <label class="form-check-label text-danger" for="flexCheckDefault">
                 Send Quotation With Attachment
             </label>

@@ -88,7 +88,7 @@
                                     <tr>
                                         <div style="text-align: left;padding: 15px;">
                                             <p style="text-align: left; font-size: 18px; color: #141414;">
-                                                We have generated a Quotation against your RFQ ({{$data['rfq_id']}}). You can
+                                                We have generated a Quotation against your RFQ ({{$data['rfq_code']}}). You can
                                                 check & download the Quotation from the below link.
                                                 Thanks for being attached with us.
                                             </p>
@@ -115,14 +115,8 @@
                                         <div
                                             style="text-align: center;padding: 15px; padding-bottom: 5px; padding-top: 30px">
                                             <strong>
-                                                <a href="{{ route('sourcing.sas', $data['rfq_id']) }}"
-                                                    style="color: #FFF;
-                                border: 1px solid #ae0a46;
-                                background-color: #ae0a46;
-                                transition: all 0.8s ease-in-out;padding: 10px 40px;
-                                cursor: pointer;
-                                font-size: 18px;
-                                font-weight: 500;">
+                                                <a href="{{ route('quotation.link', $data['rfq_code']) }}"
+                                                    style="color: #FFF;border: 1px solid #ae0a46;background-color: #ae0a46;transition: all 0.8s ease-in-out;padding: 10px 40px;                                cursor: pointer;                                font-size: 18px;                                font-weight: 500;">
                                                     Go To Link</a>
                                             </strong>
                                         </div>

@@ -34,6 +34,8 @@ Route::get('/hardware/common', [HomeController::class, 'hardwareCommon'])->name(
 //hardware Info
 Route::get('/hardware/info', [HomeController::class, 'hardwareInfo'])->name('hardware.info');
 
+Route::get('/quotation/link/{id}', [HomeController::class, 'quotationLink'])->name('quotation.link');
+
 
 //Training
 Route::get('/training', [HomeController::class, 'training'])->name('training');
