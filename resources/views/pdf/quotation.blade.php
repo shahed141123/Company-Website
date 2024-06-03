@@ -220,7 +220,8 @@
                                                         <div class="text-start">
                                                             <p
                                                                 style="font-size: 13px;color: #4a5472;padding: 0px!important;width: 9rem;">
-                                                                REG NO: {{ $quotation->ngen_company_registration_number }}
+                                                                REG NO:
+                                                                {{ $quotation->ngen_company_registration_number }}
                                                             </p>
                                                         </div>
                                                         <div class="text-start">
@@ -281,22 +282,24 @@
                                                 <tr class="tdsp text-center">
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>
-                                                        <input type="text" name="quotation_product_name[]"
+                                                        <input type="text" name="quotation_product_name[]" readonly
                                                             class="form-control form-control-sm border-0 bg-transparent text-start"
                                                             value="{{ $product->product_name }}">
                                                     </td>
                                                     <td>
-                                                        <input type="text" name="quotation_qty[]"
+                                                        <input type="text" name="quotation_qty[]" readonly
                                                             class="form-control form-control-sm border-0 bg-transparent text-center"
                                                             value="{{ $product->qty }}">
                                                     </td>
 
                                                     <td><input type="text" name="quotation_unit_final_price[]"
+                                                            readonly
                                                             class="form-control form-control-sm border-0 bg-transparent text-center"
                                                             value="{{ $product->quotation_unit_final_price }}">
                                                     </td>
                                                     <td class=" text-center">
                                                         <input type="text" name="quotation_unit_final_total_price[]"
+                                                            readonly
                                                             class="form-control form-control-sm border-0 bg-transparent text-center"
                                                             value="{{ $product->quotation_unit_final_total_price }}">
                                                     </td>
@@ -319,12 +322,13 @@
                                             </th>
                                             <th class="d-flex align-items-center"
                                                 style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                                @if (condition)
+                                                @if ($quotation->currency)
                                                     <p class="currency mb-0"></p>
                                                 @else
-
                                                 @endif
-                                                <p class="text-center" style="color: #3d3d3d;padding: 0px !important;">{{  }}</p>
+                                                <p class="text-center"
+                                                    style="color: #3d3d3d;padding: 0px !important;">
+                                                    {{ $singleproduct->sub_total_final_total_price }}</p>
                                                 <input type="text" readonly name="sub_total_final_total_price"
                                                     class="form-control form-control-sm border-0 bg-transparent text-center rfqcalculationinput"
                                                     value="0" style="color: #3d3d3d;padding: 0px !important;">
@@ -394,7 +398,7 @@
                                     </table>
                                 </div>
                                 <!--  -->
-                                @if (optional($quotation)->vat_display == '1' | !empty($quotation->vat_text))
+                                @if ((optional($quotation)->vat_display == '1') | !empty($quotation->vat_text))
                                     <div class="vat_display" style="display: none;">
                                         <div
                                             style="display: flex;justify-content: end;margin-top: 1rem;margin-bottom: 1rem;">
@@ -404,7 +408,8 @@
                                                     style="width: 6%;text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border-bottom: 1px solid #eee;">
                                                     <th
                                                         style="text-align: center;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
-                                                        <p class="text-center" style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                                        <p class="text-center"
+                                                            style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                                             {{ $quotation->vat_text }}
                                                         </p>
 
@@ -419,22 +424,24 @@
                                     <table class="terms_table w-100">
                                         <thead>
                                             <tr>
-                                                <th colspan="2" style="text-align: center; background-color: #C8D9E1">
+                                                <th colspan="2"
+                                                    style="text-align: center; background-color: #C8D9E1">
                                                     <p class="mb-0 p-2">Terms & Conditions</p>
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody class="terms_tbody">
                                             @foreach ($rfq_terms as $term)
-                                            <tr>
-                                                <td class="text-start" style="width: 10%">
-                                                    <p style="font-size:14px;">{{ $term->title }}</p>
-                                                </td>
-                                                <td>
-                                                    <p class="text-start" style="font-size:14px;">{{ $term->description }}</p>
-                                                </td>
-                                            </tr>
-                                        @endforeach
+                                                <tr>
+                                                    <td class="text-start" style="width: 10%">
+                                                        <p style="font-size:14px;">{{ $term->title }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="text-start" style="font-size:14px;">
+                                                            {{ $term->description }}</p>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -459,7 +466,9 @@
                                                                             <td
                                                                                 style="border: 1px solid transparent;text-align: start;color: #ffffff;">
                                                                                 <p class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                                                style="font-size: 13px;font-weight: 600;margin: 0;color: #000; padding: 0px !important;"> {{ $quotation->thank_you_text }}</p>
+                                                                                    style="font-size: 13px;font-weight: 600;margin: 0;color: #000; padding: 0px !important;">
+                                                                                    {{ $quotation->thank_you_text }}
+                                                                                </p>
 
                                                                                 <input type="text"
                                                                                     name="sender_name"
