@@ -101,7 +101,8 @@
                                                     <div>
                                                         <input type="text"
                                                             class="form-control form-control-sm bg-transparent pq_code"
-                                                            name="pq_code" value="{{ $quotation->ngen_company_registration_number ?? 'PQ#: NG-BD/Genexis/RV/231021' }}"
+                                                            name="pq_code"
+                                                            value="{{ $quotation->ngen_company_registration_number ?? 'PQ#: NG-BD/Genexis/RV/231021' }}"
                                                             style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
                                                     </div>
                                                 </div>
@@ -189,43 +190,50 @@
                                         <p class="currency mb-0"></p>
                                         <input type="text" readonly name="sub_total_final_total_price"
                                             class="form-control form-control-sm bg-transparent text-center rfqcalculationinput"
-                                            value="{{ optional($singleproduct)->sub_total_final_total_price }}" style="color: #3d3d3d;padding: 0px !important;">
+                                            value="{{ optional($singleproduct)->sub_total_final_total_price }}"
+                                            style="color: #3d3d3d;padding: 0px !important;">
                                     </th>
                                 </tr>
                             </table>
                         </div>
                         <!--  -->
-                        <div class="special_discount" style="display: {{ optional($quotation)->special_discount_display == '1' ? 'block' : 'none' }};">
+                        <div class="special_discount"
+                            style="display: {{ optional($quotation)->special_discount_display == '1' ? 'block' : 'none' }};">
                             <div style="display: flex; justify-content: end">
                                 <table style="border-collapse: collapse;width: 100%;border: none;">
                                     <tr
                                         style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                         <td style="width: 85%;text-align: end;padding: 10px;color: #3d3d3d;">
-                                            Special Discount (<span class="special_discount_value">{{ optional($quotation)->special_discount_percentage }}</span>)
+                                            Special Discount (<span
+                                                class="special_discount_value">{{ optional($quotation)->special_discount_percentage }}</span>)
                                         </td>
                                         <td class="d-flex align-items-center"
                                             style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                             <span class="currency"></span>
                                             <input type="text" name="special_discount_final_total_price"
                                                 class="form-control form-control-sm bg-transparent text-center"
-                                                value="{{ optional($singleproduct)->special_discount_final_total_price }}" style="color: #3d3d3d;padding: 0px !important;">
+                                                value="{{ optional($singleproduct)->special_discount_final_total_price }}"
+                                                style="color: #3d3d3d;padding: 0px !important;">
                                         </td>
                                     </tr>
                                 </table>
                             </div>
                         </div>
-                        <div class="vat_display" style="display: {{ optional($quotation)->vat_display == '1' ? 'block' : 'none' }};">
+                        <div class="vat_display"
+                            style="display: {{ optional($quotation)->vat_display == '1' ? 'block' : 'none' }};">
                             <div style="display: flex; justify-content: end">
                                 <table style="border-collapse: collapse;width: 100%;border: none;">
                                     <tr
                                         style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                         <td style="width: 85%;text-align: end;padding: 10px;color: #3d3d3d;">
-                                            Vat (<span class="vat_tax_value">{{ optional($singleproduct)->vat_percentage }}</span>)
+                                            Vat (<span
+                                                class="vat_tax_value">{{ optional($singleproduct)->vat_percentage }}</span>)
                                         </td>
                                         <td class="d-flex align-items-center"
                                             style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
                                             <span class="currency"></span>
-                                            <input type="text" name="vat_final_total_price" value="{{ optional($singleproduct)->vat_final_total_price }}"
+                                            <input type="text" name="vat_final_total_price"
+                                                value="{{ optional($singleproduct)->vat_final_total_price }}"
                                                 class="form-control form-control-sm bg-transparent text-center"
                                                 value="0" style="color: #3d3d3d;padding: 0px !important;">
                                         </td>
@@ -248,7 +256,8 @@
                                         <p class="currency mb-0"></p>
                                         <input type="text" name="total_final_total_price" readonly
                                             class="form-control form-control-sm bg-transparent text-center"
-                                            value="{{ optional($singleproduct)->total_final_total_price }}" style="color: #3d3d3d;padding: 0px !important;">
+                                            value="{{ optional($singleproduct)->total_final_total_price }}"
+                                            style="color: #3d3d3d;padding: 0px !important;">
                                     </th>
                                 </tr>
                             </table>
@@ -313,7 +322,8 @@
                                         @foreach ($rfq_terms as $term)
                                             <tr>
                                                 <td style="text-align: center;">
-                                                    <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row" data-id="{{ $term->id }}">
+                                                    <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row"
+                                                        data-id="{{ $term->id }}">
                                                         <i class="fa-solid fa-trash"></i>
                                                     </a>
                                                 </td>
@@ -378,7 +388,8 @@
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
 
                                                                         <div class="d-flex justify-content-end">
-                                                                            <div class="icons-area" style="color: #ae0a46;">
+                                                                            <div class="icons-area"
+                                                                                style="color: #ae0a46;">
                                                                                 <i class="fa-brands fa-skype"></i>
                                                                             </div>
                                                                             <div class="icons-input">
@@ -390,7 +401,8 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="d-flex justify-content-end">
-                                                                            <div class="icons-area" style="color: #ae0a46;">
+                                                                            <div class="icons-area"
+                                                                                style="color: #ae0a46;">
                                                                                 <i class="fa-brands fa-whatsapp"></i>
                                                                             </div>
                                                                             <div class="icons-input">
@@ -470,8 +482,9 @@
             <button type="submit" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Share On What's App</button> --}}
     </div>
 </div>
+{{--
+<div id="quotationMail" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
-<div id="quotationMail" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-center modal-md">
         <div class="modal-content">
             <div class="modal-header border-0">
@@ -496,6 +509,40 @@
                 </div>
             </div>
             <div class="modal-footer border-0 pt-1 pb-0 pe-0">
+                <button type="submit" class="btn btn-info from-prevent-multiple-submits"
+                    style="padding: 10px;">Send</button>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
+<!-- Modal -->
+<div class="modal fade" id="quotationMail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Email Where Quotation will send</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container p-2 mx-2">
+                    <div class="row">
+                        <div class="mb-1">
+                            <label class="form-label" for="basicpill-firstname-input">Quotation Receiver Email</label>
+                            <input type="email" maxlength="250" class="form-control form-control-sm"
+                                placeholder="demo@example.com" name="receiver_email" />
+                        </div>
+                        <div class="mb-1">
+                            <label class="form-label" for="basicpill-firstname-input">Quotation Receiver Email
+                                (CC)</label>
+                            <input type="text" name="receiver_cc_email" class="form-control visually-hidden"
+                                data-role="tagsinput" placeholder="demo@example.com">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
                 <button type="submit" class="btn btn-info from-prevent-multiple-submits"
                     style="padding: 10px;">Send</button>
             </div>
