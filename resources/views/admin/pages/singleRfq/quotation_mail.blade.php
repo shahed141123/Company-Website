@@ -161,7 +161,7 @@
                         <div class="loader" style="display: none;">
                             <img class="preloader-spinner"
                                 src="https://i.ibb.co/3RFMwtd/image-processing20210829-18627-1j5lvo.gif" alt="Loading..."
-                                style="width: 200px;">
+                                style="width: 600px;">
                         </div>
                         <div class="container p-2 mx-2 submit_modal_container">
                             <div class="row">
@@ -169,14 +169,16 @@
                                     <label class="form-label" for="basicpill-firstname-input">Quotation Receiver
                                         Email</label>
                                     <input type="hidden" name="rfq_id" value="{{ $rfq_details->id }}">
-                                    <input type="email" maxlength="250" class="form-control form-control-sm" value="{{ $quotation->receiver_email }}"
-                                        placeholder="demo@example.com" name="receiver_email" />
+                                    <input type="email" maxlength="250" class="form-control form-control-sm"
+                                        value="{{ $quotation->receiver_email }}" placeholder="demo@example.com"
+                                        name="receiver_email" />
                                 </div>
                                 <div class="mb-1">
                                     <label class="form-label" for="basicpill-firstname-input">Quotation Receiver Email
                                         (CC)</label>
-                                    <input type="text" name="receiver_cc_email" class="form-control visually-hidden" value="{{ $quotation->receiver_cc_email }}"
-                                        data-role="tagsinput" placeholder="demo@example.com">
+                                    <input type="text" name="receiver_cc_email" class="form-control visually-hidden"
+                                        value="{{ $quotation->receiver_cc_email }}" data-role="tagsinput"
+                                        placeholder="demo@example.com">
                                 </div>
                             </div>
                         </div>
@@ -200,7 +202,7 @@
                 $('#quotationMailForm').on('submit', function() {
                     $('.from-prevent-multiple-submits').prop('disabled', true); // Disable the submit button
                     $('.loader').show(); // Show the loader
-                    $('.submit_modal_container').style.display = 'none'(); // Show the loader
+                    $('.submit_modal_container').hide(); // Hide the submit modal container
                 });
             });
 
