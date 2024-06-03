@@ -650,9 +650,6 @@
                             $('#quotation').html(response.quotation);
                             $('#cog').html(response.cog);
 
-
-                            updateVatDisplay();
-                            updateSpecialDiscountDisplay();
                             // Use setTimeout to ensure the DOM is fully updated before restoring focus
                             setTimeout(function() {
                                 var newElement = document.getElementById(focusedElementId);

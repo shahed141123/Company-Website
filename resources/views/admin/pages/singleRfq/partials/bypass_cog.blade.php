@@ -149,8 +149,9 @@
             </tbody>
 
             <tfoot>
-                @if (optional($quotation)->special_discount_display == '1' || optional($quotation)->vat_display == '1')
-                    <tr class="text-black vat_display special_discount w-100" style="font-size: 13px;">
+
+
+                    <tr class="text-black vat_display special_discount w-100" style="font-size: 13px;display:{{ optional($quotation)->special_discount_display == '1' || optional($quotation)->vat_display == '1' ?'table-row' : 'none' }}">
                         <th class="text-end pe-5" colspan="5"
                             style="font-size: 18px;background-color: #e2e1e1; color: #000">
                             Sub Total:</th>
@@ -199,9 +200,8 @@
                                 class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->sub_total_final_total_price }}">
                         </th>
                     </tr>
-                @endif
-                @if (optional($quotation)->special_discount_display == '1')
-                    <tr class="special_discount">
+
+                    <tr class="special_discount" style="font-size: 13px;display:{{ optional($quotation)->special_discount_display == '1' ? 'table-row' : 'none' }}">
                         <th class="text-end pe-5" colspan="5"
                             style="font-size: 15px;background-color: #e2e1e1; color: #000">
                             <div class="d-flex align-items-center justify-content-end">
@@ -256,9 +256,8 @@
                                 class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->special_discount_final_total_price }}">
                         </th>
                     </tr>
-                @endif
-                @if ( optional($quotation)->vat_display == '1')
-                    <tr class="vat_display">
+
+                    <tr class="vat_display" style="font-size: 13px;display:{{ optional($quotation)->vat_display == '1' ? 'table-row' : 'none' }}">
                         <th class="text-end pe-5" colspan="5"
                             style="font-size: 15px;background-color: #e2e1e1; color: #000">
                             <div class="d-flex align-items-center justify-content-end">
@@ -313,7 +312,6 @@
                                 class="form-control form-control-sm bg-transparent rfqcalculationinput" value="{{ optional($singleproduct)->vat_final_total_price }}">
                         </th>
                     </tr>
-                @endif
                 <tr class="text-black" style="font-size: 13px;">
                     <th class="text-end pe-5" colspan="5"
                         style="font-size: 18px;background-color: #e2e1e1; color: #000">
