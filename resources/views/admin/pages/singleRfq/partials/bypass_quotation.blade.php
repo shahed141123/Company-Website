@@ -377,7 +377,7 @@
                                                                             value="sales@ngenitltd.com"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
 
-                                                                        <div class="d-flex">
+                                                                        <div class="d-flex justify-content-end">
                                                                             <div class="icons-area" style="color: #ae0a46;">
                                                                                 <i class="fa-brands fa-skype"></i>
                                                                             </div>
@@ -389,7 +389,7 @@
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="d-flex">
+                                                                        <div class="d-flex justify-content-end">
                                                                             <div class="icons-area" style="color: #ae0a46;">
                                                                                 <i class="fa-brands fa-whatsapp"></i>
                                                                             </div>
@@ -472,9 +472,9 @@
 </div>
 
 <div id="quotationMail" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-center modal-md">
         <div class="modal-content">
-            <div class="modal-header p-1 px-2">
+            <div class="modal-header border-0">
                 <h5 class="modal-title">Email Where Quotation will send</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>

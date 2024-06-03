@@ -61,6 +61,9 @@
             width: 22rem;
         }
 
+        .icons-input input{
+                width: 7rem;
+            }
         @media only screen and (max-width: 768px) {
 
             html,
@@ -80,12 +83,15 @@
             .icons-input {
                 width: auto;
             }
+            .icons-input input{
+                width: auto;
+            }
             .rfqs-btns{
                 font-size: 8px !important;
             }
         }
     </style>
-    <div class="card-body p-lg-4 p-0" style="overflow: hidden">
+    <div class="card-body p-lg-4 p-0" style="overflow: auto">
         <!-- Nav tabs -->
         <div class="text-center">
             <h3 class="mb-0 py-2">Bypass Process</h3>
