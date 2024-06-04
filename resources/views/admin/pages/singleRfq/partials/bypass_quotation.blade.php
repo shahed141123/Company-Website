@@ -306,7 +306,7 @@
                                                     <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
-                                            <td style="width: 10%">
+                                            <td style="width: 15%">
                                                 <input type="hidden" name="terms_id[]" value="">
                                                 <input type="text" name="terms_title[]"
                                                     class="form-control form-control-sm bg-transparent text-start"
@@ -315,7 +315,133 @@
                                             <td>
                                                 <input type="text" name="terms_description[]"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="7 Days from the PQ date on regular price. Offer may change on the bank forex rate">
+                                                    value="Valid till 7 days from PQ.Offer may change on the bank forex rate or stock availability">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </td>
+                                            <td style="width: 15%">
+                                                <input type="hidden" name="terms_id[]" value="">
+                                                <input type="text" name="terms_title[]"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="Payment :">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="terms_description[]"
+                                                    class="form-control form-control-sm bg-transparent"
+                                                    value="100% payment  through EFTN/WT & hit in the NGen IT account within 30 days of Delivery">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </td>
+                                            <td style="width: 15%">
+                                                <input type="hidden" name="terms_id[]" value="">
+                                                <input type="text" name="terms_title[]"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="Product Mode :">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="terms_description[]"
+                                                    class="form-control form-control-sm bg-transparent"
+                                                    value="Product may take a certain time for Payment, Shipment, Delivery. In exception it may different">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </td>
+                                            <td style="width: 15%">
+                                                <input type="hidden" name="terms_id[]" value="">
+                                                <input type="text" name="terms_title[]"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="Delivery :">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="terms_description[]"
+                                                    class="form-control form-control-sm bg-transparent"
+                                                    value="4 business weeks upon receiving of WO. Extended time may require in any disaster issues">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </td>
+                                            <td style="width: 15%">
+                                                <input type="hidden" name="terms_id[]" value="">
+                                                <input type="text" name="terms_title[]"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="Delivery Location :">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="terms_description[]"
+                                                    class="form-control form-control-sm bg-transparent"
+                                                    value="Via Email / Conole Panel">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </td>
+                                            <td style="width: 15%">
+                                                <input type="hidden" name="terms_id[]" value="">
+                                                <input type="text" name="terms_title[]"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="Product & Order :">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="terms_description[]"
+                                                    class="form-control form-control-sm bg-transparent"
+                                                    value="No Partial or Less vloume Order is accepted. Order may reject or ask for alternative / changes if not available from mnfg.">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </td>
+                                            <td style="width: 15%">
+                                                <input type="hidden" name="terms_id[]" value="">
+                                                <input type="text" name="terms_title[]"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="Warranty :">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="terms_description[]"
+                                                    class="form-control form-control-sm bg-transparent"
+                                                    value="Principal Standard Warranty for respective product">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </td>
+                                            <td style="width: 15%">
+                                                <input type="hidden" name="terms_id[]" value="">
+                                                <input type="text" name="terms_title[]"
+                                                    class="form-control form-control-sm bg-transparent text-start"
+                                                    value="Installation :">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="terms_description[]"
+                                                    class="form-control form-control-sm bg-transparent"
+                                                    value="No Instalaltion or Maintenance is applicable with this price quote.">
                                             </td>
                                         </tr>
                                     @else
@@ -327,7 +453,7 @@
                                                         <i class="fa-solid fa-trash"></i>
                                                     </a>
                                                 </td>
-                                                <td style="width: 10%">
+                                                <td style="width: 15%">
                                                     <input type="hidden" name="terms_id[]"
                                                         value="{{ $term->id }}">
                                                     <input type="text" name="terms_title[]"
