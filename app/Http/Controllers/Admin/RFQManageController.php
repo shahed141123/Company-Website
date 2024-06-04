@@ -263,11 +263,11 @@ class RFQManageController extends Controller
 
         $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
         $filePath = 'public/files/' . $fileName;
-        // return view('pdf.quotation', $data);
         $pdf = PDF::loadView('pdf.quotation', $data);
         $pdf->setPaper('a4', 'portrait');
         $pdf_output = $pdf->output();
         Storage::put($filePath, $pdf_output);
+        return view('pdf.quotation', $data);
 
         // Save the file path to the database
         $data['quotation']->update([

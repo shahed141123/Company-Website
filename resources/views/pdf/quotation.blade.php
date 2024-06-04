@@ -41,6 +41,25 @@
             padding: 5px;
         }
 
+        .logo_container {
+            border-collapse: collapse;
+            border-spacing: 0;
+            vertical-align: top;
+            min-width: 20rem;
+            margin: 0 auto;
+            width: 100%;
+            background-color: #ae0a46;
+        }
+
+        .quotation_table {
+            overflow-x: auto;
+            padding-left: 1.875rem;
+            padding-right: 1.875rem;
+            padding-top: 0.9375rem;
+            padding-bottom: 0.9375rem;
+            height: 100%;
+        }
+
         @media only screen and (max-width: 767px) {
             .table>:not(caption)>*>* {
                 padding: 5px;
@@ -135,358 +154,165 @@
     <div class="container-fluid px-0">
         <div class="qutatation-form"
             style="border-collapse: collapse;margin: 0 auto;background-color: #f4f4f4;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
-            <section
-                style="margin-top: 0rem;margin-bottom: 0rem;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; height: 100vh;">
-                <div class="wrapper" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px">
-                    <table id="u_body"
-                        style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 20rem;margin: 0 auto;width: 100%;background-color: #ae0a46;"
-                        cellpadding="0" cellspacing="0">
-                        <tbody style="min-width: 20rem">
-                            <tr class="d-flex"
-                                style="vertical-align: top;justify-content: space-between;align-items: center;padding: 15px;">
-                                <td style="border: 0">
-                                    <a href="https://ngenitltd.com" target="_blank">
-                                        <img src="https://i.ibb.co/qMMpQMj/Logo-White.png" alt="Ngen IT"
-                                            title="Ngen IT"
-                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 7.5rem; padding-left: 18px;"
-                                            width="60" />
-                                    </a>
-                                </td>
-                                <td style="border: 0">
-                                    <p
-                                        style="font-size: 2em;font-weight: 600;margin-bottom: 0;color: #fff; padding: 0px 18px !important;">
-                                        {{ $quotation->quotation_title }}
-                                    </p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table
-                        style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 20rem;margin: 0 auto;width: 100%;overflow: hidden;">
-                        <tbody style="min-width: 20rem;">
-                            <tr style="vertical-align: top">
-                                <td style="padding: 0rem 1.875rem; text-align: left">
-                                    <div>
-                                        <div style="padding-top: 1.25rem;padding-left: 0;">
-                                            <p
-                                                style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
-                                                {{ $quotation->company_name }}</p>
-                                            <p
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                {{ $quotation->name }}</p>
-                                            <p
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                {{ $quotation->email }}</p>
-                                            <p
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                {{ $quotation->phone }}</p>
-                                            <p
-                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                {{ $quotation->address }}</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="content-table"
-                                    style="padding: 0px;height: 10rem;margin: 0px;position: relative;right: -30px;top: 15px;">
-                                    <p></p>
-                                </td>
-                                <td style="padding: 0rem 1.875rem; text-align: right">
-                                    <div>
-                                        <div style="padding-top: 1.25rem;">
-                                            <div class="text-start">
-                                                <p
-                                                    style="font-size: 1.125rem;font-family: 'Poppins', sans-serif;color: #ae0a46;padding: 0px !important;">
-                                                    {{ $quotation->ngen_company_name }}
-                                                </p>
-                                            </div>
-                                            <div class="text-start">
-                                                <p
-                                                    style="font-size: 13px;color: #4a5472;padding: 0px!important;width: 9rem;">
-                                                    REG NO:
-                                                    {{ $quotation->ngen_company_registration_number }}
-                                                </p>
-                                            </div>
-                                            <div class="text-start">
-                                                <p
-                                                    style="width:9rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
-                                                    Date : {{ $quotation->quotation_date }}
-                                                </p>
-                                            </div>
-                                            <div class="text-start">
-                                                <p
-                                                    style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
-                                                    {{ $quotation->pq_code }}
-                                                </p>
-                                            </div>
-                                            <div class="text-start">
-                                                <p
-                                                    style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
-                                                    {{ $quotation->pqr_code }}
-                                                </p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div style="overflow-x: auto;padding-left: 1.875rem;padding-right: 1.875rem;padding-top: 0.9375rem;padding-bottom: 0.9375rem; height: 100%;">
-                        <table id="quotationTable"
-                            style="border-collapse: collapse;width: 100%;border: 1px solid #eee;">
-                            <thead class="text-center">
-                                <tr
-                                    style="background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee;font-size: 13px;">
-                                    <th width="6%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
-                                        SL</th>
-                                    <th width="49%" style="text-align: left;padding: 0.5rem;font-weight: 400;">
-                                        Product Description</th>
-                                    <th width="8%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
-                                        Qty</th>
-                                    <th width="15%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
-                                        Unit Price (<span class="currency">{{ $currency }}</span>)</th>
-                                    <th width="15%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
-                                        Total (<span class="currency">{{ $currency }}</span>)</th>
-                                </tr>
-                            </thead>
-                            <tbody class="quotationTable_area text-center">
-                                @if ($products->count() > 0)
-                                    @foreach ($products as $quotationproduct)
-                                        <tr class="tdsp text-center">
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>
-                                                <input type="text" readonly name=""
-                                                    class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                    value="{{ $quotationproduct->product_name }}">
-                                            </td>
-                                            <td>
-                                                <input type="text" readonly name=""
-                                                    class="form-control form-control-sm border-0 bg-transparent text-center"
-                                                    value="{{ $quotationproduct->qty }}">
-                                            </td>
-
-                                            <td><input type="text" readonly name=""
-                                                    class="form-control form-control-sm border-0 bg-transparent text-center"
-                                                    value="{{ round((float) optional($singleproduct)->unit_final_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}">
-                                            </td>
-                                            <td class=" text-center">
-                                                <input type="text" readonly name=""
-                                                    class="form-control form-control-sm border-0 bg-transparent text-center"
-                                                    value="{{ round((float) optional($singleproduct)->unit_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}">
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                @else
-                                    <tr> No Product Available</tr>
-                                @endif
-
-                            </tbody>
-                        </table>
-                        <div style="display: flex; justify-content: end">
-                            <table
-                                style="border-collapse: collapse;width: 100%;font-size: 13px;border-top: 2px solid #eee;">
-                                <tr style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;">
-                                    <th
-                                        style="width: 83.8%;text-align: end;padding: 0.5rem;color: #3d3d3d;border: none;">
-                                        Sub Total
-                                    </th>
-                                    <th class="d-flex align-items-center"
-                                        style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                        <p class="currency mb-0">{{ $currency }}</p>
-                                        <p class="text-center" style="color: #3d3d3d;padding: 0px !important;">
-                                            {{ round((float) optional($singleproduct)->sub_total_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}
-                                        </p>
-                                    </th>
-                                </tr>
-                            </table>
+            <div class="row logo_container">
+                <div style="min-width: 20rem">
+                    <div class="d-flex"
+                        style="vertical-align: top;justify-content: space-between;align-items: center;padding: 15px;">
+                        <div style="border: 0">
+                            <a href="https://ngenitltd.com" target="_blank">
+                                <img src="https://i.ibb.co/qMMpQMj/Logo-White.png" alt="Ngen IT" title="Ngen IT"
+                                    style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 7.5rem; padding-left: 18px;"
+                                    width="60" />
+                            </a>
                         </div>
-                        <div class="special_discount"
-                            style="display: {{ optional($quotation)->special_discount_display == '1' ? 'block' : 'none' }};">
-                            <div style="display: flex; justify-content: end">
-                                <table style="border-collapse: collapse;width: 100%;border: none;">
-                                    <tr
-                                        style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
-                                        <td style="width: 83.8%;text-align: end;padding: 10px;color: #3d3d3d;">
-                                            Special Discount (<span
-                                                class="special_discount_value">{{ optional($singleproduct)->special_discount_percentage }}</span>)
-                                        </td>
-
-                                        <td class="d-flex align-items-center"
-                                            style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                            <span class="currency">{{ $currency }}</span>
-                                            <input type="text" readonly name="special_discount_final_total_price"
-                                                @readonly(true)
-                                                class="form-control form-control-sm border-0 bg-transparent text-center"
-                                                value="{{ round((float) optional($singleproduct)->special_discount_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}"
-                                                style="color: #3d3d3d;padding: 0px !important;">
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="vat_display"
-                            style="display: {{ optional($quotation)->vat_display == '1' ? 'block' : 'none' }};">
-                            <div style="display: flex; justify-content: end">
-                                <table style="border-collapse: collapse;width: 100%;border: none;">
-                                    <tr
-                                        style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
-                                        <td style="width: 83.8%;text-align: end;padding: 10px;color: #3d3d3d;">
-                                            Vat (<span
-                                                class="vat_tax_value">{{ optional($singleproduct)->vat_percentage }}</span>)
-                                        </td>
-                                        <td class="d-flex align-items-center"
-                                            style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                            <span class="currency">{{ $currency }}</span>
-                                            <input type="text" readonly name="vat_final_total_price" readonly
-                                                class="form-control form-control-sm border-0 bg-transparent text-center"
-                                                value="{{ round((float) optional($singleproduct)->vat_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}"
-                                                style="color: #3d3d3d;padding: 0px !important;">
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div style="display: flex; justify-content: end">
-                            <table
-                                style="border: 1px solid #eee;border-collapse: collapse;background-color: #eee;width: 100%;font-size: 13px;">
-                                <tr
-                                    style="text-align: end;padding: 0.5rem;border: 1px solid #eee;color: #3d3d3d;font-size: 13px;">
-                                    <th
-                                        style="width: 83.8%;text-align: end;padding: 0.5rem;color: #3d3d3d;border: none;">
-                                        Grand Total
-                                    </th>
-                                    <th class="d-flex align-items-center"
-                                        style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                        <p class="currency mb-0">{{ $currency }}</p>
-                                        <input type="text" readonly name="total_final_total_price" readonly
-                                            class="form-control form-control-sm border-0 bg-transparent text-center"
-                                            value="{{ round((float) optional($singleproduct)->total_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}"
-                                            style="color: #3d3d3d;padding: 0px !important;">
-                                    </th>
-                                </tr>
-                            </table>
-                        </div>
-                        @if ((optional($quotation)->vat_display == '1') | !empty($quotation->vat_text))
-                            <div class="vat_display">
-                                <div style="display: flex;justify-content: end;margin-top: 1rem;margin-bottom: 1rem;">
-                                    <table
-                                        style="border-collapse: collapse;width: 60%;margin: auto;font-size: 13px;border: 1px solid #eee;">
-                                        <tr
-                                            style="width: 6%;text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border-bottom: 1px solid #eee;">
-                                            <th
-                                                style="text-align: center;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
-                                                <p class="text-center"
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                                    {{ $quotation->vat_text }}
-                                                </p>
-
-                                            </th>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        @endif
-                        <table class="terms_table w-100">
-                            <thead>
-                                <tr>
-                                    <th colspan="2" style="text-align: center; background-color: #C8D9E1">
-                                        <p class="mb-0 p-2">Terms & Conditions</p>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody class="terms_tbody">
-                                @foreach ($rfq_terms as $term)
-                                    <tr>
-                                        <td class="text-start fw-bold" style="width: 15%">
-                                            <p class="p-1" style="font-size:14px;">{{ $term->title }}</p>
-                                        </td>
-                                        <td>
-                                            <p class="p-1 text-start" style="font-size:14px;">
-                                                {{ $term->description }}</p>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                        <div id="u_body"
-                            style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
-                            cellpadding="0" cellspacing="0">
-                            <div style="min-width: 320px">
-                                <div style="width: 100%; border-collapse: collapse">
-                                    <div
-                                        style="padding: 0.9375rem;padding-left: 1.875rem;padding-right: 1.875rem;background-image: url(https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg);background-size: cover;">
-                                        <table style="width: 100%; border-collapse: collapse">
-                                            <tbody>
-                                                <tr>
-                                                    <td
-                                                        style="border: 1px solid transparent;text-align: start;color: #ffffff;">
-                                                        <p class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                            style="font-size: 14px;font-weight: 600;margin: 0;color: #000; padding: 0px !important;">
-                                                            {{ $quotation->thank_you_text }}
-                                                        </p>
-                                                        <p class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                            style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                            {{ $quotation->sender_name }}
-                                                        </p>
-                                                        <p class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                            style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                            {{ $quotation->sender_designation }}
-                                                        </p>
-                                                    </td>
-                                                    <td
-                                                        style="text-align: end; color: #ffffff; border: 1px solid transparent;">
-                                                        <p class="text-end"
-                                                            style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                            {{ $quotation->ngen_email }}
-                                                        </p>
-
-                                                        <div class="d-flex justify-content-end">
-                                                            <div class="icons-area" style="color: #ae0a46;">
-                                                                <i class="fa-brands fa-skype"></i>
-                                                            </div>
-                                                            <div class="icons-input">
-                                                                <p class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                                    style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                    {{ $quotation->ngen_number_two }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="d-flex justify-content-end">
-                                                            <div class="icons-area" style="color: #ae0a46;">
-                                                                <i class="fa-brands fa-whatsapp"></i>
-                                                            </div>
-                                                            <div class="icons-input">
-                                                                <p class="form-control form-control-sm border-0 bg-transparent text-start"
-                                                                    style="font-size: 14px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
-                                                                    {{ $quotation->ngen_whatsapp_number }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+                        <div style="border: 0">
+                            <p
+                                style="font-size: 2em;font-weight: 600;margin-bottom: 0;color: #fff; padding: 0px 18px !important;">
+                                {{ $quotation->quotation_title }}
+                            </p>
                         </div>
                     </div>
-                    <table id="u_body"
-                        style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;margin: 0 auto;width: 100%;"
-                        cellpadding="0" cellspacing="0">
-                        <tbody style="min-width: 320px">
-                            <tr>
-                                <div style="text-align: center;background-color: #ae0a46;padding: 0.9375rem;">
-                                    <a href="https://www.ngenitltd.com/"
-                                        style="color: #ffff;font-size: 1.125rem;text-align: center;letter-spacing: 4px;">www.ngenitltd.com</a>
-                                </div>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
-            </section>
+            </div>
+            <div class="row p-2">
+                <div class="col-lg-4">
+                    <div style="padding: 0rem 1.875rem; text-align: left">
+                        <div>
+                            <div style="padding-top: 1.25rem;padding-left: 0;">
+                                <p
+                                    style="font-size: 1.125rem;font-family: sans-serif;color: #ae0a46;padding: 0px !important;">
+                                    {{ $quotation->company_name }}</p>
+                                <p
+                                    style="font-size: 13px;font-family: sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                    {{ $quotation->name }}</p>
+                                <p
+                                    style="font-size: 13px;font-family: sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                    {{ $quotation->email }}</p>
+                                <p
+                                    style="font-size: 13px;font-family: sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                    {{ $quotation->phone }}</p>
+                                <p
+                                    style="font-size: 13px;font-family: sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                    {{ $quotation->address }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                    <div style="padding-top: 1.25rem;">
+                        <div class="text-start">
+                            <p
+                                style="font-size: 1.125rem;font-family: sans-serif;color: #ae0a46;padding: 0px !important;">
+                                {{ $quotation->ngen_company_name }}
+                            </p>
+                        </div>
+                        <div class="text-start">
+                            <p style="font-size: 13px;color: #4a5472;padding: 0px!important;width: 9rem;">
+                                REG NO:
+                                {{ $quotation->ngen_company_registration_number }}
+                            </p>
+                        </div>
+                        <div class="text-start">
+                            <p
+                                style="width:9rem;font-size: 13px;font-family: sans-serif;color: #4a5472;padding: 0px !important;">
+                                Date : {{ $quotation->quotation_date }}
+                            </p>
+                        </div>
+                        <div class="text-start">
+                            <p
+                                style="width:15rem;font-size: 13px;font-family: sans-serif;color: #4a5472;padding: 0px !important;">
+                                {{ $quotation->pq_code }}
+                            </p>
+                        </div>
+                        <div class="text-start">
+                            <p
+                                style="width:15rem;font-size: 13px;font-family: sans-serif;color: #4a5472;padding: 0px !important;">
+                                {{ $quotation->pqr_code }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row quotation_table">
+                <table id="quotationTable" style="border-collapse: collapse;width: 100%;border: 1px solid #eee;">
+                    <thead class="text-center">
+                        <tr style="background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee;font-size: 13px;">
+                            <th width="6%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                SL</th>
+                            <th width="49%" style="text-align: left;padding: 0.5rem;font-weight: 400;">
+                                Product Description</th>
+                            <th width="8%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                Qty</th>
+                            <th width="15%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                Unit Price (<span class="currency">{{ $currency }}</span>)</th>
+                            <th width="15%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                Total (<span class="currency">{{ $currency }}</span>)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="quotationTable_area text-center">
+                        @if ($products->count() > 0)
+                            @foreach ($products as $quotationproduct)
+                                <tr class="tdsp text-center">
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>
+                                        <input type="text" readonly name=""
+                                            class="form-control form-control-sm border-0 bg-transparent text-start"
+                                            value="{{ $quotationproduct->product_name }}">
+                                    </td>
+                                    <td>
+                                        <input type="text" readonly name=""
+                                            class="form-control form-control-sm border-0 bg-transparent text-center"
+                                            value="{{ $quotationproduct->qty }}">
+                                    </td>
+
+                                    <td><input type="text" readonly name=""
+                                            class="form-control form-control-sm border-0 bg-transparent text-center"
+                                            value="{{ round((float) optional($singleproduct)->unit_final_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}">
+                                    </td>
+                                    <td class=" text-center">
+                                        <input type="text" readonly name=""
+                                            class="form-control form-control-sm border-0 bg-transparent text-center"
+                                            value="{{ round((float) optional($singleproduct)->unit_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}">
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr> No Product Available</tr>
+                        @endif
+
+                    </tbody>
+                </table>
+                <table>
+                    <tr style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;">
+                        <th style="width: 83.8%;text-align: end;padding: 0.5rem;color: #3d3d3d;border: none; border-left: 1px solid #eee;">
+                            Sub Total
+                        </th>
+                        <th class="d-flex align-items-center"
+                            style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400; border-right: 1px solid #eee;">
+                            <p class="currency mb-0">{{ $currency }}</p>
+                            <p class="text-center" style="color: #3d3d3d;padding: 0px !important;">
+                                {{ round((float) optional($singleproduct)->sub_total_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}
+                            </p>
+                        </th>
+                    </tr>
+                    <tr style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
+                        <td style="width: 83.8%;text-align: end;padding: 10px;color: #3d3d3d;">
+                            Special Discount (<span
+                                class="special_discount_value">{{ optional($singleproduct)->special_discount_percentage }}</span>)
+                        </td>
+
+                        <td class="d-flex align-items-center"
+                            style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
+                            <span class="currency">{{ $currency }}</span>
+                            <input type="text" readonly name="special_discount_final_total_price" @readonly(true)
+                                class="form-control form-control-sm border-0 bg-transparent text-center"
+                                value="{{ round((float) optional($singleproduct)->special_discount_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}"
+                                style="color: #3d3d3d;padding: 0px !important;">
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
     <script src="https://kit.fontawesome.com/69b7156a94.js" crossorigin="anonymous"></script>
