@@ -290,16 +290,16 @@
                 <div class="row">
                     <!-- item -->
                     @if ($industrys)
-                        @foreach ($industrys as $item)
+                        @foreach ($industrys as $industry)
                             <div class="col-lg-3 col-sm-6 p-1">
                                 <div class="we_serve_item">
-                                    <a href="{{ route('industry.details', $item->id) }}">
+                                    <a href="{{ isset($industry->slug) ? route('industry.details', ['id' => $industry->slug]) : '' }}">
                                         <div class="we_serve_item_image">
                                             <img class="img-fluid"
-                                            src="{{ !empty($item->logo) && file_exists(public_path('storage/' . $item->logo)) ? asset('storage/' . $item->logo) : asset('frontend/images/no-industy-img.png') }}"
+                                            src="{{ !empty($industry->logo) && file_exists(public_path('storage/' . $industry->logo)) ? asset('storage/' . $industry->logo) : asset('frontend/images/no-industy-img.png') }}"
                                             alt="NGEN IT">
                                         </div>
-                                        <div class="we_serve_item_text">{{ $item->title }}</div>
+                                        <div class="we_serve_item_text">{{ $industry->title }}</div>
                                     </a>
                                 </div>
                             </div>
@@ -315,12 +315,12 @@
                 <!-- sidebar list -->
                 <div class="some-menu-area">
                     @if ($random_industries)
-                        @foreach ($random_industries as $item)
+                        @foreach ($random_industries as $random_industry)
                             <div class="pt-2">
-                                <a href="{{ route('industry.details', $item->id) }}">
+                                <a href="{{ isset($random_industry->slug) ? route('industry.details', ['id' => $random_industry->slug]) : '' }}">
                                     <div id="fed-bg">
                                         <div class="p-2">
-                                            <h5 class="text-white brand_side_text">{{ $item->title }} ›</h5>
+                                            <h5 class="text-white brand_side_text">{{ $random_industry->title }} ›</h5>
                                         </div>
                                     </div>
                                 </a>

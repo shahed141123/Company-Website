@@ -222,9 +222,10 @@
                                     @foreach ($solution_ids as $item)
                                         @php
                                             $item = str_replace('"', '', $item);
+                                            $data =App\Models\Admin\SolutionDetail::where('id', $item)->value(['name','slug'])
                                         @endphp
-                                        <a href="{{ route('solution.details', $item) }}"
-                                            class="btn tag_btn">{{ App\Models\Admin\SolutionDetail::where('id', $item)->value('name') }}</a>
+                                        <a href="{{ route('solution.details', $$data['slug']) }}"
+                                            class="btn tag_btn">{{ $data['name'] }}</a>
                                     @endforeach
                                 @endif
                             </div>
