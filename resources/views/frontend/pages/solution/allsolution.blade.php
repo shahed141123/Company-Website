@@ -538,14 +538,14 @@
                 <!-- item -->
 
                 @if ($industrys)
-                    @foreach ($industrys as $item)
+                    @foreach ($industrys as $industry)
                         <div class="col-lg-3 col-6">
-                            <a href="{{ isset($item->slug) ? route('industry.details', ['id' => $item->slug]) : '' }}"
+                            <a href="{{ isset($industry->slug) ? route('industry.details', ['id' => $industry->slug]) : '' }}"
                                 class="we_serve_item mb-4">
                                 <div class="we_serve_item_image">
-                                    <img src="{{ asset('storage/' . $item->logo) }}" alt="">
+                                    <img src="{{ asset('storage/' . $industry->logo) }}" alt="">
                                 </div>
-                                <div class="we_serve_item_text">{{ $item->title }}</div>
+                                <div class="we_serve_item_text">{{ $industry->title }}</div>
                             </a>
                         </div>
                     @endforeach
@@ -558,13 +558,13 @@
 
             <div class="solution_sidebar">
                 @if ($random_industries)
-                    @foreach ($random_industries as $item)
+                    @foreach ($random_industries as $random_industry)
                         <div class="pt-2">
                             <a
-                                href="{{ isset($item->slug) ? route('industry.details', ['id' => $item->slug]) : '' }}">
+                                href="{{ isset($random_industry->slug) ? route('industry.details', ['id' => $random_industry->slug]) : '' }}">
                                 <div id="fed-bg">
                                     <div class="p-2">
-                                        <h5 class="text-white brand_side_text">{{ $item->title }} ›</h5>
+                                        <h5 class="text-white brand_side_text">{{ $random_industry->title }} ›</h5>
                                     </div>
                                 </div>
                             </a>
