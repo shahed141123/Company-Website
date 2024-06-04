@@ -8,29 +8,30 @@
                             {{-- <i class="fa-solid fa-plus"></i> --}}
                         </a>
                     </th>
-                    <th width="3%" class="text-center table-title-font">Sl </th>
-                    <th width="14%" class="text-center table-title-font">Item</th>
-                    <th width="4%" class="text-center table-title-font">Qty</th>
-                    <th width="7%" class="text-center table-title-font">Pr. Cost</th>
-                    <th width="7%" class="text-center table-title-font">Total (<span class="currency">TK</span> )
+                    <th width="3%" class="text-center table-title-font" style="font-size: 13px;">Sl </th>
+                    <th width="14%" class="text-center table-title-font" style="font-size: 13px;">Item</th>
+                    <th width="4%" class="text-center table-title-font" style="font-size: 13px;">Qty</th>
+                    <th width="7%" class="text-center table-title-font" style="font-size: 13px;">Pr. Cost</th>
+                    <th width="7%" class="text-center table-title-font" style="font-size: 13px;">Total
+                        {{-- (<span class="currency">TK</span> ) --}}
                     </th>
-                    <th width="6%" class="text-center table-title-font">Office</th>
-                    <th width="6%" class="text-center table-title-font">Profit</th>
-                    <th width="6%" class="text-center table-title-font">Others</th>
-                    <th width="6%" class="text-center table-title-font">Remittence</th>
-                    <th width="6%" class="text-center table-title-font">Packing</th>
-                    <th width="6%" class="text-center table-title-font">Customs</th>
-                    {{-- <th width="7%" rowspan="2" class="text-center table-title-font">Subtotal
+                    <th width="6%" class="text-center table-title-font" style="font-size: 13px;">Office</th>
+                    <th width="6%" class="text-center table-title-font" style="font-size: 13px;">Profit</th>
+                    <th width="6%" class="text-center table-title-font" style="font-size: 13px;">Others</th>
+                    <th width="6%" class="text-center table-title-font" style="font-size: 13px;">Remittence</th>
+                    <th width="6%" class="text-center table-title-font" style="font-size: 13px;">Packing</th>
+                    <th width="6%" class="text-center table-title-font" style="font-size: 13px;">Customs</th>
+                    {{-- <th width="7%" rowspan="2" class="text-center table-title-font" style="font-size: 13px;">Subtotal
                     </th> --}}
-                    <th width="7%" class="text-center table-title-font">Tax
+                    <th width="7%" class="text-center table-title-font" style="font-size: 13px;">Tax
                     </th>
-                    <th width="7%" rowspan="2" class="text-center table-title-font">SubTotal(<span
-                            class="currency">TK</span> )
+                    <th width="7%" rowspan="2" class="text-center table-title-font" style="font-size: 13px;">SubTotal
+                        {{-- (<span class="currency">TK</span> ) --}}
 
                     </th>
                     {{-- EU Price --}}
-                    <th width="12%" colspan="2" class="text-center table-title-font">
-                        Partner Price (In <span class="currency">TK</span> )
+                    <th width="12%" colspan="2" class="text-center table-title-font" style="font-size: 13px;">
+                        Grand Total (In <span class="currency">TK</span> )
                     </th>
                 </tr>
                 <tr style="background-color: #EAF1DD">
@@ -72,67 +73,67 @@
                 @if ($rfq_details->quotationProducts->count() > 0)
                     @foreach ($rfq_details->quotationProducts as $product)
                         <tr class="thd">
-                            <td>
+                            <td style="padding: 10px;">
                                 <a class="border-0 p-0 text-danger bg-transparent fa-regular fa-trash-can"
                                     onclick="deleteRfqCalculationRow(this, {{ $product->id }})" title="Add List Items">
                                     {{-- <i class="fa-regular fa-trash-can"></i> --}}
                                 </a>
                             </td>
-                            <td>
+                            <td style="padding: 10px;">
                                 {{ $loop->iteration }}
                             </td>
-                            <td>
+                            <td style="padding: 10px;">
                                 <input type="hidden" name="product_id[]" value="{{ $product->id }}">
                                 <input type="text" name="product_name[]"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput text-start"
                                     value="{{ $product->product_name }}" style="">
                             </td>
-                            <td><input type="text" name="qty[]"
+                            <td style="padding: 10px;"><input type="text" name="qty[]"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput"
                                     value="{{ $product->qty }}">
                             </td>
-                            <td><input type="text" name="principal_cost[]"
+                            <td style="padding: 10px;"><input type="text" name="principal_cost[]"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput principal_cost"
                                     value="{{ $product->principal_cost ?? 0 }}">
                             </td>
-                            <td><input type="text" name="principal_unit_total_amount[]"
+                            <td style="padding: 10px;"><input type="text" name="principal_unit_total_amount[]"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput principal_unit_total_amount"
                                     value="{{ $product->principal_unit_total_amount ?? 0 }}">
                             </td>
-                            <td><input type="text" name="unit_office_cost[]"
+                            <td style="padding: 10px;"><input type="text" name="unit_office_cost[]"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput"
                                     value="{{ $product->unit_office_cost ?? 0 }}">
                             </td>
-                            <td><input type="text" name="unit_profit[]"
+                            <td style="padding: 10px;"><input type="text" name="unit_profit[]"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput"
                                     value="{{ $product->unit_profit ?? 0 }}">
                             </td>
-                            <td><input type="text" name="unit_others_cost[]"
+                            <td style="padding: 10px;"><input type="text" name="unit_others_cost[]"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput"
                                     value="{{ $product->unit_others_cost ?? 0 }}">
                             </td>
-                            <td><input type="text" name="unit_remittance[]"
+                            <td style="padding: 10px;"><input type="text" name="unit_remittance[]"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput"
                                     value="{{ $product->unit_remittance ?? 0 }}">
                             </td>
-                            <td><input type="text" name="unit_packing[]"
+                            <td style="padding: 10px;"><input type="text" name="unit_packing[]"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput"
                                     value="{{ $product->unit_packing ?? 0 }}">
                             </td>
 
-                            <td><input type="text" name="unit_customs[]"
+                            <td style="padding: 10px;"><input type="text" name="unit_customs[]"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput"
                                     value="{{ $product->unit_customs ?? 0 }}">
                             </td>
-                            <td><input type="text" name="unit_tax_vat[]"
+                            <td style="padding: 10px;"><input type="text" name="unit_tax_vat[]"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput"
                                     value="{{ $product->unit_tax_vat ?? 0 }}">
                             </td>
-                            <td><input type="text" name="unit_subtotal[]"
+                            <td style="padding: 10px;"><input type="text" name="unit_subtotal[]"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput"
                                     value="{{ $product->unit_subtotal ?? 0 }}">
                             </td>
-                            <td><input type="text" name="unit_final_price[]"
+                            <td style="padding: 10px;"><input type="text" name="unit_final_price[]"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput"
                                     value="{{ $product->unit_final_price ?? 0 }}">
                             </td>
