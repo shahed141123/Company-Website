@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" style=" width: 100%;
-overflow-x: hidden;">
+overflow-x: hidden;margin: 0;
+            padding: 0">
 
 <head>
     <meta charset="UTF-8">
@@ -13,6 +14,8 @@ overflow-x: hidden;">
         body {
             width: 100%;
             overflow-x: hidden;
+            margin: 0;
+            padding: 0
         }
 
         table {
@@ -47,13 +50,14 @@ overflow-x: hidden;">
         }
 
         @media screen and (min-width: 768px) {
+
             html,
             body {
                 width: 100%;
                 overflow-x: hidden;
             }
         }
-    </style>   
+    </style>
 </head>
 
 <body style="margin: 0; padding: 0; all: unset;  width: 100%;
