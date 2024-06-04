@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quotation PDF</title>
-    <link href="{{ asset('frontright/css/bootstrap/bootstrap@5.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('frontend/css/bootstrap/bootstrap@5.min.css') }}" rel="stylesheet" type="text/css" />
     <style>
         html,
         body {
             width: 100%;
             overflow-x: hidden;
-            margin: 0;
         }
 
         table {
@@ -57,288 +56,241 @@
     </style>
 </head>
 
-<body style="margin: 0; padding: 0; all: unset;">
+<body>
     <div class="container-fluid px-0" style="background: #f7f7f7;">
-        <table style="width: 100%; border: 0; overflow-x: auto; background: #ae0a46;">
+        <table class="pdf-header table-responsive w-100 borde-0">
             <thead>
-                <tr>
-                    <th style="padding: 3px; width: 32%;">
+                <th class="p-3" width="32%">
+                    <a href="https://ngenitltd.com" target="_blank">
                         <img src="https://i.ibb.co/qMMpQMj/Logo-White.png" alt="Ngen IT" title="Ngen IT"
-                            style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; display: inline-block !important; border: none; height: auto; float: none; width: 7.5rem; padding-left: 6px;"
+                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 7.5rem;padding-left: 6px;"
                             width="60" />
-                    </th>
-                    <th style="width: 36%;"></th>
-                    <th style="padding: 3px; width: 32%;">
-                        <p
-                            style="font-size: 1.8em; font-weight: 600; margin-bottom: 0; color: #fff; text-align: left;margin-top: 0;">
-                            {{ $quotation->quotation_title }}
-                        </p>
-                    </th>
-                </tr>
+                    </a>
+                </th>
+                <th width="36%"></th>
+                <th class="p-3" width="32%">
+                    <p class="text-start"
+                        style="font-size: 2em;font-weight: 600;margin-bottom: 0;color: #fff; padding: 0px 6px !important;">
+                        {{ $quotation->quotation_title }}
+                    </p>
+                </th>
             </thead>
         </table>
-        <table style="width: 100%; border: 0; margin: 0 1.5rem; margin-top: 2.5rem; overflow-x: auto;">
+        <table class="table-responsive w-100 borde-0 mx-4 pdf-header-info">
             <thead>
                 <tr>
-                    <th
-                        style="font-size: 1em;
-                    font-weight: bold;
-                    width: 32%;
-                    color: #ae0a46;padding-bottom: 5px;">
-                        {{ $quotation->company_name }}
+                    <th class="header-title" width="32%">
+                        Orr and Cross Plc
                     </th>
-                    <th style="width: 36%;"></th>
-                    <th
-                        style="font-size: 1em;
-                    font-weight: bold;
-                    width: 32%;
-                    color: #ae0a46;padding-bottom: 5px;">
-                        {{ $quotation->ngen_company_name }}
+                    <th width="36%"></th>
+                    <th class="header-title" width="32%">
+                        NGEN IT LTD.
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;"> {{ $quotation->name }}</td>
+                    <td>Sophia Horton</td>
                     <td></td>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;">REG:
-                        {{ $quotation->ngen_company_registration_number }}</td>
+                    <td>REG: C-193116/2024</td>
                 </tr>
                 <tr>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;">{{ $quotation->email }}</td>
+                    <td>taloxefy@mailinator.com</td>
                     <td></td>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;">Date: {{ $quotation->quotation_date }}</td>
+                    <td>Date: 08-Nov-1974</td>
                 </tr>
                 <tr>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;">{{ $quotation->phone }}</td>
+                    <td>+1 (918) 743-4911</td>
                     <td></td>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;">PQ#: {{ $quotation->pq_code }}-</td>
+                    <td>PQ#: NG-</td>
                 </tr>
                 <tr>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;">{{ $quotation->address }}</td>
+                    <td>Obcaecati dolore cor</td>
                     <td></td>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;">C: {{ $quotation->pqr_code }}</td>
+                    <td>C :193116/2024</td>
                 </tr>
             </tbody>
         </table>
-
-        <div style="margin: 0 1.5rem; margin-top: 3rem;
-        ">
-            <table style="width: 100%; overflow-x: auto;">
+        <div class="mx-4">
+            <table class="table-responsive">
                 <thead>
-                    <tr style="background-color: #e5e5e5; color: #3d3d3d; border: 1px solid #eee; font-size: 13px;">
-                        <th style="width: 6%; text-align: center; padding: 0.5rem; font-weight: 400;">
-                            SL
-                        </th>
-                        <th style="width: 49%; text-align: center; padding: 0.5rem; font-weight: 400;">
-                            Product Description
-                        </th>
-                        <th style="width: 8%; text-align: center; padding: 0.5rem; font-weight: 400;">
-                            Qty
-                        </th>
-                        <th style="width: 15%; text-align: center; padding: 0.5rem; font-weight: 400;">
-                            Unit Price (<span class="currency">{{ $currency }}</span>)
-                        </th>
-                        <th style="width: 15%; text-align: center; padding: 0.5rem; font-weight: 400;">
-                            Total (<span class="currency">{{ $currency }}</span>)
-                        </th>
+                    <tr style="background-color: #e5e5e5;color: #3d3d3d; border: 1px solid #eee;font-size: 13px;">
+                        <th width="6%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                            SL</th>
+                        <th width="49%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                            Product Description</th>
+                        <th width="8%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                            Qty</th>
+                        <th width="15%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                            Unit Price (<span class="currency">TK</span>)</th>
+                        <th width="15%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                            Total (<span class="currency">TK</span>)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @if ($products->count() > 0)
-                        @foreach ($products as $quotationproduct)
-                            <tr>
-                                <td style="text-align: center;">1</td>
-                                <td>
-                                    <p style="margin-bottom: 0; padding: 0.5rem;">
-                                        {{ $quotationproduct->product_name }}
-                                    </p>
-                                </td>
-                                <td style="text-align: center;">
-                                    <p style="margin-bottom: 0; padding: 0.5rem;">
-                                        {{ $quotationproduct->qty }}
-                                    </p>
-                                </td>
-                                <td style="text-align: center;">
-                                    <p style="margin-bottom: 0; padding: 0.5rem;">
-                                        {{ round((float) optional($singleproduct)->unit_final_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}
-                                    </p>
-                                </td>
-                                <td style="text-align: center;">
-                                    <p style="margin-bottom: 0; padding: 0.5rem;">
-                                        {{ round((float) optional($singleproduct)->unit_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}
-                                    </p>
-                                </td>
-                            </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            No Product Available
-                        </tr>
-                    @endif
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td>
+                            <p class="mb-0 p-2">
+                                Acronis Access - subscription license (annual) - 1 user
+                            </p>
+                        </td>
+                        <td class="text-center">
+                            <p class="mb-0 p-2">
+                                1
+                            </p>
+                        </td>
+
+                        <td class="text-center">
+                            <p class="mb-0 p-2">
+                                393
+                            </p>
+                        </td>
+                        <td class="text-center">
+                            <p class="mb-0 p-2">
+                                393
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td>
+                            <p class="mb-0 p-2">
+                                Acronis Access - subscription license (annual) - 1 user
+                            </p>
+                        </td>
+                        <td class="text-center">
+                            <p class="mb-0 p-2">
+                                1
+                            </p>
+                        </td>
+
+                        <td class="text-center">
+                            <p class="mb-0 p-2">
+                                393
+                            </p>
+                        </td>
+                        <td class="text-center">
+                            <p class="mb-0 p-2">
+                                393
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td>
+                            <p class="mb-0 p-2">
+                                Acronis Access - subscription license (annual) - 1 user
+                            </p>
+                        </td>
+                        <td class="text-center">
+                            <p class="mb-0 p-2">
+                                1
+                            </p>
+                        </td>
+
+                        <td class="text-center">
+                            <p class="mb-0 p-2">
+                                393
+                            </p>
+                        </td>
+                        <td class="text-center">
+                            <p class="mb-0 p-2">
+                                393
+                            </p>
+                        </td>
+                    </tr>
                     <tr style="border-top: 2px solid #eee;">
                         <td colspan="4">
-                            <p style="margin-bottom: 0; padding: 0.5rem; text-align: right; font-weight: bolder;">
+                            <p class="mb-0 p-2 text-end fw-bolder">
                                 Sub Total
                             </p>
                         </td>
-                        <td style="text-align: center;">
-                            <p style="margin-bottom: 0; padding: 0.5rem; font-weight: bolder;">
-                                {{ $currency }}
-                                <span>{{ round(
-                                    (float) optional($singleproduct)->sub_total_final_total_price /
-                                        ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1),
-                                ) }}</span>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr style="border-top: 2px solid #eee;">
-                        <td colspan="4">
-                            <p style="margin-bottom: 0; padding: 0.5rem; text-align: right; font-weight: bolder;">
-                                Special Discount ( {{ optional($singleproduct)->special_discount_percentage }})
-                            </p>
-                        </td>
-                        <td style="text-align: center;">
-                            <p style="margin-bottom: 0; padding: 0.5rem; font-weight: bolder;">
-                                {{ $currency }}
-                                <span>{{ round((float) optional($singleproduct)->special_discount_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}</span>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr style="border-top: 2px solid #eee;">
-                        <td colspan="4">
-                            <p style="margin-bottom: 0; padding: 0.5rem; text-align: right; font-weight: bolder;">
-                                VAT ( {{ optional($singleproduct)->vat_percentage }})
-                            </p>
-                        </td>
-                        <td style="text-align: center;">
-                            <p style="margin-bottom: 0; padding: 0.5rem; font-weight: bolder;">
-                                {{ $currency }}
-                                <span>{{ round((float) optional($singleproduct)->vat_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}</span>
+                        <td class="text-center">
+                            <p class="mb-0 p-2 fw-bolder">
+                                Tk <span>552</span>
                             </p>
                         </td>
                     </tr>
                     <tr style="background-color: #eee;">
                         <td colspan="4">
-                            <p style="margin-bottom: 0; padding: 0.5rem; text-align: right; font-weight: bolder;">
+                            <p class="mb-0 p-2 text-end fw-bolder">
                                 Grand Total
                             </p>
                         </td>
-                        <td style="text-align: center;">
-                            <p style="margin-bottom: 0; padding: 0.5rem; font-weight: bolder;">
-                                {{ $currency }}
-                                <span>{{ round(
-                                    (float) optional($singleproduct)->total_final_total_price /
-                                        ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1),
-                                ) }}</span>
+                        <td class="text-center">
+                            <p class="mb-0 p-2 fw-bolder">
+                                Tk <span>552</span>
                             </p>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
-        <div style="margin: 0rem 1.5rem;
-        margin-top: 3rem;">
-            <table style="width: 100%; overflow-x: auto; margin-top: 3rem;">
+        <div class="mx-4">
+            <table class="table-responsive w-100 mt-5">
                 <thead style="background-color: #e5e7eb;">
                     <tr>
-                        <th colspan="2"
-                            style="text-align: center; padding: 0.5rem; font-size: 1em; font-weight: bold;">
+                        <th colspan="2" class="header-title text-center p-2">
                             Terms & Conditions
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($rfq_terms as $term)
-                        <tr>
-                            <td style="width: 18%; padding: 0.5rem;">
-                                {{ $term->title }}
-                            </td>
-                            <td style="width: 82%; padding: 0.5rem;">
-                                {{ $term->description }}
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-
-        <div
-            style="padding: 1.5rem 2rem;margin-top: 2rem; background-image: url('https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg'); background-size: cover;">
-            <table style="width: 100%; border: 0; overflow-x: auto;">
-                <tbody>
                     <tr>
-                        <td
-                            style="font-size: 1em;
-                        padding-bottom: 5px;
-                        font-weight: bold;
-                        width: 15%;
-                        border-right: 1px solid #c2c1c1;
-                        color: #ae0a46;">
-                            {{ $quotation->thank_you_text }}
+                        <td width="15%" class="p-2">
+                            Validate:
                         </td>
-                        <td
-                            style="font-size: 0.9em;
-                        padding-left: 20px;
-    width: 25%;
-                        color: #ae0a46;">
-                            {{ $quotation->ngen_email }}
-                        </td>
-                        <td rowspan="3" style="width: 25%; text-align: center;">
-                            <div style="width:50%; margin: auto; border: 1px solid #c2c1c1;">
-                                <p
-                                    style="padding: 7px 0px;
-                                    font-weight: bold;
-                                    border-bottom: 1px solid #c2c2c2;
-                                    color: #ae0a46;
-                                    font-size: 1.2em;
-                                    margin-bottom: 0;
-                                    margin-top: 0.3rem;">
-                                    {{ $quotation->ngen_company_name }}
-                                </p>
-                                <p style="padding: 10px; margin: 0; font-size: 0.9em;">
-                                    REG: {{ $quotation->ngen_company_registration_number }}
-                                </p>
-                            </div>
+                        <td width="85%" class="p-2">
+                            Provident eu qui ea
                         </td>
                     </tr>
                     <tr>
-                        <td
-                            style="font-size: 0.9em;width: 15%;
-                        border-right: 1px solid #c2c1c1;">
-                            {{ $quotation->sender_name }}</td>
-                        <td style="font-size: 0.9em;  padding-left: 20px;
-                        width: 15%;">
-                            {{ $quotation->ngen_number_two }}</td>
-                    </tr>
-                    <tr>
-                        <td
-                            style="font-size: 0.9em;width: 15%;
-                        border-right: 1px solid #c2c1c1;">
-                            {{ $quotation->sender_designation }}</td>
-                        <td style="font-size: 0.9em; padding-left: 20px;
-                        width: 15%; ">
-                            {{ $quotation->ngen_whatsapp_number }}</td>
+                        <td width="15%" class="p-2">
+                            Validate:
+                        </td>
+                        <td width="85%" class="p-2">
+                            Provident eu qui ea
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <table style="width: 100%; border: 0; overflow-x: auto; background: #ae0a46;">
+        <table class="table-responsive w-100 borde-0 mx-4 my-5">
             <thead>
                 <tr>
-                    <th>
-                        <p
-                            style="font-size: 1em; font-weight: 600; margin-bottom: 0; color: #fff; padding: 20px;
-                            text-align: center;
-                            margin-top: 0;">
-                            www.ngenitltd.com
-                        </p>
+                    <th class="header-title" width="32%">
+                        Thank You
+                    </th>
+                    <th width="36%"></th>
+                    <th class="header-title" width="32%">
+                        sales@ngenitltd.com
                     </th>
                 </tr>
             </thead>
+            <tbody>
+                <tr>
+                    <td>Kawsar Khan</td>
+                    <td></td>
+                    <td>+880 156845986</td>
+                </tr>
+                <tr>
+                    <td>Manager, Business</td>
+                    <td></td>
+                    <td>+880 156845987</td>
+                </tr>
+            </tbody>
         </table>
-
+        <table class="pdf-header table-responsive w-100 borde-0">
+            <thead>
+                <th class="p-3">
+                    <p class="text-center"
+                        style="font-size: 1em;font-weight: 600;margin-bottom: 0;color: #fff; padding: 0px 6px !important;">
+                        www.ngenitltd.com
+                    </p>
+                </th>
+            </thead>
+        </table>
     </div>
 </body>
 
