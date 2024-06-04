@@ -10,19 +10,39 @@
         left: 0%;
         transition: left 0.5s ease;
     }
+
+    [type="checkbox"]:checked,
+    [type="checkbox"]:not(:checked) {
+        position: absolute;
+        left: auto !important;
+    }
+
+    .btn-close {
+        box-sizing: content-box;
+        width: 0.6em;
+        height: 0.6em;
+        padding: 0.25em 0.25em;
+        color: #ffff;
+        background: transparent url(https://i.ibb.co/t2CkLrk/close.png) center / 0.7em auto no-repeat;
+        border: 0;
+        border-radius: 0.375rem;
+        opacity: 0.5;
+    }
 </style>
 
 <section>
     <div class="sidebar_rfq">
         <div style="position: fixed; top: 40%; z-index: 99; width: 50%;">
-            <div class="container" style="background-color: white !important; background: url('https://i.ibb.co/t204YkF/Background-quote-tray.jpg') no-repeat center center / cover;">
+            <div class="container"
+                style="background-color: white !important; background: url('https://i.ibb.co/t204YkF/Background-quote-tray.jpg') no-repeat center center / cover;">
                 <div class="row align-items-center">
                     <div class="" style=" width: 95%;">
-                        <a href="{{route('rfq')}}">
+                        <a href="{{ route('rfq') }}">
                             <div class="row py-4">
                                 <div class="col-lg-12">
                                     <h4 class="m-0 text-center main_color fw-bold">Make Request For Quote</h4>
-                                    <p class="text-center p-0 m-0 pt-2 pb-4">Tell us what you need, and we'll provide the best price.</p>
+                                    <p class="text-center p-0 m-0 pt-2 pb-4">Tell us what you need, and we'll provide
+                                        the best price.</p>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="card shadow-sm" style="border: 1px solid #eee;">
@@ -72,8 +92,9 @@
                             </div>
                         </a>
                     </div>
-                    <div class="" style="background-color: #ae0a46; width: 5%;" >
-                        <div class="button_rfq" style="height: 300px;transform: rotate(-90deg);" onclick="toggleSidebar()">
+                    <div class="" style="background-color: #ae0a46; width: 5%;">
+                        <div class="button_rfq" style="height: 300px;transform: rotate(-90deg);"
+                            onclick="toggleSidebar()">
                             <p class="d-flex justify-content-center align-items-center"
                                 style="color: white;
                                     position: absolute;bottom: 0;width: 200px;font-size: 20px;right: 0;cursor: pointer;top: 10px;left: -90px;">
@@ -90,7 +111,8 @@
 
 <section>
     <div class="">
-        <button class="feedback_upper_modal d-lg-block d-sm-none" data-bs-toggle="modal" data-bs-target="#rfqModal">RFQ
+        <button class="feedback_upper_modal d-lg-block d-sm-none" data-bs-toggle="modal"
+            data-bs-target="#rfqModal">Inquery
             <i class="fa-solid fa-question" style="font-size: 14px;"></i>
         </button>
     </div>
@@ -100,25 +122,23 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header py-2" style="background: #ae0a46;">
-                    <h5 class="modal-title text-white" id="staticBackdropLabel">Get Quote
+                    <h5 class="modal-title text-white" id="staticBackdropLabel">Get Price Quotation
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body p-lg-5 p-0">
                     <div class="container">
                         <form action="{{ route('rfq.add') }}" enctype="multipart/form-data" method="POST">
                             @csrf
                             <div class="row mb-4">
                                 <div class="col-lg-9">
-                                    <label class="mb-2" for="product_name">Product Name <span
-                                            class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="product_name" id="product_name"
-                                        value="{{ old('product_name') }}" required>
+                                        value="{{ old('product_name') }}" placeholder="Product Name" required>
                                 </div>
                                 <div class="col-lg-3">
-                                    <label class="mb-2" for="qty">Custom Quantity</label>
                                     <input type="number" class="form-control" name="qty" id="qty"
-                                        placeholder="Example: 0,1,2..." value="{{ old('qty') }}">
+                                        placeholder="Example: 0,1,2..." placeholder="Custom Quantity"
+                                        value="{{ old('qty') }}">
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -156,13 +176,22 @@
 
                             <div class="row align-items-center">
                                 <div class="col-lg-3 mb-3">
-                                    <div class="form-check border-0">
-                                        <input class="form-check-input" type="checkbox" value="1"
-                                            id="flexCheckDefault" name="call" placeholder="Call Me"
-                                            style="left: 3rem;" />
-                                        <label class="form-check-label" for="flexCheckDefault"> Call Me
+                                    <div class="form-check"
+                                        style="border: 1px dashed #4e8ef5;
+                                    padding: 28px 45px;
+                                    background: #4d8df42e;
+                                    border-radius: 8px;">
+                                        <input class="form-check-input" name="call" type="checkbox"
+                                            value="1" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Call Me
                                         </label>
                                     </div>
+                                    {{-- <div class="form-check border-0">
+                                        <input class="form-check-input" type="checkbox" value="1"
+                                            id="flexCheckDefault" name="call" placeholder="Call Me" />
+                                        <label class="form-check-label" for="flexCheckDefault"> Call Me</label>
+                                    </div> --}}
                                 </div>
                                 <div class="col-lg-6 mb-3">
                                     <div class="form-group px-3 mx-1 message g-recaptcha w-100"

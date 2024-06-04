@@ -5045,7 +5045,7 @@ tr td:hover {
     cursor: pointer;
     position: fixed;
     bottom: 45%;
-    right: -36px;
+    right: -60px;
     background-color: var(--primary-color);
     color: white;
     padding: 9px 20px;
