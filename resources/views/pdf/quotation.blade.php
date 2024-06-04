@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style=" width: 100%;
+overflow-x: hidden;">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quotation PDF</title>
-    <link href="{{ asset('frontright/css/bootstrap/bootstrap@5.min.css') }}" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/69b7156a94.js" crossorigin="anonymous"></script>
     <style>
         html,
         body {
             width: 100%;
             overflow-x: hidden;
-            margin: 0;
         }
 
         table {
@@ -37,10 +37,6 @@
             font-weight: bold;
         }
 
-        p {
-            margin: 0;
-        }
-
         .pdf-header-info {
             margin-top: 40px;
             margin-bottom: 40px;
@@ -50,7 +46,7 @@
             border-color: #eee !important;
         }
 
-        @media only screen and (max-width: 768px) {
+        @media screen and (min-width: 768px) {
 
             html,
             body {
@@ -61,7 +57,8 @@
     </style>
 </head>
 
-<body style="margin: 0; padding: 0; all: unset;">
+<body style="margin: 0; padding: 0; all: unset;  width: 100%;
+overflow-x: hidden;">
     <div class="container-fluid px-0" style="background: #f7f7f7;">
         <table style="width: 100%; border: 0; overflow-x: auto; background: #ae0a46;">
             <thead>
@@ -91,13 +88,13 @@
                     color: #ae0a46;padding-bottom: 5px;">
                         {{ $quotation->company_name }}
                     </th>
-                    <th style="width: 36%;"></th>
+                    <th style="width: 19%;"></th>
                     <th
                         style="font-size: 1em;
                     font-weight: bold;
-                    width: 32%;
+                    width: 26%;
                     color: #ae0a46;padding-bottom: 5px;">
-                        {{ $quotation->ngen_company_name }}
+                        {{ $quotation->pq_code }}
                     </th>
                 </tr>
             </thead>
@@ -105,8 +102,7 @@
                 <tr>
                     <td style="padding-bottom: 5px; font-size: 0.9em;"> {{ $quotation->name }}</td>
                     <td></td>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;">REG:
-                        {{ $quotation->ngen_company_registration_number }}</td>
+                    <td style="padding-bottom: 5px; font-size: 0.9em;"> {{ $quotation->pqr_code }}</td>
                 </tr>
                 <tr>
                     <td style="padding-bottom: 5px; font-size: 0.9em;">{{ $quotation->email }}</td>
@@ -116,12 +112,12 @@
                 <tr>
                     <td style="padding-bottom: 5px; font-size: 0.9em;">{{ $quotation->phone }}</td>
                     <td></td>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;">PQ#: {{ $quotation->pq_code }}-</td>
+                    <td style="padding-bottom: 5px; font-size: 0.9em;"></td>
                 </tr>
                 <tr>
                     <td style="padding-bottom: 5px; font-size: 0.9em;">{{ $quotation->address }}</td>
                     <td></td>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;">C: {{ $quotation->pqr_code }}</td>
+                    <td style="padding-bottom: 5px; font-size: 0.9em;"></td>
                 </tr>
             </tbody>
         </table>
@@ -153,26 +149,26 @@
                         @foreach ($products as $quotationproduct)
                             <tr>
                                 <td style="text-align: center;">
-                                    <p style="margin-bottom: 0; padding: 0.5rem; font-size: 0.9em;">
+                                    <p style="margin: 0; padding: 0.5rem; font-size: 0.9em;">
                                         {{ $loop->iteration }}</p>
                                 </td>
                                 <td>
-                                    <p style="margin-bottom: 0; padding: 0.5rem; font-size: 0.9em;">
+                                    <p style="margin: 0; padding: 0.5rem; font-size: 0.9em;">
                                         {{ $quotationproduct->product_name }}
                                     </p>
                                 </td>
                                 <td style="text-align: center;">
-                                    <p style="margin-bottom: 0; padding: 0.5rem; font-size: 0.9em;">
+                                    <p style="margin: 0; padding: 0.5rem; font-size: 0.9em;">
                                         {{ $quotationproduct->qty }}
                                     </p>
                                 </td>
                                 <td style="text-align: center;">
-                                    <p style="margin-bottom: 0; padding: 0.5rem; font-size: 0.9em;">
+                                    <p style="margin: 0; padding: 0.5rem; font-size: 0.9em;">
                                         {{ round((float) optional($singleproduct)->unit_final_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}
                                     </p>
                                 </td>
                                 <td style="text-align: center;">
-                                    <p style="margin-bottom: 0; padding: 0.5rem; font-size: 0.9em;">
+                                    <p style="margin: 0; padding: 0.5rem; font-size: 0.9em;">
                                         {{ round((float) optional($singleproduct)->unit_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}
                                     </p>
                                 </td>
@@ -203,7 +199,8 @@
                             </p>
                         </td>
                     </tr>
-                    <tr>
+                    <tr
+                        style="display: {{ optional($quotation)->special_discount_display == '1' ? 'table-row' : 'none' }};">
                         <td colspan="4">
                             <p
                                 style="margin-bottom: 0; padding: 0.5rem; text-align: right; font-weight: bolder; margin-top: 0;font-size: 0.9em;color: #6f6f6f;">
@@ -218,7 +215,7 @@
                             </p>
                         </td>
                     </tr>
-                    <tr>
+                    <tr style="display: {{ optional($quotation)->vat_display == '1' ? 'table-row' : 'none' }};">
                         <td colspan="4">
                             <p
                                 style="margin-bottom: 0; padding: 0.5rem; text-align: right; font-weight: bolder; margin-top: 0;font-size: 0.9em;color: #6f6f6f;">
@@ -254,6 +251,22 @@
                 </tbody>
             </table>
         </div>
+        {{-- @if (optional($quotation)->vat_display == '1') --}}
+        <table style="width: 40%;
+        margin: auto;
+        text-align: center;
+        margin-top: 2rem;">
+            <tbody style="border: 1px solid #eee;">
+                <tr>
+                    <th>
+                        <p style="margin: 0; font-size: 0.9em;padding: 10px; color: #6f6f6f; text-align:center">GST Not
+                            included. It may apply.</p>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        {{-- @endif --}}
+
 
         <div style="margin: 0rem 1.5rem;">
             <table style="width: 100%; overflow-x: auto; margin-top: 2rem;">
@@ -298,18 +311,21 @@
                 <tbody>
                     <tr>
                         <td
-                            style="font-size: 0.9em;
+                            style="font-size: 0.9em; padding: 0;
                         width: 15%;
                         border-right: 1px solid #c2c1c1;">
-
-                            {{ $quotation->sender_name }}
+                            <p style="margin: 0; font-size: 0.9em;">
+                                {{ $quotation->sender_name }}
+                            </p>
                         </td>
                         <td style="font-size: 0.9em;
                         padding-left: 40px; width: 30%;">
-                            {{ $quotation->ngen_email }}
+                            <p style="margin: 0; font-size: 0.9em;">
+                                {{ $quotation->ngen_email }}
+                            </p>
                         </td>
                         <td rowspan="3" style="width: 30%; text-align: center;">
-                            <div style="width:50%; margin: auto;">
+                            <div style="width:100%; margin: auto;">
                                 <p
                                     style="padding: 7px 0px;
                                     font-weight: bold;
@@ -333,12 +349,8 @@
                         </td>
                         <td style="font-size: 0.9em;  padding-left: 40px;
                         width: 15%;">
-                            <p style="display: flex; align-items: center">
-                                <img src="https://i.ibb.co/HrsRScL/skype.png" alt=""
-                                    style="padding-right: 5px;">
-                                <span>
-                                    {{ $quotation->ngen_number_two }}
-                                </span>
+                            <p style="margin: 0; font-size: 0.9em;">
+                                (What's App) {{ $quotation->ngen_number_two }}
                             </p>
                         </td>
                     </tr>
@@ -346,15 +358,12 @@
                         <td
                             style="font-size: 0.9em;width: 15%;
                         border-right: 1px solid #c2c1c1;">
-                            Dhaka, Bangladesh</td>
+                            <p style="margin: 0; font-size: 0.9em;">Dhaka, Bangladesh</p>
+                        </td>
                         <td style="font-size: 0.9em; padding-left: 40px;
                         width: 15%; ">
-                            <p style="display: flex; align-items: center">
-                                <img src="https://i.ibb.co/ChSVmnj/whatsapp.png" alt=""
-                                    style="padding-right: 5px;">
-                                <span>
-                                    {{ $quotation->ngen_whatsapp_number }}
-                                </span>
+                            <p style="margin: 0; font-size: 0.9em;">
+                                (Skype) {{ $quotation->ngen_whatsapp_number }}
                             </p>
                         </td>
                     </tr>
