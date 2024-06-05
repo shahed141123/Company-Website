@@ -103,46 +103,46 @@ overflow-x: hidden;">
             </thead>
             <tbody>
                 <tr>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;"> {{ $quotation->name }}</td>
+                    <td style="padding-bottom: 5px; font-size: 0.8em;"> {{ $quotation->name }}</td>
                     <td></td>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;"> {{ $quotation->pqr_code }}</td>
+                    <td style="padding-bottom: 5px; font-size: 0.8em;"> {{ $quotation->pqr_code }}</td>
                 </tr>
                 <tr>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;">{{ $quotation->email }}</td>
+                    <td style="padding-bottom: 5px; font-size: 0.8em;">{{ $quotation->email }}</td>
                     <td></td>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;">Date: {{ $quotation->quotation_date }}</td>
+                    <td style="padding-bottom: 5px; font-size: 0.8em;">Date: {{ $quotation->quotation_date }}</td>
                 </tr>
                 <tr>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;">{{ $quotation->phone }}</td>
+                    <td style="padding-bottom: 5px; font-size: 0.8em;">{{ $quotation->phone }}</td>
                     <td></td>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;"></td>
+                    <td style="padding-bottom: 5px; font-size: 0.8em;"></td>
                 </tr>
                 <tr>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;">{{ $quotation->address }}</td>
+                    <td style="padding-bottom: 5px; font-size: 0.8em;">{{ $quotation->address }}</td>
                     <td></td>
-                    <td style="padding-bottom: 5px; font-size: 0.9em;"></td>
+                    <td style="padding-bottom: 5px; font-size: 0.8em;"></td>
                 </tr>
             </tbody>
         </table>
 
-        <div style="margin: 0 1.5rem; margin-top: 3rem;
+        <div style="margin: 0 1.5rem; margin-top: 1.5rem;
         ">
             <table style="width: 100%; overflow-x: auto;">
                 <thead>
                     <tr style="background-color: #e5e5e5; color: #3d3d3d; border: 1px solid #eee; font-size: 13px;">
-                        <th style="width: 6%; text-align: center; padding: 0.5rem; font-weight: 400;">
+                        <th style="width: 6%; text-align: center; padding: 0.3rem 0.5rem; font-weight: 400;">
                             SL
                         </th>
-                        <th style="width: 49%; text-align: center; padding: 0.5rem; font-weight: 400;">
+                        <th style="width: 49%; text-align: center; padding: 0.3rem 0.5rem; font-weight: 400;">
                             Product Description
                         </th>
-                        <th style="width: 8%; text-align: center; padding: 0.5rem; font-weight: 400;">
+                        <th style="width: 8%; text-align: center; padding: 0.3rem 0.5rem; font-weight: 400;">
                             Qty
                         </th>
-                        <th style="width: 15%; text-align: center; padding: 0.5rem; font-weight: 400;">
+                        <th style="width: 15%; text-align: center; padding: 0.3rem 0.5rem; font-weight: 400;">
                             Unit Price (<span class="currency">{{ $currency }}</span>)
                         </th>
-                        <th style="width: 15%; text-align: center; padding: 0.5rem; font-weight: 400;">
+                        <th style="width: 15%; text-align: center; padding: 0.3rem 0.5rem; font-weight: 400;">
                             Total (<span class="currency">{{ $currency }}</span>)
                         </th>
                     </tr>
@@ -152,27 +152,27 @@ overflow-x: hidden;">
                         @foreach ($products as $quotationproduct)
                             <tr>
                                 <td style="text-align: center;">
-                                    <p style="margin: 0; padding: 0.5rem; font-size: 0.9em;">
+                                    <p style="margin: 0; padding: 0.3rem 0.5rem; font-size: 0.8em;">
                                         {{ $loop->iteration }}</p>
                                 </td>
                                 <td>
-                                    <p style="margin: 0; padding: 0.5rem; font-size: 0.9em;">
+                                    <p style="margin: 0; padding: 0.3rem 0.5rem; font-size: 0.8em;">
                                         {{ $quotationproduct->product_name }}
                                     </p>
                                 </td>
                                 <td style="text-align: center;">
-                                    <p style="margin: 0; padding: 0.5rem; font-size: 0.9em;">
+                                    <p style="margin: 0; padding: 0.3rem 0.5rem; font-size: 0.8em;">
                                         {{ $quotationproduct->qty }}
                                     </p>
                                 </td>
                                 <td style="text-align: center;">
-                                    <p style="margin: 0; padding: 0.5rem; font-size: 0.9em;">
-                                        {{ round((float) optional($singleproduct)->unit_final_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}
+                                    <p style="margin: 0; padding: 0.3rem 0.5rem; font-size: 0.8em;">
+                                        {{ round((float) optional($quotationproduct)->unit_final_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}
                                     </p>
                                 </td>
                                 <td style="text-align: center;">
-                                    <p style="margin: 0; padding: 0.5rem; font-size: 0.9em;">
-                                        {{ round((float) optional($singleproduct)->unit_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}
+                                    <p style="margin: 0; padding: 0.3rem 0.5rem; font-size: 0.8em;">
+                                        {{ round((float) optional($quotationproduct)->unit_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}
                                     </p>
                                 </td>
                             </tr>
@@ -185,14 +185,14 @@ overflow-x: hidden;">
                     <tr style="border-top: 2px solid #eee;">
                         <td colspan="4">
                             <p
-                                style="margin-bottom: 0; padding: 0.5rem; text-align: right; font-weight: bolder; margin-top: 0;font-size: 0.9em;
+                                style="margin-bottom: 0; padding: 0.3rem 0.5rem; text-align: right; font-weight: bolder; margin-top: 0;font-size: 0.8em;
                                 color: #6f6f6f;">
                                 Sub Total
                             </p>
                         </td>
                         <td style="text-align: center;">
                             <p
-                                style="margin-bottom: 0; padding: 0.5rem; font-weight: bolder; margin-top: 0;font-size: 0.9em;
+                                style="margin-bottom: 0; padding: 0.3rem 0.5rem; font-weight: bolder; margin-top: 0;font-size: 0.8em;
                             color: #6f6f6f;">
                                 {{ $currency }}
                                 <span>{{ round(
@@ -206,13 +206,13 @@ overflow-x: hidden;">
                         style="display: {{ optional($quotation)->special_discount_display == '1' ? 'table-row' : 'none' }};">
                         <td colspan="4">
                             <p
-                                style="margin-bottom: 0; padding: 0.5rem; text-align: right; font-weight: bolder; margin-top: 0;font-size: 0.9em;color: #6f6f6f;">
-                                Special Discount ( {{ optional($singleproduct)->special_discount_percentage }})
+                                style="margin-bottom: 0; padding: 0.3rem 0.5rem; text-align: right; font-weight: bolder; margin-top: 0;font-size: 0.8em;color: #6f6f6f;">
+                                Special Discount ({{ optional($singleproduct)->special_discount_percentage }}%)
                             </p>
                         </td>
                         <td style="text-align: center;">
                             <p
-                                style="margin-bottom: 0; padding: 0.5rem; font-weight: bolder; margin-top: 0;font-size: 0.9em;color: #6f6f6f;">
+                                style="margin-bottom: 0; padding: 0.3rem 0.5rem; font-weight: bolder; margin-top: 0;font-size: 0.8em;color: #6f6f6f;">
                                 {{ $currency }}
                                 <span>{{ round((float) optional($singleproduct)->special_discount_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}</span>
                             </p>
@@ -221,13 +221,13 @@ overflow-x: hidden;">
                     <tr style="display: {{ optional($quotation)->vat_display == '1' ? 'table-row' : 'none' }};">
                         <td colspan="4">
                             <p
-                                style="margin-bottom: 0; padding: 0.5rem; text-align: right; font-weight: bolder; margin-top: 0;font-size: 0.9em;color: #6f6f6f;">
-                                VAT ( {{ optional($singleproduct)->vat_percentage }})
+                                style="margin-bottom: 0; padding: 0.3rem 0.5rem; text-align: right; font-weight: bolder; margin-top: 0;font-size: 0.8em;color: #6f6f6f;">
+                                VAT ({{ optional($singleproduct)->vat_percentage }}%)
                             </p>
                         </td>
                         <td style="text-align: center;">
                             <p
-                                style="margin-bottom: 0; padding: 0.5rem; font-weight: bolder; margin-top: 0;font-size: 0.9em;color: #6f6f6f;">
+                                style="margin-bottom: 0; padding: 0.3rem 0.5rem; font-weight: bolder; margin-top: 0;font-size: 0.8em;color: #6f6f6f;">
                                 {{ $currency }}
                                 <span>{{ round((float) optional($singleproduct)->vat_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}</span>
                             </p>
@@ -236,13 +236,13 @@ overflow-x: hidden;">
                     <tr style="background-color: #eee;">
                         <td colspan="4">
                             <p
-                                style="margin-bottom: 0; padding: 0.5rem; text-align: right; font-weight: bolder; margin-top: 0;font-size: 0.9em;color: #6f6f6f;">
+                                style="margin-bottom: 0; padding: 0.3rem 0.5rem; text-align: right; font-weight: bolder; margin-top: 0;font-size: 0.8em;color: #6f6f6f;">
                                 Grand Total
                             </p>
                         </td>
                         <td style="text-align: center;">
                             <p
-                                style="margin-bottom: 0; padding: 0.5rem; font-weight: bolder; margin-top: 0;font-size: 0.9em;color: #6f6f6f;">
+                                style="margin-bottom: 0; padding: 0.3rem 0.5rem; font-weight: bolder; margin-top: 0;font-size: 0.8em;color: #6f6f6f;">
                                 {{ $currency }}
                                 <span>{{ round(
                                     (float) optional($singleproduct)->total_final_total_price /
@@ -258,11 +258,11 @@ overflow-x: hidden;">
         <table style="width: 40%;
         margin: auto;
         text-align: center;
-        margin-top: 2rem;">
+        margin-top: 0.8rem;">
             <tbody style="border: 1px solid #eee;">
                 <tr>
                     <th>
-                        <p style="margin: 0; font-size: 0.9em;padding: 10px; color: #6f6f6f; text-align:center">GST Not
+                        <p style="margin: 0; font-size: 0.8em;padding: 10px; color: #6f6f6f; text-align:center">GST Not
                             included. It may apply.</p>
                     </th>
                 </tr>
@@ -272,11 +272,11 @@ overflow-x: hidden;">
 
 
         <div style="margin: 0rem 1.5rem;">
-            <table style="width: 100%; overflow-x: auto; margin-top: 2rem;">
+            <table style="width: 100%; overflow-x: auto; margin-top: 0.8rem;">
                 <thead style="background-color: #e5e7eb;">
                     <tr>
                         <th colspan="2"
-                            style="text-align: center; padding: 0.5rem; font-size: 1em; font-weight: bold; color: #6f6f6f;">
+                            style="text-align: center; padding: 0.3rem 0.5rem; font-size: 1em; font-weight: bold; color: #6f6f6f;">
                             Terms & Conditions
                         </th>
                     </tr>
@@ -284,10 +284,10 @@ overflow-x: hidden;">
                 <tbody>
                     @foreach ($rfq_terms as $term)
                         <tr>
-                            <td style="width: 18%; padding: 0.5rem; font-size: 0.9em;">
+                            <td style="width: 20%; padding: 0.3rem 0.5rem; font-size: 0.8em;">
                                 {{ $term->title }}
                             </td>
-                            <td style="width: 82%; padding: 0.5rem; font-size: 0.9em;">
+                            <td style="width: 80%; padding: 0.3rem 0.5rem; font-size: 0.8em;">
                                 {{ $term->description }}
                             </td>
                         </tr>
@@ -297,7 +297,7 @@ overflow-x: hidden;">
         </div>
 
         <div
-            style="padding: 1.5rem 2rem;margin-top: 1.6rem; background-image: url('https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg'); background-size: cover;">
+            style="padding: 1rem 2rem; margin-top:1rem;background-image: url('https://img.freepik.com/free-photo/white-painted-wall-texture-background_53876-138197.jpg'); background-size: cover;">
             <table style="width: 100%; border: 0; overflow-x: auto;">
                 <thead>
                     <tr>
@@ -314,31 +314,27 @@ overflow-x: hidden;">
                 <tbody>
                     <tr>
                         <td
-                            style="font-size: 0.9em; padding: 0;
+                            style="font-size: 0.8em; padding: 0;
                         width: 15%;
                         border-right: 1px solid #c2c1c1;">
-                            <p style="margin: 0; font-size: 0.9em;">
                                 {{ $quotation->sender_name }}
-                            </p>
                         </td>
-                        <td style="font-size: 0.9em;
+                        <td style="font-size: 0.8em;
                         padding-left: 40px; width: 30%;">
-                            <p style="margin: 0; font-size: 0.9em;">
                                 {{ $quotation->ngen_email }}
-                            </p>
                         </td>
                         <td rowspan="3" style="width: 30%; text-align: center;">
                             <div style="width:100%; margin: auto;">
                                 <p
-                                    style="padding: 7px 0px;
+                                    style="
                                     font-weight: bold;
                                     color: #ae0a46;
                                     font-size: 1.35em;
                                     margin-bottom: 0;
-                                    margin-top: 0.3rem;">
+                                    margin-top: 0.1rem;">
                                     {{ $quotation->ngen_company_name }}
                                 </p>
-                                <p style="padding: 10px; margin: 0; font-size: 0.9em;">
+                                <p style="padding: 5px; margin: 0; font-size: 0.8em;">
                                     REG: {{ $quotation->ngen_company_registration_number }}
                                 </p>
                             </div>
@@ -346,26 +342,25 @@ overflow-x: hidden;">
                     </tr>
                     <tr>
                         <td
-                            style="font-size: 0.9em;width: 15%;
-                        border-right: 1px solid #c2c1c1;">
-                            {{ $quotation->sender_designation }}
+                            style="font-size: 0.8em;width: 15%; margin:0; padding:0;
+                        border-right: 1px solid #c2c1c1;">{{ $quotation->sender_designation }}
                         </td>
-                        <td style="font-size: 0.9em;  padding-left: 40px;
+                        <td style="font-size: 0.8em;  padding-left: 40px;
                         width: 15%;">
-                            <p style="margin: 0; font-size: 0.9em;">
+                            <p style="margin: 0; font-size: 0.8em;">
                                 (What's App) {{ $quotation->ngen_number_two }}
                             </p>
                         </td>
                     </tr>
                     <tr>
                         <td
-                            style="font-size: 0.9em;width: 15%;
+                            style="font-size: 0.8em;width: 15%;
                         border-right: 1px solid #c2c1c1;">
-                            <p style="margin: 0; font-size: 0.9em;">Dhaka, Bangladesh</p>
+                            <p style="margin: 0; font-size: 0.8em;">Dhaka, Bangladesh</p>
                         </td>
-                        <td style="font-size: 0.9em; padding-left: 40px;
+                        <td style="font-size: 0.8em; padding-left: 40px;
                         width: 15%; ">
-                            <p style="margin: 0; font-size: 0.9em;">
+                            <p style="margin: 0; font-size: 0.8em;">
                                 (Skype) {{ $quotation->ngen_whatsapp_number }}
                             </p>
                         </td>

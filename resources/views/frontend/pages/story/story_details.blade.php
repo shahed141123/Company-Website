@@ -222,15 +222,18 @@
                                 @foreach ($solution_ids as $item)
                                     @php
                                         $item = str_replace('"', '', $item);
-                                        $data = App\Models\Admin\SolutionDetail::where('id', $item)->value([
+                                        $data = App\Models\Admin\SolutionDetail::where('id', $item)->first([
                                             'name',
                                             'slug',
                                         ]);
                                     @endphp
-                                    <a href="{{ route('solution.details', $$data['slug']) }}"
-                                        class="btn tag_btn">{{ $data['name'] }}</a>
+                                    @if ($data)
+                                        <a href="{{ route('solution.details', $data->slug) }}"
+                                            class="btn tag_btn">{{ $data->name }}</a>
+                                    @endif
                                 @endforeach
                             @endif
+
                         </div>
                     </div>
                     {{-- Add Image --}}

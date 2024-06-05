@@ -88,9 +88,11 @@
                             @if (!empty($blog->tags))
                                 Topics :
                                 @foreach ($without_last_tags as $item)
-                                    <span class="special_character"><i class="fa-regular fa-bookmark"></i> {{ $item }} , </span>
+                                    <span class="special_character"><i class="fa-regular fa-bookmark"></i>
+                                        {{ $item }} , </span>
                                 @endforeach
-                                <span class="special_character"><i class="fa-regular fa-bookmark"></i> {{ $last_word }} </span>
+                                <span class="special_character"><i class="fa-regular fa-bookmark"></i> {{ $last_word }}
+                                </span>
                             @endif
                         </p>
                         <div class="bySocial col-3">
@@ -222,12 +224,18 @@
                                     @foreach ($solution_ids as $item)
                                         @php
                                             $item = str_replace('"', '', $item);
-                                            $data =App\Models\Admin\SolutionDetail::where('id', $item)->value(['name','slug'])
+                                            $data = App\Models\Admin\SolutionDetail::where('id', $item)->first([
+                                                'name',
+                                                'slug',
+                                            ]);
                                         @endphp
-                                        <a href="{{ route('solution.details', $$data['slug']) }}"
-                                            class="btn tag_btn">{{ $data['name'] }}</a>
+                                        @if ($data)
+                                            <a href="{{ route('solution.details', $data->slug) }}"
+                                                class="btn tag_btn">{{ $data->name }}</a>
+                                        @endif
                                     @endforeach
                                 @endif
+
                             </div>
 
                         </div>
