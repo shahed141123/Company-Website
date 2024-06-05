@@ -9,7 +9,7 @@
         @media only screen and (max-width: 767px) {
             .table>:not(caption)>*>* {
                 padding: 5px;
-                font-size: 9px;
+                font-size: 9px !important;
             }
 
 
@@ -86,11 +86,14 @@
             }
 
             .icons-input input {
-                width: auto;
+                width: 7rem;
             }
 
             .rfqs-btns {
                 font-size: 8px !important;
+            }
+            .table-title-font{
+                font-size: 13px !important;
             }
         }
     </style>

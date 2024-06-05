@@ -226,7 +226,7 @@
                     <button type="button" class="btn-close text-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
-                <div class="modal-body rounded-0 p-0">
+                <div class="modal-body rounded-0 p-0 p-lg-5">
                     <div class="container px-0">
                         @if (Auth::guard('client')->user())
                             <form action="{{ route('rfq.add') }}" method="post" id="get_quote_frm"
