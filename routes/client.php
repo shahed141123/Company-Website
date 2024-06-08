@@ -23,7 +23,7 @@ Route::group(['prefix' => $client], function () {
     Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 });
 
-Route::get('/client/{id}',          [RFQManageController::class, 'clientQuotation'])->name('client.quotation');
+// Route::get('/client/quotation/{id}',          [RFQManageController::class, 'clientQuotation'])->name('client.quotation');
 
 Route::get('/job-applicant/login',  [ClientController::class, 'jobApplicantLogin'])->name('job-applicant.login');
 Route::get('/client/login',         [ClientController::class, 'clientLogin'])->name('client.login');
