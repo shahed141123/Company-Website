@@ -4,7 +4,7 @@
         .common_button2 {
             padding: 10px 15px;
             cursor: pointer;
-            font-family: "Allumi Std Extended";
+            font-family: "ngenit-custom-Regular";
             font-size: 18px;
             font-weight: 500;
             text-align: center;

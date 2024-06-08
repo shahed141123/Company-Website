@@ -287,7 +287,7 @@
     }
 
     .what-we-banner-card {
-        font-family: "Allumi Std Extended";
+        font-family: "ngenit-custom-Regular";
     }
 
     .what-we-do-banner-card {
@@ -382,14 +382,14 @@
     .thing_together_wrapper h5 {
         color: #fff;
         font-size: 23px;
-        font-family: "Allumi Std Extended";
+        font-family: "ngenit-custom-Regular";
         margin-top: 29px;
     }
 
     .thing_together_wrapper h4 {
         color: #fff;
         font-size: 25px;
-        font-family: "Allumi Std Extended";
+        font-family: "ngenit-custom-Regular";
         font-weight: 400;
         margin-top: 30px;
     }
@@ -397,7 +397,7 @@
     .thing_together_wrapper p {
         color: #fff;
         font-size: 13px;
-        font-family: "Allumi Std Extended";
+        font-family: "ngenit-custom-Regular";
         font-weight: 400;
     }
 
@@ -606,7 +606,7 @@
     }
 
     .home_title_heading {
-        font-family: "Allumi Std Extended";
+        font-family: "ngenit-custom-Regular";
         font-size: var(--section-title-font-size);
         width: 100% !important;
         color: var(--heading);
@@ -1105,7 +1105,7 @@
 
     .company-tab-para {
         margin-top: 1rem;
-        font-family: "Allumi Std Extended";
+        font-family: "ngenit-custom-Regular";
         text-align: justify;
         font-size: 15px;
     }
@@ -1195,7 +1195,7 @@
     }
 
     .home_card_item_title {
-        font-family: "Allumi Std Extended";
+        font-family: "ngenit-custom-Regular";
         font-size: 28px;
         font-weight: 300;
         color: var(--heading);
@@ -1350,7 +1350,7 @@
 
     .home_shop_product_wrapper h5 {
         font-size: 22px;
-        font-family: "Allumi Std Extended";
+        font-family: "ngenit-custom-Regular";
         font-weight: 400;
         opacity: 0.8;
         margin-bottom: 22px;
@@ -1400,7 +1400,7 @@
         font-size: 16px;
         font-weight: 400;
         text-align: center;
-        font-family: "Allumi Std Extended";
+        font-family: "ngenit-custom-Regular";
         padding: 0px 7px;
     }
 
@@ -1466,7 +1466,7 @@
     }
 
     .footer_text {
-        font-family: "Allumi Std Extended";
+        font-family: "ngenit-custom-Regular";
         color: var(--white);
         padding-right: 0% !important;
         text-align: justify !important;

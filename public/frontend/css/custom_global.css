@@ -1,7 +1,7 @@
 @font-face {
-    font-family: "Allumi Std Extended";
-    src: url("../css/font/AllumiStd-Regular.woff2") format("woff2"),
-        url("../css/font/AllumiStd-Regular.woff") format("woff");
+    font-family: "ngenit-custom-Regular";
+    src: url("../css/font/ngenit-custom-Regular.woff2") format("woff2"),
+        url("../css/font/ngenit-custom-Regular.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -23,7 +23,7 @@
     --border-color: #eee;
     --secoandaryborder-color: #bbbbbb;
     --custom-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    --primary-font: "Allumi Std Extended";
+    --primary-font: "ngenit-custom-Regular";
     --number-font: "Poppins", sans-serif;
     --section-title-font-size: 1.75rem;
     /*28px*/
@@ -50,7 +50,7 @@
         --border-color: #eee;
         --secoandaryborder-color: #bbbbbb;
         --custom-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-        --primary-font: "Allumi Std Extended";
+        --primary-font: "ngenit-custom-Regular";
         --number-font: "Poppins", sans-serif;
         --section-title-font-size: 1.5rem;
         /*28px*/
@@ -78,7 +78,7 @@
         --border-color: #eee;
         --secoandaryborder-color: #bbbbbb;
         --custom-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-        --primary-font: "Allumi Std Extended";
+        --primary-font: "ngenit-custom-Regular";
         --number-font: "Poppins", sans-serif;
         --section-title-font-size: 1.5rem;
         /*28px*/
@@ -5673,7 +5673,7 @@ tr td:hover {
 }
 
 /*25-05-23 */
-/* font face for Allumi Std Extended End*/
+/* font face for ngenit-custom-Regular End*/
 * {
     padding: 0;
     margin: 0;
@@ -16705,7 +16705,7 @@ nav > div a.nav-item.nav-link.active:after {
 .common_button3 {
     padding: 5px 22px;
     cursor: pointer;
-    font-family: "Allumi Std Extended";
+    font-family: "ngenit-custom-Regular";
     font-size: 18px;
     font-weight: 500;
     text-align: center;
@@ -16945,7 +16945,7 @@ ul {
 .common_button2 {
     padding: 15px 20px;
     cursor: pointer;
-    font-family: "Allumi Std Extended";
+    font-family: "ngenit-custom-Regular";
     font-size: 13px;
     font-weight: 500;
     text-align: center;

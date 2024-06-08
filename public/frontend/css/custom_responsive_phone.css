@@ -643,7 +643,7 @@
         font-size: 16px;
         font-weight: 400;
         text-align: center;
-        font-family: "Allumi Std Extended";
+        font-family: "ngenit-custom-Regular";
         padding: 0px 7px;
     }
 
@@ -696,7 +696,7 @@
     }
 
     .footer_text {
-        font-family: "Allumi Std Extended";
+        font-family: "ngenit-custom-Regular";
         color: var(--text-white);
         padding-right: 0% !important;
         text-align: justify !important;
@@ -722,7 +722,7 @@
     }
 
     .footer_link_text {
-        font-family: "Allumi Std Extended";
+        font-family: "ngenit-custom-Regular";
         color: var(--text-white);
         padding-right: 5%;
         text-align: center;
