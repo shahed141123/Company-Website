@@ -262,10 +262,10 @@
                         <th class="text-end pe-5" colspan="5"
                             style="font-size: 15px;background-color: #e2e1e1; color: #000">
                             <div class="d-flex align-items-center justify-content-end">
-                                Vat / GST: <input type="text" name="vat_percentage"
+                                Vat / GST: <input type="text" name="vat_percentage" placeholder="0"
                                     style="width: 5%;border-bottom: 1px solid rgb(218, 201, 201);margin: 0px 19px;"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                                    value="{{ optional($singleproduct)->vat_percentage }}"> %
+                                    value="{{ optional($quotation)->vat_display == '1' ? optional($singleproduct)->vat_percentage : 0 }}"> %
                             </div>
                         </th>
                         <th class="text-center" style="background-color: #e2e1e1; color: #fff">

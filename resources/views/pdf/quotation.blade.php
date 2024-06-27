@@ -131,7 +131,7 @@ overflow-x: hidden;">
                 <thead>
                     <tr style="background-color: #e5e5e5; color: #3d3d3d; border: 1px solid #eee; font-size: 13px;">
                         <th style="width: 6%; text-align: center; padding: 0.3rem 0.5rem; font-weight: 400;">
-                            SL
+                            Sl
                         </th>
                         <th style="width: 49%; text-align: center; padding: 0.3rem 0.5rem; font-weight: 400;">
                             Product Description
@@ -139,10 +139,10 @@ overflow-x: hidden;">
                         <th style="width: 8%; text-align: center; padding: 0.3rem 0.5rem; font-weight: 400;">
                             Qty
                         </th>
-                        <th style="width: 15%; text-align: center; padding: 0.3rem 0.5rem; font-weight: 400;">
+                        <th style="width: 15%; text-align: right; padding: 0.3rem 0.5rem; font-weight: 400;">
                             Unit Price (<span class="currency">{{ $currency }}</span>)
                         </th>
-                        <th style="width: 15%; text-align: center; padding: 0.3rem 0.5rem; font-weight: 400;">
+                        <th style="width: 15%;text-align: right;padding: 0.3rem 0.5rem;font-weight: 400;padding-right: 4.4rem;">
                             Total (<span class="currency">{{ $currency }}</span>)
                         </th>
                     </tr>
@@ -165,14 +165,17 @@ overflow-x: hidden;">
                                         {{ $quotationproduct->qty }}
                                     </p>
                                 </td>
-                                <td style="text-align: center;">
+                                <td style="text-align: right;">
                                     <p style="margin: 0; padding: 0.3rem 0.5rem; font-size: 0.8em;">
                                         {{ round((float) optional($quotationproduct)->unit_final_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}
+                                        {{ $currency }}
                                     </p>
                                 </td>
-                                <td style="text-align: center;">
-                                    <p style="margin: 0; padding: 0.3rem 0.5rem; font-size: 0.8em;">
+                                <td style="text-align: right;padding-right: 4rem;">
+                                    <p class="text-end pe-3"
+                                        style="margin: 0; padding: 0.3rem 0.5rem; font-size: 0.8em;">
                                         {{ round((float) optional($quotationproduct)->unit_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}
+                                        {{ $currency }}
                                     </p>
                                 </td>
                             </tr>
@@ -190,15 +193,15 @@ overflow-x: hidden;">
                                 Sub Total
                             </p>
                         </td>
-                        <td style="text-align: center;">
-                            <p
+                        <td style="text-align: right;padding-right: 4rem;">
+                            <p class="text-end pe-3"
                                 style="margin-bottom: 0; padding: 0.3rem 0.5rem; font-weight: bolder; margin-top: 0;font-size: 0.8em;
                             color: #6f6f6f;">
-                                {{ $currency }}
                                 <span>{{ round(
                                     (float) optional($singleproduct)->sub_total_final_total_price /
                                         ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1),
                                 ) }}</span>
+                                {{ $currency }}
                             </p>
                         </td>
                     </tr>
@@ -210,11 +213,11 @@ overflow-x: hidden;">
                                 Special Discount ({{ optional($singleproduct)->special_discount_percentage }}%)
                             </p>
                         </td>
-                        <td style="text-align: center;">
-                            <p
+                        <td style="text-align: right;padding-right: 4rem;">
+                            <p class="text-end pe-3"
                                 style="margin-bottom: 0; padding: 0.3rem 0.5rem; font-weight: bolder; margin-top: 0;font-size: 0.8em;color: #6f6f6f;">
-                                {{ $currency }}
                                 <span>{{ round((float) optional($singleproduct)->special_discount_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}</span>
+                                {{ $currency }}
                             </p>
                         </td>
                     </tr>
@@ -225,11 +228,11 @@ overflow-x: hidden;">
                                 VAT ({{ optional($singleproduct)->vat_percentage }}%)
                             </p>
                         </td>
-                        <td style="text-align: center;">
-                            <p
+                        <td style="text-align: right;padding-right: 4rem;">
+                            <p class="text-end pe-3"
                                 style="margin-bottom: 0; padding: 0.3rem 0.5rem; font-weight: bolder; margin-top: 0;font-size: 0.8em;color: #6f6f6f;">
-                                {{ $currency }}
                                 <span>{{ round((float) optional($singleproduct)->vat_final_total_price / ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1)) }}</span>
+                                {{ $currency }}
                             </p>
                         </td>
                     </tr>
@@ -240,35 +243,35 @@ overflow-x: hidden;">
                                 Grand Total
                             </p>
                         </td>
-                        <td style="text-align: center;">
-                            <p
+                        <td style="text-align: right;padding-right: 4rem;">
+                            <p class="text-end pe-3"
                                 style="margin-bottom: 0; padding: 0.3rem 0.5rem; font-weight: bolder; margin-top: 0;font-size: 0.8em;color: #6f6f6f;">
-                                {{ $currency }}
                                 <span>{{ round(
                                     (float) optional($singleproduct)->total_final_total_price /
                                         ($quotation->currency_rate > 0 ? (float) $quotation->currency_rate : 1),
                                 ) }}</span>
+                                {{ $currency }}
                             </p>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        {{-- @if (optional($quotation)->vat_display == '1') --}}
-        <table style="width: 40%;
+        @if (optional($quotation)->vat_display == '1')
+            <table style="width: 40%;
         margin: auto;
         text-align: center;
         margin-top: 0.8rem;">
-            <tbody style="border: 1px solid #eee;">
-                <tr>
-                    <th>
-                        <p style="margin: 0; font-size: 0.8em;padding: 10px; color: #6f6f6f; text-align:center">GST Not
-                            included. It may apply.</p>
-                    </th>
-                </tr>
-            </tbody>
-        </table>
-        {{-- @endif --}}
+                <tbody style="border: 1px solid #eee;">
+                    <tr>
+                        <th>
+                            <p style="margin: 0; font-size: 0.8em;padding: 10px; color: #6f6f6f; text-align:center">
+                                {{ $quotation->vat_text }}</p>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        @endif
 
 
         <div style="margin: 0rem 1.5rem;">
@@ -317,11 +320,11 @@ overflow-x: hidden;">
                             style="font-size: 0.8em; padding: 0;
                         width: 15%;
                         border-right: 1px solid #c2c1c1;">
-                                {{ $quotation->sender_name }}
+                            {{ $quotation->sender_name }}
                         </td>
                         <td style="font-size: 0.8em;
                         padding-left: 40px; width: 30%;">
-                                {{ $quotation->ngen_email }}
+                            {{ $quotation->ngen_email }}
                         </td>
                         <td rowspan="3" style="width: 30%; text-align: center;">
                             <div style="width:100%; margin: auto;">
@@ -343,12 +346,13 @@ overflow-x: hidden;">
                     <tr>
                         <td
                             style="font-size: 0.8em;width: 15%; margin:0; padding:0;
-                        border-right: 1px solid #c2c1c1;">{{ $quotation->sender_designation }}
+                        border-right: 1px solid #c2c1c1;">
+                            {{ $quotation->sender_designation }}
                         </td>
                         <td style="font-size: 0.8em;  padding-left: 40px;
                         width: 15%;">
                             <p style="margin: 0; font-size: 0.8em;">
-                                (What's App) {{ $quotation->ngen_number_two }}
+                                (What's App) {{ $quotation->ngen_whatsapp_number }}
                             </p>
                         </td>
                     </tr>
@@ -361,7 +365,7 @@ overflow-x: hidden;">
                         <td style="font-size: 0.8em; padding-left: 40px;
                         width: 15%; ">
                             <p style="margin: 0; font-size: 0.8em;">
-                                (Skype) {{ $quotation->ngen_whatsapp_number }}
+                                (Skype) {{ $quotation->ngen_number_two }}
                             </p>
                         </td>
                     </tr>

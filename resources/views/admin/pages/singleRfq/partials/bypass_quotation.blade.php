@@ -101,7 +101,8 @@
                                                     <div>
                                                         <input type="text"
                                                             class="form-control form-control-sm bg-transparent pq_code"
-                                                            name="pq_code" value="{{ $quotation->pq_code ?? 'PQ#: NG-BD/Genexis/RV/231021' }}"
+                                                            name="pq_code"
+                                                            value="{{ $quotation->pq_code ?? 'PQ#: NG-BD/Genexis/RV/231021' }}"
                                                             style="width:15rem;font-size: 13px;font-family: 'Poppins', sans-serif;color: #4a5472;padding: 0px !important;">
                                                     </div>
                                                 </div>
@@ -161,13 +162,14 @@
 
                                             <td><input type="text" name=""
                                                     class="form-control form-control-sm bg-transparent text-center"
-                                                    value="{{ round((float)optional($singleproduct)->unit_final_price / ((optional($quotation)->currency_rate > 0) ? (float)optional($quotation)->currency_rate : 1)) }}">
+                                                    value="{{ round((float) optional($quotationproduct)->unit_final_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)) }}">
                                             </td>
-                                            <td class=" text-center">
-                                                <input type="text" name=""
-                                                    class="form-control form-control-sm bg-transparent text-center"
-                                                    value="{{ round((float)optional($singleproduct)->unit_final_total_price / ((optional($quotation)->currency_rate > 0) ? (float)optional($quotation)->currency_rate : 1)) }}">
-                                            </td>
+                                            <td class="d-flex align-items-center text-center pe-3">
+                                                <input type="text" name="" disabled
+                                                    class="form-control form-control-sm bg-transparent text-end"
+                                                    value="{{ round((float) optional($quotationproduct)->unit_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)) }}">
+                                                    <span class="currency"></span>
+                                                </td>
                                         </tr>
                                     @endforeach
                                 @else
@@ -185,13 +187,14 @@
                                         style="width: 83.8%;text-align: end;padding: 0.5rem;color: #3d3d3d;border: none;">
                                         Sub Total
                                     </th>
-                                    <th class="d-flex align-items-center"
+                                    <th class="d-flex align-items-center pe-3"
                                         style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                        <p class="currency mb-0"></p>
-                                        <input type="text" readonly name=""
-                                            class="form-control form-control-sm bg-transparent text-center rfqcalculationinput"
-                                            value="{{ round((float)optional($singleproduct)->sub_total_final_total_price / ((optional($quotation)->currency_rate > 0) ? (float)optional($quotation)->currency_rate : 1)) }}"
+
+                                        <input type="text" disabled name=""
+                                            class="form-control form-control-sm bg-transparent text-end rfqcalculationinput"
+                                            value="{{ round((float) optional($singleproduct)->sub_total_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)) }}"
                                             style="color: #3d3d3d;padding: 0px !important;">
+                                            <span class="currency"></span>
                                     </th>
                                 </tr>
                             </table>
@@ -207,13 +210,14 @@
                                             Special Discount (<span
                                                 class="special_discount_value">{{ optional($quotation)->special_discount_percentage }}</span>)
                                         </td>
-                                        <td class="d-flex align-items-center"
+                                        <td class="d-flex align-items-center pe-3"
                                             style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                            <span class="currency"></span>
-                                            <input type="text" name="" readonly
-                                                class="form-control form-control-sm bg-transparent text-center"
-                                                value="{{ round((float)optional($singleproduct)->special_discount_final_total_price / ((optional($quotation)->currency_rate > 0) ? (float)optional($quotation)->currency_rate : 1)) }}"
+
+                                            <input type="text" name="" disabled
+                                                class="form-control form-control-sm bg-transparent text-end"
+                                                value="{{ round((float) optional($singleproduct)->special_discount_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)) }}"
                                                 style="color: #3d3d3d;padding: 0px !important;">
+                                                <span class="currency"></span>
                                         </td>
                                     </tr>
                                 </table>
@@ -229,13 +233,14 @@
                                             Vat (<span
                                                 class="vat_tax_value">{{ optional($singleproduct)->vat_percentage }}</span>)
                                         </td>
-                                        <td class="d-flex align-items-center"
+                                        <td class="d-flex align-items-center pe-3"
                                             style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                            <span class="currency"></span>
-                                            <input type="text" name=""
-                                                value="{{ round((float)optional($singleproduct)->vat_final_total_price / ((optional($quotation)->currency_rate > 0) ? (float)optional($quotation)->currency_rate : 1)) }}"
-                                                class="form-control form-control-sm bg-transparent text-center"
+
+                                            <input type="text" name="" disabled
+                                                value="{{ round((float) optional($singleproduct)->vat_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)) }}"
+                                                class="form-control form-control-sm bg-transparent text-end"
                                                 value="0" style="color: #3d3d3d;padding: 0px !important;">
+                                                <span class="currency"></span>
                                         </td>
                                     </tr>
                                 </table>
@@ -251,13 +256,14 @@
                                         style="width: 83.8%;text-align: end;padding: 0.5rem;color: #3d3d3d;border: none;">
                                         Grand Total
                                     </th>
-                                    <th class="d-flex align-items-center"
+                                    <th class="d-flex align-items-center pe-3"
                                         style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
-                                        <p class="currency mb-0"></p>
-                                        <input type="text" name="" readonly
-                                            class="form-control form-control-sm bg-transparent text-center"
-                                            value="{{ round((float)optional($singleproduct)->total_final_total_price / ((optional($quotation)->currency_rate > 0) ? (float)optional($quotation)->currency_rate : 1)) }}"
+
+                                        <input type="text" name="" disabled
+                                            class="form-control form-control-sm bg-transparent text-end"
+                                            value="{{ round((float) optional($singleproduct)->total_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)) }}"
                                             style="color: #3d3d3d;padding: 0px !important;">
+                                            <span class="currency"></span>
                                     </th>
                                 </tr>
                             </table>
@@ -274,7 +280,7 @@
                                                 style="text-align: center;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
                                                 <input type="text" name="vat_text"
                                                     class="form-control form-control-sm bg-transparent text-center"
-                                                    value="GST Not included. It may apply."
+                                                    value="GST not included. It may apply."
                                                     style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
                                             </th>
                                         </tr>
@@ -288,10 +294,8 @@
                                 <thead>
                                     <tr>
                                         <th width="5%" style="text-align: center;">
-                                            <a
-                                                class="border-0 p-0 bg-transparent text-primary fa-solid fa-plus add-terms-row">
-                                                {{-- <i class="fa-solid fa-plus"></i> --}}
-                                            </a>
+                                            <a class="border-0 p-0 bg-transparent text-primary fa-solid fa-plus add-terms-row"
+                                                onclick="addTermsRow()"></a>
                                         </th>
                                         <th colspan="2" style="text-align: center;">
                                             <p class="mb-0 p-2">Terms & Conditions</p>
@@ -300,9 +304,11 @@
                                 </thead>
                                 <tbody class="terms_tbody">
                                     @if ($rfq_terms->isEmpty())
+                                        <!-- Default rows -->
                                         <tr>
                                             <td style="text-align: center;">
-                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row"
+                                                    onclick="deleteTermsRow(this)">
                                                     <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
@@ -315,12 +321,13 @@
                                             <td>
                                                 <input type="text" name="terms_description[]"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="Valid till 7 days from PQ.Offer may change on the bank forex rate or stock availability">
+                                                    value="Valid till 7 days from PQ. Offer may change on the bank forex rate or stock availability">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="text-align: center;">
-                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row"
+                                                    onclick="deleteTermsRow(this)">
                                                     <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
@@ -333,12 +340,13 @@
                                             <td>
                                                 <input type="text" name="terms_description[]"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="100% payment  through EFTN/WT & hit in the NGen IT account within 30 days of Delivery">
+                                                    value="100% payment through EFTN/WT & hit in the NGen IT Limited account within 30 days of Delivery">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="text-align: center;">
-                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row"
+                                                    onclick="deleteTermsRow(this)">
                                                     <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
@@ -351,12 +359,13 @@
                                             <td>
                                                 <input type="text" name="terms_description[]"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="Product may take a certain time for Payment, Shipment, Delivery. In exception it may different">
+                                                    value="Product may take a certain time for Payment, Shipment, Delivery. In exception it may differ">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="text-align: center;">
-                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row"
+                                                    onclick="deleteTermsRow(this)">
                                                     <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
@@ -374,7 +383,8 @@
                                         </tr>
                                         <tr>
                                             <td style="text-align: center;">
-                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row"
+                                                    onclick="deleteTermsRow(this)">
                                                     <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
@@ -387,12 +397,13 @@
                                             <td>
                                                 <input type="text" name="terms_description[]"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="Via Email / Conole Panel">
+                                                    value="Via Email / Console Panel">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="text-align: center;">
-                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row"
+                                                    onclick="deleteTermsRow(this)">
                                                     <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
@@ -405,12 +416,13 @@
                                             <td>
                                                 <input type="text" name="terms_description[]"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="No Partial or Less vloume Order is accepted. Order may reject or ask for alternative / changes if not available from mnfg.">
+                                                    value="No Partial or Less volume Order is accepted. Order may reject or ask for alternative / changes if not available from mnfg.">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="text-align: center;">
-                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row"
+                                                    onclick="deleteTermsRow(this)">
                                                     <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
@@ -428,7 +440,8 @@
                                         </tr>
                                         <tr>
                                             <td style="text-align: center;">
-                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                                                <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row"
+                                                    onclick="deleteTermsRow(this)">
                                                     <i class="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
@@ -441,7 +454,7 @@
                                             <td>
                                                 <input type="text" name="terms_description[]"
                                                     class="form-control form-control-sm bg-transparent"
-                                                    value="No Instalaltion or Maintenance is applicable with this price quote.">
+                                                    value="No Installation or Maintenance is applicable with this price quote.">
                                             </td>
                                         </tr>
                                     @else
@@ -449,7 +462,7 @@
                                             <tr>
                                                 <td style="text-align: center;">
                                                     <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row"
-                                                        data-id="{{ $term->id }}">
+                                                        data-id="{{ $term->id }}" onclick="deleteTermsRow(this)">
                                                         <i class="fa-solid fa-trash"></i>
                                                     </a>
                                                 </td>
@@ -470,7 +483,6 @@
                                     @endif
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                     <!-- Main Content End -->
@@ -520,9 +532,9 @@
                                                                             </div>
                                                                             <div class="icons-input">
                                                                                 <input type="text"
-                                                                                    name="{{ $quotation->ngen_number_two ?? 'ngen_number_two' }}"
+                                                                                    name="ngen_number_two"
                                                                                     class="form-control form-control-sm bg-transparent text-end"
-                                                                                    value="+880 156845986"
+                                                                                    value="{{ $quotation->ngen_number_two ?? ' +1 917-720-3055' }}"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                             </div>
                                                                         </div>
@@ -533,9 +545,9 @@
                                                                             </div>
                                                                             <div class="icons-input">
                                                                                 <input type="text"
-                                                                                    name="{{ $quotation->ngen_whatsapp_number ?? 'ngen_whatsapp_number' }}"
+                                                                                    name="ngen_whatsapp_number"
                                                                                     class="form-control form-control-sm bg-transparent text-end"
-                                                                                    value="+880 156845987"
+                                                                                    value="{{ $quotation->ngen_whatsapp_number ??  '+8801714243446' }}"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                             </div>
                                                                         </div>
@@ -578,7 +590,8 @@
 <div>
     <div class="d-flex justify-content-center align-items-center py-3">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="1" name="attachment" @checked(optional($quotation)->attachment == '1')>
+            <input class="form-check-input" type="checkbox" value="1" name="attachment"
+                @checked(optional($quotation)->attachment == '1')>
             <label class="form-check-label text-danger" for="flexCheckDefault">
                 Send Quotation With Attachment
             </label>
@@ -608,6 +621,3 @@
             <button type="submit" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Share On What's App</button> --}}
     </div>
 </div>
-
-
-

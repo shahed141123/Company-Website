@@ -79,47 +79,48 @@ class RFQManageController extends Controller
         $rfqQuotation = RfqQuotation::updateOrCreate(
             ['rfq_id' => $rfq_id],
             [
-            // 'rfq_id' => $data['rfq_id'] ?? null,
-            'rfq_code'                           => $data['rfq_code'] ?? null,
-            'quotation_title'                    => $data['quotation_title'] ?? null,
-            'country'                            => $data['country'] ?? null,
-            'region'                             => $data['region'] ?? null,
-            'currency'                           => $data['currency'] ?? null,
-            'currency_rate'                      => $data['currency_rate'] ?? null,
-            'company_name'                       => $data['company_name'] ?? null,
-            'name'                               => $data['name'] ?? null,
-            'email'                              => $data['email'] ?? null,
-            'receiver_email'                     => $data['receiver_email'] ?? null,
-            'receiver_cc_email'                  => $data['receiver_cc_email'] ?? null,
-            'phone'                              => $data['phone'] ?? null,
-            'address'                            => $data['address'] ?? null,
-            'ngen_company_name'                  => $data['ngen_company_name'] ?? null,
-            'ngen_company_registration_number'   => $data['ngen_company_registration_number'] ?? null,
-            'quotation_date'                     => $data['quotation_date'] ?? null,
-            'pq_code'                            => $data['pq_code'] ?? null,
-            'pqr_code'                           => $data['pqr_code'] ?? null,
-            'sub_total_final_total_price'        => $data['sub_total_final_total_price'] ?? null,
-            'special_discount_final_total_price' => $data['special_discount_final_total_price'] ?? null,
-            'vat_final_total_price'              => $data['vat_final_total_price'] ?? null,
-            'total_final_total_price'            => $data['total_final_total_price'] ?? null,
-            'thank_you_text'                     => $data['thank_you_text'] ?? null,
-            'sender_name'                        => $data['sender_name'] ?? null,
-            'sender_designation'                 => $data['sender_designation'] ?? null,
-            'ngen_email'                         => $data['ngen_email'] ?? null,
-            'ngen_whatsapp_number'               => $data['ngen_whatsapp_number'] ?? null,
-            'ngen_number_two'                    => $data['ngen_number_two'] ?? null,
-            'attachment'                         => $data['attachment'] ?? null,
-            'office_cost_percentage'             => $data['office_cost_percentage'] ?? null,
-            'profit_percentage'                  => $data['profit_percentage'] ?? null,
-            'others_cost_percentage'             => $data['others_cost_percentage'] ?? null,
-            'remittence_percentage'              => $data['remittence_percentage'] ?? null,
-            'packing_percentage'                 => $data['packing_percentage'] ?? null,
-            'vat_display'                        => $data['vat_display'] ?? null,
-            'vat_text'                           => $data['vat_text'] ?? null,
-            'special_discount_display'           => $data['special_discount_display'] ?? null,
-            'custom_percentage'                  => $data['custom_percentage'] ?? null,
-            'tax_vat_percentage'                 => $data['tax_vat_percentage'] ?? null,
-        ]);
+                // 'rfq_id' => $data['rfq_id'] ?? null,
+                'rfq_code'                           => $data['rfq_code'] ?? null,
+                'quotation_title'                    => $data['quotation_title'] ?? null,
+                'country'                            => $data['country'] ?? null,
+                'region'                             => $data['region'] ?? null,
+                'currency'                           => $data['currency'] ?? null,
+                'currency_rate'                      => $data['currency_rate'] ?? null,
+                'company_name'                       => $data['company_name'] ?? null,
+                'name'                               => $data['name'] ?? null,
+                'email'                              => $data['email'] ?? null,
+                'receiver_email'                     => $data['receiver_email'] ?? null,
+                'receiver_cc_email'                  => $data['receiver_cc_email'] ?? null,
+                'phone'                              => $data['phone'] ?? null,
+                'address'                            => $data['address'] ?? null,
+                'ngen_company_name'                  => $data['ngen_company_name'] ?? null,
+                'ngen_company_registration_number'   => $data['ngen_company_registration_number'] ?? null,
+                'quotation_date'                     => $data['quotation_date'] ?? null,
+                'pq_code'                            => $data['pq_code'] ?? null,
+                'pqr_code'                           => $data['pqr_code'] ?? null,
+                'sub_total_final_total_price'        => $data['sub_total_final_total_price'] ?? null,
+                'special_discount_final_total_price' => $data['special_discount_final_total_price'] ?? null,
+                'vat_final_total_price'              => $data['vat_final_total_price'] ?? null,
+                'total_final_total_price'            => $data['total_final_total_price'] ?? null,
+                'thank_you_text'                     => $data['thank_you_text'] ?? null,
+                'sender_name'                        => $data['sender_name'] ?? null,
+                'sender_designation'                 => $data['sender_designation'] ?? null,
+                'ngen_email'                         => $data['ngen_email'] ?? null,
+                'ngen_whatsapp_number'               => $data['ngen_whatsapp_number'] ?? null,
+                'ngen_number_two'                    => $data['ngen_number_two'] ?? null,
+                'attachment'                         => $data['attachment'] ?? null,
+                'office_cost_percentage'             => $data['office_cost_percentage'] ?? null,
+                'profit_percentage'                  => $data['profit_percentage'] ?? null,
+                'others_cost_percentage'             => $data['others_cost_percentage'] ?? null,
+                'remittence_percentage'              => $data['remittence_percentage'] ?? null,
+                'packing_percentage'                 => $data['packing_percentage'] ?? null,
+                'vat_display'                        => $data['vat_display'] ?? null,
+                'vat_text'                           => $data['vat_text'] ?? null,
+                'special_discount_display'           => $data['special_discount_display'] ?? null,
+                'custom_percentage'                  => $data['custom_percentage'] ?? null,
+                'tax_vat_percentage'                 => $data['tax_vat_percentage'] ?? null,
+            ]
+        );
 
         foreach ($data['terms_titles'] as $index => $title) {
             $termsId = $data['terms_id'][$index];
@@ -233,6 +234,64 @@ class RFQManageController extends Controller
 
 
 
+    // public function bypassQuotationSend(Request $request)
+    // {
+    //     set_time_limit(240);
+    //     $rfq_id = $request->rfq_id;
+
+    //     $data['rfq'] = Rfq::find($rfq_id); // Use find() if you're fetching by primary key
+    //     $data['quotation'] = RfqQuotation::where('rfq_id', $rfq_id)->first();
+    //     $data['rfq_terms'] = QuotationTerm::where('rfq_id', $rfq_id)->get();
+    //     $data['products'] = QuotationProduct::where('rfq_id', $rfq_id)->get();
+    //     $data['singleproduct'] = $data['products']->first();
+    //     $data['rfq_code'] = $data['rfq']->rfq_code;
+    //     $data['name'] = $data['rfq']->name;
+    //     $data['quotation_title'] = $data['quotation']->quotation_title;
+
+
+
+    //     if ($data['quotation']->currency == 'taka') {
+    //         $data['currency'] = 'Tk';
+    //     } else if ($data['quotation']->currency == 'euro') {
+    //         $data['currency'] = '&euro';
+    //     } else if ($data['quotation']->currency == 'dollar') {
+    //         $data['currency'] = '$';
+    //     } else if ($data['quotation']->currency == 'pound') {
+    //         $data['currency'] = '&pound';
+    //     } else {
+    //         $data['currency'] = 'Tk';
+    //     }
+
+    //     $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
+    //     $filePath = 'public/files/' . $fileName;
+    //     $pdf = PDF::loadView('pdf.quotation', $data);
+    //     $pdf->setPaper('a4', 'portrait');
+    //     $pdf_output = $pdf->output();
+    //     Storage::put($filePath, $pdf_output);
+    //     // return view('pdf.quotation', $data);
+
+    //     // Save the file path to the database
+    //     $data['quotation']->update([
+    //         'receiver_email' => $request->receiver_email,
+    //         'receiver_cc_email' => $request->receiver_cc_email,
+    //         'quotation_pdf' => $fileName,
+    //     ]);
+
+    //     if ($data['quotation']->attachment == '1') {
+    //         Mail::to($data['quotation']->receiver_email)
+    //             ->cc(explode(',', $data['quotation']->receiver_cc_email))
+    //             ->send(new QuotationMail($data, $pdf_output));
+    //     } else {
+    //         Mail::to($data['quotation']->receiver_email)
+    //             ->cc(explode(',', $data['quotation']->receiver_cc_email))
+    //             ->send(new QuotationMail($data));
+    //     }
+
+    //     Toastr::success('Quotation Saved.');
+    //     Toastr::success('Mail Sent.');
+    //     return redirect()->back();
+    // }
+
     public function bypassQuotationSend(Request $request)
     {
         set_time_limit(240);
@@ -247,15 +306,13 @@ class RFQManageController extends Controller
         $data['name'] = $data['rfq']->name;
         $data['quotation_title'] = $data['quotation']->quotation_title;
 
-
-
         if ($data['quotation']->currency == 'taka') {
             $data['currency'] = 'Tk';
-        } else if ($data['quotation']->currency == 'euro') {
+        } elseif ($data['quotation']->currency == 'euro') {
             $data['currency'] = '&euro';
-        } else if ($data['quotation']->currency == 'dollar') {
+        } elseif ($data['quotation']->currency == 'dollar') {
             $data['currency'] = '$';
-        } else if ($data['quotation']->currency == 'pound') {
+        } elseif ($data['quotation']->currency == 'pound') {
             $data['currency'] = '&pound';
         } else {
             $data['currency'] = 'Tk';
@@ -268,24 +325,34 @@ class RFQManageController extends Controller
         $pdf_output = $pdf->output();
         Storage::put($filePath, $pdf_output);
         return view('pdf.quotation', $data);
+        
+        // Validate email addresses
+        $receiver_email = filter_var($request->receiver_email, FILTER_VALIDATE_EMAIL);
+        $receiver_cc_email = $request->receiver_cc_email ? array_filter(explode(',', $request->receiver_cc_email), function($email) {
+            return filter_var(trim($email), FILTER_VALIDATE_EMAIL);
+        }) : [];
+
+        if (!$receiver_email) {
+            Toastr::error('Invalid receiver email address.');
+            return redirect()->back()->withInput();
+        }
 
         // Save the file path to the database
         $data['quotation']->update([
-            'receiver_email' => $request->receiver_email,
-            'receiver_cc_email' => $request->receiver_cc_email,
-            'quotation_pdf' => $filePath,
+            'receiver_email' => $receiver_email,
+            'receiver_cc_email' => implode(',', $receiver_cc_email),
+            'quotation_pdf' => $fileName,
         ]);
 
+        $mail = Mail::to($receiver_email);
+        if (!empty($receiver_cc_email)) {
+            $mail->cc($receiver_cc_email);
+        }
+
         if ($data['quotation']->attachment == '1') {
-            Mail::to($data['quotation']->receiver_email)
-                ->cc(explode(',', $data['quotation']->receiver_cc_email))
-                // ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
-                ->send(new QuotationMail($data, $pdf_output));
+            $mail->send(new QuotationMail($data, $pdf_output));
         } else {
-            Mail::to($data['quotation']->receiver_email)
-                ->cc(explode(',', $data['quotation']->receiver_cc_email))
-                // ->bcc(['ngenit@gmail.com', 'sales@ngenitltd.com'])
-                ->send(new QuotationMail($data));
+            $mail->send(new QuotationMail($data));
         }
 
         Toastr::success('Quotation Saved.');

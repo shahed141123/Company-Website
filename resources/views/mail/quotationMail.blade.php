@@ -88,8 +88,7 @@
                                     <tr>
                                         <div style="text-align: left;padding: 15px;">
                                             <p style="text-align: left; font-size: 18px; color: #141414;">
-                                                We have generated a Quotation against your RFQ ({{$data['rfq_code']}}). You can
-                                                check & download the Quotation from the below link.
+                                                We have generated a Quotation against your ({{$data['rfq_code']}}). Please click the price quotation from here.
                                                 Thanks for being attached with us.
                                             </p>
                                         </div>
@@ -107,7 +106,7 @@
                                     <tr>
                                         <div style="text-align: center;padding: 15px; padding-bottom: 5px;">
                                             <p style="text-align: center; font-size: 16px; color: #141414;">
-                                                From the below link, you can watch and download Quotation
+                                                See Price Quotation.
                                             </p>
                                         </div>
                                     </tr>
@@ -117,7 +116,7 @@
                                             <strong>
                                                 <a href="{{ route('quotation.link', $data['rfq_code']) }}"
                                                     style="color: #FFF;border: 1px solid #ae0a46;background-color: #ae0a46;transition: all 0.8s ease-in-out;padding: 10px 40px;                                cursor: pointer;                                font-size: 18px;                                font-weight: 500;">
-                                                    Go To Link</a>
+                                                    Price Quotation</a>
                                             </strong>
                                         </div>
                                     </tr>
@@ -131,8 +130,8 @@
                                             style="text-align: center;padding: 15px; padding-bottom: 15px; width: 70%; margin: auto">
                                             <p
                                                 style="text-align: center; font-size: 14px; color: #141414; padding-bottom: 15px;">
-                                                If you are having trouble clicking the "Go To Link" button, copy and
-                                                paste theURL below into your web browser:
+                                                If you are having trouble with "Price Quotation" button, please copy and
+                                                paste the below URL into your web browser:
                                             </p>
 
 

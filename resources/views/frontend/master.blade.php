@@ -5,7 +5,7 @@
     @include('frontend.partials.head')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="google-site-verification" content="rvHWL3HPw7hzVuxHE37nPByXS604wH6gpUPzjZiWNy8" />
-    <meta name="title" content="NGen IT Ltd.">
+    <meta name="title" content="NGEN IT Ltd.">
     <meta name="description"
         content="NGEN IT Ltd. is a System Integration, Software & Hardware based License Provider & Software development based company established at 2008. Our technical expertise, broad solutions portfolio and supply chain capabilities give us the right resources and scale to achieve more for you. Cloud Services.">
     <meta name="keywords"
@@ -13,10 +13,9 @@
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
+    <meta name="revisit-after" content="1 hour">
     <meta name="author" content="NGen IT">
-    <script async data-id="9476858534" id="chatling-embed-script" type="text/javascript"
-        src="https://chatling.ai/js/embed.js"></script>
+    <script async data-id="9476858534" id="chatling-embed-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KB1NVD4FHE"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -25,7 +24,6 @@
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
-
         gtag('config', 'G-KB1NVD4FHE');
     </script>
 </head>

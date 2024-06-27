@@ -92,7 +92,8 @@
             .rfqs-btns {
                 font-size: 8px !important;
             }
-            .table-title-font{
+
+            .table-title-font {
                 font-size: 13px !important;
             }
         }
@@ -173,8 +174,8 @@
                                         Email</label>
                                     <input type="hidden" name="rfq_id" value="{{ $rfq_details->id }}">
                                     <input type="email" maxlength="250" class="form-control form-control-sm"
-                                        value="{{ optional($quotation)->receiver_email ?? $rfq_details->email }}" placeholder="demo@example.com"
-                                        name="receiver_email" />
+                                        value="{{ optional($quotation)->receiver_email ?? $rfq_details->email }}"
+                                        placeholder="demo@example.com" name="receiver_email" />
                                 </div>
                                 <div class="mb-1">
                                     <label class="form-label" for="basicpill-firstname-input">Quotation Receiver Email
@@ -208,19 +209,6 @@
                     $('.submit_modal_container').hide(); // Hide the submit modal container
                 });
             });
-
-            // Show/hide VAT display if already checked
-            // // Toggle VAT display
-            // quotationForm.find('input[name="vat_display"]').on('click', function() {
-            //     $('.vat_display').toggle($(this).is(":checked"));
-            // }).trigger('click'); // Trigger click event on page load
-
-            // // Toggle special discount display
-            // quotationForm.find('input[name="special_discount_display"]').on('click', function() {
-            //     $('.special_discount').toggle($(this).is(":checked"));
-            // }).trigger('click'); // Trigger click event on page load
-
-            // Update company name and registration number based on region
         </script>
         <script>
             // Define the updateCurrency function globally
@@ -608,9 +596,7 @@
                 });
             }
 
-            function updateSerialNumbers() {
-                // Implement the logic to update the serial numbers if needed.
-            }
+
 
 
 
@@ -627,18 +613,20 @@
                 });
             }
 
-            $(document).ready(function() {
-                // Add new row to terms table
-                $('.terms_table').on('click', '.add-terms-row', function(e) {
-                    e.preventDefault();
-                    let termsRow = `
+
+            // Add new row to terms table
+
+
+            // Function to add a new row
+            function addTermsRow() {
+                let termsRow = `
                     <tr>
                         <td style="text-align: center;">
-                            <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row">
+                            <a class="text-danger rounded-0 btn-sm p-1 delete-terms-row" onclick="deleteTermsRow(this)">
                                 <i class="fa-solid fa-trash"></i>
                             </a>
                         </td>
-                        <td style="width: 10%">
+                        <td style="width: 15%">
                             <input type="hidden" name="terms_id[]" value="">
                             <input type="text" name="terms_title[]" class="form-control form-control-sm bg-transparent text-start" value="" placeholder="Terms title">
                         </td>
@@ -646,14 +634,15 @@
                             <input type="text" name="terms_description[]" class="form-control form-control-sm bg-transparent" value="" placeholder="Terms description">
                         </td>
                     </tr>`;
-                    $(this).closest('table').find('.terms_tbody').append(termsRow);
-                });
+                document.querySelector('.terms_tbody').insertAdjacentHTML('beforeend', termsRow);
+            }
 
-                // Delete row from terms table
-                $('.terms_table').on('click', '.delete-terms-row', function(e) {
-                    e.preventDefault();
-                    $(this).closest('tr').remove();
-                    termsId = $(this).data('id');
+            // Function to delete a row
+            function deleteTermsRow(element) {
+                let termsId = element.getAttribute('data-id');
+                if (termsId) {
+                    // Perform AJAX request to delete from the database
+                    // termsId = $(this).data('id');
                     $.ajax({
                         url: '{{ route('delete.quotationTerms', ':termsId') }}'.replace(
                             ':termsId', termsId),
@@ -673,41 +662,34 @@
                             console.error('AJAX Error:', error);
                         }
                     });
-                });
-                updateSerialNumbers();
+                } else {
+                    // Remove row without AJAX if termsId is not set
+                    element.closest('tr').remove();
+                    updateSerialNumbers();
+                }
+            }
+
+            // Function to update serial numbers
+            // function updateSerialNumbers() {
+            //     const rows = document.querySelectorAll('#myTable tbody.table_bottom_area tr.thd');
+            //     const rows2 = document.querySelectorAll('#quotationTable tbody.quotationTable_area tr.tdsp');
+
+            //     rows.forEach((row, index) => {
+            //         row.querySelector('td:nth-child(2)').textContent = index + 1;
+            //     });
+
+            //     rows2.forEach((row2, index) => {
+            //         row2.querySelector('td:nth-child(1)').textContent = index + 1;
+            //     });
+            // }
+
+            // Initialize any necessary components or functions on document ready
+            document.addEventListener('DOMContentLoaded', function() {
+                updateSerialNumbers(); // Call updateSerialNumbers function or any other initialization tasks
             });
         </script>
 
-        {{-- <script>
-            // $(document).on('keyup change', '#quotationForm input, #quotationForm select, #quotationForm textarea', function(e) {
-            //     e.preventDefault();
-            $(document).on('blur', '#quotationForm input, #quotationForm select, #quotationForm textarea', function(e) {
-                e.preventDefault();
 
-                var formElement = document.getElementById('quotationForm');
-                var formData = new FormData(formElement);
-
-                $.ajax({
-                    url: '{{ route('rfq-manage.store') }}',
-                    type: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        if (response) {
-                            $('#mysetting').html(response.mysetting);
-                            $('#quotation').html(response.quotation);
-                            $('#cog').html(response.cog);
-                        } else {
-                            console.error('Quotation not saved.');
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(xhr.responseText);
-                    }
-                });
-            });
-        </script> --}}
         <script>
             var debounceTimer;
 
