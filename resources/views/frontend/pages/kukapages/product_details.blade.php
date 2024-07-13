@@ -34,30 +34,36 @@
                             <div class="row gx-0 px-2">
                                 <h4>{{ $sproduct->name }}</h4>
                                 <ul class="d-flex align-items-center p-1">
-                                    <li class="me-1">
-                                        <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
-                                                class="fa-solid fa-tag me-1 single-bp-tag"></i>{{ $sproduct->sku_code }}</p>
-                                    </li>
-                                    <li class="me-1">
-                                        <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
-                                                class="fa-solid fa-tag me-1 single-bp-tag"></i>{{ $sproduct->mf_code }}</p>
-                                    </li>
-                                    <li class="me-1">
-                                        <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
-                                                class="fa-solid fa-tag me-1 single-bp-tag"></i>{{ $sproduct->product_code }}
-                                        </p>
-                                    </li>
+                                    @if (!empty($sproduct->sku_code))
+                                        <li class="me-2">
+                                            <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
+                                                    class="fa-solid fa-tag me-1 single-bp-tag"></i><strong>NG # </strong>{{ $sproduct->sku_code }}</p>
+                                        </li>
+                                    @endif
+                                    @if (!empty($sproduct->mf_code))
+                                        <li class="me-2">
+                                            <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
+                                                    class="fa-solid fa-tag me-1 single-bp-tag"></i><strong>MF # </strong>{{ $sproduct->mf_code }}</p>
+                                        </li>
+                                    @endif
+                                    @if (!empty($sproduct->product_code))
+                                        <li class="me-1">
+                                            <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
+                                                    class="fa-solid fa-tag me-1 single-bp-tag"></i><strong>SKU # </strong>{{ $sproduct->product_code }}
+                                            </p>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div>
                             <div class="row gx-0 px-2">
                                 <p class="p-0">{!! $sproduct->short_desc !!}</p>
                             </div>
-                            <div class="row d-flex align-items-center gx-0 px-2">
-                                <div class="col-sm-4">
-                                    <span class="fw-bold">Manufactured by:</span>
+                            <div class="d-flex align-items-center gx-0 px-2">
+                                <div>
+                                    <h6 class="me-3 p-0 m-0">Manufactured By :</h6>
                                 </div>
-                                <div class="col-sm-8 d-flex align-items-center">
-                                    <h4 class="me-3 p-0 m-0">{{ $sproduct->getBrandName() }}</h4>
+                                <div>
+                                    <h6 class="fw-bold me-3 p-0 m-0">{{ $sproduct->getBrandName() }}</h6>
                                     {{-- <p class="p-0 m-0"><i class="fa-solid fa-location-dot me-2 text-muted"></i></p> --}}
                                     {{-- <p class="p-0 m-0">Germany</p> --}}
                                 </div>
@@ -228,7 +234,10 @@
                                             </div>
                                         </div>
                                     @else
-                                        <form action="{{ route('add.cart') }}" method="post">
+                                    <button class="btn-color brand-product-btn" id="modal_view_left"
+                                                        data-toggle="modal" data-target="#rfq{{ $sproduct->id }}"
+                                                        style="width: 100%;">Get Quote</button>
+                                        {{-- <form action="{{ route('add.cart') }}" method="post">
                                             @csrf
                                             <input type="hidden" name="product_id" id="product_id"
                                                 value="{{ $sproduct->id }}">
@@ -257,7 +266,7 @@
                                                 </div>
 
                                             </div>
-                                        </form>
+                                        </form> --}}
                                     @endif
                                     <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-2 px-5"
                                         style="width: 100%; background: #f4efe4;">
@@ -269,7 +278,7 @@
                                                         <p class="mb-0"
                                                             style="font-size: 14px !important; color: #ae0a46;">
                                                             <span style="text-decoration: line-through; color:#ae0a46;">$
-                                                                {{ $sproduct->price }}</span>
+                                                                {{ $sproduct->sas_price }}</span>
                                                             <span style="color: black">$
                                                                 {{ $sproduct->discount }}</span>
                                                             <span style="font-size: 14px;">USD</span>
@@ -284,7 +293,7 @@
                                                     @else
                                                         <p class="mb-0"
                                                             style="font-size: 14px !important; color: #ae0a46;">$
-                                                            <span style="font-size: 22px;">{{ $sproduct->price }}</span>
+                                                            <span style="font-size: 22px;">{{ $sproduct->sas_price }}</span>
                                                             US
                                                         </p>
                                                     @endif
@@ -465,7 +474,7 @@
                     <div class="slick-slider brand-containers">
                         @if (count($brand_products) > 0)
                             @foreach ($brand_products as $brand_product)
-                                <div class="custom-col-5 col-sm-6 col-md-4 px-4">
+                                <div class="custom-col-5 col-sm-6 col-md-4 px-2">
                                     <div class="card rounded-0 border-0 m-2">
                                         <div class="card-body"
                                             style="height:23rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
@@ -552,7 +561,7 @@
 
                         @if (count($products) > 0)
                             @foreach ($products as $product)
-                                <div class="custom-col-5 col-sm-6 col-md-4 px-4">
+                                <div class="custom-col-5 col-sm-6 col-md-4 px-2">
                                     <div class="card rounded-0 border-0 m-2">
                                         <div class="card-body"
                                             style="height:23rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
@@ -625,343 +634,7 @@
             </div>
         </div>
     </section>
-    {{-- History --}}
-    {{-- <section>
-        <div class="container mb-5">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="company-tab-title mb-2 ps-0 bg-transparent">
-                        <span style="font-size: 20px;">RECENTLY VIEWED PRODUCTS</span>
-                    </h2>
-                    <a href="#" class="d-flex justify-content-end">
-                        <span class="border rounded-pill p-1" style="font-size: 12px;"><i class="fa fa-close me-2 "
-                                aria-hidden="true"></i>
-                            Clear History</span>
-                    </a>
-                </div>
-                <div class="col-lg-12">
-                    <div class="slick-slider brand-containers">
-                        <div class="element-brands my-3">
-                            <div class="row brand-product-card">
-                                <a href="" class="ps-0">
-                                    <div
-                                        class="brand-image-brand d-flex justify-content-between align-items-center ps-0 pe-2">
-                                        <div class="sc-14o3l-0 product-badge-image"
-                                            style="background-image: url(https://img.virtual-expo.com/media/ps/images/common/pictos/new-video.png);">
-                                        </div>
-                                        <div class="">
-                                            <a href="#" class="d-flex justify-content-end">
-                                                <span class="border text-center rounded-pill p-1"
-                                                    style="font-size: 12px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"><i
-                                                        class="fa fa-close me-2 " style="margin-left: 8px;"
-                                                        aria-hidden="true"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-start">
-                                        <img alt="articulated robot" loading="lazy" class=" lazyloaded"
-                                            src="https://img.directindustry.com/images_di/photo-m2/177103-18243554.jpg">
-                                    </div>
-                                    <div class="card-description">
-                                        <div>
-                                            <a class="" href="#" style="font-size: 13px;">
-                                                <span class="text-uppercase text-muted">articulated robot</span><br>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <ul class="brand-taging-area">
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="element-brands my-3">
-                            <div class="row brand-product-card">
-                                <a href="" class="ps-0">
-                                    <div
-                                        class="brand-image-brand d-flex justify-content-between align-items-center ps-0 pe-2">
-                                        <div class="sc-14o3l-0 product-badge-image"
-                                            style="background-image: url(https://img.virtual-expo.com/media/ps/images/common/pictos/new-video.png);">
-                                        </div>
-                                        <div class="">
-                                            <a href="#" class="d-flex justify-content-end">
-                                                <span class="border text-center rounded-pill p-1"
-                                                    style="font-size: 12px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"><i
-                                                        class="fa fa-close me-2 " style="margin-left: 8px;"
-                                                        aria-hidden="true"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-start">
-                                        <img alt="articulated robot" loading="lazy" class=" lazyloaded"
-                                            src="https://img.directindustry.com/images_di/photo-m2/177103-18243554.jpg">
-                                    </div>
-                                    <div class="card-description">
-                                        <div>
-                                            <a class="" href="#" style="font-size: 13px;">
-                                                <span class="text-uppercase text-muted">articulated robot</span><br>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <ul class="brand-taging-area">
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="element-brands my-3">
-                            <div class="row brand-product-card">
-                                <a href="" class="ps-0">
-                                    <div
-                                        class="brand-image-brand d-flex justify-content-between align-items-center ps-0 pe-2">
-                                        <div class="sc-14o3l-0 product-badge-image"
-                                            style="background-image: url(https://img.virtual-expo.com/media/ps/images/common/pictos/new-video.png);">
-                                        </div>
-                                        <div class="">
-                                            <a href="#" class="d-flex justify-content-end">
-                                                <span class="border text-center rounded-pill p-1"
-                                                    style="font-size: 12px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"><i
-                                                        class="fa fa-close me-2 " style="margin-left: 8px;"
-                                                        aria-hidden="true"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-start">
-                                        <img alt="articulated robot" loading="lazy" class=" lazyloaded"
-                                            src="https://img.directindustry.com/images_di/photo-m2/177103-18243554.jpg">
-                                    </div>
-                                    <div class="card-description">
-                                        <div>
-                                            <a class="" href="#" style="font-size: 13px;">
-                                                <span class="text-uppercase text-muted">articulated robot</span><br>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <ul class="brand-taging-area">
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="element-brands my-3">
-                            <div class="row brand-product-card">
-                                <a href="" class="ps-0">
-                                    <div
-                                        class="brand-image-brand d-flex justify-content-between align-items-center ps-0 pe-2">
-                                        <div class="sc-14o3l-0 product-badge-image"
-                                            style="background-image: url(https://img.virtual-expo.com/media/ps/images/common/pictos/new-video.png);">
-                                        </div>
-                                        <div class="">
-                                            <a href="#" class="d-flex justify-content-end">
-                                                <span class="border text-center rounded-pill p-1"
-                                                    style="font-size: 12px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"><i
-                                                        class="fa fa-close me-2 " style="margin-left: 8px;"
-                                                        aria-hidden="true"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-start">
-                                        <img alt="articulated robot" loading="lazy" class=" lazyloaded"
-                                            src="https://img.directindustry.com/images_di/photo-m2/177103-18243554.jpg">
-                                    </div>
-                                    <div class="card-description">
-                                        <div>
-                                            <a class="" href="#" style="font-size: 13px;">
-                                                <span class="text-uppercase text-muted">articulated robot</span><br>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <ul class="brand-taging-area">
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="element-brands my-3">
-                            <div class="row brand-product-card">
-                                <a href="" class="ps-0">
-                                    <div
-                                        class="brand-image-brand d-flex justify-content-between align-items-center ps-0 pe-2">
-                                        <div class="sc-14o3l-0 product-badge-image"
-                                            style="background-image: url(https://img.virtual-expo.com/media/ps/images/common/pictos/new-video.png);">
-                                        </div>
-                                        <div class="">
-                                            <a href="#" class="d-flex justify-content-end">
-                                                <span class="border text-center rounded-pill p-1"
-                                                    style="font-size: 12px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"><i
-                                                        class="fa fa-close me-2 " style="margin-left: 8px;"
-                                                        aria-hidden="true"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-start">
-                                        <img alt="articulated robot" loading="lazy" class=" lazyloaded"
-                                            src="https://img.directindustry.com/images_di/photo-m2/177103-18243554.jpg">
-                                    </div>
-                                    <div class="card-description">
-                                        <div>
-                                            <a class="" href="#" style="font-size: 13px;">
-                                                <span class="text-uppercase text-muted">articulated robot</span><br>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <ul class="brand-taging-area">
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="element-brands my-3">
-                            <div class="row brand-product-card">
-                                <a href="" class="ps-0">
-                                    <div
-                                        class="brand-image-brand d-flex justify-content-between align-items-center ps-0 pe-2">
-                                        <div class="sc-14o3l-0 product-badge-image"
-                                            style="background-image: url(https://img.virtual-expo.com/media/ps/images/common/pictos/new-video.png);">
-                                        </div>
-                                        <div class="">
-                                            <a href="#" class="d-flex justify-content-end">
-                                                <span class="border text-center rounded-pill p-1"
-                                                    style="font-size: 12px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"><i
-                                                        class="fa fa-close me-2 " style="margin-left: 8px;"
-                                                        aria-hidden="true"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-start">
-                                        <img alt="articulated robot" loading="lazy" class=" lazyloaded"
-                                            src="https://img.directindustry.com/images_di/photo-m2/177103-18243554.jpg">
-                                    </div>
-                                    <div class="card-description">
-                                        <div>
-                                            <a class="" href="#" style="font-size: 13px;">
-                                                <span class="text-uppercase text-muted">articulated robot</span><br>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <ul class="brand-taging-area">
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="element-brands my-3">
-                            <div class="row brand-product-card">
-                                <a href="" class="ps-0">
-                                    <div
-                                        class="brand-image-brand d-flex justify-content-between align-items-center ps-0 pe-2">
-                                        <div class="sc-14o3l-0 product-badge-image"
-                                            style="background-image: url(https://img.virtual-expo.com/media/ps/images/common/pictos/new-video.png);">
-                                        </div>
-                                        <div class="">
-                                            <a href="#" class="d-flex justify-content-end">
-                                                <span class="border text-center rounded-pill p-1"
-                                                    style="font-size: 12px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"><i
-                                                        class="fa fa-close me-2 " style="margin-left: 8px;"
-                                                        aria-hidden="true"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-start">
-                                        <img alt="articulated robot" loading="lazy" class=" lazyloaded"
-                                            src="https://img.directindustry.com/images_di/photo-m2/177103-18243554.jpg">
-                                    </div>
-                                    <div class="card-description">
-                                        <div>
-                                            <a class="" href="#" style="font-size: 13px;">
-                                                <span class="text-uppercase text-muted">articulated robot</span><br>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                                <span
-                                                    class="text-uppercase border text-black badge bg-light rounded-pill">TX2-90</span>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <ul class="brand-taging-area">
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                                <li><i class="fa-solid fa-tag me-2"></i> 6-axis</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-    {{-- Related Search --}}
+
     <section>
         <div class="container related_search_card">
             <div class="row">
@@ -1137,7 +810,7 @@
                                     </div>
                                     <div class="form-group  col-sm-12 px-3 mx-3">
                                         <input class="form-check-input" type="checkbox" value="1"
-                                            id="flexCheckDefault" name="call">
+                                            id="flexCheckDefault" name="call" style="left: 3rem;">
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Call Me
                                         </label>
@@ -1151,94 +824,7 @@
                                 </div>
                             </div>
                         </form>
-                    @elseif (Auth::guard('partner')->user())
-                        <form action="{{ route('rfq.add') }}" method="post" id="get_quote_frm"
-                            class="get_quote_frm" enctype="multipart/form-data">
-                            @csrf
-                            <div class="card mx-4">
-                                <div class="card-body p-4">
-                                    <div class="row border">
-                                        <div class="col-lg-3 pl-2">Name:
-                                            {{ Auth::guard('partner')->user()->name }}</div>
-                                        <div class="col-lg-4" style="margin: 5px 0px">
-                                            {{ Auth::guard('partner')->user()->primary_email_address }}</div>
-                                        <div class="col-lg-4" style="margin: 5px 0px">
-                                            {{ Auth::guard('partner')->user()->company_number }}</div>
-                                        <div class="col-lg-1" style="margin: 5px 0px"><a href="javascript:void(0);"
-                                                id="editRfqpartner"><i class="fa fa-pencil"
-                                                    aria-hidden="true"></i></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <input type="hidden" name="product_id" value="{{ $sproduct->id }}">
-                            <input type="hidden" name="client_type" value="partner">
-                            <input type="hidden" name="partner_id"
-                                value="{{ Auth::guard('partner')->user()->id }}">
-                            <input type="hidden" name="name" value="{{ Auth::guard('partner')->user()->name }}">
-                            <input type="hidden" name="email"
-                                value="{{ Auth::guard('partner')->user()->primary_email_address }}">
-                            {{-- <input type="hidden" name="phone" value="{{Auth::guard('client')->user()->phone_number}}"> --}}
-                            <div class="modal-body get_quote_view_modal_body">
-                                <div class="form-group col-sm-12 text-white" style="border-bottom: 1px solid #eee;">
-                                    <h6 class="text-start pt-1 bg-white">Product Name :
-                                    </h6>
-                                    <div class="row">
-                                        <div class="col-lg-8">
-                                            {{ $sproduct->name }}
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="form-group col-sm-6">
-                                                <input type="number" class="form-control form-control-sm rounded-0"
-                                                    id="contact" name="qty" placeholder="Quantity">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="row" id="Rfqpartner" style="display:none">
-                                    <div class="form-group col-sm-6">
-                                        <input type="text" required class="form-control form-control-sm rounded-0"
-                                            id="phone" name="phone"
-                                            value="{{ Auth::guard('partner')->user()->company_number }}"
-                                            placeholder="Company Phone Number">
-                                    </div>
-                                    <div class="form-group  col-sm-6">
-                                        <label for="contact">Company Name </label>
-                                        <input type="text" class="form-control form-control-sm rounded-0"
-                                            id="contact" name="company_name" required
-                                            value="{{ Auth::guard('partner')->user()->company_name }}">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group  col-sm-6">
-                                        <label for="contact">Upload Image </label>
-                                        <input type="file" name="image"
-                                            class="form-control form-control-sm rounded-0" id="image"
-                                            accept="image/*" />
-                                        <div class="form-text" style="font-size:11px;">Accepts only png, jpg, jpeg
-                                            images
-                                        </div>
-                                    </div>
-                                    <div class="form-group  col-sm-12">
-                                        <textarea class="form-control form-control-sm rounded-0" id="message" name="message" rows="1"
-                                            placeholder="Additional Text.."></textarea>
-                                    </div>
-                                    <div class="form-group  col-sm-12 px-3 mx-3">
-                                        <input class="form-check-input" type="checkbox" value="1"
-                                            id="flexCheckDefault" name="call">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Call Me
-                                        </label>
-                                    </div>
-                                    <div class="form-group col-sm-12 px-3 mx-3 message g-recaptcha"
-                                        data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
-                                </div>
-                                <div class="modal-footer borer-0">
-                                    <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit
-                                        &nbsp;<i class="fa fa-paper-plane"></i></button>
-                                </div>
-                            </div>
-                        </form>
                     @else
                         <form action="{{ route('rfq.add') }}" method="post" id="get_quote_frm"
                             class="get_quote_frm" enctype="multipart/form-data">
@@ -1299,7 +885,7 @@
                                         <div class="col-lg-12 mb-4">
                                             <div class="form-check border-0">
                                                 <input class="form-check-input" type="checkbox" value="1"
-                                                    id="flexCheckDefault" name="call" placeholder="Call Me" />
+                                                    id="flexCheckDefault" name="call" placeholder="Call Me" style="left:3rem;"/>
                                                 <label class="form-check-label" for="flexCheckDefault"> Call Me
                                                 </label>
                                             </div>

@@ -104,7 +104,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row mb-2">
-                                                    <div class="col-lg-3">
+                                                    <div class="col-lg-12">
                                                         <label for="tags" class="form-label mb-0">Product Tags
                                                             <span class="text-danger">*</span>
                                                         </label>
@@ -272,8 +272,9 @@
                                                         <label for="weight" class="form-label mb-0">Category
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <select class="form-control select" name="cat_id" data-allow-clear="true"
-                                                            data-placeholder="Select Category..." required>
+                                                        <select class="form-control select" name="cat_id"
+                                                            data-allow-clear="true" data-placeholder="Select Category..."
+                                                            required>
                                                             <option></option>
                                                             @foreach ($categories as $cat)
                                                                 <option class="form-control" value="{{ $cat->id }}"
@@ -284,7 +285,8 @@
                                                     </div>
                                                     <div class="form-group col-md-6 basic-form">
                                                         <label for="weight" class="form-label mb-0">Sub Category</label>
-                                                        <select class="form-control select" name="sub_cat_id" data-allow-clear="true"
+                                                        <select class="form-control select" name="sub_cat_id"
+                                                            data-allow-clear="true"
                                                             data-placeholder="Select Sub Category...">
                                                             <option></option>
                                                             @foreach ($sub_cats as $item)
@@ -299,7 +301,8 @@
                                                     <div class="form-group col-md-6 basic-form">
                                                         <label for="weight" class="form-label mb-0">Sub Sub
                                                             Category</label>
-                                                        <select name="sub_sub_cat_id" class="form-control select" data-allow-clear="true"
+                                                        <select name="sub_sub_cat_id" class="form-control select"
+                                                            data-allow-clear="true"
                                                             data-placeholder="Select Sub Sub Category...">
                                                             <option></option>
                                                             @foreach ($sub_sub_cats as $item)
@@ -312,8 +315,8 @@
                                                     <div class="form-group col-md-6 basic-form">
                                                         <label for="weight" class="form-label mb-0">Sub Sub Sub
                                                             Category</label>
-                                                        <select name="sub_sub_sub_cat_id" class="form-control select" data-allow-clear="true"
-                                                            id="inputCollection"
+                                                        <select name="sub_sub_sub_cat_id" class="form-control select"
+                                                            data-allow-clear="true" id="inputCollection"
                                                             data-placeholder="Select Sub Sub Sub Category...">
                                                             <option></option>
                                                             @foreach ($sub_sub_sub_cats as $item)
@@ -441,12 +444,17 @@
                                                     <div class="col-lg-3 col-sm-6">
                                                         <label for="weight" class="form-label mb-0">Price For
                                                             SAS</label>
-                                                        <div class="rfq_price d-none">
+                                                        <div class="">
                                                             <input class="form-control form-control-sm" type="text"
-                                                                name="sas_price" placeholder="RFQ Price for Sas"
+                                                                name="sas_price" placeholder="Sas Price"
                                                                 value="{{ $products->sas_price }}">
                                                         </div>
-                                                        <div class="price d-none">
+                                                        {{-- <div class="rfq_price price offer_price d-none">
+                                                            <input class="form-control form-control-sm" type="text"
+                                                                name="sas_price" placeholder="Sas Price"
+                                                                value="{{ $products->sas_price }}">
+                                                        </div> --}}
+                                                        {{-- <div class="price d-none">
                                                             <input class="form-control form-control-sm" type="text"
                                                                 name="sas_price" placeholder="Price for Sas"
                                                                 value="{{ $products->sas_price }}">
@@ -455,7 +463,7 @@
                                                             <input class="form-control form-control-sm" type="text"
                                                                 name="sas_price" placeholder="Starting Price for Sas"
                                                                 value="{{ $products->sas_price }}">
-                                                        </div>
+                                                        </div> --}}
                                                     </div>
                                                 </div>
                                                 <div class="row ">
@@ -853,7 +861,10 @@
                                                                                 data-bs-dismiss="modal"></button>
                                                                         </div>
                                                                         @php
-                                                                            $img = App\Models\Admin\MultiImage::where('id', $img->id)->first();
+                                                                            $img = App\Models\Admin\MultiImage::where(
+                                                                                'id',
+                                                                                $img->id,
+                                                                            )->first();
                                                                         @endphp
                                                                         <form method="post"
                                                                             action="{{ route('update.product.multiimage') }}"

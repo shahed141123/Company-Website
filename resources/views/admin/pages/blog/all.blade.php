@@ -64,8 +64,7 @@
                                                     <td>{{ $story->title }}</td>
                                                     <td>
                                                         <a href="{{ route('blog.edit', $story->id) }}" class="text-primary">
-                                                            <i
-                                                                class="fa-solid fa-pen-to-square dash-icons"></i>
+                                                            <i class="fa-solid fa-pen-to-square dash-icons"></i>
                                                         </a>
                                                         <a href="{{ route('blog.destroy', [$story->id]) }}"
                                                             class="text-danger delete">

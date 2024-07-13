@@ -33,7 +33,7 @@ Route::get('/hardware/common', [HomeController::class, 'hardwareCommon'])->name(
 
 //hardware Info
 Route::get('/hardware/info', [HomeController::class, 'hardwareInfo'])->name('hardware.info');
- 
+
 Route::get('/quotation/link/{id}', [HomeController::class, 'quotationLink'])->name('quotation.link');
 
 
@@ -59,7 +59,7 @@ Route::get('/solution/{id}/details/', [HomeController::class, 'SolutionDetails']
 Route::post('/contact_us', [ContactController::class, 'store'])->name('contactus.store');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/contact/location', [HomeController::class, 'location'])->name('location');
-Route::get('support', [HomeController::class, 'Support'])->name('support');
+Route::get('website/support', [HomeController::class, 'Support'])->name('website.support');
 Route::get('/newsletter', [NewsletterController::class, 'newsletter']);
 Route::post('/newsletter/store', [NewsLetterController::class, 'store'])->name('newsletter.store');
 

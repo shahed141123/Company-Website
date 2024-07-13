@@ -30,10 +30,10 @@
             <div class="page-header-content d-lg-flex">
                 <div class="d-flex px-2">
                     <div class="breadcrumb py-2">
-                        <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
-                        <a href="" class="breadcrumb-item">Home</a>
-                        <span class="breadcrumb-item active">Device</span>
-                        <span class="breadcrumb-item active">Employee Attendance</span>
+                        <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item"><i class="ph-house"></i></a>
+                        <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item">Home</a>
+                        <a href="{{ route('hr-and-admin.index') }}" class="breadcrumb-item">HR and Admin</a>
+                        <span class="breadcrumb-item active">{{ $user_name }}'s Attendance({{ date('F', strtotime('last month')) }})</span>
                     </div>
                     <a href="#breadcrumb_elements"
                         class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
@@ -105,7 +105,14 @@
                                                 </p>
                                             @endif
                                         </td>
-                                        <td>{{ $attendance['check_out'] }}</td>
+                                        <td>
+                                            @if ($attendance['check_in'] !== 'N/A')
+                                                {{ $attendance['check_out'] }}
+                                            @else
+                                                <p class="text-danger mb-0 p-0 fw-bold">{{ $attendance['absent_note'] }}
+                                                </p>
+                                            @endif
+                                        </td>
                                         {{-- <td>
                                             @if (Carbon\Carbon::parse($attendance['date'])->dayOfWeek == Carbon\Carbon::FRIDAY)
                                                 <span class="text-primary">Friday</span>

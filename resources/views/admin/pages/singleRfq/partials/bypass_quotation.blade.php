@@ -131,15 +131,15 @@
                             <thead class="text-center">
                                 <tr
                                     style="background-color: #e5e5e5;color: #3d3d3d;border: 1px solid #eee;font-size: 13px;">
-                                    <th width="6%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                    <th width="6%" style="text-align: center;padding: 0.5rem;font-weight: 600;">
                                         SL</th>
-                                    <th width="49%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                    <th width="49%" style="text-align: center;padding: 0.5rem;font-weight: 600;">
                                         Product Description</th>
-                                    <th width="8%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                    <th width="8%" style="text-align: center;padding: 0.5rem;font-weight: 600;">
                                         Qty</th>
-                                    <th width="15%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                    <th width="15%" style="text-align: center;padding: 0.5rem;font-weight: 600;">
                                         Unit Price (<span class="currency"></span>)</th>
-                                    <th width="15%" style="text-align: center;padding: 0.5rem;font-weight: 400;">
+                                    <th width="15%" style="text-align: center;padding: 0.5rem;font-weight: 600;">
                                         Total (<span class="currency"></span>)</th>
                                 </tr>
                             </thead>
@@ -162,14 +162,14 @@
 
                                             <td><input type="text" name=""
                                                     class="form-control form-control-sm bg-transparent text-center"
-                                                    value="{{ round((float) optional($quotationproduct)->unit_final_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)) }}">
+                                                    value="{{ number_format(round((float) optional($quotationproduct)->unit_final_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)), 2) }}">
                                             </td>
                                             <td class="d-flex align-items-center text-center pe-3">
                                                 <input type="text" name="" disabled
                                                     class="form-control form-control-sm bg-transparent text-end"
-                                                    value="{{ round((float) optional($quotationproduct)->unit_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)) }}">
-                                                    <span class="currency"></span>
-                                                </td>
+                                                    value="{{ number_format(round((float) optional($quotationproduct)->unit_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)), 2) }}">
+                                                <span class="currency"></span>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @else
@@ -192,9 +192,9 @@
 
                                         <input type="text" disabled name=""
                                             class="form-control form-control-sm bg-transparent text-end rfqcalculationinput"
-                                            value="{{ round((float) optional($singleproduct)->sub_total_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)) }}"
+                                            value="{{ number_format(round((float) optional($singleproduct)->sub_total_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)), 2) }}"
                                             style="color: #3d3d3d;padding: 0px !important;">
-                                            <span class="currency"></span>
+                                        <span class="currency"></span>
                                     </th>
                                 </tr>
                             </table>
@@ -208,7 +208,8 @@
                                         style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                         <td style="width: 83.8%;text-align: end;padding: 10px;color: #3d3d3d;">
                                             Special Discount (<span
-                                                class="special_discount_value">{{ optional($quotation)->special_discount_percentage }}</span>)
+                                                class="special_discount_value">{{ optional($singleproduct)->special_discount_percentage }}</span>
+                                            %)
                                         </td>
                                         <td class="d-flex align-items-center pe-3"
                                             style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
@@ -217,7 +218,7 @@
                                                 class="form-control form-control-sm bg-transparent text-end"
                                                 value="{{ round((float) optional($singleproduct)->special_discount_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)) }}"
                                                 style="color: #3d3d3d;padding: 0px !important;">
-                                                <span class="currency"></span>
+                                            <span class="currency"></span>
                                         </td>
                                     </tr>
                                 </table>
@@ -231,7 +232,8 @@
                                         style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                         <td style="width: 83.8%;text-align: end;padding: 10px;color: #3d3d3d;">
                                             Vat (<span
-                                                class="vat_tax_value">{{ optional($singleproduct)->vat_percentage }}</span>)
+                                                class="vat_tax_value">{{ optional($singleproduct)->vat_percentage }}</span>
+                                            %)
                                         </td>
                                         <td class="d-flex align-items-center pe-3"
                                             style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
@@ -240,7 +242,7 @@
                                                 value="{{ round((float) optional($singleproduct)->vat_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)) }}"
                                                 class="form-control form-control-sm bg-transparent text-end"
                                                 value="0" style="color: #3d3d3d;padding: 0px !important;">
-                                                <span class="currency"></span>
+                                            <span class="currency"></span>
                                         </td>
                                     </tr>
                                 </table>
@@ -260,34 +262,34 @@
                                         style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
 
                                         <input type="text" name="" disabled
-                                            class="form-control form-control-sm bg-transparent text-end"
-                                            value="{{ round((float) optional($singleproduct)->total_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)) }}"
+                                            class="form-control form-control-sm bg-transparent text-end fw-bold"
+                                            value="{{ number_format(round((float) optional($singleproduct)->total_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)), 2) }}"
                                             style="color: #3d3d3d;padding: 0px !important;">
-                                            <span class="currency"></span>
+                                        <span class="currency"></span>
                                     </th>
                                 </tr>
                             </table>
                         </div>
                         <!--  -->
-                        @if (optional($quotation)->vat_display == '1')
-                            <div class="vat_display">
-                                <div style="display: flex;justify-content: end;margin-top: 1rem;margin-bottom: 1rem;">
-                                    <table
-                                        style="border-collapse: collapse;width: 60%;margin: auto;font-size: 13px;border: 1px solid #eee;">
-                                        <tr
-                                            style="width: 6%;text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border-bottom: 1px solid #eee;">
-                                            <th
-                                                style="text-align: center;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
-                                                <input type="text" name="vat_text"
-                                                    class="form-control form-control-sm bg-transparent text-center"
-                                                    value="GST not included. It may apply."
-                                                    style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
-                                            </th>
-                                        </tr>
-                                    </table>
-                                </div>
+                        {{-- @if (optional($quotation)->vat_display == '1') --}}
+                        <div class="vat_display">
+                            <div style="display: flex;justify-content: end;margin-top: 1rem;margin-bottom: 1rem;">
+                                <table
+                                    style="border-collapse: collapse;width: 60%;margin: auto;font-size: 13px;border: 1px solid #eee;">
+                                    <tr
+                                        style="width: 6%;text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border-bottom: 1px solid #eee;">
+                                        <th
+                                            style="text-align: center;padding: 0.5rem;color: #3d3d3d;font-weight: 400;">
+                                            <input type="text" name="vat_text"
+                                                class="form-control form-control-sm bg-transparent text-center"
+                                                value="{{ !empty($quotation->vat_text) ? $quotation->vat_text : 'GST not included. It may apply.' }}"
+                                                style="font-size: 13px;font-family: 'Poppins', sans-serif;color: #3d3d3d;padding: 0px !important;">
+                                        </th>
+                                    </tr>
+                                </table>
                             </div>
-                        @endif
+                        </div>
+                        {{-- @endif --}}
                         <!--  -->
                         <div>
                             <table class="terms_table w-100">
@@ -510,12 +512,12 @@
                                                                             style="font-size: 13px;font-weight: 600;margin: 0;color: #000; padding: 0px !important;"">
                                                                         <input type="text" name="sender_name"
                                                                             class="form-control form-control-sm bg-transparent text-start"
-                                                                            value="{{ $quotation->sender_name ?? 'Md. Faisal Iqbal' }}"
+                                                                            value="{{ $quotation->sender_name ?? 'Adan Mahmud, Sr. Manager' }}"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                         <input type="text"
                                                                             name="sender_designation"
                                                                             class="form-control form-control-sm bg-transparent text-start"
-                                                                            value="{{ $quotation->sender_designation ?? 'Manager, Sales' }}"
+                                                                            value="{{ $quotation->sender_designation ?? 'Partner & Business Development' }}"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                     </td>
                                                                     <td
@@ -547,7 +549,7 @@
                                                                                 <input type="text"
                                                                                     name="ngen_whatsapp_number"
                                                                                     class="form-control form-control-sm bg-transparent text-end"
-                                                                                    value="{{ $quotation->ngen_whatsapp_number ??  '+8801714243446' }}"
+                                                                                    value="{{ $quotation->ngen_whatsapp_number ?? '+8801714243446' }}"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                             </div>
                                                                         </div>
@@ -607,15 +609,18 @@
         {{-- <button type="submit" value="submit" name="action" class="btn navigation_btn"><i
                 class="fa-regular fa-circle-check pe-2"></i>Send
             Quotation</button> --}}
-        @php
-            $currentUrl = request()->url();
+        @include('admin.pages.singleRfq.partials.whatsapp_share')
+        {{-- @php
+            // $currentUrl = request()->url();
+            // $whatsappLink = 'https://wa.me/?text=' . urlencode('Check out this quotation: ' . $currentUrl);
+            $currentUrl = url()->current();
             $whatsappLink = 'https://wa.me/?text=' . urlencode('Check out this quotation: ' . $currentUrl);
         @endphp
 
         <!-- Create a button or link to share via WhatsApp -->
         <a href="{{ $whatsappLink }}" target="_blank" class="btn navigation_btn rfqs-btns">
             <i class="fa-regular fa-circle-check pe-2"></i>Share on WhatsApp
-        </a>
+        </a> --}}
         {{-- <button type="submit" class="btn navigation_btn"><i
                     class="fa-regular fa-circle-check pe-2"></i>Resend</button>
             <button type="submit" class="btn navigation_btn"><i class="fa-regular fa-circle-check pe-2"></i>Share On What's App</button> --}}

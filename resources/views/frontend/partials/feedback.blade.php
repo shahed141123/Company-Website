@@ -28,9 +28,12 @@
         border-radius: 0.375rem;
         opacity: 0.5;
     }
+    .feedback_upper_modal{
+        right: -59px;
+    }
 </style>
 
-<section>
+{{-- <section>
     <div class="sidebar_rfq">
         <div style="position: fixed; top: 40%; z-index: 99; width: 50%;">
             <div class="container"
@@ -107,7 +110,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <section>
     <div class="">

@@ -19,6 +19,17 @@
                                                 <strong class="main_color">{{ ucfirst($data->name) }}</strong>
                                             </h4>
                                             <div class="d-flex flex-wrap fw-bold fs-6 pe-2">
+                                                @if (!empty($data->user_type))
+                                                    <a href="#"
+                                                        class="d-flex align-items-center text-gray-400 text-hover-primary me-3 mb-2">
+                                                        <!--begin::Svg Icon | path: icons/duotune/communication/com006.svg-->
+                                                        <span class="svg-icon svg-icon-4 me-1">
+                                                            <i class="fa-solid fa-user-check"></i>
+                                                        </span>
+                                                        <!--end::Svg Icon-->
+                                                        {{ $data->user_type }}
+                                                    </a>
+                                                @endif
                                                 @if (!empty($data->company_name))
                                                     <a href="#"
                                                         class="d-flex align-items-center text-gray-400 text-hover-primary me-3 mb-2">

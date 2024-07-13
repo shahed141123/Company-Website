@@ -83,16 +83,16 @@ class RFQController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name'     => 'required',
-                'email'    => 'required',
-                'phone'    => 'required',
-                'rfq_code' => 'unique:rfqs',
-                'image'    => 'file|mimes:jpeg,png,jpg|max:2048',
+                'name'                 => 'required',
+                'email'                => 'required',
+                'phone'                => 'required',
+                'rfq_code'             => 'unique:rfqs',
+                'image'                => 'file|mimes:jpeg,png,jpg|max:2048',
                 'g-recaptcha-response' => ['required', new Recaptcha],
             ],
             [
-                'required' => 'This :attribute field is required',
-                'mimes' => 'The :attribute must be a file of type:PNG-JPEG-JPG'
+                'required'  => 'This :attribute field is required',
+                'mimes'     => 'The :attribute must be a file of type:PNG-JPEG-JPG'
             ],
         );
         if ($validator->passes()) {

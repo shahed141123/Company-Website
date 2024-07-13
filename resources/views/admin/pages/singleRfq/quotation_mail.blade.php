@@ -65,6 +65,10 @@
             width: 7rem;
         }
 
+        .form-control {
+            font-size: 11px;
+        }
+
         @media only screen and (max-width: 768px) {
 
             html,
@@ -212,6 +216,18 @@
         </script>
         <script>
             // Define the updateCurrency function globally
+            function countryFunction() {
+                alert('As you have changed country, you have to change region.');
+            }
+
+            function regionFunction() {
+                alert('As you have changed region, you have to change currency.');
+            }
+
+            function currencyFunction() {
+                alert('As you have changed currency, you have to input currency conversion rate based on Taka.');
+            }
+
             function updateCurrency(currencyValue) {
                 var currencyMap = {
                     'taka': 'TK',
@@ -224,10 +240,14 @@
             }
 
             // Define the updatePQCode function globally
-            function updatePQCode(countryValue) {
+            function updatePQSelectCode(countryValue) {
                 var pq_code = countryValue ? "PQ#: NG-" + countryValue : "PQ#: NG-";
                 $('input[name="pq_code"]').val(pq_code); // Update the pq_code input field
             }
+            // function updatePQCode(countryValue) {
+            //     var pq_code = countryValue ? "PQ#: NG-" + countryValue : "PQ#: NG-";
+            //     $('input[name="pq_code"]').val(pq_code); // Update the pq_code input field
+            // }
 
             // Define the updateRegistrationNumber function globally
             function updateRegistrationNumber(regionValue) {
@@ -255,6 +275,7 @@
                 // Update currency on currency select change
                 quotationForm.find('select[name="currency"]').on('change', function() {
                     updateCurrency($(this).val());
+
                 });
 
                 // Initially set currency
@@ -262,15 +283,17 @@
 
                 // Update pq_code on country select change
                 quotationForm.find('select[name="country"]').on('change', function() {
-                    updatePQCode($(this).val());
+                    updatePQSelectCode($(this).val());
+
                 });
 
                 // Initially set pq_code
-                updatePQCode($('select[name="country"]').val());
+                // updatePQCode($('select[name="country"]').val());
 
                 // Update company name and registration number based on region
                 quotationForm.find('select[name="region"]').on('change', function() {
                     updateRegistrationNumber($(this).val());
+
                 });
 
                 // Initially set company name and registration number based on region
@@ -669,20 +692,6 @@
                 }
             }
 
-            // Function to update serial numbers
-            // function updateSerialNumbers() {
-            //     const rows = document.querySelectorAll('#myTable tbody.table_bottom_area tr.thd');
-            //     const rows2 = document.querySelectorAll('#quotationTable tbody.quotationTable_area tr.tdsp');
-
-            //     rows.forEach((row, index) => {
-            //         row.querySelector('td:nth-child(2)').textContent = index + 1;
-            //     });
-
-            //     rows2.forEach((row2, index) => {
-            //         row2.querySelector('td:nth-child(1)').textContent = index + 1;
-            //     });
-            // }
-
             // Initialize any necessary components or functions on document ready
             document.addEventListener('DOMContentLoaded', function() {
                 updateSerialNumbers(); // Call updateSerialNumbers function or any other initialization tasks
@@ -697,7 +706,7 @@
                 clearTimeout(debounceTimer);
             });
 
-            $(document).on('change', '#quotationForm input, #quotationForm select, #quotationForm textarea', function() {
+            $(document).on('change', '#quotationForm input, #quotationForm textarea', function() {
                 var currentElement = this;
                 var focusedElementId = currentElement.id;
                 var cursorPosition = currentElement.selectionStart;
@@ -705,6 +714,16 @@
                 debounceTimer = setTimeout(function() {
                     submitQuotationForm(focusedElementId, cursorPosition);
                 }, 500); // Adjust the delay as needed
+            });
+            $(document).on('change', '#quotationForm select', function() {
+                var currentElement = this;
+                var focusedElementId = currentElement.id;
+                var cursorPosition = currentElement.selectionStart;
+
+                debounceTimer = setTimeout(function() {
+
+                    submitQuotationForm(focusedElementId, cursorPosition);
+                }, 100); // Adjust the delay as needed
             });
 
             function submitQuotationForm(focusedElementId, cursorPosition) {
@@ -723,7 +742,7 @@
                             $('#quotation').html(response.quotation);
                             $('#cog').html(response.cog);
                             updateCurrency(response.currency_value);
-                            updatePQCode(response.country_value);
+                            // updatePQCode(response.country_value);
                             updateRegistrationNumber(response.region_value);
 
                             setTimeout(function() {

@@ -53,7 +53,7 @@
                                         <div class="content-section text-center py-3">
                                             <a href="{{ route('product.details', $product->slug) }}" class="mb-2">
                                                 <p class="pb-0 mb-0 text-muted brandpage_product_title mb-2">
-                                                    {{ Str::words($product->name, 35) }}</p>
+                                                    {{ Str::words($product->name, 15) }}</p>
                                             </a>
                                             <div >
                                                 <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
@@ -132,7 +132,7 @@
                                         <div class="content-section text-center py-3">
                                             <a href="{{ route('product.details', $product->slug) }}" class="mb-2">
                                                 <p class="pb-0 mb-0 text-muted brandpage_product_title mb-2">
-                                                    {{ Str::words($product->name, 35) }}</p>
+                                                    {{ Str::words($product->name, 15) }}</p>
                                             </a>
                                             <div >
                                                 <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>

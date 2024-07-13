@@ -17,8 +17,7 @@
 <script src="{{ asset('backend/assets/js/vendor/tables/datatables/datatables.min.js') }}"></script>
 <script src="{{ asset('backend/assets/demo/pages/datatables_advanced.js') }}"></script>
 <!-- Tiny MCe -->
-<script src="https://cdn.tiny.cloud/1/n4jpbhtanca801bcjejx1pc9j033yn0de5ral6e7r0wd6383/tinymce/6/tinymce.min.js"
-    referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/n4jpbhtanca801bcjejx1pc9j033yn0de5ral6e7r0wd6383/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <!-- Custom JS -->
 {{-- <script src="{{ asset('backend/assets/js/custom.js') }}"></script> --}}

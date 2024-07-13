@@ -2,7 +2,7 @@
 @section('content')
     <style>
         .notes {
-            height: 15rem !important;
+            height: 45% !important;
         }
         /* CSS */
         .nav-tabs .custom-tab-button.active {
@@ -195,7 +195,7 @@
                                         @php
                                             $randomClass = 'notes-' . rand(1, 4);
                                         @endphp
-                                        <div id="card-{{ $notice->id }}" class="col-lg-2 col-sm-12 draggable-card">
+                                        <div id="card-{{ $notice->id }}" class="col-lg-4 col-sm-12 draggable-card">
                                             <!-- Notice Card -->
                                             <div
                                                 class="card sticky1 notes {{ $randomClass }} rounded-0 text-white notice-card">

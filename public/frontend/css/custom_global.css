@@ -15779,8 +15779,10 @@ thead {
 /* All Software end */
 /* Kuka Page Design Start */
 .brand_prduct {
-    padding-left: 20px;
-    padding-bottom: 30px;
+    /* padding-left: 20px; */
+    /* padding-bottom: 30px; */
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
 
 .custom-col-5 {

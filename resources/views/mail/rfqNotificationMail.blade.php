@@ -215,9 +215,18 @@
                                     <tr>
                                         <div style="text-align: center;padding: 15px; padding-bottom: 5px;">
                                             <p style="text-align: center; font-size: 16px; color: #141414;">
-                                                If you are not a registered member yet, <a
+                                                If you are not a registered client yet, <a
                                                     href="{{ route('client.login') }}"
-                                                    style="color: #ae0a46; font-size:18px">Cliek here</a> to register.
+                                                    style="color: #ae0a46; font-size:18px">Click here</a> to register as a client.
+                                            </p>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div style="text-align: center;padding: 15px; padding-bottom: 5px;">
+                                            <p style="text-align: center; font-size: 16px; color: #141414;">
+                                                If you are not a registered partner yet, <a
+                                                    href="{{ route('partner.login') }}"
+                                                    style="color: #ae0a46; font-size:18px">Click here</a> to register as a partner.
                                             </p>
                                         </div>
                                     </tr>

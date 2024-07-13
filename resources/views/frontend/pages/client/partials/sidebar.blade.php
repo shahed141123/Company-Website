@@ -51,6 +51,7 @@
             <div class="user-info text-center">
                 <p class="user-name main_color mb-0"> <strong>{{ Auth::guard('client')->user()->name }}</strong></span>
                 <div class="d-flex align-items-center justify-content-center text-center">
+                    <p class="user-role mb-0 pt-1 text-black fw-bold">{{ ucfirst(Auth::guard('client')->user()->user_type) }}</span>
                     <p class="user-role mb-0 pt-1 text-black">{{ Auth::guard('client')->user()->company_name }}</span>
                     <p class="user-status mb-0 ms-2 text-black"><i class="fa fa-circle"></i> <span>Online</span></span>
                     <p class="user-status mb-0 ms-2 text-black">

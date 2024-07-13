@@ -585,8 +585,6 @@ class SourcingController extends Controller
         }
 
         Product::findOrFail($product_id)->update([
-
-
             'name'                      => $request->name,
             'ref_code'                  => $product->ref_code,
             'slug'                      => $data['slug'],

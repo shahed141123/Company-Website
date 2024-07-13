@@ -113,21 +113,39 @@
                                             @endif
                                             <ul class="account p-0 text-muted text-start">
 
-                                                @unless (Auth::guard('client')->user())
+                                                @if (Auth::guard('client')->user())
+                                                    @if (Auth::guard('client')->user()->user_type == 'partner')
+                                                        <li class="mb-2">
+                                                            Sign In To Your
+                                                            <a href="{{ route('client.login') }}" target="_blank"
+                                                                class="main_color">Client Account</a>
+                                                        </li>
+                                                    @endif
+                                                    @if (Auth::guard('client')->user()->user_type == 'client')
+                                                        <li>
+                                                            Sign In To Your
+                                                            <a href="{{ route('partner.login') }}" target="_blank"
+                                                                class="main_color">Partner
+                                                                Account</a>
+                                                        </li>
+                                                    @endif
+                                                @else
                                                     <li class="mb-2">
                                                         Sign In To Your
                                                         <a href="{{ route('client.login') }}" target="_blank"
                                                             class="main_color">Client Account</a>
                                                     </li>
-                                                @endunless
-                                                @unless (Auth::guard('partner')->user())
                                                     <li>
                                                         Sign In To Your
                                                         <a href="{{ route('partner.login') }}" target="_blank"
                                                             class="main_color">Partner
                                                             Account</a>
                                                     </li>
+                                                @endif
+                                                {{-- @unless (Auth::guard('client')->user())
                                                 @endunless
+                                                @unless (Auth::guard('partner')->user())
+                                                @endunless --}}
                                             </ul>
                                         </div>
                                     </div>
@@ -491,12 +509,15 @@
                                         <ul class="dropdown-menu full-container-dropdown px-0"
                                             style="border-top: 1px solid #ae0a460f !important;">
                                             <div class="container-fluid">
-                                                <div class="row tech-top bg-white py-0 px-0" style="height: 28.2rem; max-height: 100%">
+                                                <div class="row tech-top bg-white py-0 px-0"
+                                                    style="height: 28.2rem; max-height: 100%">
                                                     <div class="col-lg-10">
                                                         <div class="row">
-                                                            <div class="col-lg-4 bg-white pt-5 pb-3 shop-menu-left extra-spacing-menu">
+                                                            <div
+                                                                class="col-lg-4 bg-white pt-5 pb-3 shop-menu-left extra-spacing-menu">
                                                                 <p class="fw-bold pb-3"><span
-                                                                        style="border-top: 4px solid #ae0a46;">Sho</span>p By
+                                                                        style="border-top: 4px solid #ae0a46;">Sho</span>p
+                                                                    By
                                                                 </p>
                                                                 <div class="row">
                                                                     <div class="col-lg-12 mb-2">
@@ -504,7 +525,8 @@
                                                                             href="{{ route('software.common') }}">
                                                                             <div>Software</div>
                                                                             <div>
-                                                                                <i class="ph ph-caret-right menu_icons"></i>
+                                                                                <i
+                                                                                    class="ph ph-caret-right menu_icons"></i>
                                                                             </div>
                                                                         </a>
                                                                     </div>
@@ -513,7 +535,8 @@
                                                                             href="{{ route('hardware.common') }}">
                                                                             <div>Hardware</div>
                                                                             <div>
-                                                                                <i class="ph ph-caret-right menu_icons"></i>
+                                                                                <i
+                                                                                    class="ph ph-caret-right menu_icons"></i>
                                                                             </div>
                                                                         </a>
                                                                     </div>
@@ -522,7 +545,8 @@
                                                                             href="{{ route('training') }}">
                                                                             <div>Training</div>
                                                                             <div>
-                                                                                <i class="ph ph-caret-right menu_icons"></i>
+                                                                                <i
+                                                                                    class="ph ph-caret-right menu_icons"></i>
                                                                             </div>
                                                                         </a>
                                                                     </div>
@@ -531,7 +555,8 @@
                                                                             href="{{ route('books') }}">
                                                                             <div>Books</div>
                                                                             <div>
-                                                                                <i class="ph ph-caret-right menu_icons"></i>
+                                                                                <i
+                                                                                    class="ph ph-caret-right menu_icons"></i>
                                                                             </div>
                                                                         </a>
                                                                     </div>
@@ -540,7 +565,8 @@
                                                                             href="{{ route('shop') }}">
                                                                             <div>Our Shop</div>
                                                                             <div>
-                                                                                <i class="ph ph-caret-right menu_icons"></i>
+                                                                                <i
+                                                                                    class="ph ph-caret-right menu_icons"></i>
                                                                             </div>
                                                                         </a>
                                                                     </div>
@@ -548,7 +574,8 @@
                                                             </div>
                                                             <div class="col-lg-4 bg-white pt-5 pb-3">
                                                                 <p class="fw-bold pb-3"><span
-                                                                        style="border-top: 4px solid #ae0a46;">Sho</span>p By
+                                                                        style="border-top: 4px solid #ae0a46;">Sho</span>p
+                                                                    By
                                                                     Category</p>
                                                                 <div class="row">
                                                                     @if (!empty($categorys))
@@ -556,7 +583,8 @@
                                                                             <div class="col-lg-12 mb-2">
                                                                                 <a class="d-flex align-items-center pb-2"
                                                                                     href="{{ route('custom.product', $shop_category->slug) }}">
-                                                                                    <div>{{ $shop_category->title }}</div>
+                                                                                    <div>{{ $shop_category->title }}
+                                                                                    </div>
                                                                                     <div>
                                                                                         <i
                                                                                             class="ph ph-caret-right menu_icons"></i>
@@ -569,7 +597,8 @@
                                                             </div>
                                                             <div class="col-lg-4 bg-white pt-5 pb-3">
                                                                 <p class="fw-bold pb-3"><span
-                                                                        style="border-top: 4px solid #ae0a46;">Sho</span>p By
+                                                                        style="border-top: 4px solid #ae0a46;">Sho</span>p
+                                                                    By
                                                                     Brand
                                                                 </p>
                                                                 <div class="row">
@@ -846,19 +875,22 @@
                                                                         style="font-family: 'Libre Franklin', sans-serif;">
                                                                         <h2>Help </h2>
                                                                         <h2>
-                                                                            <i class="fa-solid fa-arrow-right-long ps-3" style="font-size: 24px;color: #ae0a46;"></i>
+                                                                            <i class="fa-solid fa-arrow-right-long ps-3"
+                                                                                style="font-size: 24px;color: #ae0a46;"></i>
                                                                         </h2>
                                                                     </div>
                                                                     <div>
                                                                         <p class="m-0 p-0 mb-1">
                                                                             <span>
-                                                                                <i class="fa-brands fa-whatsapp help-icons"></i>
+                                                                                <i
+                                                                                    class="fa-brands fa-whatsapp help-icons"></i>
                                                                             </span>
                                                                             <span class="ps-2">+880 1714243446</span>
                                                                         </p>
                                                                         <p class="m-0 p-0 mb-1">
                                                                             <span>
-                                                                                <i class="fa-brands fa-skype help-icons"></i>
+                                                                                <i
+                                                                                    class="fa-brands fa-skype help-icons"></i>
                                                                             </span>
                                                                             <span class="ps-2">+1 917-720-3055</span>
                                                                         </p>
@@ -866,13 +898,16 @@
                                                                     <div>
                                                                         <p class="m-0 p-0 mb-1">
                                                                             <span>
-                                                                                <i class="fa-solid fa-envelope-open-text help-icons"></i>
+                                                                                <i
+                                                                                    class="fa-solid fa-envelope-open-text help-icons"></i>
                                                                             </span>
-                                                                            <span class="ps-2">sales@ngenitltd.com</span>
+                                                                            <span
+                                                                                class="ps-2">sales@ngenitltd.com</span>
                                                                         </p>
                                                                         <p class="m-0 p-0 mb-1">
                                                                             <span>
-                                                                                <i class="fa-solid fa-handshake help-icons"></i>
+                                                                                <i
+                                                                                    class="fa-solid fa-handshake help-icons"></i>
                                                                             </span>
                                                                             <span
                                                                                 class="ps-2">partners@ngenitltd.com</span>

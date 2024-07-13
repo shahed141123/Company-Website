@@ -21,8 +21,11 @@
         <span class="alert-icon bg-danger text-white rounded-pill">
             <i class="ph-bell-ringing"></i>
         </span>
-        <span class="fw-semibold">Warning!</span> Some Products from our Database have exceeded the update period. <a href="{{ route('toastr.index') }}"
+        <span class="fw-semibold">Warning!</span> Some Products from our Database have exceeded the update period. <a href="{{ route('product.price_notification') }}"
             class="alert-link fw-bolder fs-lg text-info">Click Here</a> to check and update the Products.
-        <button type="button" class="btn-close rounded-pill" data-bs-dismiss="alert"></button>
-    </div>
+        <button type="button" class="btn-close rounded-pill bg-danger" style="top: -1px;" data-bs-dismiss="alert"></button> --}}
+        {{-- <span class="alert-icon bg-danger text-white rounded-pill">
+            <button type="button" class="btn-close rounded-pill" data-bs-dismiss="alert"></button>
+        </span> --}}
+    {{-- </div>
 @endif --}}

@@ -241,7 +241,7 @@
                                             <div class="col-lg-4" style="margin: 5px 0px">
                                                 {{ Auth::guard('client')->user()->phone }}
                                                 <div class="form-group" id="Rfquser" style="display:none">
-                                                    <input type="text" required=""
+                                                    <input type="text" required
                                                         class="form-control form-control-sm rounded-0" id="phone"
                                                         name="phone"
                                                         value="{{ Auth::guard('client')->user()->phone }}"
@@ -308,10 +308,10 @@
                                             <textarea class="form-control form-control-sm rounded-0" id="message" name="message" rows="1"
                                                 placeholder="Additional Information..."></textarea>
                                         </div>
-                                        <div class="form-group  col-sm-12 px-3 mx-3">
+                                        <div class="form-group col-sm-12 px-3 mx-3">
                                             <input class="form-check-input" type="checkbox" value="1"
                                                 id="flexCheckDefault" name="call"
-                                                style="position: absolute; left: 3rem;">
+                                                style="left: 3rem;">
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Call Me
                                             </label>

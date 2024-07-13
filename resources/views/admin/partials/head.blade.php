@@ -91,4 +91,66 @@
         max-width: 100%;
         max-height: 100%;
     }
+
+    [hover-tooltip] {
+    position: relative;
+    cursor: default;
+}
+
+[hover-tooltip]:hover::before {
+    content: attr(hover-tooltip);
+    font-size: 14px;
+    text-align: center;
+    position: absolute;
+    display: block;
+    /* left: 50%; */
+    min-width: 250px;
+    max-width: 250px;
+    bottom: calc(100% + 10px); /* $distance */
+    transform: translate(-70%);
+    animation: fade-in 300ms ease;
+    background: rgba(39, 39, 39, 1); /* $tooltip-bg-color */
+    border-radius: 4px;
+    padding: 10px;
+    color: #ffffff;
+    z-index: 1;
+}
+
+[hover-tooltip]:hover::after {
+    content: '';
+    position: absolute;
+    display: block;
+    left: 50%;
+    width: 0;
+    height: 0;
+    bottom: calc(100% + 6px); /* $distance - $caret-height */
+    margin-left: -3px; /* - $caret-width / 2 */
+    border: 1px solid black;
+    border-color: rgba(39, 39, 39, 1) transparent transparent transparent; /* $tooltip-bg-color */
+    border-width: 4px 6px 0; /* $caret-height, $caret-width */
+    animation: fade-in 300ms ease;
+    z-index: 1;
+}
+
+[hover-tooltip][tooltip-position="bottom"]:hover::before {
+    bottom: auto;
+    top: calc(100% + 10px); /* $distance */
+}
+
+[hover-tooltip][tooltip-position="bottom"]:hover::after {
+    bottom: auto;
+    top: calc(100% + 6px); /* $distance - $caret-height */
+    border-color: transparent transparent rgba(39, 39, 39, 1); /* $tooltip-bg-color */
+    border-width: 0 6px 4px; /* $caret-width, $caret-height */
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 </style>

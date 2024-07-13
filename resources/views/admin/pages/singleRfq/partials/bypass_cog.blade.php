@@ -209,7 +209,7 @@
                                 Special Discount: <input type="text" name="special_discount_percentage"
                                     style="width: 5%;border-bottom: 1px solid rgb(218, 201, 201);margin: 0px 19px;"
                                     class="form-control form-control-sm bg-transparent rfqcalculationinput"
-                                    value="{{ optional($singleproduct)->special_discount_percentage }}"> %
+                                    value="{{ optional($quotation)->special_discount_display == '1' ? optional($singleproduct)->special_discount_percentage : 0 }}"> %
                             </div>
                         </th>
                         <th class="text-center" style="background-color: #e2e1e1; color: #fff">

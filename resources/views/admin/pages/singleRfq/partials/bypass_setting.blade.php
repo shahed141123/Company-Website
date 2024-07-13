@@ -7,8 +7,8 @@
                         <tbody>
                             <tr>
                                 <td width="18%">
-                                    <select class="form-select" id="" name="country" data-allow-clear="true"
-                                        data-placeholder="Select Country">
+                                    <select class="form-select" id="country_select" name="country" data-allow-clear="true"
+                                        data-placeholder="Select Country" onchange="countryFunction()">
                                         <option value="">Select Country</option>
                                         @foreach ($countires as $country)
                                             <option value="{{ $country->country_code }}" @selected(optional($quotation)->country == $country->country_code)>
@@ -17,8 +17,8 @@
                                     </select>
                                 </td>
                                 <td width="18%">
-                                    <select class="form-select" id="" name="region" data-allow-clear="true"
-                                        data-placeholder="Select Region">
+                                    <select class="form-select" id="region_select" name="region" data-allow-clear="true"
+                                        data-placeholder="Select Region" onchange="regionFunction()">
                                         <option value="">Select Region</option>
                                         <option value="bangladesh" @selected(optional($quotation)->region == 'bangladesh')>Bangladesh</option>
                                         <option value="singapore" @selected(optional($quotation)->region == 'singapore')>Singapore</option>
@@ -27,7 +27,8 @@
                                     </select>
                                 </td>
                                 <td width="14%">
-                                    <select class="form-select" id="" name="currency">
+                                    <select class="form-select" id="currency_select" name="currency" onchange="currencyFunction()">
+                                        <option value="">Select Currency</option>
                                         <option value="taka" @selected(optional($quotation)->currency == 'taka')>Taka(Tk)</option>
                                         <option value="euro" @selected(optional($quotation)->currency == 'euro')>Euro(&euro;)</option>
                                         <option value="dollar" @selected(optional($quotation)->currency == 'dollar')>Dollar($)</option>

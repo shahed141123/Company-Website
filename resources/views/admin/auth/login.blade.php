@@ -79,14 +79,14 @@
                                 @csrf
 
                                 <!-- Display Alert Message -->
-                                @if (Session::has('alert'))
+                                {{-- @if (Session::has('alert'))
                                     <div class="alert bg-danger text-white alert-dismissible fade show">
                                         <span class="fw-semibold">{{ Session::get('alert') }}. Login
                                             First</span>
                                         <button type="button" class="btn-close btn-close-white"
                                             data-bs-dismiss="alert"></button>
                                     </div>
-                                @endif
+                                @endif --}}
 
                                 <div class="card mb-0 admin-login-form">
                                     <div class="card-body">
@@ -126,7 +126,7 @@
                                             <div class="form-control-feedback form-control-feedback-start">
                                                 <input type="password" name="password" class="form-control" value="{{ old('password') }}"
                                                     style="border-radius: 0px; border: 0px; background-color:#eee;"
-                                                    placeholder="•••••••••••" required>
+                                                    placeholder="Enter Your Password" required>
                                                 <div class="invalid-feedback">Enter your Password</div>
                                                 <div class="form-control-feedback-icon password-toggle-icon"
                                                     onclick="togglePassword()">
@@ -156,7 +156,7 @@
                                                 <span class="text-primary"
                                                     style="text-decoration: underline">Click here!</span>
                                             </a>
-                                            <p class="text-muted m-0 p-0">If Need Recover Your Password Now.</p>
+                                            {{-- <p class="text-muted m-0 p-0">If Need Recover Your Password Now.</p> --}}
                                             <button type="submit" class="btn w-md-100 w-100 mt-3"
                                                 style="background:#ae0a46;border-radius: 0px;color: white;border: none;">Sign
                                                 In</button>

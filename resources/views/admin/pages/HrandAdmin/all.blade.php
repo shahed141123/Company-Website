@@ -208,42 +208,56 @@
                                                         style="background-color: #f2f3ff !important;">
                                                         <thead>
                                                             <tr>
-                                                                <th scope="col">SL</th>
+                                                                {{-- <th scope="col">SL</th> --}}
                                                                 <th scope="col">User Name</th>
-                                                                <th scope="col">Check In Time</th>
-                                                                <th scope="col">Check Out Time</th>
+                                                                <th scope="col">Check In</th>
+                                                                <th scope="col">Check Out</th>
+                                                                <th scope="col">Monthly</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($attendanceData as $userId => $times)
                                                                 <tr class="">
-                                                                    <td scope="row">{{ $loop->iteration }}</td>
-                                                                    <td><a href="{{ route('attendance.single', $userId) }}"
-                                                                            style="text-decoration: underline;">{{ $times['user_name'] }}</a>
+                                                                    {{-- <td scope="row">{{ $loop->iteration }}</td> --}}
+                                                                    <td>
+                                                                        {{-- <a href="{{ route('attendance.single', $userId) }}"
+                                                                            style="text-decoration: underline;">{{ $times['user_name'] }}</a> --}}
+                                                                            {{ $times['user_name'] }}
                                                                     </td>
                                                                     <td>
-                                                                        @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:05:00'))
+                                                                        @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:06:00'))
                                                                             <div
                                                                                 class="d-flex align-items-center justify-content-center">
                                                                                 <p class="text-danger me-1 m-0 p-0">
                                                                                     {{ $times['check_in'] }}</p>
-                                                                                @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:05:00') &&
-                                                                                        Carbon\Carbon::parse($times['check_in']) < Carbon\Carbon::parse('10:05:00'))
+                                                                                @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('09:06:00') &&
+                                                                                        Carbon\Carbon::parse($times['check_in']) < Carbon\Carbon::parse('10:01:00'))
                                                                                     <p class="text-danger m-0 p-0">L</p>
                                                                                 @endif
 
-                                                                                @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('10:05:00'))
+                                                                                @if (Carbon\Carbon::parse($times['check_in']) > Carbon\Carbon::parse('10:01:00'))
                                                                                     <p class="text-danger m-0 p-0">Half Day
                                                                                         (LL)
                                                                                     </p>
                                                                                 @endif
                                                                             </div>
                                                                         @else
-                                                                            <a href="{{ route('attendance.single', $userId) }}"
-                                                                                class="border-bottom-link">{{ $times['check_in'] }}</a>
+                                                                            {{-- <a href="{{ route('attendance.single', $userId) }}"
+                                                                                class="border-bottom-link">{{ $times['check_in'] }}</a> --}}
+                                                                                {{ $times['check_in'] }}
                                                                         @endif
                                                                     </td>
                                                                     <td>{{ $times['check_out'] }}</td>
+                                                                    <td class="d-flex align-items-center justify-content-center">
+                                                                        <a href="{{ route('attendance.single', $userId) }}" hover-tooltip="Last month Attendance" tooltip-position="top"
+                                                                                class="border-bottom-link me-4">
+                                                                        <i class="fa-solid fa-arrow-up-right-from-square main_color go-icon"></i>
+                                                                            </a>
+                                                                        <a href="{{ route('attendance.single.currentMonth', $userId) }}" hover-tooltip="Current month Attendance" tooltip-position="top"
+                                                                                class="border-bottom-link">
+                                                                                    <i class="fa-solid fa-arrow-up-right-from-square main_color go-icon"></i>
+                                                                            </a>
+                                                                    </td>
                                                                 </tr>
                                                             @endforeach
                                                         </tbody>
@@ -690,150 +704,33 @@
                                 <div class="card-body">
                                     <div>
                                         <ul class="ms-0 ps-0" style="list-style-type: none">
-                                            <li class="d-flex justify-content-between align-items-center">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="pe-3">
-                                                        <i class="fa-regular fa-message badge-icons"></i>
+                                            @foreach ($notices as $notice)
+                                                <li class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="pe-3">
+                                                            <i class="fa-regular fa-message badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                <a
+                                                                    href="{{ route('noticeboard') }}">{{ $notice->title }}</a>
+                                                            </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px; font-weight: 600; color: #888ea8">
+                                                                {{ $notice->created_at->format('d M Y') }}
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                            <a
-                                                                href="http://127.0.0.1:8000/admin/noticeboard">gvgdsdsvhdvds</a>
-                                                        </h6>
-                                                        <p class="p-0 m-0"
-                                                            style="font-size: 12px; font-weight: 600; color: #888ea8">07
-                                                            May,
-                                                            2022</p>
-                                                    </div>
-                                                </div>
-                                                <div class="pe-3 notification" id="notification0">
-                                                    <i class="fa-solid fa-envelope-open-text dash-icons envelope"
-                                                        data-id="0"></i>
-                                                    <i class="fa-regular fa-check-circle dash-icons check-circle"
-                                                        data-id="0"></i>
-                                                </div>
-                                            </li>
-                                            <li style="padding-left: 14px">|</li>
-                                            <li class="d-flex justify-content-between align-items-center">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="pe-3">
-                                                        <i class="fa-regular fa-message badge-icons"></i>
-                                                    </div>
-                                                    <div>
-                                                        <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                            <a href="http://127.0.0.1:8000/admin/noticeboard">Do not
-                                                                reply</a>
-                                                        </h6>
-                                                        <p class="p-0 m-0"
-                                                            style="font-size: 12px; font-weight: 600; color: #888ea8">07
-                                                            May,
-                                                            2022</p>
-                                                    </div>
-                                                </div>
-                                                <div class="pe-3 notification" id="notification1">
-                                                    <i class="fa-solid fa-envelope-open-text dash-icons envelope"
-                                                        data-id="1"></i>
-                                                    <i class="fa-regular fa-check-circle dash-icons check-circle"
-                                                        data-id="1"></i>
-                                                </div>
-                                            </li>
-                                            <li style="padding-left: 14px">|</li>
-                                            <li class="d-flex justify-content-between align-items-center">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="pe-3">
-                                                        <i class="fa-regular fa-message badge-icons"></i>
-                                                    </div>
-                                                    <div>
-                                                        <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                            <a href="http://127.0.0.1:8000/admin/noticeboard">Do not Reply
-                                                                (Testing Purpose)</a>
-                                                        </h6>
-                                                        <p class="p-0 m-0"
-                                                            style="font-size: 12px; font-weight: 600; color: #888ea8">07
-                                                            May,
-                                                            2022</p>
-                                                    </div>
-                                                </div>
-                                                <div class="pe-3 notification" id="notification2">
-                                                    <i class="fa-solid fa-envelope-open-text dash-icons envelope"
-                                                        data-id="2"></i>
-                                                    <i class="fa-regular fa-check-circle dash-icons check-circle"
-                                                        data-id="2"></i>
-                                                </div>
-                                            </li>
-                                            <li style="padding-left: 14px">|</li>
-                                            <li class="d-flex justify-content-between align-items-center">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="pe-3">
-                                                        <i class="fa-regular fa-message badge-icons"></i>
-                                                    </div>
-                                                    <div>
-                                                        <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                            <a href="http://127.0.0.1:8000/admin/noticeboard">Do not Reply
-                                                                (Testing Purpose)</a>
-                                                        </h6>
-                                                        <p class="p-0 m-0"
-                                                            style="font-size: 12px; font-weight: 600; color: #888ea8">07
-                                                            May,
-                                                            2022</p>
-                                                    </div>
-                                                </div>
-                                                <div class="pe-3 notification" id="notification3">
-                                                    <i class="fa-solid fa-envelope-open-text dash-icons envelope"
-                                                        data-id="3"></i>
-                                                    <i class="fa-regular fa-check-circle dash-icons check-circle"
-                                                        data-id="3"></i>
-                                                </div>
-                                            </li>
-                                            <li style="padding-left: 14px">|</li>
-                                            <li class="d-flex justify-content-between align-items-center">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="pe-3">
-                                                        <i class="fa-regular fa-message badge-icons"></i>
-                                                    </div>
-                                                    <div>
-                                                        <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                            <a href="http://127.0.0.1:8000/admin/noticeboard">Do not Reply
-                                                                (Testing Purpose)</a>
-                                                        </h6>
-                                                        <p class="p-0 m-0"
-                                                            style="font-size: 12px; font-weight: 600; color: #888ea8">07
-                                                            May,
-                                                            2022</p>
-                                                    </div>
-                                                </div>
-                                                <div class="pe-3 notification" id="notification4">
-                                                    <i class="fa-solid fa-envelope-open-text dash-icons envelope"
-                                                        data-id="4"></i>
-                                                    <i class="fa-regular fa-check-circle dash-icons check-circle"
-                                                        data-id="4"></i>
-                                                </div>
-                                            </li>
-                                            <li style="padding-left: 14px">|</li>
-                                            <li class="d-flex justify-content-between align-items-center">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="pe-3">
-                                                        <i class="fa-regular fa-message badge-icons"></i>
-                                                    </div>
-                                                    <div>
-                                                        <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
-                                                            <a href="http://127.0.0.1:8000/admin/noticeboard">Meeting
-                                                                Notice</a>
-                                                        </h6>
-                                                        <p class="p-0 m-0"
-                                                            style="font-size: 12px; font-weight: 600; color: #888ea8">07
-                                                            May,
-                                                            2022</p>
-                                                    </div>
-                                                </div>
-                                                <div class="pe-3 notification" id="notification5">
-                                                    <i class="fa-solid fa-envelope-open-text dash-icons envelope"
-                                                        data-id="5"></i>
-                                                    <i class="fa-regular fa-check-circle dash-icons check-circle"
-                                                        data-id="5"></i>
-                                                </div>
-                                            </li>
-                                            <li style="padding-left: 14px">|</li>
+                                                    {{-- <div class="pe-3 notification" id="notification0">
+                                                        <i class="fa-solid fa-envelope-open-text dash-icons envelope"
+                                                            data-id="0"></i>
+                                                        <i class="fa-regular fa-check-circle dash-icons check-circle"
+                                                            data-id="0"></i>
+                                                    </div> --}}
+                                                </li>
+                                                <li style="padding-left: 14px">|</li>
+                                            @endforeach
+
                                         </ul>
                                     </div>
                                 </div>
@@ -847,8 +744,10 @@
         </div>
     @endsection
     @push('scripts')
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script>
+            import { Tooltip } from "https://cdn.jsdelivr.net/npm/jolty@0.6.2/dist/jolty.esm.min.js";
+            Tooltip.initAll();
+        </script>
         <script>
             var data = {
                 labels: ['Present', 'Absent'],

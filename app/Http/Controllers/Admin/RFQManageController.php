@@ -324,8 +324,8 @@ class RFQManageController extends Controller
         $pdf->setPaper('a4', 'portrait');
         $pdf_output = $pdf->output();
         Storage::put($filePath, $pdf_output);
-        return view('pdf.quotation', $data);
-        
+        // return view('pdf.quotation', $data);
+
         // Validate email addresses
         $receiver_email = filter_var($request->receiver_email, FILTER_VALIDATE_EMAIL);
         $receiver_cc_email = $request->receiver_cc_email ? array_filter(explode(',', $request->receiver_cc_email), function($email) {

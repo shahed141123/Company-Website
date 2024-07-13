@@ -11,6 +11,7 @@ use App\Models\Admin\EventCategory;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Admin\LeaveApplication;
+use App\Models\Admin\Notice;
 
 class DashboardController extends Controller
 {
@@ -87,6 +88,7 @@ class DashboardController extends Controller
         $data['events'] = Event::whereBetween('start_date', [$currentMonth, $endOfMonth])->get();
         $data['event_categorys'] = EventCategory::latest()->get();
         $data['users'] = User::latest('id', 'DESC')->get();
+        $notices = Notice::latest('id')->get();
         $data['leave_applications'] = LeaveApplication::get(['name','id', 'status']);
         // return view('admin.pages.HrandAdmin.all', $data);
         return view('admin.pages.HrandAdmin.all', [
@@ -97,6 +99,7 @@ class DashboardController extends Controller
             'users'              => $data['users'],
             'event_categorys'    => $data['event_categorys'],
             'leave_applications' => $data['leave_applications'],
+            'notices'           => $notices,
         ]);
     }
 
