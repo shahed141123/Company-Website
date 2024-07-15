@@ -23,16 +23,9 @@
         .submit_btn:hover {
             padding: 10px;
         }
-
-        .pagination-flat .disabled {
-            width: 60px !important;
-            padding-left: 10px;
-            padding-right: 10px;
-
-        }
-
-        #DataTables_Table_0_previous {
-            margin-right: 0px !important;
+        .navigation_btn.active{
+            background-color: #ae0a46;
+            color: #fff;
         }
     </style>
 
@@ -61,7 +54,7 @@
                 <div>
                     <ul class="nav nav-tabs border-bottom-0">
                         <li class="nav-item d-flex align-items-center">
-                            <a href="#category" class="btn navigation_btn" data-bs-toggle="tab">
+                            <a href="#category" class="btn navigation_btn active" data-bs-toggle="tab">
                                 <p class="p-1 mb-0" >
                                     Category</p>
                             </a>

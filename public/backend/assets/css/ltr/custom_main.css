@@ -66,18 +66,6 @@ body {
     font-size: 13px;
 }
 
-#DataTables_Table_0_previous {
-    margin-right: 30px !important;
-}
-
-.dataTables_paginate .pagination .previous {
-    margin-right: 2rem;
-}
-
-#DataTables_Table_0_next {
-    margin-right: 10px !important;
-}
-
 .main_bg_color {
     background-color: #247297 !important;
 }
@@ -277,7 +265,7 @@ textarea {
 }
 .dash-icons {
     background-color: #eee;
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 50%;
     transition: transform 0.5s ease-out;
 }
@@ -444,15 +432,6 @@ textarea {
 .ph {
     font-size: 14px !important;
 } */
-
-.page-link {
-    text-align: center;
-    padding: 0px;
-    height: 18px !important;
-    width: 18px !important;
-    font-size: 12px !important;
-}
-
 .validation-invalid-label,
 .validation-valid-label {
     /* margin-top: 0.25rem; */
@@ -880,24 +859,9 @@ input.invalid {
 }
 
 /* Most Important Need TO Be Here Start*/
-.page-link {
-    text-align: center;
-    padding: 3px 10px 20px !important;
-    height: 10px !important;
-    width: auto !important;
-    font-size: 12px !important;
-}
 
 .datatable-footer {
     background-color: transparent !important;
-}
-
-.dataTables_paginate .pagination .previous {
-    margin-right: 5px;
-}
-
-#DataTables_Table_0_previous {
-    margin-right: 5px !important;
 }
 
 /* Project Add Shaju */

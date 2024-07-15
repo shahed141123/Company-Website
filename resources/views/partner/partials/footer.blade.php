@@ -1,4 +1,4 @@
-<div class="navbar navbar-sm navbar-footer border-top">
+<div class="navbar navbar-sm navbar-footer" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
     <div class="container-fluid">
         <span>&copy; {{ date('Y') }} <a href="{{ route('homepage') }}">Ngen It</a></span>
 

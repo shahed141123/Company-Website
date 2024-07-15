@@ -103,9 +103,6 @@
                                     </a>
                                 </li>
                             </ul>
-                            <div>
-                                <h6 class="text-center mb-0 pe-3"> All Pending Products for SAS</h6>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -169,22 +166,17 @@
                             </div>
                         </div>
                         <div class="tab-content">
-                            <div class="tab-pane fade show" id="approved">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <h5 class="text-center"> All Products Pending for Approve</h5>
-                                    </div>
-                                </div>
+                            <div class="tab-pane fade" id="approved">
                                 {{-- Approved Table --}}
                                 <table class="table approved table-bordered table-hover text-center">
                                     <thead>
                                         <tr class="text-center">
                                             <th width="5%">Sl</th>
                                             <th width="5%">Image </th>
-                                            <th width="50%">Product Name </th>
+                                            <th width="40%">Product Name </th>
                                             <th width="15%">Sale Price</th>
                                             <th width="15%">Price Status</th>
-                                            <th width="10%">Action</th>
+                                            <th width="20%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -229,21 +221,16 @@
                             </div>
                         </div>
                         <div class="tab-content">
-                            <div class="tab-pane fade show" id="all">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <h5 class="text-center"> All Approved Products</h5>
-                                    </div>
-                                </div>
+                            <div class="tab-pane fade" id="all">
                                 <table class="table all table-bordered table-hover text-center ">
                                     {{-- All SAS Table --}}
                                     <thead>
                                         <tr class="text-center">
                                             <th width="5%">Sl</th>
                                             <th width="5%">Image </th>
-                                            <th width="60%">Product Name </th>
+                                            <th width="50%">Product Name </th>
                                             <th width="20%">Sales Price</th>
-                                            <th width="10%">Action</th>
+                                            <th width="20%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>

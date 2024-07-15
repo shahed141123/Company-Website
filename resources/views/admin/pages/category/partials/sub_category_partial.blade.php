@@ -1,5 +1,5 @@
-<div class="tab-pane fade show" id="sub_category">
-    <div class="col-lg-8 offset-lg-2">
+<div class="tab-pane fade" id="sub_category">
+    <div class="col-lg-12">
         <div class="d-flex justify-content-between align-items-center py-1 px-4 mt-3 rounded-1" style="background-color: #247297">
             <div>
                 <h5 class="mb-0 text-white">Sub Category Management</h5>
@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-8 offset-lg-2">
+    <div class="col-lg-12">
         <div>
             <table
                 class="table sub_category table-bordered table-hover datatable-highlight text-center ">

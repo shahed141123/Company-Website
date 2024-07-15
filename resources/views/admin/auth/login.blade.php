@@ -1,39 +1,51 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Ngen It | Log In</title>
-
-    <!-- Global stylesheets -->
-    <link href="{{ asset('backend/assets/fonts/inter/inter.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('backend/assets/icons/phosphor/styles.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('backend/assets/css/ltr/all.min.css') }}" id="stylesheet" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NGen IT Back-Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- /global stylesheets -->
-
-    <!-- Custom CSS styles -->
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body,
+        html {
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: "Jost", sans-serif;
+        }
+
+        .back_img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .back_img img {
-            object-fit: contain;
+            object-fit: cover;
             width: 100%;
             height: 100%;
         }
 
-        .admin-login-form {
-            padding: 30px 60px;
-            border: none;
+        .login-form-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-card {
+            width: 500px;
+            max-width: 100%;
+            border: 0;
             box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         }
 
-        .form-check-input:checked {
-            background-color: #ae0a46;
-            border-color: var(--form-check-input-checked-border-color);
-        }
-
-        .form-control-feedback-start .form-control-feedback-icon {
+        .form-control-feedback-icon {
             left: 0;
             border-right: 1px solid #ae0a46;
             background-color: #ae0a46;
@@ -41,14 +53,31 @@
             padding: 10px;
         }
 
-        @media screen and (max-width: 767px) {
-            .back_img {
+        .invalid-feedback {
+            --form-validation-color: #EF4444;
+            display: none;
+            width: 100%;
+            margin-top: .25rem;
+            font-size: var(--body-font-size-sm);
+            color: #ef4444;
+        }
+
+        .custom-input-btn {
+            color: #ae0a46;
+            cursor: pointer;
+        }
+
+        .form-check-input:checked {
+            background-color: #ae0a46;
+            border-color: #ae0a46;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .mobile-none{
                 display: none;
             }
-
-            .admin-login-form {
-                padding: 30px 60px;
-                border: none;
+            .login-card{
+                width: 100%;
                 box-shadow: none;
             }
         }
@@ -56,145 +85,119 @@
 </head>
 
 <body>
-    <!-- Page content -->
-    <div class="page-content">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- Left Column with Background Image -->
-                <div class="col-lg-5 col-sm-12 p-0" style="border-right: 1px solid #eee">
-                    <div class="back_img">
-                        <img class="img-fluid"
-                            src="https://i.ibb.co/S5gB7Jh/Backend-side-image-NGen-IT.jpg"
-                            alt="">
+    <main>
+        <section>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 px-0 mobile-none">
+                        <div class="back_img">
+                            <img class="img-fluid" src="https://i.ibb.co/S5gB7Jh/Backend-side-image-NGen-IT.jpg"
+                                alt="">
+                        </div>
                     </div>
-                </div>
-
-                <!-- Right Column with Login Form -->
-                <div class="col-lg-7 col-sm-12 p-0">
-                    <div class="d-flex justify-content-center align-items-center"
-                        style="background-color: white; height: 100vh;">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <form class="login-form needs-validation" method="POST" action="{{ route('admin.login') }}"
-                                style="width: 30rem;" novalidate>
-                                @csrf
-
-                                <!-- Display Alert Message -->
-                                {{-- @if (Session::has('alert'))
-                                    <div class="alert bg-danger text-white alert-dismissible fade show">
-                                        <span class="fw-semibold">{{ Session::get('alert') }}. Login
-                                            First</span>
-                                        <button type="button" class="btn-close btn-close-white"
-                                            data-bs-dismiss="alert"></button>
+                    <div class="col-lg-6 px-0 login-form-container">
+                        <form class="login-form needs-validation" method="POST" action="{{ route('admin.login') }}"
+                            novalidate>
+                            @csrf
+                            <div class="card login-card py-5 rounded-0">
+                                <div class="card-body">
+                                    <div class="text-center mb-5">
+                                        <div class="d-inline-flex align-items-center justify-content-center mb-4">
+                                            <img class="img-fluid" width="130px"
+                                                src="https://www.ngenitltd.com/storage/RZlRwzfUA8get0PcCzQphbeIJu6OhSL7ltNc4xiZ.png"
+                                                alt="">
+                                        </div>
+                                        <h1 class="m-0" style="color: #6B7280;">Welcome Back!</h1>
+                                        <p class="mb-0 text-muted">Login to continue your admin account.</p>
                                     </div>
-                                @endif --}}
-
-                                <div class="card mb-0 admin-login-form">
-                                    <div class="card-body">
-                                        <div class="text-center mb-3">
-                                            <!-- Brand Logo -->
-                                            <div class="d-inline-flex align-items-center justify-content-center mb-4">
-                                                <img class="img-fluid" width="130px"
-                                                    src="https://www.ngenitltd.com/storage/RZlRwzfUA8get0PcCzQphbeIJu6OhSL7ltNc4xiZ.png"
-                                                    alt="">
+                                    <div class="px-5">
+                                        <div class="mb-3">
+                                            <div class="input-group">
+                                                <span class="input-group-text rounded-0 custom-input-btn"
+                                                    id="basic-addon1"><i class="fa-solid fa-envelope"></i></span>
+                                                <input type="text" name="email"
+                                                    class="form-control rounded-0" placeholder="Username"
+                                                    aria-label="Username" value="{{ old('email') }}"
+                                                    aria-describedby="basic-addon1" required>
+                                                @error('email')
+                                                    <div class="text-danger col-lg-12 col-12">
+                                                        {{ $message }}
+                                                    </div>
+                                                    <div class="invalid-feedback">Enter your email</div>
+                                                @enderror
                                             </div>
-                                            <h1 class="m-0">Welcome Back!</h1>
-                                            <p class="mb-0 text-muted">Login to continue your admin account.</p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="input-group">
+                                                <span
+                                                    class="input-group-text rounded-0 custom-input-btn toggle-password"
+                                                    id="togglePassword"><i class="fa-solid fa-lock"></i></span>
+                                                <input type="password" name="password"
+                                                    class="form-control rounded-0" placeholder="Password"
+                                                    aria-label="Password" value="{{ old('password') }}"
+                                                    aria-describedby="togglePassword" required>
+                                                @error('password')
+                                                    <div class="text-danger col-lg-12 col-12">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                                <div class="invalid-feedback">Enter your password</div>
+                                            </div>
                                         </div>
 
-                                        <!-- Email Input -->
-                                        <div class="mb-3 text-left">
-                                            <label class="form-label">Email</label>
-                                            <div class="form-control-feedback form-control-feedback-start">
-                                                <input type="text" name="email" class="form-control" value="{{ old('email') }}"
-                                                    style="border-radius: 0px; border: 0px; background-color:#eee;"
-                                                    placeholder="john@doe.com" required>
-                                                <div class="invalid-feedback">Enter your Email</div>
-                                                <div class="form-control-feedback-icon">
-                                                    <i class="fas fa-envelope text-white" style="padding-top: 2px"></i>
-                                                </div>
-                                            </div>
-                                            @error('email')
-                                                <div class="text-danger">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-
-                                        <!-- Password Input -->
-                                        <div class="mb-3 text-left position-relative">
-                                            <label class="form-label">Password</label>
-                                            <div class="form-control-feedback form-control-feedback-start">
-                                                <input type="password" name="password" class="form-control" value="{{ old('password') }}"
-                                                    style="border-radius: 0px; border: 0px; background-color:#eee;"
-                                                    placeholder="Enter Your Password" required>
-                                                <div class="invalid-feedback">Enter your Password</div>
-                                                <div class="form-control-feedback-icon password-toggle-icon"
-                                                    onclick="togglePassword()">
-                                                    <i class="fas fa-eye text-white" style="padding-top: 2px"></i>
-                                                </div>
-                                            </div>
-                                            @error('password')
-                                                <div class="text-danger">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                            <div class="invalid-feedback">Enter your password</div>
-                                        </div>
-
-                                        <!-- Remember Me Checkbox and Forgot Password Link -->
-                                        <div class="d-flex align-items-center mb-3">
-                                            <label class="form-check">
-                                                <input type="checkbox" name="remember" class="form-check-input" checked>
-                                                <span class="form-check-label">Remember my login credentials</span>
+                                        <div class="form-check mb-3 pt-3">
+                                            <input class="form-check-input" type="checkbox" checked name="remember"
+                                                id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Remember my login credentials
                                             </label>
                                         </div>
-
-                                        <!-- Sign In Button -->
-                                        <div class="text-center mb-3 pt-3">
-                                            <a href="{{route('admin.password.request')}}" class="mt-3 mb-3 pb-3">
-                                                <span style="color: #ae0a46;">Forgot Password? </span>
-                                                <span class="text-primary"
-                                                    style="text-decoration: underline">Click here!</span>
-                                            </a>
-                                            {{-- <p class="text-muted m-0 p-0">If Need Recover Your Password Now.</p> --}}
-                                            <button type="submit" class="btn w-md-100 w-100 mt-3"
+                                        <div class="text-center mb-3 pt-5">
+                                            <span>Forgot Password? <a href="{{ route('admin.password.request') }}"
+                                                    style="color: #ae0a46;">Click
+                                                    here!</a></span>
+                                        </div>
+                                        <div class="d-grid">
+                                            <button class="btn btn-primary py-3 fw-bold" type="submit"
                                                 style="background:#ae0a46;border-radius: 0px;color: white;border: none;">Sign
-                                                In</button>
+                                                In <i class="fa-solid fa-arrow-right-long ps-2"></i></button>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- /page content -->
-
-    <!-- Core JS files -->
-    <script src="{{ asset('backend/assets/demo/demo_configurator.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
-    <!-- /core JS files -->
-
-    <!-- Theme JS files -->
-    <script src="{{ asset('backend/assets/js/app.js') }}"></script>
-    <script src="{{ asset('backend/assets/demo/pages/form_validation_styles.js') }}"></script>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
     <script>
-        function togglePassword() {
+        document.addEventListener('DOMContentLoaded', function() {
+            const togglePassword = document.querySelector('.toggle-password');
             const passwordInput = document.querySelector('input[name="password"]');
-            const passwordToggleIcon = document.querySelector('.password-toggle-icon i');
 
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                passwordToggleIcon.classList.add('fa-eye-slash');
-                passwordToggleIcon.classList.remove('fa-eye');
-            } else {
-                passwordInput.type = "password";
-                passwordToggleIcon.classList.add('fa-eye');
-                passwordToggleIcon.classList.remove('fa-eye-slash');
-            }
-        }
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+
+                // Toggle icon and color
+                const icon = togglePassword.querySelector('i');
+                if (type === 'password') {
+                    icon.classList.remove('text-success');
+                    icon.classList.add('text-dark');
+                    icon.classList.add('fa-lock');
+                    icon.classList.remove('fa-unlock');
+                } else {
+                    icon.classList.remove('text-dark');
+                    icon.classList.add('text-success');
+                    icon.classList.remove('fa-lock');
+                    icon.classList.add('fa-unlock');
+                }
+            });
+        });
     </script>
 </body>
 
