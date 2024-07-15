@@ -138,7 +138,7 @@
                                                     </h6>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-3 px-4"
+                                            <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-3 mt-3 px-4"
                                                 style="width:100%; background: #f4efe4;">
                                                 <div class="stock-info">
                                                     <p tabindex="0" class="prod-stock mb-0"
@@ -275,7 +275,7 @@
                                                 <p class="list_price mb-0">List Price</p>
                                                 <div class="product__details__price ">
                                                     @if (!empty($sproduct->discount))
-                                                        <p class="mb-0"
+                                                        <p class="mb-0 number-font"
                                                             style="font-size: 14px !important; color: #ae0a46;">
                                                             <span style="text-decoration: line-through; color:#ae0a46;">$
                                                                 {{ $sproduct->sas_price }}</span>
@@ -616,10 +616,12 @@
                                                 @else
                                                     <div class="d-flex justify-content-center"
                                                         class="cart_button{{ $product->id }}">
-                                                        <button class="btn-color special_btn add_to_cart"
+                                                        <button class="btn-color special_btn" data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $product->id }}">Get Quote</button>
+                                                        {{-- <button class="btn-color special_btn add_to_cart"
                                                             data-id="{{ $product->id }}"
                                                             data-name="{{ $product->name }}" data-quantity="1">Add to
-                                                            Cart</button>
+                                                            Cart</button> --}}
                                                     </div>
                                                 @endif
                                             </div>
@@ -727,7 +729,7 @@
             <div class="modal-header py-2 px-4 rounded-0" style="background: #ae0a46;">
                 <h5 class="modal-title p-1 text-white" id="staticBackdropLabel">Get Quote
                 </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body rounded-0 p-0">
                 <div class="container px-0">
@@ -894,10 +896,10 @@
                                     </div>
                                     <div class="row align-items-center mb-5">
                                         <div class="col-lg-6 mb-4">
-                                            <div class="form-group px-3 mx-1 message g-recaptcha w-100"
+                                            {{-- <div class="form-group px-3 mx-1 message g-recaptcha w-100"
                                                 style="position: relative;right: 20px;"
                                                 data-sitekey="{{ config('app.recaptcha_site_key') }}">
-                                            </div>
+                                            </div> --}}
                                         </div>
                                         <div class="col-lg-6 mb-4 text-end">
                                             <button type="submit" class="btn-color" id="submit_btn">Submit

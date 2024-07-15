@@ -55,7 +55,7 @@
                                                 <p class="pb-0 mb-0 text-muted brandpage_product_title mb-2">
                                                     {{ Str::words($product->name, 15) }}</p>
                                             </a>
-                                            <div >
+                                            <div>
                                                 <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
                                                     {{ $product->getCategoryName() }}</span>
                                                 <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
@@ -86,9 +86,12 @@
                                             @else
                                                 <div class="d-flex justify-content-center"
                                                     class="cart_button{{ $product->id }}">
-                                                    <button class="btn-color special_btn add_to_cart"
+                                                    <a href="{{ route('product.details', $product->slug) }}"
+                                                        class="btn-color special_btn">Details</a>
+
+                                                    {{-- <button class="btn-color special_btn add_to_cart"
                                                         data-id="{{ $product->id }}" data-name="{{ $product->name }}"
-                                                        data-quantity="1">Add to Cart</button>
+                                                        data-quantity="1">Add to Cart</button> --}}
                                                 </div>
                                             @endif
 
@@ -134,7 +137,7 @@
                                                 <p class="pb-0 mb-0 text-muted brandpage_product_title mb-2">
                                                     {{ Str::words($product->name, 15) }}</p>
                                             </a>
-                                            <div >
+                                            <div>
                                                 <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
                                                     {{ $product->getCategoryName() }}</span>
                                                 <span class="brandpage_product_span"><i class="fa-solid fa-tag"></i>
@@ -165,9 +168,12 @@
                                             @else
                                                 <div class="d-flex justify-content-center"
                                                     class="cart_button{{ $product->id }}">
-                                                    <button class="btn-color special_btn add_to_cart"
+                                                    <a href="{{ route('product.details', $product->slug) }}"
+                                                        class="btn-color special_btn">Details</a>
+
+                                                    {{-- <button class="btn-color special_btn add_to_cart"
                                                         data-id="{{ $product->id }}" data-name="{{ $product->name }}"
-                                                        data-quantity="1">Add to Cart</button>
+                                                        data-quantity="1">Add to Cart</button> --}}
                                                 </div>
                                             @endif
                                         </div>

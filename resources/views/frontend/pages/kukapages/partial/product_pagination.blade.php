@@ -48,8 +48,9 @@
                             </div>
                         @else
                             <div class="d-flex justify-content-center" class="cart_button{{ $product->id }}">
-                                <button class="btn-color special_btn add_to_cart" data-id="{{ $product->id }}"
-                                    data-name="{{ $product->name }}" data-quantity="1">Add to Cart</button>
+                                <a href="{{ route('product.details', $product->slug) }}" class="btn-color special_btn">Details</a>
+                                {{-- <button class="btn-color special_btn add_to_cart" data-id="{{ $product->id }}"
+                                    data-name="{{ $product->name }}" data-quantity="1">Add to Cart</button> --}}
                             </div>
                         @endif
                     </div>
