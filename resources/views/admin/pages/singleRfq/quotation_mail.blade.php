@@ -6,6 +6,18 @@
             padding: 5px;
         }
 
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
         @media only screen and (max-width: 767px) {
             .table>:not(caption)>*>* {
                 padding: 5px;
@@ -217,15 +229,24 @@
         <script>
             // Define the updateCurrency function globally
             function countryFunction() {
-                alert('As you have changed country, you have to change region.');
+                Swal.fire({
+                    text: "As you have changed country, you have to change region.",
+                });
+                // alert('As you have changed country, you have to change region.');
             }
 
             function regionFunction() {
-                alert('As you have changed region, you have to change currency.');
+                Swal.fire({
+                    text: "As you have changed region, you have to change currency.",
+                });
+                // alert('As you have changed region, you have to change currency.');
             }
 
             function currencyFunction() {
-                alert('As you have changed currency, you have to input currency conversion rate based on Taka.');
+                Swal.fire({
+                    text: "As you have changed currency, you have to input currency conversion rate based on Taka.",
+                });
+                // alert('As you have changed currency, you have to input currency conversion rate based on Taka.');
             }
 
             function updateCurrency(currencyValue) {

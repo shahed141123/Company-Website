@@ -14,14 +14,30 @@
             <tbody class="table-group-divider">
                 @foreach ($rfq_details->quotationProducts as $rfqProduct)
                     @php
-                        $sproduct = App\Models\Admin\Product::where('name', 'LIKE', '%' . $rfqProduct->product_name . '%')
+                        $sproduct = App\Models\Admin\Product::where(
+                            'name',
+                            'LIKE',
+                            '%' . $rfqProduct->product_name . '%',
+                        )
                             ->where('product_status', 'product')
-                            ->first(['id', 'name', 'source_one_price', 'source_two_price', 'source_one_name', 'source_two_name', 'source_one_link', 'source_two_link']);
+                            ->first([
+                                'id',
+                                'name',
+                                'source_one_price',
+                                'source_two_price',
+                                'source_one_name',
+                                'source_two_name',
+                                'source_one_link',
+                                'source_two_link',
+                            ]);
                     @endphp
                     @if (!empty($sproduct))
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $sproduct->name }}</td>
+                            <td><a href="{{ route('product-sourcing.edit', $sproduct->id) }}" target="_blank" rel="noopener noreferrer">
+                                    {{ $sproduct->name }}
+                                </a>
+                            </td>
                             <td>
                                 <a href="{{ $sproduct->source_one_link }}" target="_blank" rel="noopener noreferrer">
                                     {{ $sproduct->source_one_name }}
