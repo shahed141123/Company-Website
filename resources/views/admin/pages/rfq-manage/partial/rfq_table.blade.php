@@ -6,6 +6,7 @@
 <table class="rfqDT1 table table-bordered table-hover">
     <thead>
         <tr class="text-center">
+            <th width="5%">Sl</th>
             <th width="19%">RFQ Code</th>
             <th width="15%">Created At</th>
             <th width="30%">Client Name (Company)</th>
@@ -16,8 +17,9 @@
     </thead>
     <tbody>
         @if ($rfqs)
-            @foreach ($rfqs as $key => $rfq)
+            @foreach ($rfqs as $rfq)
                 <tr class="text-center">
+                    <td>{{ $loop->iteration}}</td>
                     <td>{{ ucfirst($rfq->rfq_code) }}</td>
                     <td>{{ ucfirst($rfq->create_date) }}</td>
                     <td>{{ ucfirst($rfq->name) }} ({{ ucfirst($rfq->company_name) }})</td>

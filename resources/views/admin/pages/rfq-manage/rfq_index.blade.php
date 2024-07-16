@@ -30,7 +30,7 @@
             <!-- Content area -->
             <div class="content pt-1">
                 <div class="row">
-                    <div class="col-lg-8 offset-2">
+                    <div class="col-lg-10 offset-1">
                         <div class="card mt-4 rounded-0">
                             <div class="card-header p-0">
                                 <div class="d-flex justify-content-between align-items-center">

@@ -17,10 +17,10 @@ class Rfq extends Model
 
     public function rfqProducts()
     {
-        return $this->hasMany(RfqProduct::class, 'rfq_id');
+        return $this->hasMany(RfqProduct::class);
     }
     public function quotationProducts()
     {
-        return $this->hasMany(QuotationProduct::class, 'rfq_id');
+        return $this->hasMany(QuotationProduct::class);
     }
 }

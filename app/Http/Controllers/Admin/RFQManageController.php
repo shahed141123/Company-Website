@@ -26,15 +26,16 @@ class RFQManageController extends Controller
 
     public function index()
     {
-        $data['users'] = User::whereJsonContains('department', 'business')->where('role', 'manager')->get(['id', 'name']);
-        $data['rfqs'] = Rfq::with('rfqProducts')->where('rfq_type', 'rfq')->orderBy('id', 'ASC')->get();
+        $data['users'] = User::whereJsonContains('department', 'business')->where('role', 'manager')->latest('id')->get(['id', 'name']);
+        $data['rfqs'] = Rfq::with('rfqProducts')->latest('id')->where('rfq_type', 'rfq')->get();
+        // dd($data['rfqs']);
         return view('admin.pages.rfq-manage.rfq_index', $data);
     }
 
     public function dealList()
     {
-        $data['users'] = User::whereJsonContains('department', 'business')->where('role', 'manager')->get(['id', 'name']);
-        $data['deals'] = Rfq::with('rfqProducts')->where('rfq_type', '!=', 'rfq')->orderBy('rfqs.updated_at', 'desc')->get();
+        $data['users'] = User::whereJsonContains('department', 'business')->where('role', 'manager')->latest('id')->get(['id', 'name']);
+        $data['deals'] = Rfq::with('rfqProducts')->where('rfq_type', '!=', 'rfq')->orderBy('rfqs.updated_at', 'desc')->latest('id')->get();
         return view('admin.pages.rfq-manage.deal_index', $data);
     }
 

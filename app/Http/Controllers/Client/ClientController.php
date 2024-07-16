@@ -451,7 +451,7 @@ class ClientController extends Controller
     {
         $data = [
             'data' => Client::where('id', Auth::guard('client')->user()->id)->first(),
-            'rfqs' => Rfq::where('client_id', Auth::guard('client')->user()->id)->where('rfq_type', 'deal')->get(),
+            'rfqs' => Rfq::with('quotationProducts')->where('client_id', Auth::guard('client')->user()->id)->get(),
         ];
         return view('frontend.pages.client.rfq', $data);
     }

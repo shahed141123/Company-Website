@@ -108,6 +108,9 @@ class RFQController extends Controller
                 $newNumber = 1;
             }
 
+            $client = Client::where('email', $request->input('email'))->first();
+            $client_type = $client ? (in_array($client->user_type, ['client', 'partner']) ? $client->user_type : 'anonymous') : 'anonymous';
+
             $data['rfq_code'] = "RFQ-$today-$newNumber";
 
             $product = Product::find($request->input('product_id'));
@@ -118,31 +121,31 @@ class RFQController extends Controller
             $globalFunImage = $mainFile ? Helper::singleImageUpload($mainFile, $imgPath, 450, 350) : ['status' => 0];
 
             $rfq_id = Rfq::insertGetId([
-                'client_id' => $request->input('client_id'),
-                'partner_id' => $request->input('partner_id'),
-                'product_id' => $request->input('product_id'),
-                'solution_id' => $request->input('solution_id'),
-                'rfq_code' => $data['rfq_code'],
-                'rfq_type' => 'rfq',
-                'deal_type' => $data['deal_type'],
-                'client_type' => $request->input('client_type'),
-                'name' => $request->input('name'),
-                'email' => $request->input('email'),
-                'phone' => $request->input('phone'),
-                'qty' => $request->input('qty'),
+                'client_id'    => !empty($request->input('client_id')) ? $request->input('client_id') : $client->id,
+                'partner_id'   => $request->input('partner_id'),
+                'product_id'   => $request->input('product_id'),
+                'solution_id'  => $request->input('solution_id'),
+                'rfq_code'     => $data['rfq_code'],
+                'rfq_type'     => 'rfq',
+                'deal_type'    => $data['deal_type'],
+                'client_type'  => $client_type,
+                'name'         => $request->input('name'),
+                'email'        => $request->input('email'),
+                'phone'        => $request->input('phone'),
+                'qty'          => $request->input('qty'),
                 'company_name' => $request->input('company_name'),
-                'designation' => $request->input('designation'),
-                'message' => $request->input('message'),
-                'address' => $request->input('address'),
-                'create_date' => now(),
-                'close_date' => $request->input('close_date'),
-                'image' => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : '',
-                'status' => 'rfq_created',
+                'designation'  => $request->input('designation'),
+                'message'      => $request->input('message'),
+                'address'      => $request->input('address'),
+                'create_date'  => now(),
+                'close_date'   => $request->input('close_date'),
+                'image'        => $globalFunImage['status'] == 1 ? $globalFunImage['file_name'] : '',
+                'status'       => 'rfq_created',
+                'created_at'   => Carbon::now(),
             ]);
 
             if ($product_name) {
                 RfqProduct::insert([
-
                     'rfq_id'       => $rfq_id,
                     'product_name' => $product_name,
                     'qty'          => $request->qty,
@@ -153,7 +156,6 @@ class RFQController extends Controller
 
             if ($product_name) {
                 QuotationProduct::insert([
-
                     'rfq_id'       => $rfq_id,
                     'product_name' => $product_name,
                     'qty'          => $request->qty,
@@ -167,14 +169,14 @@ class RFQController extends Controller
             $rfq_code = $data['rfq_code'];
 
             $users = User::whereJsonContains('department', ['business', 'logistics'])->get();
-            $user_emails = User::whereJsonContains('department', ['business'])
-                    ->where(function ($query) {
-                        $query->where('role', 'manager')
-                              ->orWhere('role', 'admin');
-                    })
-                    ->pluck('email')
-                    ->toArray();
-
+            // $user_emails = User::whereJsonContains('department', ['business'])
+            //     ->where(function ($query) {
+            //         $query->where('role', 'manager')
+            //             ->orWhere('role', 'admin');
+            //     })
+            //     ->pluck('email')
+            //     ->toArray();
+            // $user_emails = ['dev2.ngenit@gmail.com'];
 
             Notification::send($users, new RfqCreate($name, $rfq_code));
 
@@ -264,7 +266,8 @@ class RFQController extends Controller
             ],
         );
 
-
+            $client = Client::where('email', $request->input('email'))->first();
+            $client_type = $client ? (in_array($client->user_type, ['client', 'partner']) ? $client->user_type : 'anonymous') : 'anonymous';
 
         if ($validator->passes()) {
             $mainFile = $request->file('image');
@@ -276,11 +279,11 @@ class RFQController extends Controller
                 'sales_man_id_L1'           => $request->sales_man_id_L1,
                 'sales_man_id_T1'           => $request->sales_man_id_T1,
                 'sales_man_id_T2'           => $request->sales_man_id_T2,
-                'client_id'                 => $request->client_id,
+                'client_id'                 => !empty($request->input('client_id')) ? $request->input('client_id') : $client->id,
                 'partner_id'                => $request->partner_id,
                 'product_id'                => $request->product_id,
-                'solution_id'               => $request->client_type,
-                'client_type'               => $request->client_type,
+                'solution_id'               => $request->solution_id,
+                'client_type'               => $client_type,
                 'name'                      => $request->name,
                 'email'                     => $request->email,
                 'phone'                     => $request->phone,
@@ -636,7 +639,9 @@ class RFQController extends Controller
 
     public function DealConvert($id)
     {
-        $data['users']        = User::where(function ($query) {$query->whereJsonContains('department', 'business');})->select('id', 'name')->orderBy('id', 'DESC')->get();
+        $data['users']        = User::where(function ($query) {
+            $query->whereJsonContains('department', 'business');
+        })->select('id', 'name')->orderBy('id', 'DESC')->get();
         // $data['products'] = Product::select('products.id', 'products.name')->where('product_status','product')->get();
         // $data['solution_details'] = SolutionDetail::select('solution_details.id', 'solution_details.name')->get();
         $data['clients']      = Client::where('user_type', 'client')->select('clients.id', 'clients.name')->get();
