@@ -88,7 +88,7 @@ class RFQController extends Controller
                 'phone'                => 'required',
                 'rfq_code'             => 'unique:rfqs',
                 'image'                => 'file|mimes:jpeg,png,jpg|max:2048',
-                // 'g-recaptcha-response' => ['required', new Recaptcha],
+                'g-recaptcha-response' => ['required', new Recaptcha],
             ],
             [
                 'required'  => 'This :attribute field is required',

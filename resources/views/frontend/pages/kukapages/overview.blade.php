@@ -1,5 +1,35 @@
 @extends('frontend.master')
+@section('styles')
+    <meta property="og:title" content="{{ ucfirst($brand->title) }} in NGen IT">
+    <meta property="og:image"
+        content="{{ !empty($brandpage->banner_image) && file_exists(public_path('storage/' . $brandpage->banner_image)) ? url('social-image/' . $brandpage->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}" />
+    <meta name="twitter:image"
+        content="{{ !empty($brandpage->banner_image) && file_exists(public_path('storage/' . $brandpage->banner_image)) ? url('social-image/' . $brandpage->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}">
+    <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": "{{ ucfirst($brand->title) }} in NGen IT",
+              "description": "NGEN IT Ltd. is a System Integration, Software & Hardware based License Provider & Software development based company established in 2008.",
+              "image": "{{ !empty($brandpage->banner_image) && file_exists(public_path('storage/' . $brandpage->banner_image)) ? url('social-image/' . $brandpage->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}",
+              "author": {
+                "@type": "Organization",
+                "name": "{{ !empty($setting->site_name) ? $setting->site_name : 'NGen IT Ltd.' }}"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "{{ !empty($setting->site_name) ? $setting->site_name : 'NGen IT Ltd.' }}",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "{{ !empty($setting->favicon) ? asset('storage/' . $setting->favicon) : url('upload/no_image.jpg') }}"
+                }
+              },
+              "datePublished": "{{ date('d-M-Y') }}"
+            }
+    </script>
+@endsection
 @section('content')
+
     @include('frontend.pages.kukapages.partial.page_header')
     <section class="header" id="myHeader">
         <div class="brand-page-content container nav-bar">

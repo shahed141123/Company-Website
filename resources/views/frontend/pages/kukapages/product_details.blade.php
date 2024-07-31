@@ -1,4 +1,10 @@
 @extends('frontend.master')
+@section('styles')
+    <meta property="og:title" content="{{ $sproduct->name }} in NGen IT">
+    <meta property="og:image"
+        content="{{ asset($sproduct->thumbnail) }}">
+        
+@endsection
 @section('content')
     @include('frontend.pages.kukapages.partial.page_header')
     <section>

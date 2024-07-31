@@ -28,7 +28,9 @@ use App\Models\Admin\ClientStory;
 use App\Models\Admin\DocumentPdf;
 use App\Models\Admin\SubCategory;
 use App\Models\Admin\IndustryPage;
+use App\Models\Admin\RfqQuotation;
 use App\Models\Admin\SolutionCard;
+use App\Models\Admin\TrainingPage;
 use App\Models\Admin\WhatWeDoPage;
 use Illuminate\Support\Facades\DB;
 use App\Models\Admin\MultiIndustry;
@@ -41,6 +43,7 @@ use App\Models\Admin\SubSubCategory;
 use App\Models\Admin\TechnologyData;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Admin\PortfolioClient;
+use Intervention\Image\Facades\Image;
 use App\Models\Admin\HardwareInfoPage;
 use App\Models\Admin\PortfolioDetails;
 use App\Models\Admin\SoftwareInfoPage;
@@ -48,8 +51,6 @@ use App\Models\Admin\PortfolioCategory;
 use App\Models\Admin\PortfolioChooseUs;
 use App\Models\Admin\SubSubSubCategory;
 use App\Models\Admin\PortfolioClientFeedback;
-use App\Models\Admin\RfqQuotation;
-use App\Models\Admin\TrainingPage;
 
 class HomeController extends Controller
 {
@@ -981,5 +982,23 @@ class HomeController extends Controller
         $data['tech_glossy3'] = $data['tech_glossies']->get(2);
         $data['tech_datas'] = TechnologyData::where('category', 'software')->orderBy('id', 'ASC')->get();
         return view('frontend.pages.commonPage.books', $data);
+    }
+
+    public function socialImage($path)
+    {
+        $imagePath = storage_path('app/public/' . $path);
+
+        if (!file_exists($imagePath)) {
+            abort(404);
+        }
+
+        $img = Image::make($imagePath)
+            ->resize(1200, 630, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            })
+            ->resizeCanvas(1200, 630, 'center', false, 'ffffff'); // Optional: Add padding color if needed
+
+        return $img->response('jpg');
     }
 }

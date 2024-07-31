@@ -1,4 +1,11 @@
 @extends('frontend.master')
+@section('styles')
+    <meta property="og:title" content="{{ ucfirst($brand->title) }} contents in NGen IT">
+    <meta property="og:image"
+        content="{{ !empty($brandpage->banner_image) && file_exists(public_path('storage/' . $brandpage->banner_image)) ? url('social-image/' . $brandpage->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}" />
+    <meta name="twitter:image"
+        content="{{ !empty($brandpage->banner_image) && file_exists(public_path('storage/' . $brandpage->banner_image)) ? url('social-image/' . $brandpage->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}">
+@endsection
 @section('content')
     <style>
         .content-brand {

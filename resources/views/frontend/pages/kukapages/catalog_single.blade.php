@@ -1,4 +1,11 @@
 @extends('frontend.master')
+@section('styles')
+    <meta property="og:title" content="{{ ucfirst($brand->title) }} in NGen IT">
+    <meta property="og:image"
+        content="{{ !empty($brandpage->banner_image) && file_exists(public_path('storage/' . $brandpage->banner_image)) ? url('social-image/' . $brandpage->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}" />
+    <meta name="twitter:image"
+        content="{{ !empty($brandpage->banner_image) && file_exists(public_path('storage/' . $brandpage->banner_image)) ? url('social-image/' . $brandpage->banner_image) : asset('frontend/images/no-banner(1920-330).png') }}">
+@endsection
 @section('content')
     {{-- @include('frontend.pages.kukapages.partial.page_header') --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />

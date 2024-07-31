@@ -215,11 +215,11 @@ Route::post('rfq/add', [RFQController::class, 'rfqCreate'])->name('rfqCreate');
 Route::get('rfq/{id}/success', [HomeController::class, 'rfqSuccess'])->name('rfq.success');
 
 // Route::get('/single/product/{id}', [PageController::class, 'productDetails'])->name('product.details');
-
+Route::get('social-image/{path}', [HomeController::class, 'socialImage'])->where('path', '.*');
 //Kuka Pages
 Route::controller(PageController::class)->group(function () {
     Route::get('/single/product/{id}', 'productDetails')->name('product.details');
-    Route::get('/{id}/overview', 'overview')->name('brand.overview');
+    Route::get('{id}/', 'overview')->name('brand.overview');
     Route::get('/{id}/products', 'brandProducts')->name('brand.products');
     Route::get('/{id}/pdfs', 'brandPdf')->name('brand.pdf');
     Route::get('/{id}/contents', 'content')->name('brand.content');
