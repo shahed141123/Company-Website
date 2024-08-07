@@ -3,7 +3,7 @@
     <meta property="og:title" content="{{ $sproduct->name }} in NGen IT">
     <meta property="og:image"
         content="{{ asset($sproduct->thumbnail) }}">
-        
+
 @endsection
 @section('content')
     @include('frontend.pages.kukapages.partial.page_header')
@@ -274,7 +274,7 @@
                                             </div>
                                         </form> --}}
                                     @endif
-                                    <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-2 px-5"
+                                    <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-2 px-lg-5 px-2"
                                         style="width: 100%; background: #f4efe4;">
                                         <div>
                                             @if ($sproduct->rfq != 1)

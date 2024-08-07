@@ -168,35 +168,40 @@ class PageController extends Controller
 
         $data['brand'] = Brand::where('slug', $id)->where('status', '!=', 'inactive')->select('id', 'slug', 'title', 'image')->firstOrFail();
         $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->firstOrFail(['id', 'banner_image', 'brand_logo', 'header']);
+        if (!empty($data['brandpage'])) {
 
-        $brandId = $data['brand']->id;
-        $brandDocuments = DocumentPdf::where('brand_id', $brandId)->get();
+            $brandId = $data['brand']->id;
+            $brandDocuments = DocumentPdf::where('brand_id', $brandId)->get();
 
-        $productDocuments = DocumentPdf::join('products', 'document_pdfs.product_id', '=', 'products.id')
-            ->where('products.brand_id', '=', $brandId)
-            ->select('document_pdfs.id', 'document_pdfs.title', 'document_pdfs.document')
-            ->distinct()
-            ->get();
+            $productDocuments = DocumentPdf::join('products', 'document_pdfs.product_id', '=', 'products.id')
+                ->where('products.brand_id', '=', $brandId)
+                ->select('document_pdfs.id', 'document_pdfs.title', 'document_pdfs.document')
+                ->distinct()
+                ->get();
 
-        $mergedData = $brandDocuments->concat($productDocuments);
+            $mergedData = $brandDocuments->concat($productDocuments);
 
-        $perPage = 16;
-        $page = request()->get('page', 1);
-        $offset = ($page - 1) * $perPage;
-        $data['documents'] = $mergedData->slice($offset, $perPage)->all();
+            $perPage = 16;
+            $page = request()->get('page', 1);
+            $offset = ($page - 1) * $perPage;
+            $data['documents'] = $mergedData->slice($offset, $perPage)->all();
 
-        $total = $mergedData->count();
-        $data['documents'] = new LengthAwarePaginator($data['documents'], $total, $perPage, $page);
+            $total = $mergedData->count();
+            $data['documents'] = new LengthAwarePaginator($data['documents'], $total, $perPage, $page);
 
-        $data['documents']->withPath(url()->current());
+            $data['documents']->withPath(url()->current());
 
-        $data['related_search'] = [
-            'categories' =>  Category::inRandomOrder()->limit(2)->get(),
-            'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
-            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id', 'slug', 'name'),
-            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id', 'slug', 'title'),
-        ];
-        return view('frontend.pages.kukapages.catalogs', $data);
+            $data['related_search'] = [
+                'categories' =>  Category::inRandomOrder()->limit(2)->get(),
+                'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
+                'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id', 'slug', 'name'),
+                'industries' =>  Industry::inRandomOrder()->limit(4)->get('id', 'slug', 'title'),
+            ];
+            return view('frontend.pages.kukapages.catalogs', $data);
+        } else {
+            Toastr::error('No Details information found for this Brand.');
+            return redirect()->back();
+        }
     }
 
 
@@ -204,23 +209,29 @@ class PageController extends Controller
     {
         $data['brand'] = Brand::where('slug', $id)->where('status', '!=', 'inactive')->select('id', 'slug', 'title', 'image')->first();
         $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->first(['id', 'banner_image', 'brand_logo', 'header']);
-        $id = json_encode($data['brand']->id);
-        $data['techglossys'] = TechGlossy::whereJsonContains('brand_id', $id)->get();
-        $data['blogs'] = Blog::whereJsonContains('brand_id', $id)->get();
-        $data['clientStories'] = ClientStory::whereJsonContains('brand_id', $id)->get();
+        if (!empty($data['brandpage'])) {
 
-        $mergedData = $data['blogs']->concat($data['clientStories']);
+            $id = json_encode($data['brand']->id);
+            $data['techglossys'] = TechGlossy::whereJsonContains('brand_id', $id)->get();
+            $data['blogs'] = Blog::whereJsonContains('brand_id', $id)->get();
+            $data['clientStories'] = ClientStory::whereJsonContains('brand_id', $id)->get();
 
-        $data['contents'] = $mergedData->toArray();
+            $mergedData = $data['blogs']->concat($data['clientStories']);
+
+            $data['contents'] = $mergedData->toArray();
 
 
-        $data['related_search'] = [
-            'categories' =>  Category::inRandomOrder()->limit(2)->get(),
-            'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
-            'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id', 'slug', 'name'),
-            'industries' =>  Industry::inRandomOrder()->limit(4)->get('id', 'slug', 'title'),
-        ];
-        return view('frontend.pages.kukapages.contents', $data);
+            $data['related_search'] = [
+                'categories' =>  Category::inRandomOrder()->limit(2)->get(),
+                'brands' =>  Brand::inRandomOrder()->limit(4)->get(),
+                'solutions' =>  SolutionDetail::inRandomOrder()->limit(4)->get('id', 'slug', 'name'),
+                'industries' =>  Industry::inRandomOrder()->limit(4)->get('id', 'slug', 'title'),
+            ];
+            return view('frontend.pages.kukapages.contents', $data);
+        } else {
+            Toastr::error('No Details information found for this Brand.');
+            return redirect()->back();
+        }
     }
     public function blogDetails($id)
     {
