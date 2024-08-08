@@ -121,7 +121,7 @@ class RFQController extends Controller
             $globalFunImage = $mainFile ? Helper::singleImageUpload($mainFile, $imgPath, 450, 350) : ['status' => 0];
 
             $rfq_id = Rfq::insertGetId([
-                'client_id'    => !empty($request->input('client_id')) ? $request->input('client_id') : $client->id,
+                'client_id' => !empty($request->client_id) ? $request->client_id : (!empty($client->id) ? $client->id : null),
                 'partner_id'   => $request->input('partner_id'),
                 'product_id'   => $request->input('product_id'),
                 'solution_id'  => $request->input('solution_id'),
@@ -169,13 +169,13 @@ class RFQController extends Controller
             $rfq_code = $data['rfq_code'];
 
             $users = User::whereJsonContains('department', ['business', 'logistics'])->get();
-            // $user_emails = User::whereJsonContains('department', ['business'])
-            //     ->where(function ($query) {
-            //         $query->where('role', 'manager')
-            //             ->orWhere('role', 'admin');
-            //     })
-            //     ->pluck('email')
-            //     ->toArray();
+            $user_emails = User::whereJsonContains('department', ['business'])
+                ->where(function ($query) {
+                    $query->where('role', 'manager')
+                        ->orWhere('role', 'admin');
+                })
+                ->pluck('email')
+                ->toArray();
             // $user_emails = ['dev2.ngenit@gmail.com'];
 
             Notification::send($users, new RfqCreate($name, $rfq_code));
@@ -279,7 +279,7 @@ class RFQController extends Controller
                 'sales_man_id_L1'           => $request->sales_man_id_L1,
                 'sales_man_id_T1'           => $request->sales_man_id_T1,
                 'sales_man_id_T2'           => $request->sales_man_id_T2,
-                'client_id'                 => !empty($request->input('client_id')) ? $request->input('client_id') : $client->id,
+                'client_id'                 => !empty($request->client_id) ? $request->client_id : (!empty($client->id) ? $client->id : null),
                 'partner_id'                => $request->partner_id,
                 'product_id'                => $request->product_id,
                 'solution_id'               => $request->solution_id,

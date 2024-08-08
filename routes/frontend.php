@@ -219,7 +219,7 @@ Route::get('social-image/{path}', [HomeController::class, 'socialImage'])->where
 //Kuka Pages
 Route::controller(PageController::class)->group(function () {
     Route::get('/single/product/{id}', 'productDetails')->name('product.details');
-    Route::get('{id}/', 'overview')->name('brand.overview');
+    Route::get('/brand/{id}/', 'overview')->name('brand.overview');
     Route::get('/{id}/products', 'brandProducts')->name('brand.products');
     Route::get('/{id}/pdfs', 'brandPdf')->name('brand.pdf');
     Route::get('/{id}/contents', 'content')->name('brand.content');

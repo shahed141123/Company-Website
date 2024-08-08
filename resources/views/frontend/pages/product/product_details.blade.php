@@ -695,48 +695,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background: #ae0a46;color: white;">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">RFQ Secton</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="card">
-                        <div class="card-header">
-                            <p>This Product requires the following information to complete your order.
-                                You will be prompted to enter the required information during checkout.</p>
-                        </div>
-                        <div class="card-body px-4">
-                            <div class="col-lg-12">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <p class="m-0">Contact Email</p>
-                                        <p class="m-0">Contact Name</p>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <p class="m-0">License</p>
-                                        <p class="m-0">Contact Phone</p>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <p class="m-0">Deal Reg </p>
-                                        <p class="m-0">PCN No</p>
-                                        <p class="m-0">Authorization</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-            </div>
-        </div>
-    </div>
 
 
     <!-- left modal -->
@@ -849,6 +808,7 @@
                                 class="get_quote_frm" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $sproduct->id }}">
+                                <input type="hidden" name="client_id" value="{{ optional(Auth::guard('client')->user())->id }}">
                                 <div class="modal-body get_quote_view_modal_body rounded-0">
                                     <div class="container">
                                         <div class="row mb-4">

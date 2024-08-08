@@ -212,7 +212,105 @@
             </div>
         </div>
     </div>
-
+    <div id="create-account-{{ $rfq_details->rfq_code }}" class="modal fade" tabindex="-1" style="display: none;"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> Account Create</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form method="post" action="{{ route('account.create') }}" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="rfq_id" value="{{ $rfq_details->id }}">
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-header p-2">
+                                <p class="mb-0 p-0 d-flex align-items-center">Register as <span class="text-danger">*</span>
+                                    <label class="form-check-label mx-3 d-flex align-items-center" for="account_type_client">
+                                        <input class="form-check-input me-2" type="radio" value="client"
+                                            id="account_type_client" name="account_type" checked>
+                                        Client
+                                    </label>
+                                    <label class="form-check-label d-flex align-items-center" for="account_type_partner">
+                                        <input class="form-check-input me-2" type="radio" value="partner"
+                                            id="account_type_partner" name="account_type">
+                                        Partner
+                                    </label>
+                                </p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Name <span class="text-danger">*</span></label>
+                                            <div class="form-control-feedback form-control-feedback-start">
+                                                <input type="text" class="form-control" name="name"
+                                                    placeholder="John Doe" value="{{ $rfq_details->name }}" required />
+                                                @error('name')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Email <span class="text-danger">*</span></label>
+                                            <div class="form-control-feedback form-control-feedback-start">
+                                                <input type="email" class="form-control" name="email"
+                                                    placeholder="example@example.com" value="{{ $rfq_details->email }}"
+                                                    required />
+                                                @error('email')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                                <div class="form-control-feedback-icon">
+                                                    <i class="ph-user-circle-plus text-muted"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Phone</label>
+                                            <div class="form-control-feedback form-control-feedback-start">
+                                                <input type="tel" class="form-control" name="phone"
+                                                    placeholder="Phone" value="{{ $rfq_details->phone }}" />
+                                                <div class="form-control-feedback-icon">
+                                                    <i class="ph-user-circle-plus text-muted"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Company name</label>
+                                            <div class="form-control-feedback form-control-feedback-start">
+                                                <input type="text" class="form-control" name="company_name"
+                                                    placeholder="Company Name"
+                                                    value="{{ $rfq_details->company_name }}" />
+                                                <div class="form-control-feedback-icon">
+                                                    <i class="ph-user-circle-plus text-muted"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border p-1">
+                        <div class="row">
+                            <div class="col-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     </div>
 @endsection
 @once

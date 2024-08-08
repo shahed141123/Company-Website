@@ -92,10 +92,8 @@
                                                     width="60" />
                                             </a>
                                         </td>
-                                        <td
-                                            style="
-                          padding: 25px 30px 25px;text-align:right;color:#ffffff"
-                        ">
+                                        <td style="
+                          padding: 25px 30px 25px;text-align:right;color:#ffffff" ">
                                             <p
                                                 style="
                             font-size: 2.5em;
@@ -155,15 +153,15 @@
                                             style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
                                             {{ $data['product_name'] }}</td>
                                     </tr>
-                                    @if (!empty($data['qty']))
-                                        <tr>
-                                            <th
-                                                style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;border-top:1px solid #f1f1f1;font-size:15px;text-align:left">
-                                                Quantity</th>
-                                            <td
-                                                style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
-                                                {{ $data['qty'] }}</td>
-                                        </tr>
+                                     @if (!empty($data['qty']))
+                                    <tr>
+                                        <th
+                                            style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;border-top:1px solid #f1f1f1;font-size:15px;text-align:left">
+                                            Quantity</th>
+                                        <td
+                                            style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
+                                            {{ $data['qty'] }}</td>
+                                    </tr>
                                     @endif
 
                                     @if (!empty($data['message']))
@@ -204,7 +202,7 @@
                                                 Customer Telephone</th>
                                             <td
                                                 style="width: 30%;padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
-                                               {{ $data['phone'] }}</td>
+                                                {{ $data['phone'] }}</td>
                                         </tr>
                                     @endif
                                     <tr>
@@ -214,7 +212,8 @@
                                         <td
                                             style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
                                             <a href="mailto:{{ $data['email'] }}"
-                                                target="_blank">{{ $data['email'] }}</a></td>
+                                                target="_blank">{{ $data['email'] }}</a>
+                                        </td>
                                     </tr>
 
                                 </tbody>
@@ -228,22 +227,38 @@
                                 cellpadding="0" cellspacing="0">
                                 <tbody style="min-width: 320px">
                                     <tr>
-                                        <div style="text-align: center;padding: 15px;padding-bottom: 5px;">
-                                            <p style="text-align: center; font-size: 16px; color: #141414;">
-                                                If you want to Bypass step by step Process. click here. <a
-                                                    href="{{ route('single-rfq.quoation_mail', $data['rfq_code']) }}"
-                                                    style="color: #ae0a46; font-size:18px">Bypass Process</a>
-                                            </p>
-                                        </div>
-                                    </tr>
-                                    <tr>
-                                        <div style="text-align: center;padding: 15px;padding-bottom: 15px;">
-                                            <p style="text-align: center; font-size: 16px; color: #141414;">
-                                                If you want to go step by step Process. click here. <a
-                                                    href="{{ route('single-rfq.show', $data['rfq_code']) }}"
-                                                    style="color: #ae0a46; font-size:18px">Details Process</a>
-                                            </p>
-                                        </div>
+                                        <td style="padding:15px;text-align:center;font-size:12px">
+                                            <div
+                                                style="padding-bottom:5px;margin-bottom:10px;margin-top:15px;font-size:14px !important;">
+                                                <strong>
+                                                    <a href="{{ route('single-rfq.quoation_mail', $data['rfq_code']) }}"
+                                                        style="color: #FFF;
+                                                    border: 1px solid #ae0a46;
+                                                    background-color: #ae0a46;
+                                                    transition: all 0.8s ease-in-out;padding: 10px 40px;
+                                                    cursor: pointer;
+                                                    font-size: 18px;
+                                                    font-weight: 500;">
+                                                        Bypass Process</a>
+                                                </strong>
+                                            </div>
+                                        </td>
+                                        <td style="padding:15px;text-align:center;font-size:12px">
+                                            <div
+                                                style="padding-bottom:5px;margin-bottom:10px;margin-top:15px;font-size:14px !important;">
+                                                <strong>
+                                                    <a href="{{ route('single-rfq.show', $data['rfq_code']) }}"
+                                                        style="color: #FFF;
+                                                    border: 1px solid #ae0a46;
+                                                    background-color: #ae0a46;
+                                                    transition: all 0.8s ease-in-out;padding: 10px 40px;
+                                                    cursor: pointer;
+                                                    font-size: 18px;
+                                                    font-weight: 500;">
+                                                        Details Process</a>
+                                                </strong>
+                                            </div>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

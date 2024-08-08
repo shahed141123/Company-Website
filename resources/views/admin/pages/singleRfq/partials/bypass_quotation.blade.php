@@ -162,12 +162,12 @@
 
                                             <td><input type="text" name=""
                                                     class="form-control form-control-sm bg-transparent text-center"
-                                                    value="{{ number_format(round((float) optional($quotationproduct)->unit_final_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)), 2) }}">
+                                                    value="{{ number_format(round((float) optional($quotationproduct)->unit_final_price), 2) }}">
                                             </td>
                                             <td class="d-flex align-items-center text-center pe-3">
                                                 <input type="text" name="" disabled
                                                     class="form-control form-control-sm bg-transparent text-end"
-                                                    value="{{ number_format(round((float) optional($quotationproduct)->unit_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)), 2) }}">
+                                                    value="{{ number_format(round((float) optional($quotationproduct)->unit_final_total_price), 2) }}">
                                                 <span class="currency"></span>
                                             </td>
                                         </tr>
@@ -190,9 +190,13 @@
                                     <th class="d-flex align-items-center pe-3"
                                         style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
 
+                                        {{-- <input type="text" disabled name=""
+                                            class="form-control form-control-sm bg-transparent text-end rfqcalculationinput"
+                                            value="{{ number_format(round((float) optional($quotation)->sub_total_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)), 2) }}"
+                                            style="color: #3d3d3d;padding: 0px !important;"> --}}
                                         <input type="text" disabled name=""
                                             class="form-control form-control-sm bg-transparent text-end rfqcalculationinput"
-                                            value="{{ number_format(round((float) optional($singleproduct)->sub_total_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)), 2) }}"
+                                            value="{{ number_format(round((float) optional($quotation)->sub_total_final_total_price), 2) }}"
                                             style="color: #3d3d3d;padding: 0px !important;">
                                         <span class="currency"></span>
                                     </th>
@@ -208,7 +212,7 @@
                                         style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                         <td style="width: 83.8%;text-align: end;padding: 10px;color: #3d3d3d;">
                                             Special Discount (<span
-                                                class="special_discount_value">{{ optional($singleproduct)->special_discount_percentage }}</span>
+                                                class="special_discount_value">{{ optional($quotation)->special_discount_percentage }}</span>
                                             %)
                                         </td>
                                         <td class="d-flex align-items-center pe-3"
@@ -216,7 +220,7 @@
 
                                             <input type="text" name="" disabled
                                                 class="form-control form-control-sm bg-transparent text-end"
-                                                value="{{ round((float) optional($singleproduct)->special_discount_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)) }}"
+                                                value="{{ round((float) optional($quotation)->special_discount_final_total_price) }}"
                                                 style="color: #3d3d3d;padding: 0px !important;">
                                             <span class="currency"></span>
                                         </td>
@@ -232,14 +236,14 @@
                                         style="text-align: end;padding: 0.5rem;color: #3d3d3d;font-size: 13px;border: 1px solid #eee;">
                                         <td style="width: 83.8%;text-align: end;padding: 10px;color: #3d3d3d;">
                                             Vat (<span
-                                                class="vat_tax_value">{{ optional($singleproduct)->vat_percentage }}</span>
+                                                class="vat_tax_value">{{ optional($quotation)->vat_percentage }}</span>
                                             %)
                                         </td>
                                         <td class="d-flex align-items-center pe-3"
                                             style="width: 100%;text-align: end;padding: 0.5rem;border-left: 1px solid #eee;color: #3d3d3d;text-align: end;font-weight: 400;">
 
                                             <input type="text" name="" disabled
-                                                value="{{ round((float) optional($singleproduct)->vat_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)) }}"
+                                                value="{{ round((float) optional($quotation)->vat_final_total_price ) }}"
                                                 class="form-control form-control-sm bg-transparent text-end"
                                                 value="0" style="color: #3d3d3d;padding: 0px !important;">
                                             <span class="currency"></span>
@@ -263,8 +267,12 @@
 
                                         <input type="text" name="" disabled
                                             class="form-control form-control-sm bg-transparent text-end fw-bold"
-                                            value="{{ number_format(round((float) optional($singleproduct)->total_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)), 2) }}"
+                                            value="{{ number_format(round((float) optional($singleproduct)->total_final_total_price), 2) }}"
                                             style="color: #3d3d3d;padding: 0px !important;">
+                                        {{-- <input type="text" name="" disabled
+                                            class="form-control form-control-sm bg-transparent text-end fw-bold"
+                                            value="{{ number_format(round((float) optional($singleproduct)->total_final_total_price / (optional($quotation)->currency_rate > 0 ? (float) optional($quotation)->currency_rate : 1)), 2) }}"
+                                            style="color: #3d3d3d;padding: 0px !important;"> --}}
                                         <span class="currency"></span>
                                     </th>
                                 </tr>

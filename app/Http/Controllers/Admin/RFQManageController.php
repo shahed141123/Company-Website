@@ -10,16 +10,20 @@ use App\Models\Admin\Region;
 use Illuminate\Http\Request;
 use App\Models\Admin\Country;
 use App\Models\Admin\DealSas;
+use App\Models\Client\Client;
 use App\Jobs\SendQuotationEmail;
 use App\Models\Admin\RfqQuotation;
 use App\Models\Admin\QuotationTerm;
 use App\Http\Controllers\Controller;
+use App\Mail\AccountCreateMail;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Admin\QuotationProduct;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Admin\CommercialDocument;
+use Illuminate\Support\Facades\Validator;
 
 class RFQManageController extends Controller
 {
@@ -329,7 +333,7 @@ class RFQManageController extends Controller
 
         // Validate email addresses
         $receiver_email = filter_var($request->receiver_email, FILTER_VALIDATE_EMAIL);
-        $receiver_cc_email = $request->receiver_cc_email ? array_filter(explode(',', $request->receiver_cc_email), function($email) {
+        $receiver_cc_email = $request->receiver_cc_email ? array_filter(explode(',', $request->receiver_cc_email), function ($email) {
             return filter_var(trim($email), FILTER_VALIDATE_EMAIL);
         }) : [];
 
@@ -441,5 +445,78 @@ class RFQManageController extends Controller
         } else {
             return response()->json(['success' => false, 'message' => 'Product not found.']);
         }
+    }
+
+
+    public function accountCreate(Request $request)
+    {
+        // Validation
+        $validator = Validator::make($request->all(), [
+            'account_type' => 'required|string',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:clients',
+            'phone' => 'required|string|max:20',
+            'company_name' => 'nullable|string|max:255',
+        ], [
+            'account_type.required'       => 'The Register As field is required.',
+            'name.required'               => 'The name field is required.',
+            'email.required'              => 'The email field is required.',
+            'phone.required'              => 'The phone field is required.',
+            'name.string'                 => 'The name must be a string.',
+            'email.email'                 => 'The email must be a valid email.',
+            'name.max'                    => 'The name may not be greater than :max characters.',
+            'email.unique'                => 'This email has already been taken.',
+        ]);
+
+        if ($validator->fails()) {
+            foreach ($validator->messages()->all() as $message) {
+                Toastr::error($message);
+            }
+            return redirect()->back()->withInput();
+        }
+
+        // Extracting the first part of the name
+        $nameParts = explode(' ', $request->name);
+        $firstName = $nameParts[0];
+
+        // Generating the password
+        $password = $firstName . $request->phone;
+
+        // Creating the user
+        $user = Client::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'company_name' => $request->company_name,
+            'password' => Hash::make($password),
+            'user_type' => $request->account_type,
+        ]);
+        if($user){
+            $rfq = Rfq::findOrFail($request->rfq_id);
+            $rfq->update([
+                'client_type' => $request->account_type,
+            ]);
+        }
+
+        // Preparing the email data
+        $data = [
+            'name' => $user->name,
+            'email' => $user->email,
+            'phone' => $user->phone,
+            'password' => $password,
+            'user_type' => $user->user_type,
+        ];
+
+        // Sending the email
+        try {
+            Mail::to($user->email)->send(new AccountCreateMail($data));
+            Toastr::success('Account Creation Mail has been sent successfully.');
+        } catch (\Exception $e) {
+            Toastr::error('Failed to send Account Creation Mail. Please try again.', 'Failed', ['timeOut' => 30000]);
+        }
+
+        // Returning a response
+        Toastr::success('Account Created Successfully.');
+        return redirect()->back();
     }
 }

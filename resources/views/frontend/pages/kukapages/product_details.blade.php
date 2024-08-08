@@ -832,12 +832,12 @@
                                 </div>
                             </div>
                         </form>
-
                     @else
                         <form action="{{ route('rfq.add') }}" method="post" id="get_quote_frm"
                             class="get_quote_frm" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $sproduct->id }}">
+                            <input type="hidden" name="client_id" value="{{ optional(Auth::guard('client')->user())->id }}">
                             <div class="modal-body get_quote_view_modal_body rounded-0">
                                 <div class="container">
                                     <div class="row mb-4">
@@ -902,10 +902,10 @@
                                     </div>
                                     <div class="row align-items-center mb-5">
                                         <div class="col-lg-6 mb-4">
-                                            {{-- <div class="form-group px-3 mx-1 message g-recaptcha w-100"
+                                            <div class="form-group px-3 mx-1 message g-recaptcha w-100"
                                                 style="position: relative;right: 20px;"
                                                 data-sitekey="{{ config('app.recaptcha_site_key') }}">
-                                            </div> --}}
+                                            </div>
                                         </div>
                                         <div class="col-lg-6 mb-4 text-end">
                                             <button type="submit" class="btn-color" id="submit_btn">Submit

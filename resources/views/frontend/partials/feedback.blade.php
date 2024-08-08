@@ -133,6 +133,7 @@
                     <div class="container">
                         <form action="{{ route('rfq.add') }}" enctype="multipart/form-data" method="POST">
                             @csrf
+                            <input type="hidden" name="client_id" value="{{ optional(Auth::guard('client')->user())->id }}">
                             <div class="row mb-4">
                                 <div class="col-lg-9">
                                     <input type="text" class="form-control" name="product_name" id="product_name"
@@ -175,8 +176,6 @@
                                     <textarea class="form-control rounded-0" id="message" name="message" rows="3" placeholder="Your Message"></textarea>
                                 </div>
                             </div>
-
-
                             <div class="row align-items-center">
                                 <div class="col-lg-3 mb-3">
                                     <div class="form-check"

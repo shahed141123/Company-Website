@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('partner_id')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();
             $table->unsignedBigInteger('solution_id')->nullable();
-            $table->enum('client_type', ['client', 'partner'])->nullable();
+            $table->enum('client_type', ['client', 'partner','anonymous'])->nullable();
             $table->string('name', 200)->nullable();
             $table->string('email', 200)->nullable();
             $table->string('phone',20)->nullable();
