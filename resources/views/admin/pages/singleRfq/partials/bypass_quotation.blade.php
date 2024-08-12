@@ -520,12 +520,12 @@
                                                                             style="font-size: 13px;font-weight: 600;margin: 0;color: #000; padding: 0px !important;"">
                                                                         <input type="text" name="sender_name"
                                                                             class="form-control form-control-sm bg-transparent text-start"
-                                                                            value="{{ $quotation->sender_name ?? 'Adan Mahmud, Sr. Manager' }}"
+                                                                            value="{{ $quotation->sender_name ?? 'Adan Mahmud | Sr. Manager' }}"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                         <input type="text"
                                                                             name="sender_designation"
                                                                             class="form-control form-control-sm bg-transparent text-start"
-                                                                            value="{{ $quotation->sender_designation ?? 'Partner & Business Development' }}"
+                                                                            value="{{ $quotation->sender_designation ?? 'Partner & Sales' }}"
                                                                             style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                     </td>
                                                                     <td
@@ -557,7 +557,7 @@
                                                                                 <input type="text"
                                                                                     name="ngen_whatsapp_number"
                                                                                     class="form-control form-control-sm bg-transparent text-end"
-                                                                                    value="{{ $quotation->ngen_whatsapp_number ?? '+8801714243446' }}"
+                                                                                    value="{{ $quotation->ngen_whatsapp_number ?? '+880 171-424-3446' }}"
                                                                                     style="font-size: 13px;font-weight: 400;margin: 0;color: #ae0a46; padding: 0px !important;">
                                                                             </div>
                                                                         </div>
