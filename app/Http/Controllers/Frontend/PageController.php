@@ -30,7 +30,6 @@ class PageController extends Controller
         $data['brand'] = Brand::where('slug', $id)->where('status', '!=', 'inactive')->select('id', 'slug', 'title', 'image')->first();
         $data['brandpage'] = BrandPage::where('brand_id', $data['brand']->id)->where('status', '!=', 'inactive')->first();
         if (!empty($data['brandpage'])) {
-
             if ($data['brandpage']) {
                 $data['row_one'] = Row::where('id', $data['brandpage']->row_four_id)->first();
                 $data['row_three'] = Row::where('id', $data['brandpage']->row_five_id)->first();

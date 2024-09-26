@@ -56,7 +56,7 @@
                                                 <a href="{{ route('all.solution') }}" target="_blank"
                                                     class="main_color">Solution</a>
                                             </li>
-                                        </ul> --}}
+                                        </ul> --}} 
                                     </div>
                                 </div>
                             </div>

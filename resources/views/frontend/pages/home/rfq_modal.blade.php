@@ -7,7 +7,7 @@
                 <div class="modal-header py-2" style="background: #ae0a46;">
                     <h5 class="modal-title text-white" id="staticBackdropLabel">Product Details
                     </h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <section class="container py-5">
@@ -95,7 +95,7 @@
                 <div class="modal-header py-2" style="background: #ae0a46;">
                     <h5 class="modal-title text-white" id="staticBackdropLabel">Your Price Forms
                     </h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container px-0" id="sign-up-container-area" style="display: block">
@@ -223,7 +223,7 @@
                 <div class="modal-header py-0 rounded-0" style="background: #ae0a46;">
                     <h5 class="modal-title p-1 text-white" id="staticBackdropLabel">Get Quote
                     </h5>
-                    <button type="button" class="btn-close text-white" data-dismiss="modal"
+                    <button type="button" class="btn-close text-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body rounded-0 p-0 p-lg-5">

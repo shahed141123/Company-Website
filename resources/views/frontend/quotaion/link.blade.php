@@ -1,5 +1,16 @@
 @extends('frontend.master')
 
+<style>
+    cr-icon-button{
+        display: none !important;
+    }
+    #downloads{
+        display: none;
+    }
+    #print{
+        display: none;
+    }
+</style>
 @section('content')
     <div class="container">
         <div class="card my-5 pb-5">
@@ -16,10 +27,10 @@
                                 <iframe src="{{ asset('storage/files/' . $filePath) }}" class="w-100 border" height="768px">
                                 </iframe>
                             </div>
-                            <div class="d-flex justify-content-center my-5">
+                            {{-- <div class="d-flex justify-content-center my-5">
                                 <a class="btn-color" href="{{ asset('storage/files/' . $filePath) }}" download>Download Your
                                     Quotation</a>
-                            </div>
+                            </div> --}}
                         @else
                             <div class="pt-3">
                                 <h5 class="text-center fw-bold">We are sorry for the inconvenience. Your PDF is not found!

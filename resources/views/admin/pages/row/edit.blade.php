@@ -140,9 +140,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer border-0 pb-0 pe-0">
-
-                                        <button type="submit" class="submit_btn rounded-0 from-prevent-multiple-submits"
-                                            style="padding: 6px 9px;" id="submitbtn">Submit</button>
+                                        <button type="submit" class="submit_btn rounded-0 from-prevent-multiple-submits" style="padding: 6px 9px;" id="submitbtn">Submit</button>
                                     </div>
                                 </form>
                             </div>

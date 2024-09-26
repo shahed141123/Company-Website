@@ -735,7 +735,7 @@
             <div class="modal-header py-2 px-4 rounded-0" style="background: #ae0a46;">
                 <h5 class="modal-title p-1 text-white" id="staticBackdropLabel">Get Quote
                 </h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body rounded-0 p-0">
                 <div class="container px-0">

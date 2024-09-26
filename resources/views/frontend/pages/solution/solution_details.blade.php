@@ -122,7 +122,7 @@
         <div class="container">
             <div class="call_to_action_text py-lg-5 py-2">
                 <h4 class="section_title">{{ $solution->row_three_title }}</h4>
-                <p class="w-50 mx-auto solution_para">{{ $solution->row_three_header }}</p>
+                <p class="w-100 mx-auto solution_para">{{ $solution->row_three_header }}</p>
             </div>
         </div>
     </section>

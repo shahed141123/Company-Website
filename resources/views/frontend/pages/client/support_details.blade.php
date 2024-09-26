@@ -715,7 +715,7 @@
                             @csrf
                             <div class="modal-header py-1 border-bottom shadow-sm pe-4">
                                 <h5 class="modal-title text-center">Create Support Case</h5>
-                                <button type="button" class="close" data-dismiss="modal">
+                                <button type="button" class="close" data-bs-dismiss="modal">
                                     <i class="fa-solid fa-xmark main_color fs-3"></i>
                                 </button>
                             </div>

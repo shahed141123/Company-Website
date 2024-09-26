@@ -90,7 +90,8 @@
                         <div class="col-lg-6 col-5">
                             <h5 class="fw-bold border-bottom">Industries</h5>
                             @foreach ($industries as $industrie)
-                                <h6><a class="search_titles" href="javascript:void(0);">{{ $industrie->title }}</a>
+                                <h6>
+                                    <a class="search_titles" href="{{ route('industry.details',$industrie->slug) }}">{{ $industrie->title }}</a>
                                 </h6>
                             @endforeach
                         </div>
@@ -100,7 +101,7 @@
                             <h5 class="fw-bold border-bottom">Solutions</h5>
                             @foreach ($solutions as $solution)
                                 <h6><a class="search_titles"
-                                        href="{{ route('solution.details', $solution->id) }}">{{ $solution->name }}</a>
+                                        href="{{ route('solution.details', $solution->slug) }}">{{ $solution->name }}</a>
                                 </h6>
                             @endforeach
                         </div>
@@ -232,6 +233,5 @@
     <div class="text-center p-4">
         <h4 style="color: #ae0a46;"> Nothing Found ! Search again.</h4>
     </div>
-
 
 @endif

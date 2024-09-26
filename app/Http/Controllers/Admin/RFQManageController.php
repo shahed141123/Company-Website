@@ -16,6 +16,7 @@ use App\Models\Admin\RfqQuotation;
 use App\Models\Admin\QuotationTerm;
 use App\Http\Controllers\Controller;
 use App\Mail\AccountCreateMail;
+use App\Models\Admin\Brand;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
@@ -306,6 +307,7 @@ class RFQManageController extends Controller
         $data['quotation'] = RfqQuotation::where('rfq_id', $rfq_id)->first();
         $data['rfq_terms'] = QuotationTerm::where('rfq_id', $rfq_id)->get();
         $data['products'] = QuotationProduct::where('rfq_id', $rfq_id)->get();
+        $data['brands'] = Brand::inRandomOrder()->limit(48)->get();
         $data['singleproduct'] = $data['products']->first();
         $data['rfq_code'] = $data['rfq']->rfq_code;
         $data['name'] = $data['rfq']->name;
@@ -325,11 +327,12 @@ class RFQManageController extends Controller
 
         $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
         $filePath = 'public/files/' . $fileName;
+        // return view('pdf.quotation', $data);
+        ini_set('memory_limit', '256M');
         $pdf = PDF::loadView('pdf.quotation', $data);
         $pdf->setPaper('a4', 'portrait');
         $pdf_output = $pdf->output();
         Storage::put($filePath, $pdf_output);
-        // return view('pdf.quotation', $data);
 
         // Validate email addresses
         $receiver_email = filter_var($request->receiver_email, FILTER_VALIDATE_EMAIL);
