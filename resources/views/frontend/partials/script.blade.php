@@ -25,6 +25,15 @@
 <script src="{{ asset('frontend/assets/js/filter.js') }}"></script>
 {!! Toastr::message() !!}
 <!-- Google Recaptcha  -->
+
+<script>
+    // In your Javascript (external.js resource or <script> tag)
+    $(document).ready(function() {
+        $('.country-select').select2();
+    });
+    </script>
+
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('submitCaptcha').addEventListener('click', function() {

@@ -324,7 +324,9 @@ class RFQManageController extends Controller
         } else {
             $data['currency'] = 'Tk';
         }
-
+        $data['rfq']->update([
+            'status'  => 'quoted',
+        ]);
         $fileName = 'Qutotation(' . $data['rfq']->rfq_code . ').pdf';
         $filePath = 'public/files/' . $fileName;
         // return view('pdf.quotation', $data);
