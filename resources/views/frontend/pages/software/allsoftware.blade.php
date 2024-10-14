@@ -3,13 +3,12 @@
     <style>
         .nav-tabs .nav-link,
         .nav-tabs .nav-item .nav-link {
-            border: 1px solid #bfbabc;
+            border: 1px solid var(--black);
             padding: 20px;
             border-radius: 0px;
             font-size: var(--badge-font-size);
             font-weight: 600;
-            background: var(--black);
-            color: var(--white);
+            color: var(--black);
         }
 
         .nav-tabs {
@@ -216,7 +215,8 @@
                                     <form action=" ">
                                         <div class="btn_group">
                                             <input type="text" class="form-control" placeholder="Search"
-                                                style="height: 41px;">
+                                                style="height: 50px;">
+                                                <i class="fa-solid fa-search search-icons"></i>
                                         </div>
                                     </form>
                                 </div>

@@ -1,13 +1,6 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
-
     .accordion {
         display: flex;
         height: 100%;
@@ -23,8 +16,6 @@
         transition: 0.5s;
     }
 
-
-
     .accordion-button:focus {
         z-index: 3;
         border-color: none;
@@ -33,7 +24,6 @@
     }
 
     .sub-accordion-header {
-        border-bottom: 1px solid #00000026;
         padding: 10px;
     }
 
@@ -41,20 +31,26 @@
     .accordion-button {
         padding: 10px !important;
         font-size: 20px;
-        /* border-bottom: 1px solid #00000026; */
     }
 
 
     .accordion-button:not(.collapsed) {
         color: black !important;
-        background-color: transparent !important;
-        /* box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color); */
-        /* border-bottom: none; */
+        border-radius: 0;
+        background-color: #ececea !important;
 
     }
 
     .text-site {
         color: #ae0a46 !important;
+    }
+
+    .accordion-item:not(:first-of-type) {
+        border-top: 1px solid #00000026;
+    }
+
+    .accordion-item {
+        border-top: 1px solid #00000026;
     }
 
     .small_dropdown {
@@ -80,10 +76,6 @@
     .radio,
     .checkbox {
         padding: 6px 10px;
-    }
-
-    .border {
-        border-radius: 12px;
     }
 
     .options {

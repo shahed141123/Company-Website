@@ -23,26 +23,27 @@
                         <!-- sidebar -->
                         <div class="col-lg-3">
                             <!-- Toggle button -->
-                            <button class="btn-color d-lg-none" type="button"
-                                data-mdb-toggle="collapse" data-mdb-target="#filterContent" aria-controls="filterContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="btn-color d-lg-none" type="button" data-mdb-toggle="collapse"
+                                data-mdb-target="#filterContent" aria-controls="filterContent" aria-expanded="false"
+                                aria-label="Toggle navigation">
                                 <span>Show filter</span>
                             </button>
-                            <div class="">
+                            <div class="mb-2 ">
                                 {{-- @if (!empty($_GET['keyword']))
                                     <input class="p-1 form-control" type="text" name="keyword"
                                         value="{{ $_GET['keyword'] }}">
                                 @else --}}
-                                <input class="p-1 form-control rounded-0" type="text" name="keyword"
-                                    placeholder="Search By Key Word...">
+                                <input class="p-1 form-control rounded-0 py-3" type="text" name="keyword"
+                                    placeholder="Search By Key Word..." style="padding: 1rem 0.75rem !important;">
+                                    <i class="fa-solid fa-search search-icons text-site"></i>
                                 {{-- @endif --}}
                             </div>
                             <!-- Collapsible wrapper -->
                             <div class="collapse card d-lg-block mb-5 rounded-0 border-0" id="filterContent">
-                                <div class="accordion" id="accordionPanelsStayOpenExample">
-                                    <div class="accordion-item rounded-0">
+                                <div class="accordion shop-accordion" id="accordionPanelsStayOpenExample">
+                                    <div class="accordion-item rounded-0 mt-3">
                                         <h2 class="accordion-header collapsed" id="headingOne">
-                                            <button class="accordion-button bg-light collapsed text-site" type="button"
+                                            <button class="accordion-button bg-light collapsed text-site rounded-0" type="button"
                                                 data-mdb-toggle="collapse" data-mdb-target="#accordionFlushCategory"
                                                 aria-expanded="false" aria-controls="accordionFlushCategory">
                                                 Categories
@@ -76,7 +77,9 @@
                                                                 id="accordionFlushSubCategory">
                                                                 <div class="accordion-item rounded-0">
                                                                     @php
-                                                                        $sub_categorys = App\Models\Admin\Category::getSubcatByCat($cat->id);
+                                                                        $sub_categorys = App\Models\Admin\Category::getSubcatByCat(
+                                                                            $cat->id,
+                                                                        );
                                                                     @endphp
                                                                     @foreach ($sub_categorys as $key => $sub_category)
                                                                         <h2 class="accordion-header"
@@ -105,7 +108,9 @@
                                                                                     id="inner_sub-2">
                                                                                     <div class="accordion-item rounded-0">
                                                                                         @php
-                                                                                            $sub_sub_categorys = App\Models\Admin\SubCategory::getSubSubcatBySubCat($sub_category->id);
+                                                                                            $sub_sub_categorys = App\Models\Admin\SubCategory::getSubSubcatBySubCat(
+                                                                                                $sub_category->id,
+                                                                                            );
                                                                                         @endphp
                                                                                         @if (!empty($sub_sub_categorys))
                                                                                             @foreach ($sub_sub_categorys as $item)
@@ -135,9 +140,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item rounded-0">
+                                    <div class="accordion-item rounded-0 my-3">
                                         <h2 class="accordion-header collapsed" id="headingTwo">
-                                            <button class="accordion-button bg-light collapsed text-site" type="button"
+                                            <button class="accordion-button bg-light collapsed text-site rounded-0" type="button"
                                                 data-mdb-toggle="collapse" data-mdb-target="#panelsStayOpen-collapseTwo"
                                                 aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
                                                 Brands
@@ -152,16 +157,19 @@
                                                     <div class="selected_brands"></div>
 
                                                     <input type="text" id="brand_search_input"
-                                                        class="form-control rounded-0 brand_search"
-                                                        placeholder="Search Brand">
+                                                        class="form-control rounded-0 brand_search py-3"
+                                                        placeholder="Search Brand"
+                                                        style="padding: 1rem 0.75rem !important;">
+                                                        <i class="fa-solid fa-search search-icons text-site"></i>
 
-                                                    <div class="filtered_brands">
+                                                    <div class="filtered_brands" style="margin-top: -25px;">
                                                         @php $count = 0; @endphp
                                                         @foreach ($brands as $key => $brand)
                                                             <div
                                                                 class="form-inline d-flex align-items-center py-2 px-3 border-bottom brand_item {{ $key >= 8 ? 'd-none' : '' }}">
                                                                 <label class="tick">{{ $brand->title }}
-                                                                    <input type="checkbox" name="brand[]" onchange="brandFilter();"
+                                                                    <input type="checkbox" name="brand[]"
+                                                                        onchange="brandFilter();"
                                                                         value="{{ $brand->slug }}">
                                                                     <span class="check"></span>
                                                                 </label>
@@ -172,9 +180,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item rounded-0">
+                                    <div class="accordion-item rounded-0 ">
                                         <h2 class="accordion-header collapsed" id="headingThree">
-                                            <button class="accordion-button bg-light collapsed text-site" type="button"
+                                            <button class="accordion-button bg-light collapsed text-site rounded-0" type="button"
                                                 data-mdb-toggle="collapse" data-mdb-target="#panelsStayOpen-collapseThree"
                                                 aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
                                                 Price
@@ -216,7 +224,7 @@
                                     </div>
                                     {{-- <div class="accordion-item">
                                         <h2 class="accordion-header collapsed" id="headingThree">
-                                            <button class="accordion-button bg-light collapsed text-site" type="button"
+                                            <button class="accordion-button bg-light collapsed text-site rounded-0" type="button"
                                                 data-mdb-toggle="collapse" data-mdb-target="#panelsStayOpen-collapseFour"
                                                 aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
                                                 Size
@@ -335,10 +343,10 @@
 
 @section('scripts')
     <script>
-
         $(document).ready(function() {
             $('#brand_search_input').on('keyup change', function() {
-                var spinner = '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>';
+                var spinner =
+                    '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>';
                 var searchValue = $('#brand_search_input').val().toLowerCase();
                 // Loop through each brand item
                 $('.brand_item').html(spinner);
@@ -359,4 +367,3 @@
         });
     </script>
 @endsection
-

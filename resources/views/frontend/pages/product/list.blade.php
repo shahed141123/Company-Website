@@ -1,10 +1,10 @@
-<header class="product_showing shadow-lg px-2 py-2 mb-2">
-    <div class="form-inline d-flex justify-content-between align-items-center">
-        <span class="mr-md-auto">
+<header class="product_showing shadow-sm px-0 pb-2 mb-2">
+    <div class="form-inline ">
+        {{-- <span class="mr-md-auto">
             {{ is_countable($products) && count($products) > 0 ? $products->count() : 'No' }} Items found
-        </span>
-        <div class="d-flex align-items-center">
-            <div class="me-2 ml-2">
+        </span> --}}
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="">
                 <select class="show form-select rounded-0 product_btn_dropdown" name="show"
                     data-placeholder="Results Per Page" onchange="perpageFilter();" aria-label="Default select example">
                     <option value="">Default Show</option>
@@ -18,7 +18,7 @@
                         Per Page: 50</option>
                 </select>
             </div>
-            <div class="me-2 ml-2">
+            <div class="">
                 <select class="form-select rounded-0" name="sortBy" onchange="sortByFilter();"
                     data-placeholder="Results Per Page" aria-label="Default select example">
                     <option value="">Default Sorting</option>
@@ -45,21 +45,21 @@
         <!-- First Product Start -->
         @foreach ($products as $product)
             <div class="col-md-12 col-sm-12">
-                <div class="row m-0 p-2  rounded-0  bg-white rounded-0 d-flex align-items-center"
-                    style="border-bottom: 2px solid #dee2e6;">
-                    <div class="col-md-3 mt-1 ">
-                        <img class="img-fluid img-responsive rounded-0 product-image"
-                            src="{{ asset($product->thumbnail) }}" alt="{{ $product->name }}">
+                <div class="row m-0 px-0 rounded-2 d-flex align-items-center shop-product">
+                    <div class="col-md-3 px-0">
+                        <img class="img-fluid img-responsive rounded-2 product-image"
+                            src="{{ asset($product->thumbnail) }}" alt="{{ $product->name }}"
+                            onerror="this.onerror=null; this.src='{{ asset('frontend/images/no-shop-imge.png') }}';">
                     </div>
-                    <div class="col-md-9 col-sm-12">
+                    <div class="col-md-9 col-sm-12 px-4">
                         <div class="row d-flex align-items-center">
-                            <div class="col-lg-9 col-sm-12">
+                            <div class="col-lg-8 col-sm-12">
                                 <a href="{{ route('product.details', ['id' => $product->slug]) }}">
-                                    <h4 class="my-3" style="color: #ae0a46;">
+                                    <h4 class="" style="color: #ae0a46;">
                                         {{ $product->name }}</h4>
                                 </a>
                             </div>
-                            <div class="col-lg-3 col-sm-12">
+                            <div class="col-lg-4 col-sm-12">
                                 @if ($product->qty > 0)
                                     <h6 class="text-success font-number text-end"
                                         style="font-size:16px; text-transform:capitalize;">
@@ -73,8 +73,8 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6 mt-1 col-sm-12">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-lg-8 mt-1 col-sm-12">
                                 <div>
                                     <span style="font-size: 14px;">
                                         SKU #: {{ $product->sku_code }} |
@@ -87,7 +87,7 @@
                                     </p> --}}
                                 </div>
                             </div>
-                            <div class="col-lg-6 text-center mt-1 col-sm-12">
+                            <div class="col-lg-4 text-center mt-1 col-sm-12">
                                 <div class="text-end">
                                     @if ($product->rfq != 1)
                                         @if (!empty($product->discount))

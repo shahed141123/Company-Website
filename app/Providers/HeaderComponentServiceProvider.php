@@ -47,12 +47,12 @@ class HeaderComponentServiceProvider extends ServiceProvider
                 // Load industries with eager loading
                 $industrys = Industry::with('industryPage')
                     ->inRandomOrder()
-                    ->limit(8)
+                    // ->limit(12)
                     ->latest('id')
                     ->get(['id', 'title', 'slug']);
 
                 // Load features with eager loading and caching
-                $features = Feature::take(2)
+                $features = Feature::take(4)
                     ->inRandomOrder()
                     ->get(['id', 'title', 'image', 'created_at', 'badge']);
 
