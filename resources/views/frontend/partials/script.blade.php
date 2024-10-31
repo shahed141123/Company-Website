@@ -3,7 +3,7 @@
 <script src="{{ asset('frontend/js/jquery/jquery@3-6-0.min.js') }}"></script>
 <script src="{{ asset('frontend/js/jquery/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('frontend/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('frontend/js/bootstrap/bootstrap.min.js') }}"></script>
+{{-- <script src="{{ asset('frontend/js/bootstrap/bootstrap.min.js') }}"></script> --}}
 <script src="{{ asset('frontend/js/plugin/popper.min.js') }}"></script>
 <script src="{{ asset('frontend/js/plugin/sweetalert@2011.js') }}"></script>
 <script src="{{ asset('frontend/js/plugin/slick.min.js') }}"></script>

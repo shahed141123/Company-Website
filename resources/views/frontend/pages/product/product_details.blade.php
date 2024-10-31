@@ -699,7 +699,14 @@
 
 
     <!-- left modal -->
-    <div class="modal fade" id="rfq{{ $sproduct->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
+    <div class="modal fade" id="rfq{{ $sproduct->id }}" tabindex="-1" aria-labelledby="rfq{{ $sproduct->id }}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header" style="background: #ae0a46;">
+              <h5 class="modal-title" id="rfq{{ $sproduct->id }}">Get Quote</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+    {{-- <div class="modal fade" id="rfq{{ $sproduct->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content rounded-0">
@@ -707,7 +714,7 @@
                     <h5 class="modal-title p-1 text-white" id="staticBackdropLabel">Get Quote
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+                </div> --}}
                 <div class="modal-body rounded-0 p-0">
                     <div class="container px-0">
                         @if (Auth::guard('client')->user())
