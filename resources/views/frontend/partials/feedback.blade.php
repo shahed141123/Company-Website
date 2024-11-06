@@ -129,7 +129,7 @@
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-lg-5 p-0">
+                <div class="modal-body p-lg-4 p-0">
                     <div class="container">
                         <form action="{{ route('rfq.add') }}" enctype="multipart/form-data" method="POST">
                             @csrf

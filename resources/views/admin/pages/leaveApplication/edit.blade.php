@@ -72,7 +72,13 @@
                                                         </td>
                                                         <td class="custom-bg ps-2 w-25">Total Days</td>
                                                         <td class="ps-2 w-25">
-                                                            {{ !empty($leave->company) ? ucfirst($leave->company) : '1 Day' }}
+                                                            @php
+                                                            use Carbon\Carbon;
+                                                                $startDate = Carbon::parse($leave->leave_start_date);
+                                                                $endDate = Carbon::parse($leave->reporting_on);
+                                                                $daysCount = $startDate->diffInDays($endDate);
+                                                            @endphp
+                                                            {{ $daysCount }}
                                                         </td>
                                                     </tr>
                                                     <tr class="">
@@ -149,13 +155,13 @@
                                                     <h6>Application Status</h6>
                                                     <div class="btn-group" role="group"
                                                         aria-label="Basic radio toggle button group">
-                                                        <input type="radio" class="btn-check" name="substitute_action" value="approved"
-                                                            id="btnradio1" autocomplete="off" checked>
+                                                        <input type="radio" class="btn-check" name="substitute_action"
+                                                            value="approved" id="btnradio1" autocomplete="off" checked>
                                                         <label class="btn btn-outline-success"
                                                             for="btnradio1">Approved</label>
 
-                                                        <input type="radio" class="btn-check" name="substitute_action" value="rejected"
-                                                            id="btnradio2" autocomplete="off">
+                                                        <input type="radio" class="btn-check" name="substitute_action"
+                                                            value="rejected" id="btnradio2" autocomplete="off">
                                                         <label class="btn btn-outline-danger"
                                                             for="btnradio2">Rejected</label>
                                                     </div>
@@ -199,13 +205,13 @@
                                                     <h5>Application Status</h5>
                                                     <div class="btn-group" role="group"
                                                         aria-label="Basic radio toggle button group">
-                                                        <input type="radio" class="btn-check" name="supervisor_action" value="approved"
-                                                            id="btnradio1" autocomplete="off" checked>
+                                                        <input type="radio" class="btn-check" name="supervisor_action"
+                                                            value="approved" id="btnradio1" autocomplete="off" checked>
                                                         <label class="btn btn-outline-primary"
                                                             for="btnradio1">Approved</label>
 
-                                                        <input type="radio" class="btn-check" name="supervisor_action" value="rejected"
-                                                            id="btnradio2" autocomplete="off">
+                                                        <input type="radio" class="btn-check" name="supervisor_action"
+                                                            value="rejected" id="btnradio2" autocomplete="off">
                                                         <label class="btn btn-outline-primary"
                                                             for="btnradio2">Rejected</label>
                                                     </div>
