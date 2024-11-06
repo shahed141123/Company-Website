@@ -555,19 +555,46 @@ class HomeController extends Controller
     //Tech Deals
     public function TechDeal()
     {
-        $data['products'] = Product::whereNotNull('deal')->where('product_status', 'product')->paginate(10);
+        // $data['products'] = Product::whereNotNull('deal')->where('product_status', 'product')->paginate(10);
+        // $data['brands'] = DB::table('brands')
+        //     ->join('products', 'brands.id', '=', 'products.brand_id')
+        //     ->whereNotNull('products.deal')
+        //     ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
+        //     ->where('brands.status', 'active')->distinct()->get();
+        // $data['categories'] = DB::table('categories')
+        //     ->join('products', 'categories.id', '=', 'products.cat_id')
+        //     ->whereNotNull('products.deal')
+        //     ->select('categories.id', 'categories.slug', 'categories.title', 'categories.image')
+        //     ->distinct()->get();
+
+        // Saju Edited If No Need then Remove
+        // $data['products'] = Product::where('refurbished', '1')->where('product_status', 'product')->paginate(10);
+        // $data['brands'] = DB::table('brands')
+        //     ->join('products', 'brands.id', '=', 'products.brand_id')
+        //     ->where('products.refurbished', '=', '1')
+        //     ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
+        //     ->where('brands.status', 'active')->distinct()->get();
+        // $data['categories'] = DB::table('categories')
+        //     ->join('products', 'categories.id', '=', 'products.cat_id')
+        //     ->where('products.refurbished', '=', '1')
+        //     ->select('categories.id', 'categories.slug', 'categories.title', 'categories.image')
+        //     ->distinct()->get();
+        // //dd($data['categories']);
+        // $data['refurbished_products'] = Product::where('refurbished', '1')->where('product_status', 'product')->get();
+
+        $data['products'] = Product::where('refurbished', '1')->where('product_status', 'product')->paginate(10);
         $data['brands'] = DB::table('brands')
             ->join('products', 'brands.id', '=', 'products.brand_id')
-            ->whereNotNull('products.deal')
+            ->where('products.refurbished', '=', '1')
             ->select('brands.id', 'brands.slug', 'brands.title', 'brands.image')
             ->where('brands.status', 'active')->distinct()->get();
         $data['categories'] = DB::table('categories')
             ->join('products', 'categories.id', '=', 'products.cat_id')
-            ->whereNotNull('products.deal')
+            ->where('products.refurbished', '=', '1')
             ->select('categories.id', 'categories.slug', 'categories.title', 'categories.image')
             ->distinct()->get();
-
-        $data['refurbished_products'] = Product::where('refurbished', '1')->where('product_status', 'product')->get();
+        //dd($data['categories']);
+        $data['techdeal_products'] = Product::whereNotNull('deal')->where('product_status', 'product')->get();
         return view('frontend.pages.tech.deal', $data);
     }
 
