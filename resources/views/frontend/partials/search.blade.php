@@ -4,6 +4,110 @@
         color: #ae0a46 !important;
         text-transform: capitalize;
     }
+
+    button:focus,
+    input:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .qty-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .qty-container .input-qty {
+        text-align: center;
+        padding: 6px 10px;
+        border: 1px solid #d4d4d4;
+        max-width: 50px;
+        max-height: 30px;
+        padding: 0;
+        line-height: 0;
+        padding-bottom: 5px;
+    }
+
+    .qty-container .qty-btn-minus,
+    .qty-container .qty-btn-plus {
+        border: 1px solid #d4d4d4;
+        padding: 5px 5px 5px;
+        font-size: 10px;
+        height: 30px;
+        width: 38px;
+        transition: 0.3s;
+    }
+
+    .qty-container .qty-btn-plus {
+        margin-left: -1px;
+    }
+
+    .qty-container .qty-btn-minus {
+        margin-right: -1px;
+    }
+
+    /*---------------------------*/
+    .btn-cornered,
+    .input-cornered {
+        border-radius: 0px;
+    }
+
+    .input-rounded {
+        border-radius: 0px;
+    }
+
+    /* News */
+
+    .quantity-selectors-container {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+        padding: 0;
+    }
+
+    .quantity-selectors {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+
+    .quantity-selectors button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        border-radius: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .quantity-selectors button:first-child {
+        border-bottom: 0;
+    }
+
+    .quantity-selectors button:hover {
+        cursor: pointer;
+    }
+
+    .quantity-selectors button[disabled="disabled"] {
+        cursor: not-allowed;
+    }
+
+    .quantity-selectors button[disabled="disabled"] span {
+        opacity: 0.5;
+    }
+
+    .quantity-box {
+        text-align: center;
+        width: 40px;
+        height: auto;
+    }
+
+    .search-btn-price {
+        padding: 10px;
+        border: 1px solid #ae0a46;
+        font-weight: 200;
+    }
 </style>
 
 
@@ -54,7 +158,7 @@
                 <div class="row mb-4">
                     @if (is_countable($brands) && count($brands) > 0)
                         <div class="col-lg-6 col-5">
-                            <h5 class="fw-bold border-bottom">Brands</h5>
+                            <h5 class="fw-bold border-bottom pb-2">Brands</h5>
                             @foreach ($brands as $brand)
                                 <h6><a class="search_titles"
                                         href="{{ route('brand.overview', $brand->slug) }}">{{ $brand->title }}</a></h6>
@@ -63,7 +167,7 @@
                     @endif
                     @if (is_countable($categorys) && count($categorys) > 0)
                         <div class="col-lg-6 col-7">
-                            <h5 class="fw-bold border-bottom">Categorys</h5>
+                            <h5 class="fw-bold border-bottom pb-2">Categorys</h5>
                             @foreach ($categorys as $category)
                                 <h6><a class="search_titles"
                                         href="{{ route('category.html', $category->slug) }}">{{ $category->title }}</a>
@@ -88,17 +192,18 @@
                 <div class="row mt-2 mb-4">
                     @if (is_countable($industries) && count($industries) > 0)
                         <div class="col-lg-6 col-5">
-                            <h5 class="fw-bold border-bottom">Industries</h5>
+                            <h5 class="fw-bold border-bottom pb-2">Industries</h5>
                             @foreach ($industries as $industrie)
                                 <h6>
-                                    <a class="search_titles" href="{{ route('industry.details',$industrie->slug) }}">{{ $industrie->title }}</a>
+                                    <a class="search_titles"
+                                        href="{{ route('industry.details', $industrie->slug) }}">{{ $industrie->title }}</a>
                                 </h6>
                             @endforeach
                         </div>
                     @endif
                     @if (is_countable($solutions) && count($solutions) > 0)
                         <div class="col-lg-6 col-7">
-                            <h5 class="fw-bold border-bottom">Solutions</h5>
+                            <h5 class="fw-bold border-bottom pb-2">Solutions</h5>
                             @foreach ($solutions as $solution)
                                 <h6><a class="search_titles"
                                         href="{{ route('solution.details', $solution->slug) }}">{{ $solution->name }}</a>
@@ -111,7 +216,7 @@
 
                 @if (is_countable($blogs) && count($blogs) > 0)
                     <div class="row mt-2 mb-4">
-                        <h5 class="fw-bold border-bottom">Blogs</h5>
+                        <h5 class="fw-bold border-bottom pb-2">Blogs</h5>
                         @foreach ($blogs as $blog)
                             <h6>
                                 <a class="search_titles"href="{{ route('blog.details', $blog->id) }}">
@@ -125,10 +230,9 @@
                 @endif
                 @if (is_countable($storys) && count($storys) > 0)
                     <div class="row mt-2 mb-4">
-                        <h5 class="fw-bold border-bottom">Client storys</h5>
+                        <h5 class="fw-bold border-bottom pb-2">Client storys</h5>
                         @foreach ($storys as $story)
-                            <h6><a class="search_titles"
-                                    href="{{ route('story.details', $story->id) }}">
+                            <h6><a class="search_titles" href="{{ route('story.details', $story->id) }}">
                                     {{-- {{ $story->title }} --}}
                                     {{ implode(' ', array_slice(str_word_count($story->title, 1), 0, 9)) }}...
                                 </a>
@@ -138,10 +242,9 @@
                 @endif
                 @if (is_countable($tech_glossys) && count($tech_glossys) > 0)
                     <div class="row mt-2 mb-4">
-                        <h5 class="fw-bold border-bottom">Tech Glossary</h5>
+                        <h5 class="fw-bold border-bottom pb-2">Tech Glossary</h5>
                         @foreach ($tech_glossys as $tech_glossy)
-                            <h6><a class="search_titles"
-                                    href="{{ route('techglossy.details', $tech_glossy) }}">
+                            <h6><a class="search_titles" href="{{ route('techglossy.details', $tech_glossy) }}">
                                     {{-- {{ $tech_glossy->title }} --}}
                                     {{ implode(' ', array_slice(str_word_count($tech_glossy->title, 1), 0, 9)) }}...
                                 </a>
@@ -151,7 +254,7 @@
                 @endif
             </div>
             <div class="col-lg-6 d-lg-block d-sm-none">
-                <h5 class="fw-bold border-bottom">Products</h5>
+                <h5 class="fw-bold border-bottom pb-2">Products</h5>
                 @if (count($products) > 0)
                     <!-- First Product Start -->
                     @foreach ($products as $product)
@@ -159,40 +262,40 @@
                             style="border-bottom: 2px solid #dee2e6;">
                             <div class="col-md-3 p-0 py-1">
                                 <img class="img-fluid img-responsive rounded-0 product-image"
-                                    src="{{ asset($product->thumbnail) }}" alt="{{ $product->name }}">
+                                    src="{{ asset($product->thumbnail) }}" alt="{{ $product->name }}"
+                                    onerror="this.onerror=null; this.src='{{ asset('frontend/images/no-img-png.png') }}';">
                             </div>
                             <div class="col-md-9 col-sm-12">
-                                <div class="row d-flex align-items-center">
-                                    <div class="col-lg-9 col-sm-12">
+                                <div class="row d-flex align-items-center py-4">
+                                    <div class="col-lg-12 col-sm-12">
                                         <a class="search_titles"
                                             href="{{ route('product.details', ['id' => $product->slug]) }}">
-                                            <h6 class="my-3" style="color: #ae0a46;">
+                                            <h6 style="color: #ae0a46;">
                                                 {{ $product->name }}</h6>
-                                            </a>
-                                            <div class="d-flex align-items-center">
-                                                <a class="search-btns m-0 me-2" href="{{ route('product.details', ['id' => $product->slug]) }}">Ask For Price</a>
-                                                <a class="search-btns m-0" href="{{ route('product.details', ['id' => $product->slug]) }}">Add To RFQ</a>
-                                            </div>
+                                        </a>
+                                        <p class="fw-normal">SKU#: {{ $product->sku_code ?? 'No SKU' }}</p>
                                     </div>
-                                    <div class="col-lg-3 col-sm-12">
-                                        <div>
+                                    <div class="col-lg-12 col-sm-12">
+                                        {{-- <div>
                                             @if ($product->qty > 0)
                                                 <h6 class="text-success font-number text-end"
                                                     style="font-size:13px; text-transform:capitalize;">
                                                     <i class="fa-solid fa-circle-check"
                                                         style="font-size:15px !important;"></i>
-                                                    in
-                                                    stock
+                                                    in stock
                                                 </h6>
                                             @else
-                                                <p class="text-end text-success"
-                                                    style="font-size:13px; text-transform:capitalize;"><i class="fa-solid fa-box-open"></i>
+                                                <p class="text-end text-success mb-2"
+                                                    style="font-size:13px; text-transform:capitalize;"><i
+                                                        class="fa-solid fa-box-open"></i>
                                                     {{ ucfirst($product->stock) }}</p>
                                             @endif
-                                        </div>
-                                        <div>
-                                            <a class="search-details" href="{{ route('product.details', ['id' => $product->slug]) }}"><i class="fa-solid fa-circle-info pe-1 pt-1"></i>Details</a>
-                                        </div>
+                                        </div> --}}
+                                        {{-- <div>
+                                            <a class="search-details"
+                                                href="{{ route('product.details', ['id' => $product->slug]) }}"><i
+                                                    class="fa-solid fa-circle-info pe-1 pt-1"></i>Details</a>
+                                        </div> --}}
                                         <div>
                                             @if ($product->rfq != 1)
                                                 @if (!empty($product->discount))
@@ -211,11 +314,47 @@
                                             @endif
                                         </div>
                                     </div>
+                                    {{--  --}}
+                                    <div class="col-lg-12">
+                                        <div class="d-flex justify-content-between align-items-center mt-4">
+                                            <div class="d-flex align-items-center">
+                                                <div class="pe-2">
+                                                    <a class="search-btn-price"
+                                                        href="{{ route('product.details', ['id' => $product->slug]) }}">Ask
+                                                        For Price</a>
+                                                </div>
+                                                <div class="d-flex border">
+                                                    <input data-min="1" data-max="0" type="text" name="quantity"
+                                                        value="1" readonly="true"
+                                                        class="quantity-box border-0 bg-light">
+                                                    <div class="quantity-selectors-container">
+                                                        <div class="quantity-selectors">
+                                                            <button type="button" class="increment-quantity border-0"
+                                                                aria-label="Add one" data-direction="1">
+                                                                <i class="fa-solid fa-plus" style="color: #ae0a46"></i>
+                                                            </button>
+                                                            <button type="button" class="decrement-quantity border-0"
+                                                                aria-label="Subtract one" data-direction="-1"
+                                                                disabled="disabled">
+                                                                <i class="fa-solid fa-minus"
+                                                                    style="color: #ae0a46"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <a class="search-btns pb-2 bg-transparent border-0 text-black"
+                                                    href="{{ route('product.details', ['id' => $product->slug]) }}"><i
+                                                        class="fa-solid fa-plus pe-2"></i>Add RFQ
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                             </div>
-
-                        </div>
                     @endforeach
                     <!-- First Product End -->
                 @else
@@ -235,3 +374,34 @@
     </div>
 
 @endif
+
+<script>
+    $("button").on("click", function(ev) {
+        var currentQty = $('input[name="quantity"]').val();
+        var qtyDirection = $(this).data("direction");
+        var newQty = 0;
+
+        if (qtyDirection == "1") {
+            newQty = parseInt(currentQty) + 1;
+        } else if (qtyDirection == "-1") {
+            newQty = parseInt(currentQty) - 1;
+        }
+
+        // make decrement disabled at 1
+        if (newQty == 1) {
+            $(".decrement-quantity").attr("disabled", "disabled");
+        }
+
+        // remove disabled attribute on subtract
+        if (newQty > 1) {
+            $(".decrement-quantity").removeAttr("disabled");
+        }
+
+        if (newQty > 0) {
+            newQty = newQty.toString();
+            $('input[name="quantity"]').val(newQty);
+        } else {
+            $('input[name="quantity"]').val("1");
+        }
+    });
+</script>

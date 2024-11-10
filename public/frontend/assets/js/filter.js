@@ -674,7 +674,7 @@ if ($('#slider-range').length > 0) {
 var filterForm = $('.filterForm');
 var filterContainer = $('.filter_container');
 var selectedBrands = $('.selected_brands');
-var spinner = '<div class="d-flex spinner-border text-primary text-center justify-content-center align-item-center" role="status"><span class="visually-hidden">Loading...</span></div>';
+var spinner = '<div class="d-flex spinners spinner-border text-primary text-center justify-content-center align-item-center" role="status"><span class="visually-hidden">Loading...</span></div>';
 
 
 function applyFilters(page = 1) {

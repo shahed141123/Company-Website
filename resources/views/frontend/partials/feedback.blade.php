@@ -29,8 +29,100 @@
         opacity: 0.5;
     }
 
+    /* this is new */
     .feedback_upper_modal {
-        right: -59px;
+        letter-spacing: 3px;
+        line-height: 0;
+        cursor: pointer;
+        position: fixed;
+        bottom: 45%;
+        right: -65px;
+        color: var(--primary-color);
+        border: none;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+        z-index: 1;
+        transition: 0.5s;
+        transform: rotate(-90deg);
+        padding-top: 0px;
+        padding-bottom: 0px;
+        overflow: hidden;
+        z-index: 1000;
+        height: 50px;
+        width: 175px;
+    }
+
+    .feedback_upper_modal::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation: sonar 1.5s infinite ease-out;
+        z-index: -1;
+    }
+
+    @keyframes sonar {
+        0% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.7;
+        }
+
+        100% {
+            transform: translate(-50%, -50%) scale(2.5);
+            /* Controls size of the ring */
+            opacity: 0;
+        }
+    }
+
+    .feedback_upper_modal-amount {
+        font-family: 'PhpDebugbarFontAwesome';
+        letter-spacing: 1px;
+        line-height: 3;
+        cursor: pointer;
+        position: fixed;
+        bottom: 53%;
+        right: 30px;
+        background-color: #ffffff;
+        border: 1px solid #ae0a46 !important;
+        color: #ae0a46;
+        padding: 0px 3px;
+        border: none;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+        z-index: 1;
+        transition: 0.5s;
+        transform: rotate(0deg);
+        padding-top: 0px;
+        padding-bottom: 0px;
+        overflow: hidden;
+        width: 26px;
+        height: 26px;
+        border-radius: 100%;
+        z-index: 1002;
+    }
+
+    .remove-rfq {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #eee;
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+    }
+
+    .remove-box {
+        display: flex;
+        justify-content: end;
+        position: relative;
+        bottom: -16px;
+        z-index: 5;
+        left: 5px;
     }
 </style>
 
@@ -114,11 +206,154 @@
 </section> --}}
 
 <section>
-    <div class="">
+    {{-- <div class="">
         <button class="feedback_upper_modal d-lg-block d-sm-none" data-bs-toggle="modal" data-bs-target="#rfqModal">Inquery
             <i class="fa-solid fa-question" style="font-size: 14px;"></i>
         </button>
+    </div> --}}
+    {{-- <a href="{{ route('rfq') }}">
+        <button class="feedback_upper_modal d-lg-block d-sm-none">
+            Inquery
+            <i class="fa-solid fa-question" style="font-size: 14px;"></i>
+        </button>
+        <button class="feedback_upper_modal-amount d-lg-block d-sm-none">
+            <span>01</span>
+        </button>
+    </a> --}}
+    <button class="feedback_upper_modal d-lg-block d-sm-none" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><span class="bg-black text-white p-1 rounded-2"
+            style="line-height: 0;font-family: 'PhpDebugbarFontAwesome';">03</span> RFQ Added</button>
+    {{-- Offcanvas --}}
+
+
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+        <div class="offcanvas-header">
+            <h5 class="text-center">All RFQ Product Added In Query!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                style="background: #98b8d2;padding-bottom: 18px;padding-left: 12px;padding-right: 15px;">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <a href="">
+                                    <div style="margin-top: -30px;">
+                                    <div class="remove-box">
+                                    <span class="remove-rfq"><i class="fa-solid fa-xmark"></i></span>
+                                </div>
+                                </a>
+                                <div class="card text-center border-0 shadow-sm">
+                                    <img src="http://127.0.0.1:8000/frontend/images/random-no-img.png"
+                                        class="img-fluid rounded-2"
+                                        alt="http://127.0.0.1:8000/frontend/images/random-no-img.png">
+                                    <div class="card-body py-3">
+                                        <p class="card-title">Some quick example..</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <a href="">
+                                    <div style="margin-top: -30px;">
+                                    <div class="remove-box">
+                                    <span class="remove-rfq"><i class="fa-solid fa-xmark"></i></span>
+                                </div>
+                                </a>
+                                <div class="card text-center border-0 shadow-sm">
+                                    <img src="http://127.0.0.1:8000/frontend/images/random-no-img.png"
+                                        class="img-fluid rounded-2"
+                                        alt="http://127.0.0.1:8000/frontend/images/random-no-img.png">
+                                    <div class="card-body py-3">
+                                        <p class="card-title">Some quick example..</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <a href="">
+                                    <div style="margin-top: -30px;">
+                                    <div class="remove-box">
+                                    <span class="remove-rfq"><i class="fa-solid fa-xmark"></i></span>
+                                </div>
+                                </a>
+                                <div class="card text-center border-0 shadow-sm">
+                                    <img src="http://127.0.0.1:8000/frontend/images/random-no-img.png"
+                                        class="img-fluid rounded-2"
+                                        alt="http://127.0.0.1:8000/frontend/images/random-no-img.png">
+                                    <div class="card-body py-3">
+                                        <p class="card-title">Some quick example..</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <a href="">
+                                    <div style="margin-top: -30px;">
+                                    <div class="remove-box">
+                                    <span class="remove-rfq"><i class="fa-solid fa-xmark"></i></span>
+                                </div>
+                                </a>
+                                <div class="card text-center border-0 shadow-sm">
+                                    <img src="http://127.0.0.1:8000/frontend/images/random-no-img.png"
+                                        class="img-fluid rounded-2"
+                                        alt="http://127.0.0.1:8000/frontend/images/random-no-img.png">
+                                    <div class="card-body py-3">
+                                        <p class="card-title">Some quick example..</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <a href="">
+                                    <div style="margin-top: -30px;">
+                                    <div class="remove-box">
+                                    <span class="remove-rfq"><i class="fa-solid fa-xmark"></i></span>
+                                </div>
+                                </a>
+                                <div class="card text-center border-0 shadow-sm">
+                                    <img src="http://127.0.0.1:8000/frontend/images/random-no-img.png"
+                                        class="img-fluid rounded-2"
+                                        alt="http://127.0.0.1:8000/frontend/images/random-no-img.png">
+                                    <div class="card-body py-3">
+                                        <p class="card-title">Some quick example..</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <a href="">
+                                    <div style="margin-top: -30px;">
+                                    <div class="remove-box">
+                                    <span class="remove-rfq"><i class="fa-solid fa-xmark"></i></span>
+                                </div>
+                                </a>
+                                <div class="card text-center border-0 shadow-sm">
+                                    <img src="http://127.0.0.1:8000/frontend/images/random-no-img.png"
+                                        class="img-fluid rounded-2"
+                                        alt="http://127.0.0.1:8000/frontend/images/random-no-img.png">
+                                    <div class="card-body py-3">
+                                        <p class="card-title">Some quick example..</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 d-flex align-items-center justify-content-center">
+                        <div class="text-center">
+                            <p>Check all added rfq in one place, hit the button to show all added rfq.</p>
+                            <button class="btn-color">Show All RFQ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    {{-- Offcanvas --}}
     <!-- Modal -->
     <div class="modal fade" id="rfqModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -153,8 +388,8 @@
                                         value="{{ optional(Auth::guard('client')->user())->name }}" />
                                 </div>
                                 <div class="col-lg-4 mb-3 pe-0">
-                                    <input type="number" class="form-control rounded-0" id="phone" name="phone"
-                                        placeholder="Your Phone Number *" required
+                                    <input type="number" class="form-control rounded-0" id="phone"
+                                        name="phone" placeholder="Your Phone Number *" required
                                         value="{{ optional(Auth::guard('client')->user())->phone }}" />
                                 </div>
                                 <div class="col-lg-4 mb-3">
@@ -170,8 +405,7 @@
                                         style="display: none">Please input valid email</span>
                                 </div>
                                 <div class="col-lg-3 mb-3">
-                                    <select name="country" class="form-control select"
-                                        id="country">
+                                    <select name="country" class="form-control select" id="country">
                                         <option value="Afghanistan">Afghanistan</option>
                                         <option value="Åland Islands">Åland Islands</option>
                                         <option value="Albania">Albania</option>

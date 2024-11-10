@@ -1,435 +1,259 @@
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <style>
-    #query-rfq {
-        display: none;
-        /* Initially hide both sections */
+    .form-control {
+        color: #212529;
+        background-color: #fbfbfb;
     }
 
-    .rfq_box {
-        background-color: #fff;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    form .btn {
+        width: 100%;
+        border-radius: 5px;
+        position: relative;
+        overflow: hidden;
+        top: -5px;
     }
 
-    .form-select {
-        border-color: #eee;
-        outline: 0;
-        box-shadow: 0 0 0 0.25rem transparent;
-    }
-
-    .form-select:focus {
-        border-color: #eee;
-        outline: 0;
-        box-shadow: 0 0 0 0.25rem transparent;
-    }
-
-
-
-    #multi_step_form {
-        box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
-    }
-
-
-    #multi_step_form .container #multistep_nav {
-        display: flex;
-        justify-content: space-between;
-        border-bottom: 1px solid #262424;
-    }
-
-
-    #multi_step_form .container #multistep_nav .progress_holder {
-        padding: 10px;
-        width: 33.3%;
-        text-align: center;
-        background-color: #eee;
-    }
-
-    #multi_step_form .container #multistep_nav .progress_holder_custom {
-        padding: 10px;
-        width: 33.3%;
-        text-align: center;
-        background-color: #eee;
-    }
-
-
-    #multi_step_form .container #multistep_nav .activated_step {
-        background-color: #ae0a46;
+    .rfq-header {
+        background-color: #f6f5f4;
         color: white;
     }
 
-
-    #multi_step_form .container fieldset.step {
-        position: relative;
-        padding: 10px;
-        padding-bottom: 50px;
+    .rfq-add-btns {
+        width: 5%;
     }
 
-
-    #multi_step_form .container fieldset.step .nextStep {
-        position: absolute;
-        right: 25px;
-        bottom: 5px;
-        padding: 10px;
-        width: 100px;
-        color: white !important;
-        background-color: #ae0a46 !important;
-        border: 1px solid #ae0a46 !important;
+    .rfq-title-btns {
+        width: 90%;
     }
 
-    #multi_step_form .container fieldset.step .nextStep:hover {
-        position: absolute;
-        right: 25px;
-        padding: 10px;
-        width: 100px;
-        background-color: transparent !important;
-        color: #ae0a46 !important;
-        border: 1px solid #ae0a46 !important;
+    .rfq-delete-btns {
+        width: 5%;
     }
 
-    .submitbtn {
-        position: absolute;
-        right: 25px;
-        bottom: 5px;
-        padding: 10px;
-        width: 100px;
-        color: white !important;
-        background-color: #ae0a46 !important;
-        border: 1px solid #ae0a46 !important;
+    .rfq-repeater {
+        display: flex;
+        align-items: center;
     }
 
-    .submitbtn:hover {
-        position: absolute;
-        right: 25px;
-        padding: 10px;
-        width: 100px;
-        background-color: transparent !important;
-        color: #ae0a46 !important;
-        border: 1px solid #ae0a46 !important;
+    .rfq-add-btns button {
+        color: #ae0a46;
+        background-color: transparent;
+        border: 0;
+        padding: 5px;
+        height: 50px;
     }
 
-    #multi_step_form .container fieldset.step .prevStep {
-        position: absolute;
-        left: 5px;
-        bottom: 5px;
-        padding: 10px;
-        width: 100px;
+    .rfq-delete-btns button {
+        color: #ae0a46;
+        /* color: white; */
+        background-color: transparent;
+        border: 0;
+        padding: 5px;
+        height: 50px;
+        margin-left: 5px;
     }
 
-
-    #multi_step_form .container fieldset.step:not(:first-of-type) {
-        display: none;
-    }
-
-
-    .showing-row {
-        display: none;
-    }
-
-
-    #yourFormId {
-        display: block;
-        /* Initially show the form */
-    }
-
-    .checkbox-wrapper-1 *,
-    .checkbox-wrapper-1 ::after,
-    .checkbox-wrapper-1 ::before {
+    .checkbox-wrapper-4 * {
         box-sizing: border-box;
     }
 
-    .checkbox-wrapper-1 [type=checkbox].substituted {
-        margin: 0;
+    .checkbox-wrapper-4 .cbx {
+        -webkit-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        padding: 6px 8px;
+        border-radius: 6px;
+        overflow: hidden;
+        transition: all 0.2s ease;
+        display: inline-block;
+    }
+
+    .checkbox-wrapper-4 .cbx:not(:last-child) {
+        margin-right: 6px;
+    }
+
+    .checkbox-wrapper-4 .cbx:hover {
+        background: #ae0a462a;
+    }
+
+    .checkbox-wrapper-4 .cbx span {
+        float: left;
+        vertical-align: middle;
+        transform: translate3d(0, 0, 0);
+    }
+
+    .checkbox-wrapper-4 .cbx span:first-child {
+        position: relative;
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+        transform: scale(1);
+        border: 1px solid #cccfdb;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 1px rgba(0, 16, 75, 0.05);
+    }
+
+    .checkbox-wrapper-4 .cbx span:first-child svg {
+        position: absolute;
+        top: 3px;
+        left: 2px;
+        fill: none;
+        stroke: #fff;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 16px;
+        stroke-dashoffset: 16px;
+        transition: all 0.3s ease;
+        transition-delay: 0.1s;
+        transform: translate3d(0, 0, 0);
+    }
+
+    .checkbox-wrapper-4 .cbx span:last-child {
+        padding-left: 8px;
+        line-height: 18px;
+    }
+
+    .checkbox-wrapper-4 .cbx:hover span:first-child {
+        border-color: #ae0a46;
+    }
+
+    .checkbox-wrapper-4 .inp-cbx {
+        position: absolute;
+        visibility: hidden;
+    }
+
+    .checkbox-wrapper-4 .inp-cbx:checked+.cbx span:first-child {
+        background: #ae0a46;
+        border-color: #ae0a46;
+        animation: wave-4 0.4s ease;
+    }
+
+    .checkbox-wrapper-4 .inp-cbx:checked+.cbx span:first-child svg {
+        stroke-dashoffset: 0;
+    }
+
+    .checkbox-wrapper-4 .inline-svg {
+        position: absolute;
         width: 0;
         height: 0;
-        display: inline;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
+        pointer-events: none;
+        user-select: none;
     }
 
-    .checkbox-wrapper-1 [type=checkbox].substituted+label:before {
-        content: "";
-        display: inline-block;
-        vertical-align: top;
-        height: 1.15em;
-        width: 1.15em;
-        margin-top: 5px;
-        margin-right: 0.6em;
-        color: rgba(0, 0, 0, 0.275);
-        border: solid 0.06em;
-        box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em inset, 0 0 0 0.07em transparent inset;
-        border-radius: 0.2em;
-        background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve" fill="white" viewBox="0 0 9 9"><rect x="0" y="4.3" transform="matrix(-0.707 -0.7072 0.7072 -0.707 0.5891 10.4702)" width="4.3" height="1.6" /><rect x="2.2" y="2.9" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 12.1877 2.9833)" width="6.1" height="1.7" /></svg>') no-repeat center, white;
-        background-size: 0;
-        will-change: color, border, background, background-size, box-shadow;
-        transform: translate3d(0, 0, 0);
-        transition: color 0.1s, border 0.1s, background 0.15s, box-shadow 0.1s;
+    @media screen and (max-width: 640px) {
+        .checkbox-wrapper-4 .cbx {
+            width: 100%;
+            display: inline-block;
+        }
     }
 
-    .checkbox-wrapper-1 [type=checkbox].substituted:enabled:active+label:before,
-    .checkbox-wrapper-1 [type=checkbox].substituted:enabled+label:active:before {
-        box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em transparent inset, 0 0 0 0.07em rgba(0, 0, 0, 0.1) inset;
-        background-color: #f0f0f0;
+    @-moz-keyframes wave-4 {
+        50% {
+            transform: scale(0.9);
+        }
     }
 
-    .checkbox-wrapper-1 [type=checkbox].substituted:checked+label:before {
-        background-color: #3B99FC;
-        background-size: 0.75em;
-        color: rgba(0, 0, 0, 0.075);
+    @-webkit-keyframes wave-4 {
+        50% {
+            transform: scale(0.9);
+        }
     }
 
-    .checkbox-wrapper-1 [type=checkbox].substituted:checked:enabled:active+label:before,
-    .checkbox-wrapper-1 [type=checkbox].substituted:checked:enabled+label:active:before {
-        background-color: #0a7ffb;
-        color: rgba(0, 0, 0, 0.275);
+    @-o-keyframes wave-4 {
+        50% {
+            transform: scale(0.9);
+        }
     }
 
-    .checkbox-wrapper-1 [type=checkbox].substituted:focus+label:before {
-        box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em transparent inset, 0 0 0 0.07em rgba(0, 0, 0, 0.1) inset, 0 0 0 3.3px rgba(65, 159, 255, 0.55), 0 0 0 5px rgba(65, 159, 255, 0.3);
+    @keyframes wave-4 {
+        50% {
+            transform: scale(0.9);
+        }
     }
 
-    .checkbox-wrapper-1 [type=checkbox].substituted:focus:active+label:before,
-    .checkbox-wrapper-1 [type=checkbox].substituted:focus+label:active:before {
-        box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em transparent inset, 0 0 0 0.07em rgba(0, 0, 0, 0.1) inset, 0 0 0 3.3px rgba(65, 159, 255, 0.55), 0 0 0 5px rgba(65, 159, 255, 0.3);
-    }
-
-    .checkbox-wrapper-1 [type=checkbox].substituted:disabled+label:before {
-        opacity: 0.5;
-    }
-
-    .checkbox-wrapper-1 [type=checkbox].substituted.dark+label:before {
-        color: rgba(255, 255, 255, 0.275);
-        background-color: #222;
-        background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve" fill="rgba(34, 34, 34, 0.999)" viewBox="0 0 9 9"><rect x="0" y="4.3" transform="matrix(-0.707 -0.7072 0.7072 -0.707 0.5891 10.4702)" width="4.3" height="1.6" /><rect x="2.2" y="2.9" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 12.1877 2.9833)" width="6.1" height="1.7" /></svg>');
-    }
-
-    .checkbox-wrapper-1 [type=checkbox].substituted.dark:enabled:active+label:before,
-    .checkbox-wrapper-1 [type=checkbox].substituted.dark:enabled+label:active:before {
-        background-color: #444;
-        box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em transparent inset, 0 0 0 0.07em rgba(255, 255, 255, 0.1) inset;
-    }
-
-    .checkbox-wrapper-1 [type=checkbox].substituted.dark:checked+label:before {
-        background-color: #a97035;
-        color: rgba(255, 255, 255, 0.075);
-    }
-
-    .checkbox-wrapper-1 [type=checkbox].substituted.dark:checked:enabled:active+label:before,
-    .checkbox-wrapper-1 [type=checkbox].substituted.dark:checked:enabled+label:active:before {
-        background-color: #c68035;
-        color: rgba(0, 0, 0, 0.275);
-    }
-
-    /* For Multi Select */
-    .select2-container--default .select2-selection--multiple .select2-selection__choice {
-        background-color: #ae0a46;
-        color: white;
-        border: 1px solid #ae0a46;
-        border-radius: 0px;
-        cursor: default;
-        float: left;
-        margin-right: 5px;
-        margin-top: 4px;
-        padding: 0 5px 4px;
-    }
-
-    .select2-container--default .select2-selection--multiple {
-        background-color: white;
-        border: 1px solid #eee;
-        border-radius: 0px;
-        cursor: text;
-        padding: 0px 0px 6px;
+    .select2.select2-container {
+        width: 100% !important;
     }
 
     .select2-dropdown {
         background-color: white;
-        border: 0px;
-        border-radius: 0px;
-        box-sizing: border-box;
+        border: 1px solid #b3b3b363;
+    }
+
+    .select2.select2-container .select2-selection {
+        border: 1px solid #f7f6f5;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        height: 50px;
+        outline: none !important;
+        transition: all .15s ease-in-out;
+    }
+
+    .select2.select2-container .select2-selection .select2-selection__rendered {
+        color: #748188;
+        line-height: 48px;
+        padding-right: 33px;
+        font-size: 13px;
+        background-color: #f7f6f5;
+    }
+
+    .select2.select2-container .select2-selection .select2-selection__arrow {
+        background: #f8f8f8;
+        border-left: 1px solid #f7f6f5;
+        -webkit-border-radius: 0 3px 3px 0;
+        -moz-border-radius: 0 3px 3px 0;
+        border-radius: 0 3px 3px 0;
+        height: 48px;
+        width: 33px;
+    }
+
+    .select2.select2-container.select2-container--open .select2-selection.select2-selection--single {
+        background: #f8f8f8;
+    }
+
+    .select2.select2-container.select2-container--open .select2-selection.select2-selection--single .select2-selection__arrow {
+        -webkit-border-radius: 0 3px 0 0;
+        -moz-border-radius: 0 3px 0 0;
+        border-radius: 0 3px 0 0;
+    }
+
+    .select2-search--dropdown {
         display: block;
-        position: absolute;
-        left: -100000px;
-        width: 100%;
-        z-index: 1051;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        padding: 4px;
+        border-top: 1px solid #f7f6f5;
     }
 
-    .form-control {
-        border: 1px solid #eee;
+    .select2-container--default .select2-search--dropdown .select2-search__field {
+        border: 1px solid #f7f6f5;
+        padding: 10px;
     }
 
-    .nav-tabs-rfq {
-        display: flex !important;
-        align-items: center;
-        column-gap: 7px;
+    .select2-container--default .select2-results__option--highlighted[aria-selected] {
+        background-color: #f7f6f5;
+        color: #000000;
     }
 
-    /* Add your custom styles for radio buttons here */
-    .custom-radio input[type="radio"] {
-        background: #ae0a46;
-        border: 0;
-        width: 16px;
-        height: 16px;
-        border: 2px solid #e1e1e1;
-    }
-
-    .custom-radio label {
-        /* Add your styles for the label containing the radio button and text */
-    }
-
-    .form-check-input:focus {
-        border-color: transparent;
-        outline: 0;
-        box-shadow: none;
-    }
-
-    .repeater-add {
-        position: relative;
-        z-index: 5;
-        top: -51px;
-        width: 30px !important;
-        right: 50px;
-        background: transparent;
-        color: white;
-        border: 0;
-    }
-
-    .repeater-delete {
-        background: transparent;
-        color: white;
-        border: 0;
-    }
-
-    .nav-tabs .nav-item .nav-link.active {
-        background: none;
-        border: 1px dashed #ae0a46;
-        color: #ae0a46;
-        font-size: 16px;
-        font-weight: 600;
+    .select2-results__option[aria-selected] {
         cursor: pointer;
+        padding: 14px;
     }
 
-    .nav-tabs .nav-link,
-    .nav-tabs .nav-item .nav-link {
-        border: 1px solid #adadad;
-        color: black;
-        font-size: 16px;
-        cursor: pointer;
-        font-weight: 400;
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        font-weight: normal;
     }
 
-    .nav-tabs .nav-item {
-        margin: 0px;
+    .select-inputs {
+        background-color: #f7f6f5;
+        border: 0;
+        padding: 14px;
+        border-radius: 3px;
     }
 
-    .nav-tabs .nav-link,
-    .nav-tabs .nav-item .nav-link:hover {
-        border: 1px solid #ae0a46;
-    }
-
-    /* Add your additional styles here */
-    .rfq_box1,
-    .rfq_box2 {
-        background-image: url('https://i.pinimg.com/originals/96/03/b3/9603b3ad189fa4d29a3a7b2a33c5cd45.jpg');
-        transition: box-shadow 0.3s ease;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .changing-class {
-        background-image: none;
-        border: 1px dashed #ae0a46;
-        color: #ae0a46;
-    }
-
-    .rfq-text {
-        border-bottom: 2px solid #ae0a46;
-    }
-
-    @media only screen and (max-width: 576px) {
-        .qtyInput {
-            width: 90% !important;
-        }
-
-        .rfq-triger {
-            display: none;
-        }
-
-        .nav-tabs-rfq .nav-item {
-            width: 100% !important;
-        }
-
-        .qtyBox {
-            margin-top: 10px;
-            margin-left: 0px !important;
-        }
-
-        .productInput {
-            width: 90% !important;
-            margin-left: 30px;
-        }
-
-        .repeater-add {
-            top: -90px;
-            right: 5px;
-        }
-
-        .repeater-delete {
-            padding-left: 0.4rem !important;
-        }
-
-        .another-rfq-field {
-            position: relative;
-            top: -1.5rem;
-        }
-
-        #multi_step_form .container fieldset.step .prevStep {
-            position: absolute;
-            left: -15px;
-        }
-
-        #multi_step_form .container fieldset.step .nextStep {
-            position: absolute;
-            right: 0px;
-        }
-
-        #multi_step_form .container #multistep_nav .activated_step {
-            background-color: #ae0a46;
-            color: white;
-        }
-
-        .fa-circle-question {
-            display: none !important;
-        }
-
-        #multi_step_form .container fieldset.step {
-            position: relative;
-            padding: 0px;
-            padding-bottom: 50px;
-        }
-
-        .multi_step_form-box {
-            margin-bottom: 0px !important;
-        }
-    }
-
-    @media only screen and (min-width: 768px) and (max-width: 1440px) {
-        /* Styles for laptops */
-        /* Add your CSS rules here */
-    }
-
-    @media only screen and (min-width: 1366px) {
-        .extra-btns {
-            transform: translateY(-76%) rotate(-90deg) !important;
-            width: 332px !important;
-        }
-
-        .rfq-area {
-            padding-bottom: 15px !important;
-        }
-    }
-
-    @media only screen and (min-width: 1920px) {
-        .extra-btns {
-            transform: translateY(-50%) rotate(-90deg) !important;
-            width: 367px !important;
-        }
+    .rfq-header {
+        background-image: url('https://apersibli.com/assets/img/shapes/page-header-shape.png');
+        background-position: center;
+        background-repeat: no-repeat;
     }
 </style>

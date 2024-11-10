@@ -396,7 +396,7 @@
                                                 </div>
                                             </div>
                                             <div class="container-fluid px-0">
-                                                <div class="header-bottom-link">
+                                                <div class="row px-5 pb-3 pt-4">
                                                     <div class="row py-5 px-5">
                                                         <div class="col-lg-3 text-start">
                                                             <a href="{{ route('whatwedo') }}"
@@ -497,7 +497,7 @@
                                                 </div>
                                             </div>
                                             <div class="container-fluid px-0">
-                                                <div class="header-bottom-link">
+                                                <div class="row px-5 pb-3 pt-4">
                                                     <div class="row py-5 px-5">
                                                         <div class="col-lg-6 text-start">
                                                             <a href="{{ route('all.blog') }}"

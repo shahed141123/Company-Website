@@ -469,17 +469,21 @@
                                                 </a>
 
                                                 @if ($item->rfq == 1)
-                                                    <div>
-                                                        <div class="price py-3">
-                                                            {{-- <small class="price-usd">USD</small>
-                                                            --.-- $ --}}
-                                                        </div>
+                                                    <div class="mt-5 d-flex align-items-center justify-content-between align-items-center">
                                                         <a href=""
                                                             class="d-flex justify-content-center align-items-center"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#rfq{{ $item->id }}">
-                                                            <button class="btn-color popular_product-button">
+                                                            <button class="btn-color popular_product-button px-3 py-2">
                                                                 Ask For Price
+                                                            </button>
+                                                        </a>
+                                                        <a href=""
+                                                            class="d-flex justify-content-center align-items-center"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#rfq{{ $item->id }}">
+                                                            <button class="btn-color popular_product-button border-0 bg-transparent text-black px-3 py-2">
+                                                               + Add RFQ
                                                             </button>
                                                         </a>
                                                     </div>

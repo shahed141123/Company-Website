@@ -103,7 +103,6 @@
                                             </div>
                                         @endif
                                     @endif
-
                                 </div>
                                 @if ($product->rfq != 1)
                                     <div class="row gx-0 d-flex align-items-center justify-content-end">
@@ -122,21 +121,44 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-
-                                            <div class="d-flex justify-content-end cart_quantity_button{{ $product->id }}">
+                                            <div
+                                                class="d-flex justify-content-end cart_quantity_button{{ $product->id }}">
                                                 <a href="javascript:void(0);"
                                                     class="common_button effect01 add_to_cart_quantity"
                                                     data-id="{{ $product->id }}" data-name="{{ $product->name }}"
-                                                    style="padding:10px 8px;">Add to Basket</a>
+                                                    style="padding:10px 8px;">Add to RFQ</a>
                                             </div>
                                         </div>
                                     </div>
-                                @else
-                                    <div class="text-end">
-                                        <a href="{{ route('product.details', $product->slug) }}"
-                                            class="common_button effect01">Details</a>
-                                    </div>
+                                    {{-- @else
+                                    <div class="details_btn mt-2">
+                                         <a href="{{ route('product.details', $product->slug) }}"
+                                            class="common_button effect01">Details <i
+                                                class="fa-solid fa-circle-info ps-2"></i></a>
+                                    </div> --}}
                                 @endif
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="d-flex justify-content-between align-items-center mt-4">
+                                            <div class="d-flex align-items-center ">
+                                                <div class="qty-container me-2">
+                                                    <input type="number" class="form-control form-control-sm bg-white" style="width: 60px"
+                                                        value="1">
+                                                </div>
+                                                <a class="search-btns pb-2"
+                                                    href="{{ route('product.details', ['id' => $product->slug]) }}">Ask
+                                                    For Price</a>
+                                            </div>
+                                            <div>
+                                                <a class="pb-2 bg-transparent border-0 text-black text-end"
+                                                    href="{{ route('product.details', ['id' => $product->slug]) }}"><i class="fa-solid fa-plus pe-2"></i> Add RFQ
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -177,3 +199,25 @@
         </ul>
     </nav>
 @endif
+
+<script>
+    var buttonPlus = $(".qty-btn-plus");
+    var buttonMinus = $(".qty-btn-minus");
+
+    var incrementPlus = buttonPlus.click(function() {
+        var $n = $(this)
+            .parent(".qty-container")
+            .find(".input-qty");
+        $n.val(Number($n.val()) + 1);
+    });
+
+    var incrementMinus = buttonMinus.click(function() {
+        var $n = $(this)
+            .parent(".qty-container")
+            .find(".input-qty");
+        var amount = Number($n.val());
+        if (amount > 0) {
+            $n.val(amount - 1);
+        }
+    });
+</script>
