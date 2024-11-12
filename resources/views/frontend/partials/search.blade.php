@@ -11,103 +11,7 @@
         box-shadow: none;
     }
 
-    .qty-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 
-    .qty-container .input-qty {
-        text-align: center;
-        padding: 6px 10px;
-        border: 1px solid #d4d4d4;
-        max-width: 50px;
-        max-height: 30px;
-        padding: 0;
-        line-height: 0;
-        padding-bottom: 5px;
-    }
-
-    .qty-container .qty-btn-minus,
-    .qty-container .qty-btn-plus {
-        border: 1px solid #d4d4d4;
-        padding: 5px 5px 5px;
-        font-size: 10px;
-        height: 30px;
-        width: 38px;
-        transition: 0.3s;
-    }
-
-    .qty-container .qty-btn-plus {
-        margin-left: -1px;
-    }
-
-    .qty-container .qty-btn-minus {
-        margin-right: -1px;
-    }
-
-    /*---------------------------*/
-    .btn-cornered,
-    .input-cornered {
-        border-radius: 0px;
-    }
-
-    .input-rounded {
-        border-radius: 0px;
-    }
-
-    /* News */
-
-    .quantity-selectors-container {
-        display: inline-block;
-        vertical-align: top;
-        margin: 0;
-        padding: 0;
-    }
-
-    .quantity-selectors {
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        padding: 0;
-    }
-
-    .quantity-selectors button {
-        -webkit-appearance: none;
-        appearance: none;
-        margin: 0;
-        border-radius: 0;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    .quantity-selectors button:first-child {
-        border-bottom: 0;
-    }
-
-    .quantity-selectors button:hover {
-        cursor: pointer;
-    }
-
-    .quantity-selectors button[disabled="disabled"] {
-        cursor: not-allowed;
-    }
-
-    .quantity-selectors button[disabled="disabled"] span {
-        opacity: 0.5;
-    }
-
-    .quantity-box {
-        text-align: center;
-        width: 40px;
-        height: auto;
-    }
-
-    .search-btn-price {
-        padding: 10px;
-        border: 1px solid #ae0a46;
-        font-weight: 200;
-    }
 </style>
 
 
@@ -139,7 +43,6 @@
                                         {{ $product->name }}
                                     </h6>
                                 </a>
-
                             </div>
 
                         </div>
@@ -325,26 +228,27 @@
                                                 </div>
                                                 <div class="d-flex border">
                                                     <input data-min="1" data-max="0" type="text" name="quantity"
-                                                        value="1" readonly="true"
+                                                        value="2" readonly="true"
                                                         class="quantity-box border-0 bg-light">
                                                     <div class="quantity-selectors-container">
                                                         <div class="quantity-selectors">
                                                             <button type="button" class="increment-quantity border-0"
                                                                 aria-label="Add one" data-direction="1">
-                                                                <i class="fa-solid fa-plus" style="color: #ae0a46"></i>
+                                                                <i class="fa-solid fa-plus" style="color: #7a7577"></i>
                                                             </button>
                                                             <button type="button" class="decrement-quantity border-0"
                                                                 aria-label="Subtract one" data-direction="-1"
                                                                 disabled="disabled">
                                                                 <i class="fa-solid fa-minus"
-                                                                    style="color: #ae0a46"></i>
+                                                                    style="color: #7a7577"></i>
                                                             </button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div>
-                                                <a class="search-btns pb-2 bg-transparent border-0 text-black"
+                                                <a class="search-btns pb-2 bg-transparent border-0"
+                                                    style="color: rgb(10 51 113);"
                                                     href="{{ route('product.details', ['id' => $product->slug]) }}"><i
                                                         class="fa-solid fa-plus pe-2"></i>Add RFQ
                                                 </a>

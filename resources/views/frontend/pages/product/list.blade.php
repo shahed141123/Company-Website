@@ -1,3 +1,124 @@
+<style>
+    .search_titles {
+        font-size: 17px;
+        color: #ae0a46 !important;
+        text-transform: capitalize;
+    }
+
+    button:focus,
+    input:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .qty-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .qty-container .input-qty {
+        text-align: center;
+        padding: 6px 10px;
+        border: 1px solid #d4d4d4;
+        max-width: 50px;
+        max-height: 30px;
+        padding: 0;
+        line-height: 0;
+        padding-bottom: 5px;
+    }
+
+    .qty-container .qty-btn-minus,
+    .qty-container .qty-btn-plus {
+        border: 1px solid #d4d4d4;
+        padding: 5px 5px 5px;
+        font-size: 10px;
+        height: 30px;
+        width: 38px;
+        transition: 0.3s;
+    }
+
+    .qty-container .qty-btn-plus {
+        margin-left: -1px;
+    }
+
+    .qty-container .qty-btn-minus {
+        margin-right: -1px;
+    }
+
+    /*---------------------------*/
+    .btn-cornered,
+    .input-cornered {
+        border-radius: 0px;
+    }
+
+    .input-rounded {
+        border-radius: 0px;
+    }
+
+    /* News */
+
+    .quantity-selectors-container {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+        padding: 0;
+    }
+
+    .quantity-selectors {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+
+    .quantity-selectors button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        border-radius: 0;
+        font-size: 12px;
+        padding: 0px 6px 4px;
+    }
+
+    .quantity-selectors button:first-child {
+        border-bottom: 0;
+    }
+
+    .quantity-selectors button:hover {
+        cursor: pointer;
+    }
+
+    .quantity-selectors button[disabled="disabled"] {
+        cursor: not-allowed;
+    }
+
+    .quantity-selectors button[disabled="disabled"] span {
+        opacity: 0.5;
+    }
+
+    .quantity-box {
+        text-align: center;
+        width: 40px;
+        height: auto;
+    }
+
+    .search-btn-price {
+        padding: 10px;
+        border: 1px solid #ae0a46;
+        font-weight: 200;
+        background-color: #ae0a46;
+        color: #fff;
+    }
+
+    .search-btn-price:hover {
+        padding: 10px;
+        border: 1px solid #ae0a46;
+        font-weight: 200;
+        background-color: #ae0a46;
+        color: #fff;
+    }
+</style>
 <header class="product_showing shadow-sm px-0 pb-2 mb-2">
     <div class="form-inline ">
         {{-- <span class="mr-md-auto">
@@ -55,8 +176,8 @@
                         <div class="row d-flex align-items-center">
                             <div class="col-lg-8 col-sm-12">
                                 <a href="{{ route('product.details', ['id' => $product->slug]) }}">
-                                    <h4 class="" style="color: #ae0a46;">
-                                        {{ $product->name }}</h4>
+                                    <h5 class="" style="color: #ae0a46;">
+                                        {{ $product->name }}</h5>
                                 </a>
                             </div>
                             <div class="col-lg-4 col-sm-12">
@@ -76,7 +197,7 @@
                         <div class="row d-flex align-items-center">
                             <div class="col-lg-8 mt-1 col-sm-12">
                                 <div>
-                                    <span style="font-size: 14px;">
+                                    <span style="font-size: 12px;">
                                         SKU #: {{ $product->sku_code }} |
                                         MF #: {{ $product->mf_code }} |
                                         <br> NG #: {{ $product->product_code }}
@@ -142,18 +263,38 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="d-flex justify-content-between align-items-center mt-4">
-                                            <div class="d-flex align-items-center ">
-                                                <div class="qty-container me-2">
-                                                    <input type="number" class="form-control form-control-sm bg-white" style="width: 60px"
-                                                        value="1">
+                                            <div class="d-flex align-items-center">
+                                                <div class="d-flex align-items-center ">
+                                                    <a class="search-btn-price me-2"
+                                                        href="{{ route('product.details', ['id' => $product->slug]) }}">Ask
+                                                        For Price</a>
                                                 </div>
-                                                <a class="search-btns pb-2"
-                                                    href="{{ route('product.details', ['id' => $product->slug]) }}">Ask
-                                                    For Price</a>
+                                                <div class="d-flex border">
+                                                    <input data-min="1" data-max="0" type="text" name="quantity"
+                                                        value="2" readonly="true"
+                                                        class="quantity-box border-0 bg-light">
+                                                    <div class="quantity-selectors-container">
+                                                        <div class="quantity-selectors">
+                                                            <button type="button" class="increment-quantity border-0"
+                                                                aria-label="Add one" data-direction="1">
+                                                                <i class="fa-solid fa-plus"
+                                                                    style="color: #7a7577"></i>
+                                                            </button>
+                                                            <button type="button" class="decrement-quantity border-0"
+                                                                aria-label="Subtract one" data-direction="-1"
+                                                                disabled="disabled">
+                                                                <i class="fa-solid fa-minus"
+                                                                    style="color: #7a7577"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div>
-                                                <a class="pb-2 bg-transparent border-0 text-black text-end"
-                                                    href="{{ route('product.details', ['id' => $product->slug]) }}"><i class="fa-solid fa-plus pe-2"></i> Add RFQ
+                                                <a class="pb-2 bg-transparent border-0 text-end"
+                                                    style="color: rgb(10 51 113);"
+                                                    href="{{ route('product.details', ['id' => $product->slug]) }}"><i
+                                                        class="fa-solid fa-plus pe-2"></i> Add RFQ
                                                 </a>
                                             </div>
                                         </div>

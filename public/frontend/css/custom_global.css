@@ -17196,3 +17196,19 @@ nav > div a.nav-item.nav-link.active {
         padding-left: 30px !important;
     }
 }
+
+
+.search-btn-price {
+        padding: 10px;
+        border: 1px solid #ae0a46;
+        font-weight: 200;
+        background-color: #ae0a46;
+        color: #fff;
+    }
+    .search-btn-price:hover {
+        padding: 10px;
+        border: 1px solid #ae0a46;
+        font-weight: 200;
+        background-color: #ae0a46;
+        color: #fff;
+    }

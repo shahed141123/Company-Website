@@ -482,7 +482,7 @@
                                                             class="d-flex justify-content-center align-items-center"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#rfq{{ $item->id }}">
-                                                            <button class="btn-color popular_product-button border-0 bg-transparent text-black px-3 py-2">
+                                                            <button class="btn-color popular_product-button border bg-transparent text-black px-3 py-2">
                                                                + Add RFQ
                                                             </button>
                                                         </a>

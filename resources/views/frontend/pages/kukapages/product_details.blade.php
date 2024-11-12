@@ -5,6 +5,99 @@
 @endsection
 @section('content')
     @include('frontend.pages.kukapages.partial.page_header')
+    <style>
+        .qty-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qty-container .input-qty {
+            text-align: center;
+            padding: 6px 10px;
+            border: 1px solid #d4d4d4;
+            max-width: 50px;
+            max-height: 30px;
+            padding: 0;
+            line-height: 0;
+            padding-bottom: 5px;
+        }
+
+        .qty-container .qty-btn-minus,
+        .qty-container .qty-btn-plus {
+            border: 1px solid #d4d4d4;
+            padding: 5px 5px 5px;
+            font-size: 10px;
+            height: 30px;
+            width: 38px;
+            transition: 0.3s;
+        }
+
+        .qty-container .qty-btn-plus {
+            margin-left: -1px;
+        }
+
+        .qty-container .qty-btn-minus {
+            margin-right: -1px;
+        }
+
+        /*---------------------------*/
+        .btn-cornered,
+        .input-cornered {
+            border-radius: 0px;
+        }
+
+        .input-rounded {
+            border-radius: 0px;
+        }
+
+        /* News */
+
+        .quantity-selectors-container {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0;
+            padding: 0;
+        }
+
+        .quantity-selectors {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+        }
+
+        .quantity-selectors button {
+            -webkit-appearance: none;
+            appearance: none;
+            margin: 0;
+            border-radius: 0;
+            font-size: 12px;
+            padding: 0px 6px 4px;
+        }
+
+        .quantity-selectors button:first-child {
+            border-bottom: 0;
+        }
+
+        .quantity-selectors button:hover {
+            cursor: pointer;
+        }
+
+        .quantity-selectors button[disabled="disabled"] {
+            cursor: not-allowed;
+        }
+
+        .quantity-selectors button[disabled="disabled"] span {
+            opacity: 0.5;
+        }
+
+        .quantity-box {
+            text-align: center;
+            width: 40px;
+            height: auto;
+        }
+    </style>
     <section>
         <div class="container my-5">
             <div class="single-product-container">
@@ -41,22 +134,22 @@
                                     @if (!empty($sproduct->sku_code))
                                         <li class="me-2">
                                             <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
-                                                    class="fa-solid fa-tag me-1 single-bp-tag"></i><strong>NG #
-                                                </strong>{{ $sproduct->sku_code }}</p>
+                                                    class="fa-solid fa-tag me-1 single-bp-tag"></i><span>NG #
+                                                </span>{{ $sproduct->sku_code }}</p>
                                         </li>
                                     @endif
                                     @if (!empty($sproduct->mf_code))
                                         <li class="me-2">
                                             <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
-                                                    class="fa-solid fa-tag me-1 single-bp-tag"></i><strong>MF #
-                                                </strong>{{ $sproduct->mf_code }}</p>
+                                                    class="fa-solid fa-tag me-1 single-bp-tag"></i><span>MF #
+                                                </span>{{ $sproduct->mf_code }}</p>
                                         </li>
                                     @endif
                                     @if (!empty($sproduct->product_code))
                                         <li class="me-1">
                                             <p class="p-0 m-0" style="color: rgb(134, 134, 134);font-size: 13px;"><i
-                                                    class="fa-solid fa-tag me-1 single-bp-tag"></i><strong>SKU #
-                                                </strong>{{ $sproduct->product_code }}
+                                                    class="fa-solid fa-tag me-1 single-bp-tag"></i><span>SKU #
+                                                </span>{{ $sproduct->product_code }}
                                             </p>
                                         </li>
                                     @endif
@@ -83,43 +176,71 @@
                                     <div class="d-lg-block d-sm-none p-0">
                                         <div class="row justify-content-between align-items-center p-0">
                                             {{-- <a class="btn-color" href="{{route('contact')}}">Call Ngen It for price</a> --}}
-                                            <div class="need_help col-lg-6 col-sm-6">
-                                                <button class="btn-color" id="modal_view_left" data-bs-toggle="modal"
-                                                    data-bs-target="#rfq_product{{ $sproduct->id }}"
-                                                    style="width: 100%;">Ask For
-                                                    Price</button>
+                                            <div class="need_help col-lg-8 col-sm-8">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="me-3">
+                                                        {{-- <button class="search-btn-price" id="modal_view_left" data-bs-toggle="modal"
+                                                            data-bs-target="#rfq_product{{ $sproduct->id }}">Ask For
+                                                            Price</button> --}}
+                                                        <a class="search-btn-price" id="modal_view_left"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#rfq_product{{ $sproduct->id }}">Ask
+                                                            For Price</a>
+                                                    </div>
+                                                    <div class="d-flex border">
+                                                        <input data-min="1" data-max="0" type="text" name="quantity"
+                                                            value="2" readonly="true"
+                                                            class="quantity-box border-0 bg-light">
+                                                        <div class="quantity-selectors-container">
+                                                            <div class="quantity-selectors">
+                                                                <button type="button" class="increment-quantity border-0"
+                                                                    aria-label="Add one" data-direction="1">
+                                                                    <i class="fa-solid fa-plus" style="color: #7a7577"></i>
+                                                                </button>
+                                                                <button type="button" class="decrement-quantity border-0"
+                                                                    aria-label="Subtract one" data-direction="-1"
+                                                                    disabled="disabled">
+                                                                    <i class="fa-solid fa-minus" style="color: #7a7577"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="need_help col-lg-6 col-sm-6">
-                                                <h6>Need Help Ordering?</h6>
-                                                <h6>Call <strong>{{ App\Models\Admin\Setting::first()->mobile }}</strong>
-                                                </h6>
+                                            <div class="need_help col-lg-4 col-sm-4">
+                                                <div class="stock-info">
+                                                    <p tabindex="0" class="prod-stock mb-0"
+                                                        id="product-avalialability-by-warehouse">
+                                                        <span aria-label="Stock Availability" class="js-prod-available"> <i
+                                                                class="fa fa-info-circle text-success"></i> Stock</span>
+                                                        <br>
+                                                        @if ($sproduct->stock == 'available')
+                                                            <span class="text-success"
+                                                                style="font-size:17px">{{ $sproduct->qty }}
+                                                                in stock</span>
+                                                        @elseif ($sproduct->stock == 'limited')
+                                                            <span class="text-success"
+                                                                style="font-size:17px; font-weight:500;">Limited</span>
+                                                        @elseif ($sproduct->stock == 'unlimited')
+                                                            <span class="text-success"
+                                                                style="font-size:17px; font-weight:500;">Unlimited</span>
+                                                        @elseif ($sproduct->stock == 'stock_out')
+                                                            <span class="text-danger"
+                                                                style="font-size:17px; font-weight:500;">Stock Out</span>
+                                                        @else
+                                                            <span class="text-danger pb-2"
+                                                                style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>
+                                                        @endif
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-3 px-4"
                                             style="width:100%; background: #f4efe4;">
-                                            <div class="stock-info">
-                                                <p tabindex="0" class="prod-stock mb-0"
-                                                    id="product-avalialability-by-warehouse">
-                                                    <span aria-label="Stock Availability" class="js-prod-available"> <i
-                                                            class="fa fa-info-circle text-success"></i> Stock</span> <br>
-                                                    @if ($sproduct->stock == 'available')
-                                                        <span class="text-success"
-                                                            style="font-size:17px">{{ $sproduct->qty }}
-                                                            in stock</span>
-                                                    @elseif ($sproduct->stock == 'limited')
-                                                        <span class="text-success"
-                                                            style="font-size:17px; font-weight:500;">Limited</span>
-                                                    @elseif ($sproduct->stock == 'unlimited')
-                                                        <span class="text-success"
-                                                            style="font-size:17px; font-weight:500;">Unlimited</span>
-                                                    @elseif ($sproduct->stock == 'stock_out')
-                                                        <span class="text-danger"
-                                                            style="font-size:17px; font-weight:500;">Stock Out</span>
-                                                    @else
-                                                        <span class="text-danger pb-2"
-                                                            style="font-size:17px">{{ ucfirst($sproduct->stock) }}</span>
-                                                    @endif
-                                                </p>
+                                            <div>
+                                                <h6>Need Help Ordering?</h6>
+                                                <h6>Call <span>{{ App\Models\Admin\Setting::first()->mobile }}</span>
+                                                </h6>
                                             </div>
                                             <div class="text-end">
                                                 <p class="list_price mb-0">Custom Pricing</p>
@@ -142,7 +263,7 @@
                                                 <div class="need_help col-6 p-0">
                                                     <h6>Need Help Ordering?</h6>
                                                     <h6>Call
-                                                        <strong>{{ App\Models\Admin\Setting::first()->mobile }}</strong>
+                                                        <span>{{ App\Models\Admin\Setting::first()->mobile }}</span>
                                                     </h6>
                                                 </div>
                                             </div>
@@ -151,8 +272,8 @@
                                                 <div class="stock-info">
                                                     <p tabindex="0" class="prod-stock mb-0"
                                                         id="product-avalialability-by-warehouse">
-                                                        <span aria-label="Stock Availability" class="js-prod-available"> <i
-                                                                class="fa fa-info-circle text-success"></i> Stock</span>
+                                                        <span aria-label="Stock Availability" class="js-prod-available">
+                                                            <i class="fa fa-info-circle text-success"></i> Stock</span>
                                                         <br>
                                                         @if ($sproduct->stock == 'available')
                                                             <span class="text-success"
@@ -187,15 +308,13 @@
                                     <div class="row justify-content-between align-items-center">
                                         {{-- <a class="btn-color" href="{{route('contact')}}">Call Ngen It for price</a> --}}
                                         <div class="need_help col-lg-5 col-sm-12 p-0">
-                                            <button class="btn-color" id="modal_view_left" data-toggle="modal"
+                                            <button class="search-btn-price" id="modal_view_left" data-toggle="modal"
                                                 data-target="#rfq_product{{ $sproduct->id }}" style="width: 100%;">Ask
-                                                For
-                                                Price</button>
+                                                For Price</button>
                                         </div>
                                         <div class="need_help col-lg-7 col-sm-12 p-0">
                                             <h6 class="m-2">Need Help Ordering?</h6>
-                                            <h6>Call <strong>{{ App\Models\Admin\Setting::first()->mobile }}</strong>
-                                            </h6>
+                                            <h6>Call <span>{{ App\Models\Admin\Setting::first()->mobile }}</span></h6>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-sm-12 d-flex align-items-center justify-content-between py-2 mt-2 px-4"

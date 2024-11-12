@@ -5,7 +5,7 @@
         <div class="row justify-content-center align-items-center g-2">
             <div class="col-lg-8 col-offset-lg-2">
                 <div class="w-lg-50 w-100 mx-auto my-5 card rounded-2 shadow-sm" style="border: 1px solid #eee;">
-                    <div class="card-header rfq-header border-0" >
+                    <div class="card-header rfq-header border-0">
                         <div class="d-flex justify-content-between align-items-center">
                             <h5 class="text-black py-2">Get Query</h5>
                         </div>
@@ -20,7 +20,8 @@
                                             <i class="fa-solid fa-question  tango-help-tip" aria-hidden="true"
                                                 data-toggle="popover" title=""
                                                 data-content="Select the right products by writing initials or full product name in the box below. Mention the quantity in the right box. Add more product input boxes by clicking the left '+' symbol."
-                                                data-original-title="About RFQ"></i>
+                                                data-original-title="About RFQ"
+                                                style="border: 1px solid #afafaf; color: #afafaf;border-radius: 1000%;width: 15px;height: 15px;text-align: center;font-size: 10px;display: inline-flex;justify-content: center;align-items: center;position: relative;left: 8px;cursor: pointer;"></i>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-end align-items-center">
                                             <div class="form-check">
