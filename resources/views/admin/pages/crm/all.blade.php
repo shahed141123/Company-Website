@@ -29,12 +29,12 @@
                             <span>Contact </span>
                         </div>
                     </a>
-                    <a href="{{ route('support.all') }}" class="btn navigation_btn">
+                    {{-- <a href="{{ route('support.all') }}" class="btn navigation_btn">
                         <div class="d-flex align-items-center ">
                             <i class="fa-solid fa-handshake-angle me-1" style="font-size: 10px;"></i>
                             <span>Support</span>
                         </div>
-                    </a>
+                    </a> --}}
                     <a href="{{ route('feedback.index') }}" class="btn navigation_btn">
                         <div class="d-flex align-items-center ">
                             <i class="fa-solid fa-comments me-1" style="font-size: 10px;"></i>

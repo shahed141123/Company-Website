@@ -6,12 +6,15 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Admin\Event;
 use Rats\Zkteco\Lib\ZKTeco;
+use App\Models\Admin\Notice;
 use Illuminate\Http\Request;
+use App\Models\Admin\Category;
+use App\Models\Admin\SubCategory;
 use App\Models\Admin\EventCategory;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\SubSubCategory;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Admin\LeaveApplication;
-use App\Models\Admin\Notice;
 
 class DashboardController extends Controller
 {
@@ -35,7 +38,13 @@ class DashboardController extends Controller
     }
     public function siteContent()
     {
-        return view('admin.pages.site-content.all');
+        $data = [
+            'categories' => Category::where('status','active')->count(),
+            'sub_categories' => SubCategory::where('status','active')->count(),
+            'sub_sub_categories' => SubCategory::where('status','active')->count(),
+            'sub_sub_sub_categories' => SubSubCategory::where('status','active')->count(),
+        ];
+        return view('admin.pages.site-content.all',$data);
     }
 
     public function siteSetting()

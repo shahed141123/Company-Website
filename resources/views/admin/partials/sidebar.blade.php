@@ -83,33 +83,7 @@
 
                     </li>
                 @endif
-                @if (auth()->check() && in_array('accounts', json_decode(auth()->user()->department, true)))
-                    <li class="nav-item nav-item-submenu {{ Route::current()->getName() == '' ? 'active' : '' }}">
-                        <a href="" class="nav-link">
-                            <i class="fa-solid fa-calculator side_baricon"></i>
-                            <span class="text-start ps-1">Accounts Finance</span></a>
-                        <ul class="nav-group-sub collapse ms-4" style="">
-                            <li class="nav-item"><a href="{{ route('accounts-finance.index') }}"
-                                    class="nav-link">Dashboard</a></li>
-                            <li class="nav-item"><a href="{{ route('account-payable.index') }}" class="nav-link">
-                                    Accounts
-                                    Payable</a></li>
-                            <li class="nav-item"><a href="{{ route('account-receivable.index') }}"
-                                    class="nav-link">Accounts Receivable</a></li>
-                            <li class="nav-item"><a href="{{ route('account-profit-loss.index') }}"
-                                    class="nav-link">Accounts Profit Loss</a></li>
-                            <li class="nav-item"><a href="{{ route('expense.index') }}" class="nav-link">Expense</a>
-                            </li>
-                            <li class="nav-item"><a href="{{ route('expense-category.index') }}"
-                                    class="nav-link">Expense
-                                    Category</a></li>
-                            <li class="nav-item"><a href="{{ route('expense-type.index') }}" class="nav-link">Expense
-                                    Type</a></li>
-                        </ul>
-
-
-                    </li>
-                @endif
+                
                 @if (auth()->check() && in_array('site', json_decode(auth()->user()->department, true)))
                     <li class="nav-item nav-item-submenu {{ Route::current()->getName() == '' ? 'active' : '' }}">
                         <a href="" class="nav-link">
