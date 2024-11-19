@@ -43,13 +43,13 @@ class AppServiceProvider extends ServiceProvider
         View::share('brandCount', null);
         View::share('limit_words', null);
         View::share('setting', null);
-        View::share('industrys', null);
-        View::share('solutions', null);
+        View::share('header_industrys', null);
+        View::share('header_solutions', null);
         View::share('header_categories', null);
-        View::share('brands', null);
-        View::share('features', null);
-        View::share('blog', null);
-        View::share('techglossy', null);
+        View::share('header_brands', null);
+        View::share('header_features', null);
+        View::share('header_blog', null);
+        View::share('header_techglossy', null);
 
         try {
             if (Schema::hasTable('users')) {
@@ -66,10 +66,10 @@ class AppServiceProvider extends ServiceProvider
                 View::share('setting', Site::first());
             }
             if (Schema::hasTable('industries')) {
-                View::share('industrys', Industry::with('industryPage')->latest('id')->get(['id', 'title', 'slug']));
+                View::share('header_industrys', Industry::with('industryPage')->latest('id')->get(['id', 'title', 'slug']));
             }
             if (Schema::hasTable('solution_details')) {
-                View::share('solutions', SolutionDetail::take(4)->inRandomOrder()->get(['id', 'name', 'slug']));
+                View::share('header_solutions', SolutionDetail::take(4)->inRandomOrder()->get(['id', 'name', 'slug']));
             }
             if (Schema::hasTable('categories')) {
                 View::share('header_categories', Category::with('subCategorys.subsubCategorys.subsubsubCategorys')
@@ -77,20 +77,20 @@ class AppServiceProvider extends ServiceProvider
                 ->get(['id', 'slug', 'title']));
             }
             if (Schema::hasTable('brands')) {
-                View::share('brands', Brand::with('brandPage')->inRandomOrder()->take(20)->get(['id', 'slug', 'title']));
+                View::share('header_brands', Brand::with('brandPage')->inRandomOrder()->take(20)->get(['id', 'slug', 'title']));
             }
             if (Schema::hasTable('features')) {
-                View::share('features', Feature::take(4)
+                View::share('header_features', Feature::take(4)
                     ->inRandomOrder()
                     ->get(['id', 'title', 'image', 'created_at', 'badge']));
             }
             if (Schema::hasTable('blog')) {
-                View::share('blog', Blog::where('featured', '1')
+                View::share('header_blog', Blog::where('featured', '1')
                     ->inRandomOrder()
                     ->first(['id', 'badge', 'title', 'image', 'created_at', 'created_by']));
             }
             if (Schema::hasTable('techglossy')) {
-                View::share('techglossy', TechGlossy::where('featured', '1')
+                View::share('header_techglossy', TechGlossy::where('featured', '1')
                     ->inRandomOrder()
                     ->first(['id', 'badge', 'title', 'image', 'created_at', 'created_by']));
             }

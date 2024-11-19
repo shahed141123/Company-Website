@@ -336,13 +336,13 @@
                                                             We Serve
                                                         </p>
                                                         <div class="row industries">
-                                                            @if (!empty($industrys))
-                                                                @foreach ($industrys as $industry)
-                                                                    @if ($industry->industryPage)
+                                                            @if (!empty($header_industrys))
+                                                                @foreach ($header_industrys as $header_industry)
+                                                                    @if ($header_industry->industryPage)
                                                                         <div class="col-lg-4 mb-2">
                                                                             <a class="d-flex align-items-center pb-2"
-                                                                                href="{{ route('industry.details', $industry->slug) }}">
-                                                                                <div>{{ $industry->title }} </div>
+                                                                                href="{{ route('industry.details', $header_industry->slug) }}">
+                                                                                <div>{{ $header_industry->title }} </div>
                                                                                 <div>
                                                                                     <i
                                                                                         class="ph ph-caret-right menu_icons"></i>
@@ -361,12 +361,12 @@
                                                             We Provide
                                                         </p>
                                                         <div class="row">
-                                                            @if (!empty($solutions))
-                                                                @foreach ($solutions as $solution)
+                                                            @if (!empty($header_solutions))
+                                                                @foreach ($header_solutions as $header_solution)
                                                                     <div class="col-lg-12 mb-2">
                                                                         <a class="d-flex align-items-center pb-2"
-                                                                            href="{{ !empty($solution->slug) ? route('solution.details', ['id' => $solution->slug]) : '' }}">
-                                                                            <div>{{ $solution->name }}</div>
+                                                                            href="{{ !empty($header_solution->slug) ? route('solution.details', ['id' => $header_solution->slug]) : '' }}">
+                                                                            <div>{{ $header_solution->name }}</div>
                                                                             <div>
                                                                                 <i
                                                                                     class="ph ph-caret-right menu_icons"></i>
@@ -421,59 +421,59 @@
                                                             style="border-top: 4px solid #ae0a46;">Tre</span>ndy
                                                         Content
                                                     </p>
-                                                    @if (!empty($features))
-                                                        @foreach ($features as $feature)
+                                                    @if (!empty($header_features))
+                                                        @foreach ($header_features as $header_feature)
                                                             <div class="col-lg-4 col-sm-12">
                                                                 <div class="d-flex align-items-center pt-4">
-                                                                    <img src="{{ isset($feature->image) && file_exists(public_path('storage/' . $feature->image)) ? asset('storage/' . $feature->image) : asset('frontend/images/banner-demo.png') }}"
+                                                                    <img src="{{ isset($header_feature->image) && file_exists(public_path('storage/' . $header_feature->image)) ? asset('storage/' . $header_feature->image) : asset('frontend/images/banner-demo.png') }}"
                                                                         alt=""
                                                                         style="width:130px;height:70px;">
                                                                     <div class="ms-3">
                                                                         <a
-                                                                            href="{{ route('feature.details', $feature->id) }}">
+                                                                            href="{{ route('feature.details', $header_feature->id) }}">
                                                                             <strong
-                                                                                style="font-size:14px;">{{ Str::limit($feature->title, 100) }}</strong>
+                                                                                style="font-size:14px;">{{ Str::limit($header_feature->title, 100) }}</strong>
                                                                         </a>
                                                                         <br>
-                                                                        <span>{{ $feature->badge }} /
-                                                                            {{ $feature->created_at->format('d-m-Y') }}</span>
+                                                                        <span>{{ $header_feature->badge }} /
+                                                                            {{ $header_feature->created_at->format('d-m-Y') }}</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         @endforeach
                                                     @endif
-                                                    @if (!empty($blog))
+                                                    @if (!empty($header_blog))
                                                         <div class="col-lg-4 col-sm-12 pt-4">
                                                             <div class="d-flex align-items-center">
-                                                                <img src="{{ isset($blog->image) && file_exists(public_path('storage/' . $blog->image)) ? asset('storage/' . $blog->image) : asset('frontend/images/banner-demo.png') }}"
+                                                                <img src="{{ isset($header_blog->image) && file_exists(public_path('storage/' . $header_blog->image)) ? asset('storage/' . $header_blog->image) : asset('frontend/images/banner-demo.png') }}"
                                                                     alt="" style="width:130px;height:70px;">
                                                                 <div class="ms-3">
                                                                     <a
-                                                                        href="{{ route('feature.details', $blog->id) }}">
+                                                                        href="{{ route('feature.details', $header_blog->id) }}">
                                                                         <strong
-                                                                            style="font-size:14px;">{{ Str::limit($blog->title, 100) }}</strong>
+                                                                            style="font-size:14px;">{{ Str::limit($header_blog->title, 100) }}</strong>
                                                                     </a>
                                                                     <br>
-                                                                    <span>{{ $blog->badge }} /
-                                                                        {{ $blog->created_at->format('d-m-Y') }}</span>
+                                                                    <span>{{ $header_blog->badge }} /
+                                                                        {{ $header_blog->created_at->format('d-m-Y') }}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    @if (!empty($techglossy))
+                                                    @if (!empty($header_techglossy))
                                                         <div class="col-lg-4 col-sm-12 pt-4">
                                                             <div class="d-flex align-items-center">
-                                                                <img src="{{ isset($techglossy->image) && file_exists(public_path('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}"
+                                                                <img src="{{ isset($header_techglossy->image) && file_exists(public_path('storage/' . $header_techglossy->image)) ? asset('storage/' . $header_techglossy->image) : asset('frontend/images/banner-demo.png') }}"
                                                                     alt="" style="width:130px;height:65px;">
                                                                 <div class="ms-3">
                                                                     <a
-                                                                        href="{{ route('feature.details', $techglossy->id) }}">
+                                                                        href="{{ route('feature.details', $header_techglossy->id) }}">
                                                                         <strong
-                                                                            style="font-size:14px;">{{ Str::limit($techglossy->title, 100) }}</strong>
+                                                                            style="font-size:14px;">{{ Str::limit($header_techglossy->title, 100) }}</strong>
                                                                     </a>
                                                                     <br>
-                                                                    <span>{{ $techglossy->badge }} /
-                                                                        {{ $techglossy->created_at->format('d-m-Y') }}</span>
+                                                                    <span>{{ $header_techglossy->badge }} /
+                                                                        {{ $header_techglossy->created_at->format('d-m-Y') }}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -613,15 +613,15 @@
                                                             By Brand
                                                         </p>
                                                         <div class="row">
-                                                            @if (!empty($brands))
-                                                                @foreach ($brands as $brand)
-                                                                    @if ($brand->brandPage)
+                                                            @if (!empty($header_brands))
+                                                                @foreach ($header_brands as $header_brand)
+                                                                    @if ($header_brand->brandPage)
                                                                         <div class="col-lg-3 mb-2">
                                                                             <a class="d-flex align-items-center pb-2"
-                                                                                href="{{ route('brand.products', $brand->slug) }}">
+                                                                                href="{{ route('brand.products', $header_brand->slug) }}">
                                                                                 <div
                                                                                     style="text-transform: capitalize;">
-                                                                                    {{ $brand->title }}
+                                                                                    {{ $header_brand->title }}
                                                                                 </div>
                                                                                 <div>
                                                                                     <i
@@ -889,7 +889,7 @@
                                                                                 <i
                                                                                     class="fa-brands fa-whatsapp help-icons"></i>
                                                                             </span>
-                                                                            <span class="ps-2">+880 1714243446</span>
+                                                                            <span class="ps-2"><a href="https://wa.me/{{ $setting->whatsapp_number }}">{{ $setting->whatsapp_number }}</a></span>
                                                                         </p>
                                                                         <p class="m-0 p-0 ps-3">
                                                                             <span>
@@ -908,16 +908,16 @@
                                                                                     class="fa-solid fa-envelope-open-text help-icons"></i>
                                                                             </span>
                                                                             <span
-                                                                                class="ps-2">sales@ngenitltd.com</span>
+                                                                                class="ps-2">{{ $setting->sales_email }}</span>
                                                                         </p>
-                                                                        <p class="m-0 p-0 ps-3">
+                                                                        {{-- <p class="m-0 p-0 ps-3">
                                                                             <span>
                                                                                 <i
                                                                                     class="fa-solid fa-handshake help-icons"></i>
                                                                             </span>
                                                                             <span
                                                                                 class="ps-2">partners@ngenitltd.com</span>
-                                                                        </p>
+                                                                        </p> --}}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1035,13 +1035,13 @@
                                         <span style="border-top: 4px solid #ae0a46;">Ind</span>ustry We Serve
                                     </p>
                                     <div class="row">
-                                        @if (!empty($industrys))
-                                            @foreach ($industrys as $industry)
-                                                @if ($industry->industryPage)
+                                        @if (!empty($header_industrys))
+                                            @foreach ($header_industrys as $header_industry)
+                                                @if ($header_industry->industryPage)
                                                     <div class="col-6 mb-2">
                                                         <a class="d-flex align-items-center pb-2"
-                                                            href="{{ route('industry.details', $industry->slug) }}">
-                                                            <div>{{ $industry->title }}</div>
+                                                            href="{{ route('industry.details', $header_industry->slug) }}">
+                                                            <div>{{ $header_industry->title }}</div>
                                                             <div>
                                                                 <i class="ph ph-caret-right menu_icons"></i>
                                                             </div>
@@ -1057,12 +1057,12 @@
                                             style="border-top: 4px solid #ae0a46;">Sol</span>utions We Provide
                                     </p>
                                     <div class="row">
-                                        @if (!empty($solutions))
-                                            @foreach ($solutions as $solution)
+                                        @if (!empty($header_solutions))
+                                            @foreach ($header_solutions as $header_solution)
                                                 <div class="col-lg-12 mb-2">
                                                     <a class="d-flex align-items-center pb-2"
-                                                        href="{{ !empty($solution->slug) ? route('solution.details', ['id' => $solution->slug]) : '' }}">
-                                                        <div>{{ $solution->name }}</div>
+                                                        href="{{ !empty($header_solution->slug) ? route('solution.details', ['id' => $header_solution->slug]) : '' }}">
+                                                        <div>{{ $header_solution->name }}</div>
                                                         <div>
                                                             <i class="ph ph-caret-right menu_icons"></i>
                                                         </div>
@@ -1166,14 +1166,14 @@
                                         By
                                         Brand</p>
                                     <div class="row">
-                                        @if (!empty($brands))
-                                            @foreach ($brands as $brand)
-                                                @if ($brand->brandPage)
+                                        @if (!empty($header_brands))
+                                            @foreach ($header_brands as $header_brand)
+                                                @if ($header_brand->brandPage)
                                                     <div class="col-6 mb-2">
                                                         <a class="d-flex align-items-center pb-2"
-                                                            href="{{ route('brand.products', $brand->slug) }}">
+                                                            href="{{ route('brand.products', $header_brand->slug) }}">
                                                             <div>
-                                                                {{ $brand->title }}
+                                                                {{ $header_brand->title }}
                                                             </div>
                                                             <div>
                                                                 <i class="ph ph-caret-right menu_icons"></i>
