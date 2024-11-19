@@ -492,7 +492,8 @@ ul {
 
 .upper-content-menu {
     position: relative;
-    top: -0.6rem;
+    top: -0.7rem;
+    /* top: -0.6rem; */
     z-index: 9999;
 }
 
@@ -724,8 +725,9 @@ ul {
 }
 
 .site-main-logo {
-    height: 60px;
-    width: 100px;
+    height: 65px;
+    /* height: 80px; */
+    width: 115px;
 }
 
 .sticky {
@@ -4299,7 +4301,8 @@ select:focus-visible {
 
 /*------scroll bar---------------------*/
 body::-webkit-scrollbar {
-    width: 10px;
+    /* width: 10px; */
+    width: 4px;
     height: 5px;
 }
 
@@ -5334,10 +5337,6 @@ tr td:hover {
     z-index: 999;
 }
 
-.site-main-logo {
-    height: 70px;
-    width: 105px;
-}
 
 /* Software Info Page Design */
 .animated-image {

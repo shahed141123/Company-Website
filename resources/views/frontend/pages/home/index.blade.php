@@ -2,9 +2,7 @@
 @section('content')
 @section('styles')
     <meta property="og:title" content="NGen IT Ltd.">
-    <!--<meta property="og:description" content="Description of your blog post">-->
     <meta property="og:image" content="{{ asset('storage/' . $home->branner1) }}">
-    <!--<meta property="og:url" content="URL to your blog post">-->
 @endsection
 <section class="">
     <!--======// Banner Section //======-->
@@ -311,7 +309,7 @@
 <!---------End -------->
 <!--=======// Client Story //======-->
 {{-- @if (!empty($story) | !empty($story2) | !empty($story3) | !empty($story4)) --}}
-@if (count($storys) > 0)
+@if (!empty($storys))
     <section>
         <div class="container my-4 mb-5 d-lg-block d-sm-none">
             <h2 class="text-center"><span class="main_color">Storys</span></h2>
@@ -441,39 +439,38 @@
             <!-- Carousel Container -->
             <div class="SlickCarousel">
                 @if ($products)
-                    @foreach ($products as $item)
-                        <!-- Item -->
+                    @foreach ($products as $product)
                         <div class="ProductBlock mb-3 mt-3">
                             <div class="Content">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12">
                                         <div class="custom-product-grid">
                                             <div class="custom-product-image">
-                                                <a href="{{ route('product.details', $item->slug) }}" class="image">
-                                                    {{-- <img class="pic-1" src="{{ asset($item->thumbnail) }}"> --}}
+                                                <a href="{{ route('product.details', $product->slug) }}" class="image">
+                                                    {{-- <img class="pic-1" src="{{ asset($product->thumbnail) }}"> --}}
                                                     <img class="img-fluid"
-                                                        src="{{ !empty($item->thumbnail) && file_exists(public_path($item->thumbnail)) ? asset($item->thumbnail) : asset('frontend/images/random-no-img.png') }}"
+                                                        src="{{ !empty($product->thumbnail) && file_exists(public_path($product->thumbnail)) ? asset($product->thumbnail) : asset('frontend/images/random-no-img.png') }}"
                                                         alt="NGEN IT">
                                                 </a>
                                                 <ul class="custom-product-links">
                                                     <li><a href="#"><i class="fa fa-random text-white"></i></a>
                                                     </li>
                                                     <li><a href="#" data-bs-toggle="modal"
-                                                            data-bs-target="#productDetails{{ $item->id }}"><i
+                                                            data-bs-target="#productDetails{{ $product->id }}"><i
                                                                 class="fa fa-search text-white"></i></a></li>
                                                 </ul>
                                             </div>
                                             <div class="custom-product-content">
-                                                <a href="{{ route('product.details', $item->slug) }}">
-                                                    <h3 class="custom-title"> {{ Str::words($item->name, 10) }}</h3>
+                                                <a href="{{ route('product.details', $product->slug) }}">
+                                                    <h3 class="custom-title"> {{ Str::words($product->name, 10) }}</h3>
                                                 </a>
 
-                                                @if ($item->rfq == 1)
+                                                @if ($product->rfq == 1)
                                                     <div class="mt-5 d-flex align-items-center justify-content-between align-items-center">
                                                         <a href=""
                                                             class="d-flex justify-content-center align-items-center"
                                                             data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $item->id }}">
+                                                            data-bs-target="#rfq{{ $product->id }}">
                                                             <button class="btn-color popular_product-button px-3 py-2">
                                                                 Ask For Price
                                                             </button>
@@ -481,13 +478,13 @@
                                                         <a href=""
                                                             class="d-flex justify-content-center align-items-center"
                                                             data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $item->id }}">
+                                                            data-bs-target="#rfq{{ $product->id }}">
                                                             <button class="btn-color popular_product-button border bg-transparent text-black px-3 py-2">
                                                                + Add RFQ
                                                             </button>
                                                         </a>
                                                     </div>
-                                                @elseif ($item->price_status && $item->price_status == 'rfq')
+                                                @elseif ($product->price_status && $product->price_status == 'rfq')
                                                     <div>
                                                         <div class="price py-3">
                                                             {{-- <small class="price-usd">USD</small>
@@ -496,22 +493,22 @@
                                                         <a href=""
                                                             class="d-flex justify-content-center align-items-center"
                                                             data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $item->id }}">
+                                                            data-bs-target="#rfq{{ $product->id }}">
                                                             <button class="btn-color popular_product-button">
                                                                 Ask For Price
                                                             </button>
                                                         </a>
                                                     </div>
-                                                @elseif ($item->price_status && $item->price_status == 'offer_price')
+                                                @elseif ($product->price_status && $product->price_status == 'offer_price')
                                                     <div>
                                                         <div class="price py-3">
                                                             <small class="price-usd">USD</small>
-                                                            $ {{ number_format($item->price, 2) }}
+                                                            $ {{ number_format($product->price, 2) }}
                                                         </div>
                                                         <a href=""
                                                             class="d-flex justify-content-center align-items-center"
                                                             data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $item->id }}">
+                                                            data-bs-target="#rfq{{ $product->id }}">
                                                             <button class="btn-color" data-bs-toggle="modal"
                                                                 data-bs-target="#askProductPrice">
                                                                 Your Price
@@ -522,16 +519,16 @@
                                                     <div>
                                                         <div class="price py-3">
                                                             <small class="price-usd">USD</small>
-                                                            $ {{ number_format($item->price, 2) }}
+                                                            $ {{ number_format($product->price, 2) }}
                                                         </div>
                                                         <a href="" data-mdb-toggle="popover"
                                                             title="Add To Cart Now"
-                                                            class="cart_button{{ $item->id }}"
+                                                            class="cart_button{{ $product->id }}"
                                                             data-mdb-content="Add To Cart Now"
                                                             data-mdb-trigger="hover">
                                                             <button type="button" class="btn-color add_to_cart"
-                                                                data-id="{{ $item->id }}"
-                                                                data-name="{{ $item->name }}" data-quantity="1">
+                                                                data-id="{{ $product->id }}"
+                                                                data-name="{{ $product->name }}" data-quantity="1">
                                                                 Add to Cart
                                                             </button>
                                                         </a>
@@ -553,7 +550,6 @@
 </section>
 <!---------End -------->
 <!---------Our Success Section-------->
-
 
 <section class="success_section">
     <div class="container my-4 pb-4 d-lg-block d-sm-none">

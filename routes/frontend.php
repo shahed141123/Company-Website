@@ -42,7 +42,6 @@ Route::get('/training', [HomeController::class, 'training'])->name('training');
 
 //Books
 Route::get('/books', [HomeController::class, 'books'])->name('books');
-Route::get('/books', [HomeController::class, 'books'])->name('books');
 
 //Industry
 Route::get('/industry/all', [HomeController::class, 'AllIndustry'])->name('all.industry');

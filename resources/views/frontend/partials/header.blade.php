@@ -4,12 +4,10 @@
         <div class="container-fluid top-bar p-0">
             <div class="row gx-0 top-bar-bg">
                 <div class="col-lg-8 top-bar-curve-area d-lg-block d-sm-none">
-                    {{-- Empty Are --}}
                 </div>
                 <div class="col-lg-4 top-bar-right-side" style="z-index: 999;">
                     <div class="d-flex justify-content-between align-items-center top-menu-area">
                         <div class="">
-                            {{-- <span class="text-white">My</span><span class="text-white">NGen It</span> --}}
                             <div class="dropdown drop-top">
                                 <a href="javascript:void(0)"
                                     class="dropdown-toggle top-info-text top-info-text text-white" type="button"
@@ -21,11 +19,7 @@
                                 </a>
                                 <div class="dropdown-menu drop-down-menus2" aria-labelledby="dropdownMenuButton">
                                     <div class="popover__content text-start">
-                                        {{-- <div class="text-muted">
-                                            Call Us-
-                                            <a href="tel:{{ $setting->phone_one }}"
-                                                class="main_color">{{ $setting->phone_one }}</a>
-                                        </div> --}}
+
                                         <hr class="text-muted" />
                                         <div class="d-flex flex-column align-items-center">
                                             <a href="https://wa.me/{{ $setting->whatsapp_number }}"
@@ -42,21 +36,12 @@
                                         <hr class="text-muted" />
                                         <div class="text-center">
                                             <small class="main_color">Hotline:</small> <br>
-                                            <small><a href="">+8801714243446</a></small>
-                                            <small><a href="">sales@ngenitltd.com</a></small>
+                                            <small><a
+                                                    href="https://wa.me/{{ $setting->whatsapp_number }}">{{ $setting->whatsapp_number }}</a></small>
+                                            <small><a
+                                                    href="mailto:{{ $setting->sales_email }}">{{ $setting->sales_email }}</a></small>
                                         </div>
-                                        {{-- <ul class="account p-0 text-muted text-start">
-                                            <li>
-                                                Check Our
-                                                <a href="{{ route('shop') }}" target="_blank" class="main_color">Shop
-                                                    Products</a>
-                                            </li>
-                                            <li>
-                                                Check Our
-                                                <a href="{{ route('all.solution') }}" target="_blank"
-                                                    class="main_color">Solution</a>
-                                            </li>
-                                        </ul> --}}
+
                                     </div>
                                 </div>
                             </div>
@@ -142,10 +127,7 @@
                                                             Account</a>
                                                     </li>
                                                 @endif
-                                                {{-- @unless (Auth::guard('client')->user())
-                                                @endunless
-                                                @unless (Auth::guard('partner')->user())
-                                                @endunless --}}
+
                                             </ul>
                                         </div>
                                     </div>
@@ -161,7 +143,7 @@
             <nav class="navbar navbar-expand-lg p-2 main-navbar bg-white menu-section">
                 <div class="container-fluid d-flex align-items-center" style="height: 3.5rem">
                     <div class="step-img d-lg-block d-sm-none">
-                        <img src="https://i.ibb.co/3WKt3Mw/NGen-IT-left-color.png" alt="">
+                        {{-- <img src="{{ asset('frontend/images/header/download.webp') }}" alt=""> --}}
                     </div>
                     <a class="navbar-brand fw-bold upper-content-menu main-logo" href="{{ route('homepage') }}">
                         <img class="img-fluid site-main-logo"
@@ -169,93 +151,95 @@
                             alt="NGEN IT">
                     </a>
                     <!---Category--->
-                    <div class="category-mobile">
-                        <div class="dropdown position-static header-category-button-60">
-                            <a class="tab_btn_icon upper-content-menu" href="#" role="button"
-                                id="dropdownMenuLink2" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                                aria-expanded="false" style="padding-left: none !important;">
-                                <i class="fa-solid fa-bars" style="font-size: 18px !important;"></i>
-                            </a>
-                            <ul class="dropdown-menu w-100 extra_category bg-none"
-                                aria-labelledby="dropdownMenuLink2">
-                                <section class="header">
-                                    <div class="container-fluid">
-                                        <div class="row tab_area_main category-center">
-                                            <!-- Assuming $categories is already available in your controller or view -->
+                    {{-- @if (!empty($header_categories)) --}}
+                        <div class="category-mobile">
+                            <div class="dropdown position-static header-category-button-60">
+                                <a class="tab_btn_icon upper-content-menu" href="#" role="button"
+                                    id="dropdownMenuLink2" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                    aria-expanded="false" style="padding-left: none !important;">
+                                    <i class="fa-solid fa-bars" style="font-size: 18px !important;"></i>
+                                </a>
+                                <ul class="dropdown-menu w-100 extra_category bg-none"
+                                    aria-labelledby="dropdownMenuLink2">
+                                    <section class="header">
+                                        <div class="container-fluid">
+                                            <div class="row tab_area_main category-center">
+                                                <!-- Assuming $header_categories is already available in your controller or view -->
 
-                                            <div class="col-md-2 tab_key_btns p-0 ">
-                                                <div class="nav nav-custom flex-column nav-pills2 nav-pills-custom2"
-                                                    id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                                    @foreach ($categories as $key => $category)
-                                                        <a class="nav-link catregory-side-key {{ $key === 0 ? 'show active' : '' }}"
-                                                            id="v-pills-home-tab{{ $category->id }}"
-                                                            data-toggle="pill"
-                                                            href="#v-pills-home{{ $category->id }}" role="tab"
-                                                            aria-controls="v-pills-home{{ $category->id }}"
-                                                            aria-selected="true">
-                                                            <span class="ps-1">-&nbsp;
-                                                                {{ $category->title }}</span>
-                                                        </a>
-                                                    @endforeach
+                                                <div class="col-md-2 tab_key_btns p-0 ">
+                                                    <div class="nav nav-custom flex-column nav-pills2 nav-pills-custom2"
+                                                        id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                                        @foreach ($header_categories as $key => $header_category)
+                                                            <a class="nav-link catregory-side-key {{ $key === 0 ? 'show active' : '' }}"
+                                                                id="v-pills-home-tab{{ $header_category->id }}"
+                                                                data-toggle="pill"
+                                                                href="#v-pills-home{{ $header_category->id }}" role="tab"
+                                                                aria-controls="v-pills-home{{ $header_category->id }}"
+                                                                aria-selected="true">
+                                                                <span class="ps-1">-&nbsp;
+                                                                    {{ $header_category->title }}</span>
+                                                            </a>
+                                                        @endforeach
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="col-md-10 p-0 bg-white">
-                                                <div class="tab-content" id="v-pills-tabContent">
-                                                    @foreach ($categories as $key => $category)
-                                                        <div class="tab-pane fade rounded-0 p-1 {{ $key === 0 ? 'show active' : '' }}"
-                                                            id="v-pills-home{{ $category->id }}" role="tabpanel"
-                                                            aria-labelledby="v-pills-home-tab{{ $category->id }}"
-                                                            style="height: 22rem;">
+                                                <div class="col-md-10 p-0 bg-white">
+                                                    <div class="tab-content" id="v-pills-tabContent">
+                                                        @foreach ($header_categories as $key => $header_category)
+                                                            <div class="tab-pane fade rounded-0 p-1 {{ $key === 0 ? 'show active' : '' }}"
+                                                                id="v-pills-home{{ $header_category->id }}" role="tabpanel"
+                                                                aria-labelledby="v-pills-home-tab{{ $header_category->id }}"
+                                                                style="height: 22rem;">
 
-                                                            <div class="row p-4">
-                                                                @if ($category->subCategorys->isEmpty())
-                                                                    <div class="col-12">
-                                                                        <p>No data found</p>
-                                                                    </div>
-                                                                @else
-                                                                    @foreach ($category->subCategorys as $sub_category)
-                                                                        <div class="col-lg-3 col-sm-6">
-                                                                            <div class="fw-bold nav_title mb-2"
-                                                                                style="font-size: 17px;">
-                                                                                <span
-                                                                                    style="border-top: 4px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($sub_category->title, 0, 3) }}</span>{{ \Illuminate\Support\Str::substr($sub_category->title, 3) }}
-                                                                            </div>
-
-                                                                            @if ($sub_category->subsubCategorys->isEmpty())
-                                                                                <li class="py-2">
-                                                                                    <p>No data found</p>
-                                                                                </li>
-                                                                            @else
-                                                                                @foreach ($sub_category->subsubCategorys as $item)
-                                                                                    <li class="py-2"
-                                                                                        style="line-height: 1 !important;">
-                                                                                        <a class="p-0"
-                                                                                            href="{{ route('category.html', $item->slug) }}">
-                                                                                            <div>
-                                                                                                {{ $item->title }}&nbsp;<i
-                                                                                                    class="ph ph-caret-right menu_icons"></i>
-                                                                                            </div>
-                                                                                        </a>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            @endif
+                                                                <div class="row p-4">
+                                                                    @if ($header_category->subCategorys->isEmpty())
+                                                                        <div class="col-12">
+                                                                            <p>No data found</p>
                                                                         </div>
-                                                                    @endforeach
-                                                                @endif
+                                                                    @else
+                                                                        @foreach ($header_category->subCategorys as $sub_category)
+                                                                            <div class="col-lg-3 col-sm-6">
+                                                                                <div class="fw-bold nav_title mb-2"
+                                                                                    style="font-size: 17px;">
+                                                                                    <span
+                                                                                        style="border-top: 4px solid #ae0a46;">{{ \Illuminate\Support\Str::substr($sub_category->title, 0, 3) }}</span>{{ \Illuminate\Support\Str::substr($sub_category->title, 3) }}
+                                                                                </div>
+
+                                                                                @if ($sub_category->subsubCategorys->isEmpty())
+                                                                                    <li class="py-2">
+                                                                                        <p>No data found</p>
+                                                                                    </li>
+                                                                                @else
+                                                                                    @foreach ($sub_category->subsubCategorys as $item)
+                                                                                        <li class="py-2"
+                                                                                            style="line-height: 1 !important;">
+                                                                                            <a class="p-0"
+                                                                                                href="{{ route('category.html', $item->slug) }}">
+                                                                                                <div>
+                                                                                                    {{ $item->title }}&nbsp;<i
+                                                                                                        class="ph ph-caret-right menu_icons"></i>
+                                                                                                </div>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    @endforeach
+                                                                                @endif
+                                                                            </div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    @endforeach
+                                                        @endforeach
 
+                                                    </div>
                                                 </div>
-                                            </div>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                </section>
-                            </ul>
+                                    </section>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    {{-- @endif --}}
                     <!---Category--->
                     <form method="post" action="{{ route('product.search') }}"
                         class="d-flex upper-content-menu justify-content-center align-items-center d-lg-none"
@@ -300,7 +284,7 @@
                                             style="border-top: 1px solid #ae0a460f !important;">
                                             <div class="container-fluid">
                                                 <div class="row bg-white header-menu-content">
-                                                    <div class="col-lg-3 our-service-first-column">
+                                                    <div class="col-lg-2 our-service-first-column">
                                                         <p class="fw-bold pb-3"><span
                                                                 style="border-top: 4px solid #ae0a46;">Com</span>mon
                                                             Services
@@ -352,32 +336,32 @@
                                                             We Serve
                                                         </p>
                                                         <div class="row industries">
-                                                            @if (count($industrys) > 0)
+                                                            @if (!empty($industrys))
                                                                 @foreach ($industrys as $industry)
-                                                                    {{-- @if ($industry->industryPage) --}}
-                                                                    <div class="col-lg-4 mb-2">
-                                                                        <a class="d-flex align-items-center pb-2"
-                                                                            href="{{ route('industry.details', $industry->slug) }}">
-                                                                            <div>{{ $industry->title }} </div>
-                                                                            <div>
-                                                                                <i
-                                                                                    class="ph ph-caret-right menu_icons"></i>
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                    {{-- @endif --}}
+                                                                    @if ($industry->industryPage)
+                                                                        <div class="col-lg-4 mb-2">
+                                                                            <a class="d-flex align-items-center pb-2"
+                                                                                href="{{ route('industry.details', $industry->slug) }}">
+                                                                                <div>{{ $industry->title }} </div>
+                                                                                <div>
+                                                                                    <i
+                                                                                        class="ph ph-caret-right menu_icons"></i>
+                                                                                </div>
+                                                                            </a>
+                                                                        </div>
+                                                                    @endif
                                                                 @endforeach
                                                             @endif
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-4 py-5 our-service-third-column">
-                                                        <p class="fw-bold pb-3"><span
+                                                    <div class="col-lg-5 py-5 our-service-third-column">
+                                                        <p class="fw-bold pb-3">
+                                                            <span
                                                                 style="border-top: 4px solid #ae0a46;">Sol</span>utions
-                                                            We
-                                                            Provide
+                                                            We Provide
                                                         </p>
                                                         <div class="row">
-                                                            @if ($solutions)
+                                                            @if (!empty($solutions))
                                                                 @foreach ($solutions as $solution)
                                                                     <div class="col-lg-12 mb-2">
                                                                         <a class="d-flex align-items-center pb-2"
@@ -394,29 +378,29 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="container-fluid px-0">
-                                                <div class="row px-5 pb-3 pt-4">
-                                                    <div class="row py-5 px-5">
-                                                        <div class="col-lg-3 text-start">
-                                                            <a href="{{ route('whatwedo') }}"
-                                                                style="border-top: 3px solid #ae0a46;">
-                                                                What We Do <i class="fa-solid fa-arrow-right"></i>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-lg-5 text-start">
-                                                            <a class="ms-4" href="{{ route('all.industry') }}"
-                                                                style="border-top: 3px solid #ae0a46;">
-                                                                View All Industry <i
-                                                                    class="fa-solid fa-arrow-right"></i>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-lg-4 text-start">
-                                                            <a class="ms-2" href="{{ route('all.solution') }}"
-                                                                style="border-top: 3px solid #ae0a46;">
-                                                                View All Solutions <i
-                                                                    class="fa-solid fa-arrow-right"></i>
-                                                            </a>
+                                                <div class="row">
+                                                    <div class="header-bottom-link">
+                                                        <div class="row py-5 px-5">
+                                                            <div class="col-lg-3 text-start">
+                                                                <a href="{{ route('whatwedo') }}"
+                                                                    style="border-top: 3px solid #ae0a46;">
+                                                                    What We Do <i class="fa-solid fa-arrow-right"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="col-lg-5 text-start">
+                                                                <a class="ms-4" href="{{ route('all.industry') }}"
+                                                                    style="border-top: 3px solid #ae0a46;">
+                                                                    View All Industry <i
+                                                                        class="fa-solid fa-arrow-right"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="col-lg-4 text-start">
+                                                                <a class="ms-2" href="{{ route('all.solution') }}"
+                                                                    style="border-top: 3px solid #ae0a46;">
+                                                                    View All Solutions <i
+                                                                        class="fa-solid fa-arrow-right"></i>
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -437,7 +421,7 @@
                                                             style="border-top: 4px solid #ae0a46;">Tre</span>ndy
                                                         Content
                                                     </p>
-                                                    @if ($features)
+                                                    @if (!empty($features))
                                                         @foreach ($features as $feature)
                                                             <div class="col-lg-4 col-sm-12">
                                                                 <div class="d-flex align-items-center pt-4">
@@ -458,7 +442,7 @@
                                                             </div>
                                                         @endforeach
                                                     @endif
-                                                    @if ($blog)
+                                                    @if (!empty($blog))
                                                         <div class="col-lg-4 col-sm-12 pt-4">
                                                             <div class="d-flex align-items-center">
                                                                 <img src="{{ isset($blog->image) && file_exists(public_path('storage/' . $blog->image)) ? asset('storage/' . $blog->image) : asset('frontend/images/banner-demo.png') }}"
@@ -476,7 +460,7 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    @if ($techglossy)
+                                                    @if (!empty($techglossy))
                                                         <div class="col-lg-4 col-sm-12 pt-4">
                                                             <div class="d-flex align-items-center">
                                                                 <img src="{{ isset($techglossy->image) && file_exists(public_path('storage/' . $techglossy->image)) ? asset('storage/' . $techglossy->image) : asset('frontend/images/banner-demo.png') }}"
@@ -495,8 +479,28 @@
                                                         </div>
                                                     @endif
                                                 </div>
+                                                <div class="row">
+                                                    <div class="header-bottom-link py-5">
+                                                        <div class="row px-5">
+                                                            <div class="col-lg-6 text-center">
+                                                                <a href="{{ route('all.blog') }}"
+                                                                    style="border-top: 3px solid #ae0a46;">
+                                                                    View All Blogs <i
+                                                                        class="fa-solid fa-arrow-right"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="col-lg-6 text-center">
+                                                                <a href="{{ route('all.techglossy') }}"
+                                                                    style="border-top: 3px solid #ae0a46;">
+                                                                    View All Techglossies <i
+                                                                        class="fa-solid fa-arrow-right"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="container-fluid px-0">
+                                            {{-- <div class="container-fluid px-0">
                                                 <div class="row px-5 pb-3 pt-4">
                                                     <div class="row py-5 px-5">
                                                         <div class="col-lg-6 text-start">
@@ -514,7 +518,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown position-static sub-menu-spacing">
@@ -586,8 +590,8 @@
                                                             By
                                                             Category</p>
                                                         <div class="row">
-                                                            @if (!empty($categorys))
-                                                                @foreach ($categorys as $shop_category)
+                                                            @if (!empty($header_categories))
+                                                                @foreach ($header_categories->slice(0, 5) as $shop_category)
                                                                     <div class="col-lg-12 mb-2">
                                                                         <a class="d-flex align-items-center pb-2"
                                                                             href="{{ route('custom.product', $shop_category->slug) }}">
@@ -603,13 +607,13 @@
                                                             @endif
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6 bg-white py-5 our-service-third-column">
+                                                    <div class="col-lg-6 bg-white py-5 ps-4 our-service-third-column">
                                                         <p class="fw-bold pb-3"><span
                                                                 style="border-top: 4px solid #ae0a46;">Sho</span>p
                                                             By Brand
                                                         </p>
                                                         <div class="row">
-                                                            @if ($brands)
+                                                            @if (!empty($brands))
                                                                 @foreach ($brands as $brand)
                                                                     @if ($brand->brandPage)
                                                                         <div class="col-lg-3 mb-2">
@@ -674,12 +678,15 @@
                                                                             class="fa-solid fa-arrow-right"></i>
                                                                     </a>
                                                                 </div>
-                                                                <div class="col-lg-8 ps-2">
+                                                                <div class="col-lg-6 ps-2 text-center">
                                                                     <a class="" href="{{ route('all.brand') }}"
                                                                         style="border-top: 3px solid #ae0a46;">
                                                                         View All Brands <i
                                                                             class="fa-solid fa-arrow-right"></i>
                                                                     </a>
+                                                                </div>
+                                                                <div class="col-lg-2">
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1028,13 +1035,13 @@
                                         <span style="border-top: 4px solid #ae0a46;">Ind</span>ustry We Serve
                                     </p>
                                     <div class="row">
-                                        @if (count($industrys) > 0)
+                                        @if (!empty($industrys))
                                             @foreach ($industrys as $industry)
                                                 @if ($industry->industryPage)
                                                     <div class="col-6 mb-2">
                                                         <a class="d-flex align-items-center pb-2"
                                                             href="{{ route('industry.details', $industry->slug) }}">
-                                                            <div>{{ $industry->title }} </div>
+                                                            <div>{{ $industry->title }}</div>
                                                             <div>
                                                                 <i class="ph ph-caret-right menu_icons"></i>
                                                             </div>
@@ -1047,11 +1054,10 @@
                                 </div>
                                 <div class="col-lg-12 col-sm-12 mb-4">
                                     <p class="fw-bold pb-3"><span
-                                            style="border-top: 4px solid #ae0a46;">Sol</span>utions
-                                        We Provide
+                                            style="border-top: 4px solid #ae0a46;">Sol</span>utions We Provide
                                     </p>
                                     <div class="row">
-                                        @if ($solutions)
+                                        @if (!empty($solutions))
                                             @foreach ($solutions as $solution)
                                                 <div class="col-lg-12 mb-2">
                                                     <a class="d-flex align-items-center pb-2"
@@ -1140,8 +1146,8 @@
                                         By
                                         Category</p>
                                     <div class="row">
-                                        @if (!empty($categorys))
-                                            @foreach ($categorys as $shop_category)
+                                        @if (!empty($header_categories))
+                                            @foreach ($header_categories->slice(0, 5) as $shop_category)
                                                 <div class="col-6 mb-2">
                                                     <a class="d-flex align-items-center pb-2"
                                                         href="{{ route('custom.product', $shop_category->slug) }}">
@@ -1160,7 +1166,7 @@
                                         By
                                         Brand</p>
                                     <div class="row">
-                                        @if ($brands)
+                                        @if (!empty($brands))
                                             @foreach ($brands as $brand)
                                                 @if ($brand->brandPage)
                                                     <div class="col-6 mb-2">
@@ -1374,10 +1380,13 @@
                                     <p class="m-0">Help</p>
                                 </div>
                                 <div class="col-lg-4">
-                                    <p class="m-0">+8801714243446</p>
+                                    <p class="m-0">
+                                        <a
+                                            href="https://wa.me/{{ $setting->whatsapp_number }}">{{ $setting->whatsapp_number }}</a>
+                                    </p>
                                 </div>
                                 <div class="col-lg-4">
-                                    <p class="m-0">sales@ngenitltd.com</p>
+                                    <p class="m-0">{{ $setting->sales_email }}</p>
                                 </div>
                             </div>
                         </div>

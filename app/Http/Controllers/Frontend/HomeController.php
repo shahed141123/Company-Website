@@ -72,28 +72,89 @@ class HomeController extends Controller
         $quotation = RfqQuotation::where('rfq_code', $id)->first();
 
         if (!$quotation) {
-            // Handle the case where the quotation is not found
             abort(404);
         }
 
-        // Get the file path from the quotation
         $data['filePath'] = $quotation->quotation_pdf;
-        return view('frontend.quotaion.link',$data);
+        return view('frontend.quotaion.link', $data);
     }
 
     //Homepage
 
+    // public function index()
+    // {
+
+    //     $data['home'] = Homepage::latest('id', 'desc')->with([
+    //         'feature1', 'feature2', 'feature3', 'feature4', 'feature5',
+    //         'success1', 'success2', 'success3',
+    //         'story1', 'story2', 'story3', 'story4',
+    //         'techglossy'
+    //     ])->first();
+
+
+    //     $data['features'] = [
+    //         'feature1' => $data['home']->feature1,
+    //         'feature2' => $data['home']->feature2,
+    //         'feature3' => $data['home']->feature3,
+    //         'feature4' => $data['home']->feature4,
+    //         'feature5' => $data['home']->feature5,
+    //     ];
+    //     $data['storys'] = [
+    //         'story1' => $data['home']->story1,
+    //         'story2' => $data['home']->story2,
+    //         'story3' => $data['home']->story3,
+    //         'story4' => $data['home']->story4,
+    //     ];
+    //     $data['successItems'] = [
+    //         '1' => $data['home']->success1,
+    //         '2' => $data['home']->success2,
+    //         '3' => $data['home']->success3,
+    //     ];
+    //     $data['techglossy'] = $data['home']->techglossy;
+
+    //     $productColumns = ['id', 'brand_id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'price_status'];
+
+    //     $softwareProducts = DB::table('products')
+    //         ->select($productColumns)
+    //         ->where('product_status', 'product')
+    //         ->where('product_type', 'software')
+    //         ->orderByRaw('RAND()')
+    //         ->limit(10) // Fetch 10 software products at once
+    //         ->get();
+
+    //     $hardwareProducts = DB::table('products')
+    //         ->select($productColumns)
+    //         ->where('product_status', 'product')
+    //         ->where('product_type', 'hardware')
+    //         ->orderByRaw('RAND()')
+    //         ->limit(10) // Fetch 10 hardware products at once
+    //         ->get();
+
+    //     $data['products'] = $softwareProducts->merge($hardwareProducts)->shuffle()->take(10);
+
+    //     return view('frontend.pages.home.index', $data);
+    // }
+
     public function index()
     {
-
-        $data['home'] = Homepage::latest('id', 'desc')->with([
-            'feature1', 'feature2', 'feature3', 'feature4', 'feature5',
-            'success1', 'success2', 'success3',
-            'story1', 'story2', 'story3', 'story4',
+        // Load the latest homepage with all relationships eager-loaded
+        $data['home'] = Homepage::with([
+            'feature1',
+            'feature2',
+            'feature3',
+            'feature4',
+            'feature5',
+            'success1',
+            'success2',
+            'success3',
+            'story1',
+            'story2',
+            'story3',
+            'story4',
             'techglossy'
-        ])->first();
+        ])->latest('id')->first();
 
-
+        // Prepare the features, stories, and successItems arrays directly from the loaded homepage
         $data['features'] = [
             'feature1' => $data['home']->feature1,
             'feature2' => $data['home']->feature2,
@@ -114,28 +175,24 @@ class HomeController extends Controller
         ];
         $data['techglossy'] = $data['home']->techglossy;
 
-        $productColumns = ['id', 'brand_id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'price_status'];
+        // Fetch 10 random products (software + hardware) without using RAND() in the query
+        $productColumns = ['id', 'brand_id', 'rfq', 'slug', 'name', 'thumbnail', 'price', 'discount', 'price_status', 'product_type'];
 
-        $softwareProducts = DB::table('products')
+        // Fetch software and hardware products in one query
+        $products = DB::table('products')
             ->select($productColumns)
             ->where('product_status', 'product')
-            ->where('product_type', 'software')
-            ->orderByRaw('RAND()')
-            ->limit(10) // Fetch 10 software products at once
+            ->whereIn('product_type', ['software', 'hardware'])
+            ->limit(20)  // Fetch 20 products to allow shuffling later
             ->get();
 
-        $hardwareProducts = DB::table('products')
-            ->select($productColumns)
-            ->where('product_status', 'product')
-            ->where('product_type', 'hardware')
-            ->orderByRaw('RAND()')
-            ->limit(10) // Fetch 10 hardware products at once
-            ->get();
+        // Randomize the products in PHP (if required) after fetching
+        $data['products'] = $products->random(10); // Randomize in PHP after fetching
 
-        $data['products'] = $softwareProducts->merge($hardwareProducts)->shuffle()->take(10);
-
+        // Return the view with the optimized data
         return view('frontend.pages.home.index', $data);
     }
+
 
 
     public function softwareInfo()
@@ -437,7 +494,7 @@ class HomeController extends Controller
             'brand'      => $rfq->brand,
             'rfq_code'     => $id,
             'email'        => $rfq->email,
-            'rq_products'  => RfqProduct::where('rfq_id',$rfq->id)->get(),
+            'rq_products'  => RfqProduct::where('rfq_id', $rfq->id)->get(),
 
         ];
         return view('frontend.pages.common.rfq_common', $data);
@@ -891,8 +948,8 @@ class HomeController extends Controller
             ->limit(10)
             ->get(['products.id', 'products.name', 'products.slug', 'products.thumbnail', 'products.price', 'products.discount', 'products.rfq', 'products.qty', 'products.stock']);
 
-        $data['solutions'] = SolutionDetail::where('name', 'LIKE', '%' . $query . '%')->limit(5)->get(['id', 'name','slug']);
-        $data['industries'] = Industry::where('title', 'LIKE', '%' . $query . '%')->limit(5)->get(['id', 'title','slug']);
+        $data['solutions'] = SolutionDetail::where('name', 'LIKE', '%' . $query . '%')->limit(5)->get(['id', 'name', 'slug']);
+        $data['industries'] = Industry::where('title', 'LIKE', '%' . $query . '%')->limit(5)->get(['id', 'title', 'slug']);
         $data['blogs'] = Blog::where('title', 'LIKE', '%' . $query . '%')->limit(5)->get(['id', 'title']);
         $data['categorys'] = Category::where('title', 'LIKE', '%' . $query . '%')->limit(2)->get(['id', 'title', 'slug']);
         $data['subcategorys'] = SubCategory::where('title', 'LIKE', '%' . $query . '%')->limit(2)->get(['id', 'title', 'slug']);

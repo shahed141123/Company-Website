@@ -1,4 +1,3 @@
-
 <!--=======// Footer Section//=========-->
 <footer class="container-fluid p-0" style="background: #222222;">
     <!-- footyer gradient -->
@@ -148,21 +147,21 @@
         <div class="row px-lg-4 px-sm-0 align-items-center">
             <div class="col-lg-6 text-lg-start text-sm-center">
                 <div>
-                    <p class="m-0 p-0 text-white">&copy {{ date('Y') }} NgenIt</p>
+                    <p class="m-0 p-0 text-white">&copy {{ date('Y') }} NGen IT</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div>
                     <ul class="footer_bottom_text">
                         <li>
-                            <a class="text-white" href="{{ route('privacy.policy') }}">Privacy policy &nbsp;|&nbsp; </a>
+                            <a class="text-white" href="{{ route('privacy.policy') }}">Privacy policy </a>
                         </li>
                         <li>
-                            <a class="text-white" href="{{ route('terms.policy') }}">Terms & Conditions &nbsp;|&nbsp; </a>
+                            <a class="text-white" href="{{ route('terms.policy') }}">&nbsp;|&nbsp; Terms & Conditions </a>
                         </li>
-                        <li>
-                            <a class="text-white" href="" data-bs-toggle="modal" data-bs-target="#cookies_modal">Cookies</a>
-                        </li>
+                        {{-- <li>
+                            <a class="text-white" href="" data-bs-toggle="modal" data-bs-target="#cookies_modal">&nbsp;|&nbsp; Cookies</a>
+                        </li> --}}
                     </ul>
                 </div>
             </div>

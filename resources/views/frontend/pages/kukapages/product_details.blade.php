@@ -480,7 +480,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             @if (!empty($sproduct->overview))
                 <div class="row ">

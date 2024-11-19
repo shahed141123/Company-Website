@@ -84,9 +84,7 @@
             </div>
         </div>
     </div>
-    {{-- Quick View Modal End --}}
 
-    {{-- Ask For Price Modal Modal --}}
     <!-- Modal -->
     <div class="modal fade" id="askProductPrice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -212,11 +210,8 @@
             </div>
         </div>
     </div>
-    {{-- Ask For Price Modal Modal End --}}
 
-    {{-- Ask For Price Modal --}}
-    <!-- Modal -->
-    
+
     <div class="modal fade" id="rfq{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -423,7 +418,6 @@
             </div>
         </div>
     </div>
-    {{-- Ask For Price Modal End --}}
 @endforeach
 
 
