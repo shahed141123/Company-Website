@@ -209,7 +209,8 @@
                                     <p class="feature_descrip">{{ Str::words($feature->header, 12, $end = '') }}
                                     </p>
                                 </div>
-                                <a href="{{ route('feature.details', $feature->id) }}" class="business_item_button pt-3">
+                                <a href="{{ route('feature.details', $feature->id) }}"
+                                    class="business_item_button pt-3">
                                     <span>Learn More</span>
                                     <span class="business_item_button_icon">
                                         <i class="fa-solid fa-arrow-right-long"></i>
@@ -446,7 +447,8 @@
                                     <div class="col-md-12 col-sm-12">
                                         <div class="custom-product-grid">
                                             <div class="custom-product-image">
-                                                <a href="{{ route('product.details', $product->slug) }}" class="image">
+                                                <a href="{{ route('product.details', $product->slug) }}"
+                                                    class="image">
                                                     {{-- <img class="pic-1" src="{{ asset($product->thumbnail) }}"> --}}
                                                     <img class="img-fluid"
                                                         src="{{ !empty($product->thumbnail) && file_exists(public_path($product->thumbnail)) ? asset($product->thumbnail) : asset('frontend/images/random-no-img.png') }}"
@@ -462,11 +464,13 @@
                                             </div>
                                             <div class="custom-product-content">
                                                 <a href="{{ route('product.details', $product->slug) }}">
-                                                    <h3 class="custom-title"> {{ Str::words($product->name, 10) }}</h3>
+                                                    <h3 class="custom-title"> {{ Str::words($product->name, 10) }}
+                                                    </h3>
                                                 </a>
 
                                                 @if ($product->rfq == 1)
-                                                    <div class="mt-5 d-flex align-items-center justify-content-between align-items-center">
+                                                    <div
+                                                        class="mt-5 d-flex align-items-center justify-content-between align-items-center">
                                                         <a href=""
                                                             class="d-flex justify-content-center align-items-center"
                                                             data-bs-toggle="modal"
@@ -475,14 +479,15 @@
                                                                 Ask For Price
                                                             </button>
                                                         </a>
-                                                        <a href=""
-                                                            class="d-flex justify-content-center align-items-center"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#rfq{{ $product->id }}">
-                                                            <button class="btn-color popular_product-button border bg-transparent text-black px-3 py-2">
-                                                               + Add RFQ
+                                                        {{-- <a href=""
+                                                            class="d-flex justify-content-center align-items-center"> --}}
+                                                            <button
+                                                                class="btn-color popular_product-button border bg-transparent text-black px-3 py-2 add_to_cart"
+                                                                data-id="{{ $product->id }}"
+                                                                data-name="{{ $product->name }}" data-quantity="1">
+                                                                + Add RFQ
                                                             </button>
-                                                        </a>
+                                                        {{-- </a> --}}
                                                     </div>
                                                 @elseif ($product->price_status && $product->price_status == 'rfq')
                                                     <div>
@@ -577,9 +582,8 @@
         <h3 class="text-center">Our Success <span class="main_color">Starts With</span> Our Culture.</h3>
         <div class="row">
             <div class="d-flex justify-content-between px-4">
-                <a class="Arrows custom-responsive-slider-prev"><i
-                    class="fas fa-2x fa-arrow-alt-circle-left"></i></a>
-                    <a class="Arrows custom-responsive-slider-next"><i
+                <a class="Arrows custom-responsive-slider-prev"><i class="fas fa-2x fa-arrow-alt-circle-left"></i></a>
+                <a class="Arrows custom-responsive-slider-next"><i
                         class="fas fa-2x fa-arrow-alt-circle-right"></i></a>
             </div>
             <div class="owl-carousel custom-responsive-slider" style="z-index: 0 !important;">
@@ -588,8 +592,8 @@
                         <div class="item border-0">
                             <div class="success-area-content success-area-content-mobile">
                                 <div class="pb-2">
-                                    <img src="{{ asset('storage/' . $successItem->image) }}"
-                                        alt="" style="width: 50px;">
+                                    <img src="{{ asset('storage/' . $successItem->image) }}" alt=""
+                                        style="width: 50px;">
                                 </div>
                                 <div class="success-divider-{{ $key }}"></div>
                                 <h4 class="success-divider-title-{{ $key }} pb-2">{{ $successItem->title }}

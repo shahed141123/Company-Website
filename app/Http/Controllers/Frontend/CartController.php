@@ -40,25 +40,35 @@ class CartController extends Controller
 
     public function AddToCart(Request $request)
     {
-        $id = $request->id;
+        $id = $request->product_id;
         $name = $request->name;
         $quantity = $request->qty;
+        // dd($request->all());
         $product = Product::find($id);
-            Cart::add([
-                'id'      => $id,
-                'name'    => $name,
-                'qty'     => $quantity,
-                'price'   => $product->price,
-                'weight'  => 1,
-                'options' => [
-                    'image' => $product->thumbnail,
-                ],
-            ]);
+        Cart::add([
+            'id'      => $id,
+            'name'    => $name,
+            'qty'     => $quantity,
+            'price'   => 0,
+            'weight'  => 1,
+            // 'options' => [
+            //     'image' => $product->thumbnail,
+            // ],
+        ]);
         $cart = Cart::count();
+        $cartItems = Cart::content();
+        if ($cartItems->isNotEmpty()) {
+            $cartProductIds = $cartItems->pluck('id')->toArray();
+            $cart_items = Product::whereIn('id', $cartProductIds)->get();
+        } else {
+            $cart_items = collect();  // Empty collection for no products in cart
+        }
+        $responseHtml = view('frontend.partials.offcanvas', compact('cart_items'))->render();
         Toastr::success('Successfully Added to Your Cart');
         return response()->json([
             'cartHeader' => $cart,
-            'success' => true
+            'html'       => $responseHtml,
+            'success'    => true
         ]);
     }
 
@@ -119,7 +129,6 @@ class CartController extends Controller
 
         Toastr::success('Successfully Updated Your Cart');
         return response()->json(view('frontend.pages.cart.partials.cart_product', $data)->render());
-
     } // End Method
 
 

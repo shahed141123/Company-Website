@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -73,8 +74,8 @@ class AppServiceProvider extends ServiceProvider
             }
             if (Schema::hasTable('categories')) {
                 View::share('header_categories', Category::with('subCategorys.subsubCategorys.subsubsubCategorys')
-                ->orderBy('id', 'asc')->limit(10)
-                ->get(['id', 'slug', 'title']));
+                    ->orderBy('id', 'asc')->limit(10)
+                    ->get(['id', 'slug', 'title']));
             }
             if (Schema::hasTable('brands')) {
                 View::share('header_brands', Brand::with('brandPage')->inRandomOrder()->take(20)->get(['id', 'slug', 'title']));
@@ -94,6 +95,13 @@ class AppServiceProvider extends ServiceProvider
                     ->inRandomOrder()
                     ->first(['id', 'badge', 'title', 'image', 'created_at', 'created_by']));
             }
+
+
+
+
+
+
+
 
             Blade::directive('limit_words', function ($expression) {
                 list($string, $limit) = explode(',', $expression);

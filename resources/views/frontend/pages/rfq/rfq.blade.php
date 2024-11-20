@@ -4,6 +4,36 @@
     <div class="container py-5">
         <div class="row justify-content-center align-items-center g-2">
             <div class="col-lg-8 col-offset-lg-2">
+                <div class="table-responsive">
+                    <table class="rfqDT1 table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th width="18%">Product</th>
+                                <th width="25%">Item Name</th>
+                                {{-- <th width="15%">Unit Price</th>
+                                <th width="17%">QTY</th>
+                                <th width="15%">Unit Total</th> --}}
+                                <th width="10%">
+                                    <a href="javascript:void(0);" class="text-danger" onClick='emptyCart(event)'>Empty
+                                        Cart</a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if ($cart_items)
+                                @foreach ($cart_items as $key => $cart_item)
+                                    <tr>
+                                        <td>{{ asset($cart_item->thumbnail) }}</td>
+                                        <td>{{ ucfirst($cart_item->name) }}</td>
+                                        <td></td>
+                                    </tr>
+                                @endforeach
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-8 col-offset-lg-2">
                 <div class="w-lg-50 w-100 mx-auto my-5 card rounded-2 shadow-sm" style="border: 1px solid #eee;">
                     <div class="card-header rfq-header border-0">
                         <div class="d-flex justify-content-between align-items-center">

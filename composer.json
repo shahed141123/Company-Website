@@ -42,8 +42,6 @@
         },
         "files": [
             "app/Library/Helper.php"
-            
-
         ]
     },
     "autoload-dev": {

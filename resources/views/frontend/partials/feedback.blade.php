@@ -126,233 +126,23 @@
     }
 </style>
 
-{{-- <section>
-    <div class="sidebar_rfq">
-        <div style="position: fixed; top: 40%; z-index: 99; width: 50%;">
-            <div class="container"
-                style="background-color: white !important; background: url('https://i.ibb.co/t204YkF/Background-quote-tray.jpg') no-repeat center center / cover;">
-                <div class="row align-items-center">
-                    <div class="" style=" width: 95%;">
-                        <a href="{{ route('rfq') }}">
-                            <div class="row py-4">
-                                <div class="col-lg-12">
-                                    <h4 class="m-0 text-center main_color fw-bold">Make Request For Quote</h4>
-                                    <p class="text-center p-0 m-0 pt-2 pb-4">Tell us what you need, and we'll provide
-                                        the best price.</p>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="card shadow-sm" style="border: 1px solid #eee;">
-                                        <div class="card-body">
-                                            <div class="d-flex flex-column justify-content-center align-items-center">
-                                                <div class="icon-container">
-                                                    <img class="img-fluid" width="80px"
-                                                        src="https://i.ibb.co/NNWQ583/11.png" alt="">
-                                                </div>
-                                                <div class="text-center pt-3">
-                                                    <h6>Describe Your <br> Project Requirements</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="card shadow-sm" style="border: 1px solid #eee;">
-                                        <div class="card-body">
-                                            <div class="d-flex flex-column justify-content-center align-items-center">
-                                                <div class="icon-container">
-                                                    <img class="img-fluid" width="80px"
-                                                        src="https://i.ibb.co/zbqrcXX/13.png" alt="">
-                                                </div>
-                                                <div class="text-center pt-3">
-                                                    <h6>We Check The Right <br> Products & Prices For</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="card shadow-sm" style="border: 1px solid #eee;">
-                                        <div class="card-body">
-                                            <div class="d-flex flex-column justify-content-center align-items-center">
-                                                <div class="icon-container">
-                                                    <img class="img-fluid" width="80px"
-                                                        src="https://i.ibb.co/6DgcD6F/12.png" alt="">
-                                                </div>
-                                                <div class="text-center pt-3">
-                                                    <h6>Review The Quation & <br> Complete Your Purchase</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="" style="background-color: #ae0a46; width: 5%;">
-                        <div class="button_rfq" style="height: 300px;transform: rotate(-90deg);"
-                            onclick="toggleSidebar()">
-                            <p class="d-flex justify-content-center align-items-center"
-                                style="color: white;
-                                    position: absolute;bottom: 0;width: 200px;font-size: 20px;right: 0;cursor: pointer;top: 10px;left: -90px;">
-                                Request For Quote <i class="fa-solid fa-arrow-down-long ps-2 pt-2"></i>
-                                <i class="fa-solid fa-arrow-up-long d-none ps-2 pt-2"></i>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> --}}
+
 
 <section>
-    {{-- <div class="">
-        <button class="feedback_upper_modal d-lg-block d-sm-none" data-bs-toggle="modal" data-bs-target="#rfqModal">Inquery
-            <i class="fa-solid fa-question" style="font-size: 14px;"></i>
-        </button>
-    </div> --}}
-    {{-- <a href="{{ route('rfq') }}">
-        <button class="feedback_upper_modal d-lg-block d-sm-none">
-            Inquery
-            <i class="fa-solid fa-question" style="font-size: 14px;"></i>
-        </button>
-        <button class="feedback_upper_modal-amount d-lg-block d-sm-none">
-            <span>01</span>
-        </button>
-    </a> --}}
+
     <button class="feedback_upper_modal d-lg-block d-sm-none" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><span class="bg-black text-white p-1 rounded-2"
-            style="line-height: 0;font-family: 'PhpDebugbarFontAwesome';">03</span> RFQ Added</button>
+        data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+        <span class="bg-black text-white text-center p-1 rounded-2 miniRFQQTY"
+            style="line-height: 0;font-family: 'PhpDebugbarFontAwesome';">
+            {{ Cart::count() }}
+        </span>
+        RFQ Added
+    </button>
     {{-- Offcanvas --}}
-
-
-    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-        <div class="offcanvas-header">
-            <h5 class="text-center">All RFQ Product Added In Query!</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
-                style="background: #98b8d2;padding-bottom: 18px;padding-left: 12px;padding-right: 15px;">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-10">
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <a href="">
-                                    <div style="margin-top: -30px;">
-                                    <div class="remove-box">
-                                    <span class="remove-rfq"><i class="fa-solid fa-xmark"></i></span>
-                                </div>
-                                </a>
-                                <div class="card text-center border-0 shadow-sm">
-                                    <img src="http://127.0.0.1:8000/frontend/images/random-no-img.png"
-                                        class="img-fluid rounded-2"
-                                        alt="http://127.0.0.1:8000/frontend/images/random-no-img.png">
-                                    <div class="card-body py-3">
-                                        <p class="card-title">Some quick example..</p>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <a href="">
-                                    <div style="margin-top: -30px;">
-                                    <div class="remove-box">
-                                    <span class="remove-rfq"><i class="fa-solid fa-xmark"></i></span>
-                                </div>
-                                </a>
-                                <div class="card text-center border-0 shadow-sm">
-                                    <img src="http://127.0.0.1:8000/frontend/images/random-no-img.png"
-                                        class="img-fluid rounded-2"
-                                        alt="http://127.0.0.1:8000/frontend/images/random-no-img.png">
-                                    <div class="card-body py-3">
-                                        <p class="card-title">Some quick example..</p>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <a href="">
-                                    <div style="margin-top: -30px;">
-                                    <div class="remove-box">
-                                    <span class="remove-rfq"><i class="fa-solid fa-xmark"></i></span>
-                                </div>
-                                </a>
-                                <div class="card text-center border-0 shadow-sm">
-                                    <img src="http://127.0.0.1:8000/frontend/images/random-no-img.png"
-                                        class="img-fluid rounded-2"
-                                        alt="http://127.0.0.1:8000/frontend/images/random-no-img.png">
-                                    <div class="card-body py-3">
-                                        <p class="card-title">Some quick example..</p>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <a href="">
-                                    <div style="margin-top: -30px;">
-                                    <div class="remove-box">
-                                    <span class="remove-rfq"><i class="fa-solid fa-xmark"></i></span>
-                                </div>
-                                </a>
-                                <div class="card text-center border-0 shadow-sm">
-                                    <img src="http://127.0.0.1:8000/frontend/images/random-no-img.png"
-                                        class="img-fluid rounded-2"
-                                        alt="http://127.0.0.1:8000/frontend/images/random-no-img.png">
-                                    <div class="card-body py-3">
-                                        <p class="card-title">Some quick example..</p>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <a href="">
-                                    <div style="margin-top: -30px;">
-                                    <div class="remove-box">
-                                    <span class="remove-rfq"><i class="fa-solid fa-xmark"></i></span>
-                                </div>
-                                </a>
-                                <div class="card text-center border-0 shadow-sm">
-                                    <img src="http://127.0.0.1:8000/frontend/images/random-no-img.png"
-                                        class="img-fluid rounded-2"
-                                        alt="http://127.0.0.1:8000/frontend/images/random-no-img.png">
-                                    <div class="card-body py-3">
-                                        <p class="card-title">Some quick example..</p>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <a href="">
-                                    <div style="margin-top: -30px;">
-                                    <div class="remove-box">
-                                    <span class="remove-rfq"><i class="fa-solid fa-xmark"></i></span>
-                                </div>
-                                </a>
-                                <div class="card text-center border-0 shadow-sm">
-                                    <img src="http://127.0.0.1:8000/frontend/images/random-no-img.png"
-                                        class="img-fluid rounded-2"
-                                        alt="http://127.0.0.1:8000/frontend/images/random-no-img.png">
-                                    <div class="card-body py-3">
-                                        <p class="card-title">Some quick example..</p>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 d-flex align-items-center justify-content-center">
-                        <div class="text-center">
-                            <p>Check all added rfq in one place, hit the button to show all added rfq.</p>
-                            <button class="btn-color">Show All RFQ</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="offcanvas offcanvas-bottom offcanvasRFQ" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+        @include('frontend.partials.offcanvas')
     </div>
+
     {{-- Offcanvas --}}
     <!-- Modal -->
     <div class="modal fade" id="rfqModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -722,6 +512,7 @@
         </div>
     </div>
 </section>
+
 <section>
     {{-- Faborite --}}
     <div class="fab-info-icon-wrapper">

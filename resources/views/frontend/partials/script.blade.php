@@ -17,7 +17,8 @@
 <script src="{{ asset('backend/assets/js/vendor/tables/datatables/datatables.min.js') }}"></script>
 <script src="{{ asset('backend/assets/demo/pages/datatables_advanced.js') }}"></script>
 <!-- Tiny MCe -->
-<script src="https://cdn.tiny.cloud/1/n4jpbhtanca801bcjejx1pc9j033yn0de5ral6e7r0wd6383/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/n4jpbhtanca801bcjejx1pc9j033yn0de5ral6e7r0wd6383/tinymce/7/tinymce.min.js"
+    referrerpolicy="origin"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <!-- Custom JS -->
 {{-- <script src="{{ asset('backend/assets/js/custom.js') }}"></script> --}}
@@ -31,7 +32,7 @@
     $(document).ready(function() {
         $('.country-select').select2();
     });
-    </script>
+</script>
 
 
 <script>
@@ -102,16 +103,13 @@
         if (currentSlide == total_slide) {
             prev_img = $(currentSlide - 1).find('img').attr('src');
         }
-
         if (currentSlide == 0) {
             // console.log('if call');
             prev_img = $(slick.$slides[total_slide - 1]).find('img').attr('src');
         }
-
         if (currentSlide == total_slide - 1) {
             next_img = $(slick.$slides[0]).find('img').attr('src');
         }
-
         $('button.slick-arrow ').find('img').remove();
 
         $('button.slick-next .thumb').append('<img src="' + next_img + '">');
@@ -215,7 +213,7 @@
         $('.add_to_cart_quantity').click(function() {
             var id = $(this).data('id');
             var name = $(this).data('name');
-            var quantity = $('.input-qty').val();
+            var quantity = 1;
             // alert(quantity);
             var button = $('.cart_quantity_button' + id);
             var cart_header = $('#cartQty');
@@ -250,7 +248,8 @@
             var name = $(this).data('name');
             var quantity = $(this).data('quantity');
             var button = $('.cart_button' + id);
-            var cart_header = $('#cartQty');
+            var cart_header = $('.miniRFQQTY');
+            var offcanvasRFQ = $('.offcanvasRFQ');
 
             var formData = {
                 product_id: id,
@@ -264,12 +263,21 @@
                 data: formData,
                 dataType: 'json',
                 success: function(response) {
-                    toastr.success('Successfully Added to Your Cart');
+                    // toastr.success('Successfully Added to Your Cart');
                     cart_header.empty();
-                    cart_header.append('<span class="add_cart_count">' + response
+                    cart_header.append(
+                        '<span class="bg-black text-white text-center p-1 rounded-2 miniRFQQTY" style="line-height: 0;font-family: PhpDebugbarFontAwesome;">' +
+                        response
                         .cartHeader + '</span>');
                     button.empty();
                     button.append();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Added To RFQ Successfully!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    offcanvasRFQ.html(response.html);
 
                 },
                 error: function(xhr, status, error) {
