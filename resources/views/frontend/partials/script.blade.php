@@ -243,7 +243,9 @@
             });
         });
 
-        $('.add_to_cart').click(function() {
+        $('.add_to_cart').click(function(event) {
+            event.preventDefault(); // Prevent page reload if the button is inside a form
+
             var id = $(this).data('id');
             var name = $(this).data('name');
             var quantity = $(this).data('quantity');
@@ -258,33 +260,44 @@
             };
 
             $.ajax({
-                url: "{{ route('add.cart') }}",
+                url: "{{ route('add.cart') }}", // Update with your route
                 type: 'POST',
                 data: formData,
                 dataType: 'json',
                 success: function(response) {
-                    // toastr.success('Successfully Added to Your Cart');
-                    cart_header.empty();
-                    cart_header.append(
-                        '<span class="bg-black text-white text-center p-1 rounded-2 miniRFQQTY" style="line-height: 0;font-family: PhpDebugbarFontAwesome;">' +
-                        response
-                        .cartHeader + '</span>');
-                    button.empty();
-                    button.append();
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Added To RFQ Successfully!',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                    offcanvasRFQ.html(response.html);
-
+                    if (response.exists) {
+                        // Product is already in the cart
+                        Swal.fire({
+                            icon: 'info',
+                            title: 'Product Already in RFQ List',
+                            text: 'This product is already in your added RFQ List.',
+                        });
+                    } else {
+                        // Product added to the cart successfully
+                        cart_header.empty();
+                        cart_header.append(
+                            '<span class="bg-black text-white text-center p-1 rounded-2 miniRFQQTY" style="line-height: 0;font-family: PhpDebugbarFontAwesome;">' +
+                            response.cartHeader + '</span>'
+                        );
+                        button.empty();
+                        button.append(); // Update button, if needed
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Added To RFQ Successfully!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        offcanvasRFQ.html(response.html);
+                    }
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
                 }
             });
         });
+
+
+
     });
 </script>
 
@@ -309,6 +322,50 @@
             // arrows: false, Boolean
         });
     });
+
+    function deleteRFQRow(a, b, c) {
+
+        var form = $(this).closest('.myForm');
+        // var rowId = form.find("input[name=rowID]").val();
+        var rowId = c;
+        var cartContainer = $('.cart_product');
+        var cart_header = $('.miniRFQQTY');
+        var offcanvasRFQ = $('.offcanvasRFQ');
+        $.ajax({
+            type: 'GET',
+            url: "rfq-remove/" + rowId,
+            dataType: 'json',
+            success: function(data) {
+                cart_header.empty();
+                cart_header.append(
+                    '<span class="bg-black text-white text-center p-1 rounded-2 miniRFQQTY" style="line-height: 0;font-family: PhpDebugbarFontAwesome;">' +
+                        data.cartHeader + '</span>'
+                );
+                // button.empty();
+                // button.append(); // Update button, if needed
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Successfully Removed from RFQ!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                offcanvasRFQ.html(data.html);
+                // cart_header.empty();
+                // cart_header.append(
+                //     '<span class="bg-black text-white text-center p-1 rounded-2 miniRFQQTY" style="line-height: 0;font-family: PhpDebugbarFontAwesome;">' +
+                //     data.cartCount + '</span>');
+                // button.empty();
+                // button.append();
+                // Swal.fire({
+                //     icon: 'success',
+                //     title: 'Successfully Removed from RFQ!',
+                //     showConfirmButton: false,
+                //     timer: 1500
+                // });
+                offcanvasRFQ.html(data.html);
+            }
+        });
+    }
 </script>
 <script>
     $(".slick-slider-brand-logo").slick({

@@ -174,6 +174,7 @@ Route::post('cart_store', [App\Http\Controllers\Frontend\CartController::class,'
     Route::get('/cart-destroy' , 'CartDestroy')->name('cart.destroy');
 
     Route::get('/cart-remove/{rowId}' , 'CartRemove')->name('cart.remove');
+    Route::get('/rfq-remove/{rowId}' , 'rfqRemove')->name('rfq.remove');
     Route::get('/cart-decrement/{rowId}' , 'CartDecrement')->name('cart.decrement');
     Route::get('/cart-increment/{rowId}' , 'CartIncrement')->name('cart.increment');
     Route::get('/add/cart' , 'CartAdd')->name('cart.add');

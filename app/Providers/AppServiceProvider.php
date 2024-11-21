@@ -95,6 +95,8 @@ class AppServiceProvider extends ServiceProvider
                     ->inRandomOrder()
                     ->first(['id', 'badge', 'title', 'image', 'created_at', 'created_by']));
             }
+            
+
 
 
 

@@ -43,34 +43,47 @@ class CartController extends Controller
         $id = $request->product_id;
         $name = $request->name;
         $quantity = $request->qty;
-        // dd($request->all());
-        $product = Product::find($id);
+
+        // Get the current cart items
+        $cartItems = Cart::content();
+
+        // Check if the product is already in the cart
+        $productInCart = $cartItems->firstWhere('id', $id);
+
+        if ($productInCart) {
+            // If the product already exists in the cart, return a response indicating this
+            return response()->json([
+                'exists' => true,
+                'cartHeader' => Cart::count(),  // Cart count can be returned if needed
+                'success' => false
+            ]);
+        }
+
+        // If the product doesn't exist, add it to the cart
         Cart::add([
             'id'      => $id,
             'name'    => $name,
             'qty'     => $quantity,
-            'price'   => 0,
-            'weight'  => 1,
-            // 'options' => [
-            //     'image' => $product->thumbnail,
-            // ],
+            'price'   => 0,  // Set the actual price here
+            'weight'  => 1,  // Set weight if needed
         ]);
+
+        // Get updated cart count and items
         $cart = Cart::count();
-        $cartItems = Cart::content();
-        if ($cartItems->isNotEmpty()) {
-            $cartProductIds = $cartItems->pluck('id')->toArray();
-            $cart_items = Product::whereIn('id', $cartProductIds)->get();
-        } else {
-            $cart_items = collect();  // Empty collection for no products in cart
-        }
+        $cart_items = Cart::content();
+
+        // Prepare the HTML for the cart side panel (offcanvas)
         $responseHtml = view('frontend.partials.offcanvas', compact('cart_items'))->render();
-        Toastr::success('Successfully Added to Your Cart');
+
+        // Return the response with success and updated cart HTML
         return response()->json([
+            'exists' => false,  // Product was not in the cart
             'cartHeader' => $cart,
-            'html'       => $responseHtml,
-            'success'    => true
+            'html' => $responseHtml,
+            'success' => true
         ]);
     }
+
 
 
 
@@ -106,16 +119,35 @@ class CartController extends Controller
     } // End Method
 
 
-    public function CartRemove($rowId)
+    public function rfqRemove($rowId)
     {
         Cart::remove($rowId);
-        $data['cart_details'] = Cart::content();
         $data['cart_sub_total'] = Cart::subtotal();
         $data['cart_total'] = Cart::total();
 
-        Toastr::success('Successfully Updated Your Cart');
-        return response()->json(view('frontend.pages.cart.partials.cart_product', $data)->render());
+        $cart = Cart::count();
+        $cart_items = Cart::content();
+
+        $responseHtml = view('frontend.partials.offcanvas', compact('cart_items'))->render();
+
+        return response()->json([
+            'cartHeader' => $cart,
+            'html' => $responseHtml,
+            'success' => true
+        ]);
     } // End Method
+
+
+    // public function CartRemove($rowId)
+    // {
+    //     Cart::remove($rowId);
+    //     $data['cart_details'] = Cart::content();
+    //     $data['cart_sub_total'] = Cart::subtotal();
+    //     $data['cart_total'] = Cart::total();
+
+    //     Toastr::success('Successfully Updated Your Cart');
+    //     return response()->json(view('frontend.pages.cart.partials.cart_product', $data)->render());
+    // } // End Method
 
 
     public function CartDecrement($rowId)

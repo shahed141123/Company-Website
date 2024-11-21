@@ -302,7 +302,7 @@
                                             <i class="fa-solid fa-building-circle-check user-dash-icons"></i>
                                             <p class="para-text m-0 ps-0">Check In</p>
                                         </div>
-                                        <div>
+                                        <div> 
                                             <h1 class="user-counter mb-0">
                                                 {{ !empty($attendanceToday['check_in']) ? $attendanceToday['check_in'] : 'Absent' }}
                                             </h1>

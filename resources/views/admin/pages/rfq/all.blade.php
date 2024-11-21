@@ -1,15 +1,8 @@
 @extends('admin.master')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <div class="content-wrapper">
-
-        <!-- Inner content -->
-
-
         <!-- Page header -->
         <div class="page-header page-header-light shadow">
-
-
             <div class="page-header-content d-lg-flex border-top">
                 <div class="d-flex">
                     <div class="breadcrumb py-2">
@@ -28,379 +21,745 @@
         </div>
         <!-- /page header -->
         <!-- Content area -->
-        <div class="content">
-            <div class="row">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <ul class="nav nav-tabs">
-                                    <li class="nav-item col-6">
-                                        <a href="#js-tab1" class="py-1 nav-link active cat-tab1" data-bs-toggle="tab">
-                                            <p style="font-size: 12px; font-weight:600;color:black;margin-bottom:0px;">
-                                                RFQs</p>
-                                        </a>
-                                    </li>
+        <div class="content container-fluid py-10 pt-5">
+            <!-- Main Content Start -->
+            <div class="row gx-8 gx-xl-10">
+                <div class="row mb-5">
+                    <!-- Attendance -->
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-fill">
+                                    <h4 class="mb-0">Total RFQs</h4>
+                                    <span class="text-muted">{{date('d M , Y')}}</span>
+                                </div>
 
-                                    <li class="nav-item col-6">
-                                        <a href="#js-tab2" class="py-1 nav-link cat-tab2" data-bs-toggle="tab">
-                                            <p style="font-size: 12px; font-weight:600;color:black;margin-bottom:0px;">
-                                                Assigned RFQs</p>
+                                <i class="ph-chats ph-2x text-primary ms-3"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="card card-flush shadow-sm">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack justify-content-between">
+                                    <div class="d-flex align-items-center me-3 p-8 w-50 rounded-3">
+                                        <a href="">
+                                            <span class="bg-light-primary rounded-3 p-3 me-3"><i
+                                                    class="fa-solid text-primary fa-list-check fs-3"
+                                                    aria-hidden="true"></i></span>
                                         </a>
+                                        <div class="flex-grow-1">
+                                            <a href=""> </a><a href="#"
+                                                class="text-gray-800 fs-5 fw-bold lh-0">RFQ
+                                                <span class="text-gray-500 fw-semibold d-block fs-6 pt-4">Status</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-column d-flex w-50">
+                                        <div class="d-flex align-items-center justify-content-between pe-3">
+                                            <span class="text-gray-500 fw-semibold">
+                                                Pending</span>
+                                            <span class="bg-primary fw-semibold ms-3 px-2 text-white rounded-2">
+                                                5
+                                            </span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between pe-3 pt-2">
+                                            <span class="text-gray-500 fw-semibold">
+                                                Quoted
+                                            </span>
+                                            <span class="bg-primary fw-semibold ms-3 px-2 text-white rounded-2">
+                                                5
+                                            </span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between pe-3 pt-2">
+                                            <span class="text-gray-500 fw-semibold">
+                                                Failed
+                                            </span>
+                                            <span class="bg-primary fw-semibold ms-3 px-2 text-white rounded-2">
+                                                5
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="card card-flush shadow-sm">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack justify-content-between">
+                                    <div class="d-flex align-items-center me-3 p-8 w-50 rounded-3">
+                                        <a href="">
+                                            <span class="bg-light-primary rounded-3 p-3 me-3"><i
+                                                    class="fa-solid text-primary fa-bell fs-3"
+                                                    aria-hidden="true"></i></span>
+                                        </a>
+                                        <div class="flex-grow-1">
+                                            <a href=""> </a><a href="#"
+                                                class="text-gray-800 fs-5 fw-bold lh-0">Notification
+                                                <span class="text-gray-500 fw-semibold d-block fs-6 pt-4">Quick
+                                                    Status</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-column d-flex w-50">
+                                        <div class="d-flex align-items-center justify-content-between pe-3">
+                                            <span class="text-gray-500 fw-semibold">
+                                                Deals</span>
+                                            <span class="fw-semibold ms-3 px-2 text-primary rounded-2">
+                                                5
+                                            </span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between pe-3 pt-2">
+                                            <span class="text-gray-500 fw-semibold">
+                                                Bypass</span>
+                                            <span class="fw-semibold ms-3 px-2 text-primary rounded-2">
+                                                5
+                                            </span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between pe-3 pt-2">
+                                            <span class="text-gray-500 fw-semibold">
+                                                Others</span>
+                                            <span class="fw-semibold ms-3 px-2 text-primary rounded-2">
+                                                5
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="card card-flush shadow-sm">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack justify-content-between">
+                                    <div class="d-flex align-items-center me-3 p-8 w-50 rounded-3">
+                                        <a href="">
+                                            <span class="bg-light-primary rounded-3 p-3 me-3"><i
+                                                    class="fa-solid text-primary fa-bullseye fs-3"
+                                                    aria-hidden="true"></i></span>
+                                        </a>
+                                        <div class="flex-grow-1">
+                                            <a href=""> </a><a href="#"
+                                                class="text-gray-800 fs-5 fw-bold lh-0">RFQ
+                                                <span class="text-gray-500 fw-semibold d-block fs-6 pt-4">Query</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-column d-flex w-50 me-3">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <select class="form-select form-select-sm select2-hidden-accessible"
+                                                data-control="select2" data-placeholder="Select an option"
+                                                data-select2-id="select2-data-7-p1y4" tabindex="-1" aria-hidden="true">
+                                                <option data-select2-id="select2-data-9-glrz">Select Country</option>
+                                                <option value="1">Option 1</option>
+                                                <option value="2">Option 2</option>
+                                            </select><span class="select2 select2-container select2-container--bootstrap5"
+                                                dir="ltr" data-select2-id="select2-data-8-wgy0"
+                                                style="width: 100%;"><span class="selection"><span
+                                                        class="select2-selection select2-selection--single form-select form-select-sm"
+                                                        role="combobox" aria-haspopup="true" aria-expanded="false"
+                                                        tabindex="0" aria-disabled="false"
+                                                        aria-labelledby="select2-qk1g-container"
+                                                        aria-controls="select2-qk1g-container"><span
+                                                            class="select2-selection__rendered"
+                                                            id="select2-qk1g-container" role="textbox"
+                                                            aria-readonly="true" title="Select Country">Select
+                                                            Country</span><span class="select2-selection__arrow"
+                                                            role="presentation"><b
+                                                                role="presentation"></b></span></span></span><span
+                                                    class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between pt-2">
+                                            <select class="form-select form-select-sm select2-hidden-accessible"
+                                                data-control="select2" data-placeholder="Select an option"
+                                                data-select2-id="select2-data-10-6660" tabindex="-1" aria-hidden="true">
+                                                <option data-select2-id="select2-data-12-36kh">Select Sales Man</option>
+                                                <option value="1">Option 1</option>
+                                                <option value="2">Option 2</option>
+                                            </select><span class="select2 select2-container select2-container--bootstrap5"
+                                                dir="ltr" data-select2-id="select2-data-11-0pla"
+                                                style="width: 100%;"><span class="selection"><span
+                                                        class="select2-selection select2-selection--single form-select form-select-sm"
+                                                        role="combobox" aria-haspopup="true" aria-expanded="false"
+                                                        tabindex="0" aria-disabled="false"
+                                                        aria-labelledby="select2-abcd-container"
+                                                        aria-controls="select2-abcd-container"><span
+                                                            class="select2-selection__rendered"
+                                                            id="select2-abcd-container" role="textbox"
+                                                            aria-readonly="true" title="Select Sales Man">Select Sales
+                                                            Man</span><span class="select2-selection__arrow"
+                                                            role="presentation"><b
+                                                                role="presentation"></b></span></span></span><span
+                                                    class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-12 mb-5 mb-xl-3 ps-3" data-select2-id="select2-data-127-jigx">
+                    <div class="card card-flush h-xl-100 border" data-select2-id="select2-data-126-8c2i">
+                        <div class="card-header">
+                            <h3 class="card-title align-items-start flex-column">
+                                <span class="card-label fw-bold text-gray-800">RFQ Filtered Details</span>
+                                <span class="text-gray-500 mt-1 fw-semibold fs-6">Check All RFQ History Here!</span>
+                            </h3>
+                            <div class="card-toolbar">
+                                <ul class="nav nav-tabs nav-line-tabs fs-6 rfq-tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active px-4" data-bs-toggle="tab"
+                                            href="#kt_tab_pane_1">Pending</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-4" data-bs-toggle="tab" href="#kt_tab_pane_2">Quoted</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-4" data-bs-toggle="tab" href="#kt_tab_pane_3">Failed</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-4" data-bs-toggle="tab" href="#kt_tab_pane_4">Approved</a>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="col-lg-6 text-center">
-                                <h2 class="mb-0 saved_title">RFQ List</h2>
-                                <h2 class="mb-0 completed_title d-none">Assigned RFQs Pending For Deal Registration</h2>
-                            </div>
 
-                            <div class="col-lg-3">
-                                {{-- <a href="{{route('product-sourcing.create')}}" type="button" class="btn btn-sm btn-success btn-labeled btn-labeled-start float-end">
-                                    <span class="btn-labeled-icon bg-black bg-opacity-20">
-                                        <i class="icon-plus2"></i>
-                                    </span>
-                                    Source New Product
-                                </a> --}}
+                            <div class="card-toolbar">
+                                <div class="d-flex flex-stack flex-wrap gap-4">
+                                    <div class="d-flex align-items-center fw-bold">
+                                        <select
+                                            class="form-select form-select-transparent text-graY-800 fs-base lh-1 fw-bold py-0 ps-3 w-auto select2-hidden-accessible"
+                                            data-control="select2" data-hide-search="true"
+                                            data-dropdown-css-class="w-150px" data-placeholder="Select an option"
+                                            data-select2-id="select2-data-13-e52a" tabindex="-1" aria-hidden="true">
+                                            <option></option>
+                                            <option value="Year" selected="" data-select2-id="select2-data-15-f5r7">
+                                                Year</option>
+                                            <option value="a">2022</option>
+                                            <option value="b">2023</option>
+                                            <option value="b">2024</option>
+                                            <option value="b">2025</option>
+                                            <option value="b">2026</option>
+                                        </select><span class="select2 select2-container select2-container--bootstrap5"
+                                            dir="ltr" data-select2-id="select2-data-14-4ffq"
+                                            style="width: 100%;"><span class="selection"><span
+                                                    class="select2-selection select2-selection--single form-select form-select-transparent text-graY-800 fs-base lh-1 fw-bold py-0 ps-3 w-auto"
+                                                    role="combobox" aria-haspopup="true" aria-expanded="false"
+                                                    tabindex="0" aria-disabled="false"
+                                                    aria-labelledby="select2-cjzt-container"
+                                                    aria-controls="select2-cjzt-container"><span
+                                                        class="select2-selection__rendered" id="select2-cjzt-container"
+                                                        role="textbox" aria-readonly="true"
+                                                        title="Year">Year</span><span class="select2-selection__arrow"
+                                                        role="presentation"><b
+                                                            role="presentation"></b></span></span></span><span
+                                                class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                    </div>
+                                    <div class="d-flex align-items-center fw-bold">
+                                        <select
+                                            class="form-select form-select-transparent text-gray-900 fs-7 lh-1 fw-bold py-0 ps-3 w-auto select2-hidden-accessible"
+                                            data-control="select2" data-hide-search="true"
+                                            data-dropdown-css-class="w-150px" data-placeholder="Select an option"
+                                            data-kt-table-widget-4="filter_status" data-select2-id="select2-data-16-c6nq"
+                                            tabindex="-1" aria-hidden="true">
+                                            <option></option>
+                                            <option value="Month" selected="" data-select2-id="select2-data-18-0kz4">
+                                                Month</option>
+                                            <option value="Shipped">Shipped</option>
+                                            <option value="Confirmed">Confirmed</option>
+                                            <option value="Rejected">Rejected</option>
+                                            <option value="Pending">Pending</option>
+                                        </select><span class="select2 select2-container select2-container--bootstrap5"
+                                            dir="ltr" data-select2-id="select2-data-17-mufk"
+                                            style="width: 100%;"><span class="selection"><span
+                                                    class="select2-selection select2-selection--single form-select form-select-transparent text-gray-900 fs-7 lh-1 fw-bold py-0 ps-3 w-auto"
+                                                    role="combobox" aria-haspopup="true" aria-expanded="false"
+                                                    tabindex="0" aria-disabled="false"
+                                                    aria-labelledby="select2-i2sj-container"
+                                                    aria-controls="select2-i2sj-container"><span
+                                                        class="select2-selection__rendered" id="select2-i2sj-container"
+                                                        role="textbox" aria-readonly="true"
+                                                        title="Month">Month</span><span class="select2-selection__arrow"
+                                                        role="presentation"><b
+                                                            role="presentation"></b></span></span></span><span
+                                                class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                    </div>
+                                    <div class="d-flex align-items-center fw-bold">
+                                        <select
+                                            class="form-select form-select-transparent text-gray-900 fs-7 lh-1 fw-bold py-0 ps-3 w-auto select2-hidden-accessible"
+                                            data-control="select2" data-hide-search="true"
+                                            data-dropdown-css-class="w-150px" data-placeholder="Select an option"
+                                            data-kt-table-widget-4="filter_status" data-select2-id="select2-data-19-gh0e"
+                                            tabindex="-1" aria-hidden="true">
+                                            <option></option>
+                                            <option value="Week" selected="" data-select2-id="select2-data-21-pt2y">
+                                                Week</option>
+                                            <option value="Shipped">Shipped</option>
+                                            <option value="Confirmed">Confirmed</option>
+                                            <option value="Rejected">Rejected</option>
+                                            <option value="Pending">Pending</option>
+                                        </select><span class="select2 select2-container select2-container--bootstrap5"
+                                            dir="ltr" data-select2-id="select2-data-20-s15q"
+                                            style="width: 100%;"><span class="selection"><span
+                                                    class="select2-selection select2-selection--single form-select form-select-transparent text-gray-900 fs-7 lh-1 fw-bold py-0 ps-3 w-auto"
+                                                    role="combobox" aria-haspopup="true" aria-expanded="false"
+                                                    tabindex="0" aria-disabled="false"
+                                                    aria-labelledby="select2-2qz4-container"
+                                                    aria-controls="select2-2qz4-container"><span
+                                                        class="select2-selection__rendered" id="select2-2qz4-container"
+                                                        role="textbox" aria-readonly="true"
+                                                        title="Week">Week</span><span class="select2-selection__arrow"
+                                                        role="presentation"><b
+                                                            role="presentation"></b></span></span></span><span
+                                                class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                    </div>
+                                    <div class="position-relative my-1">
+                                        <i class="fa-solid fa-magnifying-glass fs-3 position-absolute top-50 translate-middle-y ms-4"
+                                            aria-hidden="true"></i>
+                                        <input type="text" data-kt-table-widget-4="search"
+                                            class="form-control w-150px fs-7 ps-12" placeholder="Search">
+                                    </div>
+                                    <div>
+                                        <a href="javascript:void(0)" class="btn btn-sm fw-bold btn-primary"
+                                            id="toggleBtn">
+                                            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="js-tab1">
-                            <div id="table1" class="card-body">
-                                <table class="rfqDT1 table table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th width="15">Sl No:</th>
-                                            <th width="25">RFQ Code</th>
-                                            <th width="15">Create Date</th>
-                                            <th width="15">Client Type</th>
-                                            <th width="15">Status</th>
-                                            <th width="15" class="text-center">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if ($rfqs)
-                                            @foreach ($rfqs as $key => $rfq)
-                                                <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ ucfirst($rfq->rfq_code) }}</td>
-                                                    <td>{{ ucfirst($rfq->create_date) }}</td>
-                                                    <td>{{ ucfirst($rfq->client_type) }}</td>
-                                                    <td>{{ ucfirst($rfq->status) }}</td>
-                                                    <td class="text-center">
-                                                        {{-- <a href="{{ route('rfq.edit', [$rfq->id]) }}"
-                                                            class="text-primary">
-                                                            <i class="icon-pencil"></i>
-                                                        </a> --}}
-                                                        <a href="{{ route('rfq.destroy', [$rfq->id]) }}"
-                                                            class="text-danger delete mx-2">
-                                                            <i class="delete icon-trash"></i>
-                                                        </a>
-                                                        <a href="javascript:void(0);" class="text-primary"
-                                                            data-bs-toggle="modal" title="View & Assign Sales Manager"
-                                                            data-bs-target="#update_category_{{ $rfq->rfq_code }}">
-                                                            <i class="ph-user-circle-plus"></i>
-                                                        </a>
-                                                        <!---Category Update modal--->
-                                                        <div id="update_category_{{ $rfq->rfq_code }}" class="modal fade"
-                                                            tabindex="-1" style="display: none;" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-scrollable modal-lg">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        @php
-                                                                            $rfq_details = App\Models\Admin\Rfq::where('rfq_code', $rfq->rfq_code)->first();
-                                                                        @endphp
-                                                                        <h5 class="modal-title">Assign Sales Manager For RFQ
-                                                                            No : {{ $rfq_details->rfq_code }}</h5>
-                                                                        <button type="button" class="btn-close"
-                                                                            data-bs-dismiss="modal"></button>
-                                                                    </div>
-
-                                                                    <div class="modal-body border br-7">
-
-                                                                        <form method="post"
-                                                                            action="{{ route('assign.salesman', $rfq_details->rfq_code) }}"
-                                                                            enctype="multipart/form-data">
-                                                                            @csrf
-                                                                            @method('PUT')
-                                                                            <div class="row mb-3">
-                                                                                <div class="card">
-                                                                                    <div class="row">
-                                                                                        <table
-                                                                                            class="table table-bordered table-striped p-1">
-                                                                                            <thead>
-                                                                                                <tr>
-                                                                                                    <th>
-                                                                                                        Client Type :
-                                                                                                        {{ ucfirst($rfq_details->client_type) }}
-                                                                                                    </th>
-                                                                                                    <th>
-                                                                                                        Name :
-                                                                                                        {{ ucfirst($rfq_details->name) }}
-                                                                                                    </th>
-                                                                                                    <th>
-                                                                                                        Company Name :
-                                                                                                        {{ ucfirst($rfq_details->company_name) }}
-                                                                                                    </th>
-                                                                                                </tr>
-                                                                                                <tr>
-                                                                                                    <th colspan="3"
-                                                                                                        style="background: #7e7d7c">
-                                                                                                        <p
-                                                                                                            class="text-center pt-1 text-white">
-                                                                                                            Product Name :
-                                                                                                            {{ App\Models\Admin\Product::where('id', $rfq_details->product_id)->value('name') }}
-                                                                                                        </p>
-                                                                                                    </th>
-                                                                                                </tr>
-                                                                                                <tr>
-                                                                                                    <th>Asking Quantity :
-                                                                                                        {{ $rfq_details->qty }}
-                                                                                                    </th>
-                                                                                                    <th>Phone Number :
-                                                                                                        {{ $rfq_details->phone }}
-                                                                                                    </th>
-                                                                                                    <th>
-                                                                                                        @if ($rfq_details->call == 1)
-                                                                                                            Need To be
-                                                                                                            Called.
-                                                                                                        @else
-                                                                                                        @endif
-                                                                                                    </th>
-                                                                                                </tr>
-                                                                                            </thead>
-                                                                                        </table>
-                                                                                    </div>
-                                                                                    <div class="row p-2">
-                                                                                        <div class="col-12">
-                                                                                            Assign Sales Manager :
-                                                                                            <a class="p-1 editRfquser"
-                                                                                                href="javascript:void(0);">
-                                                                                                <i class="ph-note-pencil"
-                                                                                                    aria-hidden="true"></i>
-                                                                                            </a>
-                                                                                        </div>
-                                                                                        <div class="col-12 Rfquser"
-                                                                                            style="display:none">
-                                                                                            <div
-                                                                                                class="row mb-3 p-2 border">
-                                                                                                <div class="col-12">
-                                                                                                    <h5 class="text-center">
-                                                                                                        Assigned Sales
-                                                                                                        Manager</h5>
-                                                                                                </div>
-
-                                                                                                <div class="col-lg-4">
-                                                                                                    <div class="col-sm-12">
-                                                                                                        <p class="mb-0">
-                                                                                                            Sales Manager
-                                                                                                            Name (Leader -
-                                                                                                            L1) <span
-                                                                                                                class="text-danger">*</span>
-                                                                                                        </p>
-                                                                                                    </div>
-                                                                                                    <div
-                                                                                                        class="form-group text-secondary col-sm-12">
-                                                                                                        <select
-                                                                                                            name="sales_man_id_L1"
-                                                                                                            class="form-control select"
-                                                                                                            data-minimum-results-for-search="Infinity"
-                                                                                                            data-placeholder="Choose  ">
-                                                                                                            <option>
-                                                                                                            </option>
-                                                                                                            @foreach ($users as $user)
-                                                                                                                <option
-                                                                                                                    value="{{ $user->id }}">
-                                                                                                                    {{ $user->name }}
-                                                                                                                </option>
-                                                                                                            @endforeach
-                                                                                                        </select>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="col-lg-4">
-                                                                                                    <div class="col-sm-12">
-                                                                                                        <p class="mb-0">
-                                                                                                            Sales Manager
-                                                                                                            Name (Team - T1)
-                                                                                                        </p>
-                                                                                                    </div>
-                                                                                                    <div
-                                                                                                        class="form-group text-secondary col-sm-12">
-                                                                                                        <select
-                                                                                                            name="sales_man_id_T1"
-                                                                                                            class="form-control select"
-                                                                                                            data-minimum-results-for-search="Infinity"
-                                                                                                            data-placeholder="Choose  ">
-                                                                                                            <option>
-                                                                                                            </option>
-                                                                                                            @foreach ($users as $user)
-                                                                                                                <option
-                                                                                                                    value="{{ $user->id }}">
-                                                                                                                    {{ $user->name }}
-                                                                                                                </option>
-                                                                                                            @endforeach
-                                                                                                        </select>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-lg-4">
-                                                                                                    <div class="col-sm-12">
-                                                                                                        <p class="mb-0">
-                                                                                                            Sales Manager
-                                                                                                            Name (Team - T2)
-                                                                                                        </p>
-                                                                                                    </div>
-                                                                                                    <div
-                                                                                                        class="form-group text-secondary col-sm-12">
-                                                                                                        <select
-                                                                                                            name="sales_man_id_T2"
-                                                                                                            class="form-control select"
-                                                                                                            data-minimum-results-for-search="Infinity"
-                                                                                                            data-placeholder="Choose ">
-                                                                                                            <option>
-                                                                                                            </option>
-                                                                                                            @foreach ($users as $user)
-                                                                                                                <option
-                                                                                                                    value="{{ $user->id }}">
-                                                                                                                    {{ $user->name }}
-                                                                                                                </option>
-                                                                                                            @endforeach
-                                                                                                        </select>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-
-
-
-
-                                                                            <div class="row">
-                                                                                <div class="col-sm-3"></div>
-                                                                                <div class="col-sm-9 text-secondary">
-                                                                                    <button type="submit"
-                                                                                        class="btn btn-primary">Submit</button>
-                                                                                </div>
-                                                                            </div>
-
-                                                                        </form>
-                                                                    </div>
-
-
+                </div>
+                <div id="defaultDiv" class="default-div visible col-xl-12">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="kt_tab_pane_1" role="tabpanel">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <!--begin::Block-->
+                                    <div class="py-5">
+                                        <div class="d-flex flex-column flex-md-row rounded">
+                                            <ul
+                                                class="nav nav-tabs nav-pills flex-row border-0 flex-md-column me-5 mb-3 mb-md-0 fs-6 min-w-lg-250px">
+                                                <li class="nav-item w-100 me-0 mb-md-2">
+                                                    <a class="nav-link w-100 active btn btn-flex btn-active-primary border"
+                                                        data-bs-toggle="tab" href="#kt_vtab_pane_4">
+                                                        <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                            aria-hidden="true"></i>
+                                                        <div class="row w-100">
+                                                            <div class="col-sm-12">
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                    <span class="fs-7">#14568RFQ</span>
+                                                                </div>
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                    <span class="fs-7">05:00pm</span>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!---Category Update modal--->
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item w-100 me-0 mb-md-2">
+                                                    <a class="nav-link w-100 btn btn-flex btn-active-primary border"
+                                                        data-bs-toggle="tab" href="#kt_vtab_pane_5">
+                                                        <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                            aria-hidden="true"></i>
+                                                        <div class="row w-100">
+                                                            <div class="col-sm-12">
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                    <span class="fs-7">#14568RFQ</span>
+                                                                </div>
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                    <span class="fs-7">05:00pm</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item w-100 mb-md-2">
+                                                    <a class="nav-link w-100 btn btn-flex btn-active-primary border"
+                                                        data-bs-toggle="tab" href="#kt_vtab_pane_6">
+                                                        <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                            aria-hidden="true"></i>
+                                                        <div class="row w-100">
+                                                            <div class="col-sm-12">
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                    <span class="fs-7">#14568RFQ</span>
+                                                                </div>
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                    <span class="fs-7">05:00pm</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item w-100 mb-md-2">
+                                                    <a class="nav-link w-100 btn btn-flex btn-active-primary border"
+                                                        data-bs-toggle="tab" href="#kt_vtab_pane_6">
+                                                        <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                            aria-hidden="true"></i>
+                                                        <div class="row w-100">
+                                                            <div class="col-sm-12">
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                    <span class="fs-7">#14568RFQ</span>
+                                                                </div>
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                    <span class="fs-7">05:00pm</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item w-100 mb-md-2">
+                                                    <a class="nav-link w-100 btn btn-flex btn-active-primary border"
+                                                        data-bs-toggle="tab" href="#kt_vtab_pane_6">
+                                                        <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                            aria-hidden="true"></i>
+                                                        <div class="row w-100">
+                                                            <div class="col-sm-12">
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                    <span class="fs-7">#14568RFQ</span>
+                                                                </div>
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                    <span class="fs-7">05:00pm</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item w-100 mb-md-2">
+                                                    <a class="nav-link w-100 btn btn-flex btn-active-primary border"
+                                                        data-bs-toggle="tab" href="#kt_vtab_pane_6">
+                                                        <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                            aria-hidden="true"></i>
+                                                        <div class="row w-100">
+                                                            <div class="col-sm-12">
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                    <span class="fs-7">#14568RFQ</span>
+                                                                </div>
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                    <span class="fs-7">05:00pm</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item w-100 mb-md-2">
+                                                    <a class="nav-link w-100 btn btn-flex btn-active-primary border"
+                                                        data-bs-toggle="tab" href="#kt_vtab_pane_6">
+                                                        <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                            aria-hidden="true"></i>
+                                                        <div class="row w-100">
+                                                            <div class="col-sm-12">
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                    <span class="fs-7">#14568RFQ</span>
+                                                                </div>
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                    <span class="fs-7">05:00pm</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item w-100 mb-md-2">
+                                                    <a class="nav-link w-100 btn btn-flex btn-active-primary border"
+                                                        data-bs-toggle="tab" href="#kt_vtab_pane_6">
+                                                        <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                            aria-hidden="true"></i>
+                                                        <div class="row w-100">
+                                                            <div class="col-sm-12">
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                    <span class="fs-7">#14568RFQ</span>
+                                                                </div>
+                                                                <div class="d-flex justify-content-between">
+                                                                    <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                    <span class="fs-7">05:00pm</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
 
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        @endif
-                                    </tbody>
-                                </table>
+                                            <div class="tab-content w-100 border rounded" id="myTabContent">
+                                                <div class="tab-pane fade show active" id="kt_vtab_pane_4"
+                                                    role="tabpanel">
+                                                    <div class="d-flex flex-column justify-content-center align-items-center"
+                                                        style="height: 50vh;">
+                                                        <div class="text-center pb-5">
+                                                            <h1 class="pb-5">View The RFQ</h1>
+                                                            <p class="w-50 mx-auto">We invite you to submit a detailed
+                                                                quote for the requested products/services. Please include
+                                                                comprehensive pricing, payment terms, delivery schedules,
+                                                                and any applicable discounts. Ensure that all relevant
+                                                                specifications, warranties, and certifications are clearly
+                                                                mentioned. We encourage you to provide the most competitive
+                                                                offer while maintaining high standards of quality and
+                                                                service. All quotations should be submitted by [due date].
+                                                                Should you have any questions or need further clarification,
+                                                                feel free to reach out to us.</p>
+                                                        </div>
+                                                        <div>
+                                                            <button class="btn btn-primary me-2"><i
+                                                                    class="fa-solid fa-signs-post pe-2"
+                                                                    aria-hidden="true"></i>Bypass</button>
+                                                            <button class="btn btn-primary"><i
+                                                                    class="fa-regular fa-handshake pe-2"
+                                                                    aria-hidden="true"></i> Deal</button>
+                                                            <button class="btn btn-primary"><i
+                                                                    class="fa-regular fa-pen-to-square pe-2"
+                                                                    aria-hidden="true"></i>Edit</button>
+                                                            <button class="btn btn-primary"><i
+                                                                    class="fa-solid fa-expand pe-2"
+                                                                    aria-hidden="true"></i>View</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="tab-pane fade" id="kt_vtab_pane_5" role="tabpanel">
+                                                    <p>Nulla est ullamco ut irure incididunt nulla
+                                                        Lorem Lorem minim irure officia enim
+                                                        reprehenderit. Magna duis labore cillum sint
+                                                        adipisicing exercitation ipsum. Nostrud ut
+                                                        anim non exercitation velit laboris fugiat
+                                                        cupidatat. Commodo esse dolore fugiat sint
+                                                        velit ullamco magna consequat voluptate
+                                                        minim amet aliquip ipsum aute laboris nisi.
+                                                        Labore labore veniam irure irure ipsum
+                                                        pariatur mollit magna in cupidatat dolore
+                                                        magna irure esse tempor ad mollit. Dolore
+                                                        commodo nulla minim amet ipsum officia
+                                                        consectetur amet ullamco voluptate nisi
+                                                        commodo ea sit eu.</p>
+                                                </div>
+
+                                                <div class="tab-pane fade" id="kt_vtab_pane_6" role="tabpanel">
+                                                    <p>
+                                                        Sint sit mollit irure quis est nostrud
+                                                        cillum consequat Lorem esse do quis dolor
+                                                        esse fugiat sunt do. Eu ex commodo veniam
+                                                        Lorem aliquip laborum occaecat qui Lorem
+                                                        esse mollit dolore anim cupidatat. eserunt
+                                                        officia id Lorem nostrud aute id commodo
+                                                        elit eiusmod enim irure amet eiusmod qui
+                                                        reprehenderit nostrud tempor. Fugiat ipsum
+                                                        excepteur in aliqua non et quis aliquip ad
+                                                        irure in labore cillum elit enim. Consequat
+                                                        aliquip incididunt ipsum et minim laborum
+                                                        laborum laborum et cillum labore. Deserunt
+                                                        adipisicing cillum id nulla minim nostrud
+                                                        labore eiusmod et amet.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Block-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="kt_tab_pane_2" role="tabpanel">
+                            <div class="row">
+                                <div class="col-xl-4">List</div>
+                                <div class="col-xl-8">
+                                    <h1>View</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="kt_tab_pane_3" role="tabpanel">
+                            <div class="row">
+                                <div class="col-xl-4">List</div>
+                                <div class="col-xl-8">
+                                    <h1>View</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="kt_tab_pane_4" role="tabpanel">
+                            <div class="row">
+                                <div class="col-xl-4">List</div>
+                                <div class="col-xl-8">
+                                    <h1>View</h1>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-xl-12 hidden-div hidden" id="hiddenDiv">
+                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="row mb-2">
+                            <div class="col-sm-6 d-flex align-items-center justify-conten-start dt-toolbar">
+                                <div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select
+                                            name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+                                            class="form-select form-select-sm form-select-solid">
+                                            <option value="10">10</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                        </select></label></div>
+                            </div>
+                            <div class="col-sm-6 d-flex align-items-center justify-content-end dt-toolbar">
+                                <div id="DataTables_Table_0_filter" class="dataTables_filter"><label>Search:<input
+                                            type="search" class="form-control form-control-sm form-control-solid"
+                                            placeholder="" aria-controls="DataTables_Table_0"></label></div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table
+                                class="data_table table table-striped table-row-bordered gy-5 gs-7 border rounded dataTable no-footer"
+                                id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
+                                <thead>
+                                    <tr class="fw-bold fs-6 text-gray-800 px-7">
+                                        <th class="sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0"
+                                            rowspan="1" colspan="1" aria-sort="ascending"
+                                            aria-label="Sl: activate to sort column descending" style="width: 0px;">Sl
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                            rowspan="1" colspan="1"
+                                            aria-label="RFQ Code: activate to sort column ascending" style="width: 0px;">
+                                            RFQ Code</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                            rowspan="1" colspan="1"
+                                            aria-label="Company Name: activate to sort column ascending"
+                                            style="width: 0px;">Company Name</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                            rowspan="1" colspan="1"
+                                            aria-label="Client Name: activate to sort column ascending"
+                                            style="width: 0px;">Client Name</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                            rowspan="1" colspan="1"
+                                            aria-label="Created At: activate to sort column ascending"
+                                            style="width: 0px;">Created At</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                            rowspan="1" colspan="1"
+                                            aria-label="Assign To: activate to sort column ascending" style="width: 0px;">
+                                            Assign To</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                            rowspan="1" colspan="1"
+                                            aria-label="Status: activate to sort column ascending" style="width: 0px;">
+                                            Status</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                            rowspan="1" colspan="1"
+                                            aria-label="Contry: activate to sort column ascending" style="width: 0px;">
+                                            Contry</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                            rowspan="1" colspan="1"
+                                            aria-label="Details: activate to sort column ascending" style="width: 0px;">
+                                            Details</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                            rowspan="1" colspan="1"
+                                            aria-label="Quick View: activate to sort column ascending"
+                                            style="width: 0px;">Quick View</th>
+                                        <th class="text-end sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                            rowspan="1" colspan="1"
+                                            aria-label="
+                        Action
+                      : activate to sort column ascending"
+                                            style="width: 0px;">
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                    <div class="tab-content">
-                        <div class="tab-pane fade" id="js-tab2">
-                            <div class="card-body">
-                                <table class="rfqDT2 table table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Sl No:</th>
-                                            <th>RFQ Code</th>
-                                            <th>Assigned Sales Manager</th>
-                                            <th>Create Date</th>
-                                            <th>Client Type</th>
-                                            <th>Status</th>
-                                            <th class="text-center">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if ($deals)
-                                            @foreach ($deals as $key => $deal)
-                                                <tr>
-                                                    <td>{{ ++$key }}</td>
-                                                    <td>{{ ucfirst($deal->rfq_code) }}</td>
-                                                    <td>L1 :
-                                                        {{ App\Models\User::where('id', $deal->sales_man_id_L1)->value('name') }}
-                                                        ,
-                                                        T1 :
-                                                        {{ App\Models\User::where('id', $deal->sales_man_id_T1)->value('name') }}
-                                                        ,
-                                                        T2 :
-                                                        {{ App\Models\User::where('id', $deal->sales_man_id_T2)->value('name') }}
-                                                    </td>
-                                                    <td>{{ ucfirst($deal->create_date) }}</td>
-                                                    <td>{{ ucfirst($deal->client_type) }}</td>
-                                                    <td>{{ ucfirst($deal->status) }}</td>
-                                                    <td class="text-center">
-                                                        {{-- <a href="{{ route('rfq.edit', [$deal->id]) }}"
-                                                            class="text-primary">
-                                                            <i class="icon-pencil"></i>
-                                                        </a> --}}
-                                                        <a href="{{ route('rfq.destroy', [$deal->id]) }}"
-                                                            class="text-danger delete mx-2">
-                                                            <i class="delete icon-trash"></i>
-                                                        </a>
-                                                        <a href="{{ route('deal.convert', [$deal->id]) }}"
-                                                            class="text-success" title="Convert To Deal">
-                                                            <i class="icon-pen-plus icon-1x"></i>
-                                                        </a>
+                                    <tr class="odd">
+                                        <td class="sorting_1">01</td>
+                                        <td>#RFQ1558</td>
+                                        <td>NGen It</td>
+                                        <td>Robert Hue</td>
+                                        <td>2024-01-06</td>
+                                        <td>Akash Hossain</td>
+                                        <td>Pending</td>
+                                        <td>United State</td>
+                                        <td>
+                                            Assigned
+                                        </td>
+                                        <td class="text-center">
 
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        @endif
-                                    </tbody>
-                                </table>
+                                        </td>
+                                        <td class="text-end">
+                                            <a href="" class="pe-3"><i class="fa-solid fa-eye"
+                                                    aria-hidden="true"></i></a>
+                                            <a href="" class="pe-3"><i class="fa-solid fa-eye"
+                                                    aria-hidden="true"></i></a>
+                                            <a href="" class="pe-3"><i class="fa-solid fa-eye"
+                                                    aria-hidden="true"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div
+                                class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start">
+                                <div class="dataTables_info" id="DataTables_Table_0_info" role="status"
+                                    aria-live="polite">Showing 1 to 1 of 1 records</div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
+                                <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                    <ul class="pagination">
+                                        <li class="paginate_button page-item previous disabled"
+                                            id="DataTables_Table_0_previous"><a href="#"
+                                                aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0"
+                                                class="page-link"><i class="previous"></i></a></li>
+                                        <li class="paginate_button page-item active"><a href="#"
+                                                aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0"
+                                                class="page-link">1</a></li>
+                                        <li class="paginate_button page-item next disabled" id="DataTables_Table_0_next">
+                                            <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2"
+                                                tabindex="0" class="page-link"><i class="next"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
+            <!-- Main Content End -->
         </div>
-
     </div>
     <!-- /content area -->
-    <!-- /inner content -->
-
-    </div>
-
-
 @endsection
 
 @once
     @push('scripts')
         <script type="text/javascript">
-            $(document).ready(function() {
-                $('.rfqDT1').DataTable({
-                    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-                    "iDisplayLength": 10,
-                    "lengthMenu": [10, 26, 30, 50],
-                    columnDefs: [{
-                        orderable: false,
-                        targets: [5],
-                    }, ],
-                });
-                $('.rfqDT2').DataTable({
-                    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-                    "iDisplayLength": 10,
-                    "lengthMenu": [10, 26, 30, 50],
-                    columnDefs: [{
-                        orderable: false,
-                        targets: [1, 2, 3, 4, 6],
-                    }, ],
-                });
-            });
+            // $(document).ready(function() {
+            //     $('.rfqDT1').DataTable({
+            //         dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+            //         "iDisplayLength": 10,
+            //         "lengthMenu": [10, 26, 30, 50],
+            //         columnDefs: [{
+            //             orderable: false,
+            //             targets: [5],
+            //         }, ],
+            //     });
+            //     $('.rfqDT2').DataTable({
+            //         dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+            //         "iDisplayLength": 10,
+            //         "lengthMenu": [10, 26, 30, 50],
+            //         columnDefs: [{
+            //             orderable: false,
+            //             targets: [1, 2, 3, 4, 6],
+            //         }, ],
+            //     });
+            // });
         </script>
         <script>
             $(document).ready(function() {
@@ -426,5 +785,38 @@
                 });
             });
         </script>
+        <script>
+            $(document).ready(function() {
+            $(".data_table").DataTable({
+              language: {
+                lengthMenu: "Show _MENU_",
+              },
+              dom:
+                "<'row mb-2'" +
+                "<'col-sm-6 d-flex align-items-center justify-conten-start dt-toolbar'l>" +
+                "<'col-sm-6 d-flex align-items-center justify-content-end dt-toolbar'f>" +
+                ">" +
+                "<'table-responsive'tr>" +
+                "<'row'" +
+                "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
+                "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
+                ">",
+            });
+            });
+          </script>
+          <script>
+            // JavaScript for toggling div visibility
+            const toggleBtn = document.getElementById("toggleBtn");
+            const defaultDiv = document.getElementById("defaultDiv");
+            const hiddenDiv = document.getElementById("hiddenDiv");
+      
+            toggleBtn.addEventListener("click", function () {
+              // Toggle visibility classes
+              defaultDiv.classList.toggle("hidden");
+              defaultDiv.classList.toggle("visible");
+              hiddenDiv.classList.toggle("hidden");
+              hiddenDiv.classList.toggle("visible");
+            });
+          </script>
     @endpush
 @endonce

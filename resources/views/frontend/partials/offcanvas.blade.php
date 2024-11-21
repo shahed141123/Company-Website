@@ -6,7 +6,6 @@
     </button>
 </div>
 
-
 <div class="offcanvas-body">
     <div class="container-fluid">
         <div class="row">
@@ -14,16 +13,29 @@
                 <div class="row">
                     @if ($cart_items)
                         @foreach ($cart_items as $cart_item)
+                            @php
+                                $productRFQ = App\Models\Admin\Product::where('id', $cart_item->id)->first([
+                                    'id',
+                                    'thumbnail',
+                                    'name',
+                                ]);
+                            @endphp
                             <div class="col-lg-2">
                                 <div style="margin-top: -30px;">
                                     <div class="remove-box">
-                                        <span class="remove-rfq"><i class="fa-solid fa-xmark"></i></span>
+                                        {{-- <span class="remove-rfq">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </span> --}}
+                                        <a href="javascript:void(0);" class="remove-rfq text-danger"
+                                            id="{{ $cart_item->rowId }}" onClick='deleteRFQRow(event, this, this.id)'>
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </a>
                                     </div>
                                     <div class="card text-center border-0 shadow-sm">
-                                        <img src="{{ asset($cart_item->thumbnail) }}" class="img-fluid rounded-2"
-                                            alt="" style="width: 50px;">
+                                        <img src="{{ !empty(optional($productRFQ)->thumbnail) && file_exists(public_path(optional($productRFQ)->thumbnail)) ? asset(optional($productRFQ)->thumbnail) : asset('frontend/images/random-no-img.png') }}"
+                                            class="img-fluid rounded-2" alt="" style="width: 50px;">
                                         <div class="card-body py-3">
-                                            <p class="card-title">{{ $cart_item->name }}</p>
+                                            <p class="card-title">{{ optional($productRFQ)->name }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -46,3 +58,5 @@
         </div>
     </div>
 </div>
+
+

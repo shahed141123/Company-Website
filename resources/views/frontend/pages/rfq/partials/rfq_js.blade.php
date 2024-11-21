@@ -80,3 +80,39 @@
         $('.select-form-input').select2();
     });
 </script>
+
+
+<script>
+    // Function to add a new row to the repeater
+    function addRow() {
+        var container = document.getElementById('productRowsContainer');
+
+        var newRow = document.createElement('div');
+        newRow.classList.add('row', 'gx-2', 'align-items-center', 'product-row');
+
+        newRow.innerHTML = `
+            <div class="col-lg-10 col-10">
+                <input name="product_name[]" class="form-control form-control-sm border-0 rounded-1 py-3"
+                    placeholder="Product Title" required>
+            </div>
+            <div class="col-lg-2 col-2">
+                <input name="qty[]" type="number" class="form-control form-control-sm border-0 rounded-1 py-3"
+                    placeholder="QTY..">
+            </div>
+            <div class="col-12">
+                <button type="button" class="btn btn-danger delete-btn" onclick="deleteRow(this)">
+                    <i class="fa-regular fa-trash-can"></i> Delete
+                </button>
+            </div>
+        `;
+
+        container.appendChild(newRow);
+    }
+
+    // Function to delete a row from the repeater
+    function deleteRow(button) {
+        // Remove the row containing the clicked delete button
+        var row = button.closest('.product-row');
+        row.remove();
+    }
+</script>

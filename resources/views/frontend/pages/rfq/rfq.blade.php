@@ -3,36 +3,7 @@
     @include('frontend.pages.rfq.partials.rfq_css')
     <div class="container py-5">
         <div class="row justify-content-center align-items-center g-2">
-            <div class="col-lg-8 col-offset-lg-2">
-                <div class="table-responsive">
-                    <table class="rfqDT1 table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th width="18%">Product</th>
-                                <th width="25%">Item Name</th>
-                                {{-- <th width="15%">Unit Price</th>
-                                <th width="17%">QTY</th>
-                                <th width="15%">Unit Total</th> --}}
-                                <th width="10%">
-                                    <a href="javascript:void(0);" class="text-danger" onClick='emptyCart(event)'>Empty
-                                        Cart</a>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if ($cart_items)
-                                @foreach ($cart_items as $key => $cart_item)
-                                    <tr>
-                                        <td>{{ asset($cart_item->thumbnail) }}</td>
-                                        <td>{{ ucfirst($cart_item->name) }}</td>
-                                        <td></td>
-                                    </tr>
-                                @endforeach
-                            @endif
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+
             <div class="col-lg-8 col-offset-lg-2">
                 <div class="w-lg-50 w-100 mx-auto my-5 card rounded-2 shadow-sm" style="border: 1px solid #eee;">
                     <div class="card-header rfq-header border-0">
@@ -41,7 +12,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="" class="p-3">
+                        <form action="{{ route('rfq.add') }}" class="p-3">
                             <!-- Step 1: Project Details -->
                             <div id="projectStep" class="p-5">
                                 <div class="row gx-2">
@@ -63,7 +34,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12" id="inputRepeater">
+                                    {{-- <div class="col-lg-12" id="inputRepeater">
                                         <div class="row align-items-center mb-5 input-row mt-5">
                                             <div class="col-lg-12 mx-0">
                                                 <div class="rfq-repeater">
@@ -73,22 +44,43 @@
                                                         </button>
                                                     </div>
                                                     <div class="rfq-title-btns">
-                                                        <div class="row gx-2 align-items-center">
-                                                            <div class="col-lg-10 col-10">
-                                                                <div class="">
-                                                                    <input name="product_name[]"
-                                                                        class="form-control form-control-sm border-0 rounded-1 py-3"
-                                                                        placeholder="Product Title" required>
+                                                        @if ($cart_products)
+                                                            @foreach ($cart_products as $key => $cart_product)
+                                                                <div class="row gx-2 align-items-center">
+                                                                    <div class="col-lg-10 col-10">
+                                                                        <div class="">
+                                                                            <input type="text" name="product_name[]" value={{ $cart_product->name }}
+                                                                                class="form-control form-control-sm border-0 rounded-1 py-3"
+                                                                                placeholder="Product Title" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-2 col-2">
+                                                                        <div class="">
+                                                                            <input name="qty[]" type="number" value="1"
+                                                                                class="form-control form-control-sm border-0 rounded-1 py-3"
+                                                                                placeholder="QTY..">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            @endforeach
+                                                        @else
+                                                            <div class="row gx-2 align-items-center">
+                                                                <div class="col-lg-10 col-10">
+                                                                    <div class="">
+                                                                        <input name="product_name[]"
+                                                                            class="form-control form-control-sm border-0 rounded-1 py-3"
+                                                                            placeholder="Product Title" required>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-2 col-2">
+                                                                    <div class="">
+                                                                        <input name="qty[]" type="number"
+                                                                            class="form-control form-control-sm border-0 rounded-1 py-3"
+                                                                            placeholder="QTY..">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-2 col-2">
-                                                                <div class="">
-                                                                    <input name="qty[]" type="number"
-                                                                        class="form-control form-control-sm border-0 rounded-1 py-3"
-                                                                        placeholder="QTY..">
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        @endif
                                                     </div>
                                                     <div class="rfq-delete-btns">
                                                         <button type="button" class="" onclick="deleteRow(this)">
@@ -98,7 +90,74 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div> --}}
+
+                                    <div class="col-lg-12" id="inputRepeater">
+                                        <div class="row align-items-center mb-5 input-row mt-5">
+                                            <div class="col-lg-12 mx-0">
+                                                <div class="rfq-repeater">
+                                                    <div class="rfq-add-btns">
+                                                        <button type="button" class="rounded-1" onclick="addRow()">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="rfq-title-btns" id="productRowsContainer">
+                                                        @if ($cart_products)
+                                                            @foreach ($cart_products as $key => $cart_product)
+                                                                <div class="row gx-2 align-items-center product-row mb-2">
+                                                                    <div class="col-lg-10 col-9">
+                                                                        <div>
+                                                                            <input type="text" name="product_name[]"
+                                                                                value="{{ $cart_product->name }}"
+                                                                                class="form-control form-control-sm border-0 rounded-1 py-3"
+                                                                                placeholder="Product Title" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-1 col-2">
+                                                                        <div>
+                                                                            <input name="qty[]" type="number"
+                                                                                value="1"
+                                                                                class="form-control form-control-sm border-0 rounded-1 py-3"
+                                                                                placeholder="QTY..">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-1">
+                                                                        <a href="javascript:void(0)"
+                                                                            class="delete-btn"
+                                                                            onclick="deleteRow(this)">
+                                                                            <i class="fa-regular fa-trash-can text-danger"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            @endforeach
+                                                        @else
+                                                            <div class="row gx-2 align-items-center product-row">
+                                                                <div class="col-lg-10 col-9">
+                                                                    <input name="product_name[]"
+                                                                        class="form-control form-control-sm border-0 rounded-1 py-3"
+                                                                        placeholder="Product Title" required>
+                                                                </div>
+                                                                <div class="col-lg-1 col-2">
+                                                                    <input name="qty[]" type="number"
+                                                                        class="form-control form-control-sm border-0 rounded-1 py-3"
+                                                                        placeholder="QTY..">
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <a href="javascript:void(0)" class="delete-btn"
+                                                                        onclick="deleteRow(this)">
+                                                                        <i class="fa-regular fa-trash-can text-danger"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+
+
+
                                     <hr class="m-0">
                                     <div class="col-lg-12">
                                         <div class="my-4">

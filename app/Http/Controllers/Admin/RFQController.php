@@ -222,7 +222,7 @@ class RFQController extends Controller
 
     public function rfqCreate(Request $request)
     {
-
+        dd($request->all());
         $data['deal_type'] = 'new';
         $today = now()->format('dmY');
         $lastCode = RFQ::where('rfq_code', 'like', "RFQ-$today-%")->latest('id')->first();
@@ -233,14 +233,7 @@ class RFQController extends Controller
             $newNumber = 1;
         }
         $data['rfq_code'] = 'RFQ-' . $today . '-' . $newNumber;
-        // dd($data['rfq_code']);
-        // $productNames = [];
 
-        // foreach ($request->items as $item) {
-        //     $productNames[] = $item['product_name'];
-        // }
-
-        // $productNames = array_unique($productNames);
         $productNames = '';
         foreach ($request->items as $key => $item) {
             $productNames .= ($key + 1) . '. ' . $item['product_name'];

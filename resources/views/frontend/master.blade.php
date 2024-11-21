@@ -14,24 +14,7 @@
     @include('frontend.partials.header')
 
     @php
-        // Get the cart content
-
-        $cartItems = Cart::content();
-        $cart_items = [];
-        if ($cartItems->isNotEmpty()) {
-            $cartProductIds = $cartItems->pluck('id')->toArray();
-
-            $cart_items = \App\Models\Admin\Product::whereIn('id', $cartProductIds)->get([
-                'id',
-                'slug',
-                'name',
-                'thumbnail',
-                'price',
-                'discount',
-            ]);
-        } else {
-            $cart_items = collect();
-        }
+        $cart_items = Cart::content();
     @endphp
     <!--------End---------->
     <div class="page-wrapper">

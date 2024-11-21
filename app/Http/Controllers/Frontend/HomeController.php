@@ -50,6 +50,7 @@ use App\Models\Admin\SoftwareInfoPage;
 use App\Models\Admin\PortfolioCategory;
 use App\Models\Admin\PortfolioChooseUs;
 use App\Models\Admin\SubSubSubCategory;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Models\Admin\PortfolioClientFeedback;
 
 class HomeController extends Controller
@@ -1016,6 +1017,15 @@ class HomeController extends Controller
         $data['brands'] = Brand::where('status', 'active')->get(['id', 'title']);
         $data['categorys'] = Category::get(['id', 'title']);
         $data['industrys'] = Industry::get(['id', 'title']);
+        $cart_items = Cart::content();
+        // $cartItems = Cart::content();
+        //     if ($cartItems->isNotEmpty()) {
+        //         $cartProductIds = $cartItems->pluck('id')->toArray();
+        //         $cart_items = Product::whereIn('id', $cartProductIds)->get();
+        //     } else {
+        //         $cart_items = collect();  // Empty collection for no products in cart
+        //     }
+        $data['cart_products'] = $cart_items;
         return view('frontend.pages.rfq.rfq', $data);
     }
 
