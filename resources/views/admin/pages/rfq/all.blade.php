@@ -22,69 +22,65 @@
         <!-- /page header -->
         <!-- Content area -->
         <div class="content container-fluid py-10 pt-5">
-            <!-- Main Content Start -->
             <div class="row gx-8 gx-xl-10">
                 <div class="row mb-5">
-                    <!-- Attendance -->
                     <div class="col-sm-6 col-xl-3">
                         <div class="card card-body">
                             <div class="d-flex align-items-center">
                                 <div class="flex-fill">
-                                    <h4 class="mb-0">Total RFQs</h4>
+                                    <h4 class="mb-0 text-info">Total RFQs</h4>
                                     <span class="text-muted">{{date('d M , Y')}}</span>
                                 </div>
 
-                                <i class="ph-chats ph-2x text-primary ms-3"></i>
+                                <h1 class="ms-3 mb-0">{{ $rfq_count }}</h1>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3">
-                        <div class="card card-flush shadow-sm">
-                            <div class="card-body p-0">
-                                <div class="d-flex flex-stack justify-content-between">
-                                    <div class="d-flex align-items-center me-3 p-8 w-50 rounded-3">
-                                        <a href="">
-                                            <span class="bg-light-primary rounded-3 p-3 me-3"><i
-                                                    class="fa-solid text-primary fa-list-check fs-3"
-                                                    aria-hidden="true"></i></span>
-                                        </a>
-                                        <div class="flex-grow-1">
-                                            <a href=""> </a><a href="#"
-                                                class="text-gray-800 fs-5 fw-bold lh-0">RFQ
-                                                <span class="text-gray-500 fw-semibold d-block fs-6 pt-4">Status</span>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex-column d-flex w-50">
-                                        <div class="d-flex align-items-center justify-content-between pe-3">
-                                            <span class="text-gray-500 fw-semibold">
-                                                Pending</span>
-                                            <span class="bg-primary fw-semibold ms-3 px-2 text-white rounded-2">
-                                                5
-                                            </span>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between pe-3 pt-2">
-                                            <span class="text-gray-500 fw-semibold">
-                                                Quoted
-                                            </span>
-                                            <span class="bg-primary fw-semibold ms-3 px-2 text-white rounded-2">
-                                                5
-                                            </span>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between pe-3 pt-2">
-                                            <span class="text-gray-500 fw-semibold">
-                                                Failed
-                                            </span>
-                                            <span class="bg-primary fw-semibold ms-3 px-2 text-white rounded-2">
-                                                5
-                                            </span>
-                                        </div>
-                                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-fill">
+                                    <h4 class="mb-0 text-info">RFQ Status</h4>
+                                    {{-- <span class="text-muted">{{date('d M , Y')}}</span> --}}
+                                </div>
+                                <div class="flex-fill">
+                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Pending : </span> <span class="badge bg-warning ms-3 fs-6 text-end">{{ $rfqs->count() }}</span> </p>
+                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Quoted : </span> <span class="badge bg-success ms-3 fs-6 text-end">{{ $quoteds->count() }}</span> </p>
+                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Failed : </span> <span class="badge bg-danger ms-3 fs-6 text-end">{{ $losts->count() }}</span> </p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-fill">
+                                    <h4 class="mb-0 text-info">RFQ Status</h4>
+                                    {{-- <span class="text-muted">{{date('d M , Y')}}</span> --}}
+                                </div>
+                                <div class="flex-fill">
+                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Pending : </span> <span class="badge bg-warning ms-3 fs-6 text-end">{{ $rfqs->count() }}</span> </p>
+                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Quoted : </span> <span class="badge bg-success ms-3 fs-6 text-end">{{ $quoteds->count() }}</span> </p>
+                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Failed : </span> <span class="badge bg-danger ms-3 fs-6 text-end">{{ $losts->count() }}</span> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card">
+                            <div class="card-header py-2">
+                                <h6 class="card-title mb-0">Notifications</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="flex-fill">
+                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Pending : </span> <span class="badge bg-warning ms-3 fs-6 text-end">{{ $rfqs->count() }}</span> </p>
+                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Quoted : </span> <span class="badge bg-success ms-3 fs-6 text-end">{{ $quoteds->count() }}</span> </p>
+                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Failed : </span> <span class="badge bg-danger ms-3 fs-6 text-end">{{ $losts->count() }}</span> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-xl-3">
                         <div class="card card-flush shadow-sm">
                             <div class="card-body p-0">
@@ -809,7 +805,7 @@
             const toggleBtn = document.getElementById("toggleBtn");
             const defaultDiv = document.getElementById("defaultDiv");
             const hiddenDiv = document.getElementById("hiddenDiv");
-      
+
             toggleBtn.addEventListener("click", function () {
               // Toggle visibility classes
               defaultDiv.classList.toggle("hidden");

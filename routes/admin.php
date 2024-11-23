@@ -102,8 +102,6 @@ use App\Http\Controllers\Admin\SoftwareCommonController;
 use App\Http\Controllers\Admin\TechnologyDataController;
 use App\Http\Controllers\Attendance\BioMetricController;
 use App\Http\Controllers\Client\ClientSupportController;
-use App\Http\Controllers\Admin\AccountsManagerController;
-use App\Http\Controllers\Admin\AccountsPayableController;
 use App\Http\Controllers\Admin\DealTypeSettingController;
 use App\Http\Controllers\Admin\ExpenseCategoryController;
 use App\Http\Controllers\Admin\PortfolioClientController;
@@ -119,12 +117,10 @@ use App\Http\Controllers\Admin\HardwareInfoPageController;
 use App\Http\Controllers\Admin\LeaveApplicationController;
 use App\Http\Controllers\Admin\SoftwareInfoPageController;
 use App\Http\Controllers\Sales\SalesAchievementController;
-use App\Http\Controllers\Admin\AccountProfitLossController;
 use App\Http\Controllers\Admin\PortfolioCategoryController;
 use App\Http\Controllers\Admin\PortfolioChooseUsController;
 use App\Http\Controllers\FormBulider\FormBuilderController;
 use App\Http\Controllers\Marketing\MarketingDmarController;
-use App\Http\Controllers\Admin\AccountsReceivableController;
 use App\Http\Controllers\Admin\CommercialDocumentController;
 use App\Http\Controllers\Admin\EmployeeDepartmentController;
 use App\Http\Controllers\Admin\FrontendNavbarMenuController;
@@ -150,6 +146,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::post('/markread', [AdminController::class, 'markAsRead'])->name('markAsRead');
     // Admin Profile All Route
     Route::get('/dashboard',        [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
+    Route::get('attendance',        [ZktecoController::class, 'index'])->name('attendance');
     Route::get('/logout',           [AdminController::class, 'AdminDestroy'])->name('admin.logout');
     Route::get('/profile',          [AdminController::class, 'AdminProfile'])->name('admin.profile');
     // Route::post('/profile/store',   [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
@@ -419,9 +416,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'bulkEmail'                  => BulkEmailController::class,
             'office-location'            => OfficeLocationController::class,
             'sales-forcast'              => SalesForcastController::class,
-            'account-profit-loss'        => AccountProfitLossController::class,
-            'account-payable'            => AccountsPayableController::class,
-            'account-receivable'         => AccountsReceivableController::class,
             'purchase'                   => PurchaseController::class,
             'sales-profit-loss'          => SalesProfitLossController::class,
             'salesTeamTarget'            => SalesTeamTargetController::class,
@@ -438,7 +432,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'marketing-dmar'             => MarketingDmarController::class,
             'notification'               => NotificationController::class,
             'technology-data'            => TechnologyDataController::class,
-            'accounts-manager'           => AccountsManagerController::class,
             'knowledge'                  => KnowledgeController::class,
             'presentation'               => PresentationController::class,
             'show-case-video'            => ShowCaseVideoController::class,
@@ -490,7 +483,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'hardware-common-page'      => HardwareCommonController::class, // done
 
             'training-page'             => TrainingPageController::class, // done
-            'banking'                   => BankingController::class, // allmost - pending
             'tax-vat'                   => TaxVatController::class, // done
             'expense-category'          => ExpenseCategoryController::class, // done
             'frontend-menu-builder'     => FrontendMenuBuilderController::class, //pending
@@ -580,7 +572,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::get('supply-chain',  [AdminController::class, 'supplyChain'])->name('supplychain');
     Route::get('noticeboard',  [NoticeController::class, 'noticeboard'])->name('noticeboard');
-    Route::get('attendance',  [ZktecoController::class, 'index'])->name('attendance');
+
     // Route::get('attendance',  [ControllersZktecoController::class, 'leaveHistorys'])->name('attendance');
 
     //Assign Roles to Sales Manager
