@@ -29,7 +29,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="flex-fill">
                                     <h4 class="mb-0 text-info">Total RFQs</h4>
-                                    <span class="text-muted">{{date('d M , Y')}}</span>
+                                    <span class="text-muted">{{ date('d M , Y') }}</span>
                                 </div>
 
                                 <h1 class="ms-3 mb-0">{{ $rfq_count }}</h1>
@@ -44,159 +44,52 @@
                                     {{-- <span class="text-muted">{{date('d M , Y')}}</span> --}}
                                 </div>
                                 <div class="flex-fill">
-                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Pending : </span> <span class="badge bg-warning ms-3 fs-6 text-end">{{ $rfqs->count() }}</span> </p>
-                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Quoted : </span> <span class="badge bg-success ms-3 fs-6 text-end">{{ $quoteds->count() }}</span> </p>
-                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Failed : </span> <span class="badge bg-danger ms-3 fs-6 text-end">{{ $losts->count() }}</span> </p>
+                                    <p class="m-0 d-flex justify-content-between mb-2">
+                                        <span class="fw-bolder">Pending :</span>
+                                        <span class="badge bg-warning ms-3 fs-6 text-end">{{ $rfqs->count() }}</span>
+                                    </p>
+                                    <p class="m-0 d-flex justify-content-between mb-2">
+                                        <span class="fw-bolder">Quoted :</span>
+                                        <span class="badge bg-success ms-3 fs-6 text-end">{{ $quoteds->count() }}</span>
+                                    </p>
+                                    <p class="m-0 d-flex justify-content-between mb-2">
+                                        <span class="fw-bolder">Failed :</span>
+                                        <span class="badge bg-danger ms-3 fs-6 text-end">{{ $losts->count() }}</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="card card-body">
-                            <div class="d-flex align-items-center">
-                                <div class="flex-fill">
-                                    <h4 class="mb-0 text-info">RFQ Status</h4>
-                                    {{-- <span class="text-muted">{{date('d M , Y')}}</span> --}}
-                                </div>
-                                <div class="flex-fill">
-                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Pending : </span> <span class="badge bg-warning ms-3 fs-6 text-end">{{ $rfqs->count() }}</span> </p>
-                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Quoted : </span> <span class="badge bg-success ms-3 fs-6 text-end">{{ $quoteds->count() }}</span> </p>
-                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Failed : </span> <span class="badge bg-danger ms-3 fs-6 text-end">{{ $losts->count() }}</span> </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="col-sm-6 col-xl-3">
                         <div class="card">
                             <div class="card-header py-2">
                                 <h6 class="card-title mb-0">Notifications</h6>
                             </div>
                             <div class="card-body">
-                                <div class="flex-fill">
-                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Pending : </span> <span class="badge bg-warning ms-3 fs-6 text-end">{{ $rfqs->count() }}</span> </p>
-                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Quoted : </span> <span class="badge bg-success ms-3 fs-6 text-end">{{ $quoteds->count() }}</span> </p>
-                                    <p class="m-0 d-flex justify-content-between mb-2"><span class="fw-bolder">Failed : </span> <span class="badge bg-danger ms-3 fs-6 text-end">{{ $losts->count() }}</span> </p>
+                                <div class="">
+                                    {{-- @if ($leave_applications->count() > 0)
+                                        @foreach ($leave_applications as $leave_application)
+                                            @if ($leave_application->status === 'pending')
+                                                <p class="mb-2 p-0">
+                                                    <a
+                                                        href="{{ route('leave-application.edit', $leave_application->id) }}">
+                                                        <i class="fa-solid fa-bell ammount rounded-1 pe-2 me-2"></i>{{ $leave_application->name }}
+                                                        has applied for a leave.
+                                                    </a>
+                                                </p>
+                                            @endif
+                                        @endforeach
+                                    @else --}}
+                                    <div class="row">
+                                        <h5 class="text-center mb-0 fs-6">No RFQ Notification</h5>
+                                    </div>
+                                    {{-- @endif --}}
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-xl-3">
-                        <div class="card card-flush shadow-sm">
-                            <div class="card-body p-0">
-                                <div class="d-flex flex-stack justify-content-between">
-                                    <div class="d-flex align-items-center me-3 p-8 w-50 rounded-3">
-                                        <a href="">
-                                            <span class="bg-light-primary rounded-3 p-3 me-3"><i
-                                                    class="fa-solid text-primary fa-bell fs-3"
-                                                    aria-hidden="true"></i></span>
-                                        </a>
-                                        <div class="flex-grow-1">
-                                            <a href=""> </a><a href="#"
-                                                class="text-gray-800 fs-5 fw-bold lh-0">Notification
-                                                <span class="text-gray-500 fw-semibold d-block fs-6 pt-4">Quick
-                                                    Status</span>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex-column d-flex w-50">
-                                        <div class="d-flex align-items-center justify-content-between pe-3">
-                                            <span class="text-gray-500 fw-semibold">
-                                                Deals</span>
-                                            <span class="fw-semibold ms-3 px-2 text-primary rounded-2">
-                                                5
-                                            </span>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between pe-3 pt-2">
-                                            <span class="text-gray-500 fw-semibold">
-                                                Bypass</span>
-                                            <span class="fw-semibold ms-3 px-2 text-primary rounded-2">
-                                                5
-                                            </span>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between pe-3 pt-2">
-                                            <span class="text-gray-500 fw-semibold">
-                                                Others</span>
-                                            <span class="fw-semibold ms-3 px-2 text-primary rounded-2">
-                                                5
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3">
-                        <div class="card card-flush shadow-sm">
-                            <div class="card-body p-0">
-                                <div class="d-flex flex-stack justify-content-between">
-                                    <div class="d-flex align-items-center me-3 p-8 w-50 rounded-3">
-                                        <a href="">
-                                            <span class="bg-light-primary rounded-3 p-3 me-3"><i
-                                                    class="fa-solid text-primary fa-bullseye fs-3"
-                                                    aria-hidden="true"></i></span>
-                                        </a>
-                                        <div class="flex-grow-1">
-                                            <a href=""> </a><a href="#"
-                                                class="text-gray-800 fs-5 fw-bold lh-0">RFQ
-                                                <span class="text-gray-500 fw-semibold d-block fs-6 pt-4">Query</span>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex-column d-flex w-50 me-3">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <select class="form-select form-select-sm select2-hidden-accessible"
-                                                data-control="select2" data-placeholder="Select an option"
-                                                data-select2-id="select2-data-7-p1y4" tabindex="-1" aria-hidden="true">
-                                                <option data-select2-id="select2-data-9-glrz">Select Country</option>
-                                                <option value="1">Option 1</option>
-                                                <option value="2">Option 2</option>
-                                            </select><span class="select2 select2-container select2-container--bootstrap5"
-                                                dir="ltr" data-select2-id="select2-data-8-wgy0"
-                                                style="width: 100%;"><span class="selection"><span
-                                                        class="select2-selection select2-selection--single form-select form-select-sm"
-                                                        role="combobox" aria-haspopup="true" aria-expanded="false"
-                                                        tabindex="0" aria-disabled="false"
-                                                        aria-labelledby="select2-qk1g-container"
-                                                        aria-controls="select2-qk1g-container"><span
-                                                            class="select2-selection__rendered"
-                                                            id="select2-qk1g-container" role="textbox"
-                                                            aria-readonly="true" title="Select Country">Select
-                                                            Country</span><span class="select2-selection__arrow"
-                                                            role="presentation"><b
-                                                                role="presentation"></b></span></span></span><span
-                                                    class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between pt-2">
-                                            <select class="form-select form-select-sm select2-hidden-accessible"
-                                                data-control="select2" data-placeholder="Select an option"
-                                                data-select2-id="select2-data-10-6660" tabindex="-1" aria-hidden="true">
-                                                <option data-select2-id="select2-data-12-36kh">Select Sales Man</option>
-                                                <option value="1">Option 1</option>
-                                                <option value="2">Option 2</option>
-                                            </select><span class="select2 select2-container select2-container--bootstrap5"
-                                                dir="ltr" data-select2-id="select2-data-11-0pla"
-                                                style="width: 100%;"><span class="selection"><span
-                                                        class="select2-selection select2-selection--single form-select form-select-sm"
-                                                        role="combobox" aria-haspopup="true" aria-expanded="false"
-                                                        tabindex="0" aria-disabled="false"
-                                                        aria-labelledby="select2-abcd-container"
-                                                        aria-controls="select2-abcd-container"><span
-                                                            class="select2-selection__rendered"
-                                                            id="select2-abcd-container" role="textbox"
-                                                            aria-readonly="true" title="Select Sales Man">Select Sales
-                                                            Man</span><span class="select2-selection__arrow"
-                                                            role="presentation"><b
-                                                                role="presentation"></b></span></span></span><span
-                                                    class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-xl-12 mb-5 mb-xl-3 ps-3" data-select2-id="select2-data-127-jigx">
                     <div class="card card-flush h-xl-100 border" data-select2-id="select2-data-126-8c2i">
@@ -239,7 +132,8 @@
                                             <option value="b">2024</option>
                                             <option value="b">2025</option>
                                             <option value="b">2026</option>
-                                        </select><span class="select2 select2-container select2-container--bootstrap5"
+                                        </select>
+                                        <span class="select2 select2-container select2-container--bootstrap5"
                                             dir="ltr" data-select2-id="select2-data-14-4ffq"
                                             style="width: 100%;"><span class="selection"><span
                                                     class="select2-selection select2-selection--single form-select form-select-transparent text-graY-800 fs-base lh-1 fw-bold py-0 ps-3 w-auto"
@@ -719,7 +613,8 @@
                                                 class="page-link">1</a></li>
                                         <li class="paginate_button page-item next disabled" id="DataTables_Table_0_next">
                                             <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2"
-                                                tabindex="0" class="page-link"><i class="next"></i></a></li>
+                                                tabindex="0" class="page-link"><i class="next"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -783,36 +678,35 @@
         </script>
         <script>
             $(document).ready(function() {
-            $(".data_table").DataTable({
-              language: {
-                lengthMenu: "Show _MENU_",
-              },
-              dom:
-                "<'row mb-2'" +
-                "<'col-sm-6 d-flex align-items-center justify-conten-start dt-toolbar'l>" +
-                "<'col-sm-6 d-flex align-items-center justify-content-end dt-toolbar'f>" +
-                ">" +
-                "<'table-responsive'tr>" +
-                "<'row'" +
-                "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
-                "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
-                ">",
+                $(".data_table").DataTable({
+                    language: {
+                        lengthMenu: "Show _MENU_",
+                    },
+                    dom: "<'row mb-2'" +
+                        "<'col-sm-6 d-flex align-items-center justify-conten-start dt-toolbar'l>" +
+                        "<'col-sm-6 d-flex align-items-center justify-content-end dt-toolbar'f>" +
+                        ">" +
+                        "<'table-responsive'tr>" +
+                        "<'row'" +
+                        "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
+                        "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
+                        ">",
+                });
             });
-            });
-          </script>
-          <script>
+        </script>
+        <script>
             // JavaScript for toggling div visibility
             const toggleBtn = document.getElementById("toggleBtn");
             const defaultDiv = document.getElementById("defaultDiv");
             const hiddenDiv = document.getElementById("hiddenDiv");
 
-            toggleBtn.addEventListener("click", function () {
-              // Toggle visibility classes
-              defaultDiv.classList.toggle("hidden");
-              defaultDiv.classList.toggle("visible");
-              hiddenDiv.classList.toggle("hidden");
-              hiddenDiv.classList.toggle("visible");
+            toggleBtn.addEventListener("click", function() {
+                // Toggle visibility classes
+                defaultDiv.classList.toggle("hidden");
+                defaultDiv.classList.toggle("visible");
+                hiddenDiv.classList.toggle("hidden");
+                hiddenDiv.classList.toggle("visible");
             });
-          </script>
+        </script>
     @endpush
 @endonce

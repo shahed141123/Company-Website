@@ -334,7 +334,290 @@
                                     </div>
                                 </div>
                             </div>
-                            
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div>
+                                        <h6 class="m-0 p-1 text-center card-main-title mb-2 text-black"
+                                            style="background-color: #f3f3f3 !important;">All Task</h6>
+                                    </div>
+                                    <div class="card rounded-0"
+                                        style="height: 22.2rem; overflow: auto;background: #f3f3ff;">
+                                        <div class="card-body">
+                                            <ul class="ms-0 ps-0" style="list-style-type: none">
+                                                <li class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="pe-3">
+
+                                                            <i class="fa-solid fa-check badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                New project created : <a href="#">[NGen IT Admin]</a>
+                                                            </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                        font-weight: 600;
+                                                        color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-muted ps-1 pe-1"> - </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1"> : </p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1"> : </p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pe-3">
+                                                        <i class="fa-solid fa-check dash-icons"></i>
+                                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                                    </div>
+                                                </li>
+                                                <li style="padding-left: 14px">|</li>
+                                                <li class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="pe-3">
+
+                                                            <i class="fa-solid fa-check badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                New project created : <a href="#">[NGen IT Admin]</a>
+                                                            </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                        font-weight: 600;
+                                                        color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-muted ps-1 pe-1"> - </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pe-3">
+                                                        <i class="fa-solid fa-check dash-icons"></i>
+                                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                                    </div>
+                                                </li>
+                                                <li style="padding-left: 14px">|</li>
+                                                <li class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="pe-3">
+
+                                                            <i class="fa-solid fa-check badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                New project created : <a href="#">[NGen IT Admin]</a>
+                                                            </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                        font-weight: 600;
+                                                        color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-muted ps-1 pe-1"> - </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pe-3">
+                                                        <i class="fa-solid fa-check dash-icons"></i>
+                                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                                    </div>
+                                                </li>
+                                                <li style="padding-left: 14px">|</li>
+                                                <li class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="pe-3">
+
+                                                            <i class="fa-solid fa-check badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                New project created : <a href="#">[NGen IT Admin]</a>
+                                                            </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                        font-weight: 600;
+                                                        color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-muted ps-1 pe-1"> - </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pe-3">
+                                                        <i class="fa-solid fa-check dash-icons"></i>
+                                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                                    </div>
+                                                </li>
+                                                <li style="padding-left: 14px">|</li>
+                                                <li class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="pe-3">
+
+                                                            <i class="fa-solid fa-check badge-icons"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="p-0 m-0" style="font-size: 14px;color: #3b3f5c">
+                                                                New project created : <a href="#">[NGen IT Admin]</a>
+                                                            </h6>
+                                                            <p class="p-0 m-0"
+                                                                style="font-size: 12px;
+                                                        font-weight: 600;
+                                                        color: #888ea8">
+                                                                07 May, 2022</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <p
+                                                                class="text-white mb-0 d-flex justify-content-center align-items-center">
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                                <span class="text-muted ps-1 pe-1"> - </span>
+                                                                <span class="task-calander p-1 px-2 rounded-1">
+                                                                    <i class="fa-solid fa-calendar-days pe-2"></i>
+                                                                    25/02/2024
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">14</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">10</p>
+                                                                <p class="mb-0 ps-1">:</p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <p class="mb-0 time-left-count">25</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pe-3">
+                                                        <i class="fa-solid fa-check dash-icons"></i>
+                                                        <i class="fa-solid fa-tower-observation dash-icons"></i>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4">
                             <h6 class="m-0 p-1 text-center card-main-title mb-2 text-black"
