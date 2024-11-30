@@ -12,7 +12,8 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('rfq.add') }}" class="p-3" method="POST">
+                        <form action="{{ route('rfqCreate') }}" method="post"
+                                enctype="multipart/form-data">
                             @csrf
                             <!-- Step 1: Project Details -->
                             <div id="projectStep" class="p-5">
