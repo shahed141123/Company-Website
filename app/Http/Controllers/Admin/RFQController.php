@@ -225,7 +225,7 @@ class RFQController extends Controller
 
     public function rfqCreate(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $data['deal_type'] = 'new';
         $today = now()->format('dmY');
         $lastCode = RFQ::where('rfq_code', 'like', "RFQ-$today-%")->latest('id')->first();
