@@ -260,9 +260,9 @@ class RFQController extends Controller
         $client_type = $client ? (in_array($client->user_type, ['client', 'partner']) ? $client->user_type : 'anonymous') : 'anonymous';
 
         // Handle file upload
-        $imagePath = $request->hasFile('image') ?
-            Helper::singleImageUpload($request->file('image'), storage_path('app/public/'), 450, 350) :
-            ['status' => 0];
+        // $imagePath = $request->hasFile('image') ?
+        //     Helper::singleImageUpload($request->file('image'), storage_path('app/public/'), 450, 350) :
+        //     ['status' => 0];
 
         // Save RFQ
         $rfq_id = RFQ::insertGetId([
@@ -287,7 +287,7 @@ class RFQController extends Controller
             'delivery_location' => $request->delivery_location,
             'budget'            => $request->budget,
             'project_status'    => $request->project_status,
-            'image'             => $imagePath['status'] == 1 ? $imagePath['file_name']: null,
+            // 'image'             => $imagePath['status'] == 1 ? $imagePath['file_name']: null,
             'status'            => 'rfq_created',
             'deal_type'         => 'new',
             'created_at'        => now(),
@@ -320,12 +320,25 @@ class RFQController extends Controller
             User::whereIn('email', $user_emails)->get(),
             new RfqCreate($name, $rfq_code)
         );
-
+        $productNames = '';
+        foreach ($request->product_name as $key => $item) {
+            $productNames .= ($key + 1) . '. ' . $item;
+            if ($key < count($request->product_name) - 1) {
+                $productNames .= ', ';
+            }
+        }
+        $qty = '';
+        foreach ($request->qty as $key => $item) {
+            $productNames .= ($key + 1) . '. ' . $item;
+            if ($key < count($request->qty) - 1) {
+                $productNames .= ', ';
+            }
+        }
         $data = [
             'name'         => $name,
-            'product_name' => $request->product_name,
+            'product_name' => $productNames,
             'phone'        => $request->phone,
-            'qty'          => $request->qty,
+            'qty'          => $qty,
             'company_name' => $request->company_name,
             'address'      => $request->address,
             'message'      => $request->message,
