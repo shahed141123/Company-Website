@@ -87,133 +87,32 @@
                     </div>
 
                 </div>
-                <div class="row mb-5">
-                    <div class="card" data-select2-id="select2-data-126-8c2i">
+                <div class="row mb-2">
+                    <div class="card w-lg-75 m-auto">
                         <div class="card-header">
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold text-gray-800">RFQ Filtered Details</span>
-                                <span class="text-gray-500 mt-1 fw-semibold fs-6">Check All RFQ History Here!</span>
-                            </h3>
-                            <div class="card-toolbar">
-                                <ul class="nav nav-tabs nav-line-tabs fs-6 rfq-tabs">
-                                    <li class="nav-item">
-                                        <a class="nav-link active px-4" data-bs-toggle="tab"
-                                            href="#kt_tab_pane_1">Pending</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link px-4" data-bs-toggle="tab" href="#kt_tab_pane_2">Quoted</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link px-4" data-bs-toggle="tab" href="#kt_tab_pane_3">Failed</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link px-4" data-bs-toggle="tab" href="#kt_tab_pane_4">Approved</a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="card-toolbar">
-                                <div class="d-flex flex-stack flex-wrap gap-4">
-                                    <div class="d-flex align-items-center fw-bold">
-                                        <select
-                                            class="form-select form-select-transparent text-graY-800 fs-base lh-1 fw-bold py-0 ps-3 w-auto select2-hidden-accessible"
-                                            data-control="select2" data-hide-search="true"
-                                            data-dropdown-css-class="w-150px" data-placeholder="Select an option"
-                                            data-select2-id="select2-data-13-e52a" tabindex="-1" aria-hidden="true">
-                                            <option></option>
-                                            <option value="Year" selected="" data-select2-id="select2-data-15-f5r7">
-                                                Year</option>
-                                            <option value="a">2022</option>
-                                            <option value="b">2023</option>
-                                            <option value="b">2024</option>
-                                            <option value="b">2025</option>
-                                            <option value="b">2026</option>
-                                        </select>
-                                        <span class="select2 select2-container select2-container--bootstrap5"
-                                            dir="ltr" data-select2-id="select2-data-14-4ffq"
-                                            style="width: 100%;"><span class="selection"><span
-                                                    class="select2-selection select2-selection--single form-select form-select-transparent text-graY-800 fs-base lh-1 fw-bold py-0 ps-3 w-auto"
-                                                    role="combobox" aria-haspopup="true" aria-expanded="false"
-                                                    tabindex="0" aria-disabled="false"
-                                                    aria-labelledby="select2-cjzt-container"
-                                                    aria-controls="select2-cjzt-container"><span
-                                                        class="select2-selection__rendered" id="select2-cjzt-container"
-                                                        role="textbox" aria-readonly="true"
-                                                        title="Year">Year</span><span class="select2-selection__arrow"
-                                                        role="presentation"><b
-                                                            role="presentation"></b></span></span></span><span
-                                                class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                    </div>
-                                    <div class="d-flex align-items-center fw-bold">
-                                        <select
-                                            class="form-select form-select-transparent text-gray-900 fs-7 lh-1 fw-bold py-0 ps-3 w-auto select2-hidden-accessible"
-                                            data-control="select2" data-hide-search="true"
-                                            data-dropdown-css-class="w-150px" data-placeholder="Select an option"
-                                            data-kt-table-widget-4="filter_status" data-select2-id="select2-data-16-c6nq"
-                                            tabindex="-1" aria-hidden="true">
-                                            <option></option>
-                                            <option value="Month" selected="" data-select2-id="select2-data-18-0kz4">
-                                                Month</option>
-                                            <option value="Shipped">Shipped</option>
-                                            <option value="Confirmed">Confirmed</option>
-                                            <option value="Rejected">Rejected</option>
-                                            <option value="Pending">Pending</option>
-                                        </select><span class="select2 select2-container select2-container--bootstrap5"
-                                            dir="ltr" data-select2-id="select2-data-17-mufk"
-                                            style="width: 100%;"><span class="selection"><span
-                                                    class="select2-selection select2-selection--single form-select form-select-transparent text-gray-900 fs-7 lh-1 fw-bold py-0 ps-3 w-auto"
-                                                    role="combobox" aria-haspopup="true" aria-expanded="false"
-                                                    tabindex="0" aria-disabled="false"
-                                                    aria-labelledby="select2-i2sj-container"
-                                                    aria-controls="select2-i2sj-container"><span
-                                                        class="select2-selection__rendered" id="select2-i2sj-container"
-                                                        role="textbox" aria-readonly="true"
-                                                        title="Month">Month</span><span class="select2-selection__arrow"
-                                                        role="presentation"><b
-                                                            role="presentation"></b></span></span></span><span
-                                                class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                    </div>
-                                    <div class="d-flex align-items-center fw-bold">
-                                        <select
-                                            class="form-select form-select-transparent text-gray-900 fs-7 lh-1 fw-bold py-0 ps-3 w-auto select2-hidden-accessible"
-                                            data-control="select2" data-hide-search="true"
-                                            data-dropdown-css-class="w-150px" data-placeholder="Select an option"
-                                            data-kt-table-widget-4="filter_status" data-select2-id="select2-data-19-gh0e"
-                                            tabindex="-1" aria-hidden="true">
-                                            <option></option>
-                                            <option value="Week" selected="" data-select2-id="select2-data-21-pt2y">
-                                                Week</option>
-                                            <option value="Shipped">Shipped</option>
-                                            <option value="Confirmed">Confirmed</option>
-                                            <option value="Rejected">Rejected</option>
-                                            <option value="Pending">Pending</option>
-                                        </select><span class="select2 select2-container select2-container--bootstrap5"
-                                            dir="ltr" data-select2-id="select2-data-20-s15q"
-                                            style="width: 100%;"><span class="selection"><span
-                                                    class="select2-selection select2-selection--single form-select form-select-transparent text-gray-900 fs-7 lh-1 fw-bold py-0 ps-3 w-auto"
-                                                    role="combobox" aria-haspopup="true" aria-expanded="false"
-                                                    tabindex="0" aria-disabled="false"
-                                                    aria-labelledby="select2-2qz4-container"
-                                                    aria-controls="select2-2qz4-container"><span
-                                                        class="select2-selection__rendered" id="select2-2qz4-container"
-                                                        role="textbox" aria-readonly="true"
-                                                        title="Week">Week</span><span class="select2-selection__arrow"
-                                                        role="presentation"><b
-                                                            role="presentation"></b></span></span></span><span
-                                                class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                    </div>
-                                    <div class="position-relative my-1">
-                                        <i class="fa-solid fa-magnifying-glass fs-3 position-absolute top-50 translate-middle-y ms-4"
-                                            aria-hidden="true"></i>
-                                        <input type="text" data-kt-table-widget-4="search"
-                                            class="form-control w-150px fs-7 ps-12" placeholder="Search">
-                                    </div>
-                                    <div>
-                                        <a href="javascript:void(0)" class="btn btn-sm fw-bold btn-primary"
-                                            id="toggleBtn">
-                                            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <h3 class="card-title align-items-start flex-column">
+                                        <span class="card-label fw-bold text-gray-800">RFQ Filtered Details</span>
+                                        <span class="text-gray-500 mt-1 fw-semibold fs-6">Check All RFQ History Here!</span>
+                                    </h3>
+                                </div>
+                                <div class="col-lg-7 text-end">
+                                    <ul class="nav nav-tabs nav-line-tabs fs-6 rfq-tabs border-0">
+                                        <li class="nav-item">
+                                            <a class="nav-link active px-4" data-bs-toggle="tab"
+                                                href="#kt_tab_pane_1">Pending</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link px-4" data-bs-toggle="tab" href="#kt_tab_pane_2">Quoted</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link px-4" data-bs-toggle="tab" href="#kt_tab_pane_3">Failed</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link px-4" data-bs-toggle="tab" href="#kt_tab_pane_4">Approved</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -229,144 +128,10 @@
                                             <!--begin::Block-->
                                             <div class="py-5">
                                                 <div class="d-flex flex-column flex-md-row rounded">
-                                                    <ul
-                                                        class="nav nav-tabs nav-pills flex-row border-0 flex-md-column me-5 mb-3 mb-md-0 fs-6 min-w-lg-250px">
+                                                    <ul class="nav nav-tabs nav-pills border-0">
                                                         <li class="nav-item w-100 me-0 mb-md-2">
                                                             <a class="nav-link w-100 active btn btn-flex btn-active-primary border"
                                                                 data-bs-toggle="tab" href="#kt_vtab_pane_4">
-                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
-                                                                    aria-hidden="true"></i>
-                                                                <div class="row w-100">
-                                                                    <div class="col-sm-12">
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                                            <span class="fs-7">#14568RFQ</span>
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                                            <span class="fs-7">05:00pm</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="nav-item w-100 me-0 mb-md-2">
-                                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
-                                                                data-bs-toggle="tab" href="#kt_vtab_pane_5">
-                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
-                                                                    aria-hidden="true"></i>
-                                                                <div class="row w-100">
-                                                                    <div class="col-sm-12">
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                                            <span class="fs-7">#14568RFQ</span>
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                                            <span class="fs-7">05:00pm</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="nav-item w-100 mb-md-2">
-                                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
-                                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
-                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
-                                                                    aria-hidden="true"></i>
-                                                                <div class="row w-100">
-                                                                    <div class="col-sm-12">
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                                            <span class="fs-7">#14568RFQ</span>
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                                            <span class="fs-7">05:00pm</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="nav-item w-100 mb-md-2">
-                                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
-                                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
-                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
-                                                                    aria-hidden="true"></i>
-                                                                <div class="row w-100">
-                                                                    <div class="col-sm-12">
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                                            <span class="fs-7">#14568RFQ</span>
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                                            <span class="fs-7">05:00pm</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="nav-item w-100 mb-md-2">
-                                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
-                                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
-                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
-                                                                    aria-hidden="true"></i>
-                                                                <div class="row w-100">
-                                                                    <div class="col-sm-12">
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                                            <span class="fs-7">#14568RFQ</span>
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                                            <span class="fs-7">05:00pm</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="nav-item w-100 mb-md-2">
-                                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
-                                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
-                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
-                                                                    aria-hidden="true"></i>
-                                                                <div class="row w-100">
-                                                                    <div class="col-sm-12">
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                                            <span class="fs-7">#14568RFQ</span>
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                                            <span class="fs-7">05:00pm</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="nav-item w-100 mb-md-2">
-                                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
-                                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
-                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
-                                                                    aria-hidden="true"></i>
-                                                                <div class="row w-100">
-                                                                    <div class="col-sm-12">
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                                            <span class="fs-7">#14568RFQ</span>
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-between">
-                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                                            <span class="fs-7">05:00pm</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="nav-item w-100 mb-md-2">
-                                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
-                                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
                                                                 <i class="fa-regular fa-file fs-2 text-primary pe-3"
                                                                     aria-hidden="true"></i>
                                                                 <div class="row w-100">
@@ -485,137 +250,6 @@
                                             <h1>View</h1>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-12 hidden-div hidden" id="hiddenDiv">
-                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <div class="row mb-2">
-                            <div class="col-sm-6 d-flex align-items-center justify-conten-start dt-toolbar">
-                                <div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select
-                                            name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
-                                            class="form-select form-select-sm form-select-solid">
-                                            <option value="10">10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                        </select></label></div>
-                            </div>
-                            <div class="col-sm-6 d-flex align-items-center justify-content-end dt-toolbar">
-                                <div id="DataTables_Table_0_filter" class="dataTables_filter"><label>Search:<input
-                                            type="search" class="form-control form-control-sm form-control-solid"
-                                            placeholder="" aria-controls="DataTables_Table_0"></label></div>
-                            </div>
-                        </div>
-                        <div class="table-responsive">
-                            <table
-                                class="data_table table table-striped table-row-bordered gy-5 gs-7 border rounded dataTable no-footer"
-                                id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
-                                <thead>
-                                    <tr class="fw-bold fs-6 text-gray-800 px-7">
-                                        <th class="sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0"
-                                            rowspan="1" colspan="1" aria-sort="ascending"
-                                            aria-label="Sl: activate to sort column descending" style="width: 0px;">Sl
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                            rowspan="1" colspan="1"
-                                            aria-label="RFQ Code: activate to sort column ascending" style="width: 0px;">
-                                            RFQ Code</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                            rowspan="1" colspan="1"
-                                            aria-label="Company Name: activate to sort column ascending"
-                                            style="width: 0px;">Company Name</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                            rowspan="1" colspan="1"
-                                            aria-label="Client Name: activate to sort column ascending"
-                                            style="width: 0px;">Client Name</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                            rowspan="1" colspan="1"
-                                            aria-label="Created At: activate to sort column ascending"
-                                            style="width: 0px;">Created At</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                            rowspan="1" colspan="1"
-                                            aria-label="Assign To: activate to sort column ascending" style="width: 0px;">
-                                            Assign To</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                            rowspan="1" colspan="1"
-                                            aria-label="Status: activate to sort column ascending" style="width: 0px;">
-                                            Status</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                            rowspan="1" colspan="1"
-                                            aria-label="Contry: activate to sort column ascending" style="width: 0px;">
-                                            Contry</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                            rowspan="1" colspan="1"
-                                            aria-label="Details: activate to sort column ascending" style="width: 0px;">
-                                            Details</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                            rowspan="1" colspan="1"
-                                            aria-label="Quick View: activate to sort column ascending"
-                                            style="width: 0px;">Quick View</th>
-                                        <th class="text-end sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                            rowspan="1" colspan="1"
-                                            aria-label="
-                        Action
-                      : activate to sort column ascending"
-                                            style="width: 0px;">
-                                            Action
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <tr class="odd">
-                                        <td class="sorting_1">01</td>
-                                        <td>#RFQ1558</td>
-                                        <td>NGen It</td>
-                                        <td>Robert Hue</td>
-                                        <td>2024-01-06</td>
-                                        <td>Akash Hossain</td>
-                                        <td>Pending</td>
-                                        <td>United State</td>
-                                        <td>
-                                            Assigned
-                                        </td>
-                                        <td class="text-center">
-
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="" class="pe-3"><i class="fa-solid fa-eye"
-                                                    aria-hidden="true"></i></a>
-                                            <a href="" class="pe-3"><i class="fa-solid fa-eye"
-                                                    aria-hidden="true"></i></a>
-                                            <a href="" class="pe-3"><i class="fa-solid fa-eye"
-                                                    aria-hidden="true"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="row">
-                            <div
-                                class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start">
-                                <div class="dataTables_info" id="DataTables_Table_0_info" role="status"
-                                    aria-live="polite">Showing 1 to 1 of 1 records</div>
-                            </div>
-                            <div
-                                class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
-                                <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
-                                    <ul class="pagination">
-                                        <li class="paginate_button page-item previous disabled"
-                                            id="DataTables_Table_0_previous"><a href="#"
-                                                aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0"
-                                                class="page-link"><i class="previous"></i></a></li>
-                                        <li class="paginate_button page-item active"><a href="#"
-                                                aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0"
-                                                class="page-link">1</a></li>
-                                        <li class="paginate_button page-item next disabled" id="DataTables_Table_0_next">
-                                            <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2"
-                                                tabindex="0" class="page-link"><i class="next"></i></a>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
