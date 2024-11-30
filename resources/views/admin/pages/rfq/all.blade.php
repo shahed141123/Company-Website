@@ -220,7 +220,275 @@
                     </div>
                 </div>
                 <div id="defaultDiv" class="row">
-                    div
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="kt_tab_pane_1" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <!--begin::Block-->
+                                            <div class="py-5">
+                                                <div class="d-flex flex-column flex-md-row rounded">
+                                                    <ul
+                                                        class="nav nav-tabs nav-pills flex-row border-0 flex-md-column me-5 mb-3 mb-md-0 fs-6 min-w-lg-250px">
+                                                        <li class="nav-item w-100 me-0 mb-md-2">
+                                                            <a class="nav-link w-100 active btn btn-flex btn-active-primary border"
+                                                                data-bs-toggle="tab" href="#kt_vtab_pane_4">
+                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                                    aria-hidden="true"></i>
+                                                                <div class="row w-100">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                            <span class="fs-7">#14568RFQ</span>
+                                                                        </div>
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                            <span class="fs-7">05:00pm</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item w-100 me-0 mb-md-2">
+                                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
+                                                                data-bs-toggle="tab" href="#kt_vtab_pane_5">
+                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                                    aria-hidden="true"></i>
+                                                                <div class="row w-100">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                            <span class="fs-7">#14568RFQ</span>
+                                                                        </div>
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                            <span class="fs-7">05:00pm</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item w-100 mb-md-2">
+                                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
+                                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
+                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                                    aria-hidden="true"></i>
+                                                                <div class="row w-100">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                            <span class="fs-7">#14568RFQ</span>
+                                                                        </div>
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                            <span class="fs-7">05:00pm</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item w-100 mb-md-2">
+                                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
+                                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
+                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                                    aria-hidden="true"></i>
+                                                                <div class="row w-100">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                            <span class="fs-7">#14568RFQ</span>
+                                                                        </div>
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                            <span class="fs-7">05:00pm</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item w-100 mb-md-2">
+                                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
+                                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
+                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                                    aria-hidden="true"></i>
+                                                                <div class="row w-100">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                            <span class="fs-7">#14568RFQ</span>
+                                                                        </div>
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                            <span class="fs-7">05:00pm</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item w-100 mb-md-2">
+                                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
+                                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
+                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                                    aria-hidden="true"></i>
+                                                                <div class="row w-100">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                            <span class="fs-7">#14568RFQ</span>
+                                                                        </div>
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                            <span class="fs-7">05:00pm</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item w-100 mb-md-2">
+                                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
+                                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
+                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                                    aria-hidden="true"></i>
+                                                                <div class="row w-100">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                            <span class="fs-7">#14568RFQ</span>
+                                                                        </div>
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                            <span class="fs-7">05:00pm</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item w-100 mb-md-2">
+                                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
+                                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
+                                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"
+                                                                    aria-hidden="true"></i>
+                                                                <div class="row w-100">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">Brothers IT</span>
+                                                                            <span class="fs-7">#14568RFQ</span>
+                                                                        </div>
+                                                                        <div class="d-flex justify-content-between">
+                                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
+                                                                            <span class="fs-7">05:00pm</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+
+                                                    <div class="tab-content w-100 border rounded" id="myTabContent">
+                                                        <div class="tab-pane fade show active" id="kt_vtab_pane_4"
+                                                            role="tabpanel">
+                                                            <div class="d-flex flex-column justify-content-center align-items-center"
+                                                                style="height: 50vh;">
+                                                                <div class="text-center pb-5">
+                                                                    <h1 class="pb-5">View The RFQ</h1>
+                                                                    <p class="w-50 mx-auto">We invite you to submit a detailed
+                                                                        quote for the requested products/services. Please include
+                                                                        comprehensive pricing, payment terms, delivery schedules,
+                                                                        and any applicable discounts. Ensure that all relevant
+                                                                        specifications, warranties, and certifications are clearly
+                                                                        mentioned. We encourage you to provide the most competitive
+                                                                        offer while maintaining high standards of quality and
+                                                                        service. All quotations should be submitted by [due date].
+                                                                        Should you have any questions or need further clarification,
+                                                                        feel free to reach out to us.</p>
+                                                                </div>
+                                                                <div>
+                                                                    <button class="btn btn-primary me-2"><i
+                                                                            class="fa-solid fa-signs-post pe-2"
+                                                                            aria-hidden="true"></i>Bypass</button>
+                                                                    <button class="btn btn-primary"><i
+                                                                            class="fa-regular fa-handshake pe-2"
+                                                                            aria-hidden="true"></i> Deal</button>
+                                                                    <button class="btn btn-primary"><i
+                                                                            class="fa-regular fa-pen-to-square pe-2"
+                                                                            aria-hidden="true"></i>Edit</button>
+                                                                    <button class="btn btn-primary"><i
+                                                                            class="fa-solid fa-expand pe-2"
+                                                                            aria-hidden="true"></i>View</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="tab-pane fade" id="kt_vtab_pane_5" role="tabpanel">
+                                                            <p>Nulla est ullamco ut irure incididunt nulla
+                                                                Lorem Lorem minim irure officia enim
+                                                                reprehenderit. Magna duis labore cillum sint
+                                                                adipisicing exercitation ipsum. Nostrud ut
+                                                                anim non exercitation velit laboris fugiat
+                                                                cupidatat. Commodo esse dolore fugiat sint
+                                                                velit ullamco magna consequat voluptate
+                                                                minim amet aliquip ipsum aute laboris nisi.
+                                                                Labore labore veniam irure irure ipsum
+                                                                pariatur mollit magna in cupidatat dolore
+                                                                magna irure esse tempor ad mollit. Dolore
+                                                                commodo nulla minim amet ipsum officia
+                                                                consectetur amet ullamco voluptate nisi
+                                                                commodo ea sit eu.</p>
+                                                        </div>
+
+                                                        <div class="tab-pane fade" id="kt_vtab_pane_6" role="tabpanel">
+                                                            <p>
+                                                                Sint sit mollit irure quis est nostrud
+                                                                cillum consequat Lorem esse do quis dolor
+                                                                esse fugiat sunt do. Eu ex commodo veniam
+                                                                Lorem aliquip laborum occaecat qui Lorem
+                                                                esse mollit dolore anim cupidatat. eserunt
+                                                                officia id Lorem nostrud aute id commodo
+                                                                elit eiusmod enim irure amet eiusmod qui
+                                                                reprehenderit nostrud tempor. Fugiat ipsum
+                                                                excepteur in aliqua non et quis aliquip ad
+                                                                irure in labore cillum elit enim. Consequat
+                                                                aliquip incididunt ipsum et minim laborum
+                                                                laborum laborum et cillum labore. Deserunt
+                                                                adipisicing cillum id nulla minim nostrud
+                                                                labore eiusmod et amet.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end::Block-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="kt_tab_pane_2" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-xl-4">List</div>
+                                        <div class="col-xl-8">
+                                            <h1>View</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="kt_tab_pane_3" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-xl-4">List</div>
+                                        <div class="col-xl-8">
+                                            <h1>View</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="kt_tab_pane_4" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-xl-4">List</div>
+                                        <div class="col-xl-8">
+                                            <h1>View</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-xl-12 hidden-div hidden" id="hiddenDiv">
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
