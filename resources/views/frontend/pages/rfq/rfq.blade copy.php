@@ -258,7 +258,7 @@
                                                                         name="approximate_delivery_time"
                                                                         data-placeholder="Select Delivery Time"
                                                                         aria-label="Default select example">
-                                                                        <option></option>
+                                                                        <option value="">Approximate Delivery Time</option>
                                                                         <option value="less_one_month">Less Than One Month
                                                                         </option>
                                                                         <option value="two_month">Two Months</option>

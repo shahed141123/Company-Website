@@ -83,7 +83,7 @@
 
                     </li>
                 @endif
-                
+
                 @if (auth()->check() && in_array('site', json_decode(auth()->user()->department, true)))
                     <li class="nav-item nav-item-submenu {{ Route::current()->getName() == '' ? 'active' : '' }}">
                         <a href="" class="nav-link">
