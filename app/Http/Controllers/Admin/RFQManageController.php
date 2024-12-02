@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\Admin\QuotationProduct;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Admin\CommercialDocument;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class RFQManageController extends Controller
@@ -68,7 +69,7 @@ class RFQManageController extends Controller
         $data['countires']     = Country::all();
         $data['rfq_country']   = Country::where('country_name', 'LIKE', '%' . $data['rfq_details']->country . '%')->first();
         $data['sourcing']      = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->first();
-        $data['quotation']     = RfqQuotation::where('rfq_id', $data['rfq_details']->id)->first();  // Correct model reference
+        $data['quotation']     = DB::table('rfq_quotations')->where('rfq_id', $data['rfq_details']->id)->first();  // Correct model reference
         $data['singleproduct'] = QuotationProduct::where('rfq_id', $data['rfq_details']->id)->first();
         $data['rfq_terms']     = QuotationTerm::where('rfq_id', $data['rfq_details']->id)->get();
 
