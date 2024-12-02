@@ -351,7 +351,7 @@ class RFQManageController extends Controller
         }
 
         // Save the file path to the database
-        $data['quotation']->update([
+        DB::table('rfq_quotations')->where('rfq_id', $rfq_id)->update([
             'receiver_email' => $receiver_email,
             'receiver_cc_email' => implode(',', $receiver_cc_email),
             'quotation_pdf' => $fileName,

@@ -49,7 +49,8 @@ class RFQController extends Controller
             $query->whereJsonContains('department', 'business');
         })->where('role', 'manager')->select('id', 'name')->orderBy('id', 'DESC')->get();
         $data['rfq_count'] = Rfq::where('rfq_type', 'rfq')->latest('id', 'DESC')->count();
-        $data['rfqs'] = Rfq::where('rfq_type', 'rfq')->where('status', 'rfq_created')->latest('id', 'DESC')->get();
+        $data['rfqs'] = Rfq::where('rfq_type', 'rfq')->latest('id', 'DESC')->get();
+        $data['pendings'] = Rfq::where('rfq_type', 'rfq')->where('status', 'rfq_created')->latest('id', 'DESC')->get();
         $data['quoteds'] = Rfq::where('rfq_type', 'rfq')->where('status', 'quoted')->orderBy('id', 'DESC')->get();
         $data['deals'] = Rfq::where('rfq_type', 'rfq')->where('status', 'assigned')->orderBy('id', 'DESC')->get();
         $data['losts'] = Rfq::where('rfq_type', 'rfq')->where('status', 'lost')->orderBy('id', 'DESC')->get();
