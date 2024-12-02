@@ -224,7 +224,7 @@ class RFQManageController extends Controller
         $data['rfq_details'] = Rfq::with('quotationProducts')->where('rfq_code', $rfq_code)->first();
         $data['countires'] = Country::all();
         $data['rfq_country'] = Country::where('country_name', 'LIKE', '%' . $data['rfq_details']->country . '%')->first();
-        $data['quotation']   = RfqQuotation::where('rfq_id', $rfq_id)->first();
+        $data['quotation']   = DB::table('rfq_quotations')->where('rfq_id', $rfq_id)->first();
         $data['singleproduct']   = QuotationProduct::where('rfq_id', $rfq_id)->first();
         $data['rfq_terms']   = QuotationTerm::where('rfq_id', $rfq_id)->get();
         Toastr::success('Quotation Saved.');
@@ -307,7 +307,7 @@ class RFQManageController extends Controller
         $rfq_id = $request->rfq_id;
 
         $data['rfq'] = Rfq::find($rfq_id); // Use find() if you're fetching by primary key
-        $data['quotation'] = RfqQuotation::where('rfq_id', $rfq_id)->first();
+        $data['quotation'] = DB::table('rfq_quotations')->where('rfq_id', $rfq_id)->first();
         $data['rfq_terms'] = QuotationTerm::where('rfq_id', $rfq_id)->get();
         $data['products'] = QuotationProduct::where('rfq_id', $rfq_id)->get();
         $data['brands'] = Brand::inRandomOrder()->limit(48)->get();
@@ -381,7 +381,7 @@ class RFQManageController extends Controller
     //     $rfq_id = $request->rfq_id;
 
     //     $data['rfq'] = Rfq::where('id', $rfq_id)->first();
-    //     $data['quotation'] = RfqQuotation::where('rfq_id', $rfq_id)->first();
+    //     $data['quotation'] = DB::table('rfq_quotations')->where('rfq_id', $rfq_id)->first();
     //     $data['rfq_code'] = $data['rfq']->code;
     //     $data['quotation_title'] = $data['quotation']->quotation_title;
     //     $data['quotation']->update([

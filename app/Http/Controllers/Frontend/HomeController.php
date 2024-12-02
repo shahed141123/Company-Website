@@ -70,7 +70,7 @@ class HomeController extends Controller
 
     public function quotationLink($id)
     {
-        $quotation = RfqQuotation::where('rfq_code', $id)->first();
+        $quotation = DB::table('rfq_quotations')->where('rfq_code', $id)->first();
 
         if (!$quotation) {
             abort(404);

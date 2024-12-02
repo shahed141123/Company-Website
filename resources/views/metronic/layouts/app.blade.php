@@ -11,7 +11,7 @@
     <link href="{{ asset('storage/' . optional($setting)->favicon) }}" rel="apple-touch-icon-precomposed">
     <link href="{{ asset('storage/' . optional($setting)->favicon) }}" rel="shortcut icon" type="image/png">
     <meta name="title" content="{{ optional($setting)->site_title ?: config('app.name', 'E-Commerce') }}" />
-    <meta name="description" content="{{ optional($setting)->meta_description ?: config('app.name') }}" />
+    <meta name="description" content="{{ optional($setting)->meta_description ?: 'NGen IT' }}" />
 
     {{-- <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -30,7 +30,7 @@
     <meta property="twitter:image"
         content="{{ optional($setting)->site_logo && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/brandPage-logo-no-img(217-55).jpg') }}" /> --}}
 
-    <title>{{ optional($setting)->site_title ?: config('app.name', 'E-Commerce') }}</title>
+    <title>{{ optional($setting)->site_title ?:  'NGen IT' }}</title>
 
 
     <link rel="stylesheet" href="{{ asset('backend/metronic/assets/css/bootstrap_icons.css') }}">

@@ -134,12 +134,14 @@ use App\Http\Controllers\Admin\PortfolioClientFeedbackController;
 use App\Http\Controllers\Admin\TrainingPageController;
 use App\Http\Controllers\Marketing\MarketingTeamTargetController;
 use App\Http\Controllers\Marketing\MarketingManagerRoleController;
+use App\Http\Controllers\Solution\SolutionCMSController;
 
 // Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
-Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'name' => 'admin.'], function () {
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resources(
         [
-            'rfq'             => RFQController::class,
+            'rfq'           => RFQController::class,
+            'solution-cms'  => SolutionCMSController::class,
         ]
     );
     // Route::controller(RFQController::class)->group(function () {

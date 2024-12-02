@@ -73,6 +73,25 @@
                                 ],
                             ],
                         ],
+                        [
+                            'title' => 'Site Contents',
+                            'icon' => 'fa-duotone fa-sidebar-flip fs-3',
+                            'routes' => [
+                                'admin.solution-cms.index',
+                                'admin.solution-cms.create',
+                                'admin.solution-cms.edit',
+                            ],
+                            'subMenu' => [
+                                [
+                                    'title' => 'Solution CMS',
+                                    'routes' => ['admin.solution-cms.index',
+                                            'admin.solution-cms.create',
+                                            'admin.solution-cms.edit'],
+                                    'route' => 'admin.solution-cms.index',
+                                ],
+                            ],
+                        ],
+                       
                     ];
                 @endphp
 

@@ -16,14 +16,15 @@
                                 <div class="flex-grow-1">
                                     <a href=""> </a><a href="#"
                                         class="text-gray-800 fs-5 fw-bold lh-0">Total RFQ
-                                        <span class="text-gray-500 fw-semibold d-block fs-6 pt-4">03 Aug 2024</span>
+                                        <span
+                                            class="text-gray-500 fw-semibold d-block fs-6 pt-4">{{ date('d M , Y') }}</span>
                                     </a>
                                 </div>
                             </div>
 
                             <div class="d-flex flex-column align-items-center pe-4">
                                 <span class="main_text_color fw-bold fs-1 pe-4">
-                                    10
+                                    {{ $rfq_count }}
                                 </span>
                             </div>
                         </div>
@@ -51,24 +52,24 @@
                                 <div class="d-flex align-items-center justify-content-between pe-3">
                                     <span class="text-gray-500 fw-semibold">
                                         Pending</span>
-                                    <span class="bg-primary fw-semibold ms-3 px-2 text-white rounded-2">
-                                        5
+                                    <span class="bg-warning fw-semibold ms-3 px-2 text-white rounded-2">
+                                        {{ $rfqs->count() }}
                                     </span>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between pe-3 pt-2">
                                     <span class="text-gray-500 fw-semibold">
                                         Quoted
                                     </span>
-                                    <span class="bg-primary fw-semibold ms-3 px-2 text-white rounded-2">
-                                        5
+                                    <span class="bg-success fw-semibold ms-3 px-2 text-white rounded-2">
+                                        {{ $quoteds->count() }}
                                     </span>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between pe-3 pt-2">
                                     <span class="text-gray-500 fw-semibold">
                                         Failed
                                     </span>
-                                    <span class="bg-primary fw-semibold ms-3 px-2 text-white rounded-2">
-                                        5
+                                    <span class="bg-danger fw-semibold ms-3 px-2 text-white rounded-2">
+                                        {{ $losts->count() }}
                                     </span>
                                 </div>
                             </div>
@@ -93,7 +94,7 @@
                                 </div>
                             </div>
 
-                            <div class="flex-column d-flex w-50">
+                            {{-- <div class="flex-column d-flex w-50">
                                 <div class="d-flex align-items-center justify-content-between pe-3">
                                     <span class="text-gray-500 fw-semibold">
                                         Deals</span>
@@ -115,7 +116,7 @@
                                         5
                                     </span>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -142,16 +143,16 @@
                                     <select class="form-select form-select-sm" data-control="select2"
                                         data-placeholder="Select an option">
                                         <option>Select Country</option>
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
+                                        {{-- <option value="1">Option 1</option> --}}
                                     </select>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between pt-2">
                                     <select class="form-select form-select-sm" data-control="select2"
                                         data-placeholder="Select an option">
                                         <option>Select Sales Man</option>
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
+                                        @foreach ($users as $user)
+                                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -170,18 +171,20 @@
                     <div class="card-toolbar">
                         <ul class="nav nav-tabs nav-line-tabs fs-6 rfq-tabs">
                             <li class="nav-item">
-                                <a class="nav-link active px-4" data-bs-toggle="tab"
-                                    href="#kt_tab_pane_1">Pending</a>
+                                <a class="nav-link active px-4" data-bs-toggle="tab" href="#pending">Pending
+                                    ({{ $rfqs->count() }})</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link px-4" data-bs-toggle="tab" href="#kt_tab_pane_2">Quoted</a>
+                                <a class="nav-link px-4" data-bs-toggle="tab" href="#quoted">Quoted
+                                    ({{ $quoteds->count() }})</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link px-4" data-bs-toggle="tab" href="#kt_tab_pane_3">Failed</a>
+                                <a class="nav-link px-4" data-bs-toggle="tab" href="#failed">Failed
+                                    ({{ $losts->count() }})</a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link px-4" data-bs-toggle="tab" href="#kt_tab_pane_4">Approved</a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
 
@@ -193,12 +196,12 @@
                                     data-control="select2" data-hide-search="true" data-dropdown-css-class="w-150px"
                                     data-placeholder="Select an option">
                                     <option></option>
-                                    <option value="Year" selected>Year</option>
-                                    <option value="a">2022</option>
-                                    <option value="b">2023</option>
-                                    <option value="b">2024</option>
-                                    <option value="b">2025</option>
-                                    <option value="b">2026</option>
+                                    <option value="" selected>Year</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
                                 </select>
                             </div>
                             <div class="d-flex align-items-center fw-bold">
@@ -245,258 +248,252 @@
         </div>
         <div id="defaultDiv" class="default-div visible col-xl-12">
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="kt_tab_pane_1" role="tabpanel">
+                <div class="tab-pane fade show active" id="pending" role="tabpanel">
                     <div class="row">
-                        <div class="col-xl-12">
-                            <!--begin::Block-->
-                            <div class="py-5">
-                                <div class="d-flex flex-column flex-md-row rounded">
-                                    <ul
-                                        class="nav nav-tabs nav-pills flex-row border-0 flex-md-column me-5 mb-3 mb-md-0 fs-6 min-w-lg-250px">
-                                        <li class="nav-item w-100 me-0 mb-md-2">
-                                            <a class="nav-link w-100 active btn btn-flex btn-active-primary border"
-                                                data-bs-toggle="tab" href="#kt_vtab_pane_4">
-                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"></i>
-                                                <div class="row w-100">
-                                                    <div class="col-sm-12">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                            <span class="fs-7">#14568RFQ</span>
-                                                        </div>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                            <span class="fs-7">05:00pm</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item w-100 me-0 mb-md-2">
-                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
-                                                data-bs-toggle="tab" href="#kt_vtab_pane_5">
-                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"></i>
-                                                <div class="row w-100">
-                                                    <div class="col-sm-12">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                            <span class="fs-7">#14568RFQ</span>
-                                                        </div>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                            <span class="fs-7">05:00pm</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item w-100 mb-md-2">
-                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
-                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
-                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"></i>
-                                                <div class="row w-100">
-                                                    <div class="col-sm-12">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                            <span class="fs-7">#14568RFQ</span>
-                                                        </div>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                            <span class="fs-7">05:00pm</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item w-100 mb-md-2">
-                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
-                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
-                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"></i>
-                                                <div class="row w-100">
-                                                    <div class="col-sm-12">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                            <span class="fs-7">#14568RFQ</span>
-                                                        </div>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                            <span class="fs-7">05:00pm</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item w-100 mb-md-2">
-                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
-                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
-                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"></i>
-                                                <div class="row w-100">
-                                                    <div class="col-sm-12">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                            <span class="fs-7">#14568RFQ</span>
-                                                        </div>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                            <span class="fs-7">05:00pm</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item w-100 mb-md-2">
-                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
-                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
-                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"></i>
-                                                <div class="row w-100">
-                                                    <div class="col-sm-12">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                            <span class="fs-7">#14568RFQ</span>
-                                                        </div>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                            <span class="fs-7">05:00pm</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item w-100 mb-md-2">
-                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
-                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
-                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"></i>
-                                                <div class="row w-100">
-                                                    <div class="col-sm-12">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                            <span class="fs-7">#14568RFQ</span>
-                                                        </div>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                            <span class="fs-7">05:00pm</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item w-100 mb-md-2">
-                                            <a class="nav-link w-100 btn btn-flex btn-active-primary border"
-                                                data-bs-toggle="tab" href="#kt_vtab_pane_6">
-                                                <i class="fa-regular fa-file fs-2 text-primary pe-3"></i>
-                                                <div class="row w-100">
-                                                    <div class="col-sm-12">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">Brothers IT</span>
-                                                            <span class="fs-7">#14568RFQ</span>
-                                                        </div>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="fs-7 fw-bold">25 Aug 24</span>
-                                                            <span class="fs-7">05:00pm</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
+                        <div class="card shadow-sm">
+                            <div class="card-header collapsible cursor-pointer rotate" data-bs-toggle="collapse"
+                                data-bs-target="#kt_docs_card_collapsible">
+                                <h3 class="card-title">Pending RFQs</h3>
+                                <div class="card-toolbar rotate-180">
+                                    <span class="svg-icon svg-icon-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <rect opacity="0.5" x="11" y="18" width="13" height="2"
+                                                rx="1" transform="rotate(-90 11 18)" fill="currentColor">
+                                            </rect>
+                                            <path
+                                                d="M11.4343 15.4343L7.25 11.25C6.83579 10.8358 6.16421 10.8358 5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75L11.2929 18.2929C11.6834 18.6834 12.3166 18.6834 12.7071 18.2929L18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25C17.8358 10.8358 17.1642 10.8358 16.75 11.25L12.5657 15.4343C12.2533 15.7467 11.7467 15.7467 11.4343 15.4343Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div id="kt_docs_card_collapsible" class="collapse show">
+                                <div class="card-body">
+                                    <div class="py-5">
+                                        <div class="d-flex flex-column flex-md-row rounded">
+                                            <ul
+                                                class="nav nav-tabs nav-pills flex-row border-0 flex-md-column me-5 mb-3 mb-md-0 fs-6 min-w-lg-250px">
+                                                @foreach ($rfqs as $rfq)
+                                                    <li class="nav-item w-100 me-0 mb-md-2">
+                                                        <a class="nav-link w-100 {{ $loop->first ? 'active btn-active-primary' : '' }} btn btn-flex border"
+                                                            data-bs-toggle="tab" href="#kt_vtab_pane_4">
+                                                            <i class="fa-regular fa-file fs-2 text-primary pe-3"></i>
+                                                            <div class="row w-100">
+                                                                <div class="col-sm-12">
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="fs-7 fw-bold">{{ $rfq->name }}</span>
+                                                                        <span class="fs-7">#{{ $rfq->rfq_code }}</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="fs-7 fw-bold">{{ $rfq->country }}</span>
+                                                                        <span class="fs-7">{{ $rfq->create_date }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
 
-                                    <div class="tab-content w-100 border rounded" id="myTabContent">
-                                        <div class="tab-pane fade show active" id="kt_vtab_pane_4" role="tabpanel">
-                                            <div class="d-flex flex-column justify-content-center align-items-center"
-                                                style="height: 50vh;">
-                                                <div class="text-center pb-5">
-                                                    <h1 class="pb-5">View The RFQ</h1>
-                                                    <p class="w-50 mx-auto">We invite you to submit a detailed quote
-                                                        for the requested products/services. Please include
-                                                        comprehensive pricing, payment terms, delivery schedules, and
-                                                        any applicable discounts. Ensure that all relevant
-                                                        specifications, warranties, and certifications are clearly
-                                                        mentioned. We encourage you to provide the most competitive
-                                                        offer while maintaining high standards of quality and service.
-                                                        All quotations should be submitted by [due date]. Should you
-                                                        have any questions or need further clarification, feel free to
-                                                        reach out to us.</p>
-                                                </div>
-                                                <div>
-                                                    <button class="btn btn-primary me-2"><i
-                                                            class="fa-solid fa-signs-post pe-2"></i>Bypass</button>
-                                                    <button class="btn btn-primary"><i
-                                                            class="fa-regular fa-handshake pe-2"></i> Deal</button>
-                                                    <button class="btn btn-primary"><i
-                                                            class="fa-regular fa-pen-to-square pe-2"></i>Edit</button>
-                                                    <button class="btn btn-primary"><i
-                                                            class="fa-solid fa-expand pe-2"></i>View</button>
-                                                </div>
+                                            <div class="tab-content w-100 border rounded" id="myTabContent">
+                                                @foreach ($rfqs as $rfq)
+                                                    <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="kt_vtab_pane_4"
+                                                        role="tabpanel">
+                                                        <div class="d-flex flex-column justify-content-center align-items-center">
+                                                            <div class="text-center p-5">
+                                                                <h1 class="pb-5">View The RFQ</h1>
+                                                            </div>
+                                                            <div>
+                                                                <button class="btn btn-primary me-2"><i
+                                                                        class="fa-solid fa-signs-post pe-2"></i>Bypass</button>
+                                                                <button class="btn btn-primary"><i
+                                                                        class="fa-regular fa-handshake pe-2"></i>
+                                                                    Deal</button>
+                                                                <button class="btn btn-primary"><i
+                                                                        class="fa-regular fa-pen-to-square pe-2"></i>Edit</button>
+                                                                <button class="btn btn-primary"><i
+                                                                        class="fa-solid fa-expand pe-2"></i>View</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
                                             </div>
-                                        </div>
-
-                                        <div class="tab-pane fade" id="kt_vtab_pane_5" role="tabpanel">
-                                            <p>Nulla est ullamco ut irure incididunt nulla
-                                                Lorem Lorem minim irure officia enim
-                                                reprehenderit. Magna duis labore cillum sint
-                                                adipisicing exercitation ipsum. Nostrud ut
-                                                anim non exercitation velit laboris fugiat
-                                                cupidatat. Commodo esse dolore fugiat sint
-                                                velit ullamco magna consequat voluptate
-                                                minim amet aliquip ipsum aute laboris nisi.
-                                                Labore labore veniam irure irure ipsum
-                                                pariatur mollit magna in cupidatat dolore
-                                                magna irure esse tempor ad mollit. Dolore
-                                                commodo nulla minim amet ipsum officia
-                                                consectetur amet ullamco voluptate nisi
-                                                commodo ea sit eu.</p>
-                                        </div>
-
-                                        <div class="tab-pane fade" id="kt_vtab_pane_6" role="tabpanel">
-                                            <p>
-                                                Sint sit mollit irure quis est nostrud
-                                                cillum consequat Lorem esse do quis dolor
-                                                esse fugiat sunt do. Eu ex commodo veniam
-                                                Lorem aliquip laborum occaecat qui Lorem
-                                                esse mollit dolore anim cupidatat. eserunt
-                                                officia id Lorem nostrud aute id commodo
-                                                elit eiusmod enim irure amet eiusmod qui
-                                                reprehenderit nostrud tempor. Fugiat ipsum
-                                                excepteur in aliqua non et quis aliquip ad
-                                                irure in labore cillum elit enim. Consequat
-                                                aliquip incididunt ipsum et minim laborum
-                                                laborum laborum et cillum labore. Deserunt
-                                                adipisicing cillum id nulla minim nostrud
-                                                labore eiusmod et amet.
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!--end::Block-->
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="kt_tab_pane_2" role="tabpanel">
+                <div class="tab-pane fade" id="quoted" role="tabpanel">
+                    <div class="row">
+                        <div class="card shadow-sm">
+                            <div class="card-header collapsible cursor-pointer rotate" data-bs-toggle="collapse"
+                                data-bs-target="#kt_docs_card_collapsible">
+                                <h3 class="card-title">Quoted RFQs</h3>
+                                <div class="card-toolbar rotate-180">
+                                    <span class="svg-icon svg-icon-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <rect opacity="0.5" x="11" y="18" width="13" height="2"
+                                                rx="1" transform="rotate(-90 11 18)" fill="currentColor">
+                                            </rect>
+                                            <path
+                                                d="M11.4343 15.4343L7.25 11.25C6.83579 10.8358 6.16421 10.8358 5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75L11.2929 18.2929C11.6834 18.6834 12.3166 18.6834 12.7071 18.2929L18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25C17.8358 10.8358 17.1642 10.8358 16.75 11.25L12.5657 15.4343C12.2533 15.7467 11.7467 15.7467 11.4343 15.4343Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div id="kt_docs_card_collapsible" class="collapse show">
+                                <div class="card-body">
+                                    <div class="py-5">
+                                        <div class="d-flex flex-column flex-md-row rounded">
+                                            <ul
+                                                class="nav nav-tabs nav-pills flex-row border-0 flex-md-column me-5 mb-3 mb-md-0 fs-6 min-w-lg-250px">
+                                                @foreach ($rfqs as $rfq)
+                                                    <li class="nav-item w-100 me-0 mb-md-2">
+                                                        <a class="nav-link w-100 {{ $loop->first ? 'active btn-active-primary' : '' }} btn btn-flex border"
+                                                            data-bs-toggle="tab" href="#kt_vtab_pane_4">
+                                                            <i class="fa-regular fa-file fs-2 text-primary pe-3"></i>
+                                                            <div class="row w-100">
+                                                                <div class="col-sm-12">
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="fs-7 fw-bold">{{ $rfq->name }}</span>
+                                                                        <span class="fs-7">#{{ $rfq->rfq_code }}</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="fs-7 fw-bold">{{ $rfq->country }}</span>
+                                                                        <span class="fs-7">{{ $rfq->create_date }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+
+                                            <div class="tab-content w-100 border rounded" id="myTabContent">
+                                                @foreach ($rfqs as $rfq)
+                                                    <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="kt_vtab_pane_4"
+                                                        role="tabpanel">
+                                                        <div class="d-flex flex-column justify-content-center align-items-center">
+                                                            <div class="text-center p-5">
+                                                                <h1 class="pb-5">View The RFQ</h1>
+                                                            </div>
+                                                            <div>
+                                                                <button class="btn btn-primary me-2"><i
+                                                                        class="fa-solid fa-signs-post pe-2"></i>Bypass</button>
+                                                                <button class="btn btn-primary"><i
+                                                                        class="fa-regular fa-handshake pe-2"></i>
+                                                                    Deal</button>
+                                                                <button class="btn btn-primary"><i
+                                                                        class="fa-regular fa-pen-to-square pe-2"></i>Edit</button>
+                                                                <button class="btn btn-primary"><i
+                                                                        class="fa-solid fa-expand pe-2"></i>View</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="failed" role="tabpanel">
+                    <div class="row">
+                        <div class="card shadow-sm">
+                            <div class="card-header collapsible cursor-pointer rotate" data-bs-toggle="collapse"
+                                data-bs-target="#kt_docs_card_collapsible">
+                                <h3 class="card-title">Lost RFQs</h3>
+                                <div class="card-toolbar rotate-180">
+                                    <span class="svg-icon svg-icon-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <rect opacity="0.5" x="11" y="18" width="13" height="2"
+                                                rx="1" transform="rotate(-90 11 18)" fill="currentColor">
+                                            </rect>
+                                            <path
+                                                d="M11.4343 15.4343L7.25 11.25C6.83579 10.8358 6.16421 10.8358 5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75L11.2929 18.2929C11.6834 18.6834 12.3166 18.6834 12.7071 18.2929L18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25C17.8358 10.8358 17.1642 10.8358 16.75 11.25L12.5657 15.4343C12.2533 15.7467 11.7467 15.7467 11.4343 15.4343Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div id="kt_docs_card_collapsible" class="collapse show">
+                                <div class="card-body">
+                                    <div class="py-5">
+                                        <div class="d-flex flex-column flex-md-row rounded">
+                                            <ul
+                                                class="nav nav-tabs nav-pills flex-row border-0 flex-md-column me-5 mb-3 mb-md-0 fs-6 min-w-lg-250px">
+                                                @foreach ($rfqs as $rfq)
+                                                    <li class="nav-item w-100 me-0 mb-md-2">
+                                                        <a class="nav-link w-100 {{ $loop->first ? 'active btn-active-primary' : '' }} btn btn-flex border"
+                                                            data-bs-toggle="tab" href="#kt_vtab_pane_4">
+                                                            <i class="fa-regular fa-file fs-2 text-primary pe-3"></i>
+                                                            <div class="row w-100">
+                                                                <div class="col-sm-12">
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="fs-7 fw-bold">{{ $rfq->name }}</span>
+                                                                        <span class="fs-7">#{{ $rfq->rfq_code }}</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="fs-7 fw-bold">{{ $rfq->country }}</span>
+                                                                        <span class="fs-7">{{ $rfq->create_date }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+
+                                            <div class="tab-content w-100 border rounded" id="myTabContent">
+                                                @foreach ($rfqs as $rfq)
+                                                    <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="kt_vtab_pane_4"
+                                                        role="tabpanel">
+                                                        <div class="d-flex flex-column justify-content-center align-items-center">
+                                                            <div class="text-center p-5">
+                                                                <h1 class="pb-5">View The RFQ</h1>
+                                                            </div>
+                                                            <div>
+                                                                <button class="btn btn-primary me-2"><i
+                                                                        class="fa-solid fa-signs-post pe-2"></i>Bypass</button>
+                                                                <button class="btn btn-primary"><i
+                                                                        class="fa-regular fa-handshake pe-2"></i>
+                                                                    Deal</button>
+                                                                <button class="btn btn-primary"><i
+                                                                        class="fa-regular fa-pen-to-square pe-2"></i>Edit</button>
+                                                                <button class="btn btn-primary"><i
+                                                                        class="fa-solid fa-expand pe-2"></i>View</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="tab-pane fade" id="kt_tab_pane_4" role="tabpanel">
                     <div class="row">
                         <div class="col-xl-4">List</div>
                         <div class="col-xl-8">
                             <h1>View</h1>
                         </div>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="kt_tab_pane_3" role="tabpanel">
-                    <div class="row">
-                        <div class="col-xl-4">List</div>
-                        <div class="col-xl-8">
-                            <h1>View</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="kt_tab_pane_4" role="tabpanel">
-                    <div class="row">
-                        <div class="col-xl-4">List</div>
-                        <div class="col-xl-8">
-                            <h1>View</h1>
-                        </div>
-                    </div>
-                </div>
+                </div> --}}
             </div>
         </div>
+
+
         <div class="col-xl-12 hidden-div hidden" id="hiddenDiv">
             <table class="data_table table table-striped table-row-bordered gy-5 gs-7 border rounded">
                 <thead>
@@ -543,6 +540,19 @@
         </div>
     </div>
     <!-- Main Content End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <div class="modal fade" id="kt_modal_users_search" tabindex="-1" aria-hidden="true">

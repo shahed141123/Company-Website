@@ -96,7 +96,7 @@
                                         <span class="card-label fw-bold text-gray-800">RFQ Filtered Details</span>
                                         <span class="text-gray-500 mt-1 fw-semibold fs-6">Check All RFQ History Here!</span>
                                     </h3>
-                                </div>
+                                </div> 
                                 <div class="col-lg-7 text-end">
                                     <ul class="nav nav-tabs nav-line-tabs fs-6 rfq-tabs border-0">
                                         <li class="nav-item">
