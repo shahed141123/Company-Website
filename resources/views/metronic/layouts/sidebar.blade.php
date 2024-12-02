@@ -7,7 +7,7 @@
             {{-- <img alt="Logo"
                 src="{{ !empty(optional($setting)->site_logo_black) && file_exists(public_path('storage/' . optional($setting)->site_logo_white)) ? asset('storage/' . optional($setting)->site_logo_black) : asset('frontend/img/logo.png') }}"
                 class="w-100px"> --}}
-            <img alt="Logo" src="{{ asset('frontend/images/logo_black.png') }}" class="w-100px">
+            <img alt="Logo" src="{{ asset('frontend/images/logo_black.png') }}" class="w-200px">
         </a>
         <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-dark aside-toggle active"
             data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"

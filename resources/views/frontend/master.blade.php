@@ -26,6 +26,7 @@
             @include('frontend.partials.footer')
         @endif
 
+
     </div>
     <!----------End--------->
 
@@ -34,7 +35,10 @@
     <!----------End--------->
 
     <!--=======// Feedback Modals //=======-->
+    @if (Route::current() && Route::current()->getName() && str_contains(Route::current()->getName(), 'rfq'))
+    @else
     @include('frontend.partials.feedback')
+    @endif
     <!----------End--------->
 
     <!--============///* USE LINK *///=============-->
