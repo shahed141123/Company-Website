@@ -54,7 +54,8 @@ class RFQController extends Controller
         $data['deals'] = Rfq::where('rfq_type', 'rfq')->where('status', 'assigned')->orderBy('id', 'DESC')->get();
         $data['losts'] = Rfq::where('rfq_type', 'rfq')->where('status', 'lost')->orderBy('id', 'DESC')->get();
         //dd($data);
-        return view('admin.pages.rfq.all', $data);
+        // return view('admin.pages.rfq.all', $data);
+        return view('metronic.pages.rfq.index', $data);
     }
 
     /**
@@ -64,7 +65,6 @@ class RFQController extends Controller
      */
     public function create()
     {
-
         $data['users'] = User::where(function ($query) {
             $query->whereJsonContains('department', 'business');
         })->where('role', 'manager')->select('id', 'name')->orderBy('id', 'DESC')->get();
@@ -229,16 +229,23 @@ class RFQController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required',
-                'email' => 'required|email',
-                'rfq_code' => 'unique:rfqs',
-                'image' => 'file|mimes:jpeg,png,jpg|max:2048',
+                'name'                  => 'required',
+                'email'                 => 'required|email',
+                'rfq_code'              => 'unique:rfqs',
+                'image'                 => 'file|mimes:jpeg,png,jpg|max:2048',
+                'product_name'          => 'required|array|min:1',
+                'product_name.*'        => 'required|string',
+                'qty'                   => 'required|array|min:1',
+                'qty.*'                 => 'required|integer|min:1',
             ],
             [
-                'required' => 'The :attribute field is required.',
-                'mimes' => 'The :attribute must be a file of type: jpeg, png, jpg.',
-                'email' => 'The :attribute must be a valid email address.',
-                'unique' => 'The :attribute must be unique.',
+                'required'              => 'The: attribute field is required.',
+                'mimes'                 => 'The: attribute must be a file of type: jpeg, png, jpg.',
+                'email'                 => 'The: attribute must be a valid email address.',
+                'unique'                => 'The: attribute must be unique.',
+                'product_name.required' => 'At least one product name must be provided.',
+                'qty.required'          => 'At least one quantity must be provided.',
+                'qty.*.min'             => 'Each quantity must be greater than 0.',
             ]
         );
 

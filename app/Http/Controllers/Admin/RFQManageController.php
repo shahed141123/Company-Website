@@ -60,16 +60,16 @@ class RFQManageController extends Controller
 
     public function quotationMail($id)
     {
-        $data['users'] = User::where(function ($query) {
+        $data['users']         = User::where(function ($query) {
             $query->whereJsonContains('department', 'business');
         })->select('id', 'name')->orderBy('id', 'DESC')->get();
-        $data['rfq_details'] = Rfq::with('quotationProducts')->where('rfq_code', $id)->first();
-        $data['countires'] = Country::all();
-        $data['rfq_country'] = Country::where('country_name', 'LIKE', '%' . $data['rfq_details']->country . '%')->first();
-        $data['sourcing'] = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->first();
-        $data['quotation']   = RfqQuotation::where('rfq_id', $data['rfq_details']->id)->first();
-        $data['singleproduct']   = QuotationProduct::where('rfq_id', $data['rfq_details']->id)->first();
-        $data['rfq_terms']   = QuotationTerm::where('rfq_id', $data['rfq_details']->id)->get();
+        $data['rfq_details']   = Rfq::with('quotationProducts')->where('rfq_code', $id)->first();
+        $data['countires']     = Country::all();
+        $data['rfq_country']   = Country::where('country_name', 'LIKE', '%' . $data['rfq_details']->country . '%')->first();
+        $data['sourcing']      = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->first();
+        $data['quotation']     = RfqQuotation::where('rfq_id', $data['rfq_details']->id)->first();
+        $data['singleproduct'] = QuotationProduct::where('rfq_id', $data['rfq_details']->id)->first();
+        $data['rfq_terms']     = QuotationTerm::where('rfq_id', $data['rfq_details']->id)->get();
         return view('admin.pages.singleRfq.quotation_mail', $data);
     }
 
@@ -496,7 +496,7 @@ class RFQManageController extends Controller
             'password' => Hash::make($password),
             'user_type' => $request->account_type,
         ]);
-        if($user){
+        if ($user) {
             $rfq = Rfq::findOrFail($request->rfq_id);
             $rfq->update([
                 'client_type' => $request->account_type,

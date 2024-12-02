@@ -136,6 +136,12 @@ use App\Http\Controllers\Marketing\MarketingTeamTargetController;
 use App\Http\Controllers\Marketing\MarketingManagerRoleController;
 
 // Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
+Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'name' => 'admin.'], function () {
+    Route::controller(RFQController::class)->group(function () {
+        Route::get('/rfq', 'index')->name('admin.rfq.index'); // Corrected route name
+    });
+});
+
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
@@ -212,7 +218,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::resources(
         [
-            'rfq'             => RFQController::class,
+            // 'rfq'             => RFQController::class,
             'rfq-manage'      => RFQManageController::class,
             'deal'            => DealController::class,
             'rfqOrderStatus'  => RfqOrderStatusController::class,
