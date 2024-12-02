@@ -493,7 +493,7 @@
                                                                                     style="padding-top: 0px;padding-bottom: 1px;">
                                                                                     <li class="nav-item mb-0 me-1">
                                                                                         <a href="#client_details"
-                                                                                            class="nav-link btn btn-icon-primary active cat-tab1 p-1"
+                                                                                            class="nav-link btn btn-primary active cat-tab1 p-1"
                                                                                             data-bs-toggle="tab">
                                                                                             <p class="m-0 p-1">
                                                                                                 Client Details</p>
@@ -501,7 +501,7 @@
                                                                                     </li>
                                                                                     <li class="nav-item mb-0">
                                                                                         <a href="#product_details"
-                                                                                            class="nav-link btn btn-icon-primary cat-tab2 p-1 "
+                                                                                            class="nav-link btn btn-primary cat-tab2 p-1 "
                                                                                             data-bs-toggle="tab">
                                                                                             <p class="m-0 p-1">
                                                                                                 Product Details</p>
