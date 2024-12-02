@@ -51,7 +51,7 @@
                                                                 <div class="row gx-2 align-items-center">
                                                                     <div class="col-lg-10 col-10">
                                                                         <div class="">
-                                                                            <input type="text" name="product_name[]" value={{ $cart_product->name }}
+                                                                            <input type="text" name="products_name[]" value={{ $cart_product->name }}
                                                                                 class="form-control form-control-sm border-0 rounded-1 py-3"
                                                                                 placeholder="Product Title" required>
                                                                         </div>
@@ -69,7 +69,7 @@
                                                             <div class="row gx-2 align-items-center">
                                                                 <div class="col-lg-10 col-10">
                                                                     <div class="">
-                                                                        <input name="product_name[]"
+                                                                        <input name="products_name[]"
                                                                             class="form-control form-control-sm border-0 rounded-1 py-3"
                                                                             placeholder="Product Title" required>
                                                                     </div>
@@ -109,7 +109,7 @@
                                                                 <div class="row gx-2 align-items-center product-row mb-2">
                                                                     <div class="col-lg-10 col-9">
                                                                         <div>
-                                                                            <input type="text" name="product_name[]"
+                                                                            <input type="text" name="products_name[]"
                                                                                 value="{{ $cart_product->name }}"
                                                                                 class="form-control form-control-sm border-0 rounded-1 py-3"
                                                                                 placeholder="Product Title" required>
@@ -135,7 +135,7 @@
                                                         @else
                                                             <div class="row gx-2 align-items-center product-row">
                                                                 <div class="col-lg-10 col-9">
-                                                                    <input name="product_name[]"
+                                                                    <input name="products_name[]"
                                                                         class="form-control form-control-sm border-0 rounded-1 py-3"
                                                                         placeholder="Product Title" required>
                                                                 </div>

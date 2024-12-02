@@ -229,23 +229,24 @@ class RFQController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name'                  => 'required',
-                'email'                 => 'required|email',
-                'rfq_code'              => 'unique:rfqs',
-                'image'                 => 'file|mimes:jpeg,png,jpg|max:2048',
-                'product_name'          => 'required|array|min:1',
-                'product_name.*'        => 'required|string',
-                'qty'                   => 'required|array|min:1',
-                'qty.*'                 => 'required|integer|min:1',
+                'name'                   => 'required',
+                'email'                  => 'required|email',
+                'rfq_code'               => 'unique:rfqs',
+                'image'                  => 'file|mimes:jpeg,png,jpg|max:2048',
+                'country'                => 'required',
+                'products_name'          => 'required|array|min:1',
+                'products_name.*'        => 'required|string',
+                'qty'                    => 'required|array|min:1',
+                'qty.*'                  => 'required|integer|min:1',
             ],
             [
-                'required'              => 'The: attribute field is required.',
-                'mimes'                 => 'The: attribute must be a file of type: jpeg, png, jpg.',
-                'email'                 => 'The: attribute must be a valid email address.',
-                'unique'                => 'The: attribute must be unique.',
-                'product_name.required' => 'At least one product name must be provided.',
-                'qty.required'          => 'At least one quantity must be provided.',
-                'qty.*.min'             => 'Each quantity must be greater than 0.',
+                'required'               => 'The: attribute field is required.',
+                'mimes'                  => 'The: attribute must be a file of type: jpeg, png, jpg.',
+                'email'                  => 'The: attribute must be a valid email address.',
+                'unique'                 => 'The: attribute must be unique.',
+                'products_name.required' => 'At least one product name must be provided.',
+                'qty.required'           => 'At least one quantity must be provided.',
+                'qty.*.min'              => 'Each quantity must be greater than 0.',
             ]
         );
 
@@ -301,7 +302,7 @@ class RFQController extends Controller
         ]);
 
         // Save Products to RfqProduct and QuotationProduct
-        foreach ($request->product_name as $key => $productName) {
+        foreach ($request->products_name as $key => $productName) {
             RfqProduct::create([
                 'rfq_id'       => $rfq_id,
                 'product_name' => $productName,
@@ -328,9 +329,9 @@ class RFQController extends Controller
             new RfqCreate($name, $rfq_code)
         );
         $productNames = '';
-        foreach ($request->product_name as $key => $item) {
+        foreach ($request->products_name as $key => $item) {
             $productNames .= ($key + 1) . '. ' . $item;
-            if ($key < count($request->product_name) - 1) {
+            if ($key < count($request->products_name) - 1) {
                 $productNames .= ', ';
             }
         }
