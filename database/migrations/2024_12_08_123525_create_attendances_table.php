@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tier_calculations', function (Blueprint $table) {
+        Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->double('point')->nullable();
-            $table->double('tier')->nullable();
-            $table->double('rebates')->nullable();
-            $table->double('benifits')->nullable();
-            $table->double('amount')->nullable();
-            $table->double('value')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tier_calculations');
+        Schema::dropIfExists('attendances');
     }
 };

@@ -204,32 +204,7 @@ class AdminController extends Controller
                     return ($attendanceDate >= $firstDayLastMonth) && ($attendanceDate <= $lastDayLastMonth) && ($attendance['id'] === $id);
                 });
 
-                // Process last month's data
-                // $earliestCheckInLastMonth = [];
-                // $latestCheckOutLastMonth = [];
-                // foreach ($lastMonthAttendances as $attendance) {
-                //     $attendanceDate = date('Y-m-d', strtotime($attendance['timestamp']));
-                //     $checkTime = date('H:i:s', strtotime($attendance['timestamp']));
-
-                //     if (!isset($earliestCheckInLastMonth[$attendanceDate]) || strtotime($checkTime) < strtotime($earliestCheckInLastMonth[$attendanceDate])) {
-                //         $earliestCheckInLastMonth[$attendanceDate] = $checkTime;
-                //     }
-
-                //     if (!isset($latestCheckOutLastMonth[$attendanceDate]) || strtotime($checkTime) > strtotime($latestCheckOutLastMonth[$attendanceDate])) {
-                //         $latestCheckOutLastMonth[$attendanceDate] = $checkTime;
-                //     }
-                // }
-
-                // // Create entries for each day of last month
-                // foreach ($earliestCheckInLastMonth as $date => $checkIn) {
-                //     $attendanceLastMonth[] = [
-                //         'user_id' => $id,
-                //         'user_name' => $user_name,
-                //         'date' => $date,
-                //         'check_in' => $checkIn,
-                //         'check_out' => $latestCheckOutLastMonth[$date],
-                //     ];
-                // }
+                
             }
 
             // Filter late attendance counts for this month

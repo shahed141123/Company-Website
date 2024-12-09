@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('job_applications', function (Blueprint $table) {
             $table->id();
             $table->foreignId('applicant_id')->nullable()->constrained('clients')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('job_id')->nullable()->constrained('jobs')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('job_id')->nullable()->constrained('job_posts')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('expected_salary', 50)->nullable();
             $table->string('current_salary', 50)->nullable();
             $table->date('available_from')->nullable();

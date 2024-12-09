@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use Helper;
 use App\Models\User;
-use App\Models\Admin\Job;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\JobPost;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -20,13 +20,13 @@ class JobController extends Controller
 {
     public function JobOpenings()
     {
-        $data['jobs'] = Job::latest()->get();
+        $data['jobs'] = JobPost::latest()->get();
         return view('frontend.pages.job.job_post', $data);
     }
 
     public function JobDetails($id)
     {
-        $data['job'] = Job::where('slug', $id)->first();
+        $data['job'] = JobPost::where('slug', $id)->first();
         return view('frontend.pages.job.job_details', $data);
     }
 

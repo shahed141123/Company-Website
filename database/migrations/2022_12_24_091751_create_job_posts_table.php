@@ -13,14 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('attributes', function (Blueprint $table) {
+        Schema::create('job_posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('entity_id');
-            $table->json('category_ids'); // Store multiple category IDs
             $table->string('name');
-            $table->json('data_ids'); // Store multiple data IDs
+            $table->string('slug')->unique();
+            $table->date('deadline');
+            $table->string('link');
+            $table->string('vacancy');
+            $table->string('company_name')->nullable();
+            $table->string('category');
+            $table->string('experience')->nullable();
+            $table->longText('description');
             $table->timestamps();
-            $table->foreign('entity_id')->references('id')->on('entities')->onDelete('cascade');
         });
     }
 
@@ -31,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attributes');
+        Schema::dropIfExists('jobs');
     }
 };

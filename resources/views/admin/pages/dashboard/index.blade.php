@@ -346,7 +346,7 @@
                                         })
                                         ->count();
                                     // Filter late counts for 'Late (L)'
-                                    $lateCountL = collect($lateCounts)
+                                    $lateCountL = collect($lateCounts) 
                                         ->where(function ($item) {
                                             return Carbon\Carbon::parse($item['check_in']) >
                                                 Carbon\Carbon::parse('09:06:00') &&
