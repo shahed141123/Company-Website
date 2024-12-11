@@ -4,7 +4,8 @@
 @endphp
 
 
-<div class="sidebar sidebar-dark sidebar-main sidebar-expand-lg sidebar-main-resized" style="background: url('https://i.ibb.co/qgHN3jC/Background.jpg') no-repeat center center; background-size: cover;">
+<div class="sidebar sidebar-dark sidebar-main sidebar-expand-lg sidebar-main-resized"
+    style="background: url('https://i.ibb.co/qgHN3jC/Background.jpg') no-repeat center center; background-size: cover;">
     <!-- Sidebar content -->
     <div class="sidebar-content">
         <!-- Sidebar header -->
@@ -29,7 +30,8 @@
         <div class="sidebar-section">
             <ul class="nav nav-sidebar" data-nav-type="accordion">
                 <li class="nav-item">
-                    <a href="{{ route('admin.dashboard') }}" class="nav-link {{ Route::current()->getName() == 'admin.dashboard' ? 'active' : '' }}">
+                    <a href="{{ route('admin.dashboard') }}"
+                        class="nav-link {{ Route::current()->getName() == 'admin.dashboard' ? 'active' : '' }}">
                         <i class="fa-regular fa-house-day side_baricon"></i>
                         <span class="text-start">Dashboard</span>
                     </a>
@@ -85,15 +87,19 @@
                 @endif
 
                 @if (auth()->check() && in_array('site', json_decode(auth()->user()->department, true)))
-                    <li class="nav-item nav-item-submenu {{ Route::current()->getName() == '' ? 'active' : '' }}">
-                        <a href="" class="nav-link">
+                    <li class="nav-item nav-item-submenu {{ in_array(Route::current()->getName(), ['solution.index','solution.create']) ? ' nav-item-open' : '' }}">
+                        <a href="" class="nav-link {{ in_array(Route::current()->getName(), ['solution.index','solution.create']) ? ' active' : '' }}">
                             <i class="fa-duotone fa-sidebar-flip side_baricon"></i>
                             <span class="text-start ps-1">Site Contents</span></a>
-                        <ul class="nav-group-sub collapse ms-4" style="">
+                        <ul class="nav-group-sub collapse ms-4 {{ in_array(Route::current()->getName(), ['solution.index','solution.create']) ? 'show' : '' }}">
                             <li class="nav-item"><a href="{{ route('site-content.index') }}"
                                     class="nav-link">Dashboard</a></li>
-                            <li class="nav-item"><a href="{{ route('site-content.index') }}"
-                                    class="nav-link">Blog</a>
+                            <li class="nav-item">
+                                <a href="{{ route('solution.index') }}"
+                                    class="nav-link{{ in_array(Route::current()->getName(), ['solution.index','solution.create']) ? ' active' : '' }}">All
+                                    Solutions</a>
+                            </li>
+                            <li class="nav-item"><a href="{{ route('site-content.index') }}" class="nav-link">Blog</a>
                             </li>
                             <li class="nav-item"><a href="{{ route('site-content.index') }}"
                                     class="nav-link">Techglossy</a></li>

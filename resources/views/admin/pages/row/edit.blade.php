@@ -44,107 +44,7 @@
 
                             </div>
                         </div>
-                        @if (!empty($row->image))
-                            <div>
-                                <form id="myform1" method="post" action="{{ route('row.update', $row->id) }}"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="card pb-1">
-                                        <!--Banner Section-->
-                                        <div class="container">
-                                            <div class="mt-2">
-                                                <span class="fw-bold text-info ms-1"></span>
-                                            </div>
-                                            <div class="row rounded-0 mx-1">
-                                                <div class="col-lg-4 p-1">
-                                                    <div class="d-flex align-items-center">
-                                                        <label class="col-form-label col-lg-2 p-0 text-start text-black ">Badge</label>
-                                                        <div class="input-group">
-                                                            <input name="badge" type="text" maxlength="250"
-                                                                class="form-control form-control-sm"
-                                                                placeholder="Enter Badge" value="{{ $row->badge }}">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-8 p-1">
-                                                    <div class="d-flex align-items-center">
-                                                        <label class="col-form-label col-lg-2 p-0 text-start text-black">Title</label>
-                                                        <div class="input-group">
-                                                            <input name="title" type="text"
-                                                                class="form-control form-control-sm"
-                                                                placeholder="Enter Image With Row Title"
-                                                                value="{{ $row->title }}">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row gx-2 pb-1 ">
-                                                <div class="col-lg-7 p-2">
-                                                    <span class="mt-1 fw-bold text-info">Image Info Area</span>
-                                                    <div class="px-2 py-2 rounded-0 bg-light">
-                                                        <div class="pt-1">
-                                                            <label
-                                                                class="col-form-label label_style col-lg-2 p-0 text-start text-black w-100">Description</label>
-                                                            <textarea class="form-control form-control-sm" name="description" id="long_desc"
-                                                                style=" font-size: 12px; font-weight: 500;" rows="2" cols="60">{!! $row->description !!}</textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-5 p-2">
-                                                    <span class="mt-1 fw-bold text-info">Image Area</span>
-                                                    <div class="px-2 py-2 rounded-0 bg-light">
-                                                        <div class="d-flex align-items-center pt-1">
-                                                            <label
-                                                                class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
-                                                                Image</label>
-                                                            <div class="input-group">
-                                                                <input name="image" id="image" accept="image/*"
-                                                                    type="file" class="form-control w-100 form-control-sm"
-                                                                    placeholder="Enter Row Image">
-                                                                <div class="form-text">Accepts only png, jpg, jpeg images
-                                                                </div>
-                                                                <img id="showImage" height="100px" width="100px"
-                                                                    src="{{ asset('storage/requestImg/' . $row->image) }}"
-                                                                    alt="">
-                                                            </div>
-                                                        </div>
-                                                        {{--  --}}
-                                                        <div class="d-flex align-items-center pt-1">
-                                                            <label
-                                                                class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
-                                                                Button Name</label>
-                                                            <div class="input-group">
-                                                                <input name="btn_name" type="text" maxlength="250"
-                                                                    class="form-control form-control-sm"
-                                                                    placeholder="Enter Row Button Name"
-                                                                    value="{{ $row->btn_name }}">
-                                                            </div>
-                                                        </div>
-                                                        {{--  --}}
-                                                        <div class="d-flex align-items-center pt-1">
-                                                            <label
-                                                                class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
-                                                                Button Link</label>
-                                                            <div class="input-group">
-                                                                <input name="link" type="url" maxlength="250"
-                                                                    class="form-control form-control-sm"
-                                                                    placeholder="Enter Row Button Link"
-                                                                    value="{{ $row->link }}">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer border-0 pb-0 pe-0">
-                                        <button type="submit" class="submit_btn rounded-0 from-prevent-multiple-submits" style="padding: 6px 9px;" id="submitbtn">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        @else
+                        @if (!empty($row->list_title))
                             <div>
                                 <form id="myform2" method="post" action="{{ route('row.update', $row->id) }}"
                                     enctype="multipart/form-data">
@@ -270,6 +170,111 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer border-0 pb-0 pe-0">
+                                        <button type="submit" class="submit_btn rounded-0 from-prevent-multiple-submits"
+                                            style="padding: 6px 9px;" id="submitbtn">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        @else
+                            <div>
+                                <form id="myform1" method="post" action="{{ route('row.update', $row->id) }}"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="card pb-1">
+                                        <!--Banner Section-->
+                                        <div class="container">
+                                            <div class="mt-2">
+                                                <span class="fw-bold text-info ms-1"></span>
+                                            </div>
+                                            <div class="row rounded-0 mx-1">
+                                                <div class="col-lg-4 p-1">
+                                                    <div class="d-flex align-items-center">
+                                                        <label
+                                                            class="col-form-label col-lg-2 p-0 text-start text-black ">Badge</label>
+                                                        <div class="input-group">
+                                                            <input name="badge" type="text" maxlength="250"
+                                                                class="form-control form-control-sm"
+                                                                placeholder="Enter Badge" value="{{ $row->badge }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-8 p-1">
+                                                    <div class="d-flex align-items-center">
+                                                        <label
+                                                            class="col-form-label col-lg-2 p-0 text-start text-black">Title</label>
+                                                        <div class="input-group">
+                                                            <input name="title" type="text"
+                                                                class="form-control form-control-sm"
+                                                                placeholder="Enter Image With Row Title"
+                                                                value="{{ $row->title }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row gx-2 pb-1 ">
+                                                <div class="col-lg-7 p-2">
+                                                    <span class="mt-1 fw-bold text-info">Image Info Area</span>
+                                                    <div class="px-2 py-2 rounded-0 bg-light">
+                                                        <div class="pt-1">
+                                                            <label
+                                                                class="col-form-label label_style col-lg-2 p-0 text-start text-black w-100">Description</label>
+                                                            <textarea class="form-control form-control-sm" name="description" id="long_desc"
+                                                                style=" font-size: 12px; font-weight: 500;" rows="2" cols="60">{!! $row->description !!}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 p-2">
+                                                    <span class="mt-1 fw-bold text-info">Image Area</span>
+                                                    <div class="px-2 py-2 rounded-0 bg-light">
+                                                        <div class="d-flex align-items-center pt-1">
+                                                            <label
+                                                                class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
+                                                                Image</label>
+                                                            <div class="input-group">
+                                                                <input name="image" id="image" accept="image/*"
+                                                                    type="file"
+                                                                    class="form-control w-100 form-control-sm"
+                                                                    placeholder="Enter Row Image">
+                                                                <div class="form-text">Accepts only png, jpg, jpeg images
+                                                                </div>
+                                                                <img id="showImage" height="100px" width="100px"
+                                                                    src="{{ asset('storage/requestImg/' . $row->image) }}"
+                                                                    alt="">
+                                                            </div>
+                                                        </div>
+                                                        {{--  --}}
+                                                        <div class="d-flex align-items-center pt-1">
+                                                            <label
+                                                                class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
+                                                                Button Name</label>
+                                                            <div class="input-group">
+                                                                <input name="btn_name" type="text" maxlength="250"
+                                                                    class="form-control form-control-sm"
+                                                                    placeholder="Enter Row Button Name"
+                                                                    value="{{ $row->btn_name }}">
+                                                            </div>
+                                                        </div>
+                                                        {{--  --}}
+                                                        <div class="d-flex align-items-center pt-1">
+                                                            <label
+                                                                class="col-form-label label_style col-lg-2 p-0 text-start text-black label_style">Row
+                                                                Button Link</label>
+                                                            <div class="input-group">
+                                                                <input name="link" type="url" maxlength="250"
+                                                                    class="form-control form-control-sm"
+                                                                    placeholder="Enter Row Button Link"
+                                                                    value="{{ $row->link }}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer border-0 pb-0 pe-0">
+
                                         <button type="submit" class="submit_btn rounded-0 from-prevent-multiple-submits"
                                             style="padding: 6px 9px;" id="submitbtn">Submit</button>
                                     </div>

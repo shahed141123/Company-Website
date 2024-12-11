@@ -10,6 +10,7 @@ use App\Models\Admin\Industry;
 use App\Models\Admin\Solution;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\SolutionDetail;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
@@ -18,7 +19,7 @@ class SolutionController extends Controller
 {
     public function index()
     {
-        $solutions = Solution::orderBy('id', 'DESC')->get();
+        $solutions = SolutionDetail::orderBy('id', 'DESC')->get();
         return view('admin.pages.solutions.view', compact('solutions'));
     }
 
@@ -50,7 +51,7 @@ class SolutionController extends Controller
             ],
             [
                 'mimes' => 'The :attribute must be a file of type: PNG - JPEG - JPG'
-            ], 
+            ],
 
         );
 
