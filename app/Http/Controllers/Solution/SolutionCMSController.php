@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Solution;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Admin\SolutionDetail;
 
 class SolutionCMSController extends Controller
 {
@@ -14,7 +15,10 @@ class SolutionCMSController extends Controller
      */
     public function index()
     {
-        //
+        // $solutions = SolutionDetail::orderBy('id', 'DESC')->get();
+        return view('metronic.pages.solution.index', [
+            'solutions' => SolutionDetail::orderBy('id', 'DESC')->get(),
+        ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class SolutionCMSController extends Controller
      */
     public function create()
     {
-        //
+        return view('metronic.pages.solution.create');
     }
 
     /**

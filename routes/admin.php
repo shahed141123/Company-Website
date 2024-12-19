@@ -144,6 +144,8 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
             'solution-cms'  => SolutionCMSController::class,
         ]
     );
+
+    Route::get('/rfqFilter', [RfqController::class, 'filterRFQ'])->name('rfq.filter');
     // Route::controller(RFQController::class)->group(function () {
     //     Route::get('/rfq', 'index')->name('admin.rfq.index'); // Corrected route name
     // });

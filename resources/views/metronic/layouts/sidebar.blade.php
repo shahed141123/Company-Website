@@ -51,6 +51,7 @@
                 {{-- Site Content  --}}
                 @php
                     $menuItems = [
+                        
                         [
                             'title' => 'Business',
                             'icon' => 'fa-light fa-business-time fs-3',
@@ -91,7 +92,7 @@
                                 ],
                             ],
                         ],
-                       
+
                     ];
                 @endphp
 

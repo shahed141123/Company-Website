@@ -215,6 +215,15 @@
                                                 target="_blank">{{ $data['email'] }}</a>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <th
+                                            style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:15px;text-align:left">
+                                            Customer Country</th>
+                                        <td
+                                            style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
+                                            {{ $data['country'] }}
+                                        </td>
+                                    </tr>
 
                                 </tbody>
                             </table>
@@ -247,7 +256,8 @@
                                             <div
                                                 style="padding-bottom:5px;margin-bottom:10px;margin-top:15px;font-size:14px !important;">
                                                 <strong>
-                                                    <a href="{{ route('single-rfq.show', $data['rfq_code']) }}"
+                                                    <a href="{{ route('admin.rfq.index', $data['rfq_code']) }}"
+                                                    {{-- <a href="{{ route('single-rfq.show', $data['rfq_code']) }}" --}}
                                                         style="color: #FFF;
                                                     border: 1px solid #ae0a46;
                                                     background-color: #ae0a46;

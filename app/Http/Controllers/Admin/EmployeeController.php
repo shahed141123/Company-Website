@@ -441,16 +441,32 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // public function destroy($id)
+    // {
+    //     $user = User::findOrFail($id);
+    //     $destination = 'upload/Profile/Admin/' . $user->photo;
+    //     if (File::exists($destination)) {
+    //         File::delete($destination);
+    //     }
+    //     if (!is_null($user)) {
+    //         $user->delete();
+    //     }
+    //     $user->delete();
+    // }
     public function destroy($id)
     {
         $user = User::findOrFail($id);
+
+        // Nullify the employee_id in related leave applications
+        $user->leaveApplications()->update(['employee_id' => null]);
+
+        // Delete the user's photo if it exists
         $destination = 'upload/Profile/Admin/' . $user->photo;
         if (File::exists($destination)) {
             File::delete($destination);
         }
-        if (!is_null($user)) {
-            $user->delete();
-        }
+
+        // Delete the user
         $user->delete();
     }
 }

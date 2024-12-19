@@ -53,7 +53,7 @@ class SyncZKAttendance implements ShouldQueue
 
             $zk->disconnect();
         } catch (\Exception $e) {
-            \Log::error('ZKTeco Sync Error: ' . $e->getMessage());
+            // \Log::error('ZKTeco Sync Error: ' . $e->getMessage());
         }
     }
 }

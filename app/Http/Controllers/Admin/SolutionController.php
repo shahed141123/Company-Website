@@ -20,7 +20,7 @@ class SolutionController extends Controller
     public function index()
     {
         $solutions = SolutionDetail::orderBy('id', 'DESC')->get();
-        return view('admin.pages.solutions.view', compact('solutions'));
+        return view('metronic.pages.solution.index', compact('solutions'));
     }
 
     public function create()

@@ -87,17 +87,18 @@
                 @endif
 
                 @if (auth()->check() && in_array('site', json_decode(auth()->user()->department, true)))
-                    <li class="nav-item nav-item-submenu {{ in_array(Route::current()->getName(), ['solution.index','solution.create']) ? ' nav-item-open' : '' }}">
-                        <a href="" class="nav-link {{ in_array(Route::current()->getName(), ['solution.index','solution.create']) ? ' active' : '' }}">
+                    <li class="nav-item nav-item-submenu {{ in_array(Route::current()->getName(), ['admin.solution-cms.index','solution.create']) ? ' nav-item-open' : '' }}">
+                        <a href="" class="nav-link {{ in_array(Route::current()->getName(), ['admin.solution-cms.index','solution.create']) ? ' active' : '' }}">
                             <i class="fa-duotone fa-sidebar-flip side_baricon"></i>
                             <span class="text-start ps-1">Site Contents</span></a>
-                        <ul class="nav-group-sub collapse ms-4 {{ in_array(Route::current()->getName(), ['solution.index','solution.create']) ? 'show' : '' }}">
+                        <ul class="nav-group-sub collapse ms-4 {{ in_array(Route::current()->getName(), ['admin.solution-cms.index','solution.create']) ? 'show' : '' }}">
                             <li class="nav-item"><a href="{{ route('site-content.index') }}"
                                     class="nav-link">Dashboard</a></li>
                             <li class="nav-item">
-                                <a href="{{ route('solution.index') }}"
-                                    class="nav-link{{ in_array(Route::current()->getName(), ['solution.index','solution.create']) ? ' active' : '' }}">All
-                                    Solutions</a>
+                                <a href="{{ route('admin.solution-cms.index') }}"
+                                    class="nav-link{{ in_array(Route::current()->getName(), ['admin.solution-cms.index','admin.solution-cms.create']) ? ' active' : '' }}">
+                                    All Solutions
+                                </a>
                             </li>
                             <li class="nav-item"><a href="{{ route('site-content.index') }}" class="nav-link">Blog</a>
                             </li>
