@@ -424,7 +424,7 @@ ul {
     left: 260px;
     top: -38px;
 }
-.shop-accordion{
+.shop-accordion {
     margin-top: -25px;
 }
 /* .header-menu-content {
@@ -446,7 +446,7 @@ ul {
     padding-bottom: 60px !important;
     padding-left: 50px;
 }
-.industries-title{
+.industries-title {
     padding-left: 45px;
 }
 /* .industries {
@@ -1980,7 +1980,7 @@ table.td {
 .form-select {
     border-radius: 0px;
 }
-.form-select:focus{
+.form-select:focus {
     box-shadow: none;
 }
 
@@ -5336,7 +5336,6 @@ tr td:hover {
     background-color: #f1f1f1;
     z-index: 999;
 }
-
 
 /* Software Info Page Design */
 .animated-image {
@@ -9053,8 +9052,6 @@ form .field input:focus::placeholder {
     text-decoration: underline;
 }
 
-
-
 form .btn .btn-layer {
     height: 100%;
     width: 300%;
@@ -10615,9 +10612,9 @@ form .btn input[type="submit"] {
     width: 0;
     border-radius: 12px;
 }
-.shop-product{
+.shop-product {
     /* background-image: url('https://img.freepik.com/free-photo/grungy-white-background-natural-cement-stone-old-texture-as-retro-pattern-wall-conceptual-wall-banner-grunge-material-construction_1258-21330.jpg'); */
-    background-image: url('../../frontend/assets/images/Product-bg_ngenit.jpg');
+    background-image: url("../../frontend/assets/images/Product-bg_ngenit.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -15792,7 +15789,7 @@ thead {
     width: 20%;
     flex: 0 0 auto;
 }
-.training-box-area{
+.training-box-area {
     height: 130px;
 }
 .slick-slider .element {
@@ -17115,7 +17112,6 @@ nav > div a.nav-item.nav-link.active {
 }
 /* Refurbished Product Start */
 .refurbished_tabs {
-
 }
 
 .refurbished_tabs li {
@@ -17166,7 +17162,7 @@ nav > div a.nav-item.nav-link.active {
 /* Refurbished Product End*/
 
 @media screen and (max-width: 767px) {
-    .solutions-titles{
+    .solutions-titles {
         text-align: center !important;
     }
     .solution-feature-cards {
@@ -17196,18 +17192,39 @@ nav > div a.nav-item.nav-link.active {
     }
 }
 
-
 .search-btn-price {
-        padding: 10px;
-        border: 1px solid #ae0a46;
-        font-weight: 200;
-        background-color: #ae0a46;
-        color: #fff;
-    }
-    .search-btn-price:hover {
-        padding: 10px;
-        border: 1px solid #ae0a46;
-        font-weight: 200;
-        background-color: #ae0a46;
-        color: #fff;
-    }
+    padding: 10px;
+    border: 1px solid #ae0a46;
+    font-weight: 200;
+    background-color: #ae0a46;
+    color: #fff;
+}
+.search-btn-price:hover {
+    padding: 10px;
+    border: 1px solid #ae0a46;
+    font-weight: 200;
+    background-color: #ae0a46;
+    color: #fff;
+}
+.rfq-imgs img {
+    width: 80px;
+    height: 85px;
+    object-fit: cover;
+}
+.fixed-column {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 999;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+.rfq-cards {
+    height: 83px;
+}

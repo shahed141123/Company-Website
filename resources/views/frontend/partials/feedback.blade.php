@@ -38,7 +38,6 @@
         bottom: 45%;
         right: -65px;
         color: var(--primary-color);
-        border: none;
         border-top-right-radius: 8px;
         border-top-left-radius: 8px;
         z-index: 1;
@@ -126,17 +125,14 @@
     }
 </style>
 
-
-
 <section>
-
     <button class="feedback_upper_modal d-lg-block d-sm-none" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
-        <span class="bg-black text-white text-center p-1 rounded-2 miniRFQQTY"
+        {{-- <span class=" text-black text-center rounded-2 miniRFQQTY"
             style="line-height: 0;font-family: 'PhpDebugbarFontAwesome';">
             {{ Cart::count() }}
-        </span>
-        RFQ Added
+        </span> --}}
+        {{ Cart::count() }} RFQ Added
     </button>
     {{-- Offcanvas --}}
     <div class="offcanvas offcanvas-bottom offcanvasRFQ" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
