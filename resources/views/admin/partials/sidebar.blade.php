@@ -71,8 +71,10 @@
                         <ul class="nav-group-sub collapse ms-4" style="">
                             <li class="nav-item"><a href="{{ route('business.index') }}" class="nav-link">Dashboard</a>
                             </li>
-                            <li class="nav-item"><a href="{{ route('rfq.list') }}" class="nav-link">RFQ
-                                    Management</a></li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.rfq.index') }}" class="nav-link">RFQ
+                                    Management</a>
+                                </li>
                             <li class="nav-item"><a href="{{ route('sales-dashboard.index') }}" class="nav-link">
                                     Sales</a>
                             </li>
