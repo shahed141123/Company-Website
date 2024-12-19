@@ -1,4 +1,4 @@
-<div class="offcanvas-header bg-dark">
+<div class="offcanvas-header rfq-head-bg">
     <h5 class="text-center text-white">All RFQ Product Added In Query!</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
         style="background: #ae0a46;padding-bottom: 18px;padding-left: 12px;padding-right: 15px;">
@@ -6,7 +6,7 @@
     </button>
 </div>
 
-<div class="offcanvas-body pt-0">
+<div class="offcanvas-body p-0">
     <div class="container-fluid px-0">
         <div class="row">
             <div class="col-lg-10">
@@ -28,7 +28,7 @@
                                             <i class="fa-solid fa-xmark"></i>
                                         </a>
                                     </div>
-                                    <div class="card text-center border-0 shadow-sm rfq-cards">
+                                    <div class="card text-center border-0 rfq-cards">
                                         <div class="d-flex align-items-center">
                                             <div class="rfq-imgs">
                                                 <img src="{{ !empty(optional($productRFQ)->thumbnail) && file_exists(public_path(optional($productRFQ)->thumbnail)) ? asset(optional($productRFQ)->thumbnail) : asset('frontend/images/random-no-img.png') }}"
@@ -50,8 +50,8 @@
                     @endif
                 </div>
             </div>
-            <div class="col-lg-2 fixed-column">
-                <div class="text-center">
+            <div class="col-lg-2 ">
+                <div class="text-center fixed-column">
                     <p>Check all added RFQ in one place, hit the button to show all added RFQ.</p>
                     <a href="{{ route('rfq') }}" class="btn-color">Show All RFQ</a>
                 </div>
