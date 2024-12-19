@@ -17111,11 +17111,6 @@ nav > div a.nav-item.nav-link.active {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
 }
 /* Refurbished Product Start */
-.refurbished_tabs {
-}
-
-.refurbished_tabs li {
-}
 .refurbished_tabs li .nav-link {
     border-radius: 0px !important;
     padding: 10px 10px !important;
@@ -17128,8 +17123,6 @@ nav > div a.nav-item.nav-link.active {
     border: 2px solid #ae0a46 !important;
     color: #ae0a46 !important;
     background-color: transparent !important;
-}
-.nested-brand-link {
 }
 .nested-brand-link li .nested-nav-link {
     padding: 1px 5px !important;
@@ -17212,10 +17205,10 @@ nav > div a.nav-item.nav-link.active {
     object-fit: cover;
 }
 .fixed-column {
-    position: fixed;
+    position: relative;
     bottom: 0;
     right: 0;
-    height: auto;
+    height: 100%;
     background-color: #f8f9fa;
     display: flex;
     flex-direction: column;
@@ -17228,3 +17221,16 @@ nav > div a.nav-item.nav-link.active {
 .rfq-cards {
     height: 83px;
 }
+.rfq-head-bg {
+    background-image: url("https://static.vecteezy.com/system/resources/thumbnails/003/782/514/small/black-abstract-header-metal-pattern-simply-mosaic-banner-with-evenly-stacked-crosses-vector.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 85px;
+    position: relative;
+    z-index: 1;
+    color: white;
+    overflow: hidden;
+}
+

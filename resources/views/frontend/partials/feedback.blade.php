@@ -132,7 +132,7 @@
             style="line-height: 0;font-family: 'PhpDebugbarFontAwesome';">
             {{ Cart::count() }}
         </span> --}}
-        {{ Cart::count() }} RFQ Added
+        <span class="miniRFQQTY">{{ Cart::count() }}</span> RFQ Added
     </button>
     {{-- Offcanvas --}}
     <div class="offcanvas offcanvas-bottom offcanvasRFQ" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">

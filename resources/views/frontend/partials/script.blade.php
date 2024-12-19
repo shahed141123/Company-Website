@@ -276,7 +276,7 @@
                         // Product added to the cart successfully
                         cart_header.empty();
                         cart_header.append(
-                            '<span class="bg-black text-white text-center p-1 rounded-2 miniRFQQTY" style="line-height: 0;font-family: PhpDebugbarFontAwesome;">' +
+                            '<span class="miniRFQQTY" style="line-height: 0;font-family: PhpDebugbarFontAwesome;">' +
                             response.cartHeader + '</span>'
                         );
                         button.empty();

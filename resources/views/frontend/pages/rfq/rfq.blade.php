@@ -9,95 +9,38 @@
                     <div class="card-header rfq-header border-0">
                         <div class="d-flex justify-content-between align-items-center">
                             <h5 class="text-black py-2">Get Query</h5>
+                            <div class="d-flex align-items-center justify-content-end align-items-center">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label fw-normal text-muted" for="flexCheckChecked">
+                                        RFQ by Case
+                                    </label>
+                                    <i class="fa-solid fa-question"
+                                        style="
+                                    border: 1px solid #afafaf;
+                                    color: #afafaf;
+                                    border-radius: 1000%;
+                                    font-size: 10px;
+                                    width: 20px;
+                                    height: 20px;
+                                    text-align: center;
+                                    position: relative;
+                                    line-height: 1.9;
+                                    "></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('rfqCreate') }}" method="post"
-                                enctype="multipart/form-data">
+                        <form action="{{ route('rfqCreate') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <!-- Step 1: Project Details -->
-                            <div id="projectStep" class="p-5">
+                            <div id="projectStep" class="p-3">
                                 <div class="row gx-2">
-                                    <div class="col-lg-12">
-                                        <div class="text-end">
-                                            <i class="fa-solid fa-question  tango-help-tip" aria-hidden="true"
-                                                data-toggle="popover" title=""
-                                                data-content="Select the right products by writing initials or full product name in the box below. Mention the quantity in the right box. Add more product input boxes by clicking the left '+' symbol."
-                                                data-original-title="About RFQ"
-                                                style="border: 1px solid #afafaf; color: #afafaf;border-radius: 1000%;width: 15px;height: 15px;text-align: center;font-size: 10px;display: inline-flex;justify-content: center;align-items: center;position: relative;left: 8px;cursor: pointer;"></i>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-end align-items-center">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="flexCheckChecked">
-                                                <label class="form-check-label fw-normal" for="flexCheckChecked">
-                                                    RFQ by Case
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{-- <div class="col-lg-12" id="inputRepeater">
-                                        <div class="row align-items-center mb-5 input-row mt-5">
-                                            <div class="col-lg-12 mx-0">
-                                                <div class="rfq-repeater">
-                                                    <div class="rfq-add-btns">
-                                                        <button type="button" class="rounded-1" onclick="addRow()">
-                                                            <i class="fa-solid fa-plus"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="rfq-title-btns">
-                                                        @if ($cart_products)
-                                                            @foreach ($cart_products as $key => $cart_product)
-                                                                <div class="row gx-2 align-items-center">
-                                                                    <div class="col-lg-10 col-10">
-                                                                        <div class="">
-                                                                            <input type="text" name="product_name[]" value={{ $cart_product->name }}
-                                                                                class="form-control form-control-sm border-0 rounded-1 py-3"
-                                                                                placeholder="Product Title" required>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-2 col-2">
-                                                                        <div class="">
-                                                                            <input name="qty[]" type="number" value="1"
-                                                                                class="form-control form-control-sm border-0 rounded-1 py-3"
-                                                                                placeholder="QTY..">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endforeach
-                                                        @else
-                                                            <div class="row gx-2 align-items-center">
-                                                                <div class="col-lg-10 col-10">
-                                                                    <div class="">
-                                                                        <input name="product_name[]"
-                                                                            class="form-control form-control-sm border-0 rounded-1 py-3"
-                                                                            placeholder="Product Title" required>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-2 col-2">
-                                                                    <div class="">
-                                                                        <input name="qty[]" type="number"
-                                                                            class="form-control form-control-sm border-0 rounded-1 py-3"
-                                                                            placeholder="QTY..">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        @endif
-                                                    </div>
-                                                    <div class="rfq-delete-btns">
-                                                        <button type="button" class="" onclick="deleteRow(this)">
-                                                            <i class="fa-regular fa-trash-can"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> --}}
-
                                     <div class="col-lg-12" id="inputRepeater">
                                         <div class="row align-items-center mb-5 input-row mt-5">
                                             <div class="col-lg-12 mx-0">
-                                                <div class="rfq-repeater">
+                                                <div class="rfq-repeater parent-container">
                                                     <div class="rfq-add-btns">
                                                         <button type="button" class="rounded-1" onclick="addRow()">
                                                             <i class="fa-solid fa-plus"></i>
@@ -115,7 +58,7 @@
                                                                                 placeholder="Product Title" required>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-lg-1 col-2">
+                                                                    <div class="col-lg-1">
                                                                         <div>
                                                                             <input name="qty[]" type="number"
                                                                                 value="1"
@@ -123,7 +66,7 @@
                                                                                 placeholder="QTY..">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-1">
+                                                                    <div class="col-lg-1">
                                                                         <a href="javascript:void(0)" class="delete-btn"
                                                                             onclick="deleteRow(this)">
                                                                             <i
@@ -206,8 +149,8 @@
                                                             <use xlink:href="#delivery-location"></use>
                                                         </svg>
                                                     </span>
-                                                    <span style="font-weight: normal;">Delivery Location </span><span
-                                                        class="text-danger">*</span>
+                                                    <span class="ps-2" style="font-weight: normal;">Delivery Location
+                                                    </span><span class="text-danger">*</span>
                                                 </label>
                                                 <svg class="inline-svg">
                                                     <symbol id="delivery-location" viewBox="0 0 12 10">
