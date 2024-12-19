@@ -43,21 +43,131 @@ class RFQController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    // public function index()
+    // {
+    //     $data['users'] = User::where(function ($query) {
+    //         $query->whereJsonContains('department', 'business');
+    //     })->where('role', 'manager')->select('id', 'name')->orderBy('id', 'DESC')->get();
+    //     $data['rfq_count'] = Rfq::where('rfq_type', 'rfq')->latest()->count();
+    //     $data['rfqs'] = Rfq::where('rfq_type', 'rfq')->latest()->get();
+    //     $data['pendings'] = Rfq::where('rfq_type', 'rfq')->where('status', 'rfq_created')->latest()->get();
+    //     $data['quoteds'] = Rfq::where('rfq_type', 'rfq')->where('status', 'quoted')->orderBy('id', 'DESC')->get();
+    //     $data['deals'] = Rfq::where('rfq_type', 'rfq')->where('status', 'assigned')->orderBy('id', 'DESC')->get();
+    //     $data['losts'] = Rfq::where('rfq_type', 'rfq')->where('status', 'lost')->orderBy('id', 'DESC')->get();
+    //     //dd($data);
+    //     // return view('admin.pages.rfq.all', $data);
+    //     return view('metronic.pages.rfq.index', $data);
+    // }
+
+    public function index(Request $request)
     {
-        $data['users'] = User::where(function ($query) {
+        // Fetch users with 'business' department and 'manager' role
+        $users = User::where(function ($query) {
             $query->whereJsonContains('department', 'business');
         })->where('role', 'manager')->select('id', 'name')->orderBy('id', 'DESC')->get();
-        $data['rfq_count'] = Rfq::where('rfq_type', 'rfq')->latest('id', 'DESC')->count();
-        $data['rfqs'] = Rfq::where('rfq_type', 'rfq')->latest('id', 'DESC')->get();
-        $data['pendings'] = Rfq::where('rfq_type', 'rfq')->where('status', 'rfq_created')->latest('id', 'DESC')->get();
-        $data['quoteds'] = Rfq::where('rfq_type', 'rfq')->where('status', 'quoted')->orderBy('id', 'DESC')->get();
-        $data['deals'] = Rfq::where('rfq_type', 'rfq')->where('status', 'assigned')->orderBy('id', 'DESC')->get();
-        $data['losts'] = Rfq::where('rfq_type', 'rfq')->where('status', 'lost')->orderBy('id', 'DESC')->get();
-        //dd($data);
-        // return view('admin.pages.rfq.all', $data);
-        return view('metronic.pages.rfq.index', $data);
+
+        // Get the total count of RFQs
+        $rfq_count = Rfq::where('rfq_type', 'rfq')->latest()->count();
+
+        // Default RFQ query
+        $query = Rfq::where('rfq_type', 'rfq');
+
+        // Apply year filter if provided
+        if ($request->has('year') && $request->year != '') {
+            $query->whereYear('created_at', $request->year);
+        }
+
+        // Apply month filter if provided
+        if ($request->has('month') && $request->month != '') {
+            $monthNumber = date('m', strtotime($request->month)); // Convert month name to number
+            $query->whereMonth('created_at', $monthNumber);
+        }
+
+        // Apply status filter if provided (pending, quoted, etc.)
+        if ($request->has('status') && $request->status != '') {
+            $query->where('status', $request->status);
+        }
+
+        // Fetch the filtered RFQs
+        $rfqs = $query->latest()->get();
+
+        // Separate RFQs by their status
+        $pendings = $rfqs->where('status', 'rfq_created');
+        $quoteds = $rfqs->where('status', 'quoted');
+        $losts = $rfqs->where('status', 'lost');
+
+        // Return data to the view
+        return view('metronic.pages.rfq.index', [
+            'rfqs'      => $rfqs,
+            'pendings'  => $pendings,
+            'quoteds'   => $quoteds,
+            'losts'     => $losts,
+            'users'     => $users,
+            'rfq_count' => $rfq_count,
+            'tab_status' => '',
+        ]);
     }
+
+    public function filterRFQ(Request $request)
+    {
+        // dd($request->search);
+        $query = Rfq::where('rfq_type', 'rfq');
+
+        // Apply year filter if provided
+        if ($request->has('year') && $request->year != '') {
+            $query->whereYear('create_date', $request->year);
+        }
+
+        // Apply month filter if provided
+        if ($request->has('month') && $request->month != '') {
+            $monthNumber = date('m', strtotime($request->month)); // Convert month name to number
+            $query->whereMonth('create_date', $monthNumber);
+        }
+
+        // Apply status filter if provided
+        if ($request->has('status') && $request->status != '') {
+            // $query->where('status', $request->status);
+            $tab_status =$request->status;
+        }else{
+            $tab_status = '';
+        }
+
+        // Apply search filter if provided
+        if ($request->has('search') && $request->search != '') {
+            // Search by specific fields, like name or RFQ ID
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('rfq_code', 'like', "%$search%")
+                    ->orWhere('name', 'like', "%$search%")
+                    ->orWhere('company_name', 'like', "%$search%")
+                    ->orWhere('country', 'like', "%$search%")
+                    ->orWhere('create_date', 'like', "%$search%")
+                    ->orWhere('email', 'like', "%$search%"); // Add more fields to search as necessary
+            });
+        }
+
+        // Fetch filtered RFQs
+        $rfqs = $query->latest()->get();
+
+        // Separate RFQs by their status
+        $pendings = $rfqs->where('status', 'rfq_created');
+        $quoteds = $rfqs->where('status', 'quoted');
+        $losts = $rfqs->where('status', 'lost');
+
+        // Return the partial view for updated data as JSON
+        return response()->json([
+            'view' => view('metronic.pages.rfq.partials.rfq_queries', [
+                'rfqs'       => $rfqs,
+                'pendings'   => $pendings,
+                'quoteds'    => $quoteds,
+                'losts'      => $losts,
+                'tab_status' => $tab_status,
+            ])->render(),
+        ]);
+    }
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -138,6 +248,7 @@ class RFQController extends Controller
                 'phone'        => $request->input('phone'),
                 'qty'          => $request->input('qty'),
                 'company_name' => $request->input('company_name'),
+                'country'      => $request->input('country'),
                 'designation'  => $request->input('designation'),
                 'message'      => $request->input('message'),
                 'address'      => $request->input('address'),
@@ -185,17 +296,18 @@ class RFQController extends Controller
             Notification::send($users, new RfqCreate($name, $rfq_code));
 
             $data = [
-                'name' => $name,
-                'sku_code' => !empty($product->sku_code) ?? $product->sku_code,
+                'name'         => $name,
+                'sku_code'     => !empty($product->sku_code) ?? $product->sku_code,
                 'product_name' => $product_name,
-                'phone' => $request->input('phone'),
-                'qty' => $request->input('qty'),
+                'phone'        => $request->input('phone'),
+                'qty'          => $request->input('qty'),
                 'company_name' => $request->input('company_name'),
-                'address' => $request->input('address'),
-                'message' => $request->input('message'),
-                'rfq_code' => $rfq_code,
-                'email' => $request->input('email'),
-                'link' => route('single-rfq.show', $rfq_code),
+                'address'      => $request->input('address'),
+                'message'      => $request->input('message'),
+                'rfq_code'     => $rfq_code,
+                'email'        => $request->input('email'),
+                'country'      => $request->input('country'),
+                'link'         => route('single-rfq.show', $rfq_code),
             ];
 
             Mail::to($request->input('email'))->send(new RFQNotificationClientMail($data));
@@ -353,6 +465,7 @@ class RFQController extends Controller
             'message'      => $request->message,
             'rfq_code'     => $rfq_code,
             'email'        => $request->email,
+            'country'      => $request->country,
             'link'         => route('single-rfq.show', $rfq_code),
         ];
 

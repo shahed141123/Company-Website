@@ -140,8 +140,7 @@
                                                                     <a href="javascript:void(0);" class="text-primary"
                                                                         data-bs-target="#editEmployee{{ $employee->id }}"
                                                                         data-bs-toggle="modal" type="button">
-                                                                        <i
-                                                                            class="fa-solid fa-pen-to-square dash-icons"></i>
+                                                                        <i class="fa-solid fa-pen-to-square dash-icons"></i>
                                                                     </a>
                                                                     <a href="{{ route('employee.destroy', [$employee->id]) }}"
                                                                         class="text-danger delete mx-2">

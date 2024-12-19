@@ -102,7 +102,8 @@ class LeaveController extends Controller
             }
 
             Toastr::success('Thank You for your Action.');
-            return redirect()->route('admin.dashboard');
+            // return redirect()->back();
+            return redirect()->route('leave.history');
         } else {
             // Validation failed, display error messages
             $messages = $validator->messages();
@@ -178,7 +179,7 @@ class LeaveController extends Controller
                 }
             }
             Toastr::success('Thank You for your Action.');
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('leave.history');
         } else {
             // Validation failed, display error messages
             $messages = $validator->messages();
@@ -283,7 +284,7 @@ class LeaveController extends Controller
                 }
             }
             Toastr::success('Thank You for your Action.');
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('leave.history');
         } else {
             // Validation failed, display error messages
             $messages = $validator->messages();
@@ -364,7 +365,7 @@ class LeaveController extends Controller
                 }
             }
             Toastr::success('Thank You for your Action.');
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('leave.history');
         } else {
             // Validation failed, display error messages
             $messages = $validator->messages();

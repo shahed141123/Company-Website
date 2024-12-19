@@ -7,6 +7,8 @@ namespace App\Models;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\DB;
 use App\Models\Admin\EmployeeCategory;
+use App\Models\Admin\LeaveApplication;
+use App\Models\Admin\RfqOrderStatus;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -91,8 +93,17 @@ class User extends Authenticatable
         return User::where('id', $this->supervisor_id)->value('name');
     }
 
-    public function employeeStatus() {
+    public function employeeStatus()
+    {
         return $this->belongsTo(EmployeeCategory::class, 'category_id');
     }
 
+    public function leaveApplications()
+    {
+        return $this->hasMany(LeaveApplication::class, 'employee_id');  // 'employee_id' is the foreign key in the leave_applications table
+    }
+    public function rfqOrderStatus()
+    {
+        return $this->hasMany(RfqOrderStatus::class, 'employee_id');  // 'employee_id' is the foreign key in the leave_applications table
+    }
 }
