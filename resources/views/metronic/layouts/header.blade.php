@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+        {{-- <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
             @if ($title ?? null)
                 <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{ $title }}</h1>
                 <span class="h-20px border-gray-300 border-start mx-4"></span>
@@ -39,7 +39,7 @@
                     @endforeach
                 </ul>
             @endif
-        </div>
+        </div> --}}
 
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
             <a href="{{ route('admin.dashboard') }}" class="d-lg-none">

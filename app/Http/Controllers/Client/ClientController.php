@@ -34,6 +34,7 @@ class ClientController extends Controller
 
     public function clientLogin()
     {
+        // dd(Auth::guard('client')->check());
         if (Auth::guard('client')->check()) {
             $data['orders'] = Order::where('client_id', Auth::guard('client')->user()->id)->get();
             $data['deals'] = Rfq::where('client_id', Auth::guard('client')->user()->id)->get();

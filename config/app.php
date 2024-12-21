@@ -202,7 +202,7 @@ return [
         Jorenvh\Share\Providers\ShareServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         App\Providers\HeaderComponentServiceProvider::class,
-        App\Providers\BreadcrumbServiceProvider::class,
+        // App\Providers\BreadcrumbServiceProvider::class,
 
 
     ],
