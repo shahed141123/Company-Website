@@ -71,11 +71,13 @@
             // Ensure the checkbox exists before proceeding
             if (checkbox.checked) {
                 nextButton.disabled = false; // Enable the button
-                nextButton.classList.remove('btn btn-secondary'); // Remove 'btn-secondary'
+                nextButton.classList.remove('btn'); // Remove 'btn-secondary'
+                nextButton.classList.remove('btn-secondary'); // Remove 'btn-secondary'
                 nextButton.classList.add('btn-color'); // Add 'btn-color'
             } else {
                 nextButton.disabled = true; // Disable the button
-                nextButton.classList.add('btn btn-secondary'); // Add 'btn-secondary'
+                nextButton.classList.add('btn'); // Add 'btn-secondary'
+                nextButton.classList.add('btn-secondary'); // Add 'btn-secondary'
                 nextButton.classList.remove('btn-color'); // Remove 'btn-color'
             }
         } else {
