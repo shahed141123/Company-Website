@@ -185,7 +185,7 @@
                         <img src="https://www.ngenitltd.com/frontend/images/white_logo.png" alt="Ngen IT" title="Ngen IT"
                             style="padding-left: 20px;width:95px;"  />
                     </th>
-                    <th style="border: 0; padding: 0; align-content: center; display:flex; align-content: center;">
+                    <th style="border: 0; padding: 0;display:flex; align-content: center; align-items: center;">
                         <div style="margin: auto; display: flex; align-items: center;">
                             <p
                                 style="font-size: 25px;min-height:60px; padding:0px; font-weight: 600; margin: 0px;margin-bottom:0px; margin-top:3px; color: #fff; text-align: left;">
@@ -252,7 +252,7 @@
                         @foreach ($products as $quotationproduct)
                             <tr>
                                 <td>{{ $loop->iteration }}.</td>
-                                <td>
+                                <td style="display: flex;align-items: center;">
                                     <p style="min-height: 115px;display: flex;align-items: center; margin-bottom: 0px;">{{ $quotationproduct->product_name }}</p>
                                 </td>
                                 <td style="text-align: center">{{ $quotationproduct->qty }}</td>
