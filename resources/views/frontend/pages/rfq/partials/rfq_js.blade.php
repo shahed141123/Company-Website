@@ -71,8 +71,12 @@
             // Ensure the checkbox exists before proceeding
             if (checkbox.checked) {
                 nextButton.disabled = false; // Enable the button
+                nextButton.removeClass('btn-secondary');
+                nextButton.addClass('btn-color');
             } else {
                 nextButton.disabled = true; // Disable the button
+                nextButton.addClass('btn-secondary');
+                nextButton.removeClass('btn-color');
             }
         } else {
             console.error('Checkbox with id "delivery" not found.');
