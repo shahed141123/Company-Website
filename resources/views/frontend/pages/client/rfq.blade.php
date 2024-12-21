@@ -124,7 +124,7 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
-                                    {{-- <div class="card">
+                                {{-- <div class="card">
                                         <div class="card-body">
                                             <div class="row">
                                                 <table class="table table-bordered"
@@ -297,39 +297,31 @@
                                         </div>
 
                                     </div> --}}
-                                    <div class="card">
-                                        <div class="card-body py-4">
-                                            <div class="row">
-                                                <table class="table"
-                                                    style="background: offset; width:60%; margin:auto;">
-                                                    <tbody>
-                                                        <tr class="border-none">
-                                                            <th class="border-none" colspan="3"
-                                                                style="background: offset; width:60%; margin:auto;">
-                                                                <label for="clientPO" style="font-size:16px;">Work Order (Pdf)
-                                                                </label>
-                                                                <input class="form-control" type="file"
-                                                                    name="client_po" id="clientPO">
-                                                                <span class="text-info">
-                                                                    * Accepts PDF only</span>
-                                                            </th>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="col-sm-9">
-                                            </div>
-                                            <div class="col-sm-3 text-secondary">
-                                                <button type="submit" class="btn btn-primary">Upload
-                                                    <i class="icon-paperplane ml-2"></i></button>
-                                            </div>
+                                <div class="card">
+                                    <div class="card-body py-4">
+                                        <div class="row">
+                                            <table class="table" style="background: offset; width:60%; margin:auto;">
+                                                <tbody>
+                                                    <tr class="border-none">
+                                                        <th class="border-none" colspan="3"
+                                                            style="background: offset; width:60%; margin:auto;">
+                                                            <label for="clientPO" style="font-size:16px;">Work Order (Pdf)
+                                                            </label>
+                                                            <input class="form-control" type="file" name="client_po"
+                                                                id="clientPO">
+                                                            <span class="text-info">
+                                                                * Accepts PDF only</span>
+                                                        </th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-
-
-
+                                    <div class="card-footer text-end">
+                                        <button type="submit" class="btn btn-primary">Upload
+                                            <i class="icon-paperplane ml-2"></i></button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
 
@@ -356,7 +348,7 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
-                                    {{-- <div class="card">
+                                {{-- <div class="card">
                                         <div class="card-body">
                                             <div class="row">
                                                 <table class="table table-bordered" style="width: 100%; height: auto;">
@@ -528,54 +520,43 @@
                                         </div>
 
                                     </div> --}}
-                                    <div class="card">
-                                        <div class="card-body py-4">
-                                            <div class="row">
-                                                <table class="table"
-                                                    style="background: offset; width:60%; margin:auto;">
+                                <div class="card">
+                                    <div class="card-body py-4">
+                                        <div class="row">
+                                            <table class="table" style="background: offset; width:60%; margin:auto;">
 
-                                                    <thead>
-                                                        <tr class="border-none">
-                                                            <th class="border-none" colspan="3"
-                                                                style="background: offset; width:60%; margin:auto;">
-                                                                <label for="clientPO" style="font-size:16px;">Payment
-                                                                    Slip
-                                                                    (Pdf)
-                                                                </label>
-                                                                <input class="form-control" type="file"
-                                                                    name="client_po" id="clientPO">
-                                                                <span class="text-info">
-                                                                    * Accepts PDF only</span>
-                                                            </th>
-                                                            <th class="border-none" colspan="3"
-                                                                style="background: offset; width:60%; margin:auto;">
-                                                                <label for="clientPO" style="font-size:16px;">Transaction
-                                                                    ID</label>
-                                                                <input class="form-control" type="file"
-                                                                    name="client_po" id="clientPO">
-                                                                <span class="text-info">
-                                                                    * Accepts PDF only</span>
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="col-sm-9">
-                                            </div>
-                                            <div class="col-sm-3 text-secondary">
-                                                <button type="submit" class="btn btn-primary">Upload
-                                                    <i class="icon-paperplane ml-2"></i></button>
-                                            </div>
+                                                <thead>
+                                                    <tr class="border-none">
+                                                        <th class="border-none" colspan="3"
+                                                            style="background: offset; width:60%; margin:auto;">
+                                                            <label for="clientPO" style="font-size:16px;">Payment
+                                                                Slip
+                                                                (Pdf)
+                                                            </label>
+                                                            <input class="form-control" type="file" name="client_po"
+                                                                id="clientPO">
+                                                            <span class="text-info">
+                                                                * Accepts PDF only</span>
+                                                        </th>
+                                                        <th class="border-none" colspan="3"
+                                                            style="background: offset; width:60%; margin:auto;">
+                                                            <label for="clientPO" style="font-size:16px;">Transaction
+                                                                ID</label>
+                                                            <input class="form-control" type="file" name="client_po"
+                                                                id="clientPO">
+                                                            <span class="text-info">
+                                                                * Accepts PDF only</span>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
                                         </div>
                                     </div>
-
-
-
-
-
-
+                                    <div class="card-footer text-end">
+                                        <button type="submit" class="btn btn-primary">Upload
+                                            <i class="icon-paperplane ml-2"></i></button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
