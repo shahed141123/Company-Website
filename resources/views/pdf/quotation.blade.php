@@ -178,17 +178,16 @@
 <body>
     <div class="pdf-container">
         <!-- Your main content here -->
-        <table style="width: 100%; border: 0; overflow-x: auto; background: #ae0a46;align-content: center;">
+        <table style="width: 100%; border: 0; overflow-x: auto; background: #ae0a46; align-content: center;">
             <thead>
-                <tr style="align-content: center;">
-                    <th style="border: 0;padding: 3px;width: 64%;font-weight: 500;text-align:left;margin: 0px;">
+                <tr style="align-content: center; height: 100px;">
+                    <th style="border: 0; padding: 0; width: 64%; font-weight: 500; text-align: left; margin: 0px; vertical-align: middle;">
                         <img src="https://www.ngenitltd.com/frontend/images/white_logo.png" alt="Ngen IT" title="Ngen IT"
-                            style="padding-left: 20px;width:95px;"  />
+                            style="padding-left: 20px; width: 95px;" />
                     </th>
-                    <th style="border: 0; padding: 0;display:flex; align-content: center; align-items: center;">
-                        <div style="margin: auto; display: flex; align-items: center;">
-                            <p
-                                style="font-size: 25px;min-height:60px; padding:0px; font-weight: 600; margin: 0px;margin-bottom:0px; margin-top:3px; color: #fff; text-align: left;">
+                    <th style="border: 0; padding: 0; display: flex; justify-content: center; align-items: center; vertical-align: middle;">
+                        <div style="text-align: left;">
+                            <p style="font-size: 25px; min-height: 60px; padding: 0px; font-weight: 600; margin: 0px; margin-bottom: 0px; margin-top: 3px; color: #fff; text-align: left;">
                                 {{ $quotation->quotation_title }}
                             </p>
                         </div>
@@ -196,6 +195,7 @@
                 </tr>
             </thead>
         </table>
+
         <div class="content">
             <table class="content-table" style="margin-top: 15px;margin-bottom: 43px;">
                 <thead>
