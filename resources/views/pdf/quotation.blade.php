@@ -237,13 +237,13 @@
             <table class="content-table table-two" style="margin-top: 40px; border: 1px solid #eee">
                 <thead style="background-color: #f0f0f0">
                     <tr>
-                        <th class="table-two-th">Sl</th>
-                        <th class="table-two-th">Product Description</th>
-                        <th class="table-two-th" style="text-align: center">Qty</th>
-                        <th class="table-two-th" style="text-align: right">
+                        <th width="5%" class="table-two-th">Sl</th>
+                        <th width="45%" class="table-two-th">Product Description</th>
+                        <th width="10%" class="table-two-th" style="text-align: center">Qty</th>
+                        <th width="20%" class="table-two-th" style="text-align: right">
                             Unit Price(<span class="currency">{{ $currency }}</span>)
                         </th>
-                        <th class="table-two-th" style="text-align: right;padding-right: 20px;">Total(<span
+                        <th width="20%" class="table-two-th" style="text-align: right;padding-right: 20px;">Total(<span
                                 class="currency">{{ $currency }}</span>)</th>
                     </tr>
                 </thead>
@@ -292,7 +292,7 @@
                         </td>
                         <td style="text-align: right; font-weight: 400">
                             {{ number_format(round((float) optional($singleproduct)->vat_final_total_price), 2) }}
-                            <span class="currency">{{ $currency }}</span>.
+                            <span class="currency">{{ $currency }}</span>
                         </td>
                     </tr>
 
@@ -302,7 +302,7 @@
                         </td>
                         <td style="text-align: right; font-weight: 500">
                             {{ number_format(round((float) optional($singleproduct)->total_final_total_price), 2) }}
-                            <span class="currency">{{ $currency }}</span>.
+                            <span class="currency">{{ $currency }}</span>
                         </td>
                     </tr>
                 </tbody>
