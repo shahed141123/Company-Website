@@ -30,12 +30,13 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RFQNotificationAdminMail;
-use App\Mail\RFQNotificationClientMail;
-use App\Models\Admin\CommercialDocument;
 use App\Models\Admin\QuotationProduct;
+use App\Mail\RFQNotificationClientMail;
+use Illuminate\Support\Facades\Session;
+use App\Models\Admin\CommercialDocument;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Notification;
-use Gloudemans\Shoppingcart\Facades\Cart;
 
 class RFQController extends Controller
 {
@@ -1109,7 +1110,7 @@ class RFQController extends Controller
         $rfq_code = $rfq->rfq_code;
 
         Notification::send($user, new WorkOrder($name, $rfq_code));
-
+        Session::flash('success','Workorder uploaded Succssfully');
         return redirect()->back();
     }
 
@@ -1146,7 +1147,7 @@ class RFQController extends Controller
             'sale_date'          => Carbon::now()->format('dmy'),
             'rfq_type'           => 'order',
         ]);
-
+        Session::flash('success','Proof of Payment uploaded Succssfully');
         return redirect()->back();
     }
 }
