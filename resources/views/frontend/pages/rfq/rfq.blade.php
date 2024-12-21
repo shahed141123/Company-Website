@@ -559,7 +559,7 @@
                                 </div>
                                 <div class="pt-3 d-flex justify-content-between align-items-center">
                                     <p class="fw-normal m-0 p-0">Please complete your details for further communication needed!</p>
-                                    <button type="button" id="nextButtonmain" class="btn-primary btn w-25" onclick="nextStep()" disabled>
+                                    <button type="button" id="nextButtonmain" class="btn-secondary btn w-25" onclick="nextStep()" disabled>
                                         <span>Next</span>
                                         <i class="ps-2 fa-solid fa-arrow-right-long"></i>
                                     </button>
