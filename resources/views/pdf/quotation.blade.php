@@ -29,7 +29,7 @@
         }
 
         .pdf-container {
-            width: 220mm;
+            width: 210mm;
             /* A4 width */
             height: 297mm;
             /* A4 height */
