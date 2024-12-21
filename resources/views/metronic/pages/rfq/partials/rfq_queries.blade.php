@@ -457,21 +457,21 @@
                                                         <li class="nav-item">
                                                             <a class="nav-link btn btn-primary active"
                                                                 data-bs-toggle="tab"
-                                                                href="#rfq_status-{{ $rfq->id }}">
+                                                                href="#quoted_status-{{ $rfq->id }}">
                                                                 <i class="fa-regular fa-handshake pe-2"></i>
                                                                 Status
                                                             </a>
                                                         </li>
                                                         <li class="nav-item">
                                                             <a class="nav-link btn btn-primary" data-bs-toggle="tab"
-                                                                href="#rfq_bypass-{{ $rfq->id }}">
+                                                                href="#quoted_bypass-{{ $rfq->id }}">
                                                                 <i class="fa-solid fa-signs-post pe-2"></i>
                                                                 Bypass
                                                             </a>
                                                         </li>
                                                         <li class="nav-item">
                                                             <a class="nav-link btn btn-primary" data-bs-toggle="tab"
-                                                                href="#rfq_st_details-{{ $rfq->id }}">
+                                                                href="#quoted_st_details-{{ $rfq->id }}">
                                                                 <i class="fa-solid fa-expand pe-2"></i>
                                                                 Show Details
                                                             </a>
@@ -484,7 +484,7 @@
 
                                             <div class="tab-content p-7" id="myTabContent">
                                                 <div class="tab-pane fade show active"
-                                                    id="rfq_status-{{ $rfq->id }}" role="tabpanel">
+                                                    id="quoted_status-{{ $rfq->id }}" role="tabpanel">
                                                     <div class="table-responsive" style="height:10rem;">
                                                         <div class="track">
                                                             @if ($rfq->rfq_type == 'rfq')
@@ -604,7 +604,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="rfq_bypass-{{ $rfq->id }}"
+                                                <div class="tab-pane fade" id="quoted_bypass-{{ $rfq->id }}"
                                                     role="tabpanel">
                                                     <div class="card mt-4 w-50 mx-auto">
                                                         <div class="card-header border-0 rounded-0 bg-transparent p-0">
@@ -625,7 +625,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="tab-pane fade" id="rfq_st_details-{{ $rfq->id }}"
+                                                <div class="tab-pane fade" id="quoted_st_details-{{ $rfq->id }}"
                                                     role="tabpanel">
                                                     <div class="card rounded-0">
                                                         <div class="card-header rounded-0 p-0">

@@ -24,7 +24,7 @@
                     Back to the list
                 </a>
             </div>
-        </div>
+        </div> 
         <div class="card-body pt-0">
 
             <form class="form" action="{{ route('admin.brands.store') }}" method="POST"
