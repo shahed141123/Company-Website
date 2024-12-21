@@ -112,29 +112,24 @@
                 <div class="modal-dialog modal-dialog-scrollable modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            @php
-                                $rfq = App\Models\Admin\Rfq::where('rfq_code', $rfq->rfq_code)->first();
-                                $deal_products = App\Models\Admin\DealSas::where('rfq_code', $rfq->rfq_code)->get();
-                                $deal_sas = App\Models\Admin\DealSas::where('rfq_code', $rfq->rfq_code)->first();
-                            @endphp
+
                             <h5 class="modal-title">Upload
                                 Your Work Order</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
 
-                        <div class="modal-body border br-7">
+                        <div class="modal-body p-4 border br-7">
 
                             <form method="post" action="{{ route('work-order.upload', $rfq->rfq_code) }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="row mb-3">
-                                    <div class="card">
+                                    {{-- <div class="card">
                                         <div class="card-body">
                                             <div class="row">
                                                 <table class="table table-bordered"
-                                                    style="width: 100%;
-                                            height: auto;">
+                                                    style="width: 100%;height: auto;">
                                                     <tr class="text-center" style="background-color: rgba(0,0,0,.03);">
                                                         <th>SL
                                                             #
@@ -302,27 +297,22 @@
 
                                         </div>
 
-                                    </div>
+                                    </div> --}}
                                     <div class="card">
-                                        <div class="card-body">
+                                        <div class="card-body py-4">
                                             <div class="row">
-                                                <table class="table table-bordered"
+                                                <table class="table"
                                                     style="background: offset; width:60%; margin:auto;">
                                                     <tbody>
                                                         <tr class="border-none">
                                                             <th class="border-none" colspan="3"
                                                                 style="background: offset; width:60%; margin:auto;">
-                                                                <label for="clientPO" style="font-size:16px;">Work
-                                                                    Order
-                                                                    (Pdf)
+                                                                <label for="clientPO" style="font-size:16px;">Work Order (Pdf)
                                                                 </label>
                                                                 <input class="form-control" type="file"
                                                                     name="client_po" id="clientPO">
                                                                 <span class="text-info">
-                                                                    *
-                                                                    Accepts
-                                                                    PDF
-                                                                    only</span>
+                                                                    * Accepts PDF only</span>
                                                             </th>
                                                         </tr>
                                                     </tbody>
@@ -354,23 +344,21 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             @php
-                                $rfq = App\Models\Admin\Rfq::where('rfq_code', $rfq->rfq_code)->first();
-                                $deal_products = App\Models\Admin\DealSas::where('rfq_code', $rfq->rfq_code)->get();
-                                $deal_sas = App\Models\Admin\DealSas::where('rfq_code', $rfq->rfq_code)->first();
+                                // $rfq = App\Models\Admin\Rfq::where('rfq_code', $rfq->rfq_code)->first();
+                                // $deal_products = App\Models\Admin\DealSas::where('rfq_code', $rfq->rfq_code)->get();
+                                // $deal_sas = App\Models\Admin\DealSas::where('rfq_code', $rfq->rfq_code)->first();
                             @endphp
-                            <h5 class="modal-title">Upload
-                                Proof of Payment for this
-                                Deal</h5>
+                            <h5 class="modal-title">Upload Proof of Payment for this Deal</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
 
-                        <div class="modal-body border br-7">
+                        <div class="modal-body p-4 border br-7">
                             <form method="post" action="{{ route('payment-proof.upload', $rfq->rfq_code) }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="row mb-3">
-                                    <div class="card">
+                                    {{-- <div class="card">
                                         <div class="card-body">
                                             <div class="row">
                                                 <table class="table table-bordered" style="width: 100%; height: auto;">
@@ -541,11 +529,11 @@
 
                                         </div>
 
-                                    </div>
+                                    </div> --}}
                                     <div class="card">
-                                        <div class="card-body">
+                                        <div class="card-body py-4">
                                             <div class="row">
-                                                <table class="table table-bordered"
+                                                <table class="table"
                                                     style="background: offset; width:60%; margin:auto;">
 
                                                     <thead>
@@ -559,10 +547,7 @@
                                                                 <input class="form-control" type="file"
                                                                     name="client_po" id="clientPO">
                                                                 <span class="text-info">
-                                                                    *
-                                                                    Accepts
-                                                                    PDF
-                                                                    only</span>
+                                                                    * Accepts PDF only</span>
                                                             </th>
                                                             <th class="border-none" colspan="3"
                                                                 style="background: offset; width:60%; margin:auto;">

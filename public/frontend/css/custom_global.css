@@ -2582,9 +2582,8 @@ footer p a:hover {
     width: 1em;
     height: 1em;
     padding: 0.25em 0.25em;
-    color: #ffff;
-    background: transparent url("https://i.ibb.co/t2CkLrk/close.png") center/1em
-        auto no-repeat;
+    color: #ffffff;
+    background: #e51b1be8 url(https://i.ibb.co/t2CkLrk/close.png) center / 1em auto no-repeat;
     border: 0;
     border-radius: 0.375rem;
     opacity: 0.5;
