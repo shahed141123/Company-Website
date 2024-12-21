@@ -253,7 +253,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}.</td>
                                 <td style="display: flex;align-items: center;">
-                                    <p style="min-height: 115px;display: flex;align-items: center; margin-bottom: 0px;">{{ $quotationproduct->product_name }}</p>
+                                    <p style="display: flex;align-items: center; margin-bottom: 0px;">{{ $quotationproduct->product_name }}</p>
                                 </td>
                                 <td style="text-align: center">{{ $quotationproduct->qty }}</td>
                                 <td style="text-align: right">
