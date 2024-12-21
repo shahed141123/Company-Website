@@ -14,12 +14,12 @@
             /* font-family: "Sora", sans-serif; */
             /* font-family: "Roboto", sans-serif; */
             font-family: "Montserrat", sans-serif;
-            font-size: 13px;
+            font-size: 11px;
         }
 
         .footer-link {
             font-family: Sora;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 500;
             line-height: 22.68px;
             letter-spacing: 0.1em;
@@ -94,7 +94,7 @@
         }
 
         .table-two-th {
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 500;
             line-height: 17.64px;
             text-align: left;
@@ -102,7 +102,7 @@
 
         .table-two-td {
             font-family: Sora;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 400;
             line-height: 17.64px;
             text-align: left;
@@ -183,12 +183,12 @@
                 <tr style="align-content: center;">
                     <th style="border: 0;padding: 3px;width: 64%;font-weight: 500;text-align:left;margin: 0px;">
                         <img src="https://www.ngenitltd.com/frontend/images/white_logo.png" alt="Ngen IT" title="Ngen IT"
-                            style="padding-left: 20px;width:95px;" {{-- style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; display: inline-block !important; border: none; height: auto; float: none; width: 5rem; padding-left: 20px;" --}} />
+                            style="padding-left: 20px;width:95px;"  />
                     </th>
                     <th style="border: 0; padding: 0; align-content: center; display:flex; align-content: center;">
-                        <div style="margin: auto;">
+                        <div style="margin: auto; display: flex; align-items: center;">
                             <p
-                                style="font-size: 25px;min-height:60px;display: flex;align-items: center; padding:0px; font-weight: 600; margin: 0px; margin-top:3px; color: #fff; text-align: left;">
+                                style="font-size: 25px;min-height:60px; padding:0px; font-weight: 600; margin: 0px;margin-bottom:0px; margin-top:3px; color: #fff; text-align: left;">
                                 {{ $quotation->quotation_title }}
                             </p>
                         </div>
@@ -247,22 +247,22 @@
                                 class="currency">{{ $currency }}</span>)</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="vertical-align: middle">
                     @if ($products->count() > 0)
                         @foreach ($products as $quotationproduct)
                             <tr>
                                 <td>{{ $loop->iteration }}.</td>
                                 <td>
-                                    <p style="min-height: 115px;display: flex;align-items: center;">{{ $quotationproduct->product_name }}</p>
+                                    <p style="min-height: 115px;display: flex;align-items: center; margin-bottom: 0px;">{{ $quotationproduct->product_name }}</p>
                                 </td>
                                 <td style="text-align: center">{{ $quotationproduct->qty }}</td>
                                 <td style="text-align: right">
                                     {{ number_format(round((float) optional($quotationproduct)->unit_final_price), 2) }}
-                                    {{ $currency }}.
+                                    {{ $currency }}
                                 </td>
                                 <td style="text-align: right">
                                     {{ number_format(round((float) optional($quotationproduct)->unit_final_total_price), 2) }}
-                                    {{ $currency }}.
+                                    {{ $currency }}
                                 </td>
                             </tr>
                         @endforeach
@@ -273,7 +273,7 @@
                         </td>
                         <td style="text-align: right; font-weight: 500">
                             {{ number_format(round((float) optional($singleproduct)->sub_total_final_total_price), 2) }}
-                            <span class="currency">{{ $currency }}</span>.
+                            <span class="currency">{{ $currency }}</span>
                         </td>
                     </tr>
                     <tr
@@ -283,7 +283,7 @@
                         </td>
                         <td style="text-align: right; font-weight: 400">
                             {{ number_format(round((float) optional($singleproduct)->special_discount_final_total_price), 2) }}<span
-                                class="currency">{{ $currency }}</span>.</td>
+                                class="currency">{{ $currency }}</span></td>
                     </tr>
                     <tr
                         style="background-color: #eeeeee3d; display: {{ optional($quotation)->vat_display == '1' ? 'table-row' : 'none' }};">
@@ -334,10 +334,10 @@
                     <tbody>
                         @foreach ($rfq_terms as $term)
                             <tr>
-                                <td style="font-size: 13px;width:17%; padding: 5px;border: 0;font-weight: 500;">
+                                <td style="font-size: 11px;width:17%; padding: 5px;border: 0;font-weight: 500;">
                                     {{ $term->title }}
                                 </td>
-                                <td style="font-size: 13px;width:83%; padding: 5px; border: 0">
+                                <td style="font-size: 11px;width:83%; padding: 5px; border: 0">
                                     {{ $term->description }}
                                 </td>
                             </tr>
