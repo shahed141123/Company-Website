@@ -69,12 +69,9 @@
                 <li><a href="{{ route('client.dashboard') }}"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
                 </li>
                 <li><a href="{{ route('client.profile') }}"><i class="fa fa-user"></i><span>My Profile</span></a></li>
-                {{-- <li><a href="#"><i class="fa fa-calendar"></i><span>Deal</span></a></li> --}}
                 <li><a href="{{route('client.rfq')}}"><i class="fa fa-calendar"></i><span>My RFQs</span></a></li>
-                <li><a href="{{route('client.orders')}}"><i class="fa fa-shopping-cart"></i><span>My Orders</span></a></li>
+                {{-- <li><a href="{{route('client.orders')}}"><i class="fa fa-shopping-cart"></i><span>My Orders</span></a></li> --}}
                 <li><a href="javascript:void(0);"><i class="fa-solid fa-wallet"></i><span>My Assets</span></a></li>
-                {{-- <li><a href="{{ route('client.project') }}"><i class="ph-chart-bar"></i><span>My Project</span></a></li> --}}
-                {{-- <li><a href="#"><i class="fa fa-calendar"></i><span>Product Draft</span></a></li> --}}
                 <li class="sidebar-dropdown">
                     <a href="javascript:void(0);"><i class="fa-solid fa-diagram-project"></i><span>Project &
                             Support</span></a>

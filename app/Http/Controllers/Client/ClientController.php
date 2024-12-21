@@ -34,9 +34,8 @@ class ClientController extends Controller
 
     public function clientLogin()
     {
-        // dd(Auth::guard('client')->check());
         if (Auth::guard('client')->check()) {
-            $data['orders'] = Order::where('client_id', Auth::guard('client')->user()->id)->get();
+            // $data['orders'] = Order::where('client_id', Auth::guard('client')->user()->id)->get();
             $data['deals'] = Rfq::where('client_id', Auth::guard('client')->user()->id)->get();
             $data['rfqs'] = Rfq::where('client_id', Auth::guard('client')->user()->id)->where('rfq_type', 'rfq')->get();
             return redirect()->route('client.dashboard', $data);
@@ -48,7 +47,7 @@ class ClientController extends Controller
     public function partnerLogin()
     {
         if (Auth::guard('client')->check()) {
-            $data['orders'] = Order::where('client_id', Auth::guard('client')->user()->id)->get();
+            // $data['orders'] = Order::where('client_id', Auth::guard('client')->user()->id)->get();
             $data['deals'] = Rfq::where('client_id', Auth::guard('client')->user()->id)->get();
             $data['rfqs'] = Rfq::where('client_id', Auth::guard('client')->user()->id)->where('rfq_type', 'rfq')->get();
             return redirect()->route('client.dashboard', $data);
@@ -60,7 +59,7 @@ class ClientController extends Controller
     public function jobApplicantLogin()
     {
         if (Auth::guard('client')->check()) {
-            $data['orders'] = Order::where('client_id', Auth::guard('client')->user()->id)->get();
+            // $data['orders'] = Order::where('client_id', Auth::guard('client')->user()->id)->get();
             $data['deals'] = Rfq::where('client_id', Auth::guard('client')->user()->id)->get();
             $data['rfqs'] = Rfq::where('client_id', Auth::guard('client')->user()->id)->where('rfq_type', 'rfq')->get();
             return redirect()->route('client.dashboard', $data);
@@ -395,7 +394,7 @@ class ClientController extends Controller
                 ->get(),
 
             'client' => Auth::guard('client')->user(),
-            'orders' => Order::where('client_id', $clientId)->get(),
+            // 'orders' => Order::where('client_id', $clientId)->get(),
             'rfqs' => Rfq::where('client_id', $clientId)
                 ->where('rfq_type', 'deal')
                 ->get(),
@@ -444,7 +443,7 @@ class ClientController extends Controller
     {
         $data = [
             'data' => Client::where('id', Auth::guard('client')->user()->id)->first(),
-            'orders' => Order::where('client_id', Auth::guard('client')->user()->id)->get(),
+            // 'orders' => Order::where('client_id', Auth::guard('client')->user()->id)->get(),
         ];
         return view('frontend.pages.client.order', $data);
     }
