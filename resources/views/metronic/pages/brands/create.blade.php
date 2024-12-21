@@ -5,7 +5,7 @@
             <div class="card-title"></div>
 
 
-            <div class="card-toolbar">
+            <div class="card-toolbar"> 
 
                 <a href="{{ route('admin.brands.index') }}" class="btn btn-light-info">
 
@@ -24,7 +24,7 @@
                     Back to the list
                 </a>
             </div>
-        </div> 
+        </div>
         <div class="card-body pt-0">
 
             <form class="form" action="{{ route('admin.brands.store') }}" method="POST"

@@ -55,7 +55,7 @@
                                                                         <td>
                                                                             @foreach ($rfq->quotationProducts as $product)
                                                                                 <p class="m-0">
-                                                                                    {{ $product->product_name }}</p>
+                                                                                    {{ $product->product_name }}</p> <br>
                                                                             @endforeach
                                                                         </td>
                                                                         {{-- <td>{{ ucfirst($rfq->status) }}</td> --}}
