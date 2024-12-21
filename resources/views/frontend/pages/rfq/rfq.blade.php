@@ -561,7 +561,7 @@
                                     <p class="fw-normal m-0 p-0">Please complete your details for further communication needed!</p>
                                     <button type="button" id="nextButtonmain" class="btn-secondary btn w-25" onclick="nextStep()" disabled>
                                         <span>Next</span>
-                                        <i class="ps-2 fa-solid fa-arrow-right-long"></i>
+                                        <i class="ps-2 fa-solid fa-arrow-right-long"></i> 
                                     </button>
                                 </div>
                             </div>
