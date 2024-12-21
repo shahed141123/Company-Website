@@ -18,25 +18,12 @@
         color: white;
     }
 
-    /* .rfq-add-btns {
+    .rfq-add-btns {
         width: 5%;
-    } */
+    }
 
     .rfq-title-btns {
         width: 100%;
-    }
-
-    .parent-container {
-        position: relative;
-        height: 100%;
-    }
-
-    .rfq-add-btns {
-        width: 5%;
-        position: absolute;
-        bottom: 0;
-        left: 0%;
-        transform: translateX(-50%);
     }
 
     .rfq-delete-btns {
@@ -45,7 +32,7 @@
 
     .rfq-repeater {
         display: flex;
-        align-items: center;
+        align-items: end;
     }
 
     .rfq-add-btns button {

@@ -64,7 +64,19 @@
     function toggleDiv() {
         const checkbox = document.getElementById("delivery");
         const toggleContent = document.getElementById("toggle-content");
+        const nextButton = document.getElementById('nextButtonmain');
         toggleContent.style.display = checkbox.checked ? "block" : "none";
+
+        if (checkbox) {
+            // Ensure the checkbox exists before proceeding
+            if (checkbox.checked) {
+                nextButton.disabled = false; // Enable the button
+            } else {
+                nextButton.disabled = true; // Disable the button
+            }
+        } else {
+            console.error('Checkbox with id "delivery" not found.');
+        }
     }
 
     function toggleDivInfo() {
@@ -91,18 +103,18 @@
         newRow.classList.add('row', 'gx-2', 'align-items-center', 'product-row');
 
         newRow.innerHTML = `
-            <div class="col-lg-10 col-10">
+            <div class="col-lg-10 col-10 mt-1">
                 <input name="product_name[]" class="form-control form-control-sm border-0 rounded-1 py-3"
                     placeholder="Product Title" required>
             </div>
-            <div class="col-lg-2 col-2">
+            <div class="col-lg-1 col-1">
                 <input name="qty[]" type="number" class="form-control form-control-sm border-0 rounded-1 py-3"
                     placeholder="QTY..">
             </div>
-            <div class="col-12">
-                <button type="button" class="btn btn-danger delete-btn" onclick="deleteRow(this)">
-                    <i class="fa-regular fa-trash-can"></i> Delete
-                </button>
+            <div class="col-lg-1 col-1">
+                <a href="javascript:void(0)" class="delete-btn" onclick="deleteRow(this)">
+                    <i class="fa-regular fa-trash-can text-danger"></i>
+                </a>
             </div>
         `;
 

@@ -140,7 +140,7 @@
                                     <hr class="m-0">
                                     <div class="col-lg-12">
                                         <div class="my-4">
-                                            <div class="checkbox-wrapper-4">
+                                            {{-- <div class="checkbox-wrapper-4">
                                                 <input class="inp-cbx" id="delivery" type="checkbox"
                                                     onchange="toggleDiv()" />
                                                 <label class="cbx" for="delivery">
@@ -151,6 +151,23 @@
                                                     </span>
                                                     <span class="ps-2" style="font-weight: normal;">Delivery Location
                                                     </span><span class="text-danger">*</span>
+                                                </label>
+                                                <svg class="inline-svg">
+                                                    <symbol id="delivery-location" viewBox="0 0 12 10">
+                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                    </symbol>
+                                                </svg>
+                                            </div> --}}
+                                            <div class="checkbox-wrapper-4">
+                                                <input class="inp-cbx" id="delivery" type="checkbox" onchange="toggleDiv()" />
+                                                <label class="cbx" for="delivery">
+                                                    <span>
+                                                        <svg width="12px" height="10px">
+                                                            <use xlink:href="#delivery-location"></use>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="ps-2" style="font-weight: normal;">Delivery Location</span>
+                                                    <span class="text-danger">*</span>
                                                 </label>
                                                 <svg class="inline-svg">
                                                     <symbol id="delivery-location" viewBox="0 0 12 10">
@@ -541,9 +558,8 @@
 
                                 </div>
                                 <div class="pt-3 d-flex justify-content-between align-items-center">
-                                    <p class="fw-normal m-0 p-0">Please complete your details for further
-                                        communication needed !</p>
-                                    <button type="button" class="btn-color" onclick="nextStep()">
+                                    <p class="fw-normal m-0 p-0">Please complete your details for further communication needed!</p>
+                                    <button type="button" id="nextButtonmain" class="btn-primary btn w-25" onclick="nextStep()" disabled>
                                         <span>Next</span>
                                         <i class="ps-2 fa-solid fa-arrow-right-long"></i>
                                     </button>
