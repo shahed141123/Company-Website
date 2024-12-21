@@ -120,7 +120,7 @@
                                             </strong>
                                         </div>
                                     </tr>
-                                    <tr>
+                                    {{-- <tr>
                                         <div style="text-align: center;padding: 30px; width: 70%; margin: auto">
                                             <strong>NB:</strong> Your Quotation link will expire within 14 days.
                                         </div>
@@ -138,7 +138,7 @@
                                             <a href="{{ route('quotation.link', $data['rfq_code']) }}"
                                                 style="color: #ae0a46; font-size:16px; padding-top: 10px">https://ngenitltd.com/quotation/link/{{ $data['rfq_code'] }}</a>
                                         </div>
-                                    </tr>
+                                    </tr> --}}
                                 </tbody>
                             </table>
                             <hr class="m-0 p-0" style="border:none; border-bottom: 1px solid #d3d3d3;">
