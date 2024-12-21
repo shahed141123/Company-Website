@@ -15,6 +15,7 @@ use App\Models\Client\Client;
 use App\Mail\AccountCreateMail;
 use App\Jobs\SendQuotationEmail;
 use App\Models\Admin\RfqQuotation;
+use Illuminate\Support\Facades\DB;
 use App\Models\Admin\QuotationTerm;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
@@ -24,7 +25,6 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\Admin\QuotationProduct;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Admin\CommercialDocument;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class RFQManageController extends Controller
@@ -53,7 +53,7 @@ class RFQManageController extends Controller
         })->select('id', 'name')->orderBy('id', 'DESC')->get();
         $data['rfq_details'] = Rfq::with('rfqProducts')->where('rfq_code', $id)->first();
         $data['deal_products'] = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->get();
-        $data['commercial_document'] = CommercialDocument::where('rfq_id', $data['rfq_details']->id)->first();
+        // $data['commercial_document'] = CommercialDocument::where('rfq_id', $data['rfq_details']->id)->first();
         //dd($data['rfq_details']->rfq_code);
         $data['sourcing'] = DealSas::where('rfq_code', $data['rfq_details']->rfq_code)->first();
         return view('admin.pages.singleRfq.all', $data);

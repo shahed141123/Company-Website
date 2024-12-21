@@ -14,12 +14,12 @@
             /* font-family: "Sora", sans-serif; */
             /* font-family: "Roboto", sans-serif; */
             font-family: "Montserrat", sans-serif;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .footer-link {
             font-family: Sora;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             line-height: 22.68px;
             letter-spacing: 0.1em;
@@ -29,7 +29,7 @@
         }
 
         .pdf-container {
-            width: 210mm;
+            width: 220mm;
             /* A4 width */
             height: 297mm;
             /* A4 height */
@@ -94,7 +94,7 @@
         }
 
         .table-two-th {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             line-height: 17.64px;
             text-align: left;
@@ -102,7 +102,7 @@
 
         .table-two-td {
             font-family: Sora;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 400;
             line-height: 17.64px;
             text-align: left;
