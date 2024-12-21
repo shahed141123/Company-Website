@@ -57,11 +57,13 @@ return new class extends Migration
             $table->double('quoted_price')->nullable();
             $table->text('price_text')->nullable();
             $table->string('currency', 100)->nullable();
-            $table->string('rfq_department',100)->nullable();
-            $table->string('delivery_location',200)->nullable();
+            $table->string('rfq_department', 100)->nullable();
+            $table->string('delivery_location', 200)->nullable();
             $table->double('budget')->nullable();
-            $table->string('project_status',100)->nullable();
+            $table->string('project_status', 100)->nullable();
             $table->string('approximate_delivery_time',150)->nullable();
+            $table->string('client_po', 191)->nullable();
+            $table->string('client_payment_pdf', 191)->nullable();
 
             $table->foreign('sales_man_id_L1')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('sales_man_id_T1')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
