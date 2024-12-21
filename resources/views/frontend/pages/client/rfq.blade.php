@@ -124,7 +124,6 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
-                                <div class="row mb-3">
                                     {{-- <div class="card">
                                         <div class="card-body">
                                             <div class="row">
@@ -319,17 +318,17 @@
                                                 </table>
                                             </div>
                                         </div>
+                                        <div class="card-footer">
+                                            <div class="col-sm-9">
+                                            </div>
+                                            <div class="col-sm-3 text-secondary">
+                                                <button type="submit" class="btn btn-primary">Upload
+                                                    <i class="icon-paperplane ml-2"></i></button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <button type="submit" class="btn btn-primary">Upload
-                                            <i class="icon-paperplane ml-2"></i></button>
-                                    </div>
-                                </div>
+
 
                             </form>
                         </div>
@@ -357,7 +356,6 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
-                                <div class="row mb-3">
                                     {{-- <div class="card">
                                         <div class="card-body">
                                             <div class="row">
@@ -563,20 +561,20 @@
                                                 </table>
                                             </div>
                                         </div>
+                                        <div class="card-footer">
+                                            <div class="col-sm-9">
+                                            </div>
+                                            <div class="col-sm-3 text-secondary">
+                                                <button type="submit" class="btn btn-primary">Upload
+                                                    <i class="icon-paperplane ml-2"></i></button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
 
 
 
 
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <button type="submit" class="btn btn-primary">Upload
-                                            <i class="icon-paperplane ml-2"></i></button>
-                                    </div>
-                                </div>
+
 
                             </form>
                         </div>
