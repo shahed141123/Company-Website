@@ -35,6 +35,7 @@ use App\Models\Admin\CommercialDocument;
 use App\Models\Admin\QuotationProduct;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Notification;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class RFQController extends Controller
 {
@@ -473,7 +474,7 @@ class RFQController extends Controller
         foreach ($user_emails as $email) {
             Mail::to($email)->send(new RFQNotificationAdminMail($data));
         }
-
+        Cart::destroy();
         Toastr::success('Your RFQ has been submitted successfully.');
         return redirect()->route('rfq.success', $rfq_code);
     }
