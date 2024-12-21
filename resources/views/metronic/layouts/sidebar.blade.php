@@ -51,7 +51,39 @@
                 {{-- Site Content  --}}
                 @php
                     $menuItems = [
-                        
+                        [
+                            'title' => 'Supply Chain',
+                            'icon' => 'fa-light fa-truck-field fs-3',
+                            'routes' => [
+                                'brand.index',
+                                'brand.create',
+                                'brand.edit',
+                                'admin.categories.index',
+                                'admin.categories.create',
+                                'admin.categories.edit',
+                                'product-sourcing.index',
+                                'product.saved',
+                                'product.sourced',
+                                'product.approved', 'product-sourcing.create', 'product-sourcing.edit'
+                            ],
+                            'subMenu' => [
+                                [
+                                    'title' => 'Brand Management',
+                                    'routes' => ['brand.index','brand.create', 'brand.edit'],
+                                    'route' => 'brand.index',
+                                ],
+                                [
+                                    'title' => 'Category Management',
+                                    'routes' => ['brand.index','brand.create', 'brand.edit'],
+                                    'route' => 'product-sourcing.index',
+                                ],
+                                [
+                                    'title' => 'Sourcing',
+                                    'routes' => ['product-sourcing.index', 'product.saved', 'product.sourced', 'product.approved', 'product-sourcing.create', 'product-sourcing.edit'],
+                                    'route' => 'product-sourcing.index',
+                                ],
+                            ],
+                        ],
                         [
                             'title' => 'Business',
                             'icon' => 'fa-light fa-business-time fs-3',

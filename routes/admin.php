@@ -146,6 +146,9 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     );
 
     Route::get('/rfqFilter', [RfqController::class, 'filterRFQ'])->name('rfq.filter');
+
+    // Toggle Status
+    Route::post('brands/toggle-status/{id}', [BrandController::class, 'toggleStatus'])->name('brands.toggle-status');
     // Route::controller(RFQController::class)->group(function () {
     //     Route::get('/rfq', 'index')->name('admin.rfq.index'); // Corrected route name
     // });
@@ -565,7 +568,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             'destroy' => 'employee.destroy',
         ]);
     }
-
 
 
     Route::post('admin/case/message',  [ClientSupportMessageController::class, 'store'])->name('admin.message.store');

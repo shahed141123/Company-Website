@@ -26,7 +26,8 @@ class BrandController extends Controller
     public function index()
     {
         $data['brands'] = Brand::latest()->get();
-        return view('admin.pages.brand.all', $data);
+        // return view('admin.pages.brand.all', $data);
+        return view('metronic.pages.brands.index', $data);
     } // End Method
 
 
@@ -174,4 +175,12 @@ class BrandController extends Controller
         }
         $brand->delete();
     } // End Method
+
+    public function toggleStatus(string $id)
+    {
+        $brand = Brand::findOrFail($id);
+        $brand->status = $brand->status == 'active' ? 'inactive' : 'active';
+        $brand->save();
+        return response()->json(['success' => true]);
+    }
 }

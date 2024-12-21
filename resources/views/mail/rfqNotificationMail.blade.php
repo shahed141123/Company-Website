@@ -122,6 +122,7 @@
                                             style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
                                             {{ $data['product_name'] }}</td>
                                     </tr>
+
                                     @if (!empty($data['qty']))
                                         <tr>
                                             <th
@@ -190,6 +191,15 @@
                                             style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
                                             <a href="mailto:{{ $data['email'] }}"
                                                 target="_blank">{{ $data['email'] }}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th
+                                            style="border-bottom:1px solid #e7e7e7;width: 30%;background-color:#f1f1f1;padding:10px 15px;font-size:15px;text-align:left">
+                                            Customer Country</th>
+                                        <td
+                                            style="padding:10px 15px;border-top:1px solid #f1f1f1;border-right:1px solid #f1f1f1;font-size:15px;text-align:left">
+                                            {{ $data['country'] }}
                                         </td>
                                     </tr>
 

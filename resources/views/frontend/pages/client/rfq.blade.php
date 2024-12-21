@@ -107,121 +107,150 @@
 
         {{-- modal Start --}}
         @foreach ($rfqs as $key => $rfq)
-            {{-- <div id="Work-order-{{ $rfq->rfq_code }}" class="modal fade" tabindex="-1" style="display: none;"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        @php
-                            $rfq = App\Models\Admin\Rfq::where('rfq_code', $rfq->rfq_code)->first();
-                            $deal_products = App\Models\Admin\DealSas::where('rfq_code', $rfq->rfq_code)->get();
-                            $deal_sas = App\Models\Admin\DealSas::where('rfq_code', $rfq->rfq_code)->first();
-                        @endphp
-                        <h5 class="modal-title">Upload
-                            Your Work Order</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
+            <div id="Work-order-{{ $rfq->rfq_code }}" class="modal fade" tabindex="-1" style="display: none;"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            @php
+                                $rfq = App\Models\Admin\Rfq::where('rfq_code', $rfq->rfq_code)->first();
+                                $deal_products = App\Models\Admin\DealSas::where('rfq_code', $rfq->rfq_code)->get();
+                                $deal_sas = App\Models\Admin\DealSas::where('rfq_code', $rfq->rfq_code)->first();
+                            @endphp
+                            <h5 class="modal-title">Upload
+                                Your Work Order</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
 
-                    <div class="modal-body border br-7">
+                        <div class="modal-body border br-7">
 
-                        <form method="post" action="{{ route('work-order.upload', $rfq->rfq_code) }}"
-                            enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
-                            <div class="row mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <table class="table table-bordered"
-                                                style="width: 100%;
+                            <form method="post" action="{{ route('work-order.upload', $rfq->rfq_code) }}"
+                                enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <div class="row mb-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <table class="table table-bordered"
+                                                    style="width: 100%;
                                             height: auto;">
-                                                <tr class="text-center" style="background-color: rgba(0,0,0,.03);">
-                                                    <th>SL
-                                                        #
-                                                    </th>
-                                                    <th>Product
-                                                        Description
-                                                    </th>
-                                                    <th>Quantity
-                                                    </th>
-
-                                                    @if ($rfq->regular == '1')
-                                                        <th width="10%" class="rg_discount d-none">
-                                                            Discount
+                                                    <tr class="text-center" style="background-color: rgba(0,0,0,.03);">
+                                                        <th>SL
+                                                            #
                                                         </th>
-                                                        <th width="10%" class="rg_discount d-none">
-                                                            Disc.
-                                                            Unit
+                                                        <th>Product
+                                                            Description
                                                         </th>
-                                                    @else
-                                                        <th width="10%" class="rg_unit">
-                                                            Unit
-                                                            Price
+                                                        <th>Quantity
                                                         </th>
-                                                    @endif
 
-                                                    <th width="15%">
-                                                        Total
-                                                    </th>
-                                                </tr>
-
-                                                @foreach ($deal_products as $key => $item)
-                                                    <tr>
-                                                        <td> {{ ++$key }}
-                                                        </td>
-
-                                                        <td>
-                                                            {{ $item->item_name }}
-                                                        </td>
-                                                        <td class="text-center">
-                                                            {{ $item->qty }}
-                                                        </td>
                                                         @if ($rfq->regular == '1')
                                                             <th width="10%" class="rg_discount d-none">
-                                                                {{ $item->regular_discount }}
-                                                                %
+                                                                Discount
                                                             </th>
                                                             <th width="10%" class="rg_discount d-none">
-                                                                {{ number_format($item->sales_price / $item->qty, 2) }}
+                                                                Disc.
+                                                                Unit
                                                             </th>
                                                         @else
                                                             <th width="10%" class="rg_unit">
-                                                                {{ number_format($item->sales_price / $item->qty, 2) }}
+                                                                Unit
+                                                                Price
                                                             </th>
                                                         @endif
 
+                                                        <th width="15%">
+                                                            Total
+                                                        </th>
+                                                    </tr>
+
+                                                    @foreach ($deal_products as $key => $item)
+                                                        <tr>
+                                                            <td> {{ ++$key }}
+                                                            </td>
+
+                                                            <td>
+                                                                {{ $item->item_name }}
+                                                            </td>
+                                                            <td class="text-center">
+                                                                {{ $item->qty }}
+                                                            </td>
+                                                            @if ($rfq->regular == '1')
+                                                                <th width="10%" class="rg_discount d-none">
+                                                                    {{ $item->regular_discount }}
+                                                                    %
+                                                                </th>
+                                                                <th width="10%" class="rg_discount d-none">
+                                                                    {{ number_format($item->sales_price / $item->qty, 2) }}
+                                                                </th>
+                                                            @else
+                                                                <th width="10%" class="rg_unit">
+                                                                    {{ number_format($item->sales_price / $item->qty, 2) }}
+                                                                </th>
+                                                            @endif
+
+                                                            <td class="text-center">
+                                                                $
+                                                                {{ $item->sales_price }}
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+
+
+                                                    <tr>
+                                                        <th>
+                                                        </th>
+
+                                                        @if ($rfq->regular == '1')
+                                                            <th width="10%" class="rg_discount d-none">
+                                                            </th>
+                                                            <th width="10%" class="rg_discount d-none">
+                                                            </th>
+                                                        @else
+                                                            <th width="10%" class="rg_unit">
+                                                            </th>
+                                                        @endif
+                                                        <td colspan="2" class="text-center">
+                                                            Sub
+                                                            Total
+                                                        </td>
                                                         <td class="text-center">
                                                             $
-                                                            {{ $item->sales_price }}
+                                                            {{ $deal_sas->sub_total_sales }}
                                                         </td>
                                                     </tr>
-                                                @endforeach
-
-
-                                                <tr>
-                                                    <th>
-                                                    </th>
-
-                                                    @if ($rfq->regular == '1')
-                                                        <th width="10%" class="rg_discount d-none">
-                                                        </th>
-                                                        <th width="10%" class="rg_discount d-none">
-                                                        </th>
-                                                    @else
-                                                        <th width="10%" class="rg_unit">
-                                                        </th>
+                                                    @if ($rfq->special == '1')
+                                                        <tr class="special_discount">
+                                                            <th>
+                                                            </th>
+                                                            @if ($rfq->regular == '1')
+                                                                <th width="10%" class="rg_discount d-none">
+                                                                </th>
+                                                                <th width="10%" class="rg_discount d-none">
+                                                                </th>
+                                                            @else
+                                                                <th width="10%" class="rg_unit">
+                                                                </th>
+                                                            @endif
+                                                            <td class="text-center">
+                                                                Special
+                                                                discount
+                                                            </td>
+                                                            <td class="text-center">
+                                                                {{ $deal_sas->special_discount }}
+                                                                %
+                                                            </td>
+                                                            <td class="text-center">
+                                                                $
+                                                                {{ $deal_sas->special_discounted_sales }}
+                                                            </td>
+                                                        </tr>
                                                     @endif
-                                                    <td colspan="2" class="text-center">
-                                                        Sub
-                                                        Total
-                                                    </td>
-                                                    <td class="text-center">
-                                                        $
-                                                        {{ $deal_sas->sub_total_sales }}
-                                                    </td>
-                                                </tr>
-                                                @if ($rfq->special == '1')
-                                                    <tr class="special_discount">
+
+
+
+                                                    <tr>
                                                         <th>
                                                         </th>
                                                         @if ($rfq->regular == '1')
@@ -233,234 +262,234 @@
                                                             <th width="10%" class="rg_unit">
                                                             </th>
                                                         @endif
-                                                        <td class="text-center">
-                                                            Special
-                                                            discount
-                                                        </td>
-                                                        <td class="text-center">
-                                                            {{ $deal_sas->special_discount }}
-                                                            %
-                                                        </td>
+                                                        <th colspan="2" class="text-center">
+                                                            Total
+                                                        </th>
                                                         <td class="text-center">
                                                             $
-                                                            {{ $deal_sas->special_discounted_sales }}
+                                                            {{ $deal_sas->grand_total - $deal_sas->tax_sales }}
                                                         </td>
                                                     </tr>
-                                                @endif
 
+                                                    <!-- <tr>
+                                                                                <th colspan="2" width="40%"> In Words: </th> <th colspan="5" width="60%"> <small> <b> Thirty One Lac sixty Four Thousand and Four Hundred Twenty One Taka Only (w/o Tax / VAT) </b> </small> </th>
+                                                                                </tr> -->
 
-
-                                                <tr>
-                                                    <th>
-                                                    </th>
-                                                    @if ($rfq->regular == '1')
-                                                        <th width="10%" class="rg_discount d-none">
-                                                        </th>
-                                                        <th width="10%" class="rg_discount d-none">
-                                                        </th>
-                                                    @else
-                                                        <th width="10%" class="rg_unit">
-                                                        </th>
-                                                    @endif
-                                                    <th colspan="2" class="text-center">
-                                                        Total
-                                                    </th>
-                                                    <td class="text-center">
-                                                        $
-                                                        {{ $deal_sas->grand_total - $deal_sas->tax_sales }}
-                                                    </td>
-                                                </tr>
-
-                                                <!-- <tr>
-                                                                            <th colspan="2" width="40%"> In Words: </th> <th colspan="5" width="60%"> <small> <b> Thirty One Lac sixty Four Thousand and Four Hundred Twenty One Taka Only (w/o Tax / VAT) </b> </small> </th>
-                                                                            </tr> -->
-
-
-                                            </table>
-
-
-                                            @if ($rfq->tax_status == '1')
-                                                <table class="table table-bordered mt-2">
-                                                    <tr>
-                                                        <th colspan="3" width="80%">
-                                                            Tax
-                                                            /
-                                                            VAT
-                                                        </th>
-                                                        <td class="text-center" width="10%">
-                                                            {{ $deal_sas->tax }}%
-                                                        </td>
-                                                        <td class="text-center" width="10%">
-                                                            $
-                                                            {{ $deal_sas->tax_sales }}
-                                                        </td>
-                                                    </tr>
 
                                                 </table>
-                                            @endif
+
+
+                                                @if ($rfq->tax_status == '1')
+                                                    <table class="table table-bordered mt-2">
+                                                        <tr>
+                                                            <th colspan="3" width="80%">
+                                                                Tax
+                                                                /
+                                                                VAT
+                                                            </th>
+                                                            <td class="text-center" width="10%">
+                                                                {{ $deal_sas->tax }}%
+                                                            </td>
+                                                            <td class="text-center" width="10%">
+                                                                $
+                                                                {{ $deal_sas->tax_sales }}
+                                                            </td>
+                                                        </tr>
+
+                                                    </table>
+                                                @endif
+                                            </div>
+
                                         </div>
 
                                     </div>
-
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <table class="table table-bordered"
-                                                style="background: offset; width:60%; margin:auto;">
-                                                <tbody>
-                                                    <tr class="border-none">
-                                                        <th class="border-none" colspan="3"
-                                                            style="background: offset; width:60%; margin:auto;">
-                                                            <label for="clientPO" style="font-size:16px;">Work
-                                                                Order
-                                                                (Pdf)
-                                                            </label>
-                                                            <input class="form-control" type="file" name="client_po"
-                                                                id="clientPO">
-                                                            <span class="text-info">
-                                                                *
-                                                                Accepts
-                                                                PDF
-                                                                only</span>
-                                                        </th>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <table class="table table-bordered"
+                                                    style="background: offset; width:60%; margin:auto;">
+                                                    <tbody>
+                                                        <tr class="border-none">
+                                                            <th class="border-none" colspan="3"
+                                                                style="background: offset; width:60%; margin:auto;">
+                                                                <label for="clientPO" style="font-size:16px;">Work
+                                                                    Order
+                                                                    (Pdf)
+                                                                </label>
+                                                                <input class="form-control" type="file"
+                                                                    name="client_po" id="clientPO">
+                                                                <span class="text-info">
+                                                                    *
+                                                                    Accepts
+                                                                    PDF
+                                                                    only</span>
+                                                            </th>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="row">
-                                <div class="col-sm-3">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <button type="submit" class="btn btn-primary">Upload
+                                            <i class="icon-paperplane ml-2"></i></button>
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <button type="submit" class="btn btn-primary">Upload
-                                        <i class="icon-paperplane ml-2"></i></button>
-                                </div>
-                            </div>
 
-                        </form>
+                            </form>
+                        </div>
+
+
                     </div>
-
-
                 </div>
             </div>
-        </div>
-        <div id="Proof-payment-{{ $rfq->rfq_code }}" class="modal fade" tabindex="-1" style="display: none;"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        @php
-                            $rfq = App\Models\Admin\Rfq::where('rfq_code', $rfq->rfq_code)->first();
-                            $deal_products = App\Models\Admin\DealSas::where('rfq_code', $rfq->rfq_code)->get();
-                            $deal_sas = App\Models\Admin\DealSas::where('rfq_code', $rfq->rfq_code)->first();
-                        @endphp
-                        <h5 class="modal-title">Upload
-                            Proof of Payment for this
-                            Deal</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
+            <div id="Proof-payment-{{ $rfq->rfq_code }}" class="modal fade" tabindex="-1" style="display: none;"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            @php
+                                $rfq = App\Models\Admin\Rfq::where('rfq_code', $rfq->rfq_code)->first();
+                                $deal_products = App\Models\Admin\DealSas::where('rfq_code', $rfq->rfq_code)->get();
+                                $deal_sas = App\Models\Admin\DealSas::where('rfq_code', $rfq->rfq_code)->first();
+                            @endphp
+                            <h5 class="modal-title">Upload
+                                Proof of Payment for this
+                                Deal</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
 
-                    <div class="modal-body border br-7">
-                        <form method="post" action="{{ route('payment-proof.upload', $rfq->rfq_code) }}"
-                            enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
-                            <div class="row mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <table class="table table-bordered" style="width: 100%; height: auto;">
-                                                <tr class="text-center" style="background-color: rgba(0,0,0,.03);">
-                                                    <th>SL
-                                                        #
-                                                    </th>
-                                                    <th>Product
-                                                        Description
-                                                    </th>
-                                                    <th>Quantity
-                                                    </th>
-
-                                                    @if ($rfq->regular == '1')
-                                                        <th width="10%" class="rg_discount d-none">
-                                                            Discount
+                        <div class="modal-body border br-7">
+                            <form method="post" action="{{ route('payment-proof.upload', $rfq->rfq_code) }}"
+                                enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <div class="row mb-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <table class="table table-bordered" style="width: 100%; height: auto;">
+                                                    <tr class="text-center" style="background-color: rgba(0,0,0,.03);">
+                                                        <th>SL
+                                                            #
                                                         </th>
-                                                        <th width="10%" class="rg_discount d-none">
-                                                            Disc.
-                                                            Unit
+                                                        <th>Product
+                                                            Description
                                                         </th>
-                                                    @else
-                                                        <th width="10%" class="rg_unit">
-                                                            Unit
-                                                            Price
+                                                        <th>Quantity
                                                         </th>
-                                                    @endif
 
-                                                    <th width="15%">
-                                                        Total
-                                                    </th>
-                                                </tr>
-
-                                                @foreach ($deal_products as $key => $item)
-                                                    <tr>
-                                                        <td> {{ ++$key }}
-                                                        </td>
-
-                                                        <td>
-                                                            {{ $item->item_name }}
-                                                        </td>
-                                                        <td class="text-center">
-                                                            {{ $item->qty }}
-                                                        </td>
                                                         @if ($rfq->regular == '1')
                                                             <th width="10%" class="rg_discount d-none">
-                                                                {{ $item->regular_discount }}
-                                                                %
+                                                                Discount
                                                             </th>
                                                             <th width="10%" class="rg_discount d-none">
-                                                                {{ number_format($item->sales_price / $item->qty, 2) }}
+                                                                Disc.
+                                                                Unit
                                                             </th>
                                                         @else
                                                             <th width="10%" class="rg_unit">
-                                                                {{ number_format($item->sales_price / $item->qty, 2) }}
+                                                                Unit
+                                                                Price
                                                             </th>
                                                         @endif
 
+                                                        <th width="15%">
+                                                            Total
+                                                        </th>
+                                                    </tr>
+
+                                                    @foreach ($deal_products as $key => $item)
+                                                        <tr>
+                                                            <td> {{ ++$key }}
+                                                            </td>
+
+                                                            <td>
+                                                                {{ $item->item_name }}
+                                                            </td>
+                                                            <td class="text-center">
+                                                                {{ $item->qty }}
+                                                            </td>
+                                                            @if ($rfq->regular == '1')
+                                                                <th width="10%" class="rg_discount d-none">
+                                                                    {{ $item->regular_discount }}
+                                                                    %
+                                                                </th>
+                                                                <th width="10%" class="rg_discount d-none">
+                                                                    {{ number_format($item->sales_price / $item->qty, 2) }}
+                                                                </th>
+                                                            @else
+                                                                <th width="10%" class="rg_unit">
+                                                                    {{ number_format($item->sales_price / $item->qty, 2) }}
+                                                                </th>
+                                                            @endif
+
+                                                            <td class="text-center">
+                                                                $
+                                                                {{ $item->sales_price }}
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+
+
+                                                    <tr>
+                                                        <th>
+                                                        </th>
+
+                                                        @if ($rfq->regular == '1')
+                                                            <th width="10%" class="rg_discount d-none">
+                                                            </th>
+                                                            <th width="10%" class="rg_discount d-none">
+                                                            </th>
+                                                        @else
+                                                            <th width="10%" class="rg_unit">
+                                                            </th>
+                                                        @endif
+                                                        <td colspan="2" class="text-center">
+                                                            Sub
+                                                            Total
+                                                        </td>
                                                         <td class="text-center">
                                                             $
-                                                            {{ $item->sales_price }}
+                                                            {{ $deal_sas->sub_total_sales }}
                                                         </td>
                                                     </tr>
-                                                @endforeach
-
-
-                                                <tr>
-                                                    <th>
-                                                    </th>
-
-                                                    @if ($rfq->regular == '1')
-                                                        <th width="10%" class="rg_discount d-none">
-                                                        </th>
-                                                        <th width="10%" class="rg_discount d-none">
-                                                        </th>
-                                                    @else
-                                                        <th width="10%" class="rg_unit">
-                                                        </th>
+                                                    @if ($rfq->special == '1')
+                                                        <tr class="special_discount">
+                                                            <th>
+                                                            </th>
+                                                            @if ($rfq->regular == '1')
+                                                                <th width="10%" class="rg_discount d-none">
+                                                                </th>
+                                                                <th width="10%" class="rg_discount d-none">
+                                                                </th>
+                                                            @else
+                                                                <th width="10%" class="rg_unit">
+                                                                </th>
+                                                            @endif
+                                                            <td class="text-center">
+                                                                Special
+                                                                discount
+                                                            </td>
+                                                            <td class="text-center">
+                                                                {{ $deal_sas->special_discount }}
+                                                                %
+                                                            </td>
+                                                            <td class="text-center">
+                                                                $
+                                                                {{ $deal_sas->special_discounted_sales }}
+                                                            </td>
+                                                        </tr>
                                                     @endif
-                                                    <td colspan="2" class="text-center">
-                                                        Sub
-                                                        Total
-                                                    </td>
-                                                    <td class="text-center">
-                                                        $
-                                                        {{ $deal_sas->sub_total_sales }}
-                                                    </td>
-                                                </tr>
-                                                @if ($rfq->special == '1')
-                                                    <tr class="special_discount">
+
+
+
+                                                    <tr>
                                                         <th>
                                                         </th>
                                                         @if ($rfq->regular == '1')
@@ -472,129 +501,103 @@
                                                             <th width="10%" class="rg_unit">
                                                             </th>
                                                         @endif
-                                                        <td class="text-center">
-                                                            Special
-                                                            discount
-                                                        </td>
-                                                        <td class="text-center">
-                                                            {{ $deal_sas->special_discount }}
-                                                            %
-                                                        </td>
+                                                        <th colspan="2" class="text-center">
+                                                            Total
+                                                        </th>
                                                         <td class="text-center">
                                                             $
-                                                            {{ $deal_sas->special_discounted_sales }}
+                                                            {{ $deal_sas->grand_total - $deal_sas->tax_sales }}
                                                         </td>
                                                     </tr>
-                                                @endif
 
+                                                    <!-- <tr>
+                                                                                <th colspan="2" width="40%"> In Words: </th> <th colspan="5" width="60%"> <small> <b> Thirty One Lac sixty Four Thousand and Four Hundred Twenty One Taka Only (w/o Tax / VAT) </b> </small> </th>
+                                                                                </tr> -->
 
-
-                                                <tr>
-                                                    <th>
-                                                    </th>
-                                                    @if ($rfq->regular == '1')
-                                                        <th width="10%" class="rg_discount d-none">
-                                                        </th>
-                                                        <th width="10%" class="rg_discount d-none">
-                                                        </th>
-                                                    @else
-                                                        <th width="10%" class="rg_unit">
-                                                        </th>
-                                                    @endif
-                                                    <th colspan="2" class="text-center">
-                                                        Total
-                                                    </th>
-                                                    <td class="text-center">
-                                                        $
-                                                        {{ $deal_sas->grand_total - $deal_sas->tax_sales }}
-                                                    </td>
-                                                </tr>
-
-                                                <!-- <tr>
-                                                                            <th colspan="2" width="40%"> In Words: </th> <th colspan="5" width="60%"> <small> <b> Thirty One Lac sixty Four Thousand and Four Hundred Twenty One Taka Only (w/o Tax / VAT) </b> </small> </th>
-                                                                            </tr> -->
-
-
-                                            </table>
-
-
-                                            @if ($rfq->tax_status == '1')
-                                                <table class="table table-bordered mt-2">
-                                                    <tr>
-                                                        <th colspan="3" width="80%">
-                                                            Tax
-                                                            /
-                                                            VAT
-                                                        </th>
-                                                        <td class="text-center" width="10%">
-                                                            {{ $deal_sas->tax }}%
-                                                        </td>
-                                                        <td class="text-center" width="10%">
-                                                            $
-                                                            {{ $deal_sas->tax_sales }}
-                                                        </td>
-                                                    </tr>
 
                                                 </table>
-                                            @endif
+
+
+                                                @if ($rfq->tax_status == '1')
+                                                    <table class="table table-bordered mt-2">
+                                                        <tr>
+                                                            <th colspan="3" width="80%">
+                                                                Tax
+                                                                /
+                                                                VAT
+                                                            </th>
+                                                            <td class="text-center" width="10%">
+                                                                {{ $deal_sas->tax }}%
+                                                            </td>
+                                                            <td class="text-center" width="10%">
+                                                                $
+                                                                {{ $deal_sas->tax_sales }}
+                                                            </td>
+                                                        </tr>
+
+                                                    </table>
+                                                @endif
+                                            </div>
+
                                         </div>
 
                                     </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <table class="table table-bordered"
+                                                    style="background: offset; width:60%; margin:auto;">
 
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <table class="table table-bordered"
-                                                style="background: offset; width:60%; margin:auto;">
-
-                                                <thead>
-                                                    <tr class="border-none">
-                                                        <th class="border-none" colspan="3"
-                                                            style="background: offset; width:60%; margin:auto;">
-                                                            <label for="clientPO" style="font-size:16px;">Payment
-                                                                Slip
-                                                                (Pdf)
-                                                            </label>
-                                                            <input class="form-control" type="file" name="client_po"
-                                                                id="clientPO">
-                                                            <span class="text-info">
-                                                                *
-                                                                Accepts
-                                                                PDF
-                                                                only</span>
-                                                        </th>
-                                                        <th  class="border-none" colspan="3" style="background: offset; width:60%; margin:auto;">
-                                                        <label for="clientPO" style="font-size:16px;">Transaction ID</label>
-                                                        <input class="form-control" type="file" name="client_po" id="clientPO">
-                                                        <span class="text-info">
-                                                            * Accepts PDF only</span>
-                                                    </th>
-                                                    </tr>
-                                                </thead>
-                                            </table>
+                                                    <thead>
+                                                        <tr class="border-none">
+                                                            <th class="border-none" colspan="3"
+                                                                style="background: offset; width:60%; margin:auto;">
+                                                                <label for="clientPO" style="font-size:16px;">Payment
+                                                                    Slip
+                                                                    (Pdf)
+                                                                </label>
+                                                                <input class="form-control" type="file"
+                                                                    name="client_po" id="clientPO">
+                                                                <span class="text-info">
+                                                                    *
+                                                                    Accepts
+                                                                    PDF
+                                                                    only</span>
+                                                            </th>
+                                                            <th class="border-none" colspan="3"
+                                                                style="background: offset; width:60%; margin:auto;">
+                                                                <label for="clientPO" style="font-size:16px;">Transaction
+                                                                    ID</label>
+                                                                <input class="form-control" type="file"
+                                                                    name="client_po" id="clientPO">
+                                                                <span class="text-info">
+                                                                    * Accepts PDF only</span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
 
 
 
-                            <div class="row">
-                                <div class="col-sm-3">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <button type="submit" class="btn btn-primary">Upload
+                                            <i class="icon-paperplane ml-2"></i></button>
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <button type="submit" class="btn btn-primary">Upload
-                                        <i class="icon-paperplane ml-2"></i></button>
-                                </div>
-                            </div>
 
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div> --}}
         @endforeach
         {{-- modal End --}}
 

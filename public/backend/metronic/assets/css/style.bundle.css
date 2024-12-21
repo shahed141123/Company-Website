@@ -32014,7 +32014,8 @@ fieldset:disabled .btn {
 }
 
 .bg-info {
-    background-color: #7239ea !important;
+    background-color: #247297 !important;
+    /* background-color: #7239ea !important; */
     --bg-color: 114, 57, 234 !important;
 }
 

@@ -120,12 +120,12 @@
                                             </strong>
                                         </div>
                                     </tr>
-                                    {{-- <tr>
+                                    <tr>
                                         <div style="text-align: center;padding: 30px; width: 70%; margin: auto">
                                             <strong>NB:</strong> Your Quotation link will expire within 14 days.
                                         </div>
                                     </tr>
-                                    <tr>
+                                    {{-- <tr>
                                         <div
                                             style="text-align: center;padding: 15px; padding-bottom: 15px; width: 70%; margin: auto">
                                             <p
